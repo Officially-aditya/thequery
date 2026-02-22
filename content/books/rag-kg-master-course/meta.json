@@ -1,0 +1,88 @@
+{
+  "title": "RAG + Knowledge Graph Master Course",
+  "slug": "rag-kg-master-course",
+  "description": "From beginner to hire-ready enterprise AI engineer. Master RAG, Knowledge Graphs, and hybrid retrieval systems for production-grade AI applications.",
+  "author": "TheQuery",
+  "chapters": [
+    {
+      "slug": "introduction",
+      "title": "Introduction",
+      "file": "00-introduction.md"
+    },
+    {
+      "slug": "course-overview",
+      "title": "1. Course Overview",
+      "file": "01-course-overview.md"
+    },
+    {
+      "slug": "key-terminology",
+      "title": "1.5 Key Terminology & Definitions",
+      "file": "02-key-terminology.md"
+    },
+    {
+      "slug": "beginner-foundations",
+      "title": "2. Beginner-Friendly Foundations",
+      "file": "03-beginner-foundations.md"
+    },
+    {
+      "slug": "theoretical-foundations",
+      "title": "2A. Theoretical Foundations (Deep Dive)",
+      "file": "04-theoretical-foundations.md"
+    },
+    {
+      "slug": "rag-engineering",
+      "title": "3. RAG Engineering Module",
+      "file": "05-rag-engineering.md"
+    },
+    {
+      "slug": "kg-engineering",
+      "title": "4. Knowledge Graph Engineering Module",
+      "file": "06-kg-engineering.md"
+    },
+    {
+      "slug": "hybrid-rag-kg",
+      "title": "5. Hybrid RAG + KG Systems",
+      "file": "07-hybrid-rag-kg.md"
+    },
+    {
+      "slug": "practical-skills",
+      "title": "6. Practical Engineering Skills",
+      "file": "08-practical-skills.md"
+    },
+    {
+      "slug": "hands-on-projects",
+      "title": "7. 10 Hands-On Projects",
+      "file": "09-hands-on-projects.md"
+    },
+    {
+      "slug": "capstone-project",
+      "title": "8. Capstone Project",
+      "file": "10-capstone-project.md"
+    },
+    {
+      "slug": "assessments",
+      "title": "9. Assessments & Quizzes",
+      "file": "11-assessments.md"
+    },
+    {
+      "slug": "resources",
+      "title": "10. Course Resources & Next Steps",
+      "file": "12-resources.md"
+    },
+    {
+      "slug": "pdf-export",
+      "title": "11. PDF Export Instructions",
+      "file": "13-pdf-export.md"
+    },
+    {
+      "slug": "appendix",
+      "title": "Appendix: Quick Reference",
+      "file": "14-appendix.md"
+    },
+    {
+      "slug": "conclusion",
+      "title": "Conclusion",
+      "file": "15-conclusion.md"
+    }
+  ]
+}

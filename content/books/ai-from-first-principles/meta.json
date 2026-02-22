@@ -1,0 +1,19 @@
+{
+  "title": "AI: From First Principles",
+  "slug": "ai-from-first-principles",
+  "description": "A comprehensive guide for developers who want to actually understand AI. Covers everything from what AI really is, through data foundations, math essentials, classical ML, neural networks, transformers, modern AI systems, and production deployment.",
+  "author": "TheQuery",
+  "chapters": [
+    { "slug": "introduction", "title": "Introduction", "file": "00-introduction.md" },
+    { "slug": "what-ai-actually-is", "title": "Chapter 0 — What AI Actually Is (And Isn't)", "file": "00-what-ai-actually-is.md" },
+    { "slug": "python-and-data", "title": "Chapter 1 — Python & Data: The Unsexy Foundation", "file": "01-python-and-data.md" },
+    { "slug": "math-you-cant-escape", "title": "Chapter 2 — Math You Can't Escape (But Can Tame)", "file": "02-math-you-cant-escape.md" },
+    { "slug": "classical-machine-learning", "title": "Chapter 3 — Classical Machine Learning: Thinking in Features", "file": "03-classical-machine-learning.md" },
+    { "slug": "neural-networks", "title": "Chapter 4 — Neural Networks: When Simplicity Failed", "file": "04-neural-networks.md" },
+    { "slug": "transformers-and-llms", "title": "Chapter 5 — Transformers & LLMs: Attention Changed Everything", "file": "05-transformers-and-llms.md" },
+    { "slug": "modern-ai-systems", "title": "Chapter 6 — Modern AI Systems: RAG, Agents, and Glue Code", "file": "06-modern-ai-systems.md" },
+    { "slug": "building-ai-that-survives", "title": "Chapter 7 — Building AI That Survives Reality", "file": "07-building-ai-that-survives.md" },
+    { "slug": "appendix-common-traps", "title": "Appendix — Common Traps (Master List)", "file": "08-appendix-common-traps.md" },
+    { "slug": "final-thoughts", "title": "Final Thoughts", "file": "09-final-thoughts.md" }
+  ]
+}
