@@ -2,7 +2,7 @@
 
 (This section builds your mental model of how everything works under the hood. If you already know LLMs, embeddings, and graphs, you might be tempted to skip this. Don't. The nuances here matter for production systems, and we'll highlight failure modes that aren't obvious until you've shipped broken code to users.)
 
-## 2.1 LLM Basics (Large Language Models)
+## LLM Basics (Large Language Models)
 
 ### What is an LLM?
 
@@ -408,7 +408,7 @@ embeddings = model.encode(documents, batch_size=32)  # One forward pass
 # 10-100x faster!
 ```
 
-## 2.2 Retrieval Basics
+## Retrieval Basics
 
 ### What is Retrieval?
 
@@ -539,7 +539,7 @@ results = collection.query(
 - **Pinecone**: Managed, production-grade, scales automatically
 - **Weaviate**: Open-source, full-featured
 
-## 2.3 Knowledge Graph Fundamentals
+## Knowledge Graph Fundamentals
 
 ### What is a Knowledge Graph?
 
@@ -633,7 +633,7 @@ Alice -> Acme, Bob, Project_X
 Alice -> Acme -> [All employees], Bob -> [Bob's friends], ...
 ```
 
-## 2.4 Cypher & SPARQL Basics
+## Cypher & SPARQL Basics
 
 ### Cypher (Neo4j Query Language)
 

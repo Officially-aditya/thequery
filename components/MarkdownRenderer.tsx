@@ -123,17 +123,21 @@ function buildComponents(glossaryTerms: GlossaryLink[]): Components {
 export default function MarkdownRenderer({
   content,
   glossaryTerms = [],
+  disableMath = false,
 }: {
   content: string;
   glossaryTerms?: GlossaryLink[];
+  disableMath?: boolean;
 }) {
   const components = buildComponents(glossaryTerms);
+  const remarkPlugins = disableMath ? [remarkGfm] : [remarkGfm, remarkMath];
+  const rehypePlugins = disableMath ? [rehypeHighlight] : [rehypeKatex, rehypeHighlight];
 
   return (
     <div className="prose-custom">
       <ReactMarkdown
-        remarkPlugins={[remarkGfm, remarkMath]}
-        rehypePlugins={[rehypeKatex, rehypeHighlight]}
+        remarkPlugins={remarkPlugins}
+        rehypePlugins={rehypePlugins}
         components={components}
       >
         {content}

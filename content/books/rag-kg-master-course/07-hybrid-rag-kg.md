@@ -2,7 +2,7 @@
 
 (This is it. This is why you're here. RAG alone is useful but limited. Knowledge graphs alone are powerful but rigid. Combined correctly, you get a system that can answer questions neither approach could handle alone. Combined incorrectly, you get twice the complexity and worse results than either system alone. Pay attention to the failure modes in this section - they're drawn from real production systems that had to be rebuilt.)
 
-## 5.1 Why Combine RAG and Knowledge Graphs?
+## Why Combine RAG and Knowledge Graphs?
 
 ### Limitations of Pure RAG
 
@@ -50,7 +50,7 @@ Pure KG: Doesn't store full transcript text
 ✅ **Entity disambiguation** (KG) + **Document retrieval** (RAG)
 ✅ **Explainable paths** (KG) + **Cited answers** (RAG)
 
-## 5.2 Graph-RAG Architecture
+## Graph-RAG Architecture
 
 ### Architecture Overview
 
@@ -122,7 +122,7 @@ class HybridRAGKGSystem:
         return answer
 ```
 
-## 5.3 KG-Augmented Retrieval
+## KG-Augmented Retrieval
 
 ### Pattern 1: Entity-Centric Retrieval
 
@@ -250,7 +250,7 @@ context = multi_hop_retrieval(
 # - Documents for each: {Alice: [...], ML Project: [...], Machine Learning: [...]}
 ```
 
-## 5.4 KG-Guided Query Routing
+## KG-Guided Query Routing
 
 ### Query Classification
 
@@ -343,7 +343,7 @@ def rag_heavy_retrieval(query):
     return {"source": "RAG", "documents": reranked}
 ```
 
-## 5.5 Combining Structured + Unstructured Knowledge
+## Combining Structured + Unstructured Knowledge
 
 ### Context Fusion Strategy
 
@@ -447,7 +447,7 @@ answer = llm.generate(prompt)
 #  and coordinates with the product team on roadmap priorities [Doc 3]."
 ```
 
-## 5.6 Using LLMs to Generate Cypher Queries
+## Using LLMs to Generate Cypher Queries
 
 ### Text-to-Cypher
 
@@ -584,7 +584,7 @@ def self_correcting_text2cypher(nl_query, max_attempts=3):
     return {"error": "Failed to generate valid Cypher after retries"}
 ```
 
-## 5.7 KG Reasoning + RAG Context for Perfect Answers
+## KG Reasoning + RAG Context for Perfect Answers
 
 ### The Perfect Answer Pattern
 
@@ -704,7 +704,7 @@ class PerfectAnswerSystem:
         return response.choices[0].message.content
 ```
 
-## 5.8 Trustworthiness and Explainability Patterns
+## Trustworthiness and Explainability Patterns
 
 ### Pattern 1: Provenance Tracking
 
@@ -812,7 +812,7 @@ class ConfidenceScorer:
             return "LOW CONFIDENCE: Answer may be unreliable"
 ```
 
-## 5.9 Architecture Diagrams
+## Architecture Diagrams
 
 ### Diagram 1: Basic Hybrid Flow
 
@@ -899,7 +899,7 @@ class ConfidenceScorer:
                    [Generate Answer]
 ```
 
-## 5.10 Comparison: Plain RAG vs Hybrid RAG+KG
+## Comparison: Plain RAG vs Hybrid RAG+KG
 
 (This table answers the question everyone asks: "Is the extra complexity worth it?" Short answer: it depends. If your queries are simple lookups over documents, stick with RAG. If you need multi-hop reasoning, entity disambiguation, or explainable answers over structured data, the hybrid approach is worth the complexity. Don't build it because it's cool - build it because your use case demands it.)
 

@@ -69,7 +69,7 @@ export default async function TermPage({ params }: Props) {
       </p>
 
       <div className="mb-8">
-        <MarkdownRenderer content={term.fullDef} />
+        <MarkdownRenderer content={term.fullDef} disableMath />
       </div>
 
       {term.references && term.references.length > 0 && (

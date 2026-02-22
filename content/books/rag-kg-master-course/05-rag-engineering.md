@@ -2,7 +2,7 @@
 
 (Welcome to the practical section. Everything before this was foundation. Everything here is production-grade engineering. The examples look simple - they're not. Each design decision has failure modes that won't appear until you hit production traffic. We'll point them out as we go.)
 
-## 3.1 What is RAG (Retrieval-Augmented Generation)?
+## What is RAG (Retrieval-Augmented Generation)?
 
 **Problem RAG Solves**:
 - LLMs have knowledge cutoff dates (trained on old data)
@@ -47,7 +47,7 @@ Context: "Q4 2024 revenue: $5.2M, up 23% YoY..."
 LLM: "According to the Q4 2024 earnings report, revenue was $5.2M, representing a 23% increase year-over-year."
 ```
 
-## 3.2 Chunking Strategies
+## Chunking Strategies
 
 ### Why Chunking Matters
 
@@ -573,7 +573,7 @@ Chunk 2: "Photosynthesis occurs in chloroplasts and converts light energy into c
 ```
 ✅ Complete thoughts, clear topic boundaries
 
-## 3.3 Embeddings Selection
+## Embeddings Selection
 
 (The embedding model you choose matters less than you think. A decent embedding model with good chunking beats a perfect embedding model with bad chunking every time. Don't spend weeks benchmarking models. Pick a reasonable one and focus on your data quality.)
 
@@ -631,7 +631,7 @@ def batch_embed(texts, batch_size=100):
     return embeddings
 ```
 
-## 3.4 Indexing & Vector Stores
+## Indexing & Vector Stores
 
 ### FAISS (Facebook AI Similarity Search)
 
@@ -723,7 +723,7 @@ results = index.query(
 )
 ```
 
-## 3.5 Retrievers (BM25, Hybrid, Dense)
+## Retrievers (BM25, Hybrid, Dense)
 
 ### BM25 Retriever
 
@@ -790,7 +790,7 @@ class HybridRetriever:
 - Dense catches semantic similarity ("car" → "automobile")
 - Together: Best recall
 
-## 3.6 Rerankers (Cross-Encoders)
+## Rerankers (Cross-Encoders)
 
 ### Why Reranking?
 
@@ -846,7 +846,7 @@ Results:
 3. "Password security best practices..."
 ```
 
-## 3.7 Query Rewriting & Decomposition
+## Query Rewriting & Decomposition
 
 ### Query Rewriting
 
@@ -915,7 +915,7 @@ for sq in sub_queries:
     all_docs.extend(docs)
 ```
 
-## 3.8 Context Window Optimization
+## Context Window Optimization
 
 ### Context Construction
 
@@ -964,7 +964,7 @@ def sliding_window_retrieval(long_document, query, window_size=500, stride=250):
     # ... retrieve top chunks
 ```
 
-## 3.9 Cited Answers & Hallucination Control
+## Cited Answers & Hallucination Control
 
 (This is the difference between a demo and a product. Demos can hallucinate and nobody cares. Products that hallucinate get you sued, fired, or worse. Force citations. Always. If the LLM can't cite a source, it shouldn't make the claim. This is not negotiable for production systems.)
 

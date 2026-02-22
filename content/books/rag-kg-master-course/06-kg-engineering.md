@@ -2,7 +2,7 @@
 
 (Knowledge graphs are where structured reasoning lives. RAG gives you semantic search, but knowledge graphs give you logical traversal - "find the manager's manager's direct reports who work on ML projects." You can't do that with vector similarity alone. The challenge isn't the tech, it's figuring out what your schema should look like before you've loaded a million nodes.)
 
-## 4.1 Graph Schema Design
+## Graph Schema Design
 
 ### What is a Schema?
 
@@ -86,7 +86,7 @@ CREATE (alice)-[:WORKS_FOR {
 3. **Plan for Queries**: Design schema around your query patterns
 4. **Use Constraints**: Enforce uniqueness and data integrity
 
-## 4.2 Triple Extraction from Text
+## Triple Extraction from Text
 
 ### What is Triple Extraction?
 
@@ -235,7 +235,7 @@ extractor = KnowledgeExtractor(client)
 result = extractor.extract_triples(text)
 ```
 
-## 4.3 Entity Linking
+## Entity Linking
 
 ### What is Entity Linking?
 
@@ -310,7 +310,7 @@ def link_entities_llm(mentions, known_entities):
     return json.loads(response.choices[0].message.content)
 ```
 
-## 4.4 Building KGs Using Neo4j
+## Building KGs Using Neo4j
 
 (Neo4j is the most popular graph database for good reason - it's mature, fast, and has excellent tooling. The Docker setup below takes 30 seconds. The hard part isn't installation, it's designing your schema and remembering to create indexes before you load a million nodes and wonder why queries take 10 seconds.)
 
@@ -439,7 +439,7 @@ class ProductionKGBuilder:
             self.add_relationship(subject, predicate, object_)
 ```
 
-## 4.5 Querying with Cypher
+## Querying with Cypher
 
 (Cypher looks weird if you're coming from SQL. The ASCII-art syntax (`()-[]->()`) feels gimmicky at first. It's not. It's actually brilliant - you can read queries visually as graph patterns. Give it a week and you'll prefer it to SQL JOINs for graph traversals.)
 
@@ -516,7 +516,7 @@ ORDER BY score DESC
 LIMIT 5
 ```
 
-## 4.6 Graph Traversal Reasoning
+## Graph Traversal Reasoning
 
 ### Neighborhood Expansion
 
@@ -599,7 +599,7 @@ YIELD path
 RETURN path
 ```
 
-## 4.7 Micro-Projects
+## Micro-Projects
 
 ### Project 4A: Build a Movie Knowledge Graph
 

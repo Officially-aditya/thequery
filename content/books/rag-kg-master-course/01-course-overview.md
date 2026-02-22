@@ -1,6 +1,6 @@
 # 1. COURSE OVERVIEW
 
-## 1.1 What You Will Learn
+## What You Will Learn
 
 This comprehensive program transforms you from a beginner into a production-ready RAG + Knowledge Graph engineer capable of building enterprise-grade hybrid retrieval systems. You'll master:
 
@@ -14,7 +14,7 @@ This comprehensive program transforms you from a beginner into a production-read
 
 (If this looks like a lot, don't worry. We'll build up systematically. If it looks too simple, also don't worry - there's plenty of depth ahead.)
 
-## 1.2 Why RAG + KG is a High-Demand Skill
+## Why RAG + KG is a High-Demand Skill
 
 ### Market Reality (2025)
 - **Salary Range**: $120k-$250k for RAG/KG engineers at top companies
@@ -35,7 +35,7 @@ Most engineers know either:
 
 (You might be thinking "but I can just glue together a vector database and call it a day." Please don't do that. Your future self will thank you for learning this properly.)
 
-## 1.3 Real Industry Applications
+## Real Industry Applications
 
 ### Where RAG + KG Systems Are Deployed
 
@@ -445,7 +445,7 @@ Process:
 
 (Notice a pattern in these case studies? The hybrid approach isn't just "nice to have" - in every case, pure RAG or pure KG would have failed. The finance case needs the graph to track relationships but RAG to analyze news. The legal case needs RAG for similar clauses but the graph to identify risky combinations. This is why you're learning both.)
 
-## 1.4 Skills & Tools You'll Master
+## Skills & Tools You'll Master
 
 ### Core Technologies
 

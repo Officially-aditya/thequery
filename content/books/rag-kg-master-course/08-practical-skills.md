@@ -2,7 +2,7 @@
 
 (This section is about making your system actually work in production. Everything before this assumed clean data, perfect uptime, and users who ask well-formed questions. None of that is true. Real documents are messy PDFs with broken encoding. Real users ask ambiguous questions. Real systems crash at 3am. The code below handles these realities.)
 
-## 6.1 Document Processing Pipeline
+## Document Processing Pipeline
 
 ### End-to-End Pipeline
 
@@ -129,7 +129,7 @@ def process_code_files(file_path):
         return chunks
 ```
 
-## 6.2 Metadata Extraction
+## Metadata Extraction
 
 ### Extracting Rich Metadata
 
@@ -209,7 +209,7 @@ class MetadataExtractor:
         return response.choices[0].message.content
 ```
 
-## 6.3 Evaluation Frameworks
+## Evaluation Frameworks
 
 (Evaluation is where most RAG projects fail. You ship a system that seems to work, users complain it's wrong 30% of the time, and you have no systematic way to measure or fix it. The frameworks below give you actual numbers. Yes, setting up evaluation is tedious. No, you can't skip it and expect to improve your system. If you're not measuring, you're guessing.)
 
@@ -399,7 +399,7 @@ def setup_trulens_monitoring(rag_chain):
     return tru_chain
 ```
 
-## 6.4 Deployment Considerations
+## Deployment Considerations
 
 ### FastAPI Application
 
@@ -535,7 +535,7 @@ volumes:
   neo4j_data:
 ```
 
-## 6.5 Scaling Strategies
+## Scaling Strategies
 
 (Your prototype handles 10 queries per minute fine. Then someone puts it in production Slack and 1000 employees start using it simultaneously. Now you're paying $500/day in OpenAI API costs and queries take 15 seconds. Caching and batching aren't optimizations - they're requirements for anything beyond a demo.)
 
@@ -649,7 +649,7 @@ class ShardedVectorDB:
         return all_results[:top_k]
 ```
 
-## 6.6 Cost Optimization
+## Cost Optimization
 
 (Cost optimization sounds boring until you get your first $10,000 API bill. Embeddings are cheap per call but expensive at scale. LLM calls are expensive per call. Every retrieval spawns both. The optimizations below aren't premature - they're the difference between a sustainable product and bankruptcy. Implement them before you launch, not after.)
 

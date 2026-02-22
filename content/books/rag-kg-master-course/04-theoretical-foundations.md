@@ -8,7 +8,7 @@ This section provides the mathematical and conceptual foundations that power RAG
 
 ---
 
-## 2A.1 Vector Space Theory & Embeddings (The Mathematics of Meaning)
+## Vector Space Theory & Embeddings (The Mathematics of Meaning)
 
 ### The Core Idea: Meaning as Geometry
 
@@ -483,7 +483,7 @@ Correlation with human judgments (WordSim-353 dataset)
 
 ---
 
-## 2A.2 Information Retrieval Theory (The Science of Finding)
+## Information Retrieval Theory (The Science of Finding)
 
 ### What is Information Retrieval?
 
@@ -724,7 +724,7 @@ Recall@5 = "What fraction of relevant docs are in top 5?"
 
 ---
 
-## 2A.3 Graph Theory Fundamentals (The Mathematics of Relationships)
+## Graph Theory Fundamentals (The Mathematics of Relationships)
 
 ### What is a Graph? (Formally)
 
@@ -1350,7 +1350,7 @@ Translation: "Update node v's embedding by aggregating its neighbors"
 
 ---
 
-## 2A.4 Semantic Similarity Theory (The Mathematics of Meaning Comparison)
+## Semantic Similarity Theory (The Mathematics of Meaning Comparison)
 
 ### Distance vs. Similarity
 
