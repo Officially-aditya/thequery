@@ -15,8 +15,14 @@ const CATEGORIES = [
   "Fundamentals",
   "Deep Learning",
   "NLP",
-  "Computer Vision",
+  "LLM Models",
+  "Agents",
+  "Information Retrieval",
+  "Knowledge Graphs",
+  "Optimization",
   "Reinforcement Learning",
+  "Platforms & Tools",
+  "Computer Vision",
   "MLOps",
 ];
 

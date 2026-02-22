@@ -606,7 +606,7 @@
     "slug": "ai-agent",
     "shortDef": "An LLM-based system that can autonomously plan multi-step tasks, use external tools, and take actions in the real world to achieve specified goals.",
     "fullDef": "An AI agent extends a language model beyond text generation by giving it the ability to use tools (search engines, calculators, APIs, databases), plan multi-step task sequences, observe results of its actions, and iterate until a goal is achieved. The basic agent loop is: observe the current state, reason about what action to take, execute the action, evaluate the result, and repeat until done.\n\nAgents are powerful for tasks that require multiple steps and external information -- for example, a research agent that searches the web, synthesizes findings, and produces a report. However, they amplify LLM limitations: errors compound across steps, agents can enter infinite loops, each step incurs API costs, and emergent multi-step behavior is extremely difficult to test. In production, an agent that called the wrong API or misinterpreted search results caused thousands of incorrect refund transactions.\n\nFor these reasons, production agents typically operate in constrained domains with limited action spaces, require human-in-the-loop confirmation for irreversible actions, include robust input validation and fallback logic, and log everything for debugging. The key lesson is that agents are semi-autonomous tools requiring careful guardrails, not fully autonomous replacements for human judgment.",
-    "category": "NLP",
+    "category": "Agents",
     "relatedTerms": [
       "large-language-model",
       "retrieval-augmented-generation",

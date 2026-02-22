@@ -1,5 +1,12 @@
 [
   {
+    "title": "Week of February 17, 2026",
+    "slug": "week-of-february-17-2026",
+    "date": "2026-02-22",
+    "summary": "Google drops Gemini 3.1 Pro with record benchmarks, Moonshot's Kimi K2.5 shakes up the open-weight race, and the EU AI Act compliance clock starts ticking.",
+    "content": "## This Week in AI\n\n### Gemini 3.1 Pro Tops 13 of 16 Benchmarks\n\nGoogle DeepMind released Gemini 3.1 Pro on February 19, claiming the top spot on 13 of 16 major industry benchmarks. The model scores 77.1% on ARC-AGI-2 (more than doubling its predecessor) and 94.3% on GPQA Diamond. A new \"medium\" effort parameter lets developers trade reasoning depth for latency — useful for production workloads where speed matters more than peak accuracy.\n\n### Kimi K2.5 Goes Open-Weight with Agent Swarm\n\nMoonshot AI's Kimi K2.5 dropped in late January and is already making waves. The model leads on BrowseComp (74.9%), outperforms Gemini 3 Pro on SWE-Bench Verified (76.8%), and introduces agent swarm capabilities for parallel multi-agent workflows. At 76% lower cost than comparable models, it's putting real pricing pressure on Western AI providers.\n\n### MiniMax IPO Surges 109% on Debut\n\nChinese AI startup MiniMax completed its Hong Kong IPO, raising $619M with shares doubling on day one. Their M2.5 model scores 80.2% on SWE-Bench Verified while costing 1/20th of Claude Opus 4.6 — a data point that keeps the \"intelligence too cheap to meter\" narrative alive.\n\n### EU AI Act: First Compliance Guidelines Published\n\nThe EU AI Office published detailed compliance guidelines for general-purpose AI models. Foundation model providers must now disclose training data sources, energy consumption, and safety evaluation results. Full compliance deadline: September 2026, with provisional reporting starting in April.\n\n---\n\n**What we're watching next week:** ByteDance's Seed 2.0 benchmarks, OpenAI's rumored open-weight expansion, and whether Gemini 3.1 Pro's benchmark lead holds up in real-world evaluations."
+  },
+  {
     "title": "AI Digest #1 — Foundation Model Breakthroughs",
     "slug": "issue-1-foundation-model-breakthroughs",
     "date": "2026-02-15",

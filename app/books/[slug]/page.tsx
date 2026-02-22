@@ -37,29 +37,35 @@ export default async function BookPage({ params }: Props) {
         {book.title}
       </h1>
       <p className="text-sm text-text-muted mb-2">By {book.author}</p>
-      <p className="text-text-secondary mb-8 leading-relaxed">
+      <p className="text-text-secondary mb-4 leading-relaxed">
         {book.description}
       </p>
+      <a
+        href="#"
+        className="inline-flex items-center gap-1.5 text-sm font-medium border border-border text-text-secondary rounded-md px-3 py-1.5 hover:border-accent hover:text-accent transition-colors mb-8"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download PDF
+      </a>
 
       <div className="border border-border rounded-lg overflow-hidden">
         <div className="bg-bg-secondary px-4 py-3 border-b border-border">
           <h2 className="font-serif text-sm font-semibold text-text-primary">Table of Contents</h2>
         </div>
-        <ol className="divide-y divide-border">
-          {book.chapters.map((chapter, idx) => (
+        <ul className="divide-y divide-border">
+          {book.chapters.map((chapter) => (
             <li key={chapter.slug}>
               <Link
                 href={`/books/${book.slug}/${chapter.slug}`}
-                className="flex items-center px-4 py-3 hover:bg-bg-secondary transition-colors group"
+                className="block px-4 py-3 hover:bg-bg-secondary transition-colors group"
               >
-                <span className="text-sm text-text-muted w-8">{idx + 1}.</span>
                 <span className="text-sm text-text-primary group-hover:text-accent transition-colors">
                   {chapter.title}
                 </span>
               </Link>
             </li>
           ))}
-        </ol>
+        </ul>
       </div>
     </div>
   );

@@ -2,7 +2,7 @@
   "title": "AI: From First Principles",
   "slug": "ai-from-first-principles",
   "description": "A comprehensive guide for developers who want to actually understand AI. Covers everything from what AI really is, through data foundations, math essentials, classical ML, neural networks, transformers, modern AI systems, and production deployment.",
-  "author": "TheQuery",
+  "author": "TheQuery Editorial",
   "chapters": [
     { "slug": "introduction", "title": "Introduction", "file": "00-introduction.md" },
     { "slug": "what-ai-actually-is", "title": "Chapter 0 — What AI Actually Is (And Isn't)", "file": "00-what-ai-actually-is.md" },

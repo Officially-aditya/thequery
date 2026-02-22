@@ -3,17 +3,17 @@ import Link from "next/link";
 const sections = [
   {
     title: "Books",
-    description: "In-depth guides on AI and machine learning, written from first principles. Read online for free.",
+    description: "Two free technical books on AI fundamentals and RAG systems — written from first principles, readable online or downloadable as PDF.",
     href: "/books",
   },
   {
     title: "Glossary",
-    description: "Clear, concise definitions of key AI and ML terms. Search and browse by category.",
+    description: "100+ AI and ML terms explained clearly — from backpropagation to knowledge graphs, always up to date.",
     href: "/glossary",
   },
   {
     title: "Weekly Digest",
-    description: "A curated summary of the most important AI developments, research, and news each week.",
+    description: "A weekly roundup of what actually matters in AI — no hype, just signal.",
     href: "/digest",
   },
 ];

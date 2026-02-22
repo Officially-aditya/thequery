@@ -44,7 +44,7 @@ export default function ChapterSidebar({
                   : "text-text-muted hover:text-text-secondary"
               }`}
             >
-              {idx + 1}. {ch.title}
+              {ch.title}
             </Link>
           ))}
         </nav>
