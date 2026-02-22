@@ -40,7 +40,7 @@ Create a file `RAG_KG_Master_Course_PDF.md` with YAML frontmatter:
 title: "RAG + Knowledge Graph Master Course"
 subtitle: "From Beginner to Hire-Ready Enterprise AI Engineer"
 author: "AI Engineering Academy"
-date: "2025"
+date: "2026"
 toc: true
 toc-depth: 3
 numbersections: true

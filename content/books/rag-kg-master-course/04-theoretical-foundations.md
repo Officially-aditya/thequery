@@ -585,7 +585,7 @@ Score   |   /
           Term Freq
 ```
 
-**Why BM25 is still used in 2025**:
+**Why BM25 is still used in 2026**:
 
 Despite neural retrieval, BM25 excels at:
 - **Exact matches**: "invoice #12345"

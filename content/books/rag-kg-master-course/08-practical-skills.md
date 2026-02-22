@@ -750,7 +750,7 @@ class CostTracker:
             "total": 0.0
         }
 
-        # Pricing (as of 2025)
+        # Pricing (as of 2026)
         self.pricing = {
             "text-embedding-3-small": 0.00002 / 1000,  # per token
             "gpt-3.5-turbo": 0.0015 / 1000,  # per token

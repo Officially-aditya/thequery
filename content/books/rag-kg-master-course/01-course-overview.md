@@ -16,9 +16,9 @@ This comprehensive program transforms you from a beginner into a production-read
 
 ## Why RAG + KG is a High-Demand Skill
 
-### Market Reality (2025)
+### Market Reality (2026)
 - **Salary Range**: $120k-$250k for RAG/KG engineers at top companies
-- **Job Growth**: 347% increase in RAG-related job postings (2023-2025)
+- **Job Growth**: 347% increase in RAG-related job postings (2023-2026)
 - **Enterprise Adoption**: 78% of Fortune 500 companies investing in RAG systems
 
 ### Why This Matters

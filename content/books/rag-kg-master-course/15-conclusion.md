@@ -22,8 +22,8 @@ Now go build something.
 
 ---
 
-**Course Version**: 1.0 (2025)
-**Last Updated**: December 2025
+**Course Version**: 1.0 (2026)
+**Last Updated**: December 2026
 **License**: Educational Use
 
 For questions, updates, or feedback: [Create an issue on GitHub or reach out via LinkedIn]
