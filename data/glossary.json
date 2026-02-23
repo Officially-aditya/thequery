@@ -2111,7 +2111,7 @@
     "name": "OpenClaw (ClawdBot)",
     "slug": "openclaw",
     "shortDef": "Open-source autonomous AI agent framework originally called ClawdBot, capable of executing real-world tasks via LLMs.",
-    "fullDef": "OpenClaw (originally ClawdBot, briefly MoltBot) is an open-source autonomous AI agent framework created by Peter Steinberger in November 2025. It enables users to build personal AI agents that can execute real-world tasks — sending emails, managing calendars, writing and running code, browsing the web, and interacting with APIs.\n\nThe project launched as **ClawdBot** and quickly gained massive traction, accumulating over 60,000 GitHub stars. Anthropic filed a trademark complaint over the 'Clawd' name (too close to 'Claude'), prompting a rename to MoltBot, and then to **OpenClaw** in early 2026.\n\n**Key Features:**\n- Fully self-hosted with no cloud dependency\n- Persistent memory across sessions\n- 50+ platform integrations (Slack, Gmail, GitHub, Notion, etc.)\n- Plugin architecture for custom tool creation\n- Multi-model support (Claude, GPT, Gemini, open-source models)\n- Built-in safety guardrails and human-in-the-loop approval for sensitive actions\n\n**Architecture:** Uses a modular tool-calling system where the LLM acts as the reasoning core, dispatching tasks to specialized tool modules. Supports chain-of-thought planning for multi-step workflows.\n\nIn February 2026, creator Peter Steinberger joined OpenAI, and the project transitioned to full community governance under the OpenClaw Foundation.",
+    "fullDef": "OpenClaw (originally ClawdBot, briefly MoltBot) is an open-source autonomous AI agent framework created by Peter Steinberger in November 2025. It enables users to build personal AI agents that can execute real-world tasks — sending emails, managing calendars, writing and running code, browsing the web, and interacting with APIs. Unlike single-app assistants, OpenClaw orchestrates workflows across disconnected platforms like Google Sheets, Gmail, Slack, and calendar events in a single automated sequence.\n\nThe project launched as **ClawdBot** and quickly gained massive traction, accumulating over 60,000 GitHub stars. Anthropic filed a trademark complaint over the 'Clawd' name (too close to 'Claude'), prompting a rename to MoltBot, and then to **OpenClaw** in early 2026.\n\n**Key Features:**\n- Fully self-hosted with no cloud dependency\n- Persistent memory across sessions\n- 50+ platform integrations (Slack, Gmail, GitHub, Notion, etc.)\n- Plugin architecture for custom tool creation\n- Multi-model support (Claude, GPT, Gemini, open-source models)\n- Built-in safety guardrails and human-in-the-loop approval for sensitive actions\n- Sandboxed code execution environment\n- Native integration with messaging platforms (Telegram, WhatsApp, Discord)\n\n**Architecture:** Uses a modular tool-calling system where the LLM acts as the reasoning core, dispatching tasks to specialized tool modules. Supports chain-of-thought planning for multi-step workflows.\n\n**OpenAI Acqui-Hire (February 15, 2026):**\nSam Altman announced that Peter Steinberger would join OpenAI to 'drive the next generation of personal agents,' calling him 'a genius with a lot of amazing ideas about the future of very smart agents interacting with each other.' The deal was structured as an acqui-hire — OpenAI hired Steinberger and his expertise, but did not acquire OpenClaw as a product or company. Steinberger chose OpenAI because he believed it was 'the fastest way to bring this to everyone.'\n\nCritically, OpenClaw remains open source. Steinberger ensured the project would transition to an independent **OpenClaw Foundation** — a community-governed organization for 'thinkers, hackers, and people that want a way to own their data.' OpenAI committed to financially sponsoring the foundation and dedicating Steinberger's time to maintaining the project. The move is widely seen as a signal that the AI industry's center of gravity is shifting from conversational interfaces toward autonomous agents and workflow infrastructure.",
     "category": "Agents",
     "relatedTerms": ["ai-agent", "moltbot", "moltbook", "function-calling"],
     "references": [
@@ -2124,8 +2124,24 @@
         "url": "https://clawd.bot"
       },
       {
-        "title": "TechCrunch — ClawdBot's Rise and Rename",
-        "url": "https://techcrunch.com/2026/01/clawdbot-openclaw-rename/"
+        "title": "TechCrunch — OpenClaw Creator Peter Steinberger Joins OpenAI",
+        "url": "https://techcrunch.com/2026/02/15/openclaw-creator-peter-steinberger-joins-openai/"
+      },
+      {
+        "title": "Sam Altman — Announcement on X",
+        "url": "https://x.com/sama/status/2023150230905159801"
+      },
+      {
+        "title": "Peter Steinberger — OpenClaw, OpenAI and the Future (Blog Post)",
+        "url": "https://steipete.me/posts/2026/openclaw"
+      },
+      {
+        "title": "VentureBeat — OpenAI's Acquisition of OpenClaw Signals the End of the ChatGPT Era",
+        "url": "https://venturebeat.com/technology/openais-acquisition-of-openclaw-signals-the-beginning-of-the-end-of-the"
+      },
+      {
+        "title": "CNBC — OpenClaw Creator Peter Steinberger Joining OpenAI",
+        "url": "https://www.cnbc.com/2026/02/15/openclaw-creator-peter-steinberger-joining-openai-altman-says.html"
       }
     ],
     "lastUpdated": "2026-02-23"
