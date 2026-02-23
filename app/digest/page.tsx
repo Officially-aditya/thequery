@@ -5,6 +5,10 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Weekly AI Digest",
   description: "A curated weekly summary of the most important AI developments, research, and news.",
+  openGraph: {
+    title: "Weekly AI Digest — TheQuery",
+    description: "A weekly roundup of what actually matters in AI — no hype, just signal.",
+  },
 };
 
 export default function DigestPage() {

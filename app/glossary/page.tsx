@@ -5,6 +5,10 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "AI Glossary",
   description: "Clear, concise definitions of key AI and machine learning terms. Search and browse by category.",
+  openGraph: {
+    title: "AI Glossary — TheQuery",
+    description: "100+ AI and ML terms explained clearly — from backpropagation to knowledge graphs.",
+  },
 };
 
 export default function GlossaryPage() {

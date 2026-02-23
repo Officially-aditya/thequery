@@ -5,6 +5,10 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Books",
   description: "In-depth AI and machine learning books, written from first principles. Read online for free.",
+  openGraph: {
+    title: "Books — TheQuery",
+    description: "In-depth AI and machine learning books, written from first principles. Read online for free.",
+  },
 };
 
 export default function BooksPage() {

@@ -1,4 +1,14 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "TheQuery — AI Knowledge from First Principles",
+  description: "Free technical books, 100+ glossary terms, and a weekly digest covering AI, machine learning, and deep learning — written from first principles.",
+  openGraph: {
+    title: "TheQuery — AI Knowledge from First Principles",
+    description: "Free technical books, 100+ glossary terms, and a weekly digest covering AI, machine learning, and deep learning.",
+  },
+};
 
 const sections = [
   {
