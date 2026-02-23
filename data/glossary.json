@@ -2280,5 +2280,67 @@
       }
     ],
     "lastUpdated": "2026-02-23"
+  },
+  {
+    "name": "Meta AI",
+    "slug": "meta-ai",
+    "shortDef": "Meta's AI division responsible for the open-source Llama model family, PyTorch, and FAIR research lab.",
+    "fullDef": "Meta AI is the artificial intelligence division of Meta Platforms (formerly Facebook), encompassing the Fundamental AI Research (FAIR) lab, the Llama open-source model family, and consumer AI products integrated across Meta's platforms. With nearly 600 million monthly active users, Meta AI is on track to be the world's most-used AI assistant.\n\n**FAIR (Founded 2013):**\nFacebook AI Research (FAIR) was founded in 2013 under the leadership of Yann LeCun, a Turing Award laureate and pioneer of convolutional neural networks. Over its first decade, FAIR produced foundational contributions in self-supervised learning, generative adversarial networks, computer vision, and NLP. FAIR released **PyTorch** in 2017, which became the dominant deep learning framework used in research and production (Tesla Autopilot, Uber's Pyro, and thousands of other projects).\n\nIn November 2025, Yann LeCun announced his departure from Meta after 12 years to launch a new AI startup focused on world models, raising ~$586M at a ~$3B valuation. His exit raised questions about Meta's AI research direction.\n\n**Llama Model Family:**\n- **LLaMA (Feb 2023):** First release — 7B to 65B parameter open-weight models that catalyzed the open-source AI movement\n- **Llama 2 (Jul 2023):** 7B–70B models with commercial licensing, fine-tuned chat variants\n- **Llama 3 (Apr 2024):** 8B and 70B models, later Llama 3.1 405B — the largest open-weight model at the time\n- **Llama 4 (Spring 2025):** Introduced mixture-of-experts architecture with Scout (lightweight, fast) and Maverick (large, high-performance) variants. Native multimodal support for text and image input, improved context handling and reasoning\n- Over **650 million downloads** of Llama and derivatives, making it the most adopted open-weight model family\n\n**Infrastructure:**\nBy early 2026, Meta's GPU fleet has grown to over 1.5 million units, heavily featuring Nvidia's Blackwell B200 and GB200 chips. AI capital expenditure headed toward $70–72 billion in 2025 with even larger outlays planned for 2026.\n\n**Products:**\n- **Meta AI Assistant:** Integrated across WhatsApp, Instagram, Messenger, and Facebook — approaching 600M monthly users\n- **PyTorch:** Open-source ML framework maintained by Meta, the standard for AI research\n- **Segment Anything Model (SAM):** State-of-the-art image segmentation\n- **No Language Left Behind (NLLB):** Translation model supporting 200+ languages\n- **Meta Ray-Ban AI Glasses:** Smart glasses with integrated AI assistant\n\n**Leadership:** Mark Zuckerberg (CEO, Meta Platforms), Ahmad Al-Dahle (VP of Generative AI), Joelle Pineau (VP of AI Research, FAIR). Yann LeCun (departed end of 2025).",
+    "category": "Platforms & Tools",
+    "relatedTerms": ["llama-4-scout", "llama-4-maverick", "openai", "anthropic", "google-deepmind"],
+    "references": [
+      {
+        "title": "Meta AI — Official Website",
+        "url": "https://ai.meta.com"
+      },
+      {
+        "title": "Meta AI — Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Meta_AI"
+      },
+      {
+        "title": "Meta — Ten Years of FAIR",
+        "url": "https://ai.meta.com/blog/fair-10-year-anniversary-open-science-meta/"
+      },
+      {
+        "title": "TechCrunch — Yann LeCun Plans to Leave Meta",
+        "url": "https://techcrunch.com/2025/11/11/metas-chief-ai-scientist-yann-lecun-reportedly-plans-to-leave-to-build-his-own-startup/"
+      },
+      {
+        "title": "Meta — Llama Models",
+        "url": "https://ai.meta.com/llama/"
+      }
+    ],
+    "lastUpdated": "2026-02-23"
+  },
+  {
+    "name": "xAI",
+    "slug": "xai",
+    "shortDef": "Elon Musk's AI company behind the Grok chatbot and the Colossus supercomputer, merged with SpaceX in 2026.",
+    "fullDef": "xAI is an artificial intelligence company founded on March 9, 2023 by Elon Musk and Christian Szegedy. Musk established xAI to counter what he called the political correctness in other generative AI models, recruiting engineers from Google, Microsoft, DeepMind, and OpenAI. The company's signature product is **Grok**, an AI chatbot modeled after Douglas Adams's *The Hitchhiker's Guide to the Galaxy*, known for its wit, sarcasm, and real-time access to data from the social media platform X.\n\n**Key Milestones:**\n- **Mar 2023:** Founded by Elon Musk and Christian Szegedy with 12 co-founders\n- **Nov 2023:** Launched Grok-1 on X, initially for Premium subscribers\n- **Mar 2024:** Released Grok-1 as open source (314B parameter MoE model)\n- **Aug 2024:** Grok-2 launched with image generation capabilities\n- **Dec 2024:** Released Aurora text-to-image model\n- **Feb 2025:** Launched Grok-3, showcasing major reasoning improvements\n- **Mar 2025:** Acquired X (formerly Twitter) in an all-stock deal valuing the combined entity at $113 billion\n- **Jul 2025:** Released Grok 4 (single-agent) and Grok 4 Heavy (multi-agent) with 2M token context windows\n- **Feb 2026:** SpaceX acquired xAI in an all-stock deal valuing xAI at $250B and SpaceX at $1T, ahead of a combined IPO expected to value the entity at $1.25 trillion\n\n**Grok Model Timeline:**\n- **Grok-1:** 314B MoE, open-sourced\n- **Grok-1.5 / 1.5 Vision (Mar–Apr 2024):** Improved reasoning and vision capabilities\n- **Grok-2 (Aug 2024):** Image generation, available to X Premium users\n- **Grok-3 (Feb 2025):** Major performance leap in reasoning and coding\n- **Grok 4 / Grok 4 Heavy (Jul 2025):** Single-agent and multi-agent variants, 2M context, advanced agentic capabilities\n\n**Colossus Supercomputer:**\nxAI operates Colossus in Memphis, Tennessee — currently the world's largest AI supercomputer. Originally built with 200,000+ Nvidia GPUs, it expanded in January 2026 to 555,000 GPUs across three buildings, reaching 2 gigawatts of total capacity. The hardware investment alone exceeds $18 billion. Colossus is designed for training frontier-scale models.\n\n**Valuation & Funding:**\n- $230 billion valuation after $20B Series E (late 2025)\n- $250 billion in SpaceX merger (Feb 2026)\n- Combined SpaceX-xAI IPO targeting ~$1.25 trillion valuation\n- Musk has told staff AGI could be achieved by 2026\n\n**Team & Leadership:** Elon Musk (CEO), Christian Szegedy (co-founder). Notable early team included Igor Babuschkin, Yuhuai (Tony) Wu, and Jimmy Ba — though 6 of the original 12 co-founders have since departed.",
+    "category": "Platforms & Tools",
+    "relatedTerms": ["grok-3", "grok-4", "openai", "anthropic", "google-deepmind", "meta-ai"],
+    "references": [
+      {
+        "title": "xAI — Official Website",
+        "url": "https://x.ai"
+      },
+      {
+        "title": "xAI — Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/XAI_(company)"
+      },
+      {
+        "title": "Britannica — xAI Company Profile",
+        "url": "https://www.britannica.com/money/xAI"
+      },
+      {
+        "title": "CNBC — SpaceX Acquiring xAI Ahead of Potential IPO",
+        "url": "https://www.cnbc.com/2026/02/02/elon-musk-spacex-xai-ipo.html"
+      },
+      {
+        "title": "Colossus Supercomputer — Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Colossus_(supercomputer)"
+      }
+    ],
+    "lastUpdated": "2026-02-23"
   }
 ]
