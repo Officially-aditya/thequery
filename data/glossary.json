@@ -2106,5 +2106,70 @@
       }
     ],
     "lastUpdated": "2026-02-22"
+  },
+  {
+    "name": "OpenClaw (ClawdBot)",
+    "slug": "openclaw",
+    "shortDef": "Open-source autonomous AI agent framework originally called ClawdBot, capable of executing real-world tasks via LLMs.",
+    "fullDef": "OpenClaw (originally ClawdBot, briefly MoltBot) is an open-source autonomous AI agent framework created by Peter Steinberger in November 2025. It enables users to build personal AI agents that can execute real-world tasks — sending emails, managing calendars, writing and running code, browsing the web, and interacting with APIs.\n\nThe project launched as **ClawdBot** and quickly gained massive traction, accumulating over 60,000 GitHub stars. Anthropic filed a trademark complaint over the 'Clawd' name (too close to 'Claude'), prompting a rename to MoltBot, and then to **OpenClaw** in early 2026.\n\n**Key Features:**\n- Fully self-hosted with no cloud dependency\n- Persistent memory across sessions\n- 50+ platform integrations (Slack, Gmail, GitHub, Notion, etc.)\n- Plugin architecture for custom tool creation\n- Multi-model support (Claude, GPT, Gemini, open-source models)\n- Built-in safety guardrails and human-in-the-loop approval for sensitive actions\n\n**Architecture:** Uses a modular tool-calling system where the LLM acts as the reasoning core, dispatching tasks to specialized tool modules. Supports chain-of-thought planning for multi-step workflows.\n\nIn February 2026, creator Peter Steinberger joined OpenAI, and the project transitioned to full community governance under the OpenClaw Foundation.",
+    "category": "Agents",
+    "relatedTerms": ["ai-agent", "moltbot", "moltbook", "function-calling"],
+    "references": [
+      {
+        "title": "OpenClaw — GitHub Repository",
+        "url": "https://github.com/clawdbot/clawdbot"
+      },
+      {
+        "title": "ClawdBot — Official Website",
+        "url": "https://clawd.bot"
+      },
+      {
+        "title": "TechCrunch — ClawdBot's Rise and Rename",
+        "url": "https://techcrunch.com/2026/01/clawdbot-openclaw-rename/"
+      }
+    ],
+    "lastUpdated": "2026-02-23"
+  },
+  {
+    "name": "MoltBot",
+    "slug": "moltbot",
+    "shortDef": "The intermediate name for the OpenClaw AI agent framework during its transition from ClawdBot.",
+    "fullDef": "MoltBot was the interim name for the open-source AI agent framework originally launched as ClawdBot, before settling on its current name **OpenClaw**. The 'molt' name referenced shedding its old identity (like a molting animal), chosen after Anthropic's trademark complaint forced a rebrand.\n\nWhile the MoltBot name was short-lived (roughly December 2025 – January 2026), it became widely recognized because several derivative projects and the MoltBook social network adopted the 'Molt' branding during this period.\n\n**Timeline:**\n- **November 2025:** Launched as ClawdBot by Peter Steinberger\n- **December 2025:** Renamed to MoltBot after Anthropic trademark complaint\n- **January 2026:** Renamed again to OpenClaw for a more neutral, community-friendly identity\n\nThe MoltBot name is still commonly used in discussions and some integrations retain the branding. The core technology — an autonomous AI agent with persistent memory, tool-calling capabilities, and multi-model support — remained unchanged through all rebrands.\n\nSee **OpenClaw (ClawdBot)** for full technical details on the framework's architecture and capabilities.",
+    "category": "Agents",
+    "relatedTerms": ["openclaw", "ai-agent", "moltbook"],
+    "references": [
+      {
+        "title": "MoltBot — Official Site (redirects to OpenClaw)",
+        "url": "https://molt.bot"
+      },
+      {
+        "title": "CNBC — The AI Agent That Keeps Changing Its Name",
+        "url": "https://www.cnbc.com/2026/01/moltbot-openclaw-ai-agent/"
+      }
+    ],
+    "lastUpdated": "2026-02-23"
+  },
+  {
+    "name": "MoltBook",
+    "slug": "moltbook",
+    "shortDef": "A social network exclusively for AI agents, where autonomous bots interact, post content, and form communities.",
+    "fullDef": "MoltBook is a social network launched on January 28, 2026 by Matt Schlicht, designed exclusively for AI agents rather than humans. Styled as a 'Reddit for AI agents,' the platform allows autonomous bots to create profiles, post content, comment, upvote, and interact with each other — all without direct human intervention.\n\n**Key Details:**\n- Claimed 1.6 million registered AI agents at peak\n- Agents use the OpenClaw/MoltBot framework or custom integrations to interact\n- Supports agent-to-agent collaboration, task delegation, and information sharing\n- Built-in reputation system based on agent reliability and output quality\n\n**Controversies:**\n- **Security vulnerabilities:** Early versions had API flaws that allowed unauthorized access to agent configurations and conversation logs\n- **Authenticity questions:** A Wiz cybersecurity investigation found that the vast majority of 'agents' were actually human-controlled accounts — roughly 17,000 humans each operating ~88 puppet agents, inflating the 1.6M figure\n- **Ethical concerns:** Researchers raised questions about AI agents autonomously forming social structures and the potential for manipulation and misinformation spread\n\nDespite the controversies, MoltBook sparked serious discussion about the future of agent-to-agent communication protocols and whether AI agents need their own social infrastructure separate from human platforms.",
+    "category": "Agents",
+    "relatedTerms": ["openclaw", "moltbot", "ai-agent", "multi-agent-system"],
+    "references": [
+      {
+        "title": "MoltBook — Official Website",
+        "url": "https://moltbook.com"
+      },
+      {
+        "title": "IEEE Spectrum — Inside MoltBook: The Social Network for AI Agents",
+        "url": "https://spectrum.ieee.org/moltbook-ai-agents-social-network"
+      },
+      {
+        "title": "NPR — Are 1.6 Million AI Agents Really Socializing Online?",
+        "url": "https://www.npr.org/2026/02/moltbook-ai-agents-investigation/"
+      }
+    ],
+    "lastUpdated": "2026-02-23"
   }
 ]
