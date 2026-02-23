@@ -2187,5 +2187,67 @@
       }
     ],
     "lastUpdated": "2026-02-23"
+  },
+  {
+    "name": "OpenAI",
+    "slug": "openai",
+    "shortDef": "American AI research company and creator of ChatGPT, GPT-series models, DALL-E, and Whisper.",
+    "fullDef": "OpenAI is an American artificial intelligence company founded in 2015 by Sam Altman, Greg Brockman, Ilya Sutskever, and Elon Musk. Originally established as a nonprofit research lab in San Francisco, the organization was partly motivated by concerns about AI safety and the existential risks of artificial general intelligence (AGI). Musk and Altman envisioned a lab that would act as a counter to profit-driven companies developing similar technology.\n\n**Key Milestones:**\n- **2015:** Founded with $1 billion in pledges from early backers including Peter Thiel, Amazon Web Services, and Infosys\n- **2019:** Sam Altman became full-time CEO; OpenAI created a 'capped profit' subsidiary to attract investment, with Microsoft investing $1 billion\n- **2020:** Released GPT-3, demonstrating unprecedented language capabilities\n- **2021:** Launched DALL-E for AI image generation\n- **2022:** Released ChatGPT in November — gained 1 million users within 5 days, bringing AI to mainstream public attention\n- **2023:** Launched GPT-4; dramatic boardroom crisis in November where Altman was briefly fired then reinstated\n- **2024:** Released GPT-4o (multimodal), o1 (reasoning), and Sora (video generation)\n- **2025:** Launched GPT-5, o3, and restructured into a hybrid model with a nonprofit foundation holding 26% stake in the for-profit OpenAI Group PBC; raised $40 billion — the largest venture deal ever\n- **2026:** Released GPT-5.2; acqui-hired OpenClaw creator Peter Steinberger; seeking up to $100 billion in new funding at an $830 billion valuation with a Q4 2026 IPO planned\n\n**Products & Services:**\n- **ChatGPT:** Consumer AI assistant — free tier (GPT-5.2 with limits), Plus ($20/mo), Pro ($200/mo). Over 1 million business customers and 7 million workplace seats\n- **API Platform:** Developer access to GPT, o-series reasoning, DALL-E, Whisper (speech recognition), and embedding models\n- **ChatGPT Health:** Dedicated health product launched January 2026, integrated with Apple Health and MyFitnessPal\n- **DALL-E 3:** Text-to-image generation\n- **Sora:** Text-to-video generation\n- **Whisper:** Open-source speech recognition\n\n**Financials (2025–2026):**\n- Revenue reached $13 billion in 2025 (236% YoY growth from $3.7B in 2024)\n- Annualized revenue exceeded $20 billion by late 2025\n- Projected $14 billion loss in 2026; cumulative cash burn through 2029 expected at $115 billion\n- Agent revenue projected to reach $29 billion by 2029\n\n**Leadership:** Sam Altman (CEO), Mira Murati (former CTO, departed 2024), Greg Brockman (President). Approximately 4,000 employees as of 2026.",
+    "category": "Platforms & Tools",
+    "relatedTerms": ["gpt-5", "gpt-5-2", "gpt-4o", "o3", "chatgpt", "openclaw", "anthropic"],
+    "references": [
+      {
+        "title": "OpenAI — Official Website",
+        "url": "https://openai.com"
+      },
+      {
+        "title": "OpenAI — Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/OpenAI"
+      },
+      {
+        "title": "OpenAI — API Platform",
+        "url": "https://platform.openai.com"
+      },
+      {
+        "title": "Britannica — OpenAI Company Profile",
+        "url": "https://www.britannica.com/money/OpenAI"
+      },
+      {
+        "title": "Sacra — OpenAI Revenue, Valuation & Funding",
+        "url": "https://sacra.com/c/openai/"
+      }
+    ],
+    "lastUpdated": "2026-02-23"
+  },
+  {
+    "name": "Anthropic",
+    "slug": "anthropic",
+    "shortDef": "AI safety company and creator of the Claude family of large language models, founded by former OpenAI researchers.",
+    "fullDef": "Anthropic PBC is an American artificial intelligence company founded in January 2021 by siblings Dario Amodei (CEO) and Daniela Amodei (President), along with several other former OpenAI researchers. Headquartered in San Francisco, Anthropic operates as a public benefit corporation focused on AI safety research and developing reliable, interpretable, and steerable AI systems.\n\nThe Amodei siblings left OpenAI due to directional differences — Dario was VP of Research and Daniela was VP of Safety & Policy. They founded Anthropic with the conviction that AI safety should be at the center of AI development, not an afterthought.\n\n**Key Milestones:**\n- **2021:** Founded by Dario and Daniela Amodei with a team of former OpenAI researchers\n- **2022:** Received $580 million in funding (including $500M from FTX); developed Constitutional AI (CAI), a novel alignment technique where the model is trained to follow ethical principles via self-critique; trained the first Claude model internally but withheld public release for safety testing\n- **2023:** Launched Claude publicly; released Claude 2; Google invested $500M (committed $1.5B more over time); Amazon invested $4 billion\n- **2024:** Released Claude 3 family (Haiku, Sonnet, Opus); launched Claude 3.5 Sonnet; introduced Artifacts and Computer Use capabilities\n- **2025:** Released Claude 3.5 Haiku, Claude 4.5 (Sonnet, Opus, Haiku); launched Claude Code (AI coding agent); raised $3.5B Series E at $61.5B valuation, then $13B Series F at $183B valuation\n- **2026:** Released Claude Opus 4.6 and Claude Sonnet 4.6 (flagship models); closed $30B Series G at $380B valuation — the second-largest venture deal of all time\n\n**Products & Services:**\n- **Claude:** Family of LLMs available via web interface, API, Amazon Bedrock, iOS app, and Mac/Windows desktop apps\n- **Claude Code:** AI coding agent generating over $2.5 billion in annual revenue, accounting for more than half of all enterprise spending on Anthropic products\n- **API:** Developer platform with Messages API, tool use, vision, and extended context windows\n- **Constitutional AI:** Pioneering alignment research approach where models are trained using a set of principles rather than human feedback alone\n\n**Financials (2025–2026):**\n- Run-rate revenue of $14 billion (growing over 10x annually for three consecutive years)\n- Customers spending over $100K annually grew 7x in the past year\n- Total funding raised: over $50 billion across all rounds\n- $380 billion valuation as of February 2026\n\n**Safety Research:** Anthropic is known for its focus on mechanistic interpretability (understanding how neural networks work internally), Constitutional AI, and responsible scaling policies. The company publishes extensive safety research and maintains a Responsible Scaling Policy that ties model capability levels to specific safety commitments.\n\n**Leadership:** Dario Amodei (CEO), Daniela Amodei (President), Tom Brown (co-founder), Chris Olah (co-founder, interpretability research lead), Jack Clark (co-founder, Head of Policy).",
+    "category": "Platforms & Tools",
+    "relatedTerms": ["claude-opus-4-6", "claude-sonnet-4-6", "constitutional-ai", "openai"],
+    "references": [
+      {
+        "title": "Anthropic — Official Website",
+        "url": "https://www.anthropic.com"
+      },
+      {
+        "title": "Anthropic — Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Anthropic"
+      },
+      {
+        "title": "Anthropic — Series G Funding Announcement",
+        "url": "https://www.anthropic.com/news/anthropic-raises-30-billion-series-g-funding-380-billion-post-money-valuation"
+      },
+      {
+        "title": "CNBC — Anthropic Closes $30B Round at $380B Valuation",
+        "url": "https://www.cnbc.com/2026/02/12/anthropic-closes-30-billion-funding-round-at-380-billion-valuation.html"
+      },
+      {
+        "title": "Contrary Research — Anthropic Business Breakdown & Founding Story",
+        "url": "https://research.contrary.com/company/anthropic"
+      }
+    ],
+    "lastUpdated": "2026-02-23"
   }
 ]
