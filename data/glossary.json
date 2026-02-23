@@ -1467,16 +1467,21 @@
   {
     "name": "Claude Opus 4.6",
     "slug": "claude-opus-4-6",
-    "shortDef": "Anthropic's February 2026 flagship with 1M context window and Agent Teams capability, achieving 68.8% on ARC-AGI-2.",
-    "fullDef": "Claude Opus 4.6, released by Anthropic in February 2026, represents a major advancement in the Claude model family with a massive 1 million token context window—a 5x increase over the 200K context of the 4.5 generation. This extended context enables processing of entire codebases, lengthy documents, and extensive conversation histories without losing critical information.\n\nThe model achieves 68.8% on ARC-AGI-2, a challenging benchmark measuring abstract reasoning and general intelligence capabilities. A groundbreaking feature of Opus 4.6 is its Agent Teams capability, allowing the model to coordinate multiple specialized agents to tackle complex, multi-faceted problems that benefit from division of labor and specialized expertise.\n\nAcross Anthropic's February 2026 release, the Sonnet 4.6 variant performs within 1.2% of Opus 4.6 on SWE-bench while costing 5x less, demonstrating Anthropic's success in distilling capabilities down to more efficient models. However, Opus 4.6 remains the flagship for applications requiring maximum reasoning depth, extended context handling, and sophisticated multi-agent coordination.",
+    "shortDef": "Anthropic's February 2026 flagship with 1M context window, 80.8% on SWE-bench, 68.8% on ARC-AGI-2, and the highest Terminal-Bench 2.0 score among all frontier models.",
+    "fullDef": "Claude Opus 4.6, released by Anthropic on February 5, 2026, is the company's most capable model ever, featuring a 1 million token context window (beta) and 128K max output tokens. It introduces adaptive thinking and achieves the highest agentic coding scores Anthropic has produced to date. The model plans more carefully, sustains agentic tasks for longer, operates more reliably in larger codebases, and has improved code review and debugging skills to catch its own mistakes.\n\nOpus 4.6 leads all frontier models on Terminal-Bench 2.0 (65.4%) for agentic coding and Humanity's Last Exam (53.1% with tools, 40.0% without) for complex multidisciplinary reasoning. It scores 80.8% on SWE-bench Verified, 68.8% on ARC-AGI-2 (up from 37.6% for Opus 4.5, the largest single-generation leap on this benchmark), and 72.7% on OSWorld-Verified for computer use. On GDPval-AA (knowledge work in finance, legal, and other domains), Opus 4.6 outperforms GPT-5.2 by 144 Elo points and its predecessor Opus 4.5 by 190 points. On MRCR v2 (8-needle) long-context retrieval, it scores 93% at 256K tokens and 76% at 1M tokens.\n\nPriced at $5 per million input tokens and $25 per million output tokens (unchanged from Opus 4.5), the model is available on claude.ai, the Anthropic API, Amazon Bedrock, and Google Cloud Vertex AI. Anthropic states Opus 4.6 shows an overall safety profile as good as or better than any other frontier model in the industry.",
     "category": "LLM Models",
     "relatedTerms": [
       "large-language-model",
       "ai-agent",
-      "context-window"
+      "context-window",
+      "claude-sonnet-4-6"
     ],
-    "lastUpdated": "2026-02-22",
+    "lastUpdated": "2026-02-23",
     "references": [
+      {
+        "title": "Anthropic — Introducing Claude Opus 4.6",
+        "url": "https://www.anthropic.com/news/claude-opus-4-6"
+      },
       {
         "title": "Anthropic — Claude Models Overview",
         "url": "https://docs.anthropic.com/en/docs/about-claude/models"
@@ -1484,29 +1489,42 @@
       {
         "title": "Anthropic API — Models Documentation",
         "url": "https://platform.claude.com/docs/en/about-claude/models/overview"
+      },
+      {
+        "title": "Vellum — Claude Opus 4.6 Benchmarks Explained",
+        "url": "https://www.vellum.ai/blog/claude-opus-4-6-benchmarks"
       }
     ]
   },
   {
     "name": "Claude Sonnet 4.6",
     "slug": "claude-sonnet-4-6",
-    "shortDef": "Anthropic's February 2026 model performing within 1.2% of Opus 4.6 on SWE-bench at 5x lower cost.",
-    "fullDef": "Claude Sonnet 4.6, released alongside Opus 4.6 in February 2026, demonstrates Anthropic's ability to compress high-end capabilities into a more cost-effective package. The model performs within just 1.2% of Opus 4.6 on SWE-bench while costing 5x less, making it an exceptional value proposition for software engineering and coding applications.\n\nLike Opus 4.6, Sonnet 4.6 benefits from architectural improvements in the 4.6 generation, including enhanced reasoning capabilities and better context management. While it doesn't feature the full 1M token context window of Opus, it maintains the strong performance characteristics that made earlier Sonnet models popular for production deployments.\n\nSonnet 4.6 represents the sweet spot in Anthropic's lineup for many developers—offering near-flagship performance for coding, reasoning, and agentic tasks at a fraction of the cost. This makes it particularly attractive for applications with moderate to high usage volumes where the marginal performance gain of Opus doesn't justify the 5x price premium.",
+    "shortDef": "Anthropic's February 2026 mid-tier model achieving 79.6% on SWE-bench and 72.5% on OSWorld, matching near-flagship performance at $3/$15 per million tokens.",
+    "fullDef": "Claude Sonnet 4.6, released by Anthropic on February 17, 2026, delivers near-flagship performance across coding, computer use, long-context reasoning, agent planning, knowledge work, and design — all at one-fifth the cost of Opus 4.6. It features a 1 million token context window (beta), matching Opus 4.6's context capacity. In head-to-head comparisons, users preferred Sonnet 4.6 over Sonnet 4.5 in 70% of cases and over the previous flagship Opus 4.5 in 59% of comparisons.\n\nSonnet 4.6 scores 79.6% on SWE-bench Verified (only 1.2 points behind Opus 4.6's 80.8%), 72.5% on OSWorld-Verified for computer use (nearly matching Opus 4.6's 72.7%), and 61.3% on MCP-Atlas for scaled tool use. On GDPval-AA for office productivity tasks, Sonnet 4.6 reaches 1633 Elo — actually ahead of all models including Opus 4.6 in this specific category. It also scores 63.3% on Finance Agent for financial analysis tasks.\n\nPriced at $3 per million input tokens and $15 per million output tokens (with up to 90% savings via prompt caching and 50% with batch processing), Sonnet 4.6 represents the strongest value proposition in frontier AI. Its combination of near-Opus performance at mid-tier pricing makes it the default choice for most production deployments, particularly for agentic coding, computer use, and knowledge work applications where the marginal performance gap to Opus doesn't justify the 5x price premium.",
     "category": "LLM Models",
     "relatedTerms": [
       "large-language-model",
       "ai-agent",
-      "context-window"
+      "context-window",
+      "claude-opus-4-6"
     ],
-    "lastUpdated": "2026-02-22",
+    "lastUpdated": "2026-02-23",
     "references": [
+      {
+        "title": "Anthropic — Introducing Claude Sonnet 4.6",
+        "url": "https://www.anthropic.com/news/claude-sonnet-4-6"
+      },
+      {
+        "title": "Anthropic — Claude Sonnet Product Page",
+        "url": "https://www.anthropic.com/claude/sonnet"
+      },
       {
         "title": "Anthropic — Claude Models Overview",
         "url": "https://docs.anthropic.com/en/docs/about-claude/models"
       },
       {
-        "title": "Anthropic API — Models Documentation",
-        "url": "https://platform.claude.com/docs/en/about-claude/models/overview"
+        "title": "VentureBeat — Sonnet 4.6 Matches Flagship Performance at 1/5th Cost",
+        "url": "https://venturebeat.com/technology/anthropics-sonnet-4-6-matches-flagship-ai-performance-at-one-fifth-the-cost"
       }
     ]
   },
