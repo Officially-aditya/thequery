@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
+import Logo from "./Logo";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
@@ -16,8 +17,8 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-bg-primary/80 backdrop-blur-md border-b border-border">
       <div className="px-6 h-14 flex items-center justify-between">
-        <Link href="/" className="font-serif text-xl font-bold text-text-primary hover:text-accent transition-colors">
-          TheQuery
+        <Link href="/" className="hover:opacity-80 transition-opacity">
+          <Logo />
         </Link>
         <nav className="flex items-center gap-6">
           {navLinks.map((link) => (
