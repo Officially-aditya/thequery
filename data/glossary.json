@@ -2249,5 +2249,36 @@
       }
     ],
     "lastUpdated": "2026-02-23"
+  },
+  {
+    "name": "Google DeepMind",
+    "slug": "google-deepmind",
+    "shortDef": "Google's AI research lab formed by merging DeepMind and Google Brain, responsible for AlphaGo, AlphaFold, and the Gemini model family.",
+    "fullDef": "Google DeepMind is Google's central AI research laboratory, formed in April 2023 by merging the original DeepMind lab (founded 2010) with Google Brain. Led by CEO and co-founder Demis Hassabis, the lab is responsible for some of the most significant breakthroughs in AI history — from game-playing agents to protein structure prediction to frontier language models.\n\n**Founding & History:**\n- **2010:** DeepMind founded in London by Demis Hassabis, Shane Legg, and Mustafa Suleyman\n- **2014:** Acquired by Google for approximately $500 million\n- **2023:** Merged with Google Brain to form Google DeepMind, unifying Google's AI research under one organization\n\n**Landmark Achievements:**\n- **AlphaGo (2016):** Defeated Go world champion Lee Sedol 4–1, a milestone previously thought decades away. The more general AlphaZero later mastered Go, chess, and shogi through pure self-play\n- **AlphaFold (2018–2024):** Solved the 50-year-old protein folding problem. AlphaFold2 predicted structures for nearly all known proteins (~200 million). AlphaFold3 (2024) extended to protein-DNA, protein-RNA, and small molecule interactions\n- **Nobel Prize (2024):** Demis Hassabis and John Jumper received the 2024 Nobel Prize in Chemistry for AlphaFold2's contribution to protein structure prediction\n- **WaveNet (2016):** Revolutionary text-to-speech model, later integrated into Google Assistant\n- **AlphaStar (2019):** Achieved Grandmaster level in StarCraft II\n- **AlphaGeometry (2024):** Solved International Mathematical Olympiad geometry problems at near gold-medal level\n- **AlphaEvolve / AlphaDev / AlphaTensor:** AI systems for algorithm discovery, sorting optimization, and matrix multiplication\n\n**Gemini Model Family:**\n- **Gemini 1.0 (Dec 2023):** Google's first natively multimodal LLM, available in Ultra, Pro, and Nano sizes\n- **Gemini 1.5 (Feb 2024):** Introduced 1M token context window (later extended to 2M), breakthrough long-context capabilities\n- **Gemini 2.0 (Dec 2024):** Added agentic capabilities, native tool use, and enhanced reasoning\n- **Gemini 2.5 Pro/Flash (2025):** Hybrid thinking models with state-of-the-art coding and reasoning benchmarks\n- **Gemini 3 Pro (Nov 2025):** Described as Google's most intelligent model at launch\n- **Gemini 3 Flash (Dec 2025):** Speed-optimized variant, became default in the Gemini app\n- **Gemini 3.1 Pro (Feb 2026):** Achieved ARC-AGI-2 score of 77.1%, more than double Gemini 3 Pro\n- **Gemini Deep Think:** Research model achieving 90% on IMO-ProofBench Advanced, accelerating mathematical and scientific discovery\n\n**Other Products & Partnerships:**\n- Gemini available across Google Search, Gemini app, Google AI Studio, Vertex AI, and Android\n- **Apple partnership (Jan 2026):** Apple partnered with Google to use Gemini as the foundation for next-generation Apple Foundation models for Siri\n- Google DeepMind holds approximately 18% market share in AI as of 2026\n\n**Leadership:** Demis Hassabis (CEO, Nobel Laureate), Jeff Dean (Chief Scientist), Koray Kavukcuoglu (VP Research). Mustafa Suleyman, original co-founder, departed to found Inflection AI and later joined Microsoft as CEO of Microsoft AI.",
+    "category": "Platforms & Tools",
+    "relatedTerms": ["gemini-2-5-pro", "gemini-2-5-flash", "gemini-3-1-pro", "openai", "anthropic"],
+    "references": [
+      {
+        "title": "Google DeepMind — Official Website",
+        "url": "https://deepmind.google/"
+      },
+      {
+        "title": "Google DeepMind — Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Google_DeepMind"
+      },
+      {
+        "title": "Google DeepMind — About",
+        "url": "https://deepmind.google/about/"
+      },
+      {
+        "title": "Britannica — Demis Hassabis Biography",
+        "url": "https://www.britannica.com/biography/Demis-Hassabis"
+      },
+      {
+        "title": "Google DeepMind — Model Cards",
+        "url": "https://deepmind.google/models/model-cards/"
+      }
+    ],
+    "lastUpdated": "2026-02-23"
   }
 ]
