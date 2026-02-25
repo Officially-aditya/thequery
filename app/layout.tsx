@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     default: "TheQuery - AI Knowledge from First Principles",
     template: "%s | TheQuery",
   },
-  description: "AI knowledge from first principles. Books, glossary, and weekly digest covering machine learning, deep learning, and artificial intelligence.",
+  description: "AI knowledge from first principles. Books, glossary, and articles covering machine learning, deep learning, and artificial intelligence.",
   openGraph: {
     siteName: "TheQuery",
     type: "website",

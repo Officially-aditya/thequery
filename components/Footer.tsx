@@ -8,7 +8,7 @@ export default function Footer() {
         <nav className="flex items-center gap-4">
           <Link href="/books" className="hover:text-text-secondary transition-colors">Books</Link>
           <Link href="/glossary" className="hover:text-text-secondary transition-colors">Glossary</Link>
-          <Link href="/digest" className="hover:text-text-secondary transition-colors">Digest</Link>
+          <Link href="/articles" className="hover:text-text-secondary transition-colors">Articles</Link>
           <a href="mailto:hello@thequery.in" className="hover:text-text-secondary transition-colors">Contact</a>
         </nav>
       </div>

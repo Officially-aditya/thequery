@@ -1,9 +1,9 @@
 import fs from "fs";
 import path from "path";
 
-const dataPath = path.join(process.cwd(), "data", "digest.json");
+const dataPath = path.join(process.cwd(), "data", "articles.json");
 
-export interface DigestIssue {
+export interface Article {
   title: string;
   slug: string;
   date: string;
@@ -11,17 +11,17 @@ export interface DigestIssue {
   content: string;
 }
 
-export function getAllIssues(): DigestIssue[] {
+export function getAllIssues(): Article[] {
   const raw = fs.readFileSync(dataPath, "utf-8");
-  const issues: DigestIssue[] = JSON.parse(raw);
+  const issues: Article[] = JSON.parse(raw);
   return issues.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
-export function getIssueBySlug(slug: string): DigestIssue | null {
+export function getIssueBySlug(slug: string): Article | null {
   const issues = getAllIssues();
   return issues.find((i) => i.slug === slug) ?? null;
 }
 
-export function saveAllIssues(issues: DigestIssue[]): void {
+export function saveAllIssues(issues: Article[]): void {
   fs.writeFileSync(dataPath, JSON.stringify(issues, null, 2), "utf-8");
 }

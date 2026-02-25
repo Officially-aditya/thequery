@@ -19,14 +19,14 @@ const emptyIssue: Issue = {
   content: "",
 };
 
-export default function AdminDigestPage() {
+export default function AdminArticlesPage() {
   const router = useRouter();
   const [issues, setIssues] = useState<Issue[]>([]);
   const [editing, setEditing] = useState<Issue | null>(null);
   const [loading, setLoading] = useState(true);
 
   const fetchIssues = useCallback(async () => {
-    const res = await fetch("/api/admin/digest");
+    const res = await fetch("/api/admin/articles");
     if (res.status === 401) { router.push("/admin"); return; }
     setIssues(await res.json());
     setLoading(false);
@@ -40,7 +40,7 @@ export default function AdminDigestPage() {
       ...editing,
       slug: editing.slug || editing.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, ""),
     };
-    await fetch("/api/admin/digest", {
+    await fetch("/api/admin/articles", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(issue),
@@ -51,7 +51,7 @@ export default function AdminDigestPage() {
 
   const handleDelete = async (slug: string) => {
     if (!confirm("Delete this issue?")) return;
-    await fetch("/api/admin/digest", {
+    await fetch("/api/admin/articles", {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ slug }),
@@ -64,7 +64,7 @@ export default function AdminDigestPage() {
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
-        <h1 className="font-serif text-2xl font-bold text-text-primary">Digest Admin</h1>
+        <h1 className="font-serif text-2xl font-bold text-text-primary">Articles Admin</h1>
         <button
           onClick={() => setEditing({ ...emptyIssue })}
           className="text-sm px-4 py-2 bg-accent text-white rounded-lg font-medium hover:bg-accent-hover transition-colors"

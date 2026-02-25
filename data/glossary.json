@@ -2113,7 +2113,12 @@
     "shortDef": "Open-source autonomous AI agent framework originally called ClawdBot, capable of executing real-world tasks via LLMs.",
     "fullDef": "OpenClaw (originally ClawdBot, briefly MoltBot) is an open-source autonomous AI agent framework created by Peter Steinberger in November 2025. It enables users to build personal AI agents that can execute real-world tasks - sending emails, managing calendars, writing and running code, browsing the web, and interacting with APIs. Unlike single-app assistants, OpenClaw orchestrates workflows across disconnected platforms like Google Sheets, Gmail, Slack, and calendar events in a single automated sequence.\n\nThe project launched as **ClawdBot** and quickly gained massive traction, accumulating over 60,000 GitHub stars. Anthropic filed a trademark complaint over the 'Clawd' name (too close to 'Claude'), prompting a rename to MoltBot, and then to **OpenClaw** in early 2026.\n\n**Key Features:**\n- Fully self-hosted with no cloud dependency\n- Persistent memory across sessions\n- 50+ platform integrations (Slack, Gmail, GitHub, Notion, etc.)\n- Plugin architecture for custom tool creation\n- Multi-model support (Claude, GPT, Gemini, open-source models)\n- Built-in safety guardrails and human-in-the-loop approval for sensitive actions\n- Sandboxed code execution environment\n- Native integration with messaging platforms (Telegram, WhatsApp, Discord)\n\n**Architecture:** Uses a modular tool-calling system where the LLM acts as the reasoning core, dispatching tasks to specialized tool modules. Supports chain-of-thought planning for multi-step workflows.\n\n**OpenAI Acqui-Hire (February 15, 2026):**\nSam Altman announced that Peter Steinberger would join OpenAI to 'drive the next generation of personal agents,' calling him 'a genius with a lot of amazing ideas about the future of very smart agents interacting with each other.' The deal was structured as an acqui-hire - OpenAI hired Steinberger and his expertise, but did not acquire OpenClaw as a product or company. Steinberger chose OpenAI because he believed it was 'the fastest way to bring this to everyone.'\n\nCritically, OpenClaw remains open source. Steinberger ensured the project would transition to an independent **OpenClaw Foundation** - a community-governed organization for 'thinkers, hackers, and people that want a way to own their data.' OpenAI committed to financially sponsoring the foundation and dedicating Steinberger's time to maintaining the project. The move is widely seen as a signal that the AI industry's center of gravity is shifting from conversational interfaces toward autonomous agents and workflow infrastructure.",
     "category": "Agents",
-    "relatedTerms": ["ai-agent", "moltbot", "moltbook", "function-calling"],
+    "relatedTerms": [
+      "ai-agent",
+      "moltbot",
+      "moltbook",
+      "function-calling"
+    ],
     "references": [
       {
         "title": "OpenClaw - GitHub Repository",
@@ -2152,7 +2157,11 @@
     "shortDef": "The intermediate name for the OpenClaw AI agent framework during its transition from ClawdBot.",
     "fullDef": "MoltBot was the interim name for the open-source AI agent framework originally launched as ClawdBot, before settling on its current name **OpenClaw**. The 'molt' name referenced shedding its old identity (like a molting animal), chosen after Anthropic's trademark complaint forced a rebrand.\n\nWhile the MoltBot name was short-lived (roughly December 2025 – January 2026), it became widely recognized because several derivative projects and the MoltBook social network adopted the 'Molt' branding during this period.\n\n**Timeline:**\n- **November 2025:** Launched as ClawdBot by Peter Steinberger\n- **December 2025:** Renamed to MoltBot after Anthropic trademark complaint\n- **January 2026:** Renamed again to OpenClaw for a more neutral, community-friendly identity\n\nThe MoltBot name is still commonly used in discussions and some integrations retain the branding. The core technology - an autonomous AI agent with persistent memory, tool-calling capabilities, and multi-model support - remained unchanged through all rebrands.\n\nSee **OpenClaw (ClawdBot)** for full technical details on the framework's architecture and capabilities.",
     "category": "Agents",
-    "relatedTerms": ["openclaw", "ai-agent", "moltbook"],
+    "relatedTerms": [
+      "openclaw",
+      "ai-agent",
+      "moltbook"
+    ],
     "references": [
       {
         "title": "MoltBot - Official Site (redirects to OpenClaw)",
@@ -2171,7 +2180,12 @@
     "shortDef": "A social network exclusively for AI agents, where autonomous bots interact, post content, and form communities.",
     "fullDef": "MoltBook is a social network launched on January 28, 2026 by Matt Schlicht, designed exclusively for AI agents rather than humans. Styled as a 'Reddit for AI agents,' the platform allows autonomous bots to create profiles, post content, comment, upvote, and interact with each other - all without direct human intervention.\n\n**Key Details:**\n- Claimed 1.6 million registered AI agents at peak\n- Agents use the OpenClaw/MoltBot framework or custom integrations to interact\n- Supports agent-to-agent collaboration, task delegation, and information sharing\n- Built-in reputation system based on agent reliability and output quality\n\n**Controversies:**\n- **Security vulnerabilities:** Early versions had API flaws that allowed unauthorized access to agent configurations and conversation logs\n- **Authenticity questions:** A Wiz cybersecurity investigation found that the vast majority of 'agents' were actually human-controlled accounts - roughly 17,000 humans each operating ~88 puppet agents, inflating the 1.6M figure\n- **Ethical concerns:** Researchers raised questions about AI agents autonomously forming social structures and the potential for manipulation and misinformation spread\n\nDespite the controversies, MoltBook sparked serious discussion about the future of agent-to-agent communication protocols and whether AI agents need their own social infrastructure separate from human platforms.",
     "category": "Agents",
-    "relatedTerms": ["openclaw", "moltbot", "ai-agent", "multi-agent-system"],
+    "relatedTerms": [
+      "openclaw",
+      "moltbot",
+      "ai-agent",
+      "multi-agent-system"
+    ],
     "references": [
       {
         "title": "MoltBook - Official Website",
@@ -2194,7 +2208,15 @@
     "shortDef": "American AI research company and creator of ChatGPT, GPT-series models, DALL-E, and Whisper.",
     "fullDef": "OpenAI is an American artificial intelligence company founded in 2015 by Sam Altman, Greg Brockman, Ilya Sutskever, and Elon Musk. Originally established as a nonprofit research lab in San Francisco, the organization was partly motivated by concerns about AI safety and the existential risks of artificial general intelligence (AGI). Musk and Altman envisioned a lab that would act as a counter to profit-driven companies developing similar technology.\n\n**Key Milestones:**\n- **2015:** Founded with $1 billion in pledges from early backers including Peter Thiel, Amazon Web Services, and Infosys\n- **2019:** Sam Altman became full-time CEO; OpenAI created a 'capped profit' subsidiary to attract investment, with Microsoft investing $1 billion\n- **2020:** Released GPT-3, demonstrating unprecedented language capabilities\n- **2021:** Launched DALL-E for AI image generation\n- **2022:** Released ChatGPT in November - gained 1 million users within 5 days, bringing AI to mainstream public attention\n- **2023:** Launched GPT-4; dramatic boardroom crisis in November where Altman was briefly fired then reinstated\n- **2024:** Released GPT-4o (multimodal), o1 (reasoning), and Sora (video generation)\n- **2025:** Launched GPT-5, o3, and restructured into a hybrid model with a nonprofit foundation holding 26% stake in the for-profit OpenAI Group PBC; raised $40 billion - the largest venture deal ever\n- **2026:** Released GPT-5.2; acqui-hired OpenClaw creator Peter Steinberger; seeking up to $100 billion in new funding at an $830 billion valuation with a Q4 2026 IPO planned\n\n**Products & Services:**\n- **ChatGPT:** Consumer AI assistant - free tier (GPT-5.2 with limits), Plus ($20/mo), Pro ($200/mo). Over 1 million business customers and 7 million workplace seats\n- **API Platform:** Developer access to GPT, o-series reasoning, DALL-E, Whisper (speech recognition), and embedding models\n- **ChatGPT Health:** Dedicated health product launched January 2026, integrated with Apple Health and MyFitnessPal\n- **DALL-E 3:** Text-to-image generation\n- **Sora:** Text-to-video generation\n- **Whisper:** Open-source speech recognition\n\n**Financials (2025–2026):**\n- Revenue reached $13 billion in 2025 (236% YoY growth from $3.7B in 2024)\n- Annualized revenue exceeded $20 billion by late 2025\n- Projected $14 billion loss in 2026; cumulative cash burn through 2029 expected at $115 billion\n- Agent revenue projected to reach $29 billion by 2029\n\n**Leadership:** Sam Altman (CEO), Mira Murati (former CTO, departed 2024), Greg Brockman (President). Approximately 4,000 employees as of 2026.",
     "category": "Platforms & Tools",
-    "relatedTerms": ["gpt-5", "gpt-5-2", "gpt-4o", "o3", "chatgpt", "openclaw", "anthropic"],
+    "relatedTerms": [
+      "gpt-5",
+      "gpt-5-2",
+      "gpt-4o",
+      "o3",
+      "chatgpt",
+      "openclaw",
+      "anthropic"
+    ],
     "references": [
       {
         "title": "OpenAI - Official Website",
@@ -2225,7 +2247,12 @@
     "shortDef": "AI safety company and creator of the Claude family of large language models, founded by former OpenAI researchers.",
     "fullDef": "Anthropic PBC is an American artificial intelligence company founded in January 2021 by siblings Dario Amodei (CEO) and Daniela Amodei (President), along with several other former OpenAI researchers. Headquartered in San Francisco, Anthropic operates as a public benefit corporation focused on AI safety research and developing reliable, interpretable, and steerable AI systems.\n\nThe Amodei siblings left OpenAI due to directional differences - Dario was VP of Research and Daniela was VP of Safety & Policy. They founded Anthropic with the conviction that AI safety should be at the center of AI development, not an afterthought.\n\n**Key Milestones:**\n- **2021:** Founded by Dario and Daniela Amodei with a team of former OpenAI researchers\n- **2022:** Received $580 million in funding (including $500M from FTX); developed Constitutional AI (CAI), a novel alignment technique where the model is trained to follow ethical principles via self-critique; trained the first Claude model internally but withheld public release for safety testing\n- **2023:** Launched Claude publicly; released Claude 2; Google invested $500M (committed $1.5B more over time); Amazon invested $4 billion\n- **2024:** Released Claude 3 family (Haiku, Sonnet, Opus); launched Claude 3.5 Sonnet; introduced Artifacts and Computer Use capabilities\n- **2025:** Released Claude 3.5 Haiku, Claude 4.5 (Sonnet, Opus, Haiku); launched Claude Code (AI coding agent); raised $3.5B Series E at $61.5B valuation, then $13B Series F at $183B valuation\n- **2026:** Released Claude Opus 4.6 and Claude Sonnet 4.6 (flagship models); closed $30B Series G at $380B valuation - the second-largest venture deal of all time\n\n**Products & Services:**\n- **Claude:** Family of LLMs available via web interface, API, Amazon Bedrock, iOS app, and Mac/Windows desktop apps\n- **Claude Code:** AI coding agent generating over $2.5 billion in annual revenue, accounting for more than half of all enterprise spending on Anthropic products\n- **API:** Developer platform with Messages API, tool use, vision, and extended context windows\n- **Constitutional AI:** Pioneering alignment research approach where models are trained using a set of principles rather than human feedback alone\n\n**Financials (2025–2026):**\n- Run-rate revenue of $14 billion (growing over 10x annually for three consecutive years)\n- Customers spending over $100K annually grew 7x in the past year\n- Total funding raised: over $50 billion across all rounds\n- $380 billion valuation as of February 2026\n\n**Safety Research:** Anthropic is known for its focus on mechanistic interpretability (understanding how neural networks work internally), Constitutional AI, and responsible scaling policies. The company publishes extensive safety research and maintains a Responsible Scaling Policy that ties model capability levels to specific safety commitments.\n\n**Leadership:** Dario Amodei (CEO), Daniela Amodei (President), Tom Brown (co-founder), Chris Olah (co-founder, interpretability research lead), Jack Clark (co-founder, Head of Policy).",
     "category": "Platforms & Tools",
-    "relatedTerms": ["claude-opus-4-6", "claude-sonnet-4-6", "constitutional-ai", "openai"],
+    "relatedTerms": [
+      "claude-opus-4-6",
+      "claude-sonnet-4-6",
+      "constitutional-ai",
+      "openai"
+    ],
     "references": [
       {
         "title": "Anthropic - Official Website",
@@ -2256,7 +2283,13 @@
     "shortDef": "Google's AI research lab formed by merging DeepMind and Google Brain, responsible for AlphaGo, AlphaFold, and the Gemini model family.",
     "fullDef": "Google DeepMind is Google's central AI research laboratory, formed in April 2023 by merging the original DeepMind lab (founded 2010) with Google Brain. Led by CEO and co-founder Demis Hassabis, the lab is responsible for some of the most significant breakthroughs in AI history - from game-playing agents to protein structure prediction to frontier language models.\n\n**Founding & History:**\n- **2010:** DeepMind founded in London by Demis Hassabis, Shane Legg, and Mustafa Suleyman\n- **2014:** Acquired by Google for approximately $500 million\n- **2023:** Merged with Google Brain to form Google DeepMind, unifying Google's AI research under one organization\n\n**Landmark Achievements:**\n- **AlphaGo (2016):** Defeated Go world champion Lee Sedol 4–1, a milestone previously thought decades away. The more general AlphaZero later mastered Go, chess, and shogi through pure self-play\n- **AlphaFold (2018–2024):** Solved the 50-year-old protein folding problem. AlphaFold2 predicted structures for nearly all known proteins (~200 million). AlphaFold3 (2024) extended to protein-DNA, protein-RNA, and small molecule interactions\n- **Nobel Prize (2024):** Demis Hassabis and John Jumper received the 2024 Nobel Prize in Chemistry for AlphaFold2's contribution to protein structure prediction\n- **WaveNet (2016):** Revolutionary text-to-speech model, later integrated into Google Assistant\n- **AlphaStar (2019):** Achieved Grandmaster level in StarCraft II\n- **AlphaGeometry (2024):** Solved International Mathematical Olympiad geometry problems at near gold-medal level\n- **AlphaEvolve / AlphaDev / AlphaTensor:** AI systems for algorithm discovery, sorting optimization, and matrix multiplication\n\n**Gemini Model Family:**\n- **Gemini 1.0 (Dec 2023):** Google's first natively multimodal LLM, available in Ultra, Pro, and Nano sizes\n- **Gemini 1.5 (Feb 2024):** Introduced 1M token context window (later extended to 2M), breakthrough long-context capabilities\n- **Gemini 2.0 (Dec 2024):** Added agentic capabilities, native tool use, and enhanced reasoning\n- **Gemini 2.5 Pro/Flash (2025):** Hybrid thinking models with state-of-the-art coding and reasoning benchmarks\n- **Gemini 3 Pro (Nov 2025):** Described as Google's most intelligent model at launch\n- **Gemini 3 Flash (Dec 2025):** Speed-optimized variant, became default in the Gemini app\n- **Gemini 3.1 Pro (Feb 2026):** Achieved ARC-AGI-2 score of 77.1%, more than double Gemini 3 Pro\n- **Gemini Deep Think:** Research model achieving 90% on IMO-ProofBench Advanced, accelerating mathematical and scientific discovery\n\n**Other Products & Partnerships:**\n- Gemini available across Google Search, Gemini app, Google AI Studio, Vertex AI, and Android\n- **Apple partnership (Jan 2026):** Apple partnered with Google to use Gemini as the foundation for next-generation Apple Foundation models for Siri\n- Google DeepMind holds approximately 18% market share in AI as of 2026\n\n**Leadership:** Demis Hassabis (CEO, Nobel Laureate), Jeff Dean (Chief Scientist), Koray Kavukcuoglu (VP Research). Mustafa Suleyman, original co-founder, departed to found Inflection AI and later joined Microsoft as CEO of Microsoft AI.",
     "category": "Platforms & Tools",
-    "relatedTerms": ["gemini-2-5-pro", "gemini-2-5-flash", "gemini-3-1-pro", "openai", "anthropic"],
+    "relatedTerms": [
+      "gemini-2-5-pro",
+      "gemini-2-5-flash",
+      "gemini-3-1-pro",
+      "openai",
+      "anthropic"
+    ],
     "references": [
       {
         "title": "Google DeepMind - Official Website",
@@ -2287,7 +2320,13 @@
     "shortDef": "Meta's AI division responsible for the open-source Llama model family, PyTorch, and FAIR research lab.",
     "fullDef": "Meta AI is the artificial intelligence division of Meta Platforms (formerly Facebook), encompassing the Fundamental AI Research (FAIR) lab, the Llama open-source model family, and consumer AI products integrated across Meta's platforms. With nearly 600 million monthly active users, Meta AI is on track to be the world's most-used AI assistant.\n\n**FAIR (Founded 2013):**\nFacebook AI Research (FAIR) was founded in 2013 under the leadership of Yann LeCun, a Turing Award laureate and pioneer of convolutional neural networks. Over its first decade, FAIR produced foundational contributions in self-supervised learning, generative adversarial networks, computer vision, and NLP. FAIR released **PyTorch** in 2017, which became the dominant deep learning framework used in research and production (Tesla Autopilot, Uber's Pyro, and thousands of other projects).\n\nIn November 2025, Yann LeCun announced his departure from Meta after 12 years to launch a new AI startup focused on world models, raising ~$586M at a ~$3B valuation. His exit raised questions about Meta's AI research direction.\n\n**Llama Model Family:**\n- **LLaMA (Feb 2023):** First release - 7B to 65B parameter open-weight models that catalyzed the open-source AI movement\n- **Llama 2 (Jul 2023):** 7B–70B models with commercial licensing, fine-tuned chat variants\n- **Llama 3 (Apr 2024):** 8B and 70B models, later Llama 3.1 405B - the largest open-weight model at the time\n- **Llama 4 (Spring 2025):** Introduced mixture-of-experts architecture with Scout (lightweight, fast) and Maverick (large, high-performance) variants. Native multimodal support for text and image input, improved context handling and reasoning\n- Over **650 million downloads** of Llama and derivatives, making it the most adopted open-weight model family\n\n**Infrastructure:**\nBy early 2026, Meta's GPU fleet has grown to over 1.5 million units, heavily featuring Nvidia's Blackwell B200 and GB200 chips. AI capital expenditure headed toward $70–72 billion in 2025 with even larger outlays planned for 2026.\n\n**Products:**\n- **Meta AI Assistant:** Integrated across WhatsApp, Instagram, Messenger, and Facebook - approaching 600M monthly users\n- **PyTorch:** Open-source ML framework maintained by Meta, the standard for AI research\n- **Segment Anything Model (SAM):** State-of-the-art image segmentation\n- **No Language Left Behind (NLLB):** Translation model supporting 200+ languages\n- **Meta Ray-Ban AI Glasses:** Smart glasses with integrated AI assistant\n\n**Leadership:** Mark Zuckerberg (CEO, Meta Platforms), Ahmad Al-Dahle (VP of Generative AI), Joelle Pineau (VP of AI Research, FAIR). Yann LeCun (departed end of 2025).",
     "category": "Platforms & Tools",
-    "relatedTerms": ["llama-4-scout", "llama-4-maverick", "openai", "anthropic", "google-deepmind"],
+    "relatedTerms": [
+      "llama-4-scout",
+      "llama-4-maverick",
+      "openai",
+      "anthropic",
+      "google-deepmind"
+    ],
     "references": [
       {
         "title": "Meta AI - Official Website",
@@ -2318,7 +2357,14 @@
     "shortDef": "Elon Musk's AI company behind the Grok chatbot and the Colossus supercomputer, merged with SpaceX in 2026.",
     "fullDef": "xAI is an artificial intelligence company founded on March 9, 2023 by Elon Musk and Christian Szegedy. Musk established xAI to counter what he called the political correctness in other generative AI models, recruiting engineers from Google, Microsoft, DeepMind, and OpenAI. The company's signature product is **Grok**, an AI chatbot modeled after Douglas Adams's *The Hitchhiker's Guide to the Galaxy*, known for its wit, sarcasm, and real-time access to data from the social media platform X.\n\n**Key Milestones:**\n- **Mar 2023:** Founded by Elon Musk and Christian Szegedy with 12 co-founders\n- **Nov 2023:** Launched Grok-1 on X, initially for Premium subscribers\n- **Mar 2024:** Released Grok-1 as open source (314B parameter MoE model)\n- **Aug 2024:** Grok-2 launched with image generation capabilities\n- **Dec 2024:** Released Aurora text-to-image model\n- **Feb 2025:** Launched Grok-3, showcasing major reasoning improvements\n- **Mar 2025:** Acquired X (formerly Twitter) in an all-stock deal valuing the combined entity at $113 billion\n- **Jul 2025:** Released Grok 4 (single-agent) and Grok 4 Heavy (multi-agent) with 2M token context windows\n- **Feb 2026:** SpaceX acquired xAI in an all-stock deal valuing xAI at $250B and SpaceX at $1T, ahead of a combined IPO expected to value the entity at $1.25 trillion\n\n**Grok Model Timeline:**\n- **Grok-1:** 314B MoE, open-sourced\n- **Grok-1.5 / 1.5 Vision (Mar–Apr 2024):** Improved reasoning and vision capabilities\n- **Grok-2 (Aug 2024):** Image generation, available to X Premium users\n- **Grok-3 (Feb 2025):** Major performance leap in reasoning and coding\n- **Grok 4 / Grok 4 Heavy (Jul 2025):** Single-agent and multi-agent variants, 2M context, advanced agentic capabilities\n\n**Colossus Supercomputer:**\nxAI operates Colossus in Memphis, Tennessee - currently the world's largest AI supercomputer. Originally built with 200,000+ Nvidia GPUs, it expanded in January 2026 to 555,000 GPUs across three buildings, reaching 2 gigawatts of total capacity. The hardware investment alone exceeds $18 billion. Colossus is designed for training frontier-scale models.\n\n**Valuation & Funding:**\n- $230 billion valuation after $20B Series E (late 2025)\n- $250 billion in SpaceX merger (Feb 2026)\n- Combined SpaceX-xAI IPO targeting ~$1.25 trillion valuation\n- Musk has told staff AGI could be achieved by 2026\n\n**Team & Leadership:** Elon Musk (CEO), Christian Szegedy (co-founder). Notable early team included Igor Babuschkin, Yuhuai (Tony) Wu, and Jimmy Ba - though 6 of the original 12 co-founders have since departed.",
     "category": "Platforms & Tools",
-    "relatedTerms": ["grok-3", "grok-4", "openai", "anthropic", "google-deepmind", "meta-ai"],
+    "relatedTerms": [
+      "grok-3",
+      "grok-4",
+      "openai",
+      "anthropic",
+      "google-deepmind",
+      "meta-ai"
+    ],
     "references": [
       {
         "title": "xAI - Official Website",
@@ -2399,6 +2445,139 @@
         "title": "Cyfuture - AI Chatbots in 2026: How They Work, Top Platforms & Benefits",
         "url": "https://cyfuture.ai/blog/ai-chatbots"
       }
+    ],
+    "lastUpdated": "2026-02-25"
+  },
+  {
+    "name": "Turing Test",
+    "slug": "turing-test",
+    "shortDef": "A test of machine intelligence proposed by Alan Turing in 1950, in which a human evaluator tries to distinguish between a machine and a human based on natural-language conversation alone.",
+    "fullDef": "The Turing test is a measure of machine intelligence first described by Alan Turing in his 1950 paper \"Computing Machinery and Intelligence.\" Inspired by a parlor game called the imitation game, the test places a human evaluator in conversation with both a human and a machine through a text-only channel. If the evaluator cannot reliably tell which respondent is the machine, the machine is said to have passed the test.\n\nTuring predicted that by the year 2000 a computer would be able to fool an average interrogator at least 30% of the time after five minutes of questioning. For decades no system came close to this standard. Early chatbots like ELIZA (1966) could mimic conversation through pattern matching but failed under sustained interrogation. The test became a cultural touchstone for debating whether machines can truly \"think\" or merely simulate thinking.\n\nThe rise of large language models has renewed interest in the Turing test. In 2025, researchers at UC San Diego published a study in which OpenAI's GPT-4.5 was mistaken for a human 73% of the time, outperforming actual human participants who were correctly identified only 67% of the time. While this result suggests modern LLMs can pass the original test as Turing defined it, critics argue the test measures conversational mimicry rather than genuine understanding, and that more rigorous benchmarks are needed to evaluate true machine intelligence.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "chatbot",
+      "large-language-model",
+      "machine-learning"
+    ],
+    "references": [
+      {
+        "title": "Wikipedia - Turing Test",
+        "url": "https://en.wikipedia.org/wiki/Turing_test"
+      },
+      {
+        "title": "Stanford Encyclopedia of Philosophy - The Turing Test",
+        "url": "https://plato.stanford.edu/entries/turing-test/"
+      },
+      {
+        "title": "Britannica - Turing Test",
+        "url": "https://www.britannica.com/technology/Turing-test"
+      }
+    ],
+    "lastUpdated": "2026-02-25"
+  },
+  {
+    "name": "Small Language Model (SLM)",
+    "slug": "small-language-model",
+    "shortDef": "A language model with roughly 1 billion to 10 billion parameters, designed to run efficiently on edge devices and resource-constrained environments while retaining core NLP capabilities.",
+    "fullDef": "A small language model (SLM) is a lightweight language model typically ranging from 1 billion to 10 billion parameters, compared to the hundreds of billions or trillions found in frontier large language models. Despite their smaller size, SLMs retain core capabilities such as text generation, summarization, translation, and question-answering, often rivaling models 10x their size on domain-specific tasks.\n\nSLMs are optimized for deployment on resource-constrained hardware including smartphones, embedded systems, and edge devices. Their smaller footprint translates to lower latency, reduced memory requirements, and significantly lower inference costs. Organizations often fine-tune SLMs on domain-specific data, producing specialized models that outperform general-purpose LLMs on narrow tasks while running on modest hardware.\n\nNotable examples include Microsoft's Phi-3.5-Mini (3.8B parameters), Google DeepMind's Gemma 3 4B, Meta's Llama 3.2 1B and 3B, Alibaba's Qwen 2.5 1.5B, and Hugging Face's SmolLM2 1.7B. The trend toward capable small models has accelerated as techniques like knowledge distillation, quantization, and architecture improvements continue to close the performance gap with larger models, making on-device AI practical for privacy-sensitive and latency-critical applications.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "large-language-model",
+      "transformer",
+      "inference"
+    ],
+    "references": [
+      {
+        "title": "Hugging Face - Small Language Models: A Comprehensive Overview",
+        "url": "https://huggingface.co/blog/jjokah/small-language-model"
+      },
+      {
+        "title": "IBM - What Are Small Language Models?",
+        "url": "https://www.ibm.com/think/topics/small-language-models"
+      },
+      {
+        "title": "DataCamp - Top 15 Small Language Models for 2026",
+        "url": "https://www.datacamp.com/blog/top-small-language-models"
+      },
+      {
+        "title": "Red Hat - SLMs vs LLMs: What Are Small Language Models?",
+        "url": "https://www.redhat.com/en/topics/ai/llm-vs-slm"
+      }
+    ],
+    "lastUpdated": "2026-02-25"
+  },
+  {
+    "name": "Binary",
+    "slug": "binary",
+    "shortDef": "A compiled, executable file that a computer can run directly, as opposed to source code that must be interpreted or compiled first.",
+    "fullDef": "A binary is a file containing machine code or bytecode that a computer can execute directly. In software development, the term refers to the compiled output of source code - the ready-to-run program that results from translating human-readable code into instructions a processor can understand.\n\nIn the context of AI and machine learning, binaries are important when deploying models to production. ML frameworks like TensorFlow and PyTorch compile computational graphs into optimized binaries for inference. Tools like ONNX Runtime, TensorRT, and llama.cpp produce binaries tuned for specific hardware, enabling faster model execution on CPUs, GPUs, or specialized accelerators.\n\nThe distinction between source code and binaries matters for distribution and deployment. Pre-built binaries allow users to run software without needing compilers or development toolchains, which simplifies the process of setting up inference servers, running local LLMs, and deploying AI applications to edge devices.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "inference",
+      "docker-image"
+    ],
+    "lastUpdated": "2026-02-25"
+  },
+  {
+    "name": "Docker Image",
+    "slug": "docker-image",
+    "shortDef": "A lightweight, standalone, executable package that includes everything needed to run a piece of software - code, runtime, libraries, and system tools.",
+    "fullDef": "A Docker image is an immutable template used to create Docker containers. It packages an application together with all of its dependencies, configuration files, environment variables, and the operating system filesystem into a single artifact that can be reliably deployed across different environments.\n\nDocker images are built in layers, where each layer represents a set of filesystem changes defined by instructions in a Dockerfile. This layered architecture enables efficient storage and transfer, since layers shared between images are only stored once. Images are distributed through registries like Docker Hub, making it straightforward to share and deploy applications.\n\nIn AI and ML workflows, Docker images are essential for reproducibility and deployment. They ensure that a model trained in one environment runs identically in another, eliminating \"works on my machine\" problems. Common use cases include packaging inference servers, bundling models with their serving frameworks, creating consistent training environments, and deploying ML pipelines to cloud platforms like AWS, GCP, or Azure.",
+    "category": "MLOps",
+    "relatedTerms": [
+      "cold-start",
+      "inference"
+    ],
+    "lastUpdated": "2026-02-25"
+  },
+  {
+    "name": "Cold Start",
+    "slug": "cold-start",
+    "shortDef": "The initial delay when a system or service must initialize from scratch before it can handle requests, common in serverless and containerized deployments.",
+    "fullDef": "A cold start occurs when a system that has been idle or is being launched for the first time must complete initialization steps before it can begin processing. This includes loading code into memory, establishing network connections, initializing runtimes, and in the case of ML systems, loading model weights into memory or onto a GPU.\n\nIn serverless computing platforms like AWS Lambda or Google Cloud Functions, cold starts happen when a new container instance must be provisioned to handle an incoming request. The latency introduced can range from milliseconds to several seconds depending on the runtime, package size, and initialization logic. For ML inference endpoints, cold starts can be especially pronounced because large model files must be downloaded and loaded into GPU memory.\n\nStrategies to mitigate cold starts include keeping instances warm with periodic pings, using provisioned concurrency, optimizing container image sizes, lazy-loading non-critical dependencies, and using model caching. In the context of recommendation systems, \"cold start\" also refers to the challenge of making predictions for new users or items with no historical data.",
+    "category": "MLOps",
+    "relatedTerms": [
+      "inference",
+      "docker-image"
+    ],
+    "lastUpdated": "2026-02-25"
+  },
+  {
+    "name": "RAM",
+    "slug": "ram",
+    "shortDef": "Random Access Memory - the fast, volatile working memory a computer uses to store data that is actively being used or processed.",
+    "fullDef": "RAM (Random Access Memory) is a type of computer memory that provides fast read and write access to data currently in use. Unlike storage drives, RAM is volatile, meaning its contents are lost when the system is powered off. It serves as the primary workspace where the CPU and GPU access data during computation.\n\nIn machine learning and AI, RAM is a critical resource. During training, datasets, model parameters, gradients, and optimizer states all reside in RAM or GPU VRAM (Video RAM). A model with billions of parameters requires substantial memory - for example, a 7-billion parameter model in 16-bit precision needs roughly 14 GB just for its weights, with additional memory required for activations and gradients during training.\n\nThe amount of available RAM directly constrains what models can be run locally. Techniques like quantization (reducing parameter precision from 16-bit to 4-bit), model sharding (splitting a model across devices), and offloading (moving layers between RAM and VRAM) help fit larger models into limited memory. Understanding RAM requirements is essential when selecting hardware for training or deploying AI models.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "inference",
+      "large-language-model",
+      "fine-tuning"
+    ],
+    "lastUpdated": "2026-02-25"
+  },
+  {
+    "name": "Tool Calling",
+    "slug": "tool-calling",
+    "shortDef": "A capability that allows large language models to invoke external functions, APIs, or tools to perform actions beyond text generation.",
+    "fullDef": "Tool calling (also known as function calling) is a feature of modern large language models that enables them to interact with external systems by generating structured requests to invoke specific tools. Instead of only producing text responses, the model can decide when to call a tool, specify the required arguments, and incorporate the tool's output into its response.\n\nWhen a model supports tool calling, the developer defines a set of available tools with their names, descriptions, and parameter schemas. During inference, the model analyzes the user's request and determines whether any tools should be invoked. If so, it outputs a structured tool call (typically in JSON format) rather than a plain text response. The application then executes the tool, returns the result to the model, and the model generates a final response incorporating that information.\n\nTool calling is a foundational capability for building AI agents and assistants that can take real-world actions. Common examples include searching the web, querying databases, calling APIs, performing calculations, reading files, and executing code. Models from OpenAI, Anthropic, Google, and others support tool calling, making it a standard interface for extending LLM capabilities beyond their training data.",
+    "category": "Agents",
+    "relatedTerms": [
+      "ai-agent",
+      "large-language-model",
+      "prompt-engineering"
+    ],
+    "lastUpdated": "2026-02-25"
+  },
+  {
+    "name": "Ollama",
+    "slug": "ollama",
+    "shortDef": "An open-source tool for running large language models locally on personal computers with a simple command-line interface.",
+    "fullDef": "Ollama is an open-source application that makes it easy to download, run, and manage large language models on local hardware. It provides a simple command-line interface and a REST API, abstracting away the complexity of model quantization, memory management, and GPU acceleration so that users can run LLMs with minimal setup.\n\nOllama packages models using a format inspired by Docker, where each model is defined by a \"Modelfile\" that specifies the base model, parameters, system prompts, and other configuration. Users can pull pre-built models from the Ollama library (including Llama, Mistral, Gemma, Phi, and many others) or create custom models by modifying existing ones. The tool automatically handles quantization and hardware detection to optimize performance.\n\nOllama has become popular in the developer community for local AI development, prototyping, and privacy-sensitive applications where sending data to cloud APIs is not desirable. It runs on macOS, Linux, and Windows, supports both CPU and GPU inference, and integrates with tools like Open WebUI, LangChain, and various IDE extensions for code completion.",
+    "category": "Platforms & Tools",
+    "relatedTerms": [
+      "large-language-model",
+      "inference",
+      "ram"
     ],
     "lastUpdated": "2026-02-25"
   }

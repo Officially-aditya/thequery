@@ -88,11 +88,11 @@ export default function AdminPage() {
           <p className="text-sm text-text-secondary">Manage glossary terms</p>
         </Link>
         <Link
-          href="/admin/digest"
+          href="/admin/articles"
           className="block p-6 border border-border rounded-lg hover:border-accent transition-colors"
         >
-          <h2 className="font-serif text-lg font-semibold text-text-primary mb-1">Digest</h2>
-          <p className="text-sm text-text-secondary">Manage weekly digest issues</p>
+          <h2 className="font-serif text-lg font-semibold text-text-primary mb-1">Articles</h2>
+          <p className="text-sm text-text-secondary">Manage articles</p>
         </Link>
       </div>
     </div>

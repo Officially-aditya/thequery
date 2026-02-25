@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllBooks } from "@/lib/books";
 import { getAllTerms } from "@/lib/glossary";
-import { getAllIssues } from "@/lib/digest";
+import { getAllIssues } from "@/lib/articles";
 
 const BASE_URL = "https://thequery.in";
 
@@ -10,7 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: BASE_URL, lastModified: new Date(), changeFrequency: "weekly", priority: 1 },
     { url: `${BASE_URL}/books`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/glossary`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
-    { url: `${BASE_URL}/digest`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE_URL}/articles`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
   ];
 
   // Books and chapters
@@ -39,10 +39,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  // Digest issues
+  // Articles
   for (const issue of getAllIssues()) {
     entries.push({
-      url: `${BASE_URL}/digest/${issue.slug}`,
+      url: `${BASE_URL}/articles/${issue.slug}`,
       lastModified: new Date(issue.date),
       changeFrequency: "yearly",
       priority: 0.5,

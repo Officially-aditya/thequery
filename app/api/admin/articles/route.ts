@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { isAuthenticated } from "@/lib/auth";
-import { getAllIssues, saveAllIssues, type DigestIssue } from "@/lib/digest";
+import { getAllIssues, saveAllIssues, type Article } from "@/lib/articles";
 
 async function checkAuth() {
   if (!(await isAuthenticated())) {
@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
   const authErr = await checkAuth();
   if (authErr) return authErr;
 
-  const issue: DigestIssue = await req.json();
+  const issue: Article = await req.json();
   const issues = getAllIssues();
 
   const existing = issues.findIndex((i) => i.slug === issue.slug);
