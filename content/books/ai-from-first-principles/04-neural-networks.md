@@ -1,7 +1,7 @@
-# Chapter 4 — Neural Networks: When Simplicity Failed
+# Chapter 4 - Neural Networks: When Simplicity Failed
 
 ## The Crux
-For decades, ML was linear models and hand-crafted features. Then we hit a wall: some patterns are too complex to engineer by hand. Neural networks didn't win because they're better in all cases—they won because they scale to complexity that breaks classical methods.
+For decades, ML was linear models and hand-crafted features. Then we hit a wall: some patterns are too complex to engineer by hand. Neural networks didn't win because they're better in all cases-they won because they scale to complexity that breaks classical methods.
 
 ## Why Deep Learning Was Inevitable
 
@@ -1671,7 +1671,7 @@ where η is the learning rate.
 ### Computational Complexity
 
 **Forward pass**: O(nm + mk) for matrix multiplications
-**Backward pass**: Same complexity—each gradient computation mirrors the forward operation
+**Backward pass**: Same complexity-each gradient computation mirrors the forward operation
 
 **Key Insight**: Backpropagation computes all gradients in one backward sweep with the same computational cost as the forward pass. This is why it's efficient.
 
@@ -1900,7 +1900,7 @@ v_t = β v_{t-1} + ∇L(θ_t - η β v_{t-1})
 
 Instead of computing gradient at current position, compute it at "lookahead" position θ_t - η β v_{t-1}.
 
-This provides a form of "error correction"—if momentum is carrying us in the wrong direction, the lookahead gradient corrects it.
+This provides a form of "error correction"-if momentum is carrying us in the wrong direction, the lookahead gradient corrects it.
 
 ### RMSProp: Adaptive Learning Rates
 
@@ -2203,7 +2203,7 @@ Model doesn't have enough capacity to learn the pattern.
 - Train longer
 - Better features or preprocessing
 
-## War Story: A Neural Network That Never Learned—And Why
+## War Story: A Neural Network That Never Learned-And Why
 
 **The Setup**: A team was training a CNN for medical image classification (X-rays → disease present/absent).
 

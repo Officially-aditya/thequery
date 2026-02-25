@@ -1,4 +1,4 @@
-# Chapter 5 — Transformers & LLMs: Attention Changed Everything
+# Chapter 5 - Transformers & LLMs: Attention Changed Everything
 
 ## The Crux
 For years, sequence modeling meant RNNs: process one word at a time, remember the past. It worked, but it was slow and forgot long-range dependencies. Then transformers arrived: process everything in parallel, use attention to find what matters. This architecture unlocked LLMs, changed NLP, and is spreading to images, video, and more.
@@ -416,7 +416,7 @@ The learned Q, K, V matrices determine what's relevant.
 
 ## What Embeddings Really Represent
 
-Before diving into transformers, let's clarify embeddings—they're everywhere in modern AI.
+Before diving into transformers, let's clarify embeddings-they're everywhere in modern AI.
 
 ### The Problem: Words Aren't Numbers
 
@@ -457,7 +457,7 @@ Paris - France + Germany ≈ Berlin
 
 Attention has no notion of order. "Dog bites man" and "Man bites dog" look the same to raw attention.
 
-**Solution**: Add positional encodings—vectors that encode position (1st word, 2nd word, etc.). Now the model knows order.
+**Solution**: Add positional encodings-vectors that encode position (1st word, 2nd word, etc.). Now the model knows order.
 
 ### Positional Encoding Theory: Teaching Order to Transformers
 
@@ -1159,7 +1159,7 @@ The model sees: "Paris is the capital of France."
 
 It generalizes: "X is the capital of Y."
 
-When prompted about a fictional country, it generates a plausible-sounding capital—even though it's made up.
+When prompted about a fictional country, it generates a plausible-sounding capital-even though it's made up.
 
 ### Reason #4: No Uncertainty Representation
 

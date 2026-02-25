@@ -2,10 +2,10 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "TheQuery — AI Knowledge from First Principles",
-  description: "Free technical books, 100+ glossary terms, and a weekly digest covering AI, machine learning, and deep learning — written from first principles.",
+  title: "TheQuery - AI Knowledge from First Principles",
+  description: "Free technical books, 100+ glossary terms, and a weekly digest covering AI, machine learning, and deep learning - written from first principles.",
   openGraph: {
-    title: "TheQuery — AI Knowledge from First Principles",
+    title: "TheQuery - AI Knowledge from First Principles",
     description: "Free technical books, 100+ glossary terms, and a weekly digest covering AI, machine learning, and deep learning.",
   },
 };
@@ -13,17 +13,17 @@ export const metadata: Metadata = {
 const sections = [
   {
     title: "Books",
-    description: "Two free technical books on AI fundamentals and RAG systems — written from first principles, readable online or downloadable as PDF.",
+    description: "Two free technical books on AI fundamentals and RAG systems - written from first principles, readable online or downloadable as PDF.",
     href: "/books",
   },
   {
     title: "Glossary",
-    description: "100+ AI and ML terms explained clearly — from backpropagation to knowledge graphs, always up to date.",
+    description: "100+ AI and ML terms explained clearly - from backpropagation to knowledge graphs, always up to date.",
     href: "/glossary",
   },
   {
     title: "Weekly Digest",
-    description: "A weekly roundup of what actually matters in AI — no hype, just signal.",
+    description: "A weekly roundup of what actually matters in AI - no hype, just signal.",
     href: "/digest",
   },
 ];

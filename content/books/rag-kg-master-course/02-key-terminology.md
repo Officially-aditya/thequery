@@ -258,7 +258,7 @@ MRR = (1/|Q|) Σ 1/rankᵢ
 
 **Directed Graph** (Digraph): A graph where edges have direction (A→B is different from B→A).
 
-**Undirected Graph**: A graph where edges are bidirectional (A—B means both directions).
+**Undirected Graph**: A graph where edges are bidirectional (A-B means both directions).
 
 **Weighted Graph**: A graph where edges have associated weights/values.
 
@@ -552,7 +552,7 @@ MRR = (1/|Q|) Σ 1/rankᵢ
 
 **u → v**: Directed edge from u to v
 
-**u — v**: Undirected edge between u and v
+**u - v**: Undirected edge between u and v
 
 **deg(v)**: Degree of vertex v (number of edges connected to it)
 

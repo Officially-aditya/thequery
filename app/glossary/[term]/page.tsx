@@ -17,9 +17,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const term = getTermBySlug(slug);
   if (!term) return {};
   return {
-    title: `${term.name} — AI Glossary`,
+    title: `${term.name} - AI Glossary`,
     description: term.shortDef,
-    openGraph: { title: `${term.name} — AI Glossary`, description: term.shortDef },
+    openGraph: { title: `${term.name} - AI Glossary`, description: term.shortDef },
   };
 }
 

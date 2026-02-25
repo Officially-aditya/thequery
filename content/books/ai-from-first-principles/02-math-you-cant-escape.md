@@ -1,4 +1,4 @@
-# Chapter 2 — Math You Can't Escape (But Can Tame)
+# Chapter 2 - Math You Can't Escape (But Can Tame)
 
 ## The Crux
 You can avoid some math in AI. You can't avoid all of it. The good news: you don't need PhD-level math. You need *intuition* for a few key concepts. This chapter builds that intuition without drowning you in proofs.
@@ -109,7 +109,7 @@ P(A|B) = P(B|A) P(A) / P(B)
 
 **Intuition**: You know "90% of spam contains word X" but you want to know "if an email contains word X, what's the probability it's spam?" Bayes' rule lets you flip the question.
 
-**In AI**: Naive Bayes classifiers, Bayesian inference, posterior distributions—all Bayes' rule.
+**In AI**: Naive Bayes classifiers, Bayesian inference, posterior distributions-all Bayes' rule.
 
 ### Common Misconception: "I'll Learn Probability Later"
 
@@ -151,19 +151,19 @@ H(X) = -∑ᵢ p(xᵢ) log₂ p(xᵢ)
    ```
    H(X) = -0.99 log₂(0.99) - 0.01 log₂(0.01) ≈ 0.08 bits
    ```
-   Low uncertainty. Outcome is almost always heads—you can compress this information.
+   Low uncertainty. Outcome is almost always heads-you can compress this information.
 
 3. **Deterministic**: p(heads) = 1.0, p(tails) = 0.0
    ```
    H(X) = -1.0 log₂(1.0) - 0 log₂(0) = 0 bits
    ```
-   No uncertainty. You don't need to transmit anything—the outcome is known.
+   No uncertainty. You don't need to transmit anything-the outcome is known.
 
 **Key Property**: Entropy is maximized when all outcomes are equally likely (uniform distribution).
 
 For n outcomes: H_max = log₂(n)
 
-**In AI**: Entropy measures model uncertainty. High entropy = model is uncertain about predictions. Low entropy = model is confident (could be good or bad—confident and wrong is worse than uncertain).
+**In AI**: Entropy measures model uncertainty. High entropy = model is uncertain about predictions. Low entropy = model is confident (could be good or bad-confident and wrong is worse than uncertain).
 
 ### Cross-Entropy: Comparing Distributions
 
@@ -177,7 +177,7 @@ Where:
 - p = true distribution
 - q = predicted distribution
 
-**Intuition**: If your model (q) perfectly matches reality (p), cross-entropy equals entropy. If they differ, cross-entropy is higher—you're using a suboptimal encoding.
+**Intuition**: If your model (q) perfectly matches reality (p), cross-entropy equals entropy. If they differ, cross-entropy is higher-you're using a suboptimal encoding.
 
 **Example**:
 
@@ -236,7 +236,7 @@ D_KL(p || q) = 0.5 log(0.5/0.9) + 0.5 log(0.5/0.1)
 
 This measures how much worse q is compared to p for encoding the true distribution.
 
-**In AI**: When training classifiers, we minimize cross-entropy, which is equivalent to minimizing KL divergence (since H(p) is constant—it's the true data distribution). We're making our model's predictions q match the true distribution p.
+**In AI**: When training classifiers, we minimize cross-entropy, which is equivalent to minimizing KL divergence (since H(p) is constant-it's the true data distribution). We're making our model's predictions q match the true distribution p.
 
 ### Why Cross-Entropy Loss Works: The Mathematical Connection
 
@@ -378,7 +378,7 @@ At x=3, derivative = 6. Meaning: if you increase x slightly, f(x) increases 6 ti
 
 ### Gradients: Derivatives in High Dimensions
 
-A gradient is just a vector of derivatives—one for each parameter.
+A gradient is just a vector of derivatives-one for each parameter.
 
 If your model has 1 million parameters, the gradient is a 1-million-dimensional vector pointing in the direction of steepest increase in loss.
 

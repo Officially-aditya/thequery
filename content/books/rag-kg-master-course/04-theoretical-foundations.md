@@ -739,7 +739,7 @@ Recall@5 = "What fraction of relevant docs are in top 5?"
    - Example: "Alice follows Bob" (Twitter)
 
 2. **Undirected Graph**:
-   - Edges are bidirectional: A — B = B — A
+   - Edges are bidirectional: A - B = B - A
    - Example: "Alice is friends with Bob" (Facebook)
 
 3. **Weighted Graph**:
@@ -1134,9 +1134,9 @@ def betweenness_centrality(graph):
 
 **Example**:
 ```
-Network:  A—B—C—D—E
+Network:  A-B-C-D-E
           |     |
-          F—G—H—I
+          F-G-H-I
 
 Betweenness:
 - B: High (bridges A and C-D-E)
@@ -1273,9 +1273,9 @@ C = 3 × (number of triangles) / (number of connected triples)
 
 **Example**:
 ```
-Graph:  A—B—C
+Graph:  A-B-C
         |/  |
-        D—E—F
+        D-E-F
 
 Triangles: {A,B,D}, {C,E,F}
 C(B) = 2×1 / (3×2) = 1/3  (1 triangle, 3 neighbors)

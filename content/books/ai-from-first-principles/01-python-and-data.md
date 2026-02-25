@@ -1,7 +1,7 @@
-# Chapter 1 — Python & Data: The Unsexy Foundation
+# Chapter 1 - Python & Data: The Unsexy Foundation
 
 ## The Crux
-You want to learn AI, so you're probably eager to jump into neural networks and transformers. Stop. The real bottleneck isn't fancy algorithms—it's **data quality** and **infrastructure**. This chapter is about the unglamorous reality: 90% of AI work is data plumbing.
+You want to learn AI, so you're probably eager to jump into neural networks and transformers. Stop. The real bottleneck isn't fancy algorithms-it's **data quality** and **infrastructure**. This chapter is about the unglamorous reality: 90% of AI work is data plumbing.
 
 ## Why Python Won (And Why It's Imperfect)
 
@@ -16,7 +16,7 @@ In the late 1990s, numeric Python (NumPy) provided array operations that were fa
 Once researchers built scikit-learn, pandas, matplotlib on NumPy, switching costs became prohibitive. The ecosystem is now massive.
 
 **3. Readability for Non-Programmers**
-Many AI researchers aren't software engineers—they're statisticians, physicists, domain experts. Python's readability lowered the barrier.
+Many AI researchers aren't software engineers-they're statisticians, physicists, domain experts. Python's readability lowered the barrier.
 
 **4. Interactive Development**
 Jupyter notebooks let you experiment cell-by-cell. This matches the exploratory nature of data work.
@@ -27,7 +27,7 @@ Jupyter notebooks let you experiment cell-by-cell. This matches the exploratory 
 
 **Performance**: Python is slow. Everything fast is actually C/C++/CUDA underneath. You're writing Python glue code over compiled libraries.
 
-**Packaging Hell**: Dependency management is a mess. `pip`, `conda`, `poetry`, virtual environments—it's a fractal of complexity.
+**Packaging Hell**: Dependency management is a mess. `pip`, `conda`, `poetry`, virtual environments-it's a fractal of complexity.
 
 **The GIL**: Python's Global Interpreter Lock means true parallelism is painful. You'll learn to live with it.
 
@@ -77,7 +77,7 @@ Let me show you the most common bugs with concrete code examples. Run these your
 
 **What It Is**: Your training data accidentally contains information from the future or from the thing you're trying to predict.
 
-**Example**: You're predicting if a customer will churn. Your dataset includes "days_since_last_login"—but you calculated that *after* seeing if they churned. Active users have low values, churned users have high values. Your model learns this perfect correlation and gets 99% accuracy.
+**Example**: You're predicting if a customer will churn. Your dataset includes "days_since_last_login"-but you calculated that *after* seeing if they churned. Active users have low values, churned users have high values. Your model learns this perfect correlation and gets 99% accuracy.
 
 In production? It can't see the future. Accuracy: 60%.
 
@@ -194,9 +194,9 @@ Model WITHOUT leakage - Test Accuracy: 67.33%
 ============================================================
 ```
 
-**The Lesson**: Features calculated using information from the future are leakage. In production, you don't know if someone will churn yet—that's what you're trying to predict! Always ask: "Will this feature be available at prediction time?"
+**The Lesson**: Features calculated using information from the future are leakage. In production, you don't know if someone will churn yet-that's what you're trying to predict! Always ask: "Will this feature be available at prediction time?"
 
-**War Story**: A fraud detection model at a fintech company achieved 95% accuracy. Amazing! They deployed it. It immediately failed. Why? Training data included "transaction_reversed" as a feature. Fraudulent transactions were flagged and reversed—after the fact. The model learned: if reversed, fraud. But at prediction time, you don't know if it'll be reversed yet.
+**War Story**: A fraud detection model at a fintech company achieved 95% accuracy. Amazing! They deployed it. It immediately failed. Why? Training data included "transaction_reversed" as a feature. Fraudulent transactions were flagged and reversed-after the fact. The model learned: if reversed, fraud. But at prediction time, you don't know if it'll be reversed yet.
 
 ### Bug #2: Training/Test Contamination
 
@@ -376,7 +376,7 @@ This is why you must split correctly!
 
 **What It Is**: Your data only includes examples that "survived" some selection process.
 
-**Example**: You're predicting which startups will succeed. Your dataset: startups that got funding. Guess what? Startups that never got funding—which are the majority—aren't in your data. Your model can't learn the patterns of early failure.
+**Example**: You're predicting which startups will succeed. Your dataset: startups that got funding. Guess what? Startups that never got funding-which are the majority-aren't in your data. Your model can't learn the patterns of early failure.
 
 ### Bug #5: Encoding Errors
 
@@ -407,7 +407,7 @@ This is why you must split correctly!
 Not if it's bad data. 100,000 clean examples beat 10 million noisy ones. Quality > quantity.
 
 ### "Just throw it in a neural network, it'll figure it out"
-Neural networks amplify patterns in data—including bugs. Garbage in, garbage out, but faster and at scale.
+Neural networks amplify patterns in data-including bugs. Garbage in, garbage out, but faster and at scale.
 
 ### "We'll clean the data after we see if the model works"
 You can't evaluate a model trained on dirty data. Clean first, or you'll waste weeks chasing ghosts.
@@ -465,7 +465,7 @@ data = debug_data_again(data)
 **Variations to Try**:
 - Swap label encoding (0/1 vs 1/0) midway through the dataset
 - Add missing values but only to one class
-- Include test examples in training (shuffle, then split—oops)
+- Include test examples in training (shuffle, then split-oops)
 
 **Key Insight**: Data bugs are silent killers. Building intuition for what can go wrong is more valuable than knowing fancy algorithms.
 

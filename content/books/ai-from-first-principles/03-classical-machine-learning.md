@@ -1,4 +1,4 @@
-# Chapter 3 — Classical Machine Learning: Thinking in Features
+# Chapter 3 - Classical Machine Learning: Thinking in Features
 
 ## The Crux
 Neural networks get all the hype, but most production ML is still "classical" methods: linear models, decision trees, ensembles. Why? They're interpretable, debuggable, and often work better with small data. This chapter is about thinking in features, not layers.
@@ -45,7 +45,7 @@ When a neural net fails:
 Linear model prediction: microseconds.
 Neural network prediction: milliseconds (or worse).
 
-At scale, milliseconds matter. Ad auctions, fraud detection, recommendation serving—latency is money.
+At scale, milliseconds matter. Ad auctions, fraud detection, recommendation serving-latency is money.
 
 ## The Core Idea: Features Are Everything
 
@@ -84,7 +84,7 @@ Now the model can capture:
 
 ### The Dirty Secret
 
-Deep learning automates feature engineering. Instead of hand-crafting features, you let the network learn them. But if you have domain knowledge, hand-crafted features often beat learned ones—especially with limited data.
+Deep learning automates feature engineering. Instead of hand-crafting features, you let the network learn them. But if you have domain knowledge, hand-crafted features often beat learned ones-especially with limited data.
 
 ## Bias-Variance Tradeoff: The Central Dogma
 
@@ -152,7 +152,7 @@ Loss = Error + λ * (sum of squared weights)
 Loss = Error + λ * (sum of absolute weights)
 ```
 
-**Effect**: Some weights go exactly to zero. You get **feature selection**—unimportant features are ignored.
+**Effect**: Some weights go exactly to zero. You get **feature selection**-unimportant features are ignored.
 
 **When to use**: Many features, you suspect most are irrelevant.
 
@@ -167,7 +167,7 @@ Finding the right λ is model selection (via cross-validation).
 
 ### The Mathematics of Regularization: Why It Works
 
-Regularization isn't just a heuristic—it has deep mathematical foundations. This section rigorously derives why penalizing weights improves generalization.
+Regularization isn't just a heuristic-it has deep mathematical foundations. This section rigorously derives why penalizing weights improves generalization.
 
 **The Fundamental Problem**: Given training data {(x₁, y₁), ..., (xₙ, yₙ)}, find weights θ that minimize:
 
@@ -336,7 +336,7 @@ L_ElasticNet(θ) = ||y - Xθ||² + λ₁||θ||₁ + λ₂||θ||²
 
 1. **Grouped selection**: When features are correlated, Lasso picks one arbitrarily. Elastic net encourages selecting all correlated features together (Ridge behavior) while still doing feature selection (Lasso behavior).
 
-2. **Stability**: Lasso can be unstable with correlated features—small data changes lead to different feature selections. Elastic net is more stable.
+2. **Stability**: Lasso can be unstable with correlated features-small data changes lead to different feature selections. Elastic net is more stable.
 
 **Typical parameterization**:
 ```
@@ -350,7 +350,7 @@ where α ∈ [0, 1] controls L1/L2 mix:
 
 #### Dropout: Stochastic Regularization for Neural Networks
 
-Dropout (Srivastava et al., 2014) is a different beast—it's regularization via randomness.
+Dropout (Srivastava et al., 2014) is a different beast-it's regularization via randomness.
 
 **Algorithm** (training):
 For each mini-batch:

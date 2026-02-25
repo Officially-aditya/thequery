@@ -1,4 +1,4 @@
-# Chapter 6 — Modern AI Systems: RAG, Agents, and Glue Code
+# Chapter 6 - Modern AI Systems: RAG, Agents, and Glue Code
 
 ## The Crux
 Models alone are useless. Real AI systems are models + data pipelines + retrieval + guardrails + monitoring + glue code. This chapter is about engineering AI into production, not just training models.
@@ -35,7 +35,7 @@ Instead of asking the LLM to answer directly:
 
 ### Why It Works
 
-The LLM doesn't need to memorize every fact. It just needs to read context and extract answers—something LLMs are good at.
+The LLM doesn't need to memorize every fact. It just needs to read context and extract answers-something LLMs are good at.
 
 ### Architecture
 
@@ -137,7 +137,7 @@ You can train a model overnight. Evaluating it properly takes weeks.
 ### Why Evaluation Is Hard
 
 **Problem #1: Metrics lie**
-Accuracy, F1, AUC—all are proxies. They don't capture user satisfaction, edge cases, or silent failures.
+Accuracy, F1, AUC-all are proxies. They don't capture user satisfaction, edge cases, or silent failures.
 
 **Problem #2: Test sets drift**
 Your test set is from last year. User behavior changed. Your metrics don't reflect production reality.
@@ -151,7 +151,7 @@ Your model works on random test examples. What about adversarial ones? Users wil
 ### How to Evaluate Properly
 
 **1. Holdout sets that match production distribution**
-Don't just split randomly. Split by time, geography, user type—whatever matches how you'll deploy.
+Don't just split randomly. Split by time, geography, user type-whatever matches how you'll deploy.
 
 **2. A/B testing**
 Deploy to a small percentage of users. Measure real metrics (engagement, revenue, errors).
@@ -198,7 +198,7 @@ What if the API times out? The LLM returns garbage? The database is down? Always
 Real AI systems:
 
 - **Are mostly glue code**: 70% data pipelines, API integrations, error handling. 20% monitoring and retraining. 10% model training.
-- **Require monitoring**: Model drift, data drift, latency, errors—all need dashboards and alerts.
+- **Require monitoring**: Model drift, data drift, latency, errors-all need dashboards and alerts.
 - **Degrade gracefully**: If the model fails, fall back to rules or human escalation.
 - **Cost real money**: LLM API calls, GPU inference, storage, bandwidth. Optimize aggressively.
 

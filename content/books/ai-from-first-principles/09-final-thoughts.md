@@ -16,7 +16,7 @@ You've now seen AI from first principles: not as magic, but as optimization, pat
 4. Join communities (forums, Discord, conferences). Learn from practitioners.
 5. Stay skeptical. Question hype. Demand evidence.
 
-Good luck. The field needs developers who understand AI deeply—not just how to call APIs, but how to build, debug, and deploy robust intelligent systems.
+Good luck. The field needs developers who understand AI deeply-not just how to call APIs, but how to build, debug, and deploy robust intelligent systems.
 
 Now go build something real.
 

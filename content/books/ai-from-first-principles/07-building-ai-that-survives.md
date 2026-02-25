@@ -1,4 +1,4 @@
-# Chapter 7 — Building AI That Survives Reality
+# Chapter 7 - Building AI That Survives Reality
 
 ## The Crux
 Training a model is the beginning, not the end. Real AI systems must survive production: user drift, data drift, adversarial inputs, scaling, cost constraints. This chapter is about the unglamorous, essential work of making AI reliable.
@@ -549,7 +549,7 @@ KEY TAKEAWAYS:
 • Log predictions and ground truth for performance tracking
 ```
 
-**The Key Insight**: This example shows why production ML systems need continuous monitoring. The 2020 spam classifier worked great—until spammers evolved. Without drift detection, you wouldn't know your model was failing until users complained. With monitoring, you catch the problem early and retrain proactively.
+**The Key Insight**: This example shows why production ML systems need continuous monitoring. The 2020 spam classifier worked great-until spammers evolved. Without drift detection, you wouldn't know your model was failing until users complained. With monitoring, you catch the problem early and retrain proactively.
 
 **Production Implementation Notes**:
 - Use a proper feature store (Feast, Tecton) to track feature distributions over time
@@ -681,7 +681,7 @@ Set up monitoring from day one. Production failures are inevitable.
 Optimize for the metric that matters: user satisfaction, revenue, latency, cost.
 
 **Trap #3: Not planning for retraining**
-Fresh data, retraining pipelines, versioning—all need to be in place before launch.
+Fresh data, retraining pipelines, versioning-all need to be in place before launch.
 
 **Trap #4: Adding AI because it's trendy**
 Ask: "What problem does this solve?" If the answer is vague, don't build it.

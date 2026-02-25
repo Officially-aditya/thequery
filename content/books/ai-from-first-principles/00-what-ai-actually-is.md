@@ -1,9 +1,9 @@
-# Chapter 0 — What AI Actually Is (And Isn't)
+# Chapter 0 - What AI Actually Is (And Isn't)
 
 ## The Crux
-You've probably heard AI will change everything. Maybe it will. But before we get carried away, let's understand what AI actually *is*—and more importantly, what it *isn't*. This chapter is about stripping away the mysticism and seeing AI for what it really is: optimization at scale.
+You've probably heard AI will change everything. Maybe it will. But before we get carried away, let's understand what AI actually *is*-and more importantly, what it *isn't*. This chapter is about stripping away the mysticism and seeing AI for what it really is: optimization at scale.
 
-If you walk away from this chapter with one insight, let it be this: **AI systems don't understand anything. They optimize loss functions over training data.** Everything else—the apparent intelligence, the creativity, the human-like responses—is an emergent property of pattern matching at massive scale.
+If you walk away from this chapter with one insight, let it be this: **AI systems don't understand anything. They optimize loss functions over training data.** Everything else-the apparent intelligence, the creativity, the human-like responses-is an emergent property of pattern matching at massive scale.
 
 ## The Problem: Everyone's Confused
 
@@ -25,7 +25,7 @@ Let's start by clearing up some terminology that causes endless confusion:
 
 **Large Language Models (LLMs)**: A type of deep learning model trained on massive text datasets to predict and generate language.
 
-The confusion comes from the fact that these terms get used interchangeably in marketing, but they represent different levels of specificity. When someone says "AI," they might mean a simple decision tree or GPT-4—very different things.
+The confusion comes from the fact that these terms get used interchangeably in marketing, but they represent different levels of specificity. When someone says "AI," they might mean a simple decision tree or GPT-4-very different things.
 
 ## AI as Optimization, Not Intelligence
 
@@ -36,7 +36,7 @@ You give a system:
 2. **A way to measure success (loss function)**: How wrong are the predictions?
 3. **A mechanism to adjust itself (optimization)**: Gradient descent or similar algorithms
 
-The system then finds patterns in those examples that minimize errors. It's not "learning" in any human sense—it's *curve fitting at cosmic scale*.
+The system then finds patterns in those examples that minimize errors. It's not "learning" in any human sense-it's *curve fitting at cosmic scale*.
 
 Let me make this concrete with code. Here's the simplest possible AI system:
 
@@ -196,7 +196,7 @@ print(f"Final Rating: {final_rating:.2f}/10")
 
 **Key Insight**: The robot doesn't understand "salty" or "delicious." It just adjusted numbers until the rating went up. When you ask it "why did you add oregano?", the honest answer is: "Because that number being ~2.0 correlated with higher ratings in my training data."
 
-This is exactly how neural networks work—just with millions of parameters instead of 4 ingredients.
+This is exactly how neural networks work-just with millions of parameters instead of 4 ingredients.
 
 ## Why "Learning" Is a Misleading Word
 
@@ -347,7 +347,7 @@ Test Accuracy (no background correlation): 62.50%
 
 ## Another War Story: Amazon's Hiring AI
 
-**The Setup**: Amazon built an AI to screen resumes. It was trained on 10 years of hiring data—resumes of people who were hired and succeeded.
+**The Setup**: Amazon built an AI to screen resumes. It was trained on 10 years of hiring data-resumes of people who were hired and succeeded.
 
 **The Logic**: Seems reasonable. Learn patterns from successful candidates, find more like them.
 
@@ -357,7 +357,7 @@ Test Accuracy (no background correlation): 62.50%
 
 **Amazon scrapped it.**
 
-**The Lesson**: AI doesn't learn what you *want* it to learn. It learns whatever patterns minimize loss on your training data. If your data has bias, your model will have bias—optimized and amplified.
+**The Lesson**: AI doesn't learn what you *want* it to learn. It learns whatever patterns minimize loss on your training data. If your data has bias, your model will have bias-optimized and amplified.
 
 ## Things That Will Confuse You
 

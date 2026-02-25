@@ -25,7 +25,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "TheQuery — AI Knowledge from First Principles",
+    default: "TheQuery - AI Knowledge from First Principles",
     template: "%s | TheQuery",
   },
   description: "AI knowledge from first principles. Books, glossary, and weekly digest covering machine learning, deep learning, and artificial intelligence.",
