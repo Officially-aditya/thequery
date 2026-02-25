@@ -2580,5 +2580,43 @@
       "ram"
     ],
     "lastUpdated": "2026-02-25"
+  },
+  {
+    "name": "Pattern Matching",
+    "slug": "pattern-matching",
+    "shortDef": "A technique for checking data against a set of predefined patterns or rules, used in programming languages, text processing, and machine learning.",
+    "fullDef": "Pattern matching is the process of checking a given sequence of data against a set of patterns to determine whether it conforms to expected structures. It appears across multiple domains in computer science, from simple string matching with regular expressions to complex structural matching in functional programming languages like Rust, Haskell, and Scala.\n\nIn machine learning and AI, pattern matching takes on a broader meaning. Models learn to recognize patterns in training data - edges and textures in images, syntactic structures in language, or anomalous sequences in time series. Classical approaches like template matching compare input directly against stored templates, while modern deep learning systems learn hierarchical pattern representations automatically through training.\n\nPattern matching is also fundamental to information retrieval and natural language processing. Search engines match query patterns against document indices, regular expressions extract structured data from unstructured text, and named entity recognition systems match text spans against learned entity patterns. The concept bridges rule-based and learned approaches, making it one of the most broadly applicable ideas in computing.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "named-entity-recognition",
+      "semantic-search",
+      "machine-learning"
+    ],
+    "lastUpdated": "2026-02-25"
+  },
+  {
+    "name": "Vibe Coding",
+    "slug": "vibe-coding",
+    "shortDef": "A software development approach where a programmer describes what they want in natural language and an AI model generates the code, with the programmer guiding the process through conversation rather than writing code directly.",
+    "fullDef": "Vibe coding is a term coined by Andrej Karpathy in early 2025 to describe a programming workflow where the developer \"fully gives in to the vibes\" and lets an AI assistant write the code. Rather than typing code line by line, the programmer describes their intent in plain language, reviews what the AI produces, and steers the direction through iterative conversation. The human focuses on what the software should do while the AI handles how to implement it.\n\nThe approach relies on large language models with strong code generation capabilities, integrated into tools like Cursor, GitHub Copilot, Claude Code, or similar AI-powered development environments. The programmer acts more as a creative director than a typist, describing features, pointing out bugs, and requesting changes in natural language. Testing and running the code still provides the ground truth for whether the output works.\n\nVibe coding has sparked debate in the software engineering community. Proponents argue it dramatically lowers the barrier to building software and lets experienced developers prototype faster. Critics point out that code generated without deep understanding can introduce subtle bugs, security vulnerabilities, and technical debt. The approach works best for prototyping, personal projects, and exploratory work, while production systems typically still require careful human review and architectural oversight.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "large-language-model",
+      "prompt-engineering",
+      "ai-agent"
+    ],
+    "lastUpdated": "2026-02-25"
+  },
+  {
+    "name": "Zero-day",
+    "slug": "zero-day",
+    "shortDef": "A software vulnerability that is unknown to the vendor and has no available patch, giving defenders zero days of warning before it can be exploited.",
+    "fullDef": "A zero-day (also written as 0-day) is a security vulnerability in software or hardware that is unknown to the party responsible for fixing it, typically the vendor or developer. The name refers to the fact that developers have had zero days to address and patch the flaw since its discovery. A zero-day exploit is an attack that takes advantage of such a vulnerability before a fix is available.\n\nZero-days are considered among the most dangerous security threats because traditional defenses like signature-based antivirus or patching cannot protect against them. They are discovered through reverse engineering, fuzzing, source code analysis, or in-the-wild observation. Once a zero-day is publicly disclosed or a patch is released, it ceases to be a zero-day, though unpatched systems remain vulnerable.\n\nIn the context of AI and machine learning, zero-days are relevant in multiple ways. AI systems themselves can contain zero-day vulnerabilities in their serving infrastructure, model APIs, or inference engines. Conversely, machine learning is increasingly used for zero-day detection, with anomaly detection models identifying unusual system behavior that may indicate exploitation of unknown vulnerabilities. AI-powered fuzzing tools can also discover zero-days faster than traditional methods, making the intersection of AI and security an active area of research.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "machine-learning",
+      "inference"
+    ],
+    "lastUpdated": "2026-02-25"
   }
 ]
