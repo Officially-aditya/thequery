@@ -31,9 +31,12 @@ export default function ArticlesPage() {
               href={`/articles/${issue.slug}`}
               className="block p-5 border border-border rounded-lg hover:border-accent transition-colors group"
             >
-              <h2 className="font-serif text-lg font-semibold text-text-primary group-hover:text-accent transition-colors mb-2">
+              <h2 className="font-serif text-lg font-semibold text-text-primary group-hover:text-accent transition-colors mb-1">
                 {issue.title}
               </h2>
+              <p className="text-xs text-text-muted mb-2">
+                {new Date(issue.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+              </p>
               <p className="text-sm text-text-secondary leading-relaxed">
                 {issue.summary}
               </p>

@@ -23,7 +23,7 @@ const sections = [
   },
   {
     title: "Articles",
-    description: "A weekly roundup of what actually matters in AI - no hype, just signal.",
+    description: "Detailed reports on what is happening in the field of AI, updated regularly.",
     href: "/articles",
   },
 ];

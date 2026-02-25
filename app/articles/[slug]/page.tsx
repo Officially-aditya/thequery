@@ -35,9 +35,12 @@ export default async function ArticlePage({ params }: Props) {
         &larr; All Articles
       </Link>
 
-      <h1 className="font-serif text-3xl font-bold text-text-primary mb-8">
+      <h1 className="font-serif text-3xl font-bold text-text-primary mb-2">
         {issue.title}
       </h1>
+      <p className="text-sm text-text-muted mb-8">
+        {new Date(issue.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+      </p>
 
       <MarkdownRenderer content={issue.content} glossaryTerms={getAllTerms().map((t) => ({ name: t.name, slug: t.slug }))} />
     </div>
