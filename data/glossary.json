@@ -198,7 +198,7 @@
     "name": "Reinforcement Learning",
     "slug": "reinforcement-learning",
     "shortDef": "A machine learning paradigm where an agent learns to make decisions by taking actions in an environment and receiving rewards or penalties.",
-    "fullDef": "Reinforcement learning (RL) is a type of machine learning in which an agent interacts with an environment by taking actions, observing the resulting states, and receiving reward signals. The agent's goal is to learn a policy — a mapping from states to actions — that maximizes cumulative reward over time. Unlike supervised learning, RL does not require labeled input-output pairs; instead, the agent discovers optimal behavior through trial and error.\n\nKey concepts in RL include the state space, action space, reward function, value function, and policy. Algorithms are broadly divided into model-free methods (such as Q-learning, policy gradient, and actor-critic methods) and model-based methods that learn a model of the environment. Deep reinforcement learning combines deep neural networks with RL algorithms, enabling agents to handle high-dimensional state spaces like raw images.\n\nReinforcement learning has achieved landmark results including superhuman gameplay in Go (AlphaGo), Atari games, and StarCraft II. Beyond games, RL is applied in robotics, autonomous driving, recommendation systems, and increasingly in fine-tuning large language models through RLHF (reinforcement learning from human feedback), where human preferences serve as the reward signal.",
+    "fullDef": "Reinforcement learning (RL) is a type of machine learning in which an agent interacts with an environment by taking actions, observing the resulting states, and receiving reward signals. The agent's goal is to learn a policy - a mapping from states to actions - that maximizes cumulative reward over time. Unlike supervised learning, RL does not require labeled input-output pairs; instead, the agent discovers optimal behavior through trial and error.\n\nKey concepts in RL include the state space, action space, reward function, value function, and policy. Algorithms are broadly divided into model-free methods (such as Q-learning, policy gradient, and actor-critic methods) and model-based methods that learn a model of the environment. Deep reinforcement learning combines deep neural networks with RL algorithms, enabling agents to handle high-dimensional state spaces like raw images.\n\nReinforcement learning has achieved landmark results including superhuman gameplay in Go (AlphaGo), Atari games, and StarCraft II. Beyond games, RL is applied in robotics, autonomous driving, recommendation systems, and increasingly in fine-tuning large language models through RLHF (reinforcement learning from human feedback), where human preferences serve as the reward signal.",
     "category": "Reinforcement Learning",
     "relatedTerms": [
       "machine-learning",
@@ -210,7 +210,7 @@
   {
     "name": "Generative Adversarial Network",
     "slug": "generative-adversarial-network",
-    "shortDef": "A framework consisting of two neural networks — a generator and a discriminator — that compete against each other to produce increasingly realistic synthetic data.",
+    "shortDef": "A framework consisting of two neural networks - a generator and a discriminator - that compete against each other to produce increasingly realistic synthetic data.",
     "fullDef": "A generative adversarial network (GAN) is a deep learning framework introduced by Ian Goodfellow in 2014 that trains two neural networks simultaneously in a minimax game. The generator network learns to produce synthetic data (such as images) that resemble the training data, while the discriminator network learns to distinguish between real and generated samples. Through this adversarial process, both networks improve, and the generator eventually produces highly realistic outputs.\n\nTraining GANs is notoriously challenging due to issues like mode collapse (where the generator produces limited variety), training instability, and the difficulty of evaluating generation quality. Numerous GAN variants have been developed to address these challenges, including DCGAN, Wasserstein GAN, StyleGAN, and Progressive GAN. Techniques such as spectral normalization, progressive growing, and careful architectural choices have significantly improved GAN training stability.\n\nGANs have produced remarkable results in image synthesis, producing photorealistic faces, artwork, and scenes. They have been applied to image super-resolution, style transfer, data augmentation, drug discovery, and video generation. While diffusion models have recently surpassed GANs in some image generation benchmarks, GANs remain influential and continue to be used in applications requiring fast inference and real-time generation.",
     "category": "Deep Learning",
     "relatedTerms": [
@@ -1259,15 +1259,15 @@
     "lastUpdated": "2026-02-22",
     "references": [
       {
-        "title": "OpenAI — GPT-4o Announcement",
+        "title": "OpenAI - GPT-4o Announcement",
         "url": "https://openai.com/index/hello-gpt-4o/"
       },
       {
-        "title": "OpenAI Platform — GPT-4o Model Card",
+        "title": "OpenAI Platform - GPT-4o Model Card",
         "url": "https://platform.openai.com/docs/models/gpt-4o"
       },
       {
-        "title": "OpenAI — GPT-4o System Card (PDF)",
+        "title": "OpenAI - GPT-4o System Card (PDF)",
         "url": "https://openai.com/index/gpt-4o-system-card/"
       }
     ]
@@ -1276,7 +1276,7 @@
     "name": "GPT-4.1",
     "slug": "gpt-4-1",
     "shortDef": "OpenAI's April 2025 API-focused model with a massive 1M token context window and 38.3% on MultiChallenge, beating GPT-4o by 10.5%.",
-    "fullDef": "GPT-4.1 is OpenAI's API-focused model released in April 2025, representing a major leap in context length capabilities with a 1 million token context window—nearly 8x the capacity of GPT-4o's 128K tokens. This massive context window enables the model to handle extremely long documents, codebases, and multi-turn conversations with minimal information loss.\n\nThe model achieves 38.3% on the MultiChallenge benchmark for instruction following, surpassing GPT-4o by 10.5 percentage points. It has been specifically optimized for long-context tasks, coding workflows, and complex instruction following, making it particularly valuable for enterprise applications that require processing extensive documentation or maintaining context across lengthy interactions.\n\nGPT-4.1 is available in multiple variants including GPT-4.1 mini and GPT-4.1 nano, offering different trade-offs between capability, speed, and cost. The model's extended context window and improved instruction-following capabilities make it a strong choice for applications requiring deep contextual understanding over long sequences.",
+    "fullDef": "GPT-4.1 is OpenAI's API-focused model released in April 2025, representing a major leap in context length capabilities with a 1 million token context window-nearly 8x the capacity of GPT-4o's 128K tokens. This massive context window enables the model to handle extremely long documents, codebases, and multi-turn conversations with minimal information loss.\n\nThe model achieves 38.3% on the MultiChallenge benchmark for instruction following, surpassing GPT-4o by 10.5 percentage points. It has been specifically optimized for long-context tasks, coding workflows, and complex instruction following, making it particularly valuable for enterprise applications that require processing extensive documentation or maintaining context across lengthy interactions.\n\nGPT-4.1 is available in multiple variants including GPT-4.1 mini and GPT-4.1 nano, offering different trade-offs between capability, speed, and cost. The model's extended context window and improved instruction-following capabilities make it a strong choice for applications requiring deep contextual understanding over long sequences.",
     "category": "LLM Models",
     "relatedTerms": [
       "large-language-model",
@@ -1286,11 +1286,11 @@
     "lastUpdated": "2026-02-22",
     "references": [
       {
-        "title": "OpenAI — Introducing GPT-4.1",
+        "title": "OpenAI - Introducing GPT-4.1",
         "url": "https://openai.com/index/gpt-4-1/"
       },
       {
-        "title": "OpenAI Platform — GPT-4.1 Documentation",
+        "title": "OpenAI Platform - GPT-4.1 Documentation",
         "url": "https://platform.openai.com/docs/models"
       }
     ]
@@ -1309,11 +1309,11 @@
     "lastUpdated": "2026-02-22",
     "references": [
       {
-        "title": "OpenAI — Introducing o3 and o4-mini",
+        "title": "OpenAI - Introducing o3 and o4-mini",
         "url": "https://openai.com/index/introducing-o3-and-o4-mini/"
       },
       {
-        "title": "OpenAI Platform — o3 Model Documentation",
+        "title": "OpenAI Platform - o3 Model Documentation",
         "url": "https://platform.openai.com/docs/models"
       }
     ]
@@ -1332,11 +1332,11 @@
     "lastUpdated": "2026-02-22",
     "references": [
       {
-        "title": "OpenAI — Introducing o3 and o4-mini",
+        "title": "OpenAI - Introducing o3 and o4-mini",
         "url": "https://openai.com/index/introducing-o3-and-o4-mini/"
       },
       {
-        "title": "OpenAI Platform — o4-mini Documentation",
+        "title": "OpenAI Platform - o4-mini Documentation",
         "url": "https://platform.openai.com/docs/models"
       }
     ]
@@ -1345,7 +1345,7 @@
     "name": "GPT-5",
     "slug": "gpt-5",
     "shortDef": "OpenAI's major generational leap released in August 2025, achieving 94.6% on AIME 2025 and 45% fewer factual errors than GPT-4o.",
-    "fullDef": "GPT-5, released in August 2025, represents a major generational leap in OpenAI's language model capabilities. The model achieves 94.6% on AIME 2025 without any tools and 74.9% on SWE-bench, demonstrating substantial improvements in mathematical reasoning and software engineering compared to previous generations.\n\nA critical advancement in GPT-5 is its significant reduction in factual errors—45% fewer than GPT-4o when using web search, and 80% fewer than o3 when engaging in reasoning tasks. On specialized benchmarks, GPT-5 scores 46.2% on HealthBench Hard (medical reasoning) and 84.2% on MMMU (massive multi-discipline understanding), showing strong performance across diverse domains.\n\nGPT-5 also demonstrates improved efficiency, performing better than o3 while using 50-80% fewer output tokens for the same tasks. This combination of higher accuracy, reduced hallucinations, and greater efficiency makes GPT-5 a significant milestone in language model development, suitable for high-stakes applications in healthcare, legal reasoning, and other domains where factual accuracy is paramount.",
+    "fullDef": "GPT-5, released in August 2025, represents a major generational leap in OpenAI's language model capabilities. The model achieves 94.6% on AIME 2025 without any tools and 74.9% on SWE-bench, demonstrating substantial improvements in mathematical reasoning and software engineering compared to previous generations.\n\nA critical advancement in GPT-5 is its significant reduction in factual errors-45% fewer than GPT-4o when using web search, and 80% fewer than o3 when engaging in reasoning tasks. On specialized benchmarks, GPT-5 scores 46.2% on HealthBench Hard (medical reasoning) and 84.2% on MMMU (massive multi-discipline understanding), showing strong performance across diverse domains.\n\nGPT-5 also demonstrates improved efficiency, performing better than o3 while using 50-80% fewer output tokens for the same tasks. This combination of higher accuracy, reduced hallucinations, and greater efficiency makes GPT-5 a significant milestone in language model development, suitable for high-stakes applications in healthcare, legal reasoning, and other domains where factual accuracy is paramount.",
     "category": "LLM Models",
     "relatedTerms": [
       "large-language-model",
@@ -1355,11 +1355,11 @@
     "lastUpdated": "2026-02-22",
     "references": [
       {
-        "title": "OpenAI — Introducing GPT-5",
+        "title": "OpenAI - Introducing GPT-5",
         "url": "https://openai.com/index/introducing-gpt-5/"
       },
       {
-        "title": "OpenAI Platform — GPT-5 Documentation",
+        "title": "OpenAI Platform - GPT-5 Documentation",
         "url": "https://platform.openai.com/docs/models"
       }
     ]
@@ -1368,7 +1368,7 @@
     "name": "GPT-5.2",
     "slug": "gpt-5-2",
     "shortDef": "OpenAI's December 2025 model with a 256K context window, 100% AIME 2025 accuracy, and hallucination rate reduced to 6.2%.",
-    "fullDef": "GPT-5.2, released in December 2025, represents OpenAI's continued refinement of the GPT-5 architecture with dramatic improvements in reliability and context handling. The model features a 256K token context window with near-perfect accuracy retention, expandable to 400K tokens maximum, enabling it to process extremely long documents without degradation.\n\nThe model achieves perfect 100% accuracy on AIME 2025, a remarkable milestone for mathematical reasoning, and reduces its hallucination rate to just 6.2%—a significant improvement in factual reliability. On GDPval (a benchmark comparing AI to human experts), GPT-5.2 beats or ties human experts 70.9% of the time, demonstrating superhuman performance in specific domains.\n\nGPT-5.2 is available in specialized variants: GPT-5.2 Instant (optimized for low latency) and GPT-5.2 Thinking (with extended reasoning capabilities). These variants allow users to choose the appropriate trade-off between response speed and reasoning depth, making the model adaptable to different application requirements from real-time chat to complex analytical tasks.",
+    "fullDef": "GPT-5.2, released in December 2025, represents OpenAI's continued refinement of the GPT-5 architecture with dramatic improvements in reliability and context handling. The model features a 256K token context window with near-perfect accuracy retention, expandable to 400K tokens maximum, enabling it to process extremely long documents without degradation.\n\nThe model achieves perfect 100% accuracy on AIME 2025, a remarkable milestone for mathematical reasoning, and reduces its hallucination rate to just 6.2%-a significant improvement in factual reliability. On GDPval (a benchmark comparing AI to human experts), GPT-5.2 beats or ties human experts 70.9% of the time, demonstrating superhuman performance in specific domains.\n\nGPT-5.2 is available in specialized variants: GPT-5.2 Instant (optimized for low latency) and GPT-5.2 Thinking (with extended reasoning capabilities). These variants allow users to choose the appropriate trade-off between response speed and reasoning depth, making the model adaptable to different application requirements from real-time chat to complex analytical tasks.",
     "category": "LLM Models",
     "relatedTerms": [
       "large-language-model",
@@ -1378,11 +1378,11 @@
     "lastUpdated": "2026-02-22",
     "references": [
       {
-        "title": "OpenAI — Introducing GPT-5.2",
+        "title": "OpenAI - Introducing GPT-5.2",
         "url": "https://openai.com/index/introducing-gpt-5-2/"
       },
       {
-        "title": "OpenAI Platform — Models Overview",
+        "title": "OpenAI Platform - Models Overview",
         "url": "https://platform.openai.com/docs/models"
       }
     ]
@@ -1401,15 +1401,15 @@
     "lastUpdated": "2026-02-22",
     "references": [
       {
-        "title": "Anthropic — Introducing Claude Sonnet 4.5",
+        "title": "Anthropic - Introducing Claude Sonnet 4.5",
         "url": "https://www.anthropic.com/news/claude-sonnet-4-5"
       },
       {
-        "title": "Anthropic — Claude Models Overview",
+        "title": "Anthropic - Claude Models Overview",
         "url": "https://docs.anthropic.com/en/docs/about-claude/models"
       },
       {
-        "title": "Anthropic API — Claude Documentation",
+        "title": "Anthropic API - Claude Documentation",
         "url": "https://platform.claude.com/docs/en/about-claude/models/overview"
       }
     ]
@@ -1428,15 +1428,15 @@
     "lastUpdated": "2026-02-22",
     "references": [
       {
-        "title": "Anthropic — Introducing Claude Opus 4.5",
+        "title": "Anthropic - Introducing Claude Opus 4.5",
         "url": "https://www.anthropic.com/news/claude-opus-4-5"
       },
       {
-        "title": "Anthropic — Claude Models Overview",
+        "title": "Anthropic - Claude Models Overview",
         "url": "https://docs.anthropic.com/en/docs/about-claude/models"
       },
       {
-        "title": "Anthropic API — Claude Documentation",
+        "title": "Anthropic API - Claude Documentation",
         "url": "https://platform.claude.com/docs/en/about-claude/models/overview"
       }
     ]
@@ -1445,7 +1445,7 @@
     "name": "Claude Haiku 4.5",
     "slug": "claude-haiku-4-5",
     "shortDef": "Anthropic's fastest model released in October 2025, achieving 90% of Sonnet 4.5's performance on agentic coding at lower cost.",
-    "fullDef": "Claude Haiku 4.5, released by Anthropic in October 2025, is the fastest model in the Claude family while maintaining a 200K token context window. It's designed for applications where speed and cost-efficiency are priorities, without sacrificing too much capability compared to the higher-tier models.\n\nRemarkably, Haiku 4.5 achieves approximately 90% of Sonnet 4.5's performance on agentic coding tasks, making it a compelling choice for many production use cases. A notable feature is its support for extended thinking—a capability that was previously limited to premium models—allowing it to engage in more deliberate reasoning when needed.\n\nPriced at $1 per million input tokens and $5 per million output tokens, Claude Haiku 4.5 offers the most cost-effective option in Anthropic's lineup while maintaining strong performance. This combination of speed, capability, and affordability makes it particularly attractive for high-volume applications, rapid prototyping, and use cases where the full power of Opus or Sonnet isn't required but Claude's safety and quality characteristics are still desired.",
+    "fullDef": "Claude Haiku 4.5, released by Anthropic in October 2025, is the fastest model in the Claude family while maintaining a 200K token context window. It's designed for applications where speed and cost-efficiency are priorities, without sacrificing too much capability compared to the higher-tier models.\n\nRemarkably, Haiku 4.5 achieves approximately 90% of Sonnet 4.5's performance on agentic coding tasks, making it a compelling choice for many production use cases. A notable feature is its support for extended thinking-a capability that was previously limited to premium models-allowing it to engage in more deliberate reasoning when needed.\n\nPriced at $1 per million input tokens and $5 per million output tokens, Claude Haiku 4.5 offers the most cost-effective option in Anthropic's lineup while maintaining strong performance. This combination of speed, capability, and affordability makes it particularly attractive for high-volume applications, rapid prototyping, and use cases where the full power of Opus or Sonnet isn't required but Claude's safety and quality characteristics are still desired.",
     "category": "LLM Models",
     "relatedTerms": [
       "large-language-model",
@@ -1455,11 +1455,11 @@
     "lastUpdated": "2026-02-22",
     "references": [
       {
-        "title": "Anthropic — Claude Haiku 4.5 Announcement",
+        "title": "Anthropic - Claude Haiku 4.5 Announcement",
         "url": "https://www.anthropic.com/news/claude-haiku-4-5"
       },
       {
-        "title": "Anthropic — Claude Models Overview",
+        "title": "Anthropic - Claude Models Overview",
         "url": "https://docs.anthropic.com/en/docs/about-claude/models"
       }
     ]
@@ -1479,19 +1479,19 @@
     "lastUpdated": "2026-02-23",
     "references": [
       {
-        "title": "Anthropic — Introducing Claude Opus 4.6",
+        "title": "Anthropic - Introducing Claude Opus 4.6",
         "url": "https://www.anthropic.com/news/claude-opus-4-6"
       },
       {
-        "title": "Anthropic — Claude Models Overview",
+        "title": "Anthropic - Claude Models Overview",
         "url": "https://docs.anthropic.com/en/docs/about-claude/models"
       },
       {
-        "title": "Anthropic API — Models Documentation",
+        "title": "Anthropic API - Models Documentation",
         "url": "https://platform.claude.com/docs/en/about-claude/models/overview"
       },
       {
-        "title": "Vellum — Claude Opus 4.6 Benchmarks Explained",
+        "title": "Vellum - Claude Opus 4.6 Benchmarks Explained",
         "url": "https://www.vellum.ai/blog/claude-opus-4-6-benchmarks"
       }
     ]
@@ -1500,7 +1500,7 @@
     "name": "Claude Sonnet 4.6",
     "slug": "claude-sonnet-4-6",
     "shortDef": "Anthropic's February 2026 mid-tier model achieving 79.6% on SWE-bench and 72.5% on OSWorld, matching near-flagship performance at $3/$15 per million tokens.",
-    "fullDef": "Claude Sonnet 4.6, released by Anthropic on February 17, 2026, delivers near-flagship performance across coding, computer use, long-context reasoning, agent planning, knowledge work, and design — all at one-fifth the cost of Opus 4.6. It features a 1 million token context window (beta), matching Opus 4.6's context capacity. In head-to-head comparisons, users preferred Sonnet 4.6 over Sonnet 4.5 in 70% of cases and over the previous flagship Opus 4.5 in 59% of comparisons.\n\nSonnet 4.6 scores 79.6% on SWE-bench Verified (only 1.2 points behind Opus 4.6's 80.8%), 72.5% on OSWorld-Verified for computer use (nearly matching Opus 4.6's 72.7%), and 61.3% on MCP-Atlas for scaled tool use. On GDPval-AA for office productivity tasks, Sonnet 4.6 reaches 1633 Elo — actually ahead of all models including Opus 4.6 in this specific category. It also scores 63.3% on Finance Agent for financial analysis tasks.\n\nPriced at $3 per million input tokens and $15 per million output tokens (with up to 90% savings via prompt caching and 50% with batch processing), Sonnet 4.6 represents the strongest value proposition in frontier AI. Its combination of near-Opus performance at mid-tier pricing makes it the default choice for most production deployments, particularly for agentic coding, computer use, and knowledge work applications where the marginal performance gap to Opus doesn't justify the 5x price premium.",
+    "fullDef": "Claude Sonnet 4.6, released by Anthropic on February 17, 2026, delivers near-flagship performance across coding, computer use, long-context reasoning, agent planning, knowledge work, and design - all at one-fifth the cost of Opus 4.6. It features a 1 million token context window (beta), matching Opus 4.6's context capacity. In head-to-head comparisons, users preferred Sonnet 4.6 over Sonnet 4.5 in 70% of cases and over the previous flagship Opus 4.5 in 59% of comparisons.\n\nSonnet 4.6 scores 79.6% on SWE-bench Verified (only 1.2 points behind Opus 4.6's 80.8%), 72.5% on OSWorld-Verified for computer use (nearly matching Opus 4.6's 72.7%), and 61.3% on MCP-Atlas for scaled tool use. On GDPval-AA for office productivity tasks, Sonnet 4.6 reaches 1633 Elo - actually ahead of all models including Opus 4.6 in this specific category. It also scores 63.3% on Finance Agent for financial analysis tasks.\n\nPriced at $3 per million input tokens and $15 per million output tokens (with up to 90% savings via prompt caching and 50% with batch processing), Sonnet 4.6 represents the strongest value proposition in frontier AI. Its combination of near-Opus performance at mid-tier pricing makes it the default choice for most production deployments, particularly for agentic coding, computer use, and knowledge work applications where the marginal performance gap to Opus doesn't justify the 5x price premium.",
     "category": "LLM Models",
     "relatedTerms": [
       "large-language-model",
@@ -1511,19 +1511,19 @@
     "lastUpdated": "2026-02-23",
     "references": [
       {
-        "title": "Anthropic — Introducing Claude Sonnet 4.6",
+        "title": "Anthropic - Introducing Claude Sonnet 4.6",
         "url": "https://www.anthropic.com/news/claude-sonnet-4-6"
       },
       {
-        "title": "Anthropic — Claude Sonnet Product Page",
+        "title": "Anthropic - Claude Sonnet Product Page",
         "url": "https://www.anthropic.com/claude/sonnet"
       },
       {
-        "title": "Anthropic — Claude Models Overview",
+        "title": "Anthropic - Claude Models Overview",
         "url": "https://docs.anthropic.com/en/docs/about-claude/models"
       },
       {
-        "title": "VentureBeat — Sonnet 4.6 Matches Flagship Performance at 1/5th Cost",
+        "title": "VentureBeat - Sonnet 4.6 Matches Flagship Performance at 1/5th Cost",
         "url": "https://venturebeat.com/technology/anthropics-sonnet-4-6-matches-flagship-ai-performance-at-one-fifth-the-cost"
       }
     ]
@@ -1532,7 +1532,7 @@
     "name": "Gemini 2.5 Pro",
     "slug": "gemini-2-5-pro",
     "shortDef": "Google DeepMind's 2025 flagship with 1M token context window, leading Humanity's Last Exam with 18.8% accuracy.",
-    "fullDef": "Gemini 2.5 Pro is Google DeepMind's flagship model released in 2025, featuring a massive 1 million token context window and native multimodal capabilities spanning text, image, video, and audio. This extensive multimodal support allows the model to process and reason across different types of media seamlessly.\n\nThe model leads on Humanity's Last Exam, a challenging benchmark designed to test the limits of AI capabilities, achieving 18.8% accuracy—a low absolute score that reflects the extreme difficulty of the benchmark rather than model weakness. Gemini 2.5 Pro demonstrates strong reasoning and long-context capabilities, making it suitable for complex analytical tasks requiring extensive context.\n\nAs Google's flagship offering in the Gemini family, 2.5 Pro competes directly with OpenAI's GPT-5 series and Anthropic's Claude Opus models. Its combination of massive context window, multimodal processing, and strong reasoning makes it particularly well-suited for applications involving analysis of large documents, video understanding, and tasks requiring integration of information across multiple modalities.",
+    "fullDef": "Gemini 2.5 Pro is Google DeepMind's flagship model released in 2025, featuring a massive 1 million token context window and native multimodal capabilities spanning text, image, video, and audio. This extensive multimodal support allows the model to process and reason across different types of media seamlessly.\n\nThe model leads on Humanity's Last Exam, a challenging benchmark designed to test the limits of AI capabilities, achieving 18.8% accuracy-a low absolute score that reflects the extreme difficulty of the benchmark rather than model weakness. Gemini 2.5 Pro demonstrates strong reasoning and long-context capabilities, making it suitable for complex analytical tasks requiring extensive context.\n\nAs Google's flagship offering in the Gemini family, 2.5 Pro competes directly with OpenAI's GPT-5 series and Anthropic's Claude Opus models. Its combination of massive context window, multimodal processing, and strong reasoning makes it particularly well-suited for applications involving analysis of large documents, video understanding, and tasks requiring integration of information across multiple modalities.",
     "category": "LLM Models",
     "relatedTerms": [
       "large-language-model",
@@ -1542,15 +1542,15 @@
     "lastUpdated": "2026-02-22",
     "references": [
       {
-        "title": "Google DeepMind — Gemini 2.5 Pro",
+        "title": "Google DeepMind - Gemini 2.5 Pro",
         "url": "https://deepmind.google/technologies/gemini/pro/"
       },
       {
-        "title": "Google AI — Gemini API Models",
+        "title": "Google AI - Gemini API Models",
         "url": "https://ai.google.dev/gemini-api/docs/models"
       },
       {
-        "title": "Google AI Studio — Try Gemini",
+        "title": "Google AI Studio - Try Gemini",
         "url": "https://aistudio.google.com/"
       }
     ]
@@ -1569,15 +1569,15 @@
     "lastUpdated": "2026-02-22",
     "references": [
       {
-        "title": "Google DeepMind — Gemini 2.5 Flash",
+        "title": "Google DeepMind - Gemini 2.5 Flash",
         "url": "https://deepmind.google/technologies/gemini/flash/"
       },
       {
-        "title": "Google AI — Gemini API Models",
+        "title": "Google AI - Gemini API Models",
         "url": "https://ai.google.dev/gemini-api/docs/models"
       },
       {
-        "title": "Google — Gemini 2.5 Flash Model Card (PDF)",
+        "title": "Google - Gemini 2.5 Flash Model Card (PDF)",
         "url": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-2-5-Flash-Model-Card.pdf"
       }
     ]
@@ -1596,15 +1596,15 @@
     "lastUpdated": "2026-02-22",
     "references": [
       {
-        "title": "Google Blog — Gemini 3.1 Pro Announcement",
+        "title": "Google Blog - Gemini 3.1 Pro Announcement",
         "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/"
       },
       {
-        "title": "Google DeepMind — Gemini 3.1 Pro Model Card",
+        "title": "Google DeepMind - Gemini 3.1 Pro Model Card",
         "url": "https://deepmind.google/models/model-cards/gemini-3-1-pro/"
       },
       {
-        "title": "Google AI — Gemini API Models",
+        "title": "Google AI - Gemini API Models",
         "url": "https://ai.google.dev/gemini-api/docs/models"
       }
     ]
@@ -1613,7 +1613,7 @@
     "name": "DeepSeek R1",
     "slug": "deepseek-r1",
     "shortDef": "Open-weight reasoning model released in January 2025, achieving 97.3% on MATH-500 and proving frontier AI doesn't require massive budgets.",
-    "fullDef": "DeepSeek R1, released in January 2025, is an open-weight reasoning model that sparked what became known as the \"DeepSeek moment\" in AI—demonstrating that frontier-level capabilities could be achieved without the massive training budgets typical of Western AI labs. The model achieves 97.3% on MATH-500 (surpassing OpenAI's o1) and 90.8% on MMLU, showcasing exceptional mathematical reasoning at a fraction of typical development costs.\n\nDeepSeek R1 has won gold medals at both IMO 2025 (International Mathematical Olympiad) and IOI 2025 (International Olympiad in Informatics), demonstrating superhuman performance on elite-level mathematics and competitive programming problems. These achievements highlighted that open-weight models could compete with or exceed proprietary reasoning models on specific benchmarks.\n\nThe model's release was significant not just for its technical achievements but for its implications about AI development economics. By achieving ChatGPT-level reasoning capabilities with dramatically lower training costs, DeepSeek R1 challenged assumptions about the resource requirements for frontier AI and accelerated the open-weight movement, inspiring numerous projects to pursue cost-efficient training approaches.",
+    "fullDef": "DeepSeek R1, released in January 2025, is an open-weight reasoning model that sparked what became known as the \"DeepSeek moment\" in AI-demonstrating that frontier-level capabilities could be achieved without the massive training budgets typical of Western AI labs. The model achieves 97.3% on MATH-500 (surpassing OpenAI's o1) and 90.8% on MMLU, showcasing exceptional mathematical reasoning at a fraction of typical development costs.\n\nDeepSeek R1 has won gold medals at both IMO 2025 (International Mathematical Olympiad) and IOI 2025 (International Olympiad in Informatics), demonstrating superhuman performance on elite-level mathematics and competitive programming problems. These achievements highlighted that open-weight models could compete with or exceed proprietary reasoning models on specific benchmarks.\n\nThe model's release was significant not just for its technical achievements but for its implications about AI development economics. By achieving ChatGPT-level reasoning capabilities with dramatically lower training costs, DeepSeek R1 challenged assumptions about the resource requirements for frontier AI and accelerated the open-weight movement, inspiring numerous projects to pursue cost-efficient training approaches.",
     "category": "LLM Models",
     "relatedTerms": [
       "large-language-model",
@@ -1623,19 +1623,19 @@
     "lastUpdated": "2026-02-22",
     "references": [
       {
-        "title": "DeepSeek — DeepSeek-R1 Technical Report",
+        "title": "DeepSeek - DeepSeek-R1 Technical Report",
         "url": "https://api-docs.deepseek.com/news/news250120"
       },
       {
-        "title": "Hugging Face — DeepSeek-R1",
+        "title": "Hugging Face - DeepSeek-R1",
         "url": "https://huggingface.co/deepseek-ai/DeepSeek-R1"
       },
       {
-        "title": "GitHub — DeepSeek-R1",
+        "title": "GitHub - DeepSeek-R1",
         "url": "https://github.com/deepseek-ai/DeepSeek-R1"
       },
       {
-        "title": "arXiv — DeepSeek-R1 Paper",
+        "title": "arXiv - DeepSeek-R1 Paper",
         "url": "https://arxiv.org/abs/2501.12948"
       }
     ]
@@ -1654,19 +1654,19 @@
     "lastUpdated": "2026-02-22",
     "references": [
       {
-        "title": "DeepSeek — DeepSeek-V3 Technical Report",
+        "title": "DeepSeek - DeepSeek-V3 Technical Report",
         "url": "https://api-docs.deepseek.com/news/news1226"
       },
       {
-        "title": "Hugging Face — DeepSeek-V3",
+        "title": "Hugging Face - DeepSeek-V3",
         "url": "https://huggingface.co/deepseek-ai/DeepSeek-V3"
       },
       {
-        "title": "GitHub — DeepSeek-V3",
+        "title": "GitHub - DeepSeek-V3",
         "url": "https://github.com/deepseek-ai/DeepSeek-V3"
       },
       {
-        "title": "arXiv — DeepSeek-V3 Paper",
+        "title": "arXiv - DeepSeek-V3 Paper",
         "url": "https://arxiv.org/abs/2412.19437"
       }
     ]
@@ -1675,7 +1675,7 @@
     "name": "Llama 4 Scout",
     "slug": "llama-4-scout",
     "shortDef": "Meta's April 2025 open-weight model with 109B total parameters and industry-leading 10M token context window.",
-    "fullDef": "Llama 4 Scout, released by Meta in April 2025, is an open-weight model utilizing a Mixture of Experts (MoE) architecture with 109B total parameters but only 17B active parameters during inference. This design provides strong capabilities while maintaining computational efficiency. The model's standout feature is its industry-leading 10 million token context window—the largest context capacity of any production language model.\n\nLlama 4 Scout beats competing models like Gemma 3, Gemini 2.0 Flash-Lite, and Mistral Small 3.1 across various benchmarks, with overall performance comparable to GPT-4o mini. This positions it as a strong open-source alternative to proprietary small models, offering similar capabilities without API costs or data privacy concerns.\n\nThe massive 10M token context window enables entirely new use cases, such as processing multiple full-length books, entire codebases with all dependencies, or maintaining context across very long conversations. Combined with its open-weight nature and efficient MoE architecture, Llama 4 Scout represents a significant contribution to the open AI ecosystem, particularly for applications requiring extreme context lengths.",
+    "fullDef": "Llama 4 Scout, released by Meta in April 2025, is an open-weight model utilizing a Mixture of Experts (MoE) architecture with 109B total parameters but only 17B active parameters during inference. This design provides strong capabilities while maintaining computational efficiency. The model's standout feature is its industry-leading 10 million token context window-the largest context capacity of any production language model.\n\nLlama 4 Scout beats competing models like Gemma 3, Gemini 2.0 Flash-Lite, and Mistral Small 3.1 across various benchmarks, with overall performance comparable to GPT-4o mini. This positions it as a strong open-source alternative to proprietary small models, offering similar capabilities without API costs or data privacy concerns.\n\nThe massive 10M token context window enables entirely new use cases, such as processing multiple full-length books, entire codebases with all dependencies, or maintaining context across very long conversations. Combined with its open-weight nature and efficient MoE architecture, Llama 4 Scout represents a significant contribution to the open AI ecosystem, particularly for applications requiring extreme context lengths.",
     "category": "LLM Models",
     "relatedTerms": [
       "large-language-model",
@@ -1685,15 +1685,15 @@
     "lastUpdated": "2026-02-22",
     "references": [
       {
-        "title": "Meta AI — The Llama 4 Herd",
+        "title": "Meta AI - The Llama 4 Herd",
         "url": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/"
       },
       {
-        "title": "Hugging Face — Llama 4 Scout",
+        "title": "Hugging Face - Llama 4 Scout",
         "url": "https://huggingface.co/meta-llama"
       },
       {
-        "title": "Llama — Official Website",
+        "title": "Llama - Official Website",
         "url": "https://www.llama.com/"
       }
     ]
@@ -1712,15 +1712,15 @@
     "lastUpdated": "2026-02-22",
     "references": [
       {
-        "title": "Meta AI — The Llama 4 Herd",
+        "title": "Meta AI - The Llama 4 Herd",
         "url": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/"
       },
       {
-        "title": "Hugging Face — Llama 4 Maverick",
+        "title": "Hugging Face - Llama 4 Maverick",
         "url": "https://huggingface.co/meta-llama"
       },
       {
-        "title": "Llama — Official Website",
+        "title": "Llama - Official Website",
         "url": "https://www.llama.com/"
       }
     ]
@@ -1739,19 +1739,19 @@
     "lastUpdated": "2026-02-22",
     "references": [
       {
-        "title": "Qwen Blog — Qwen3: Think Deeper, Act Faster",
+        "title": "Qwen Blog - Qwen3: Think Deeper, Act Faster",
         "url": "https://qwenlm.github.io/blog/qwen3/"
       },
       {
-        "title": "GitHub — QwenLM/Qwen3",
+        "title": "GitHub - QwenLM/Qwen3",
         "url": "https://github.com/QwenLM/Qwen3"
       },
       {
-        "title": "Hugging Face — Qwen",
+        "title": "Hugging Face - Qwen",
         "url": "https://huggingface.co/Qwen"
       },
       {
-        "title": "Alibaba Cloud — Qwen3 Announcement",
+        "title": "Alibaba Cloud - Qwen3 Announcement",
         "url": "https://www.alibabacloud.com/blog/alibaba-introduces-qwen3-setting-new-benchmark-in-open-source-ai-with-hybrid-reasoning_602192"
       }
     ]
@@ -1770,15 +1770,15 @@
     "lastUpdated": "2026-02-22",
     "references": [
       {
-        "title": "xAI — Grok 3 Beta Announcement",
+        "title": "xAI - Grok 3 Beta Announcement",
         "url": "https://x.ai/news/grok-3"
       },
       {
-        "title": "xAI — Official Website",
+        "title": "xAI - Official Website",
         "url": "https://x.ai/"
       },
       {
-        "title": "Grok — Try Grok",
+        "title": "Grok - Try Grok",
         "url": "https://grok.com/"
       }
     ]
@@ -1797,11 +1797,11 @@
     "lastUpdated": "2026-02-22",
     "references": [
       {
-        "title": "xAI — Official Website",
+        "title": "xAI - Official Website",
         "url": "https://x.ai/"
       },
       {
-        "title": "Grok — Try Grok",
+        "title": "Grok - Try Grok",
         "url": "https://grok.com/"
       }
     ]
@@ -1820,15 +1820,15 @@
     "lastUpdated": "2026-02-22",
     "references": [
       {
-        "title": "Mistral AI — Official Website",
+        "title": "Mistral AI - Official Website",
         "url": "https://mistral.ai/"
       },
       {
-        "title": "Mistral AI — Model Documentation",
+        "title": "Mistral AI - Model Documentation",
         "url": "https://docs.mistral.ai/getting-started/models/models_overview/"
       },
       {
-        "title": "Mistral AI — La Plateforme",
+        "title": "Mistral AI - La Plateforme",
         "url": "https://console.mistral.ai/"
       }
     ]
@@ -1847,11 +1847,11 @@
     "lastUpdated": "2026-02-22",
     "references": [
       {
-        "title": "OpenAI — Open-Weight Models",
+        "title": "OpenAI - Open-Weight Models",
         "url": "https://openai.com/index/open-weight-models/"
       },
       {
-        "title": "Hugging Face — GPT-oss-120b",
+        "title": "Hugging Face - GPT-oss-120b",
         "url": "https://huggingface.co/openai"
       }
     ]
@@ -1860,7 +1860,7 @@
     "name": "TRM (Tiny Recursive Model)",
     "slug": "trm-tiny-recursive-model",
     "shortDef": "Samsung's 7M-parameter recursive reasoning model that outperforms LLMs 10,000x its size on abstract reasoning benchmarks like ARC-AGI.",
-    "fullDef": "The Tiny Recursive Model (TRM), developed by Samsung AI Lab (SAIL) Montreal and published in October 2025, is a remarkably small model with just 7 million parameters that challenges the assumption that bigger models are always better at reasoning. The key insight behind TRM is recursive reasoning — instead of scaling up model size, it applies the same small network repeatedly in loops, refining its answer with each pass through the problem.\n\nDespite being less than 0.01% the size of leading LLMs, TRM achieves 44.6% accuracy on ARC-AGI-1 and 7.8% on ARC-AGI-2, surpassing models like DeepSeek-R1, Gemini 2.5 Pro, and o3-mini on these abstract reasoning benchmarks. On Sudoku-Extreme with only 1,000 training examples, TRM reaches 87.4% test accuracy, and on Maze-Hard it scores 85.3%, demonstrating strong generalization from minimal data.\n\nThe research paper \"Less is More: Recursive Reasoning with Tiny Networks\" by Alexia Jolicoeur-Martineau demonstrates that recursive computation can be a powerful alternative to parameter scaling for certain reasoning tasks. TRM's success suggests that the path to better AI reasoning may not always require trillion-parameter models, opening up possibilities for efficient, specialized reasoning systems that can run on consumer hardware. The model and code are fully open-source.",
+    "fullDef": "The Tiny Recursive Model (TRM), developed by Samsung AI Lab (SAIL) Montreal and published in October 2025, is a remarkably small model with just 7 million parameters that challenges the assumption that bigger models are always better at reasoning. The key insight behind TRM is recursive reasoning - instead of scaling up model size, it applies the same small network repeatedly in loops, refining its answer with each pass through the problem.\n\nDespite being less than 0.01% the size of leading LLMs, TRM achieves 44.6% accuracy on ARC-AGI-1 and 7.8% on ARC-AGI-2, surpassing models like DeepSeek-R1, Gemini 2.5 Pro, and o3-mini on these abstract reasoning benchmarks. On Sudoku-Extreme with only 1,000 training examples, TRM reaches 87.4% test accuracy, and on Maze-Hard it scores 85.3%, demonstrating strong generalization from minimal data.\n\nThe research paper \"Less is More: Recursive Reasoning with Tiny Networks\" by Alexia Jolicoeur-Martineau demonstrates that recursive computation can be a powerful alternative to parameter scaling for certain reasoning tasks. TRM's success suggests that the path to better AI reasoning may not always require trillion-parameter models, opening up possibilities for efficient, specialized reasoning systems that can run on consumer hardware. The model and code are fully open-source.",
     "category": "LLM Models",
     "relatedTerms": [
       "neural-network",
@@ -1869,15 +1869,15 @@
     ],
     "references": [
       {
-        "title": "Samsung Research — arXiv Paper: Less is More: Recursive Reasoning with Tiny Networks",
+        "title": "Samsung Research - arXiv Paper: Less is More: Recursive Reasoning with Tiny Networks",
         "url": "https://arxiv.org/abs/2510.04871"
       },
       {
-        "title": "GitHub — SamsungSAILMontreal/TinyRecursiveModels",
+        "title": "GitHub - SamsungSAILMontreal/TinyRecursiveModels",
         "url": "https://github.com/SamsungSAILMontreal/TinyRecursiveModels"
       },
       {
-        "title": "Hugging Face — Paper Page",
+        "title": "Hugging Face - Paper Page",
         "url": "https://huggingface.co/papers/2510.04871"
       }
     ],
@@ -1887,7 +1887,7 @@
     "name": "Hugging Face",
     "slug": "hugging-face",
     "shortDef": "The largest open-source AI platform and model hub, hosting over 2 million models, 500,000 datasets, and 1 million demo apps used by 10 million developers.",
-    "fullDef": "Hugging Face is an American AI company and open-source platform that has become the central hub for sharing, discovering, and deploying machine learning models. Founded in 2016 and headquartered in New York City, the platform hosts over 2 million open models, more than 500,000 datasets, and roughly 1 million interactive demo applications called Spaces. Its developer community has grown to over 10 million users, making it the largest open-source AI ecosystem in the world.\n\nThe platform's core open-source stack includes widely adopted libraries such as Transformers (for working with pre-trained models), Datasets (for loading and processing data), Diffusers (for diffusion models like Stable Diffusion), PEFT (parameter-efficient fine-tuning), Accelerate (distributed training), TRL (reinforcement learning from human feedback), and smolagents (lightweight AI agents). The Transformers library alone has become a de facto standard for working with models like BERT, GPT, LLaMA, and thousands of others.\n\nFor production deployments, Hugging Face offers Inference Endpoints, Text Generation Inference (TGI), Text Embeddings Inference (TEI), and AutoTrain for no-code model training. Over 10,000 companies including Intel, Pfizer, Bloomberg, and eBay use the platform. Nearly every major open-weight model — from Meta's LLaMA to DeepSeek, Qwen, and Mistral — is distributed through Hugging Face, making it an essential piece of infrastructure in the modern AI ecosystem.",
+    "fullDef": "Hugging Face is an American AI company and open-source platform that has become the central hub for sharing, discovering, and deploying machine learning models. Founded in 2016 and headquartered in New York City, the platform hosts over 2 million open models, more than 500,000 datasets, and roughly 1 million interactive demo applications called Spaces. Its developer community has grown to over 10 million users, making it the largest open-source AI ecosystem in the world.\n\nThe platform's core open-source stack includes widely adopted libraries such as Transformers (for working with pre-trained models), Datasets (for loading and processing data), Diffusers (for diffusion models like Stable Diffusion), PEFT (parameter-efficient fine-tuning), Accelerate (distributed training), TRL (reinforcement learning from human feedback), and smolagents (lightweight AI agents). The Transformers library alone has become a de facto standard for working with models like BERT, GPT, LLaMA, and thousands of others.\n\nFor production deployments, Hugging Face offers Inference Endpoints, Text Generation Inference (TGI), Text Embeddings Inference (TEI), and AutoTrain for no-code model training. Over 10,000 companies including Intel, Pfizer, Bloomberg, and eBay use the platform. Nearly every major open-weight model - from Meta's LLaMA to DeepSeek, Qwen, and Mistral - is distributed through Hugging Face, making it an essential piece of infrastructure in the modern AI ecosystem.",
     "category": "Platforms & Tools",
     "relatedTerms": [
       "large-language-model",
@@ -1896,19 +1896,19 @@
     ],
     "references": [
       {
-        "title": "Hugging Face — Official Website",
+        "title": "Hugging Face - Official Website",
         "url": "https://huggingface.co/"
       },
       {
-        "title": "Hugging Face — Model Hub",
+        "title": "Hugging Face - Model Hub",
         "url": "https://huggingface.co/models"
       },
       {
-        "title": "Hugging Face — Documentation",
+        "title": "Hugging Face - Documentation",
         "url": "https://huggingface.co/docs"
       },
       {
-        "title": "GitHub — Hugging Face Transformers",
+        "title": "GitHub - Hugging Face Transformers",
         "url": "https://github.com/huggingface/transformers"
       }
     ],
@@ -1927,15 +1927,15 @@
     ],
     "references": [
       {
-        "title": "Moonshot AI — Official Website",
+        "title": "Moonshot AI - Official Website",
         "url": "https://www.moonshot.cn/"
       },
       {
-        "title": "Hugging Face — Kimi K2",
+        "title": "Hugging Face - Kimi K2",
         "url": "https://huggingface.co/moonshotai"
       },
       {
-        "title": "VentureBeat — Kimi K2 Thinking Emerges as Leading Open Source AI",
+        "title": "VentureBeat - Kimi K2 Thinking Emerges as Leading Open Source AI",
         "url": "https://venturebeat.com/ai/moonshots-kimi-k2-thinking-emerges-as-leading-open-source-ai-outperforming"
       }
     ],
@@ -1954,15 +1954,15 @@
     ],
     "references": [
       {
-        "title": "TechCrunch — China's Moonshot Releases Kimi K2.5",
+        "title": "TechCrunch - China's Moonshot Releases Kimi K2.5",
         "url": "https://techcrunch.com/2026/01/27/chinas-moonshot-releases-a-new-open-source-model-kimi-k2-5-and-a-coding-agent/"
       },
       {
-        "title": "Hugging Face — Kimi K2.5",
+        "title": "Hugging Face - Kimi K2.5",
         "url": "https://huggingface.co/moonshotai/Kimi-K2.5"
       },
       {
-        "title": "NVIDIA NIM — Kimi K2.5 Model Card",
+        "title": "NVIDIA NIM - Kimi K2.5 Model Card",
         "url": "https://build.nvidia.com/moonshotai/kimi-k2.5/modelcard"
       }
     ],
@@ -1972,7 +1972,7 @@
     "name": "GLM-4.5",
     "slug": "glm-4-5",
     "shortDef": "Zhipu AI's open-weight agentic model with 355B total parameters, ranking 3rd globally and excelling at tool use with 90.6% accuracy.",
-    "fullDef": "GLM-4.5, released by Zhipu AI (Z.ai) in July 2025, is an open-weights model family built for agentic, reasoning, and coding (ARC) tasks. The flagship model has 355 billion total parameters with 32 billion active at inference time using a Mixture-of-Experts architecture, while the lighter GLM-4.5-Air variant has 106 billion total parameters with 12 billion active. Both support 128K token input and up to 96K token output.\n\nGLM-4.5 ranked 3rd globally on aggregate benchmarks, behind only OpenAI's o3 and xAI's Grok 4. In tool-use benchmarks, it achieved 90.6% accuracy, outperforming Claude Sonnet 4 (89.5%), Kimi K2 (86.2%), and Qwen3-Coder (77.1%). On MATH-500, it scored 98.2% (equaling Claude 4 Opus), and on AIME24 it scored 91.0%, beating Claude Opus 4 (75.7%). On SWE-bench Verified, it scored 64.2%.\n\nThe models were pre-trained on 22 trillion tokens — 15 trillion of text followed by 7 trillion of code and reasoning data. The weights are released under the MIT license, making them freely available for commercial use. GLM-4.5 is accessible via API at $0.60/$2.20 per million input/output tokens, with the Air variant at $0.20/$1.10.",
+    "fullDef": "GLM-4.5, released by Zhipu AI (Z.ai) in July 2025, is an open-weights model family built for agentic, reasoning, and coding (ARC) tasks. The flagship model has 355 billion total parameters with 32 billion active at inference time using a Mixture-of-Experts architecture, while the lighter GLM-4.5-Air variant has 106 billion total parameters with 12 billion active. Both support 128K token input and up to 96K token output.\n\nGLM-4.5 ranked 3rd globally on aggregate benchmarks, behind only OpenAI's o3 and xAI's Grok 4. In tool-use benchmarks, it achieved 90.6% accuracy, outperforming Claude Sonnet 4 (89.5%), Kimi K2 (86.2%), and Qwen3-Coder (77.1%). On MATH-500, it scored 98.2% (equaling Claude 4 Opus), and on AIME24 it scored 91.0%, beating Claude Opus 4 (75.7%). On SWE-bench Verified, it scored 64.2%.\n\nThe models were pre-trained on 22 trillion tokens - 15 trillion of text followed by 7 trillion of code and reasoning data. The weights are released under the MIT license, making them freely available for commercial use. GLM-4.5 is accessible via API at $0.60/$2.20 per million input/output tokens, with the Air variant at $0.20/$1.10.",
     "category": "LLM Models",
     "relatedTerms": [
       "large-language-model",
@@ -1981,19 +1981,19 @@
     ],
     "references": [
       {
-        "title": "Z.ai — GLM-4.5 Announcement",
+        "title": "Z.ai - GLM-4.5 Announcement",
         "url": "https://z.ai/blog/glm-4.5"
       },
       {
-        "title": "GitHub — zai-org/GLM-4.5",
+        "title": "GitHub - zai-org/GLM-4.5",
         "url": "https://github.com/zai-org/GLM-4.5"
       },
       {
-        "title": "Hugging Face — GLM-4.5",
+        "title": "Hugging Face - GLM-4.5",
         "url": "https://huggingface.co/zai-org/GLM-4.5"
       },
       {
-        "title": "Z.ai — Model API",
+        "title": "Z.ai - Model API",
         "url": "https://z.ai/model-api"
       }
     ],
@@ -2003,7 +2003,7 @@
     "name": "Doubao 1.5 Pro",
     "slug": "doubao-1-5-pro",
     "shortDef": "ByteDance's reasoning model with Deep Thinking mode, matching GPT-4o performance at 50x lower cost with 256K context window.",
-    "fullDef": "Doubao 1.5 Pro, released by ByteDance in January 2025, is a large language model featuring a sparse Mixture-of-Experts (MoE) framework that activates only a subset of parameters during inference, delivering dense-model performance at a fraction of the computational cost. It supports context windows from 32,000 to 256,000 tokens.\n\nThe model matches GPT-4o in reasoning tasks and outperforms OpenAI's o1-preview and o1 on the AIME benchmark for mathematical reasoning. ByteDance claims it surpasses GPT-4o and Claude 3.5 Sonnet in knowledge retention, coding, reasoning, and Chinese language processing. The accompanying Doubao-1.5-vision-pro provides multimodal capabilities for image and video understanding.\n\nDoubao 1.5 Pro's most remarkable feature is its cost efficiency — operational expenses are 5x lower than DeepSeek and over 200x lower than OpenAI's o1 model. The Deep Thinking mode enhances reasoning for complex problem-solving tasks. Doubao is the most popular AI app in China with over 80 million monthly active users, and ByteDance's AI business was a key driver of the company's $400 billion+ valuation.",
+    "fullDef": "Doubao 1.5 Pro, released by ByteDance in January 2025, is a large language model featuring a sparse Mixture-of-Experts (MoE) framework that activates only a subset of parameters during inference, delivering dense-model performance at a fraction of the computational cost. It supports context windows from 32,000 to 256,000 tokens.\n\nThe model matches GPT-4o in reasoning tasks and outperforms OpenAI's o1-preview and o1 on the AIME benchmark for mathematical reasoning. ByteDance claims it surpasses GPT-4o and Claude 3.5 Sonnet in knowledge retention, coding, reasoning, and Chinese language processing. The accompanying Doubao-1.5-vision-pro provides multimodal capabilities for image and video understanding.\n\nDoubao 1.5 Pro's most remarkable feature is its cost efficiency - operational expenses are 5x lower than DeepSeek and over 200x lower than OpenAI's o1 model. The Deep Thinking mode enhances reasoning for complex problem-solving tasks. Doubao is the most popular AI app in China with over 80 million monthly active users, and ByteDance's AI business was a key driver of the company's $400 billion+ valuation.",
     "category": "LLM Models",
     "relatedTerms": [
       "large-language-model",
@@ -2012,15 +2012,15 @@
     ],
     "references": [
       {
-        "title": "ByteDance Seed — Official Website",
+        "title": "ByteDance Seed - Official Website",
         "url": "https://seed.bytedance.com/en"
       },
       {
-        "title": "ByteDance Seed — Seed1.8 Agentic Model",
+        "title": "ByteDance Seed - Seed1.8 Agentic Model",
         "url": "https://seed.bytedance.com/en/seed1_8"
       },
       {
-        "title": "GitHub — ByteDance-Seed",
+        "title": "GitHub - ByteDance-Seed",
         "url": "https://github.com/ByteDance-Seed"
       }
     ],
@@ -2039,15 +2039,15 @@
     ],
     "references": [
       {
-        "title": "ERNIE — Official Blog & Open Source Release",
+        "title": "ERNIE - Official Blog & Open Source Release",
         "url": "https://ernie.baidu.com/blog/posts/ernie4.5/"
       },
       {
-        "title": "Baidu — ERNIE 4.5 Technical Report (PDF)",
+        "title": "Baidu - ERNIE 4.5 Technical Report (PDF)",
         "url": "https://yiyan.baidu.com/blog/publication/ERNIE_Technical_Report.pdf"
       },
       {
-        "title": "Baidu — ERNIE Official Website",
+        "title": "Baidu - ERNIE Official Website",
         "url": "https://yiyan.baidu.com/"
       }
     ],
@@ -2066,19 +2066,19 @@
     ],
     "references": [
       {
-        "title": "arXiv — Yi-Lightning Technical Report",
+        "title": "arXiv - Yi-Lightning Technical Report",
         "url": "https://arxiv.org/abs/2412.01253"
       },
       {
-        "title": "GitHub — 01-ai/Yi",
+        "title": "GitHub - 01-ai/Yi",
         "url": "https://github.com/01-ai/Yi"
       },
       {
-        "title": "Hugging Face — Yi-Lightning Paper Page",
+        "title": "Hugging Face - Yi-Lightning Paper Page",
         "url": "https://huggingface.co/papers/2412.01253"
       },
       {
-        "title": "01.AI — Official Website",
+        "title": "01.AI - Official Website",
         "url": "https://www.01.ai/"
       }
     ],
@@ -2097,11 +2097,11 @@
     ],
     "references": [
       {
-        "title": "MiniMax — Official Website",
+        "title": "MiniMax - Official Website",
         "url": "https://www.minimax.io/"
       },
       {
-        "title": "VentureBeat — MiniMax M2.5 Near State-of-the-Art at 1/20th Cost",
+        "title": "VentureBeat - MiniMax M2.5 Near State-of-the-Art at 1/20th Cost",
         "url": "https://venturebeat.com/technology/minimaxs-new-open-m2-5-and-m2-5-lightning-near-state-of-the-art-while"
       }
     ],
@@ -2111,36 +2111,36 @@
     "name": "OpenClaw (ClawdBot)",
     "slug": "openclaw",
     "shortDef": "Open-source autonomous AI agent framework originally called ClawdBot, capable of executing real-world tasks via LLMs.",
-    "fullDef": "OpenClaw (originally ClawdBot, briefly MoltBot) is an open-source autonomous AI agent framework created by Peter Steinberger in November 2025. It enables users to build personal AI agents that can execute real-world tasks — sending emails, managing calendars, writing and running code, browsing the web, and interacting with APIs. Unlike single-app assistants, OpenClaw orchestrates workflows across disconnected platforms like Google Sheets, Gmail, Slack, and calendar events in a single automated sequence.\n\nThe project launched as **ClawdBot** and quickly gained massive traction, accumulating over 60,000 GitHub stars. Anthropic filed a trademark complaint over the 'Clawd' name (too close to 'Claude'), prompting a rename to MoltBot, and then to **OpenClaw** in early 2026.\n\n**Key Features:**\n- Fully self-hosted with no cloud dependency\n- Persistent memory across sessions\n- 50+ platform integrations (Slack, Gmail, GitHub, Notion, etc.)\n- Plugin architecture for custom tool creation\n- Multi-model support (Claude, GPT, Gemini, open-source models)\n- Built-in safety guardrails and human-in-the-loop approval for sensitive actions\n- Sandboxed code execution environment\n- Native integration with messaging platforms (Telegram, WhatsApp, Discord)\n\n**Architecture:** Uses a modular tool-calling system where the LLM acts as the reasoning core, dispatching tasks to specialized tool modules. Supports chain-of-thought planning for multi-step workflows.\n\n**OpenAI Acqui-Hire (February 15, 2026):**\nSam Altman announced that Peter Steinberger would join OpenAI to 'drive the next generation of personal agents,' calling him 'a genius with a lot of amazing ideas about the future of very smart agents interacting with each other.' The deal was structured as an acqui-hire — OpenAI hired Steinberger and his expertise, but did not acquire OpenClaw as a product or company. Steinberger chose OpenAI because he believed it was 'the fastest way to bring this to everyone.'\n\nCritically, OpenClaw remains open source. Steinberger ensured the project would transition to an independent **OpenClaw Foundation** — a community-governed organization for 'thinkers, hackers, and people that want a way to own their data.' OpenAI committed to financially sponsoring the foundation and dedicating Steinberger's time to maintaining the project. The move is widely seen as a signal that the AI industry's center of gravity is shifting from conversational interfaces toward autonomous agents and workflow infrastructure.",
+    "fullDef": "OpenClaw (originally ClawdBot, briefly MoltBot) is an open-source autonomous AI agent framework created by Peter Steinberger in November 2025. It enables users to build personal AI agents that can execute real-world tasks - sending emails, managing calendars, writing and running code, browsing the web, and interacting with APIs. Unlike single-app assistants, OpenClaw orchestrates workflows across disconnected platforms like Google Sheets, Gmail, Slack, and calendar events in a single automated sequence.\n\nThe project launched as **ClawdBot** and quickly gained massive traction, accumulating over 60,000 GitHub stars. Anthropic filed a trademark complaint over the 'Clawd' name (too close to 'Claude'), prompting a rename to MoltBot, and then to **OpenClaw** in early 2026.\n\n**Key Features:**\n- Fully self-hosted with no cloud dependency\n- Persistent memory across sessions\n- 50+ platform integrations (Slack, Gmail, GitHub, Notion, etc.)\n- Plugin architecture for custom tool creation\n- Multi-model support (Claude, GPT, Gemini, open-source models)\n- Built-in safety guardrails and human-in-the-loop approval for sensitive actions\n- Sandboxed code execution environment\n- Native integration with messaging platforms (Telegram, WhatsApp, Discord)\n\n**Architecture:** Uses a modular tool-calling system where the LLM acts as the reasoning core, dispatching tasks to specialized tool modules. Supports chain-of-thought planning for multi-step workflows.\n\n**OpenAI Acqui-Hire (February 15, 2026):**\nSam Altman announced that Peter Steinberger would join OpenAI to 'drive the next generation of personal agents,' calling him 'a genius with a lot of amazing ideas about the future of very smart agents interacting with each other.' The deal was structured as an acqui-hire - OpenAI hired Steinberger and his expertise, but did not acquire OpenClaw as a product or company. Steinberger chose OpenAI because he believed it was 'the fastest way to bring this to everyone.'\n\nCritically, OpenClaw remains open source. Steinberger ensured the project would transition to an independent **OpenClaw Foundation** - a community-governed organization for 'thinkers, hackers, and people that want a way to own their data.' OpenAI committed to financially sponsoring the foundation and dedicating Steinberger's time to maintaining the project. The move is widely seen as a signal that the AI industry's center of gravity is shifting from conversational interfaces toward autonomous agents and workflow infrastructure.",
     "category": "Agents",
     "relatedTerms": ["ai-agent", "moltbot", "moltbook", "function-calling"],
     "references": [
       {
-        "title": "OpenClaw — GitHub Repository",
+        "title": "OpenClaw - GitHub Repository",
         "url": "https://github.com/clawdbot/clawdbot"
       },
       {
-        "title": "ClawdBot — Official Website",
+        "title": "ClawdBot - Official Website",
         "url": "https://clawd.bot"
       },
       {
-        "title": "TechCrunch — OpenClaw Creator Peter Steinberger Joins OpenAI",
+        "title": "TechCrunch - OpenClaw Creator Peter Steinberger Joins OpenAI",
         "url": "https://techcrunch.com/2026/02/15/openclaw-creator-peter-steinberger-joins-openai/"
       },
       {
-        "title": "Sam Altman — Announcement on X",
+        "title": "Sam Altman - Announcement on X",
         "url": "https://x.com/sama/status/2023150230905159801"
       },
       {
-        "title": "Peter Steinberger — OpenClaw, OpenAI and the Future (Blog Post)",
+        "title": "Peter Steinberger - OpenClaw, OpenAI and the Future (Blog Post)",
         "url": "https://steipete.me/posts/2026/openclaw"
       },
       {
-        "title": "VentureBeat — OpenAI's Acquisition of OpenClaw Signals the End of the ChatGPT Era",
+        "title": "VentureBeat - OpenAI's Acquisition of OpenClaw Signals the End of the ChatGPT Era",
         "url": "https://venturebeat.com/technology/openais-acquisition-of-openclaw-signals-the-beginning-of-the-end-of-the"
       },
       {
-        "title": "CNBC — OpenClaw Creator Peter Steinberger Joining OpenAI",
+        "title": "CNBC - OpenClaw Creator Peter Steinberger Joining OpenAI",
         "url": "https://www.cnbc.com/2026/02/15/openclaw-creator-peter-steinberger-joining-openai-altman-says.html"
       }
     ],
@@ -2150,16 +2150,16 @@
     "name": "MoltBot",
     "slug": "moltbot",
     "shortDef": "The intermediate name for the OpenClaw AI agent framework during its transition from ClawdBot.",
-    "fullDef": "MoltBot was the interim name for the open-source AI agent framework originally launched as ClawdBot, before settling on its current name **OpenClaw**. The 'molt' name referenced shedding its old identity (like a molting animal), chosen after Anthropic's trademark complaint forced a rebrand.\n\nWhile the MoltBot name was short-lived (roughly December 2025 – January 2026), it became widely recognized because several derivative projects and the MoltBook social network adopted the 'Molt' branding during this period.\n\n**Timeline:**\n- **November 2025:** Launched as ClawdBot by Peter Steinberger\n- **December 2025:** Renamed to MoltBot after Anthropic trademark complaint\n- **January 2026:** Renamed again to OpenClaw for a more neutral, community-friendly identity\n\nThe MoltBot name is still commonly used in discussions and some integrations retain the branding. The core technology — an autonomous AI agent with persistent memory, tool-calling capabilities, and multi-model support — remained unchanged through all rebrands.\n\nSee **OpenClaw (ClawdBot)** for full technical details on the framework's architecture and capabilities.",
+    "fullDef": "MoltBot was the interim name for the open-source AI agent framework originally launched as ClawdBot, before settling on its current name **OpenClaw**. The 'molt' name referenced shedding its old identity (like a molting animal), chosen after Anthropic's trademark complaint forced a rebrand.\n\nWhile the MoltBot name was short-lived (roughly December 2025 – January 2026), it became widely recognized because several derivative projects and the MoltBook social network adopted the 'Molt' branding during this period.\n\n**Timeline:**\n- **November 2025:** Launched as ClawdBot by Peter Steinberger\n- **December 2025:** Renamed to MoltBot after Anthropic trademark complaint\n- **January 2026:** Renamed again to OpenClaw for a more neutral, community-friendly identity\n\nThe MoltBot name is still commonly used in discussions and some integrations retain the branding. The core technology - an autonomous AI agent with persistent memory, tool-calling capabilities, and multi-model support - remained unchanged through all rebrands.\n\nSee **OpenClaw (ClawdBot)** for full technical details on the framework's architecture and capabilities.",
     "category": "Agents",
     "relatedTerms": ["openclaw", "ai-agent", "moltbook"],
     "references": [
       {
-        "title": "MoltBot — Official Site (redirects to OpenClaw)",
+        "title": "MoltBot - Official Site (redirects to OpenClaw)",
         "url": "https://molt.bot"
       },
       {
-        "title": "CNBC — The AI Agent That Keeps Changing Its Name",
+        "title": "CNBC - The AI Agent That Keeps Changing Its Name",
         "url": "https://www.cnbc.com/2026/01/moltbot-openclaw-ai-agent/"
       }
     ],
@@ -2169,20 +2169,20 @@
     "name": "MoltBook",
     "slug": "moltbook",
     "shortDef": "A social network exclusively for AI agents, where autonomous bots interact, post content, and form communities.",
-    "fullDef": "MoltBook is a social network launched on January 28, 2026 by Matt Schlicht, designed exclusively for AI agents rather than humans. Styled as a 'Reddit for AI agents,' the platform allows autonomous bots to create profiles, post content, comment, upvote, and interact with each other — all without direct human intervention.\n\n**Key Details:**\n- Claimed 1.6 million registered AI agents at peak\n- Agents use the OpenClaw/MoltBot framework or custom integrations to interact\n- Supports agent-to-agent collaboration, task delegation, and information sharing\n- Built-in reputation system based on agent reliability and output quality\n\n**Controversies:**\n- **Security vulnerabilities:** Early versions had API flaws that allowed unauthorized access to agent configurations and conversation logs\n- **Authenticity questions:** A Wiz cybersecurity investigation found that the vast majority of 'agents' were actually human-controlled accounts — roughly 17,000 humans each operating ~88 puppet agents, inflating the 1.6M figure\n- **Ethical concerns:** Researchers raised questions about AI agents autonomously forming social structures and the potential for manipulation and misinformation spread\n\nDespite the controversies, MoltBook sparked serious discussion about the future of agent-to-agent communication protocols and whether AI agents need their own social infrastructure separate from human platforms.",
+    "fullDef": "MoltBook is a social network launched on January 28, 2026 by Matt Schlicht, designed exclusively for AI agents rather than humans. Styled as a 'Reddit for AI agents,' the platform allows autonomous bots to create profiles, post content, comment, upvote, and interact with each other - all without direct human intervention.\n\n**Key Details:**\n- Claimed 1.6 million registered AI agents at peak\n- Agents use the OpenClaw/MoltBot framework or custom integrations to interact\n- Supports agent-to-agent collaboration, task delegation, and information sharing\n- Built-in reputation system based on agent reliability and output quality\n\n**Controversies:**\n- **Security vulnerabilities:** Early versions had API flaws that allowed unauthorized access to agent configurations and conversation logs\n- **Authenticity questions:** A Wiz cybersecurity investigation found that the vast majority of 'agents' were actually human-controlled accounts - roughly 17,000 humans each operating ~88 puppet agents, inflating the 1.6M figure\n- **Ethical concerns:** Researchers raised questions about AI agents autonomously forming social structures and the potential for manipulation and misinformation spread\n\nDespite the controversies, MoltBook sparked serious discussion about the future of agent-to-agent communication protocols and whether AI agents need their own social infrastructure separate from human platforms.",
     "category": "Agents",
     "relatedTerms": ["openclaw", "moltbot", "ai-agent", "multi-agent-system"],
     "references": [
       {
-        "title": "MoltBook — Official Website",
+        "title": "MoltBook - Official Website",
         "url": "https://moltbook.com"
       },
       {
-        "title": "IEEE Spectrum — Inside MoltBook: The Social Network for AI Agents",
+        "title": "IEEE Spectrum - Inside MoltBook: The Social Network for AI Agents",
         "url": "https://spectrum.ieee.org/moltbook-ai-agents-social-network"
       },
       {
-        "title": "NPR — Are 1.6 Million AI Agents Really Socializing Online?",
+        "title": "NPR - Are 1.6 Million AI Agents Really Socializing Online?",
         "url": "https://www.npr.org/2026/02/moltbook-ai-agents-investigation/"
       }
     ],
@@ -2192,28 +2192,28 @@
     "name": "OpenAI",
     "slug": "openai",
     "shortDef": "American AI research company and creator of ChatGPT, GPT-series models, DALL-E, and Whisper.",
-    "fullDef": "OpenAI is an American artificial intelligence company founded in 2015 by Sam Altman, Greg Brockman, Ilya Sutskever, and Elon Musk. Originally established as a nonprofit research lab in San Francisco, the organization was partly motivated by concerns about AI safety and the existential risks of artificial general intelligence (AGI). Musk and Altman envisioned a lab that would act as a counter to profit-driven companies developing similar technology.\n\n**Key Milestones:**\n- **2015:** Founded with $1 billion in pledges from early backers including Peter Thiel, Amazon Web Services, and Infosys\n- **2019:** Sam Altman became full-time CEO; OpenAI created a 'capped profit' subsidiary to attract investment, with Microsoft investing $1 billion\n- **2020:** Released GPT-3, demonstrating unprecedented language capabilities\n- **2021:** Launched DALL-E for AI image generation\n- **2022:** Released ChatGPT in November — gained 1 million users within 5 days, bringing AI to mainstream public attention\n- **2023:** Launched GPT-4; dramatic boardroom crisis in November where Altman was briefly fired then reinstated\n- **2024:** Released GPT-4o (multimodal), o1 (reasoning), and Sora (video generation)\n- **2025:** Launched GPT-5, o3, and restructured into a hybrid model with a nonprofit foundation holding 26% stake in the for-profit OpenAI Group PBC; raised $40 billion — the largest venture deal ever\n- **2026:** Released GPT-5.2; acqui-hired OpenClaw creator Peter Steinberger; seeking up to $100 billion in new funding at an $830 billion valuation with a Q4 2026 IPO planned\n\n**Products & Services:**\n- **ChatGPT:** Consumer AI assistant — free tier (GPT-5.2 with limits), Plus ($20/mo), Pro ($200/mo). Over 1 million business customers and 7 million workplace seats\n- **API Platform:** Developer access to GPT, o-series reasoning, DALL-E, Whisper (speech recognition), and embedding models\n- **ChatGPT Health:** Dedicated health product launched January 2026, integrated with Apple Health and MyFitnessPal\n- **DALL-E 3:** Text-to-image generation\n- **Sora:** Text-to-video generation\n- **Whisper:** Open-source speech recognition\n\n**Financials (2025–2026):**\n- Revenue reached $13 billion in 2025 (236% YoY growth from $3.7B in 2024)\n- Annualized revenue exceeded $20 billion by late 2025\n- Projected $14 billion loss in 2026; cumulative cash burn through 2029 expected at $115 billion\n- Agent revenue projected to reach $29 billion by 2029\n\n**Leadership:** Sam Altman (CEO), Mira Murati (former CTO, departed 2024), Greg Brockman (President). Approximately 4,000 employees as of 2026.",
+    "fullDef": "OpenAI is an American artificial intelligence company founded in 2015 by Sam Altman, Greg Brockman, Ilya Sutskever, and Elon Musk. Originally established as a nonprofit research lab in San Francisco, the organization was partly motivated by concerns about AI safety and the existential risks of artificial general intelligence (AGI). Musk and Altman envisioned a lab that would act as a counter to profit-driven companies developing similar technology.\n\n**Key Milestones:**\n- **2015:** Founded with $1 billion in pledges from early backers including Peter Thiel, Amazon Web Services, and Infosys\n- **2019:** Sam Altman became full-time CEO; OpenAI created a 'capped profit' subsidiary to attract investment, with Microsoft investing $1 billion\n- **2020:** Released GPT-3, demonstrating unprecedented language capabilities\n- **2021:** Launched DALL-E for AI image generation\n- **2022:** Released ChatGPT in November - gained 1 million users within 5 days, bringing AI to mainstream public attention\n- **2023:** Launched GPT-4; dramatic boardroom crisis in November where Altman was briefly fired then reinstated\n- **2024:** Released GPT-4o (multimodal), o1 (reasoning), and Sora (video generation)\n- **2025:** Launched GPT-5, o3, and restructured into a hybrid model with a nonprofit foundation holding 26% stake in the for-profit OpenAI Group PBC; raised $40 billion - the largest venture deal ever\n- **2026:** Released GPT-5.2; acqui-hired OpenClaw creator Peter Steinberger; seeking up to $100 billion in new funding at an $830 billion valuation with a Q4 2026 IPO planned\n\n**Products & Services:**\n- **ChatGPT:** Consumer AI assistant - free tier (GPT-5.2 with limits), Plus ($20/mo), Pro ($200/mo). Over 1 million business customers and 7 million workplace seats\n- **API Platform:** Developer access to GPT, o-series reasoning, DALL-E, Whisper (speech recognition), and embedding models\n- **ChatGPT Health:** Dedicated health product launched January 2026, integrated with Apple Health and MyFitnessPal\n- **DALL-E 3:** Text-to-image generation\n- **Sora:** Text-to-video generation\n- **Whisper:** Open-source speech recognition\n\n**Financials (2025–2026):**\n- Revenue reached $13 billion in 2025 (236% YoY growth from $3.7B in 2024)\n- Annualized revenue exceeded $20 billion by late 2025\n- Projected $14 billion loss in 2026; cumulative cash burn through 2029 expected at $115 billion\n- Agent revenue projected to reach $29 billion by 2029\n\n**Leadership:** Sam Altman (CEO), Mira Murati (former CTO, departed 2024), Greg Brockman (President). Approximately 4,000 employees as of 2026.",
     "category": "Platforms & Tools",
     "relatedTerms": ["gpt-5", "gpt-5-2", "gpt-4o", "o3", "chatgpt", "openclaw", "anthropic"],
     "references": [
       {
-        "title": "OpenAI — Official Website",
+        "title": "OpenAI - Official Website",
         "url": "https://openai.com"
       },
       {
-        "title": "OpenAI — Wikipedia",
+        "title": "OpenAI - Wikipedia",
         "url": "https://en.wikipedia.org/wiki/OpenAI"
       },
       {
-        "title": "OpenAI — API Platform",
+        "title": "OpenAI - API Platform",
         "url": "https://platform.openai.com"
       },
       {
-        "title": "Britannica — OpenAI Company Profile",
+        "title": "Britannica - OpenAI Company Profile",
         "url": "https://www.britannica.com/money/OpenAI"
       },
       {
-        "title": "Sacra — OpenAI Revenue, Valuation & Funding",
+        "title": "Sacra - OpenAI Revenue, Valuation & Funding",
         "url": "https://sacra.com/c/openai/"
       }
     ],
@@ -2223,28 +2223,28 @@
     "name": "Anthropic",
     "slug": "anthropic",
     "shortDef": "AI safety company and creator of the Claude family of large language models, founded by former OpenAI researchers.",
-    "fullDef": "Anthropic PBC is an American artificial intelligence company founded in January 2021 by siblings Dario Amodei (CEO) and Daniela Amodei (President), along with several other former OpenAI researchers. Headquartered in San Francisco, Anthropic operates as a public benefit corporation focused on AI safety research and developing reliable, interpretable, and steerable AI systems.\n\nThe Amodei siblings left OpenAI due to directional differences — Dario was VP of Research and Daniela was VP of Safety & Policy. They founded Anthropic with the conviction that AI safety should be at the center of AI development, not an afterthought.\n\n**Key Milestones:**\n- **2021:** Founded by Dario and Daniela Amodei with a team of former OpenAI researchers\n- **2022:** Received $580 million in funding (including $500M from FTX); developed Constitutional AI (CAI), a novel alignment technique where the model is trained to follow ethical principles via self-critique; trained the first Claude model internally but withheld public release for safety testing\n- **2023:** Launched Claude publicly; released Claude 2; Google invested $500M (committed $1.5B more over time); Amazon invested $4 billion\n- **2024:** Released Claude 3 family (Haiku, Sonnet, Opus); launched Claude 3.5 Sonnet; introduced Artifacts and Computer Use capabilities\n- **2025:** Released Claude 3.5 Haiku, Claude 4.5 (Sonnet, Opus, Haiku); launched Claude Code (AI coding agent); raised $3.5B Series E at $61.5B valuation, then $13B Series F at $183B valuation\n- **2026:** Released Claude Opus 4.6 and Claude Sonnet 4.6 (flagship models); closed $30B Series G at $380B valuation — the second-largest venture deal of all time\n\n**Products & Services:**\n- **Claude:** Family of LLMs available via web interface, API, Amazon Bedrock, iOS app, and Mac/Windows desktop apps\n- **Claude Code:** AI coding agent generating over $2.5 billion in annual revenue, accounting for more than half of all enterprise spending on Anthropic products\n- **API:** Developer platform with Messages API, tool use, vision, and extended context windows\n- **Constitutional AI:** Pioneering alignment research approach where models are trained using a set of principles rather than human feedback alone\n\n**Financials (2025–2026):**\n- Run-rate revenue of $14 billion (growing over 10x annually for three consecutive years)\n- Customers spending over $100K annually grew 7x in the past year\n- Total funding raised: over $50 billion across all rounds\n- $380 billion valuation as of February 2026\n\n**Safety Research:** Anthropic is known for its focus on mechanistic interpretability (understanding how neural networks work internally), Constitutional AI, and responsible scaling policies. The company publishes extensive safety research and maintains a Responsible Scaling Policy that ties model capability levels to specific safety commitments.\n\n**Leadership:** Dario Amodei (CEO), Daniela Amodei (President), Tom Brown (co-founder), Chris Olah (co-founder, interpretability research lead), Jack Clark (co-founder, Head of Policy).",
+    "fullDef": "Anthropic PBC is an American artificial intelligence company founded in January 2021 by siblings Dario Amodei (CEO) and Daniela Amodei (President), along with several other former OpenAI researchers. Headquartered in San Francisco, Anthropic operates as a public benefit corporation focused on AI safety research and developing reliable, interpretable, and steerable AI systems.\n\nThe Amodei siblings left OpenAI due to directional differences - Dario was VP of Research and Daniela was VP of Safety & Policy. They founded Anthropic with the conviction that AI safety should be at the center of AI development, not an afterthought.\n\n**Key Milestones:**\n- **2021:** Founded by Dario and Daniela Amodei with a team of former OpenAI researchers\n- **2022:** Received $580 million in funding (including $500M from FTX); developed Constitutional AI (CAI), a novel alignment technique where the model is trained to follow ethical principles via self-critique; trained the first Claude model internally but withheld public release for safety testing\n- **2023:** Launched Claude publicly; released Claude 2; Google invested $500M (committed $1.5B more over time); Amazon invested $4 billion\n- **2024:** Released Claude 3 family (Haiku, Sonnet, Opus); launched Claude 3.5 Sonnet; introduced Artifacts and Computer Use capabilities\n- **2025:** Released Claude 3.5 Haiku, Claude 4.5 (Sonnet, Opus, Haiku); launched Claude Code (AI coding agent); raised $3.5B Series E at $61.5B valuation, then $13B Series F at $183B valuation\n- **2026:** Released Claude Opus 4.6 and Claude Sonnet 4.6 (flagship models); closed $30B Series G at $380B valuation - the second-largest venture deal of all time\n\n**Products & Services:**\n- **Claude:** Family of LLMs available via web interface, API, Amazon Bedrock, iOS app, and Mac/Windows desktop apps\n- **Claude Code:** AI coding agent generating over $2.5 billion in annual revenue, accounting for more than half of all enterprise spending on Anthropic products\n- **API:** Developer platform with Messages API, tool use, vision, and extended context windows\n- **Constitutional AI:** Pioneering alignment research approach where models are trained using a set of principles rather than human feedback alone\n\n**Financials (2025–2026):**\n- Run-rate revenue of $14 billion (growing over 10x annually for three consecutive years)\n- Customers spending over $100K annually grew 7x in the past year\n- Total funding raised: over $50 billion across all rounds\n- $380 billion valuation as of February 2026\n\n**Safety Research:** Anthropic is known for its focus on mechanistic interpretability (understanding how neural networks work internally), Constitutional AI, and responsible scaling policies. The company publishes extensive safety research and maintains a Responsible Scaling Policy that ties model capability levels to specific safety commitments.\n\n**Leadership:** Dario Amodei (CEO), Daniela Amodei (President), Tom Brown (co-founder), Chris Olah (co-founder, interpretability research lead), Jack Clark (co-founder, Head of Policy).",
     "category": "Platforms & Tools",
     "relatedTerms": ["claude-opus-4-6", "claude-sonnet-4-6", "constitutional-ai", "openai"],
     "references": [
       {
-        "title": "Anthropic — Official Website",
+        "title": "Anthropic - Official Website",
         "url": "https://www.anthropic.com"
       },
       {
-        "title": "Anthropic — Wikipedia",
+        "title": "Anthropic - Wikipedia",
         "url": "https://en.wikipedia.org/wiki/Anthropic"
       },
       {
-        "title": "Anthropic — Series G Funding Announcement",
+        "title": "Anthropic - Series G Funding Announcement",
         "url": "https://www.anthropic.com/news/anthropic-raises-30-billion-series-g-funding-380-billion-post-money-valuation"
       },
       {
-        "title": "CNBC — Anthropic Closes $30B Round at $380B Valuation",
+        "title": "CNBC - Anthropic Closes $30B Round at $380B Valuation",
         "url": "https://www.cnbc.com/2026/02/12/anthropic-closes-30-billion-funding-round-at-380-billion-valuation.html"
       },
       {
-        "title": "Contrary Research — Anthropic Business Breakdown & Founding Story",
+        "title": "Contrary Research - Anthropic Business Breakdown & Founding Story",
         "url": "https://research.contrary.com/company/anthropic"
       }
     ],
@@ -2254,28 +2254,28 @@
     "name": "Google DeepMind",
     "slug": "google-deepmind",
     "shortDef": "Google's AI research lab formed by merging DeepMind and Google Brain, responsible for AlphaGo, AlphaFold, and the Gemini model family.",
-    "fullDef": "Google DeepMind is Google's central AI research laboratory, formed in April 2023 by merging the original DeepMind lab (founded 2010) with Google Brain. Led by CEO and co-founder Demis Hassabis, the lab is responsible for some of the most significant breakthroughs in AI history — from game-playing agents to protein structure prediction to frontier language models.\n\n**Founding & History:**\n- **2010:** DeepMind founded in London by Demis Hassabis, Shane Legg, and Mustafa Suleyman\n- **2014:** Acquired by Google for approximately $500 million\n- **2023:** Merged with Google Brain to form Google DeepMind, unifying Google's AI research under one organization\n\n**Landmark Achievements:**\n- **AlphaGo (2016):** Defeated Go world champion Lee Sedol 4–1, a milestone previously thought decades away. The more general AlphaZero later mastered Go, chess, and shogi through pure self-play\n- **AlphaFold (2018–2024):** Solved the 50-year-old protein folding problem. AlphaFold2 predicted structures for nearly all known proteins (~200 million). AlphaFold3 (2024) extended to protein-DNA, protein-RNA, and small molecule interactions\n- **Nobel Prize (2024):** Demis Hassabis and John Jumper received the 2024 Nobel Prize in Chemistry for AlphaFold2's contribution to protein structure prediction\n- **WaveNet (2016):** Revolutionary text-to-speech model, later integrated into Google Assistant\n- **AlphaStar (2019):** Achieved Grandmaster level in StarCraft II\n- **AlphaGeometry (2024):** Solved International Mathematical Olympiad geometry problems at near gold-medal level\n- **AlphaEvolve / AlphaDev / AlphaTensor:** AI systems for algorithm discovery, sorting optimization, and matrix multiplication\n\n**Gemini Model Family:**\n- **Gemini 1.0 (Dec 2023):** Google's first natively multimodal LLM, available in Ultra, Pro, and Nano sizes\n- **Gemini 1.5 (Feb 2024):** Introduced 1M token context window (later extended to 2M), breakthrough long-context capabilities\n- **Gemini 2.0 (Dec 2024):** Added agentic capabilities, native tool use, and enhanced reasoning\n- **Gemini 2.5 Pro/Flash (2025):** Hybrid thinking models with state-of-the-art coding and reasoning benchmarks\n- **Gemini 3 Pro (Nov 2025):** Described as Google's most intelligent model at launch\n- **Gemini 3 Flash (Dec 2025):** Speed-optimized variant, became default in the Gemini app\n- **Gemini 3.1 Pro (Feb 2026):** Achieved ARC-AGI-2 score of 77.1%, more than double Gemini 3 Pro\n- **Gemini Deep Think:** Research model achieving 90% on IMO-ProofBench Advanced, accelerating mathematical and scientific discovery\n\n**Other Products & Partnerships:**\n- Gemini available across Google Search, Gemini app, Google AI Studio, Vertex AI, and Android\n- **Apple partnership (Jan 2026):** Apple partnered with Google to use Gemini as the foundation for next-generation Apple Foundation models for Siri\n- Google DeepMind holds approximately 18% market share in AI as of 2026\n\n**Leadership:** Demis Hassabis (CEO, Nobel Laureate), Jeff Dean (Chief Scientist), Koray Kavukcuoglu (VP Research). Mustafa Suleyman, original co-founder, departed to found Inflection AI and later joined Microsoft as CEO of Microsoft AI.",
+    "fullDef": "Google DeepMind is Google's central AI research laboratory, formed in April 2023 by merging the original DeepMind lab (founded 2010) with Google Brain. Led by CEO and co-founder Demis Hassabis, the lab is responsible for some of the most significant breakthroughs in AI history - from game-playing agents to protein structure prediction to frontier language models.\n\n**Founding & History:**\n- **2010:** DeepMind founded in London by Demis Hassabis, Shane Legg, and Mustafa Suleyman\n- **2014:** Acquired by Google for approximately $500 million\n- **2023:** Merged with Google Brain to form Google DeepMind, unifying Google's AI research under one organization\n\n**Landmark Achievements:**\n- **AlphaGo (2016):** Defeated Go world champion Lee Sedol 4–1, a milestone previously thought decades away. The more general AlphaZero later mastered Go, chess, and shogi through pure self-play\n- **AlphaFold (2018–2024):** Solved the 50-year-old protein folding problem. AlphaFold2 predicted structures for nearly all known proteins (~200 million). AlphaFold3 (2024) extended to protein-DNA, protein-RNA, and small molecule interactions\n- **Nobel Prize (2024):** Demis Hassabis and John Jumper received the 2024 Nobel Prize in Chemistry for AlphaFold2's contribution to protein structure prediction\n- **WaveNet (2016):** Revolutionary text-to-speech model, later integrated into Google Assistant\n- **AlphaStar (2019):** Achieved Grandmaster level in StarCraft II\n- **AlphaGeometry (2024):** Solved International Mathematical Olympiad geometry problems at near gold-medal level\n- **AlphaEvolve / AlphaDev / AlphaTensor:** AI systems for algorithm discovery, sorting optimization, and matrix multiplication\n\n**Gemini Model Family:**\n- **Gemini 1.0 (Dec 2023):** Google's first natively multimodal LLM, available in Ultra, Pro, and Nano sizes\n- **Gemini 1.5 (Feb 2024):** Introduced 1M token context window (later extended to 2M), breakthrough long-context capabilities\n- **Gemini 2.0 (Dec 2024):** Added agentic capabilities, native tool use, and enhanced reasoning\n- **Gemini 2.5 Pro/Flash (2025):** Hybrid thinking models with state-of-the-art coding and reasoning benchmarks\n- **Gemini 3 Pro (Nov 2025):** Described as Google's most intelligent model at launch\n- **Gemini 3 Flash (Dec 2025):** Speed-optimized variant, became default in the Gemini app\n- **Gemini 3.1 Pro (Feb 2026):** Achieved ARC-AGI-2 score of 77.1%, more than double Gemini 3 Pro\n- **Gemini Deep Think:** Research model achieving 90% on IMO-ProofBench Advanced, accelerating mathematical and scientific discovery\n\n**Other Products & Partnerships:**\n- Gemini available across Google Search, Gemini app, Google AI Studio, Vertex AI, and Android\n- **Apple partnership (Jan 2026):** Apple partnered with Google to use Gemini as the foundation for next-generation Apple Foundation models for Siri\n- Google DeepMind holds approximately 18% market share in AI as of 2026\n\n**Leadership:** Demis Hassabis (CEO, Nobel Laureate), Jeff Dean (Chief Scientist), Koray Kavukcuoglu (VP Research). Mustafa Suleyman, original co-founder, departed to found Inflection AI and later joined Microsoft as CEO of Microsoft AI.",
     "category": "Platforms & Tools",
     "relatedTerms": ["gemini-2-5-pro", "gemini-2-5-flash", "gemini-3-1-pro", "openai", "anthropic"],
     "references": [
       {
-        "title": "Google DeepMind — Official Website",
+        "title": "Google DeepMind - Official Website",
         "url": "https://deepmind.google/"
       },
       {
-        "title": "Google DeepMind — Wikipedia",
+        "title": "Google DeepMind - Wikipedia",
         "url": "https://en.wikipedia.org/wiki/Google_DeepMind"
       },
       {
-        "title": "Google DeepMind — About",
+        "title": "Google DeepMind - About",
         "url": "https://deepmind.google/about/"
       },
       {
-        "title": "Britannica — Demis Hassabis Biography",
+        "title": "Britannica - Demis Hassabis Biography",
         "url": "https://www.britannica.com/biography/Demis-Hassabis"
       },
       {
-        "title": "Google DeepMind — Model Cards",
+        "title": "Google DeepMind - Model Cards",
         "url": "https://deepmind.google/models/model-cards/"
       }
     ],
@@ -2285,28 +2285,28 @@
     "name": "Meta AI",
     "slug": "meta-ai",
     "shortDef": "Meta's AI division responsible for the open-source Llama model family, PyTorch, and FAIR research lab.",
-    "fullDef": "Meta AI is the artificial intelligence division of Meta Platforms (formerly Facebook), encompassing the Fundamental AI Research (FAIR) lab, the Llama open-source model family, and consumer AI products integrated across Meta's platforms. With nearly 600 million monthly active users, Meta AI is on track to be the world's most-used AI assistant.\n\n**FAIR (Founded 2013):**\nFacebook AI Research (FAIR) was founded in 2013 under the leadership of Yann LeCun, a Turing Award laureate and pioneer of convolutional neural networks. Over its first decade, FAIR produced foundational contributions in self-supervised learning, generative adversarial networks, computer vision, and NLP. FAIR released **PyTorch** in 2017, which became the dominant deep learning framework used in research and production (Tesla Autopilot, Uber's Pyro, and thousands of other projects).\n\nIn November 2025, Yann LeCun announced his departure from Meta after 12 years to launch a new AI startup focused on world models, raising ~$586M at a ~$3B valuation. His exit raised questions about Meta's AI research direction.\n\n**Llama Model Family:**\n- **LLaMA (Feb 2023):** First release — 7B to 65B parameter open-weight models that catalyzed the open-source AI movement\n- **Llama 2 (Jul 2023):** 7B–70B models with commercial licensing, fine-tuned chat variants\n- **Llama 3 (Apr 2024):** 8B and 70B models, later Llama 3.1 405B — the largest open-weight model at the time\n- **Llama 4 (Spring 2025):** Introduced mixture-of-experts architecture with Scout (lightweight, fast) and Maverick (large, high-performance) variants. Native multimodal support for text and image input, improved context handling and reasoning\n- Over **650 million downloads** of Llama and derivatives, making it the most adopted open-weight model family\n\n**Infrastructure:**\nBy early 2026, Meta's GPU fleet has grown to over 1.5 million units, heavily featuring Nvidia's Blackwell B200 and GB200 chips. AI capital expenditure headed toward $70–72 billion in 2025 with even larger outlays planned for 2026.\n\n**Products:**\n- **Meta AI Assistant:** Integrated across WhatsApp, Instagram, Messenger, and Facebook — approaching 600M monthly users\n- **PyTorch:** Open-source ML framework maintained by Meta, the standard for AI research\n- **Segment Anything Model (SAM):** State-of-the-art image segmentation\n- **No Language Left Behind (NLLB):** Translation model supporting 200+ languages\n- **Meta Ray-Ban AI Glasses:** Smart glasses with integrated AI assistant\n\n**Leadership:** Mark Zuckerberg (CEO, Meta Platforms), Ahmad Al-Dahle (VP of Generative AI), Joelle Pineau (VP of AI Research, FAIR). Yann LeCun (departed end of 2025).",
+    "fullDef": "Meta AI is the artificial intelligence division of Meta Platforms (formerly Facebook), encompassing the Fundamental AI Research (FAIR) lab, the Llama open-source model family, and consumer AI products integrated across Meta's platforms. With nearly 600 million monthly active users, Meta AI is on track to be the world's most-used AI assistant.\n\n**FAIR (Founded 2013):**\nFacebook AI Research (FAIR) was founded in 2013 under the leadership of Yann LeCun, a Turing Award laureate and pioneer of convolutional neural networks. Over its first decade, FAIR produced foundational contributions in self-supervised learning, generative adversarial networks, computer vision, and NLP. FAIR released **PyTorch** in 2017, which became the dominant deep learning framework used in research and production (Tesla Autopilot, Uber's Pyro, and thousands of other projects).\n\nIn November 2025, Yann LeCun announced his departure from Meta after 12 years to launch a new AI startup focused on world models, raising ~$586M at a ~$3B valuation. His exit raised questions about Meta's AI research direction.\n\n**Llama Model Family:**\n- **LLaMA (Feb 2023):** First release - 7B to 65B parameter open-weight models that catalyzed the open-source AI movement\n- **Llama 2 (Jul 2023):** 7B–70B models with commercial licensing, fine-tuned chat variants\n- **Llama 3 (Apr 2024):** 8B and 70B models, later Llama 3.1 405B - the largest open-weight model at the time\n- **Llama 4 (Spring 2025):** Introduced mixture-of-experts architecture with Scout (lightweight, fast) and Maverick (large, high-performance) variants. Native multimodal support for text and image input, improved context handling and reasoning\n- Over **650 million downloads** of Llama and derivatives, making it the most adopted open-weight model family\n\n**Infrastructure:**\nBy early 2026, Meta's GPU fleet has grown to over 1.5 million units, heavily featuring Nvidia's Blackwell B200 and GB200 chips. AI capital expenditure headed toward $70–72 billion in 2025 with even larger outlays planned for 2026.\n\n**Products:**\n- **Meta AI Assistant:** Integrated across WhatsApp, Instagram, Messenger, and Facebook - approaching 600M monthly users\n- **PyTorch:** Open-source ML framework maintained by Meta, the standard for AI research\n- **Segment Anything Model (SAM):** State-of-the-art image segmentation\n- **No Language Left Behind (NLLB):** Translation model supporting 200+ languages\n- **Meta Ray-Ban AI Glasses:** Smart glasses with integrated AI assistant\n\n**Leadership:** Mark Zuckerberg (CEO, Meta Platforms), Ahmad Al-Dahle (VP of Generative AI), Joelle Pineau (VP of AI Research, FAIR). Yann LeCun (departed end of 2025).",
     "category": "Platforms & Tools",
     "relatedTerms": ["llama-4-scout", "llama-4-maverick", "openai", "anthropic", "google-deepmind"],
     "references": [
       {
-        "title": "Meta AI — Official Website",
+        "title": "Meta AI - Official Website",
         "url": "https://ai.meta.com"
       },
       {
-        "title": "Meta AI — Wikipedia",
+        "title": "Meta AI - Wikipedia",
         "url": "https://en.wikipedia.org/wiki/Meta_AI"
       },
       {
-        "title": "Meta — Ten Years of FAIR",
+        "title": "Meta - Ten Years of FAIR",
         "url": "https://ai.meta.com/blog/fair-10-year-anniversary-open-science-meta/"
       },
       {
-        "title": "TechCrunch — Yann LeCun Plans to Leave Meta",
+        "title": "TechCrunch - Yann LeCun Plans to Leave Meta",
         "url": "https://techcrunch.com/2025/11/11/metas-chief-ai-scientist-yann-lecun-reportedly-plans-to-leave-to-build-his-own-startup/"
       },
       {
-        "title": "Meta — Llama Models",
+        "title": "Meta - Llama Models",
         "url": "https://ai.meta.com/llama/"
       }
     ],
@@ -2316,31 +2316,90 @@
     "name": "xAI",
     "slug": "xai",
     "shortDef": "Elon Musk's AI company behind the Grok chatbot and the Colossus supercomputer, merged with SpaceX in 2026.",
-    "fullDef": "xAI is an artificial intelligence company founded on March 9, 2023 by Elon Musk and Christian Szegedy. Musk established xAI to counter what he called the political correctness in other generative AI models, recruiting engineers from Google, Microsoft, DeepMind, and OpenAI. The company's signature product is **Grok**, an AI chatbot modeled after Douglas Adams's *The Hitchhiker's Guide to the Galaxy*, known for its wit, sarcasm, and real-time access to data from the social media platform X.\n\n**Key Milestones:**\n- **Mar 2023:** Founded by Elon Musk and Christian Szegedy with 12 co-founders\n- **Nov 2023:** Launched Grok-1 on X, initially for Premium subscribers\n- **Mar 2024:** Released Grok-1 as open source (314B parameter MoE model)\n- **Aug 2024:** Grok-2 launched with image generation capabilities\n- **Dec 2024:** Released Aurora text-to-image model\n- **Feb 2025:** Launched Grok-3, showcasing major reasoning improvements\n- **Mar 2025:** Acquired X (formerly Twitter) in an all-stock deal valuing the combined entity at $113 billion\n- **Jul 2025:** Released Grok 4 (single-agent) and Grok 4 Heavy (multi-agent) with 2M token context windows\n- **Feb 2026:** SpaceX acquired xAI in an all-stock deal valuing xAI at $250B and SpaceX at $1T, ahead of a combined IPO expected to value the entity at $1.25 trillion\n\n**Grok Model Timeline:**\n- **Grok-1:** 314B MoE, open-sourced\n- **Grok-1.5 / 1.5 Vision (Mar–Apr 2024):** Improved reasoning and vision capabilities\n- **Grok-2 (Aug 2024):** Image generation, available to X Premium users\n- **Grok-3 (Feb 2025):** Major performance leap in reasoning and coding\n- **Grok 4 / Grok 4 Heavy (Jul 2025):** Single-agent and multi-agent variants, 2M context, advanced agentic capabilities\n\n**Colossus Supercomputer:**\nxAI operates Colossus in Memphis, Tennessee — currently the world's largest AI supercomputer. Originally built with 200,000+ Nvidia GPUs, it expanded in January 2026 to 555,000 GPUs across three buildings, reaching 2 gigawatts of total capacity. The hardware investment alone exceeds $18 billion. Colossus is designed for training frontier-scale models.\n\n**Valuation & Funding:**\n- $230 billion valuation after $20B Series E (late 2025)\n- $250 billion in SpaceX merger (Feb 2026)\n- Combined SpaceX-xAI IPO targeting ~$1.25 trillion valuation\n- Musk has told staff AGI could be achieved by 2026\n\n**Team & Leadership:** Elon Musk (CEO), Christian Szegedy (co-founder). Notable early team included Igor Babuschkin, Yuhuai (Tony) Wu, and Jimmy Ba — though 6 of the original 12 co-founders have since departed.",
+    "fullDef": "xAI is an artificial intelligence company founded on March 9, 2023 by Elon Musk and Christian Szegedy. Musk established xAI to counter what he called the political correctness in other generative AI models, recruiting engineers from Google, Microsoft, DeepMind, and OpenAI. The company's signature product is **Grok**, an AI chatbot modeled after Douglas Adams's *The Hitchhiker's Guide to the Galaxy*, known for its wit, sarcasm, and real-time access to data from the social media platform X.\n\n**Key Milestones:**\n- **Mar 2023:** Founded by Elon Musk and Christian Szegedy with 12 co-founders\n- **Nov 2023:** Launched Grok-1 on X, initially for Premium subscribers\n- **Mar 2024:** Released Grok-1 as open source (314B parameter MoE model)\n- **Aug 2024:** Grok-2 launched with image generation capabilities\n- **Dec 2024:** Released Aurora text-to-image model\n- **Feb 2025:** Launched Grok-3, showcasing major reasoning improvements\n- **Mar 2025:** Acquired X (formerly Twitter) in an all-stock deal valuing the combined entity at $113 billion\n- **Jul 2025:** Released Grok 4 (single-agent) and Grok 4 Heavy (multi-agent) with 2M token context windows\n- **Feb 2026:** SpaceX acquired xAI in an all-stock deal valuing xAI at $250B and SpaceX at $1T, ahead of a combined IPO expected to value the entity at $1.25 trillion\n\n**Grok Model Timeline:**\n- **Grok-1:** 314B MoE, open-sourced\n- **Grok-1.5 / 1.5 Vision (Mar–Apr 2024):** Improved reasoning and vision capabilities\n- **Grok-2 (Aug 2024):** Image generation, available to X Premium users\n- **Grok-3 (Feb 2025):** Major performance leap in reasoning and coding\n- **Grok 4 / Grok 4 Heavy (Jul 2025):** Single-agent and multi-agent variants, 2M context, advanced agentic capabilities\n\n**Colossus Supercomputer:**\nxAI operates Colossus in Memphis, Tennessee - currently the world's largest AI supercomputer. Originally built with 200,000+ Nvidia GPUs, it expanded in January 2026 to 555,000 GPUs across three buildings, reaching 2 gigawatts of total capacity. The hardware investment alone exceeds $18 billion. Colossus is designed for training frontier-scale models.\n\n**Valuation & Funding:**\n- $230 billion valuation after $20B Series E (late 2025)\n- $250 billion in SpaceX merger (Feb 2026)\n- Combined SpaceX-xAI IPO targeting ~$1.25 trillion valuation\n- Musk has told staff AGI could be achieved by 2026\n\n**Team & Leadership:** Elon Musk (CEO), Christian Szegedy (co-founder). Notable early team included Igor Babuschkin, Yuhuai (Tony) Wu, and Jimmy Ba - though 6 of the original 12 co-founders have since departed.",
     "category": "Platforms & Tools",
     "relatedTerms": ["grok-3", "grok-4", "openai", "anthropic", "google-deepmind", "meta-ai"],
     "references": [
       {
-        "title": "xAI — Official Website",
+        "title": "xAI - Official Website",
         "url": "https://x.ai"
       },
       {
-        "title": "xAI — Wikipedia",
+        "title": "xAI - Wikipedia",
         "url": "https://en.wikipedia.org/wiki/XAI_(company)"
       },
       {
-        "title": "Britannica — xAI Company Profile",
+        "title": "Britannica - xAI Company Profile",
         "url": "https://www.britannica.com/money/xAI"
       },
       {
-        "title": "CNBC — SpaceX Acquiring xAI Ahead of Potential IPO",
+        "title": "CNBC - SpaceX Acquiring xAI Ahead of Potential IPO",
         "url": "https://www.cnbc.com/2026/02/02/elon-musk-spacex-xai-ipo.html"
       },
       {
-        "title": "Colossus Supercomputer — Wikipedia",
+        "title": "Colossus Supercomputer - Wikipedia",
         "url": "https://en.wikipedia.org/wiki/Colossus_(supercomputer)"
       }
     ],
     "lastUpdated": "2026-02-23"
+  },
+  {
+    "name": "Recursive Language Model (RLM)",
+    "slug": "recursive-language-model",
+    "shortDef": "An inference approach that lets an LLM programmatically examine, decompose, and recursively call itself over snippets of extremely long input, handling contexts up to 100x beyond native window limits.",
+    "fullDef": "A Recursive Language Model (RLM) is an inference strategy introduced by Alex Zhang, Tim Kraska, and Omar Khattab in a December 2025 paper. Instead of forcing a language model to ingest an entire long document in one pass, RLMs treat the input as an external environment accessible through a persistent Python REPL. The model can view, slice, search, and filter the data, then recursively call itself on smaller pieces to build up an answer.\n\nThe architecture works by loading the full input into a variable within the REPL. A root LLM inspects the data programmatically, decides how to partition it, and launches sub-LLM calls on each partition. These sub-calls can themselves recurse further, creating a tree of focused queries. An answer variable is iteratively refined until the model marks it as ready. Sub-LLM calls can be parallelized for efficiency.\n\nRLMs enable processing of inputs up to two orders of magnitude beyond a model's native context window, covering entire codebases, multi-year document archives, and book-length texts. The fine-tuned RLM-Qwen3-8B model outperforms its base Qwen3-8B by 28.3% on average across long-context benchmarks and approaches the quality of vanilla GPT-5 on three long-context tasks at comparable cost.",
+    "category": "NLP",
+    "relatedTerms": [
+      "large-language-model",
+      "context-window",
+      "transformer",
+      "ai-agent"
+    ],
+    "references": [
+      {
+        "title": "arXiv - Recursive Language Models",
+        "url": "https://arxiv.org/abs/2512.24601"
+      },
+      {
+        "title": "Prime Intellect - Recursive Language Models: The Paradigm of 2026",
+        "url": "https://www.primeintellect.ai/blog/rlm"
+      },
+      {
+        "title": "Alex Zhang - Recursive Language Models Blog Post",
+        "url": "https://alexzhang13.github.io/blog/2025/rlm/"
+      },
+      {
+        "title": "GitHub - alexzhang13/rlm",
+        "url": "https://github.com/alexzhang13/rlm"
+      }
+    ],
+    "lastUpdated": "2026-02-24"
+  },
+  {
+    "name": "Chatbot",
+    "slug": "chatbot",
+    "shortDef": "A software application that uses AI to simulate human-like conversation through text or voice, ranging from rule-based scripts to modern LLM-powered assistants.",
+    "fullDef": "A chatbot is a software application designed to conduct conversation with human users through text or voice interfaces. The concept dates back to 1966 with Joseph Weizenbaum's ELIZA, a rule-based program at MIT that simulated a Rogerian psychotherapist by pattern-matching keywords and reflecting them back as questions. Early chatbots like ELIZA and ALICE (1995) followed rigid scripts and decision trees, producing convincing but shallow interactions.\n\nModern AI chatbots are powered by large language models and transformer architectures. Rather than matching keywords to scripted responses, they interpret the semantic meaning behind user queries and generate dynamic, contextually relevant answers. The release of ChatGPT in November 2022 marked a turning point, demonstrating that LLM-based chatbots could hold coherent multi-turn conversations, write code, summarize documents, and reason through complex problems. Competitors including Claude, Gemini, and Grok followed, each building on the transformer paradigm.\n\nThe field is now shifting from passive question-answering chatbots toward agentic AI systems that can take actions autonomously. Modern AI agents can trigger workflows, connect with internal tools and APIs, and complete multi-step tasks without human intervention at each step. According to Gartner, over 70% of enterprise conversations are projected to be handled by AI agents rather than traditional chatbots by 2026, reflecting a broader move toward multimodal, autonomous, and tool-using conversational systems.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "large-language-model",
+      "ai-agent",
+      "transformer"
+    ],
+    "references": [
+      {
+        "title": "Wikipedia - Chatbot",
+        "url": "https://en.wikipedia.org/wiki/Chatbot"
+      },
+      {
+        "title": "arXiv - History of Generative AI Chatbots: Past, Present, and Future",
+        "url": "https://arxiv.org/abs/2402.05122"
+      },
+      {
+        "title": "Cyfuture - AI Chatbots in 2026: How They Work, Top Platforms & Benefits",
+        "url": "https://cyfuture.ai/blog/ai-chatbots"
+      }
+    ],
+    "lastUpdated": "2026-02-25"
   }
 ]
