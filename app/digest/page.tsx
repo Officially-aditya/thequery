@@ -6,8 +6,8 @@ export const metadata: Metadata = {
   title: "Weekly AI Digest",
   description: "A curated weekly summary of the most important AI developments, research, and news.",
   openGraph: {
-    title: "Weekly AI Digest — TheQuery",
-    description: "A weekly roundup of what actually matters in AI — no hype, just signal.",
+    title: "Weekly AI Digest - TheQuery",
+    description: "A weekly roundup of what actually matters in AI - no hype, just signal.",
   },
 };
 
@@ -31,14 +31,9 @@ export default function DigestPage() {
               href={`/digest/${issue.slug}`}
               className="block p-5 border border-border rounded-lg hover:border-accent transition-colors group"
             >
-              <div className="flex items-start justify-between mb-2">
-                <h2 className="font-serif text-lg font-semibold text-text-primary group-hover:text-accent transition-colors">
-                  {issue.title}
-                </h2>
-                <time className="text-xs text-text-muted shrink-0 ml-4">
-                  {new Date(issue.date).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}
-                </time>
-              </div>
+              <h2 className="font-serif text-lg font-semibold text-text-primary group-hover:text-accent transition-colors mb-2">
+                {issue.title}
+              </h2>
               <p className="text-sm text-text-secondary leading-relaxed">
                 {issue.summary}
               </p>

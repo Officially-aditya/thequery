@@ -34,12 +34,9 @@ export default async function DigestIssuePage({ params }: Props) {
         &larr; All Issues
       </Link>
 
-      <h1 className="font-serif text-3xl font-bold text-text-primary mb-2">
+      <h1 className="font-serif text-3xl font-bold text-text-primary mb-8">
         {issue.title}
       </h1>
-      <time className="text-sm text-text-muted block mb-8">
-        {new Date(issue.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
-      </time>
 
       <MarkdownRenderer content={issue.content} />
     </div>
