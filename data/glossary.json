@@ -2618,5 +2618,35 @@
       "inference"
     ],
     "lastUpdated": "2026-02-25"
+  },
+  {
+    "name": "KV Cache",
+    "slug": "kv-cache",
+    "shortDef": "A memory optimization technique in LLM inference that stores previously computed key-value pairs from attention layers, avoiding redundant recalculation when generating each new token.",
+    "fullDef": "KV cache (Key-Value cache) is a critical optimization for large language model inference that stores the intermediate key and value tensors computed by the attention mechanism during token generation. Without it, the model would need to recompute attention over the entire sequence for every new token, resulting in quadratic time complexity that makes generation prohibitively slow.\n\nLLM inference has two phases. During the prefill phase, the model processes the input prompt and computes key-value pairs for every token across all attention layers. During the decode phase, new tokens are generated one at a time in an autoregressive fashion. The KV cache stores the key-value pairs from all previously processed tokens so that each new generation step only needs to compute attention for the latest token against the cached history, reducing the per-token cost from linear to constant with respect to sequence length.\n\nThe KV cache is one of the largest consumers of GPU memory during inference, often accounting for up to 70% of total memory usage for long sequences. This has driven significant research into optimization techniques. PagedAttention, introduced by vLLM, borrows concepts from operating system virtual memory to allocate KV cache in fixed-size pages that grow dynamically. Other approaches include KV cache quantization to reduce precision, selective eviction to keep only the most relevant tokens, merging similar key-value pairs, and chunk-level compression that preserves semantic coherence. These optimizations are essential for serving models with long context windows efficiently.",
+    "category": "Deep Learning",
+    "relatedTerms": [
+      "attention-mechanism",
+      "large-language-model",
+      "inference",
+      "context-window",
+      "ram"
+    ],
+    "lastUpdated": "2026-02-26"
+  },
+  {
+    "name": "GPU",
+    "slug": "gpu",
+    "shortDef": "A Graphics Processing Unit - a specialized processor designed for parallel computation, now essential for training and running AI models due to its ability to perform thousands of operations simultaneously.",
+    "fullDef": "A GPU (Graphics Processing Unit) is a processor originally designed to accelerate graphics rendering by performing many calculations in parallel. Unlike CPUs, which have a few powerful cores optimized for sequential tasks, GPUs contain thousands of smaller cores that can execute operations simultaneously. This massively parallel architecture turns out to be ideal for the matrix multiplications and tensor operations that dominate machine learning workloads.\n\nIn AI, GPUs are used for both training and inference. During training, a model must process large batches of data and update millions or billions of parameters through backpropagation - all of which involves dense linear algebra that maps naturally onto GPU hardware. What might take weeks on a CPU can often be completed in hours or days on a modern GPU. NVIDIA dominates the AI GPU market with its CUDA ecosystem and data center GPUs like the A100 and H100, though AMD and Intel are competing with alternatives.\n\nGPU memory (VRAM) is a key constraint in AI workloads. A model's parameters, activations, gradients, and KV cache must all fit in VRAM during operation. This has driven techniques like model parallelism (splitting models across multiple GPUs), quantization (reducing parameter precision to use less memory), and offloading (moving data between GPU and system RAM). The cost and availability of GPUs remains one of the most significant bottlenecks in AI development, influencing everything from research pace to model deployment strategies.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "ram",
+      "inference",
+      "kv-cache",
+      "large-language-model",
+      "backpropagation"
+    ],
+    "lastUpdated": "2026-02-26"
   }
 ]
