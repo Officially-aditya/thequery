@@ -2787,5 +2787,34 @@
       "openai"
     ],
     "lastUpdated": "2026-02-26"
+  },
+  {
+    "name": "Open Source",
+    "slug": "open-source",
+    "shortDef": "Software whose source code is publicly available for anyone to view, modify, and distribute, enabling community-driven development and transparency.",
+    "fullDef": "Open source refers to software released under a license that grants anyone the right to view, modify, and redistribute the source code. The concept originated in the software development community as an alternative to proprietary, closed-source software, and is governed by licenses such as MIT, Apache 2.0, and GPL that define what users can and cannot do with the code.\n\nIn AI, the term has become more nuanced and sometimes contentious. Some model releases like Meta's Llama series and Mistral's models are described as open source because their weights are publicly downloadable, but they often come with usage restrictions that traditional open source licenses do not impose. The Open Source Initiative has argued that truly open source AI requires not just model weights but also training code, data, and documentation. The industry increasingly uses the term \"open weight\" to distinguish models that release weights but not training data or code from fully open source projects.\n\nOpen source has been a major driver of AI progress. Frameworks like PyTorch and TensorFlow, tools like Hugging Face Transformers and Ollama, and datasets on platforms like Hugging Face have democratized access to AI capabilities. Open source models allow researchers and companies to fine-tune, inspect, and deploy models without depending on API providers, enabling use cases where data privacy, cost control, or customization matter more than using the absolute frontier model.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "hugging-face",
+      "ollama",
+      "large-language-model",
+      "fine-tuning"
+    ],
+    "lastUpdated": "2026-02-26"
+  },
+  {
+    "name": "Open Weight Model",
+    "slug": "open-weight-model",
+    "shortDef": "An AI model whose trained parameters (weights) are publicly released for download and use, but whose training data, code, or methodology may remain proprietary.",
+    "fullDef": "An open weight model is an AI model where the trained parameters (weights) are publicly available for anyone to download, run, and often fine-tune, but the full training pipeline - including training data, preprocessing code, and training infrastructure details - is not disclosed. This distinguishes open weight models from fully open source AI, where all components needed to reproduce the model from scratch are provided.\n\nMost major \"open\" model releases fall into the open weight category rather than true open source. Meta's Llama series, Mistral's models, Google's Gemma, and DeepSeek's releases all provide downloadable weights, often with custom licenses that impose usage restrictions such as user count limits or prohibited use cases. Users can run these models locally, fine-tune them for specific tasks, and deploy them in production, but they cannot fully reproduce or understand the training process because the data and complete methodology are withheld.\n\nThe distinction matters for several reasons. Open weight models give developers practical access to powerful AI without API costs or data privacy concerns, but they do not provide the transparency and reproducibility that scientific research demands. The training data, which heavily influences model behavior, biases, and capabilities, remains a black box. Despite this limitation, open weight models have dramatically expanded access to AI capabilities, enabling local deployment through tools like Ollama and llama.cpp and driving competition that pushes the entire field forward.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "open-source",
+      "large-language-model",
+      "fine-tuning",
+      "ollama",
+      "hugging-face"
+    ],
+    "lastUpdated": "2026-02-26"
   }
 ]
