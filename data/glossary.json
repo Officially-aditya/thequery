@@ -2858,5 +2858,34 @@
       "zero-day"
     ],
     "lastUpdated": "2026-02-26"
+  },
+  {
+    "name": "Gemini",
+    "slug": "gemini",
+    "shortDef": "Google DeepMind's family of multimodal AI models that power Google's AI products across Search, Workspace, Android, and developer APIs.",
+    "fullDef": "Gemini is Google DeepMind's flagship family of large language models, succeeding the earlier PaLM and Bard models. The family spans multiple sizes and specializations: Gemini 3.1 Pro (the most capable), Gemini Flash (optimized for speed and cost), and Gemini Nano (designed for on-device inference on mobile hardware). All Gemini models are natively multimodal, meaning they can process and generate text, images, audio, and video.\n\nGemini is deeply integrated across Google's product ecosystem. It powers AI features in Google Search, Gmail, Google Docs, Google Sheets, Google Ads, Google Lens, and Android. The Gemini API and AI Studio provide developer access for building applications on top of the models. Unlike some competitors, Google offers Gemini with context windows up to 1 million tokens, enabling processing of entire codebases, long documents, and extended conversations.\n\nIn January 2026, Apple announced a multiyear partnership with Google to use Gemini models and cloud infrastructure to power the next generation of Apple Foundation Models, including a more personalized Siri. This deal positioned Gemini as the intelligence layer underneath both Android and iOS, the two dominant mobile operating systems. Google also develops specialized Gemini variants like Nano Banana (image generation) and continues to release open weight models in the Gemma family for researchers and developers who want to run models locally.",
+    "category": "LLM Models",
+    "relatedTerms": [
+      "google-deepmind",
+      "large-language-model",
+      "gemini-3-1-pro",
+      "gemini-2-5-pro",
+      "context-window"
+    ],
+    "lastUpdated": "2026-02-27"
+  },
+  {
+    "name": "ChatGPT",
+    "slug": "chatgpt",
+    "shortDef": "OpenAI's conversational AI product that provides a chat interface to GPT models, widely credited with bringing large language models to mainstream public awareness.",
+    "fullDef": "ChatGPT is a conversational AI product developed by OpenAI that allows users to interact with large language models through a natural chat interface. Launched in November 2022, it reached 100 million users within two months, making it one of the fastest-growing consumer applications in history and bringing AI capabilities to mainstream public attention.\n\nThe product has evolved significantly since launch. It now supports text, image, audio, and video inputs, can browse the web, execute code, generate images, and use external tools through plugins and integrations. ChatGPT is available as a free tier (using GPT-4o mini), a Plus subscription ($20/month with access to GPT-4o and reasoning models), and Team and Enterprise tiers for organizations. The product runs on OpenAI's successive model generations, from GPT-3.5 at launch through GPT-4, GPT-4o, and GPT-5.\n\nChatGPT's impact extends beyond its direct user base. It established the conversational interface as the default paradigm for interacting with AI, influenced how every major tech company positioned its AI products, and created an ecosystem of plugins and integrations. Apple integrated ChatGPT into Siri and system-level features on iOS before its subsequent partnership with Google's Gemini, and the product continues to compete directly with Claude, Gemini, and other conversational AI systems for consumer and enterprise users.",
+    "category": "Platforms & Tools",
+    "relatedTerms": [
+      "openai",
+      "gpt-5",
+      "large-language-model",
+      "tool-calling"
+    ],
+    "lastUpdated": "2026-02-27"
   }
 ]
