@@ -2887,5 +2887,35 @@
       "tool-calling"
     ],
     "lastUpdated": "2026-02-27"
+  },
+  {
+    "name": "Claude Code",
+    "slug": "claude-code",
+    "shortDef": "Anthropic's agentic coding tool that runs in the terminal, capable of reading, writing, and executing code across entire codebases with human oversight.",
+    "fullDef": "Claude Code is an agentic coding product developed by Anthropic that operates as a command-line interface tool. Unlike traditional code completion tools that suggest snippets, Claude Code can autonomously navigate codebases, read and write files, run terminal commands, execute tests, and perform multi-step software engineering tasks while keeping the developer in the loop for approval of significant actions.\n\nThe tool is powered by Claude models and can handle complex workflows such as refactoring across multiple files, debugging failing tests, implementing features from natural language descriptions, and managing git operations. Anthropic has disclosed that Claude Code writes roughly 80% of its own codebase, using it as both a product and a production workflow internally. Features like Remote Control allow developers to start a session on their machine and continue directing it from their phone.\n\nClaude Code has expanded beyond pure coding into adjacent capabilities. Claude Code Security scans codebases for vulnerabilities with adversarial verification and proposed patches. The tool supports MCP for connecting to external data sources and services. Its combination of terminal-level access, codebase understanding, and agentic autonomy positions it as a developer infrastructure layer rather than just an autocomplete tool, which is why its feature expansions have directly impacted products and companies building in overlapping categories.",
+    "category": "Platforms & Tools",
+    "relatedTerms": [
+      "anthropic",
+      "mcp",
+      "ai-agent",
+      "tool-calling",
+      "vibe-coding"
+    ],
+    "lastUpdated": "2026-02-27"
+  },
+  {
+    "name": "Codex",
+    "slug": "codex",
+    "shortDef": "OpenAI's asynchronous coding agent that runs tasks in cloud sandboxes, designed for parallel software engineering work like writing features, fixing bugs, and running tests.",
+    "fullDef": "Codex is OpenAI's agentic coding product that executes software engineering tasks asynchronously in cloud-hosted sandboxes. Unlike interactive coding assistants, Codex is designed to handle tasks in the background - a developer assigns a task like implementing a feature, fixing a bug, or writing tests, and Codex works on it independently, returning results with a pull request or code diff for review.\n\nThe product evolved from OpenAI's earlier Codex model (which powered the original GitHub Copilot) into a full agentic system built on GPT-5.3-Codex, a model specifically optimized for code generation and software engineering tasks. Each task runs in its own isolated sandbox environment with access to the project's codebase, dependencies, and test suite. Multiple tasks can run in parallel, allowing developers to delegate several pieces of work simultaneously.\n\nCodex represents a different philosophy from interactive tools like Claude Code. Where Claude Code emphasizes real-time collaboration with the developer in the terminal, Codex emphasizes delegation and asynchronous execution. The developer acts more as a project manager, assigning work and reviewing output, rather than pair-programming with the AI. GPT-5.3-Codex leads on specialized coding benchmarks like Terminal-Bench and SWE-Bench Pro but does not publish scores on general reasoning benchmarks, reflecting its focused positioning as a coding-specific agent rather than a general-purpose model.",
+    "category": "Platforms & Tools",
+    "relatedTerms": [
+      "openai",
+      "gpt-5-2",
+      "ai-agent",
+      "tool-calling",
+      "vibe-coding"
+    ],
+    "lastUpdated": "2026-02-27"
   }
 ]

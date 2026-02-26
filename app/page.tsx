@@ -3,10 +3,10 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "TheQuery - AI Knowledge from First Principles",
-  description: "Free technical books, 100+ glossary terms, and articles covering AI, machine learning, and deep learning - written from first principles.",
+  description: "TheQuery is where developers go to understand AI, not just use it. Glossary, books, and articles covering AI from first principles.",
   openGraph: {
     title: "TheQuery - AI Knowledge from First Principles",
-    description: "Free technical books, 100+ glossary terms, and articles covering AI, machine learning, and deep learning.",
+    description: "TheQuery is where developers go to understand AI, not just use it. Glossary, books, and articles covering AI from first principles.",
   },
 };
 
