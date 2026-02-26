@@ -2758,5 +2758,34 @@
       "artificial-analysis"
     ],
     "lastUpdated": "2026-02-26"
+  },
+  {
+    "name": "API",
+    "slug": "api",
+    "shortDef": "Application Programming Interface - a defined set of rules and protocols that allows different software systems to communicate with each other.",
+    "fullDef": "An API (Application Programming Interface) is a contract between two pieces of software that defines how they can interact. It specifies what requests a client can make, what data it needs to provide, and what responses it will receive. APIs allow developers to use functionality built by others without needing to understand or access the underlying implementation.\n\nIn AI, APIs are the primary way most developers interact with large language models. Services like OpenAI, Anthropic, and Google expose their models through REST APIs where developers send prompts as HTTP requests and receive model outputs as JSON responses. This abstraction means you can build applications powered by frontier models without running any ML infrastructure yourself. API pricing is typically based on token usage, with separate rates for input and output tokens.\n\nAPIs also play a central role in AI agent architectures. Tool calling allows models to invoke external APIs during a conversation, enabling them to fetch live data, interact with databases, send messages, or trigger actions in other systems. The quality of an API's design - its documentation, error handling, rate limiting, and versioning - directly affects how reliably AI-powered applications can be built on top of it. As AI moves from research demos to production systems, API design has become one of the most consequential decisions in the stack.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "large-language-model",
+      "tool-calling",
+      "inference",
+      "ai-agent"
+    ],
+    "lastUpdated": "2026-02-26"
+  },
+  {
+    "name": "MCP",
+    "slug": "mcp",
+    "shortDef": "Model Context Protocol - an open standard created by Anthropic that defines how AI assistants connect to external data sources, tools, and services through a unified interface.",
+    "fullDef": "MCP (Model Context Protocol) is an open standard announced by Anthropic in November 2024 that provides a standardized way for AI models to connect to external data sources, tools, and services. It defines a common protocol so that any AI assistant can interact with any compatible data system, eliminating the need for custom integrations between every model and every tool.\n\nMCP follows a client-server architecture. An AI application acts as an MCP client, while external services expose their capabilities through MCP servers. The protocol defines how tools, resources, and prompts are discovered, invoked, and how results are returned. This means a single MCP server built for a database, a code repository, or a business application can work with any AI assistant that speaks MCP, regardless of which model powers it.\n\nMCP achieved rapid industry adoption throughout 2025. OpenAI integrated it across its products including the ChatGPT desktop app in March 2025, and Google DeepMind confirmed support for Gemini models shortly after. The specification received major updates in November 2025, adding asynchronous operations, statelessness, and an official registry for discovering MCP servers. In December 2025, Anthropic donated MCP to the Agentic AI Foundation under the Linux Foundation, co-founded with Block and OpenAI, cementing it as a vendor-neutral industry standard rather than a proprietary protocol.",
+    "category": "Agents",
+    "relatedTerms": [
+      "tool-calling",
+      "ai-agent",
+      "api",
+      "anthropic",
+      "openai"
+    ],
+    "lastUpdated": "2026-02-26"
   }
 ]
