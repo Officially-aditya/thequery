@@ -2648,5 +2648,115 @@
       "backpropagation"
     ],
     "lastUpdated": "2026-02-26"
+  },
+  {
+    "name": "Quantization",
+    "slug": "quantization",
+    "shortDef": "A technique that reduces the numerical precision of a model's weights and activations, shrinking memory usage and speeding up inference with minimal loss in accuracy.",
+    "fullDef": "Quantization is the process of converting a neural network's parameters from high-precision floating point numbers (typically 32-bit or 16-bit) to lower-precision representations such as 8-bit integers (INT8) or even 4-bit integers (INT4). This reduces the model's memory footprint and increases inference speed, since lower-precision arithmetic requires less memory bandwidth and can be computed faster on modern hardware.\n\nThere are two main approaches. Post-training quantization (PTQ) takes an already-trained model and converts its weights to lower precision, sometimes using a small calibration dataset to minimize accuracy loss. Quantization-aware training (QAT) simulates low-precision arithmetic during the training process itself, allowing the model to learn to compensate for the reduced precision and typically producing better results than PTQ.\n\nQuantization has become essential for deploying large language models on consumer hardware. A 7-billion parameter model stored in 16-bit precision requires roughly 14 GB of memory, but the same model quantized to 4-bit precision fits in approximately 3.5 GB - making it runnable on a laptop GPU or even a phone. Popular quantization formats include GPTQ, GGUF (used by llama.cpp and Ollama), and AWQ. The tradeoff is always between model size, speed, and accuracy - aggressive quantization saves memory but can degrade output quality, particularly on tasks requiring precise reasoning.",
+    "category": "Deep Learning",
+    "relatedTerms": [
+      "gpu",
+      "ram",
+      "inference",
+      "large-language-model",
+      "ollama"
+    ],
+    "lastUpdated": "2026-02-26"
+  },
+  {
+    "name": "CUDA",
+    "slug": "cuda",
+    "shortDef": "NVIDIA's parallel computing platform and API that allows developers to use NVIDIA GPUs for general-purpose processing, forming the backbone of most AI training and inference workflows.",
+    "fullDef": "CUDA (Compute Unified Device Architecture) is a parallel computing platform and programming model created by NVIDIA that allows software developers to use NVIDIA GPUs for general-purpose computation beyond graphics rendering. Released in 2007, CUDA provides a C/C++-like programming interface for writing code that runs on the GPU's thousands of parallel cores.\n\nCUDA became the dominant platform for AI and machine learning because the major deep learning frameworks - PyTorch, TensorFlow, and JAX - all use CUDA under the hood to accelerate tensor operations on NVIDIA hardware. When a model is trained or run on a GPU, CUDA handles the low-level work of distributing matrix multiplications, convolutions, and other operations across the GPU's cores. Libraries like cuDNN (for deep learning primitives) and cuBLAS (for linear algebra) build on CUDA to provide optimized implementations of the operations AI models use most.\n\nNVIDIA's dominance in AI hardware is largely due to the CUDA ecosystem rather than raw hardware superiority alone. Decades of tooling, libraries, documentation, and community knowledge create significant switching costs. Competitors like AMD (with ROCm) and Intel (with oneAPI) offer alternative platforms, but most AI code, tutorials, and production deployments assume CUDA availability. This lock-in effect is why CUDA compatibility is often the first question asked when evaluating AI hardware.",
+    "category": "Platforms & Tools",
+    "relatedTerms": [
+      "gpu",
+      "deep-learning",
+      "inference",
+      "large-language-model"
+    ],
+    "lastUpdated": "2026-02-26"
+  },
+  {
+    "name": "Artificial Analysis",
+    "slug": "artificial-analysis",
+    "shortDef": "An independent platform that benchmarks AI models and inference providers across intelligence, performance, price, speed, and latency with standardized methodology.",
+    "fullDef": "Artificial Analysis is an independent benchmarking platform that evaluates and compares AI models and API hosting providers across key metrics including intelligence, output speed, latency, price, and context window size. It provides standardized, reproducible evaluations that help developers and organizations choose between models and providers based on real-world performance data rather than vendor claims.\n\nThe platform's Intelligence Index (v4.0) aggregates scores across multiple evaluation categories, each weighted equally, covering reasoning, knowledge, coding, and specialized tasks. It includes benchmarks like GPQA Diamond, Humanity's Last Exam, and its own proprietary evaluations such as AA-Omniscience (a knowledge and hallucination benchmark that penalizes incorrect guesses) and AA-LCR (long context retrieval). This composite approach provides a more balanced view of model capability than any single benchmark.\n\nBeyond model intelligence, Artificial Analysis measures the end-to-end inference performance that customers actually experience across different API providers, including time to first token, tokens per second, and total response time under varying concurrency loads. It also benchmarks AI accelerator hardware, comparing chips like NVIDIA H100, AMD MI300X, and others for inference throughput. The platform has become a widely referenced source in AI industry reporting and model comparison discussions.",
+    "category": "Platforms & Tools",
+    "relatedTerms": [
+      "large-language-model",
+      "inference",
+      "gpqa-diamond"
+    ],
+    "lastUpdated": "2026-02-26"
+  },
+  {
+    "name": "GPQA Diamond",
+    "slug": "gpqa-diamond",
+    "shortDef": "A benchmark of 198 graduate-level multiple-choice questions in physics, biology, and chemistry that are designed to be unsolvable through internet search, requiring genuine PhD-level expertise.",
+    "fullDef": "GPQA Diamond (Graduate-Level Google-Proof Q&A - Diamond subset) is a challenging AI evaluation benchmark consisting of 198 multiple-choice questions in biology, physics, and chemistry. The questions are written by domain experts with PhDs and are specifically designed to be \"Google-proof\" - even skilled non-experts with unrestricted internet access score only about 34% accuracy, while PhD-level domain experts achieve roughly 65-70%.\n\nThe Diamond subset is the highest-quality tier of the broader GPQA dataset. A question qualifies for the Diamond set only if both expert annotators answered it correctly while the majority of non-expert annotators answered incorrectly. This filtering ensures the questions genuinely require deep domain expertise rather than surface-level knowledge or effective search skills.\n\nGPQA Diamond has become one of the standard benchmarks for evaluating frontier AI models on scientific reasoning. Top models now score above 80% on this benchmark, surpassing the average human expert performance of roughly 70%. This creates an interesting dynamic for AI safety research: as models exceed human expert performance on specialized knowledge tasks, it becomes increasingly difficult for humans to verify whether model outputs are correct, highlighting the challenge of scalable oversight.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "large-language-model",
+      "artificial-analysis",
+      "lmarena"
+    ],
+    "lastUpdated": "2026-02-26"
+  },
+  {
+    "name": "AIME",
+    "slug": "aime",
+    "shortDef": "The American Invitational Mathematics Examination - a prestigious high school math competition whose problems are used as a benchmark for evaluating AI mathematical reasoning capabilities.",
+    "fullDef": "AIME (American Invitational Mathematics Examination) is a challenging mathematics competition for top-performing high school students in the United States, serving as a qualifying step toward the International Mathematical Olympiad. Each exam consists of 15 problems requiring integer answers between 000 and 999, covering algebra, geometry, number theory, and combinatorics. The problems demand creative mathematical reasoning and precise calculation rather than rote knowledge.\n\nThe AI research community adopted AIME as a benchmark because its problems test genuine mathematical reasoning rather than pattern matching or memorization. The AIME 2025 benchmark uses 30 problems from the 2025 competition (15 per exam session) and has become a standard evaluation for measuring how well models handle multi-step mathematical problem-solving. Frontier models now routinely exceed human performance, with top models achieving above 85% accuracy compared to the median human competitor solving roughly 27-40% of problems.\n\nA key concern with AIME as an AI benchmark is data contamination. Since problems and solutions are publicly available after each competition, models may have been exposed to them during pretraining. Researchers have noted that models tend to perform better on older questions compared to newer ones, suggesting some degree of memorization. Each year's new AIME problems provide a fresh, uncontaminated test set, which is why the benchmark is updated annually.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "large-language-model",
+      "artificial-analysis",
+      "gpqa-diamond"
+    ],
+    "lastUpdated": "2026-02-26"
+  },
+  {
+    "name": "MMMU-Pro",
+    "slug": "mmmu-pro",
+    "shortDef": "A rigorous multimodal AI benchmark with college-level questions across six disciplines that tests whether models truly understand visual and textual information together.",
+    "fullDef": "MMMU-Pro (Massive Multi-discipline Multimodal Understanding and Reasoning - Pro) is a hardened version of the MMMU benchmark designed to rigorously evaluate multimodal AI models on tasks requiring both visual understanding and expert-level reasoning. It covers six core disciplines: Art and Design, Business, Science, Health and Medicine, Humanities and Social Science, and Technology and Engineering, using questions drawn from college exams, quizzes, and textbooks.\n\nMMMU-Pro improves on its predecessor through three key steps. First, it filters out questions that text-only models can answer correctly, ensuring that visual understanding is genuinely required. Second, it increases the number of answer options from 4 to 10, reducing the effectiveness of guessing from 25% to 10% random chance. Third, it introduces a vision-only input setting where the question text is embedded within images, testing whether models can extract and reason about information presented visually.\n\nThese changes make MMMU-Pro substantially harder than MMMU. Model performance drops significantly compared to the original benchmark, with scores typically falling by 17-27 percentage points. Chain-of-thought reasoning generally helps, but OCR-based prompting strategies show minimal improvement. MMMU-Pro has become a standard benchmark for evaluating frontier multimodal models, providing a more realistic assessment of their ability to handle complex visual reasoning tasks that mirror real-world academic and professional scenarios.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "large-language-model",
+      "artificial-analysis",
+      "gpqa-diamond"
+    ],
+    "lastUpdated": "2026-02-26"
+  },
+  {
+    "name": "LMArena",
+    "slug": "lmarena",
+    "shortDef": "A crowdsourced platform where users compare AI models head-to-head in blind conversations, producing Elo-based rankings that reflect real human preferences.",
+    "fullDef": "LMArena (formerly LMSYS Chatbot Arena) is a crowdsourced evaluation platform where users interact with two anonymous AI models simultaneously and vote on which response they prefer. With over 6 million votes collected, it produces rankings based on real human preferences rather than automated benchmarks, making it one of the most widely cited measures of LLM quality in practice.\n\nThe platform works by presenting users with two anonymous model responses to the same prompt. After reading both responses, users vote for their preferred one or declare a tie. The identities of the models are revealed only after voting, preventing bias. These pairwise comparisons are aggregated using the Bradley-Terry model (an evolution of the original Elo rating system used in chess) to produce stable rankings with confidence intervals. The shift from online Elo to Bradley-Terry provides more stable ratings and better handles the growing number of models being evaluated.\n\nLMArena is valued because it captures aspects of model quality that automated benchmarks miss, such as writing style, helpfulness, nuance, and instruction following. However, it also has limitations: votes skew toward longer, more detailed responses regardless of accuracy, and the user population may not represent all use cases. Despite these caveats, LMArena rankings have become a de facto industry standard, frequently referenced in model release announcements and competitive comparisons between AI labs.",
+    "category": "Platforms & Tools",
+    "relatedTerms": [
+      "large-language-model",
+      "artificial-analysis",
+      "gpqa-diamond",
+      "aime"
+    ],
+    "lastUpdated": "2026-02-26"
+  },
+  {
+    "name": "Benchmark",
+    "slug": "benchmark",
+    "shortDef": "A standardized test or evaluation used to measure and compare the performance of AI models on specific tasks like reasoning, coding, math, or language understanding.",
+    "fullDef": "A benchmark in AI is a standardized evaluation consisting of a fixed dataset, a defined task, and a scoring methodology that allows researchers to measure and compare model performance on equal footing. Benchmarks serve as the primary yardstick for tracking progress in the field, providing concrete numbers that indicate whether a new model represents a genuine improvement over its predecessors.\n\nBenchmarks span a wide range of capabilities. GPQA Diamond tests graduate-level scientific reasoning, AIME evaluates mathematical problem-solving, MMMU-Pro assesses multimodal understanding across academic disciplines, and coding benchmarks like SWE-Bench measure a model's ability to solve real software engineering tasks. Platforms like Artificial Analysis and LMArena aggregate results across multiple benchmarks to produce composite rankings that give a broader view of model capability.\n\nWhile benchmarks are essential for measuring progress, they have well-known limitations. Models can be optimized to perform well on specific benchmarks without corresponding improvements in real-world usefulness, a phenomenon known as benchmark gaming or overfitting to the test set. Data contamination is another concern, where models may have seen benchmark questions during training. The AI community continuously develops new benchmarks to stay ahead of these issues, with recent examples designed to be harder to game through techniques like filtering out questions solvable by simpler methods or using problems that did not exist when models were trained.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "gpqa-diamond",
+      "aime",
+      "mmmu-pro",
+      "lmarena",
+      "artificial-analysis"
+    ],
+    "lastUpdated": "2026-02-26"
   }
 ]
