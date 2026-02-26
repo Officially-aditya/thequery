@@ -2816,5 +2816,33 @@
       "hugging-face"
     ],
     "lastUpdated": "2026-02-26"
+  },
+  {
+    "name": "SaaS",
+    "slug": "saas",
+    "shortDef": "Software as a Service - a delivery model where software is hosted in the cloud and accessed through a browser or API on a subscription basis rather than installed locally.",
+    "fullDef": "SaaS (Software as a Service) is a software distribution model where applications are hosted by a provider and made available to customers over the internet, typically on a subscription basis. Instead of installing and maintaining software on local machines, users access it through a web browser or API, with the provider handling infrastructure, updates, and security.\n\nThe SaaS model transformed the software industry by lowering the barrier to both building and using software products. Companies like Salesforce, Slack, and Notion built multi-billion dollar businesses on recurring subscription revenue from cloud-hosted tools. For startups, SaaS offered a repeatable playbook: identify a workflow pain point, build a focused tool around it, charge monthly, and scale.\n\nAI is now challenging the SaaS model in fundamental ways. Foundation models with tool calling and connector capabilities can increasingly perform the same tasks that vertical SaaS products were built to automate. When a general-purpose AI assistant can manage ad campaigns, draft emails, or query databases through built-in connectors, the value proposition of a dedicated SaaS tool for each task narrows. This has led to debate about whether the traditional SaaS category is entering a period of consolidation, where AI platforms absorb functionality that previously required separate subscriptions.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "api",
+      "tool-calling",
+      "ai-agent"
+    ],
+    "lastUpdated": "2026-02-26"
+  },
+  {
+    "name": "Foundation Model",
+    "slug": "foundation-model",
+    "shortDef": "A large AI model trained on broad data at scale that can be adapted to a wide range of downstream tasks, serving as the base layer for many AI applications.",
+    "fullDef": "A foundation model is a large-scale AI model trained on vast, diverse datasets that can be adapted to perform a wide variety of tasks without being retrained from scratch. The term was coined by Stanford's Institute for Human-Centered AI in 2021 to describe models like GPT, Claude, Gemini, and Llama that serve as a common base (or \"foundation\") upon which many different applications are built.\n\nFoundation models are distinguished by their generality. A single model can write code, answer questions, translate languages, analyze images, and reason through complex problems. This generality comes from training on internet-scale datasets that cover an enormous range of human knowledge and language patterns. The model learns broad capabilities during pretraining, which can then be refined for specific use cases through fine-tuning, prompt engineering, or retrieval-augmented generation.\n\nThe foundation model paradigm has reshaped the AI industry structure. Instead of building task-specific models from scratch, most AI applications now build on top of existing foundation models, either through APIs or by fine-tuning open weight versions. This creates a layered ecosystem where a small number of foundation model providers (Anthropic, OpenAI, Google, Meta) supply the base capability, and a much larger number of companies build specialized applications on top. The rapid expansion of foundation model capabilities, particularly through features like tool calling and MCP connectors, has also raised questions about which application-layer products remain defensible when the foundation layer keeps absorbing new functionality.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "large-language-model",
+      "fine-tuning",
+      "transfer-learning",
+      "open-weight-model",
+      "mcp"
+    ],
+    "lastUpdated": "2026-02-26"
   }
 ]
