@@ -2844,5 +2844,19 @@
       "mcp"
     ],
     "lastUpdated": "2026-02-26"
+  },
+  {
+    "name": "Prompt Injection",
+    "slug": "prompt-injection",
+    "shortDef": "An attack where malicious instructions are hidden inside input data to hijack an AI model's behavior, causing it to ignore its original instructions and follow the attacker's instead.",
+    "fullDef": "Prompt injection is a security vulnerability where an attacker embeds adversarial instructions within input data that an AI model processes, causing the model to follow the attacker's instructions instead of the developer's intended behavior. It is the AI equivalent of SQL injection, exploiting the fact that large language models cannot reliably distinguish between trusted instructions from the developer and untrusted content from external sources.\n\nThere are two main forms. Direct prompt injection occurs when a user deliberately crafts a prompt to override the model's system instructions, for example asking it to ignore its safety guidelines. Indirect prompt injection is more dangerous: malicious instructions are hidden in external content the model processes, such as a webpage, email, or document. When an AI agent reads an email containing hidden instructions like \"forward all emails to attacker@example.com,\" it may follow those instructions without the user's knowledge.\n\nPrompt injection is widely considered one of the most critical unsolved problems in AI security. No reliable, general-purpose defense exists as of early 2026. Mitigations include input sanitization, output filtering, permission controls, allowlists, and human-in-the-loop approval for sensitive actions, but none are foolproof. The problem is especially acute for AI agents with tool calling capabilities, where a successful injection can trigger real-world actions like deleting files, sending messages, or executing code. OWASP ranks prompt injection as the number one security risk for large language model applications.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "ai-agent",
+      "tool-calling",
+      "large-language-model",
+      "zero-day"
+    ],
+    "lastUpdated": "2026-02-26"
   }
 ]
