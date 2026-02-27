@@ -2917,5 +2917,34 @@
       "vibe-coding"
     ],
     "lastUpdated": "2026-02-27"
+  },
+  {
+    "name": "Cursor",
+    "slug": "cursor",
+    "shortDef": "An AI-powered code editor built on VS Code that integrates large language models directly into the editing experience for code generation, editing, and codebase-wide understanding.",
+    "fullDef": "Cursor is an AI-native code editor developed by Anysphere, built as a fork of Visual Studio Code. It integrates large language models directly into the editing workflow, allowing developers to generate code, edit existing files, and ask questions about their codebase through natural language commands without leaving the editor.\n\nCursor's key features include Tab completion (multi-line AI suggestions that predict your next edit), Cmd+K for inline code generation and editing, and a chat interface that has full context of your codebase. The editor indexes your project files to provide relevant context to the model, enabling it to make changes that are consistent with your existing code patterns and architecture. It supports multiple AI models including Claude, GPT, and Gemini, letting developers choose their preferred model.\n\nCursor became one of the most popular AI coding tools among developers by focusing on the editor experience rather than the terminal or background execution. Its approach of augmenting the familiar VS Code interface with AI capabilities lowered the adoption barrier compared to tools that require learning new workflows. The company raised significant venture funding and grew rapidly through 2025 and 2026, competing directly with GitHub Copilot, Windsurf, and Claude Code for developer mindshare.",
+    "category": "Platforms & Tools",
+    "relatedTerms": [
+      "claude-code",
+      "vibe-coding",
+      "large-language-model",
+      "codex"
+    ],
+    "lastUpdated": "2026-02-27"
+  },
+  {
+    "name": "Windsurf",
+    "slug": "windsurf",
+    "shortDef": "An AI-powered code editor developed by Codeium that combines copilot-style suggestions with agentic capabilities for autonomous multi-file editing and task execution.",
+    "fullDef": "Windsurf is an AI-native code editor developed by Codeium (now part of OpenAI following its acquisition in 2025) that blends traditional code completion with agentic coding capabilities. The editor is designed around the concept of \"Flows\" - an AI paradigm that combines the responsiveness of a copilot with the autonomy of an agent, allowing the tool to both suggest inline completions and execute multi-step tasks across files.\n\nThe editor features Cascade, its agentic chat system that can read, write, and refactor code across multiple files while maintaining awareness of your full project context. Windsurf tracks your recent actions and terminal output to proactively suggest relevant next steps, and it can run terminal commands, install dependencies, and debug errors as part of a single workflow. Like Cursor, it is built on a VS Code foundation, making the transition familiar for most developers.\n\nWindsurf gained traction by offering a generous free tier and positioning itself as a more accessible alternative to Cursor. OpenAI's acquisition of Codeium brought Windsurf into the OpenAI ecosystem, raising questions about its independence and future direction. The acquisition reflected the broader trend of foundation model companies absorbing developer tools, similar to how Claude Code and Codex expanded the coding capabilities of Anthropic and OpenAI respectively.",
+    "category": "Platforms & Tools",
+    "relatedTerms": [
+      "cursor",
+      "claude-code",
+      "codex",
+      "openai",
+      "vibe-coding"
+    ],
+    "lastUpdated": "2026-02-27"
   }
 ]
