@@ -3004,5 +3004,50 @@
       "vector-database"
     ],
     "lastUpdated": "2026-02-27"
+  },
+  {
+    "name": "Reasoning",
+    "slug": "reasoning",
+    "shortDef": "The ability of an AI model to break down complex problems into logical steps, draw conclusions from evidence, and arrive at answers through structured thinking rather than pattern matching alone.",
+    "fullDef": "Reasoning in AI refers to a model's ability to perform multi-step logical inference, draw conclusions from premises, and solve problems that require more than surface-level pattern recognition. While early language models primarily relied on statistical associations between words, modern frontier models demonstrate increasingly sophisticated reasoning capabilities across mathematics, science, coding, and common-sense tasks.\n\nThe push toward reasoning-capable models accelerated with the release of OpenAI's o1 and o3 series, which introduced \"thinking\" or \"reasoning\" tokens - internal chains of thought the model generates before producing its final answer. These models spend additional compute at inference time to work through problems step by step, trading speed for accuracy on complex tasks. Anthropic, Google, and other labs have followed with their own reasoning-enhanced models.\n\nReasoning capability is now one of the primary axes along which frontier models are evaluated. Benchmarks like GPQA Diamond test graduate-level scientific reasoning, AIME tests mathematical problem-solving, and coding benchmarks like SWE-Bench test the ability to reason about complex software systems. The distinction between models that can reason through novel problems versus those that recall memorized patterns is central to the debate about whether current AI systems exhibit genuine intelligence or sophisticated interpolation of training data.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "chain-of-thought",
+      "large-language-model",
+      "gpqa-diamond",
+      "aime",
+      "inference"
+    ],
+    "lastUpdated": "2026-02-27"
+  },
+  {
+    "name": "Chain of Thought",
+    "slug": "chain-of-thought",
+    "shortDef": "A prompting and reasoning technique where an AI model generates intermediate steps before arriving at a final answer, improving accuracy on complex tasks.",
+    "fullDef": "Chain of thought (CoT) is a technique where a large language model produces explicit intermediate reasoning steps on the way to solving a problem, rather than jumping directly to an answer. First demonstrated in a 2022 paper by Wei et al. at Google, the approach showed that simply adding \"Let's think step by step\" to a prompt could dramatically improve model performance on math, logic, and common-sense reasoning tasks.\n\nChain of thought works because it breaks complex problems into manageable sub-steps, allowing the model to use its own generated text as working memory. A math word problem that a model gets wrong when asked for a direct answer often becomes solvable when the model is prompted to show its work. The technique can be applied through few-shot prompting (providing examples with step-by-step solutions) or zero-shot prompting (simply asking the model to reason through the problem).\n\nThe concept has evolved beyond a prompting trick into a core architectural feature of reasoning models. OpenAI's o-series models and similar reasoning-focused systems generate internal chains of thought automatically, using additional inference-time compute to think through problems before responding. This has led to a new scaling paradigm called inference-time scaling or test-time compute, where model capability improves not just by training larger models but by letting them think longer on harder problems. Chain of thought has become foundational to how modern AI systems handle tasks requiring multi-step logic, from mathematical proofs to complex code generation.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "reasoning",
+      "prompt-engineering",
+      "large-language-model",
+      "inference",
+      "temperature"
+    ],
+    "lastUpdated": "2026-02-27"
+  },
+  {
+    "name": "Artificial Intelligence",
+    "slug": "artificial-intelligence",
+    "shortDef": "The field of computer science focused on building systems that can perform tasks typically requiring human intelligence, including reasoning, learning, perception, and decision-making.",
+    "fullDef": "Artificial intelligence (AI) is a broad field of computer science concerned with building systems capable of performing tasks that traditionally require human cognition. These tasks include understanding language, recognizing images, making decisions, solving problems, and learning from experience. The field encompasses everything from rule-based expert systems to modern deep learning models that learn patterns from massive datasets.\n\nAI is typically divided into narrow AI (systems designed for specific tasks like image classification or language translation) and general AI (hypothetical systems with human-level reasoning across all domains). All current AI systems, including the most capable large language models, are narrow AI - they excel at defined tasks but lack the flexible, generalizable intelligence that humans possess. The pursuit of artificial general intelligence (AGI) remains an active research goal with significant debate about timelines and feasibility.\n\nThe modern AI landscape is dominated by machine learning approaches, particularly deep learning and transformer-based architectures that power large language models like GPT, Claude, and Gemini. These models have brought AI from a research discipline into mainstream daily use through products like ChatGPT, Claude Code, and AI-powered features embedded in search engines, email, and productivity tools. The rapid acceleration of AI capabilities since 2022 has triggered broad economic and societal discussions about automation, employment, safety, and the appropriate level of human oversight over increasingly autonomous systems.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "machine-learning",
+      "deep-learning",
+      "large-language-model",
+      "neural-network",
+      "turing-test"
+    ],
+    "lastUpdated": "2026-02-27"
   }
 ]
