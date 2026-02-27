@@ -2946,5 +2946,63 @@
       "vibe-coding"
     ],
     "lastUpdated": "2026-02-27"
+  },
+  {
+    "name": "GitHub Copilot",
+    "slug": "github-copilot",
+    "shortDef": "An AI-powered code completion tool developed by GitHub and OpenAI that suggests code inline as you type, integrated into popular editors like VS Code, JetBrains, and Neovim.",
+    "fullDef": "GitHub Copilot is an AI coding assistant developed by GitHub (owned by Microsoft) in collaboration with OpenAI. Launched in 2021, it was one of the first widely adopted AI coding tools, bringing large language model-powered code suggestions directly into the editor. It works as an extension in VS Code, JetBrains IDEs, Neovim, and other editors, offering real-time inline completions as developers type.\n\nCopilot started as a code completion tool powered by OpenAI's Codex model but has expanded significantly. Copilot Chat provides a conversational interface for asking questions about code, generating functions, and debugging. Copilot Workspace offers an agentic experience for planning and implementing changes across repositories. The tool uses context from the current file, open tabs, and repository structure to generate relevant suggestions, and it supports virtually every programming language.\n\nAs the first mainstream AI coding tool, GitHub Copilot established the category and set user expectations for what AI-assisted development looks like. It benefits from GitHub's massive distribution advantage, with over 100 million developers on the platform. However, it now faces intense competition from Cursor, Windsurf, Claude Code, and Codex, each offering different approaches to AI-assisted development ranging from editor-native experiences to terminal-based agentic workflows. Microsoft has responded by integrating multiple AI models into Copilot, including Claude and Gemini alongside OpenAI's models.",
+    "category": "Platforms & Tools",
+    "relatedTerms": [
+      "codex",
+      "cursor",
+      "windsurf",
+      "claude-code",
+      "openai",
+      "vibe-coding"
+    ],
+    "lastUpdated": "2026-02-27"
+  },
+  {
+    "name": "SVM",
+    "slug": "svm",
+    "shortDef": "Support Vector Machine - a supervised learning algorithm that finds the optimal boundary (hyperplane) separating data into classes, effective for classification and regression tasks.",
+    "fullDef": "A Support Vector Machine (SVM) is a supervised machine learning algorithm that finds the optimal hyperplane to separate data points into distinct classes. The \"optimal\" hyperplane is the one that maximizes the margin, the distance between the decision boundary and the nearest data points from each class. These closest points are called support vectors, and they alone determine the position of the boundary.\n\nSVMs handle non-linearly separable data through the kernel trick, a mathematical technique that maps data into a higher-dimensional space where a linear boundary can separate the classes. Common kernels include polynomial, radial basis function (RBF), and sigmoid. This allows SVMs to learn complex decision boundaries without explicitly computing the transformation, making them powerful for tasks where classes overlap in the original feature space.\n\nBefore deep learning dominated, SVMs were among the most widely used algorithms for text classification, image recognition, and bioinformatics. They remain relevant for problems with small to medium datasets where deep learning would overfit, for high-dimensional data like genomics, and in situations where model interpretability matters. SVMs are also used as baselines in research to benchmark newer approaches. While neural networks have overtaken them on large-scale tasks, SVMs remain a fundamental algorithm in the machine learning toolkit.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "machine-learning",
+      "overfitting",
+      "hyperparameter",
+      "feature-engineering"
+    ],
+    "lastUpdated": "2026-02-27"
+  },
+  {
+    "name": "KNN",
+    "slug": "knn",
+    "shortDef": "K-Nearest Neighbors - a simple algorithm that classifies a data point based on the majority class of its K closest neighbors in the feature space.",
+    "fullDef": "K-Nearest Neighbors (KNN) is a non-parametric supervised learning algorithm that makes predictions based on the similarity of a new data point to its neighbors in the training set. For classification, it assigns the class most common among the K nearest neighbors. For regression, it returns the average of their values. The algorithm stores the entire training dataset and computes distances at prediction time, making it an instance-based or lazy learning method.\n\nThe choice of K (the number of neighbors) directly affects model behavior. A small K (like 1 or 3) makes the model sensitive to noise and outliers but captures local patterns. A large K smooths out noise but may blur class boundaries. Distance metrics also matter: Euclidean distance is the default, but Manhattan, Minkowski, and cosine similarity are used depending on the data. Feature scaling is critical because KNN relies on distance calculations, and unscaled features with larger ranges will dominate the distance computation.\n\nKNN's simplicity makes it a useful baseline and teaching tool, but it has practical limitations. Prediction is slow on large datasets because every query requires computing distances to all training points. High-dimensional data suffers from the curse of dimensionality, where distances become less meaningful as dimensions increase. Despite these limitations, KNN remains widely used for recommendation systems, anomaly detection, and as a component in approximate nearest neighbor search, which underpins vector databases used in retrieval-augmented generation systems.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "machine-learning",
+      "vector-database",
+      "cosine-similarity",
+      "approximate-nearest-neighbor"
+    ],
+    "lastUpdated": "2026-02-27"
+  },
+  {
+    "name": "Clustering",
+    "slug": "clustering",
+    "shortDef": "An unsupervised learning technique that groups data points into clusters based on similarity, without predefined labels, revealing natural structure in data.",
+    "fullDef": "Clustering is an unsupervised machine learning technique that partitions data into groups (clusters) where points within a cluster are more similar to each other than to points in other clusters. Unlike classification, clustering does not use predefined labels. It discovers structure in data automatically, making it useful for exploration, segmentation, and pattern discovery.\n\nThe most common clustering algorithms include K-Means (which partitions data into K clusters by minimizing within-cluster variance), DBSCAN (which finds clusters of arbitrary shape based on density), and hierarchical clustering (which builds a tree of nested clusters). Each has tradeoffs: K-Means is fast but requires specifying K upfront and assumes roughly spherical clusters. DBSCAN handles irregular shapes and identifies outliers but is sensitive to its density parameters. Hierarchical methods provide rich visualizations through dendrograms but scale poorly to large datasets.\n\nIn AI and NLP applications, clustering is used extensively. Document clustering groups similar texts for topic discovery. Embedding clustering identifies semantic categories in vector spaces. Customer segmentation groups users by behavior for recommendation systems. In retrieval-augmented generation pipelines, clustering helps organize document collections and can improve retrieval by routing queries to relevant clusters before performing fine-grained search. Clustering also plays a role in model training, from data deduplication to curriculum learning strategies that organize training examples by difficulty.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "machine-learning",
+      "embedding",
+      "cosine-similarity",
+      "vector-database"
+    ],
+    "lastUpdated": "2026-02-27"
   }
 ]
