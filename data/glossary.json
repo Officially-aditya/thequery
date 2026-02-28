@@ -3094,5 +3094,21 @@
       "gemini"
     ],
     "lastUpdated": "2026-02-28"
+  },
+  {
+    "name": "Artificial Relevance",
+    "slug": "artificial-relevance",
+    "shortDef": "When an AI system returns results that appear semantically related but fail to match the user's actual intent, common in vector search where mathematical similarity scores high but genuine usefulness scores low.",
+    "fullDef": "Artificial relevance describes the gap between what an AI retrieval system considers a match and what the user actually needs. It occurs when a system returns results that are semantically adjacent to the query - they share vocabulary, topic, or embedding proximity - but miss the specific intent behind the question. The results look relevant. They satisfy the algorithm. They fail the human.\n\nThe problem is most visible in vector-based retrieval systems. When a user asks \"what was Q3 revenue for the European division,\" a vector search might return every paragraph that mentions revenue, Q3, or Europe, because those terms produce high cosine similarity scores. The system cannot distinguish between a paragraph that answers the question and a paragraph that merely discusses similar concepts. The mathematical distance is small. The informational distance is enormous.\n\nArtificial relevance is a structural consequence of how embedding-based search works. Embeddings compress meaning into fixed-dimensional vectors, and similarity search finds the nearest points in that space. But proximity in embedding space does not guarantee relevance to a specific query in a specific context. A financial report section about revenue forecasts and a section about actual revenue figures may sit close together in vector space while serving completely different informational needs.\n\nThe concept has become increasingly important as retrieval-augmented generation systems are deployed in high-stakes domains like finance, law, and healthcare. When a RAG system feeds artificially relevant chunks to a language model, the model generates confident answers built on the wrong foundation. The output reads well, cites sources, and is wrong. This failure mode is harder to detect than a hallucination because the retrieved context genuinely exists in the source documents - it is just the wrong context for the question being asked. Approaches like tree-based document navigation, hybrid retrieval, and reasoning-based search are emerging specifically to address this limitation.",
+    "category": "Information Retrieval",
+    "relatedTerms": [
+      "vector-database",
+      "cosine-similarity",
+      "retrieval-augmented-generation",
+      "semantic-search",
+      "embedding",
+      "hallucination"
+    ],
+    "lastUpdated": "2026-03-01"
   }
 ]
