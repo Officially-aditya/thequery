@@ -3049,5 +3049,50 @@
       "turing-test"
     ],
     "lastUpdated": "2026-02-27"
+  },
+  {
+    "name": "Natural Language Processing",
+    "slug": "natural-language-processing",
+    "shortDef": "A branch of AI focused on enabling computers to understand, interpret, generate, and interact with human language in useful ways.",
+    "fullDef": "Natural Language Processing (NLP) is a field at the intersection of computer science, artificial intelligence, and linguistics that focuses on enabling machines to work with human language. It encompasses tasks ranging from basic text processing like tokenization and part-of-speech tagging to complex challenges like machine translation, sentiment analysis, question answering, and open-ended text generation.\n\nThe field has undergone dramatic shifts in methodology. Early NLP relied on hand-crafted rules and grammars. Statistical methods using techniques like TF-IDF and n-gram models followed. The deep learning era introduced recurrent neural networks and word embeddings that could capture semantic meaning. The transformer architecture, introduced in 2017, revolutionized the field by enabling models to process entire sequences in parallel through self-attention, leading directly to the large language models that now dominate NLP.\n\nModern large language models like GPT, Claude, and Gemini have effectively unified most traditional NLP tasks into a single paradigm: given a text prompt, generate an appropriate text response. Tasks that previously required specialized models, separate training pipelines, and custom architectures can now be handled by a single foundation model through prompt engineering. This consolidation has shifted NLP research toward understanding model behavior, improving reasoning capabilities, reducing hallucinations, and ensuring safety, rather than building task-specific systems from scratch.",
+    "category": "NLP",
+    "relatedTerms": [
+      "tokenization",
+      "transformer",
+      "large-language-model",
+      "named-entity-recognition",
+      "embedding"
+    ],
+    "lastUpdated": "2026-02-27"
+  },
+  {
+    "name": "Context Rot",
+    "slug": "context-rot",
+    "shortDef": "The phenomenon where large language model performance degrades as the input context grows longer, with the model becoming less accurate at retrieving and reasoning over information in large prompts.",
+    "fullDef": "Context rot is a phenomenon where large language models become measurably less effective as the amount of text in their context window increases. Even when information is present in the prompt, models struggle to find and use it reliably as the surrounding context grows. The term was coined in 2025 following research that demonstrated consistent, predictable performance degradation with increasing input length across leading models.\n\nThe degradation follows specific patterns. When context exceeds roughly 50% of the window capacity, models begin favoring recent tokens over earlier ones, with information in the middle of long prompts being most likely to be lost - a pattern sometimes called the \"lost in the middle\" effect. Adobe researchers demonstrated this with advanced needle-in-a-haystack tests where accuracy dropped dramatically in larger contexts, even though the information was explicitly present. Lower semantic similarity between the target information and the query accelerates the degradation further.\n\nContext rot has significant practical implications for retrieval-augmented generation systems and AI agents that accumulate long conversation histories. Solutions being explored include recursive language models (RLMs) that compress and fold context hierarchically rather than processing it as a flat sequence, context engineering techniques that strategically organize information within the prompt, and retrieval strategies that minimize unnecessary context. The recursive language model approach, introduced by Alex Zhang in late 2025, has shown that a smaller model with recursive context folding can outperform larger models on long-context benchmarks while costing less per query.",
+    "category": "NLP",
+    "relatedTerms": [
+      "context-window",
+      "large-language-model",
+      "retrieval-augmented-generation",
+      "recursive-language-model",
+      "prompt-engineering"
+    ],
+    "lastUpdated": "2026-02-28"
+  },
+  {
+    "name": "Perplexity",
+    "slug": "perplexity",
+    "shortDef": "An AI company that builds search and productivity tools by orchestrating multiple foundation models, known for its answer engine and the multi-agent Perplexity Computer platform.",
+    "fullDef": "Perplexity is an AI company founded by Aravind Srinivas that started as an AI-powered search engine (often called an \"answer engine\") and expanded into a multi-model orchestration platform. Unlike traditional search engines that return links, Perplexity synthesizes information from multiple sources and provides direct answers with citations, combining web search with large language model reasoning.\n\nThe company's strategic positioning is distinctive in the AI landscape. Rather than building its own foundation model to compete with OpenAI, Anthropic, or Google, Perplexity routes queries to whichever model is best suited for each task. Claude handles reasoning, Gemini handles research, Grok handles speed-critical tasks. When a better model becomes available for any subtask, Perplexity swaps it in, meaning user workflows improve automatically as the underlying models improve.\n\nIn February 2026, Perplexity launched Computer, a multi-agent orchestration system that goes beyond search into full workflow execution. Users describe a goal and Computer breaks it into subtasks, assigns specialized sub-agents to each step, and runs them across isolated compute environments. The product gained viral attention when a user built a real-time financial terminal rivaling Bloomberg's \\$30,000/year product using Perplexity Computer's \\$200/month subscription. The launch positioned Perplexity not as a model company but as a coordination layer, building the orchestra rather than the instruments.",
+    "category": "Platforms & Tools",
+    "relatedTerms": [
+      "ai-agent",
+      "large-language-model",
+      "anthropic",
+      "openai",
+      "gemini"
+    ],
+    "lastUpdated": "2026-02-28"
   }
 ]
