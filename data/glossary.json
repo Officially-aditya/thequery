@@ -3110,5 +3110,86 @@
       "hallucination"
     ],
     "lastUpdated": "2026-03-01"
+  },
+  {
+    "name": "Vectorless Retrieval",
+    "slug": "vectorless-retrieval",
+    "shortDef": "A retrieval approach for RAG systems that navigates documents using structured reasoning rather than vector similarity search, eliminating the need for embeddings and vector databases entirely.",
+    "fullDef": "Vectorless retrieval is an emerging approach to information retrieval that bypasses the traditional pipeline of chunking documents, generating vector embeddings, and performing similarity search. Instead of converting text into mathematical representations and finding nearest neighbors in embedding space, vectorless systems use a language model to reason through document structure directly, navigating from general to specific to locate the precise information needed.\n\nThe most prominent example is tree-based document navigation, where a document is converted into a hierarchical structure - similar to an intelligent table of contents - with summaries and relationships preserved at each level. At query time, an LLM traverses the tree by reasoning about which branches are most likely to contain the answer, following cross-references and comparing sections along the way. This mirrors how a human expert would navigate a document rather than how a search engine indexes one.\n\nVectorless retrieval addresses several fundamental limitations of vector-based RAG. It avoids artificial relevance, where semantically similar but contextually wrong results are returned. It preserves document hierarchy that chunking destroys. It maintains cross-references and relationships between sections. And it produces full audit trails showing exactly how an answer was derived. The tradeoff is latency and cost - reasoning through a document tree at query time is slower and more expensive than a vector lookup. However, on benchmarks like FinanceBench, vectorless approaches have achieved 98.7% accuracy compared to roughly 50% for traditional vector-based RAG, making the tradeoff compelling for high-stakes applications in finance, law, and healthcare where accuracy outweighs speed.",
+    "category": "Information Retrieval",
+    "relatedTerms": [
+      "retrieval-augmented-generation",
+      "vector-database",
+      "artificial-relevance",
+      "chunking",
+      "embedding",
+      "large-language-model"
+    ],
+    "lastUpdated": "2026-03-01"
+  },
+  {
+    "name": "Zero-Shot / Few-Shot Learning",
+    "slug": "zero-shot-few-shot-learning",
+    "shortDef": "Techniques where a model performs tasks with no examples (zero-shot) or only a handful of examples (few-shot) provided in the prompt, without any additional training.",
+    "fullDef": "Zero-shot learning refers to a model's ability to perform a task it was never explicitly trained on, using only a natural language instruction. For example, asking a language model to classify sentiment without providing any labeled examples. The model relies entirely on its pre-trained knowledge to interpret the instruction and generate a correct response.\n\nFew-shot learning extends this by including a small number of input-output examples (typically 1-5) in the prompt to guide the model's behavior. These examples act as implicit instructions, helping the model understand the expected format and reasoning pattern. For instance, showing three examples of translating English to French before asking for a new translation.\n\nBoth techniques became prominent with the release of GPT-3, which demonstrated that large language models could perform competitively on many benchmarks without fine-tuning. Zero-shot and few-shot prompting are now foundational techniques in prompt engineering, allowing developers to adapt powerful models to specific tasks without collecting training data or retraining the model.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "prompt-engineering",
+      "large-language-model",
+      "inference"
+    ],
+    "lastUpdated": "2026-03-01"
+  },
+  {
+    "name": "System Prompt",
+    "slug": "system-prompt",
+    "shortDef": "A special instruction given to an AI model before any user input that defines its behavior, personality, constraints, and role for the entire conversation.",
+    "fullDef": "A system prompt is a set of instructions provided to a language model at the beginning of an interaction that shapes how the model responds to all subsequent user messages. Unlike user messages, the system prompt is typically hidden from the end user and is set by the developer or application.\n\nSystem prompts can define the model's persona (\"You are a helpful coding assistant\"), set boundaries (\"Never provide medical advice\"), specify output formats (\"Always respond in JSON\"), or provide context about the application. They act as persistent instructions that influence every response the model generates during a session.\n\nIn practice, system prompts are a critical part of building AI applications. They allow developers to customize a general-purpose model for specific use cases without fine-tuning. However, system prompts are not absolute constraints - they can sometimes be overridden through prompt injection attacks, which is why they should not be relied upon as a sole security mechanism.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "prompt-engineering",
+      "prompt-injection",
+      "large-language-model"
+    ],
+    "lastUpdated": "2026-03-01"
+  },
+  {
+    "name": "Inference-Time Compute",
+    "slug": "inference-time-compute",
+    "shortDef": "Additional computational effort spent during a model's response generation, such as chain-of-thought reasoning or search, to improve output quality at the cost of speed and resources.",
+    "fullDef": "Inference-time compute refers to the strategy of allocating more computational resources during the generation phase (inference) rather than during training, in order to produce higher-quality outputs. Instead of simply generating the first plausible answer, the model spends additional time reasoning, exploring multiple solution paths, or verifying its own outputs.\n\nThis approach gained prominence with reasoning models like OpenAI's o1 and o3, DeepSeek R1, and Claude's extended thinking mode. These models use techniques such as chain-of-thought reasoning, internal deliberation, and test-time search to work through complex problems step by step. The key insight is that some problems benefit more from \"thinking longer\" at inference time than from training on more data.\n\nInference-time compute represents a paradigm shift in AI scaling. While traditional scaling laws focused on increasing model size and training data, inference-time scaling shows that even smaller models can match larger ones on difficult tasks when given enough compute budget at generation time. The trade-off is increased latency and cost per query, making it most valuable for tasks where accuracy matters more than speed.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "inference",
+      "reasoning",
+      "chain-of-thought"
+    ],
+    "lastUpdated": "2026-03-01"
+  },
+  {
+    "name": "Model Distillation",
+    "slug": "model-distillation",
+    "shortDef": "A technique where a smaller 'student' model is trained to replicate the behavior of a larger 'teacher' model, preserving much of the performance at a fraction of the size and cost.",
+    "fullDef": "Model distillation (also called knowledge distillation) is a model compression technique where a large, high-performing model (the teacher) transfers its learned knowledge to a smaller model (the student). Rather than training the student on raw data labels alone, it learns from the teacher's output probability distributions, which contain richer information about relationships between classes and nuances in the data.\n\nThe process typically involves running inputs through the teacher model to generate \"soft labels\" - probability distributions over all possible outputs rather than hard one-hot labels. The student model is then trained to match these soft distributions, often using a temperature parameter to soften the probabilities further and reveal more of the teacher's learned structure.\n\nDistillation is widely used in production AI systems where deploying a massive model is impractical due to latency, cost, or hardware constraints. For example, many commercially available smaller language models have been distilled from larger ones. DeepSeek R1's reasoning capabilities were distilled into smaller models like Qwen and Llama variants. The technique enables organizations to achieve near-state-of-the-art performance with models that are 10-100x smaller and cheaper to run.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "fine-tuning",
+      "large-language-model",
+      "quantization"
+    ],
+    "lastUpdated": "2026-03-01"
+  },
+  {
+    "name": "Orchestration Layer",
+    "slug": "orchestration-layer",
+    "shortDef": "The application logic that sits on top of AI models to coordinate their use - managing prompts, tools, memory, and workflows to build complete AI-powered systems.",
+    "fullDef": "An orchestration layer is the software architecture that connects AI models to the rest of an application. Rather than calling a model directly with a single prompt, the orchestration layer manages the entire workflow: constructing prompts, routing requests to appropriate models, handling tool calls, maintaining conversation memory, and chaining multiple model interactions together.\n\nCommon orchestration patterns include retrieval-augmented generation (RAG), where the layer fetches relevant documents before prompting the model; agent loops, where the model repeatedly selects and executes tools until a task is complete; and multi-model pipelines, where different models handle different subtasks. Frameworks like LangChain, LlamaIndex, and the Vercel AI SDK provide building blocks for these patterns.\n\nThe orchestration layer is where most of the engineering complexity lives in AI applications. While the models themselves are increasingly commoditized, the orchestration - how you structure prompts, manage context windows, handle errors and retries, implement guardrails, and coordinate between models and tools - determines whether an AI application actually works reliably in production. It is the bridge between a raw model API and a useful product.",
+    "category": "Agents",
+    "relatedTerms": [
+      "tool-calling",
+      "mcp",
+      "rag"
+    ],
+    "lastUpdated": "2026-03-01"
   }
 ]
