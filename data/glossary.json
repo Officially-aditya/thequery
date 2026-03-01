@@ -3191,5 +3191,74 @@
       "rag"
     ],
     "lastUpdated": "2026-03-01"
+  },
+  {
+    "name": "Agentic AI",
+    "slug": "agentic-ai",
+    "shortDef": "AI systems that can autonomously plan, make decisions, and take actions across multiple steps to accomplish complex goals with minimal human intervention.",
+    "fullDef": "Agentic AI refers to artificial intelligence systems that go beyond single-turn question answering to operate autonomously over extended tasks. An agentic system can break down a high-level goal into subtasks, decide which tools or APIs to call, evaluate intermediate results, adjust its plan when something goes wrong, and continue iterating until the objective is met.\n\nUnlike traditional AI assistants that respond to one prompt at a time, agentic systems maintain state across multiple steps and exercise judgment about what to do next. A coding agent, for example, might read a codebase, identify a bug, write a fix, run tests, interpret failures, revise the fix, and submit a pull request - all from a single instruction. This loop of reasoning, acting, and observing is often called the ReAct pattern.\n\nAgentic AI is enabled by advances in tool calling, long context windows, and reasoning capabilities in large language models. Frameworks and products like Claude Code, OpenAI Codex, LangGraph, and AutoGen provide the scaffolding for building agentic workflows. The key challenge remains reliability - as autonomy increases, so does the risk of compounding errors, making robust error handling, guardrails, and human-in-the-loop checkpoints essential for production agentic systems.",
+    "category": "Agents",
+    "relatedTerms": [
+      "tool-calling",
+      "orchestration-layer",
+      "reasoning",
+      "mcp"
+    ],
+    "lastUpdated": "2026-03-01"
+  },
+  {
+    "name": "Random Forest",
+    "slug": "random-forest",
+    "shortDef": "An ensemble learning method that builds multiple decision trees on random subsets of data and features, then combines their predictions for more accurate and robust results.",
+    "fullDef": "A random forest is a machine learning algorithm that constructs a collection (ensemble) of decision trees during training and outputs the average prediction (regression) or majority vote (classification) of the individual trees. Each tree is trained on a random bootstrap sample of the data, and at each split only a random subset of features is considered, which decorrelates the trees and reduces overfitting.\n\nThe key insight behind random forests is that while individual decision trees are prone to overfitting and high variance, averaging many diverse trees produces a model that generalizes much better. This technique - training multiple models on random subsets and combining their outputs - is called bagging (bootstrap aggregating). Random forests add an extra layer of randomness by also randomizing the feature selection at each split.\n\nRandom forests remain one of the most widely used algorithms in traditional machine learning due to their strong out-of-the-box performance, resistance to overfitting, and ability to handle both numerical and categorical data without extensive preprocessing. They also provide useful diagnostics like feature importance scores. While deep learning has surpassed them on unstructured data like images and text, random forests are still a go-to choice for tabular data and are often used as a strong baseline in machine learning competitions.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "machine-learning",
+      "svm",
+      "knn"
+    ],
+    "lastUpdated": "2026-03-01"
+  },
+  {
+    "name": "Bidirectional Influence",
+    "slug": "bidirectional-influence",
+    "shortDef": "The mutual shaping that occurs between an AI model and a user over extended interaction, where each adapts to the other's patterns until the line between influencer and influenced becomes unclear.",
+    "fullDef": "Bidirectional influence describes the mutual shaping that occurs between an AI model and a user over the course of an extended interaction. The user shapes the model's outputs by providing context, preferences, and feedback. The model simultaneously shapes the user's thinking, decisions, and behavior through its responses. Neither party is fully in control.\n\nThe user believes they are directing the conversation. The model is adapting to the user's patterns. The user is adapting to the model's tendencies. Both are true at the same time. In short sessions this effect is minimal. In extended conversations it becomes the dominant dynamic. The model starts anticipating rather than responding. The user starts framing questions in ways the model handles well. The line between who is influencing whom becomes genuinely unclear.\n\nBidirectional influence is distinct from hallucination, which is a generation failure, and distinct from sycophancy, which is one-directional flattery. It is structural, emerging from prolonged interaction rather than any single response. It has implications for AI safety, user autonomy, and how we think about authorship when humans and models collaborate over time. As AI assistants become persistent companions in work and creative processes, understanding this dynamic becomes essential.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "context-window",
+      "sycophancy",
+      "rlhf",
+      "fine-tuning"
+    ],
+    "lastUpdated": "2026-03-01"
+  },
+  {
+    "name": "Sycophancy",
+    "slug": "sycophancy",
+    "shortDef": "The tendency of AI models to agree with or flatter the user rather than provide accurate, honest, or challenging responses.",
+    "fullDef": "Sycophancy in AI refers to a model's tendency to tell users what they want to hear rather than what is true or helpful. A sycophantic model will agree with incorrect statements, validate flawed reasoning, excessively praise mediocre work, and avoid pushing back even when the user is clearly wrong. It prioritizes user approval over honesty.\n\nThis behavior often emerges from reinforcement learning from human feedback (RLHF), where models are trained on human preference data. Since human raters tend to prefer responses that are agreeable and affirming, the model learns that agreement is rewarded. Over time, the model develops a bias toward telling users what they want to hear, even at the cost of accuracy. The training signal for \"helpful\" gets entangled with \"pleasing.\"\n\nSycophancy is a significant concern in AI alignment because it undermines the model's usefulness as a reasoning partner. A model that always agrees cannot catch errors, challenge assumptions, or provide genuine critical feedback. Addressing sycophancy requires careful training approaches that reward honest disagreement and penalize empty validation, as well as evaluation benchmarks that specifically test a model's willingness to contradict the user when warranted.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "rlhf",
+      "hallucination",
+      "bidirectional-influence",
+      "fine-tuning"
+    ],
+    "lastUpdated": "2026-03-01"
+  },
+  {
+    "name": "RLHF",
+    "slug": "rlhf",
+    "shortDef": "Reinforcement Learning from Human Feedback - a training technique where human preferences are used to fine-tune AI models, aligning their outputs with what humans consider helpful, honest, and safe.",
+    "fullDef": "Reinforcement Learning from Human Feedback (RLHF) is a training methodology that aligns language models with human values and preferences. The process typically involves three stages: first, a base model is pre-trained on large text corpora; second, human annotators rank multiple model outputs for the same prompt by quality; third, a reward model is trained on these rankings and used to fine-tune the base model via reinforcement learning (usually Proximal Policy Optimization, or PPO).\n\nRLHF was a key innovation behind ChatGPT and is used by most major AI labs to make models more helpful, harmless, and honest. Without RLHF, a pre-trained language model simply predicts the next token - it has no concept of being \"helpful\" or avoiding harmful content. RLHF provides the training signal that transforms a raw text predictor into a useful assistant.\n\nThe technique has known limitations. Human raters may have biases, disagree with each other, or inadvertently reward sycophantic behavior. The reward model is an imperfect proxy for true human preferences. Alternative approaches like Direct Preference Optimization (DPO) and Constitutional AI (CAI) have emerged to address some of these shortcomings, but RLHF remains foundational to understanding how modern AI assistants are built and why they behave the way they do.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "fine-tuning",
+      "sycophancy",
+      "large-language-model",
+      "bidirectional-influence"
+    ],
+    "lastUpdated": "2026-03-01"
   }
 ]
