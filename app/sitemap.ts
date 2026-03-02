@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { getAllBooks } from "@/lib/books";
 import { getAllTerms } from "@/lib/glossary";
 import { getAllIssues } from "@/lib/articles";
+import { getAllGuides } from "@/lib/guides";
 
 const BASE_URL = "https://thequery.in";
 
@@ -11,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/books`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/glossary`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/articles`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE_URL}/guides`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
   ];
 
   // Books and chapters
@@ -34,6 +36,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entries.push({
       url: `${BASE_URL}/glossary/${term.slug}`,
       lastModified: new Date(term.lastUpdated),
+      changeFrequency: "monthly",
+      priority: 0.6,
+    });
+  }
+
+  // Guides
+  for (const guide of getAllGuides()) {
+    entries.push({
+      url: `${BASE_URL}/guides/${guide.slug}`,
+      lastModified: new Date(guide.date),
       changeFrequency: "monthly",
       priority: 0.6,
     });

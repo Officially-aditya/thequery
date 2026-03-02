@@ -17,6 +17,11 @@ const sections = [
     href: "/books",
   },
   {
+    title: "Guides",
+    description: "Evergreen study guides on AI concepts - written to build understanding, not just familiarity.",
+    href: "/guides",
+  },
+  {
     title: "Glossary",
     description: "100+ AI and ML terms explained clearly - from backpropagation to knowledge graphs, always up to date.",
     href: "/glossary",

@@ -7,6 +7,7 @@ export default function Footer() {
         <p>&copy; {new Date().getFullYear()} TheQuery.in</p>
         <nav className="flex items-center gap-4">
           <Link href="/books" className="hover:text-text-secondary transition-colors">Books</Link>
+          <Link href="/guides" className="hover:text-text-secondary transition-colors">Guides</Link>
           <Link href="/glossary" className="hover:text-text-secondary transition-colors">Glossary</Link>
           <Link href="/articles" className="hover:text-text-secondary transition-colors">Articles</Link>
           <a href="mailto:hello@thequery.in" className="hover:text-text-secondary transition-colors">Contact</a>
