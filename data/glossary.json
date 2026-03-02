@@ -3260,5 +3260,31 @@
       "bidirectional-influence"
     ],
     "lastUpdated": "2026-03-01"
+  },
+  {
+    "name": "AI Memory",
+    "slug": "ai-memory",
+    "shortDef": "The ability of an AI assistant to retain information about a user across conversations, including preferences, context, and past interactions, enabling more personalized responses over time.",
+    "fullDef": "AI memory refers to mechanisms that allow an AI assistant to remember information about a user beyond a single conversation. Without memory, every conversation starts from zero - the model has no knowledge of who you are, what you have discussed before, or what you prefer. Memory systems solve this by storing user context that persists across sessions.\n\nThere are several approaches to AI memory. Session-based memory exists only within a single conversation and is lost when the chat ends. Persistent memory stores facts and preferences across conversations, typically on the provider's servers. Memory can be explicitly set by the user (\"Remember that I prefer Python\") or implicitly learned from conversation patterns. Some systems also support memory import and export, allowing users to transfer their stored context between AI providers.\n\nThe privacy implications of AI memory are significant. Key questions include whether memories are encrypted, whether they are used to train the model, whether users can view and delete them, and whether memories are stored in the cloud or locally on the user's device. Different providers make different tradeoffs - some use conversation history as training data, while others encrypt memories and exclude them from training entirely. As AI assistants become long-term tools rather than one-off utilities, memory architecture becomes a critical product and privacy decision.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "context-window",
+      "fine-tuning",
+      "bidirectional-influence"
+    ],
+    "lastUpdated": "2026-03-02"
+  },
+  {
+    "name": "Autonomous AI",
+    "slug": "autonomous-ai",
+    "shortDef": "AI systems that operate and make decisions independently without requiring human approval for each action, raising significant questions about oversight, safety, and accountability.",
+    "fullDef": "Autonomous AI refers to artificial intelligence systems designed to operate without continuous human supervision or approval. Unlike assistive AI, which provides recommendations for humans to act on, autonomous AI makes and executes decisions on its own. Examples range from self-driving vehicles and autonomous drones to AI agents that independently write and deploy code.\n\nThe spectrum of autonomy varies widely. Semi-autonomous systems handle routine decisions independently but escalate edge cases to humans. Fully autonomous systems operate without any human in the loop, making all decisions from perception through action. The level of appropriate autonomy depends heavily on the domain - automating email sorting carries different risk than automating weapons systems.\n\nAutonomous AI is at the center of major policy debates, particularly in military and government contexts. The question of whether AI systems should be allowed to make lethal decisions without human oversight - the \"human in the loop\" requirement - has become a defining issue in AI governance. Proponents argue that autonomous systems can react faster and more consistently than humans. Critics argue that the reliability of current AI is insufficient for high-stakes autonomous decisions and that meaningful human oversight is an ethical requirement regardless of system capability.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "agentic-ai",
+      "artificial-intelligence",
+      "reasoning"
+    ],
+    "lastUpdated": "2026-03-02"
   }
 ]
