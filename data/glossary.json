@@ -3286,5 +3286,71 @@
       "reasoning"
     ],
     "lastUpdated": "2026-03-02"
+  },
+  {
+    "name": "Text Mining",
+    "slug": "text-mining",
+    "shortDef": "The process of extracting meaningful patterns, trends, and structured information from large volumes of unstructured text using statistical and machine learning techniques.",
+    "fullDef": "Text mining is the practice of deriving structured insights from unstructured text data. It combines techniques from natural language processing, statistics, and machine learning to identify patterns, extract entities, classify documents, detect sentiment, and discover relationships that would be impossible to find manually at scale.\n\nA typical text mining pipeline starts with preprocessing: tokenization, removing stop words, stemming or lemmatization, and normalizing the text into a consistent format. From there, techniques diverge depending on the goal. Topic modeling discovers recurring themes across a document collection. Named entity recognition extracts people, organizations, and locations. Sentiment analysis classifies text by emotional tone. Relationship extraction identifies how entities relate to each other within and across documents.\n\nText mining is foundational to many modern AI applications. Search engines use it to understand query intent. Financial firms use it to extract signals from earnings calls and regulatory filings. Healthcare systems use it to structure clinical notes. The rise of large language models has expanded what text mining can accomplish, but the core challenge remains the same: turning human language into data a system can reason about.",
+    "category": "Techniques",
+    "relatedTerms": [
+      "tokenization",
+      "semantic-search",
+      "machine-learning"
+    ],
+    "lastUpdated": "2026-03-04"
+  },
+  {
+    "name": "Mixture of Experts",
+    "slug": "mixture-of-experts",
+    "shortDef": "A model architecture that splits computation across multiple specialized sub-networks (experts), activating only a subset for each input to achieve large model capacity at a fraction of the compute cost.",
+    "fullDef": "Mixture of Experts (MoE) is a neural network architecture where the model is divided into multiple parallel sub-networks called experts, each potentially specializing in different types of inputs or tasks. A routing network (also called a gating network) examines each input and decides which experts to activate. Only a small fraction of the total experts process any given input, so the model can have billions or even trillions of parameters while only using a fraction of them per forward pass.\n\nThe key advantage is decoupling model capacity from inference cost. A 744B parameter MoE model with 44B active parameters per token has the knowledge capacity of a dense 744B model but the inference speed closer to a 44B model. This is how models like Mixtral, GLM-5, and Qwen 3.5's medium series achieve frontier-level performance at significantly lower serving costs than equivalently capable dense models.\n\nThe main engineering challenges are load balancing (ensuring all experts get trained and used, not just a few popular ones), routing quality (the gating network must learn to send inputs to the right experts), and infrastructure complexity (distributing experts across hardware efficiently). Despite these challenges, MoE has become the dominant architecture for large-scale models where serving cost matters as much as capability.",
+    "category": "Architecture",
+    "relatedTerms": [
+      "sparse-model",
+      "routing-network",
+      "load-balancing",
+      "transformer"
+    ],
+    "lastUpdated": "2026-03-05"
+  },
+  {
+    "name": "Sparse Model",
+    "slug": "sparse-model",
+    "shortDef": "A model where only a subset of parameters are activated for any given input, reducing compute requirements while maintaining the capacity benefits of a larger network.",
+    "fullDef": "A sparse model is a neural network designed so that each input activates only a fraction of the model's total parameters. This contrasts with dense models, where every parameter participates in every computation. Sparsity allows models to scale to very large parameter counts without proportionally increasing the compute required for inference.\n\nThe most common form of learned sparsity in modern AI is the Mixture of Experts architecture, where a routing mechanism selects which sub-networks process each token. But sparsity also appears in other forms: weight pruning removes individual connections that contribute little to model output, structured pruning removes entire neurons or attention heads, and activation sparsity exploits the fact that many neurons naturally output zero for most inputs.\n\nSparse models represent a fundamental shift in how the field thinks about scaling. The early scaling laws suggested that performance improves predictably with total parameter count, but sparse architectures show that what matters is not how many parameters exist but how intelligently they are allocated. A well-designed sparse model can match or exceed a dense model many times its active parameter count, which is why most frontier models released in 2025 and 2026 use some form of sparsity.",
+    "category": "Architecture",
+    "relatedTerms": [
+      "mixture-of-experts",
+      "routing-network",
+      "neural-network"
+    ],
+    "lastUpdated": "2026-03-05"
+  },
+  {
+    "name": "Routing Network",
+    "slug": "routing-network",
+    "shortDef": "A small neural network within a Mixture of Experts model that decides which expert sub-networks should process each input token.",
+    "fullDef": "A routing network (also called a gating network or router) is the decision-making component in a Mixture of Experts architecture. For each input token, the router produces a probability distribution over all available experts and selects the top-k experts to handle that token. The router is trained jointly with the experts, learning over time which experts are best suited for which types of inputs.\n\nThe simplest routing approach is a linear layer followed by a softmax that produces expert selection probabilities. More sophisticated approaches use auxiliary losses to encourage balanced expert utilization, noisy top-k gating to add exploration during training, or learned token-to-expert affinity scores that improve over training.\n\nRouter quality directly determines model quality. A poorly trained router creates two problems: expert collapse, where most tokens get sent to the same few experts while others go unused, and misrouting, where tokens reach experts that are not well-suited to process them. Both waste model capacity. Modern architectures address this through load balancing losses that penalize uneven expert usage and capacity factors that cap how many tokens any single expert can receive per batch.",
+    "category": "Architecture",
+    "relatedTerms": [
+      "mixture-of-experts",
+      "sparse-model",
+      "load-balancing"
+    ],
+    "lastUpdated": "2026-03-05"
+  },
+  {
+    "name": "Load Balancing",
+    "slug": "load-balancing",
+    "shortDef": "In Mixture of Experts models, the set of techniques that ensure tokens are distributed evenly across experts during training and inference to prevent expert collapse and maximize model capacity.",
+    "fullDef": "Load balancing in the context of Mixture of Experts models refers to mechanisms that ensure all experts receive a roughly equal share of input tokens. Without explicit balancing, routers tend to converge on sending most tokens to a small number of experts, a failure mode called expert collapse. When this happens, the model effectively wastes most of its parameter capacity because unused experts never learn meaningful representations.\n\nThe most common approach is an auxiliary loss added to the training objective that penalizes imbalanced expert utilization. This loss measures the variance in how many tokens each expert receives and pushes the router toward more uniform distribution. The weight of this auxiliary loss must be carefully tuned: too low and collapse still occurs, too high and the router is forced into artificially uniform routing that ignores genuine specialization.\n\nOther techniques include capacity factors that set hard limits on tokens per expert, dropping tokens that exceed an expert's capacity, and expert parallelism strategies that distribute experts across hardware so that load balancing also serves as a compute distribution mechanism. In production serving, load balancing extends to infrastructure concerns: ensuring that expert activations are distributed across GPUs or TPUs efficiently to minimize communication overhead and maximize throughput.",
+    "category": "Architecture",
+    "relatedTerms": [
+      "mixture-of-experts",
+      "routing-network",
+      "sparse-model"
+    ],
+    "lastUpdated": "2026-03-05"
   }
 ]
