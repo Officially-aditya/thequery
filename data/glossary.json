@@ -3352,5 +3352,71 @@
       "sparse-model"
     ],
     "lastUpdated": "2026-03-05"
+  },
+  {
+    "name": "Speculative Decoding",
+    "slug": "speculative-decoding",
+    "shortDef": "An inference optimization where a small, fast draft model generates candidate tokens that a larger model then verifies in parallel, speeding up generation without changing output quality.",
+    "fullDef": "Speculative decoding is a technique for accelerating autoregressive text generation by using two models: a small, fast draft model and a larger, more capable target model. The draft model generates several candidate tokens quickly. The target model then evaluates all of them in a single forward pass, accepting tokens that match what it would have generated and rejecting those that diverge. Accepted tokens are kept, and generation continues from the first rejected position.\n\nThe speedup comes from a fundamental asymmetry in transformer inference. Generating tokens one at a time is slow because each token requires a full forward pass. But verifying multiple tokens at once is fast because the target model can process them in parallel. If the draft model is good enough that most of its tokens get accepted, the target model does fewer total forward passes while producing identical output to what it would have generated on its own.\n\nThe technique requires no retraining of either model. The draft model can be a smaller version of the same model family, a quantized version, or even a completely different architecture. The only requirement is that it generates tokens from the same vocabulary. Acceptance rates typically range from 70% to 90% for well-matched draft models, yielding 2x to 3x speedups in practice. Speculative decoding has become standard in production LLM serving infrastructure, particularly for latency-sensitive applications where users are waiting for streaming responses.",
+    "category": "Techniques",
+    "relatedTerms": [
+      "inference",
+      "transformer",
+      "tokenization"
+    ],
+    "lastUpdated": "2026-03-05"
+  },
+  {
+    "name": "Mixture of Experts Routing",
+    "slug": "mixture-of-experts-routing",
+    "shortDef": "The mechanism within a Mixture of Experts model that determines which expert sub-networks process each input token, directly controlling how model capacity is utilized.",
+    "fullDef": "Mixture of Experts routing is the process by which a gating mechanism assigns input tokens to specific expert sub-networks within a Mixture of Experts architecture. The router is typically a small neural network, often a single linear layer followed by a softmax, that produces a score for each expert given an input token. The top-k experts by score are selected to process that token, and their outputs are combined using the router scores as weights.\n\nRouting strategies vary in sophistication. Token-choice routing lets each token pick its preferred experts, which is simple but can cause load imbalance. Expert-choice routing inverts the process, letting each expert select which tokens to process from a batch, which naturally balances load but can leave some tokens underserved. Hash-based routing assigns tokens to experts deterministically based on token properties, eliminating the learned router entirely but sacrificing adaptive specialization.\n\nThe quality of routing determines whether a Mixture of Experts model lives up to its theoretical capacity advantage. Poor routing leads to expert collapse, where a few experts handle most tokens while others sit idle, or to misrouting, where tokens reach experts that are not specialized for them. Modern architectures like DeepSeek's Sparse Attention and Qwen 3.5's hybrid gating use auxiliary losses, capacity constraints, and learned affinity scores to keep routing both balanced and specialized. The routing decision happens at every layer of the network, so a single token may visit different experts at different depths, enabling fine-grained specialization throughout the model.",
+    "category": "Architecture",
+    "relatedTerms": [
+      "mixture-of-experts",
+      "routing-network",
+      "load-balancing",
+      "sparse-model"
+    ],
+    "lastUpdated": "2026-03-05"
+  },
+  {
+    "name": "Agentic Workflows",
+    "slug": "agentic-workflows",
+    "shortDef": "Multi-step AI processes where a model autonomously plans, executes, and adapts a sequence of actions — calling tools, making decisions, and handling errors — to complete a complex task without human intervention at each step.",
+    "fullDef": "Agentic workflows are AI-driven processes where a language model operates as an autonomous agent, breaking a high-level goal into a sequence of steps, executing each step using available tools, evaluating the results, and adjusting its plan as needed. Unlike single-turn prompting where the model generates one response, agentic workflows involve loops of reasoning, action, and observation that can run for minutes or hours.\n\nA typical agentic workflow follows a pattern: the model receives a goal, reasons about what information or actions are needed, calls an external tool (a code interpreter, web browser, API, or file system), observes the result, decides whether the goal has been met or whether further steps are needed, and continues until done. The model maintains state across steps, tracking what it has tried, what worked, and what remains.\n\nThe reliability of agentic workflows depends heavily on the model's ability to call tools correctly, recover from errors, and know when to stop. Early implementations were fragile, requiring careful prompt engineering to keep the model on track. Newer architectures like Qwen 3.5 and GLM-5 build tool use and multi-step planning into the model's training rather than relying on prompting alone, significantly improving reliability. The shift from prompt-driven to architecture-driven agentic behavior is one of the defining trends in AI development heading into 2026.",
+    "category": "Techniques",
+    "relatedTerms": [
+      "agentic-ai",
+      "orchestration-layer",
+      "prompt-engineering"
+    ],
+    "lastUpdated": "2026-03-05"
+  },
+  {
+    "name": "Computer Vision",
+    "slug": "computer-vision",
+    "shortDef": "A field of AI that enables machines to interpret and extract meaningful information from images, video, and other visual inputs.",
+    "fullDef": "Computer vision is the branch of artificial intelligence concerned with teaching machines to understand visual data. It encompasses tasks ranging from basic image classification (is this a cat or a dog?) to complex scene understanding (what objects are present, where are they, what are they doing, and how do they relate to each other?).\n\nCore computer vision tasks include image classification, object detection (locating and labeling objects within an image), semantic segmentation (assigning a class label to every pixel), instance segmentation (distinguishing between individual objects of the same class), pose estimation, depth estimation, and optical character recognition. Each task has its own family of architectures and techniques, though modern approaches increasingly use shared backbone networks.\n\nThe field was transformed by deep learning, starting with convolutional neural networks that dramatically outperformed hand-engineered feature extractors on image recognition benchmarks. More recently, vision transformers have shown that the attention mechanism originally designed for text can be equally effective for images when given enough training data. The latest frontier models are natively multimodal, processing text and images through the same architecture from training onward rather than bolting a vision encoder onto a language model after the fact. This early-fusion approach, used in models like Qwen 3.5 and Gemini, produces richer visual understanding because the model learns joint representations rather than translating between separate visual and textual feature spaces.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "deep-learning",
+      "convolutional-neural-network",
+      "transformer"
+    ],
+    "lastUpdated": "2026-03-05"
+  },
+  {
+    "name": "Model Collapse",
+    "slug": "model-collapse",
+    "shortDef": "A degenerative process where AI models trained on synthetic data generated by other AI models progressively lose diversity and accuracy, converging on a narrow, distorted version of the original data distribution.",
+    "fullDef": "Model collapse occurs when a model is trained on data that was itself generated by a model, and this process repeats across generations. Each generation of training amplifies small errors and biases from the previous one while losing rare but valid patterns from the original distribution. Over successive generations, the model's outputs converge toward a narrower and less representative subset of what real-world data actually looks like.\n\nThe mechanism is straightforward. A model trained on real data approximates the true distribution but inevitably makes small errors, overrepresenting common patterns and underrepresenting rare ones. When the next model trains on that output instead of real data, it treats those errors as ground truth. The overrepresented patterns become even more dominant. The underrepresented ones fade further. After several generations, the model produces outputs that are internally consistent but bear decreasing resemblance to the original distribution.\n\nModel collapse has become a pressing concern as the internet fills with AI-generated content. Models trained on web-scraped data increasingly encounter synthetic text, images, and code produced by earlier models. Without careful data curation to maintain the proportion of human-generated content, future models risk training on a feedback loop of their predecessors' outputs. Research has shown that even a small fraction of synthetic data in the training set can measurably degrade model quality over multiple training generations, making data provenance and filtering among the most important problems in modern AI development.",
+    "category": "Concepts",
+    "relatedTerms": [
+      "overfitting",
+      "foundation-model",
+      "fine-tuning"
+    ],
+    "lastUpdated": "2026-03-05"
   }
 ]
