@@ -3418,5 +3418,18 @@
       "fine-tuning"
     ],
     "lastUpdated": "2026-03-05"
+  },
+  {
+    "name": "n8n",
+    "slug": "n8n",
+    "shortDef": "An open source workflow automation platform that lets users connect apps, APIs, and AI models through a visual node-based interface, with the option to self-host for full data control.",
+    "fullDef": "n8n (pronounced \"nodemation\") is an open source workflow automation tool that enables users to build automated processes by connecting nodes in a visual editor. Each node represents an action -- pulling data from an API, transforming it, sending it to another service, or running custom code. Workflows can be triggered by schedules, webhooks, or events from connected services.\n\nWhat distinguishes n8n from competitors like Zapier or Make is the self-hosting option. Users can run n8n on their own infrastructure, meaning sensitive data never leaves their environment. This makes it particularly attractive for teams with strict compliance requirements or those working with proprietary data that cannot be sent to third-party services. The platform is available under a fair-code license, free to self-host with source code available, while a managed cloud version is offered as a paid service.\n\nn8n has become increasingly relevant in AI workflows. Its native integrations with language model APIs, vector databases, and agent frameworks allow developers to build AI-powered automation without writing custom orchestration code. Common patterns include document processing pipelines that extract, transform, and store information using LLMs, chatbot backends that route queries to different models based on complexity, and monitoring workflows that track model performance and trigger alerts. The visual interface makes these multi-step AI pipelines debuggable in ways that pure code implementations often are not.",
+    "category": "Tools",
+    "relatedTerms": [
+      "api",
+      "orchestration-layer",
+      "agentic-workflows"
+    ],
+    "lastUpdated": "2026-03-05"
   }
 ]
