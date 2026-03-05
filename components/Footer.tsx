@@ -10,7 +10,7 @@ export default function Footer() {
           <Link href="/guides" className="hover:text-text-secondary transition-colors">Guides</Link>
           <Link href="/glossary" className="hover:text-text-secondary transition-colors">Glossary</Link>
           <Link href="/articles" className="hover:text-text-secondary transition-colors">Articles</Link>
-          <a href="mailto:hello@thequery.in" className="hover:text-text-secondary transition-colors">Contact</a>
+          <a href="mailto:addy@thequery.in" className="hover:text-text-secondary transition-colors">Contact</a>
         </nav>
       </div>
     </footer>
