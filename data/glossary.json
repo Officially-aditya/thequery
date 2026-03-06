@@ -3444,5 +3444,173 @@
       "agentic-workflows"
     ],
     "lastUpdated": "2026-03-06"
+  },
+  {
+    "name": "Text Normalization",
+    "slug": "text-normalization",
+    "shortDef": "The process of transforming raw text into a consistent, canonical form to reduce variation before further processing.",
+    "fullDef": "Text normalization is a preprocessing step that converts text into a standardized form so that equivalent expressions are treated identically. Common operations include converting to lowercase, expanding contractions, removing punctuation, normalizing whitespace, replacing numbers with words or tokens, and handling special characters.\n\nWithout normalization, the same word appearing in different forms — \"Running\", \"running\", \"RUNNING\" — may be treated as three distinct tokens, inflating vocabulary size and reducing statistical signal. Normalization reduces this sparsity and makes downstream models more robust.\n\nThe extent of normalization depends on the task. Aggressive normalization can improve recall in search and classification but may discard meaningful signals such as capitalization (which indicates proper nouns) or punctuation (which affects sentiment). Modern neural models with subword tokenization often apply lighter normalization than classical NLP pipelines, but the step remains relevant for rule-based systems, keyword search, and low-resource settings.",
+    "category": "NLP",
+    "relatedTerms": [
+      "tokenization",
+      "stop-word-removal",
+      "stemming",
+      "lemmatization"
+    ],
+    "lastUpdated": "2026-03-06"
+  },
+  {
+    "name": "Stop Word Removal",
+    "slug": "stop-word-removal",
+    "shortDef": "The practice of filtering out high-frequency function words — such as 'the', 'is', and 'in' — that carry little semantic content.",
+    "fullDef": "Stop word removal is a text preprocessing technique that discards words deemed too common to contribute meaningful signal to a model or retrieval system. Typical stop words include articles, prepositions, conjunctions, and auxiliary verbs. By removing them, the remaining vocabulary is denser in content-bearing terms, which can improve efficiency and relevance in tasks like keyword search and topic modeling.\n\nThe definition of a stop word is not fixed. Standard lists exist for most languages, but effective stop word sets are often domain-specific. In legal or medical text, words like 'not' or 'without' carry critical meaning and should not be removed. In contrast, a product search engine might aggressively strip function words to focus on nouns.\n\nModern neural NLP systems — particularly transformers — typically do not apply stop word removal, because attention mechanisms can learn to weight tokens by importance. Stop word removal remains common in classical retrieval systems like BM25, bag-of-words classifiers, and TF-IDF pipelines where every token contributes equally to term frequency counts.",
+    "category": "NLP",
+    "relatedTerms": [
+      "tokenization",
+      "text-normalization",
+      "bm25",
+      "sparse-retrieval"
+    ],
+    "lastUpdated": "2026-03-06"
+  },
+  {
+    "name": "Stemming",
+    "slug": "stemming",
+    "shortDef": "A rule-based process that strips suffixes from words to reduce them to a common root form, often producing non-dictionary stems.",
+    "fullDef": "Stemming reduces inflected or derived words to a base form called a stem by applying heuristic rules that chop off known suffixes. For example, 'running', 'runs', and 'runner' might all be reduced to 'run'. The stem produced is not necessarily a valid dictionary word — 'studies' might become 'studi' — but grouping variants together improves recall in text retrieval and reduces vocabulary size in bag-of-words models.\n\nThe most widely used stemmer is the Porter Stemmer, developed in 1980, which applies a sequence of suffix-stripping rules. Later algorithms like the Snowball stemmer extend the approach to multiple languages. Stemming is fast and requires no dictionary lookup, making it suitable for high-throughput pipelines.\n\nThe main drawback of stemming is over-stemming — collapsing words that have different meanings — and under-stemming — failing to merge words that should map to the same root. For tasks requiring linguistic precision, lemmatization is preferred. For classical search engines and term-frequency models where speed matters more than linguistic accuracy, stemming is often sufficient.",
+    "category": "NLP",
+    "relatedTerms": [
+      "lemmatization",
+      "tokenization",
+      "text-normalization",
+      "stop-word-removal"
+    ],
+    "lastUpdated": "2026-03-06"
+  },
+  {
+    "name": "Lemmatization",
+    "slug": "lemmatization",
+    "shortDef": "The process of reducing a word to its dictionary base form (lemma) using vocabulary and morphological analysis.",
+    "fullDef": "Lemmatization maps each word to its canonical dictionary form, called the lemma. Unlike stemming, which applies mechanical suffix-stripping rules, lemmatization uses a vocabulary and an understanding of part-of-speech context to return valid words. 'Better' becomes 'good', 'was' becomes 'be', and 'running' becomes 'run' — all genuine dictionary entries.\n\nTo lemmatize accurately, a system typically needs to know the part of speech of each word, because the same surface form can have different lemmas depending on usage. 'Saw' as a verb lemmatizes to 'see'; as a noun it remains 'saw'. Tools like spaCy, NLTK, and Stanford CoreNLP include lemmatizers that combine morphological rules with vocabulary lookup.\n\nLemmatization is more linguistically accurate than stemming and is preferred when downstream tasks require interpretable tokens — such as building knowledge bases, extracting named entities, or preparing training data for language models. The trade-off is speed: lemmatization requires a dictionary and optional POS tagging, making it slower than rule-based stemming.",
+    "category": "NLP",
+    "relatedTerms": [
+      "stemming",
+      "pos-tagging",
+      "tokenization",
+      "text-normalization"
+    ],
+    "lastUpdated": "2026-03-06"
+  },
+  {
+    "name": "POS Tagging",
+    "slug": "pos-tagging",
+    "shortDef": "The task of assigning a part-of-speech label — noun, verb, adjective, etc. — to each token in a sentence.",
+    "fullDef": "Part-of-speech (POS) tagging is a foundational NLP task that assigns a grammatical category to every word in a sentence. Common tags include noun (NN), verb (VB), adjective (JJ), adverb (RB), determiner (DT), and preposition (IN), among many others. Tagsets vary by framework; the Penn Treebank tagset is widely used for English.\n\nPOS information is used downstream in many NLP pipelines. Lemmatization requires POS context to resolve ambiguous words. Named entity recognition and dependency parsing both benefit from knowing whether a word is a noun or a verb. Syntactic analysis, grammar correction, and machine translation all rely on POS tags to some degree.\n\nEarly taggers used hand-written rules or Hidden Markov Models trained on annotated corpora. Modern systems use neural sequence models — often bidirectional LSTMs or transformer encoders — and achieve over 97% accuracy on standard benchmarks. Many NLP libraries such as spaCy and NLTK expose POS tagging as a built-in pipeline component.",
+    "category": "NLP",
+    "relatedTerms": [
+      "lemmatization",
+      "named-entity-recognition",
+      "dependency-parsing",
+      "tokenization"
+    ],
+    "lastUpdated": "2026-03-06"
+  },
+  {
+    "name": "Dependency Parsing",
+    "slug": "dependency-parsing",
+    "shortDef": "A syntactic analysis task that identifies grammatical relationships between words in a sentence, producing a directed dependency tree.",
+    "fullDef": "Dependency parsing analyzes the grammatical structure of a sentence by establishing directed relationships between words. Each word (except the root) has exactly one head word it depends on, and the relationship is labeled with a grammatical function such as subject (nsubj), object (dobj), modifier (amod), or complement (comp). The result is a tree rooted at the main verb.\n\nFor example, in 'The quick fox jumped', 'jumped' is the root, 'fox' is its subject, 'quick' modifies 'fox', and 'The' is a determiner of 'fox'. These typed dependency relations encode who does what to whom, which is essential for extracting semantic content from text.\n\nDependency parsing is used in information extraction, question answering, relation extraction, and machine translation. Modern parsers use neural models — typically biaffine attention over transformer representations — and achieve high accuracy on standard treebanks. Libraries like spaCy, Stanford CoreNLP, and Stanza expose dependency parsing as a core pipeline component.",
+    "category": "NLP",
+    "relatedTerms": [
+      "pos-tagging",
+      "named-entity-recognition",
+      "coreference-resolution",
+      "tokenization"
+    ],
+    "lastUpdated": "2026-03-06"
+  },
+  {
+    "name": "Coreference Resolution",
+    "slug": "coreference-resolution",
+    "shortDef": "The task of identifying all expressions in a text that refer to the same real-world entity and grouping them into coreference clusters.",
+    "fullDef": "Coreference resolution determines when different words or phrases in a text refer to the same entity. In the sentence 'Maria said she would call', coreference resolution links 'she' back to 'Maria'. Expressions that share a referent are called coreferent, and the set of all coreferent mentions forms a coreference chain or cluster.\n\nThis task is critical for coherent text understanding. Without resolving pronouns and nominal references, a system reading 'The president signed the bill. He argued it would help the economy' cannot correctly attribute the action to the president. Question answering, information extraction, and summarization all depend on correctly tracking entities across sentences.\n\nCoreference resolution is one of the harder NLP problems because it requires world knowledge, pragmatic inference, and long-range context. Neural models — particularly those built on large pretrained encoders like BERT — have significantly improved performance, but challenging cases involving bridging anaphora, implicit references, and ambiguous pronouns remain active research areas.",
+    "category": "NLP",
+    "relatedTerms": [
+      "named-entity-recognition",
+      "dependency-parsing",
+      "pos-tagging"
+    ],
+    "lastUpdated": "2026-03-06"
+  },
+  {
+    "name": "Word Embeddings",
+    "slug": "word-embeddings",
+    "shortDef": "Dense vector representations of words in a continuous space where semantic similarity corresponds to geometric proximity.",
+    "fullDef": "Word embeddings are learned vector representations that map words from a high-dimensional one-hot space into a dense, low-dimensional continuous space — typically 50 to 300 dimensions. Words with similar meanings or usage patterns end up close together in this space. The classic demonstration is that the vector arithmetic 'king − man + woman ≈ queen' captures relational meaning geometrically.\n\nThe most influential early word embedding algorithms were Word2Vec (2013) and GloVe (2014). Word2Vec trains a shallow neural network to predict a word from its context (CBOW) or a context from a word (Skip-gram). GloVe factorizes a word co-occurrence matrix. Both produce static embeddings — one fixed vector per word — which cannot capture polysemy or context dependence.\n\nContextual word embeddings, produced by models like ELMo, BERT, and GPT, replaced static embeddings for most tasks. These models generate different representations for the same word depending on context, resolving ambiguity that static embeddings cannot handle. Word embeddings remain foundational to understanding how meaning is encoded in neural NLP systems.",
+    "category": "NLP",
+    "relatedTerms": [
+      "embedding",
+      "semantic-search",
+      "tokenization",
+      "transformer"
+    ],
+    "lastUpdated": "2026-03-06"
+  },
+  {
+    "name": "Sentiment Analysis",
+    "slug": "sentiment-analysis",
+    "shortDef": "The automated process of identifying and extracting subjective opinion, emotion, or attitude from text.",
+    "fullDef": "Sentiment analysis — also called opinion mining — is the task of determining the emotional tone expressed in a piece of text. At the coarsest level this is a three-class classification: positive, negative, or neutral. More fine-grained approaches detect specific emotions (anger, joy, surprise), assign a continuous sentiment score, or perform aspect-based sentiment analysis to identify the sentiment toward particular attributes of a product or service.\n\nEarly systems used lexicon-based approaches: a sentiment dictionary assigns polarity scores to words, and the scores are aggregated across the document. These are fast and interpretable but fail on negation ('not good'), sarcasm, and domain-specific language. Machine learning classifiers trained on labeled reviews improved accuracy substantially, and transformer-based models now achieve near-human performance on standard benchmarks.\n\nSentiment analysis is widely applied in brand monitoring, customer feedback processing, financial news analysis, and social media tracking. Despite its maturity, the task remains difficult in practice: irony, mixed sentiment within a single document, and cultural variation in emotional expression continue to challenge even the best models.",
+    "category": "NLP",
+    "relatedTerms": [
+      "text-classification",
+      "named-entity-recognition",
+      "word-embeddings",
+      "fine-tuning"
+    ],
+    "lastUpdated": "2026-03-06"
+  },
+  {
+    "name": "Text Classification",
+    "slug": "text-classification",
+    "shortDef": "The task of assigning a predefined category or label to a piece of text based on its content.",
+    "fullDef": "Text classification is one of the most fundamental tasks in NLP. Given a document and a set of categories, the goal is to assign the correct label or set of labels. Common applications include spam detection (spam vs. ham), sentiment analysis (positive vs. negative), topic classification (sports, politics, technology), intent detection in chatbots, and content moderation.\n\nClassical approaches represented text as bag-of-words or TF-IDF vectors and trained logistic regression, Naive Bayes, or SVM classifiers. These are fast and interpretable but ignore word order and cannot capture semantic nuance. Convolutional and recurrent neural networks applied to word embeddings improved accuracy on longer documents. Transformer-based models fine-tuned on labeled data now represent the state of the art and have dramatically lowered the data requirements for strong performance.\n\nText classification can be binary (two classes), multiclass (one of many classes), or multilabel (multiple classes simultaneously). Evaluation uses accuracy, precision, recall, and F1 score, with macro or micro averaging depending on whether all classes should be weighted equally. Data quality and label consistency are often larger bottlenecks than model architecture in production classification systems.",
+    "category": "NLP",
+    "relatedTerms": [
+      "sentiment-analysis",
+      "named-entity-recognition",
+      "fine-tuning",
+      "benchmark"
+    ],
+    "lastUpdated": "2026-03-06"
+  },
+  {
+    "name": "Subword Tokenization",
+    "slug": "subword-tokenization",
+    "shortDef": "A tokenization strategy that splits words into smaller units to balance vocabulary size with the ability to handle rare and unknown words.",
+    "fullDef": "Subword tokenization sits between character-level and word-level tokenization. Rather than treating each word as an indivisible token, subword methods break infrequent words into smaller pieces while keeping common words intact. 'unhappiness' might become ['un', 'happiness'] or ['un', 'happy', 'ness'], depending on the algorithm and vocabulary.\n\nThe dominant subword algorithms are Byte-Pair Encoding (BPE), used by GPT and RoBERTa; WordPiece, used by BERT; and SentencePiece, used by T5 and multilingual models. BPE starts with individual characters and iteratively merges the most frequent adjacent pair until the desired vocabulary size is reached. WordPiece follows a similar approach but uses likelihood rather than raw frequency to guide merges.\n\nSubword tokenization solves the out-of-vocabulary problem that plagued word-level models: any string can be encoded because all characters exist in the vocabulary as fallback tokens. It also allows morphologically related words to share subword pieces, helping models generalize across inflections. The trade-off is that a single word may require several tokens, increasing sequence length and computational cost.",
+    "category": "NLP",
+    "relatedTerms": [
+      "tokenization",
+      "language-modeling",
+      "transformer",
+      "embedding"
+    ],
+    "lastUpdated": "2026-03-06"
+  },
+  {
+    "name": "Language Modeling",
+    "slug": "language-modeling",
+    "shortDef": "The task of learning a probability distribution over sequences of tokens, enabling a model to predict or generate text.",
+    "fullDef": "A language model assigns a probability to a sequence of tokens. The most common formulation is the autoregressive language model, which factorizes the joint probability of a sequence as a product of conditional probabilities: the probability of each token given all preceding tokens. Training objective: maximize the likelihood of the training corpus, equivalently minimizing cross-entropy loss.\n\nClassical n-gram language models estimated these probabilities from token co-occurrence counts with smoothing techniques to handle unseen sequences. Neural language models replaced lookup tables with learned representations, first using feedforward networks and then recurrent architectures that could theoretically capture arbitrarily long context. The transformer architecture, with its global self-attention, dramatically improved the ability to exploit long-range dependencies and scaled efficiently on modern hardware.\n\nLanguage modeling is the pretraining objective behind GPT-style models (causal language modeling) and contributes to BERT-style models through masked language modeling, where randomly masked tokens are predicted from bidirectional context. A model that has learned a good language model has implicitly acquired broad world knowledge, grammatical structure, and reasoning patterns — making it a powerful foundation for fine-tuning on specific downstream tasks.",
+    "category": "NLP",
+    "relatedTerms": [
+      "tokenization",
+      "subword-tokenization",
+      "transformer",
+      "fine-tuning",
+      "foundation-model"
+    ],
+    "lastUpdated": "2026-03-06"
   }
 ]
