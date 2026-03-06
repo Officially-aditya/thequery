@@ -3431,5 +3431,18 @@
       "agentic-workflows"
     ],
     "lastUpdated": "2026-03-05"
+  },
+  {
+    "name": "GPT-5.4",
+    "slug": "gpt-5-4",
+    "shortDef": "OpenAI's flagship model released March 2026, available in standard, Thinking, and Pro variants with a 1 million token context window, built-in computer use, and significant improvements in reasoning, coding, and factual accuracy.",
+    "fullDef": "GPT-5.4 is OpenAI's most capable frontier model as of March 2026, described by the company as its most capable and efficient model for professional work. It ships in three variants: GPT-5.4 (standard), GPT-5.4 Thinking (a reasoning-focused variant), and GPT-5.4 Pro (optimized for enterprise and high-performance tasks).\n\nThe model supports a 1 million token context window through the API, the largest OpenAI has offered. It is the first mainline GPT model with built-in computer use, enabling agents to interact directly with software environments to complete, verify, and fix tasks. On the GDPval benchmark for professional knowledge work, GPT-5.4 matches or exceeds industry professionals in 83% of comparisons, up from 71% for GPT-5.2. Individual claims are 33% less likely to be false and full responses 18% less likely to contain errors compared to its predecessor.\n\nGPT-5.4 also achieves equivalent results while requiring substantially fewer tokens than previous models, representing a meaningful efficiency improvement. It is available to ChatGPT Plus, Team, and Pro subscribers, as well as through the OpenAI API. The Pro variant is restricted to Pro and Enterprise plans. The release positions GPT-5.4 as a direct competitor to Claude Opus 4.6 and Gemini 3.1 Pro in the frontier model tier.",
+    "category": "Models",
+    "relatedTerms": [
+      "foundation-model",
+      "context-window",
+      "agentic-workflows"
+    ],
+    "lastUpdated": "2026-03-06"
   }
 ]
