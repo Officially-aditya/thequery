@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import WordOfTheDay from "@/components/WordOfTheDay";
 
 export const metadata: Metadata = {
   title: "TheQuery - AI Knowledge from First Principles",
@@ -43,6 +44,10 @@ export default function Home() {
         <p className="text-lg text-text-secondary">
           AI knowledge from first principles
         </p>
+      </div>
+
+      <div className="mb-12">
+        <WordOfTheDay />
       </div>
 
       <div className="space-y-8">

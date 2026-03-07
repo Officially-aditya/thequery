@@ -1,0 +1,1738 @@
+[
+  {
+    "slug": "neural-network",
+    "humor": "The term people use when they want to say 'if-else statements' but need it to sound like it deserves Series B funding.",
+    "examples": [
+      "We replaced the rule-based fraud detection system with a neural network and saw a 12% accuracy improvement on edge cases the rules could never cover.",
+      "The neural network takes a 224x224 image tensor as input and outputs a probability distribution across 10 product categories."
+    ]
+  },
+  {
+    "slug": "deep-learning",
+    "humor": "Called 'deep' because of the layers in the network, not because of the understanding most people have when they use the term.",
+    "examples": [
+      "Our deep learning pipeline processes raw audio spectrograms through six convolutional layers before the classification head.",
+      "Switching from a gradient-boosted tree to a deep learning model only made sense once we had over 500,000 labeled training samples."
+    ]
+  },
+  {
+    "slug": "machine-learning",
+    "humor": "The only field where you can mass-email a CSV to a linear regression and call yourself a practitioner.",
+    "examples": [
+      "The machine learning model predicts customer churn based on usage patterns from the last 90 days of activity logs.",
+      "We retrain the machine learning pipeline weekly to account for distribution drift in incoming support ticket language."
+    ]
+  },
+  {
+    "slug": "transformer",
+    "humor": "No, not the Optimus Prime kind. Yes, the interviewer is tired of hearing that joke. No, they will not laugh.",
+    "examples": [
+      "The transformer architecture processes all tokens in parallel during training, which is why it scales so much better on GPUs than RNNs.",
+      "We fine-tuned a transformer encoder on our internal documentation to power the semantic search feature."
+    ]
+  },
+  {
+    "slug": "attention-mechanism",
+    "humor": "Appears in approximately 60% of AI LinkedIn posts. Usually preceded by 'revolutionary' and followed by absolutely no explanation of what it actually does.",
+    "examples": [
+      "The attention mechanism allows the model to weight different parts of the input sequence when generating each output token.",
+      "We visualized the attention weights to debug why the summarizer kept ignoring the last paragraph of long documents."
+    ]
+  },
+  {
+    "slug": "gradient-descent",
+    "humor": "The mathematical equivalent of walking downhill with your eyes closed and hoping you end up at the bottom and not in a ditch.",
+    "examples": [
+      "Gradient descent iteratively adjusts the model weights by computing the derivative of the loss with respect to each parameter.",
+      "The training loop runs gradient descent for 50 epochs with a batch size of 32 before we evaluate on the validation set."
+    ]
+  },
+  {
+    "slug": "backpropagation",
+    "humor": "How the network learns from its mistakes. A concept Silicon Valley has yet to apply to its hiring practices.",
+    "examples": [
+      "Backpropagation computes gradients layer by layer from the output back to the input, using the chain rule of calculus.",
+      "The custom loss function required us to verify that gradients were flowing correctly through backpropagation using gradient checking."
+    ]
+  },
+  {
+    "slug": "loss-function",
+    "humor": "Measures how wrong your model is. Not to be confused with the function that measures how wrong your career choice was.",
+    "examples": [
+      "We switched from mean squared error to a custom loss function that penalizes false negatives more heavily for the medical diagnosis task.",
+      "The loss function plateaued after epoch 30, which told us the model had converged and more training would not help."
+    ]
+  },
+  {
+    "slug": "activation-function",
+    "humor": "Decides whether a neuron fires. The model's version of deciding whether to get out of bed — except ReLU just stays dead below zero.",
+    "examples": [
+      "We used ReLU activation functions in the hidden layers and a sigmoid in the output layer for binary classification.",
+      "Swapping the activation function from sigmoid to GELU in the transformer block improved validation accuracy by 0.8%."
+    ]
+  },
+  {
+    "slug": "overfitting",
+    "humor": "When your model memorizes the training data like a student who aced the practice test and bombed the final. Happens more often than anyone admits in production.",
+    "examples": [
+      "The model achieved 99.2% training accuracy but only 74% on the test set — a textbook case of overfitting.",
+      "We added dropout and early stopping to combat overfitting after noticing the validation loss diverging from training loss at epoch 15."
+    ]
+  },
+  {
+    "slug": "convolutional-neural-network",
+    "humor": "The reason your phone can find your face in photos but still cannot figure out that the thing in your hand is not a hotdog. Actually wait — it can now. Progress.",
+    "examples": [
+      "The convolutional neural network extracts spatial features from the X-ray images using three convolutional blocks before the fully connected classifier.",
+      "We deployed a lightweight CNN on the edge device for real-time defect detection on the manufacturing line."
+    ]
+  },
+  {
+    "slug": "recurrent-neural-network",
+    "humor": "Had a good run processing sequences until transformers showed up and made it the Blockbuster Video of neural architectures.",
+    "examples": [
+      "The recurrent neural network maintained a hidden state across each timestep, which let it model dependencies in the time-series sensor data.",
+      "We originally used an RNN for the translation task but switched to a transformer when the sequence lengths exceeded 512 tokens."
+    ]
+  },
+  {
+    "slug": "large-language-model",
+    "humor": "Three words that added $4 trillion in market cap and subtracted an unknowable amount of factual accuracy from the internet.",
+    "examples": [
+      "The large language model generates draft responses that human agents review before sending to customers.",
+      "We evaluated three large language models on our internal benchmark before selecting one for the document extraction pipeline."
+    ]
+  },
+  {
+    "slug": "fine-tuning",
+    "humor": "What everyone says they are doing. What most people are actually doing is prompt engineering and calling it fine-tuning on their resume.",
+    "examples": [
+      "We fine-tuned the base model on 10,000 labeled support tickets to improve its ability to classify intent in our domain.",
+      "Fine-tuning took 4 hours on a single A100 GPU and reduced hallucination rates on domain-specific questions by 40%."
+    ]
+  },
+  {
+    "slug": "transfer-learning",
+    "humor": "Training a model on one task and using it for another. Also describes every AI startup's pivot strategy.",
+    "examples": [
+      "Transfer learning let us use a model pretrained on ImageNet and adapt it to classify satellite imagery with only 2,000 labeled examples.",
+      "Without transfer learning, we would have needed 100x more training data to reach the same accuracy on our niche classification task."
+    ]
+  },
+  {
+    "slug": "reinforcement-learning",
+    "humor": "Teach an agent by rewarding it when it does well. Works great for games. Works less great when the reward function has a loophole and the agent finds it at 3am.",
+    "examples": [
+      "The reinforcement learning agent learned to optimize warehouse robot routing by maximizing packages delivered per hour in simulation.",
+      "We used reinforcement learning from human feedback to align the chatbot's responses with our company's tone guidelines."
+    ]
+  },
+  {
+    "slug": "generative-adversarial-network",
+    "humor": "Two neural networks fighting each other until one gets really good at faking things. Basically the academic version of an arms race between art forgers and museum curators.",
+    "examples": [
+      "The GAN generates synthetic medical images for data augmentation, allowing us to train on rare conditions with limited real samples.",
+      "We used a generative adversarial network to create realistic product mockups from text descriptions during the design phase."
+    ]
+  },
+  {
+    "slug": "embedding",
+    "humor": "Turning words into numbers so math can have opinions about language. The fact that this works at all is either a triumph of engineering or a deep indictment of communication.",
+    "examples": [
+      "Each document is converted to a 768-dimensional embedding and stored in the vector database for similarity search.",
+      "The embedding model maps product descriptions into a shared space where semantically similar items cluster together."
+    ]
+  },
+  {
+    "slug": "tokenization",
+    "humor": "The reason the model thinks 'strawberry' has two r's. Chopping language into pieces and hoping meaning survives the surgery.",
+    "examples": [
+      "Tokenization splits the input text into subword tokens before feeding them to the transformer — our average document becomes about 1,200 tokens.",
+      "We hit the context limit because tokenization of code is less efficient than natural language — a 500-line file consumed 8,000 tokens."
+    ]
+  },
+  {
+    "slug": "batch-normalization",
+    "humor": "The neural network equivalent of 'have you tried turning it off and on again.' Nobody fully agrees on why it helps, but everyone uses it.",
+    "examples": [
+      "Adding batch normalization after each convolutional layer stabilized training and let us increase the learning rate by 3x.",
+      "We removed batch normalization from the generator network in our GAN because it was causing artifacts in small batch sizes."
+    ]
+  },
+  {
+    "slug": "perceptron",
+    "humor": "The single neuron that started it all in 1958. Has the same energy as showing someone a rotary phone and saying 'this is basically an iPhone.'",
+    "examples": [
+      "The perceptron is a linear classifier that learns a decision boundary by adjusting weights based on misclassified examples.",
+      "We teach the perceptron in the first week of the ML course to build intuition before introducing multi-layer networks."
+    ]
+  },
+  {
+    "slug": "bias-variance-tradeoff",
+    "humor": "The concept every ML student can draw on a whiteboard and every ML practitioner ignores in production while adding more layers.",
+    "examples": [
+      "The high bias in our linear model caused systematic underprediction — switching to a tree ensemble reduced bias without exploding variance.",
+      "Understanding the bias-variance tradeoff helped the team decide that a simpler model with slight underfitting was preferable to an overfit deep network."
+    ]
+  },
+  {
+    "slug": "regularization",
+    "humor": "Intentionally making your model worse at training so it is less bad at everything else. Surprisingly, this is not a metaphor for parenting.",
+    "examples": [
+      "We applied L2 regularization with a coefficient of 0.01 to prevent the model from assigning extreme weights to noisy features.",
+      "Regularization closed the 15-point gap between our training and validation accuracy, bringing the model closer to generalizing."
+    ]
+  },
+  {
+    "slug": "dropout",
+    "humor": "Randomly disabling neurons during training to prevent co-dependency. The only context in which telling someone to drop out actually improves performance.",
+    "examples": [
+      "A dropout rate of 0.3 after the dense layers reduced overfitting on our small labeled dataset.",
+      "We tuned dropout from 0.1 to 0.5 and found 0.2 gave the best validation performance for our text classifier."
+    ]
+  },
+  {
+    "slug": "learning-rate",
+    "humor": "Too high and your model overshoots everything. Too low and you are waiting until the heat death of the universe. The Goldilocks of hyperparameters.",
+    "examples": [
+      "We used a cosine annealing schedule that starts the learning rate at 3e-4 and decays to 1e-6 over 100 epochs.",
+      "The training loss was oscillating wildly — reducing the learning rate from 1e-3 to 5e-5 fixed it immediately."
+    ]
+  },
+  {
+    "slug": "epoch",
+    "humor": "One full pass through the training data. After 200 of them, you start to wonder whether the model is learning or you are just burning electricity.",
+    "examples": [
+      "The model converged after 45 epochs with early stopping triggered when validation loss did not improve for 5 consecutive epochs.",
+      "Each epoch takes about 20 minutes on our hardware, so a full training run of 100 epochs ties up the GPU for over a day."
+    ]
+  },
+  {
+    "slug": "stochastic-gradient-descent",
+    "humor": "Gradient descent but noisier and somehow better. The mathematical proof that sometimes stumbling around drunk gets you home faster than walking in a straight line.",
+    "examples": [
+      "We used stochastic gradient descent with momentum of 0.9 as the optimizer for the image classification model.",
+      "SGD with a warm-up schedule outperformed Adam on our large-scale training run, though it required more careful hyperparameter tuning."
+    ]
+  },
+  {
+    "slug": "adam-optimizer",
+    "humor": "The optimizer everyone defaults to because it works well enough and nobody wants to write a paragraph justifying their choice in the paper.",
+    "examples": [
+      "We used the Adam optimizer with default parameters — lr=1e-3, betas=(0.9, 0.999) — as the starting point for training.",
+      "Adam handled the sparse gradients in our recommendation model better than vanilla SGD, converging in half the epochs."
+    ]
+  },
+  {
+    "slug": "cross-entropy",
+    "humor": "A loss function that punishes confident wrong answers more than uncertain ones. Corporate leadership could learn something here.",
+    "examples": [
+      "We used categorical cross-entropy as the loss function for the multi-class document classification task.",
+      "The cross-entropy loss dropped sharply in the first 10 epochs and then plateaued, signaling the model had learned the easy patterns."
+    ]
+  },
+  {
+    "slug": "softmax",
+    "humor": "Turns a vector of numbers into probabilities that sum to one. The mathematical equivalent of making everyone's opinion count, even the clearly wrong ones.",
+    "examples": [
+      "The final layer applies softmax to produce a probability distribution over the 50 possible intent categories.",
+      "We replaced softmax with a sigmoid output when the task changed from single-label to multi-label classification."
+    ]
+  },
+  {
+    "slug": "sigmoid",
+    "humor": "Squishes everything between 0 and 1. Had its moment of glory until everyone realized gradients vanish at the extremes. The participation trophy of activation functions.",
+    "examples": [
+      "The output neuron uses a sigmoid activation to produce a probability for binary classification — spam or not spam.",
+      "We avoided sigmoid in hidden layers because of vanishing gradients and used ReLU instead."
+    ]
+  },
+  {
+    "slug": "relu",
+    "humor": "If the number is positive, keep it. If negative, zero. The fact that this near-trivial function revolutionized deep learning says a lot about the field.",
+    "examples": [
+      "All hidden layers use ReLU activations, which eliminated the vanishing gradient problem we had with sigmoid.",
+      "We switched from ReLU to Leaky ReLU after finding that 15% of neurons were dying during training on sparse input data."
+    ]
+  },
+  {
+    "slug": "weight-initialization",
+    "humor": "Where you start determines where you end up. True for neural networks. Also true for venture capital.",
+    "examples": [
+      "Using He initialization for the convolutional layers prevented the gradients from vanishing in the first few training steps.",
+      "Bad weight initialization caused our 12-layer network to output near-identical predictions for every input — Xavier init fixed it."
+    ]
+  },
+  {
+    "slug": "residual-connection",
+    "humor": "A skip connection that lets information bypass layers entirely. The network's way of saying 'actually, the original version was fine.'",
+    "examples": [
+      "Residual connections in each transformer block allow gradients to flow directly to earlier layers, making deep networks trainable.",
+      "Adding residual connections to our 20-layer CNN reduced training time by 40% and improved final accuracy by 2%."
+    ]
+  },
+  {
+    "slug": "universal-approximation-theorem",
+    "humor": "Proves a neural network can approximate any function. Does not prove it will do so before your cloud credits run out.",
+    "examples": [
+      "The universal approximation theorem guarantees a sufficiently wide single-hidden-layer network can represent any continuous function — but says nothing about how to train it efficiently.",
+      "Students often misinterpret the universal approximation theorem as meaning one hidden layer is always enough — in practice, depth matters."
+    ]
+  },
+  {
+    "slug": "feature-engineering",
+    "humor": "The art of manually crafting inputs before deep learning made it unnecessary. Mentioned with reverence by senior engineers the way grandparents talk about walking to school uphill both ways.",
+    "examples": [
+      "We spent three weeks on feature engineering — extracting rolling averages, time-of-day signals, and interaction terms — before training the gradient boosted model.",
+      "Deep learning eliminated most manual feature engineering for image tasks, but tabular data still benefits heavily from domain-specific features."
+    ]
+  },
+  {
+    "slug": "hyperparameter",
+    "humor": "The settings you choose before training because the model cannot choose them itself. You will spend more time tuning these than you spent on the actual architecture.",
+    "examples": [
+      "We ran a grid search over hyperparameters — learning rate, batch size, and dropout rate — to find the best configuration.",
+      "The hyperparameter sweep took 48 GPU-hours and the winning configuration was only 0.3% better than the default."
+    ]
+  },
+  {
+    "slug": "underfitting",
+    "humor": "When your model is so simple it cannot even learn the training data. The participation trophy of model failure — at least overfitting tried too hard.",
+    "examples": [
+      "The linear regression underfitted badly on the nonlinear pricing data — training accuracy was only 52%.",
+      "Underfitting was obvious from the learning curves: both training and validation loss remained high across all epochs."
+    ]
+  },
+  {
+    "slug": "inference",
+    "humor": "The part where the model actually does its job. Also the part where your cloud bill transitions from 'uncomfortable' to 'existential.'",
+    "examples": [
+      "Inference latency must stay under 200ms per request to meet our SLA for the real-time recommendation endpoint.",
+      "We moved inference to a dedicated GPU cluster to isolate it from training workloads and guarantee consistent throughput."
+    ]
+  },
+  {
+    "slug": "self-attention",
+    "humor": "Each token looks at every other token to figure out what matters. The mechanism that powers transformers and also describes most people's behavior at networking events.",
+    "examples": [
+      "Self-attention computes a weighted sum of all token representations, allowing the model to focus on relevant context regardless of distance.",
+      "The self-attention heatmap showed the model was correctly attending to the subject noun when predicting verb agreement."
+    ]
+  },
+  {
+    "slug": "multi-head-attention",
+    "humor": "Self-attention but from multiple perspectives simultaneously. Like asking eight different people to read the same sentence and hoping they notice different things.",
+    "examples": [
+      "The model uses 12 attention heads, each capturing different linguistic relationships — some focus on syntax, others on coreference.",
+      "We reduced the number of attention heads from 16 to 8 with minimal accuracy loss but a 20% speedup in inference."
+    ]
+  },
+  {
+    "slug": "positional-encoding",
+    "humor": "Without this, the transformer has no idea what order the words come in. Which, to be fair, is also how some people read emails.",
+    "examples": [
+      "Positional encodings are added to the input embeddings so the transformer can distinguish between 'the dog bit the man' and 'the man bit the dog.'",
+      "We switched from sinusoidal positional encoding to learned positional embeddings and saw a small improvement on long-document tasks."
+    ]
+  },
+  {
+    "slug": "feed-forward-network",
+    "humor": "Data goes in one direction. No loops, no looking back. The only part of a neural network that has a healthy relationship with the past.",
+    "examples": [
+      "Each transformer block contains a two-layer feed-forward network that processes each token position independently.",
+      "The feed-forward network in the transformer uses a hidden dimension 4x the model dimension — so 3,072 for a 768-dim model."
+    ]
+  },
+  {
+    "slug": "temperature",
+    "humor": "Controls randomness in model output. Set it to 0 and the model is a boring deterministic machine. Set it to 2 and it writes poetry about recursive sandwiches.",
+    "examples": [
+      "We set temperature to 0.2 for the extraction task to get deterministic, factual outputs and raised it to 0.8 for creative writing.",
+      "Lowering the temperature from 1.0 to 0.3 eliminated the hallucinated product names that were showing up in generated descriptions."
+    ]
+  },
+  {
+    "slug": "hallucination",
+    "humor": "When the model confidently states something that is completely made up. Not a bug, not a feature. Just a billion-parameter system with no concept of 'I don't know.'",
+    "examples": [
+      "The model hallucinated a citation to a paper that does not exist — complete with plausible author names and a DOI link that 404s.",
+      "We added a retrieval step before generation to reduce hallucination by grounding the model's responses in actual source documents."
+    ]
+  },
+  {
+    "slug": "retrieval-augmented-generation",
+    "humor": "Give the model a cheat sheet so it hallucinates less. The most expensive way to say 'look it up before you answer' ever conceived.",
+    "examples": [
+      "Our RAG pipeline retrieves the top 5 most relevant knowledge base articles and passes them as context to the LLM before it generates a response.",
+      "Retrieval-augmented generation reduced factual errors in the customer support bot from 23% to 4% on our internal eval set."
+    ]
+  },
+  {
+    "slug": "ai-agent",
+    "humor": "An LLM that can call tools and take actions. Currently oscillates between 'revolutionary autonomous system' and 'thing that booked me a flight to the wrong city.'",
+    "examples": [
+      "The AI agent receives a user request, plans a sequence of tool calls, executes them, and synthesizes the results into a final response.",
+      "We had to add guardrails after the AI agent tried to delete a production database row while 'cleaning up test data.'"
+    ]
+  },
+  {
+    "slug": "prompt-engineering",
+    "humor": "The discipline of begging a statistical model to do what you want using carefully chosen words. The highest-paid form of 'please' in human history.",
+    "examples": [
+      "Prompt engineering for the extraction task involved specifying the exact JSON schema in the system prompt and providing two worked examples.",
+      "We A/B tested twelve prompt variations and found that adding 'Think step by step' improved accuracy on multi-hop questions by 15%."
+    ]
+  },
+  {
+    "slug": "vanishing-gradients",
+    "humor": "When the learning signal fades to nothing as it travels back through layers. The network equivalent of a whispered instruction in a game of telephone.",
+    "examples": [
+      "Vanishing gradients in our 20-layer RNN meant the early layers were barely updating — switching to LSTM cells fixed it.",
+      "We diagnosed vanishing gradients by logging the gradient norms per layer and found they dropped to 1e-8 by layer 3."
+    ]
+  },
+  {
+    "slug": "exploding-gradients",
+    "humor": "The opposite of vanishing gradients. Your weights update so aggressively the model forgets everything it knew. Training's version of a toddler flipping the game board.",
+    "examples": [
+      "The training loss suddenly spiked to NaN at epoch 12 — exploding gradients had corrupted the weights.",
+      "We added gradient clipping with a max norm of 1.0 to prevent exploding gradients in the recurrent model."
+    ]
+  },
+  {
+    "slug": "gradient-clipping",
+    "humor": "Capping gradients so they do not explode. A surprisingly effective strategy in both deep learning and personal arguments.",
+    "examples": [
+      "Gradient clipping at a max norm of 1.0 is standard practice when training transformer models to prevent instability.",
+      "After adding gradient clipping, the NaN losses we were seeing every few hundred steps disappeared completely."
+    ]
+  },
+  {
+    "slug": "data-augmentation",
+    "humor": "Flipping, rotating, and stretching your images to pretend you have more data than you do. The training data equivalent of wearing the same outfit with different accessories.",
+    "examples": [
+      "Data augmentation — random crops, horizontal flips, and color jitter — effectively tripled our training set size for the image classifier.",
+      "We applied text-level data augmentation by back-translating English sentences through French and German to generate paraphrases."
+    ]
+  },
+  {
+    "slug": "latent-space",
+    "humor": "A compressed representation where similar things are near each other. Sounds mystical until you realize it is just a really organized spreadsheet in higher dimensions.",
+    "examples": [
+      "The autoencoder maps input images to a 128-dimensional latent space, then reconstructs them — the latent vectors capture the essential features.",
+      "Interpolating between two points in latent space produces smooth transitions between generated faces, which is how those morph videos work."
+    ]
+  },
+  {
+    "slug": "kl-divergence",
+    "humor": "Measures how one probability distribution differs from another. Mentioned in papers to signal mathematical maturity. Understood by approximately 40% of the people who cite it.",
+    "examples": [
+      "The VAE loss combines reconstruction error with KL divergence to regularize the latent space toward a standard normal distribution.",
+      "We used KL divergence to measure how much the fine-tuned model's output distribution drifted from the base model."
+    ]
+  },
+  {
+    "slug": "knowledge-graph",
+    "humor": "A structured way to represent facts as nodes and edges. Every enterprise starts one. Most end up as a partially filled Neo4j instance no one queries.",
+    "examples": [
+      "The knowledge graph stores 2 million entity-relation triples that the RAG pipeline queries to ground the model's answers about internal products.",
+      "Building the knowledge graph from unstructured documents took three months of entity extraction, deduplication, and manual validation."
+    ]
+  },
+  {
+    "slug": "vector-database",
+    "humor": "A database optimized for storing embeddings. The number of startups in this space now exceeds the number of people who can explain why you need one.",
+    "examples": [
+      "We store document embeddings in a vector database and query it with the user's question embedding to retrieve the top 10 most relevant chunks.",
+      "After evaluating Pinecone, Weaviate, and Qdrant, we went with Qdrant self-hosted for cost and latency reasons."
+    ]
+  },
+  {
+    "slug": "cosine-similarity",
+    "humor": "Measures how similar two vectors are by the angle between them. The mathematical reason your search engine thinks 'bank' the river and 'bank' the institution are the same thing.",
+    "examples": [
+      "We rank retrieval results by cosine similarity between the query embedding and each document embedding in the index.",
+      "Two documents with cosine similarity above 0.92 are flagged as near-duplicates and deduplicated before indexing."
+    ]
+  },
+  {
+    "slug": "semantic-search",
+    "humor": "Search that understands meaning instead of matching keywords. Sounds magical until it returns a recipe for 'apple pie' when you searched for 'Apple stock price.'",
+    "examples": [
+      "Semantic search finds relevant results even when the user's query uses different terminology than the source documents.",
+      "We replaced keyword search with semantic search on the help center and saw a 35% reduction in 'no results found' queries."
+    ]
+  },
+  {
+    "slug": "bm25",
+    "humor": "A 30-year-old ranking algorithm that still quietly outperforms many modern vector search systems on keyword queries. The Toyota Corolla of information retrieval.",
+    "examples": [
+      "BM25 handles exact-match queries like error codes and product SKUs far better than embedding-based search.",
+      "We use BM25 as the sparse retrieval component in our hybrid search pipeline, combined with dense retrieval for semantic matching."
+    ]
+  },
+  {
+    "slug": "chunking",
+    "humor": "Breaking documents into smaller pieces for retrieval. The strategy that produces the most debates-per-engineer-hour of any RAG design decision.",
+    "examples": [
+      "We chunk documents into 512-token segments with 50-token overlap to ensure context is not lost at chunk boundaries.",
+      "Switching from fixed-size chunking to semantic chunking — splitting at paragraph and section boundaries — improved retrieval precision by 18%."
+    ]
+  },
+  {
+    "slug": "reranking",
+    "humor": "Using a second model to re-sort results from the first model. Because apparently one model's judgment is not to be trusted, but two models' judgment is fine.",
+    "examples": [
+      "After retrieving 50 candidates with BM25, we pass them through a cross-encoder reranker and take the top 5 for the LLM context.",
+      "Adding a reranking step increased our answer accuracy from 71% to 84% on the QA evaluation set, at the cost of 80ms additional latency."
+    ]
+  },
+  {
+    "slug": "hybrid-search",
+    "humor": "Combining keyword search and vector search because neither one alone is good enough. The AI equivalent of wearing both a belt and suspenders.",
+    "examples": [
+      "Our hybrid search combines BM25 keyword scores with dense vector similarity using reciprocal rank fusion.",
+      "Hybrid search handles both exact-match queries like 'error ERR_CONNECTION_REFUSED' and fuzzy queries like 'why can't I connect to the server.'"
+    ]
+  },
+  {
+    "slug": "graph-traversal",
+    "humor": "Walking through a graph by following edges between nodes. Simple in theory. In practice, your traversal finds a cycle and your query is still running at lunch.",
+    "examples": [
+      "The recommendation engine uses a two-hop graph traversal from the user node to find products purchased by similar users.",
+      "We limited graph traversal depth to three hops to keep query latency under 100ms on the social network dataset."
+    ]
+  },
+  {
+    "slug": "named-entity-recognition",
+    "humor": "Teaching a model to identify names, places, and organizations in text. Works perfectly until someone named 'Will May' schedules a meeting in 'Nice' during 'March.'",
+    "examples": [
+      "The NER model extracts company names, dollar amounts, and dates from SEC filings to populate our structured database.",
+      "Named entity recognition on the support tickets identifies product names and version numbers, routing tickets to the right engineering team."
+    ]
+  },
+  {
+    "slug": "relation-extraction",
+    "humor": "Identifying relationships between entities in text. Straightforward until the model decides that 'fired' in 'the CEO fired up the crowd' means someone got laid off.",
+    "examples": [
+      "Relation extraction identifies that 'Acme acquired WidgetCo' expresses an ACQUIRED_BY relationship between two organization entities.",
+      "We pipe NER output into the relation extraction model to build knowledge graph triples from unstructured news articles."
+    ]
+  },
+  {
+    "slug": "ontology",
+    "humor": "A formal specification of a conceptualization. Translation: a very expensive diagram that three people maintain and everyone else routes around.",
+    "examples": [
+      "The biomedical ontology defines 400 entity types and 50 relationship types that constrain how the knowledge graph is populated.",
+      "We spent two months building the domain ontology with subject matter experts before starting any extraction work."
+    ]
+  },
+  {
+    "slug": "triple",
+    "humor": "Subject-predicate-object. The atomic unit of a knowledge graph. Deceptively simple until you have 40 million of them and half are contradictory.",
+    "examples": [
+      "Each fact in the knowledge graph is stored as a triple: (Entity A, relationship, Entity B) — for example, (Python, is_a, Programming Language).",
+      "The extraction pipeline generated 1.2 million triples from the document corpus, of which 300,000 survived deduplication and validation."
+    ]
+  },
+  {
+    "slug": "neo4j",
+    "humor": "The graph database everyone installs, runs three Cypher queries on, screenshots for a slide deck, and then quietly forgets about.",
+    "examples": [
+      "We store the product knowledge graph in Neo4j and query it with Cypher to answer multi-hop questions about component compatibility.",
+      "The Neo4j instance handles 500 concurrent graph queries per second for the recommendation service."
+    ]
+  },
+  {
+    "slug": "faiss",
+    "humor": "Meta's library for fast similarity search. Pronounced 'face.' Spelled in a way that guarantees you will google it at least twice before finding the docs.",
+    "examples": [
+      "We use FAISS with an IVF index to search 10 million document embeddings with sub-10ms latency.",
+      "FAISS runs entirely in-memory on the application server, which eliminated the need for a separate vector database service."
+    ]
+  },
+  {
+    "slug": "retrieval-pipeline",
+    "humor": "The chain of steps that fetches context for your model. In theory: elegant. In practice: a Rube Goldberg machine held together by retry logic.",
+    "examples": [
+      "The retrieval pipeline first queries BM25, then reranks with a cross-encoder, deduplicates, and formats the top 5 chunks as context for the LLM.",
+      "Debugging the retrieval pipeline revealed that a chunking bug was splitting tables mid-row, which explained the wrong financial figures in answers."
+    ]
+  },
+  {
+    "slug": "context-window",
+    "humor": "The amount of text a model can see at once. Every model's context window is getting bigger. Nobody's prompts are getting better at the same rate.",
+    "examples": [
+      "The 128k context window lets us pass the entire contract into the model without chunking, but the cost per request quadrupled.",
+      "We hit the context window limit when users pasted full log files — we now truncate to the last 500 lines before sending to the model."
+    ]
+  },
+  {
+    "slug": "grounding",
+    "humor": "Connecting model outputs to verifiable information. The responsible thing to do. Also the thing that gets cut from the sprint when the deadline moves up.",
+    "examples": [
+      "We ground every generated claim by requiring the model to cite a specific passage from the retrieved documents.",
+      "Without grounding, the chatbot was confidently stating return policy details that did not match our actual policy."
+    ]
+  },
+  {
+    "slug": "citation",
+    "humor": "When the model tells you where it got the information. Revolutionary for AI. Standard practice for everyone who graduated middle school.",
+    "examples": [
+      "The model appends inline citations like [1], [2] to each claim, linked to the source documents in the retrieval results.",
+      "We evaluate citation accuracy separately from answer accuracy — a correct answer with wrong citations still fails our quality bar."
+    ]
+  },
+  {
+    "slug": "query-routing",
+    "humor": "Sending different questions to different retrieval systems. Elegant in the architecture diagram. In production, everything gets routed to the same fallback path.",
+    "examples": [
+      "The query router classifies incoming questions as factual, procedural, or conversational and sends each to a different retrieval backend.",
+      "We use a lightweight classifier for query routing that adds only 15ms of latency but directs technical questions to the code search index."
+    ]
+  },
+  {
+    "slug": "dense-retrieval",
+    "humor": "Searching with embeddings instead of keywords. Finds semantically similar results. Also finds semantically similar results you did not want.",
+    "examples": [
+      "Dense retrieval encodes both the query and documents as vectors, then retrieves by nearest-neighbor search in embedding space.",
+      "Dense retrieval found the relevant troubleshooting guide even though the user described the error in completely different words than the document."
+    ]
+  },
+  {
+    "slug": "sparse-retrieval",
+    "humor": "Good old keyword matching with fancy math. Still wins more benchmarks than vector search people are comfortable admitting.",
+    "examples": [
+      "Sparse retrieval with BM25 handles exact-match lookups like error codes and API endpoint names far better than embedding search.",
+      "We default to sparse retrieval for queries under four words, where dense retrieval tends to over-generalize."
+    ]
+  },
+  {
+    "slug": "reciprocal-rank-fusion",
+    "humor": "A merging strategy for combining ranked lists. Sounds like a spell from a fantasy novel. Works better than most things that sound more scientific.",
+    "examples": [
+      "We merge the BM25 and vector search result lists using reciprocal rank fusion with k=60 before passing to the reranker.",
+      "RRF does not require score normalization between the two retrieval systems, which makes it simpler to implement than weighted score averaging."
+    ]
+  },
+  {
+    "slug": "graph-embedding",
+    "humor": "Turning graph structure into vectors. Because if there is one constant in modern ML, it is that everything must eventually become a vector.",
+    "examples": [
+      "Graph embeddings capture the structural position of each node — entities connected to many hubs get different representations than leaf nodes.",
+      "We used TransE graph embeddings to find missing relationships in the knowledge graph by predicting likely but unrecorded edges."
+    ]
+  },
+  {
+    "slug": "entity-linking",
+    "humor": "Matching a mention in text to an entry in a knowledge base. Easy when the entity is 'Barack Obama.' Less easy when it is 'that thing from last Tuesday.'",
+    "examples": [
+      "Entity linking resolves the mention 'Apple' in a news article to either the company or the fruit based on surrounding context.",
+      "We use entity linking to connect customer mentions of product nicknames to the canonical product IDs in our database."
+    ]
+  },
+  {
+    "slug": "cross-encoder",
+    "humor": "Processes query and document together for better accuracy. Slow enough that you will use it to rerank 10 results, not search 10 million.",
+    "examples": [
+      "The cross-encoder takes the concatenated query and passage as input and outputs a relevance score, making it more accurate but much slower than bi-encoders.",
+      "We use a cross-encoder only for reranking the top 20 candidates — running it over the full index would take minutes per query."
+    ]
+  },
+  {
+    "slug": "bi-encoder",
+    "humor": "Encodes query and document separately for speed. Faster than a cross-encoder. Also more likely to think your question about Python the snake is about Python the language.",
+    "examples": [
+      "The bi-encoder generates embeddings for documents at index time and only needs to encode the query at search time, enabling sub-millisecond retrieval.",
+      "We fine-tuned a bi-encoder on our domain-specific query-document pairs to improve recall from 68% to 82%."
+    ]
+  },
+  {
+    "slug": "tf-idf",
+    "humor": "Term Frequency-Inverse Document Frequency. Older than most people working in AI. Still more interpretable than anything that replaced it.",
+    "examples": [
+      "We use TF-IDF vectors as features for the legacy spam classifier that still runs alongside the neural model in production.",
+      "TF-IDF quickly surfaced that 'compliance' and 'audit' were the most distinctive terms in the flagged document set."
+    ]
+  },
+  {
+    "slug": "cypher",
+    "humor": "Neo4j's query language. Named like it should be in a spy movie. Used primarily to write MATCH (n)-[:KNOWS]->(m) RETURN n and then stare at the results.",
+    "examples": [
+      "The Cypher query traverses two hops from the user node to find recommended products: MATCH (u:User)-[:BOUGHT]->(:Product)<-[:BOUGHT]-(similar:User)-[:BOUGHT]->(rec:Product) RETURN rec.",
+      "We built a natural language to Cypher translation layer so non-technical analysts can query the knowledge graph."
+    ]
+  },
+  {
+    "slug": "context-fusion",
+    "humor": "Combining information from multiple retrieval sources into a coherent context. The part of the RAG pipeline where 'garbage in, garbage out' becomes 'garbage in, confidently reworded garbage out.'",
+    "examples": [
+      "Context fusion merges chunks from the vector database, knowledge graph triples, and structured API responses into a single prompt context.",
+      "We order fused context by relevance score so the most important information appears first within the model's attention window."
+    ]
+  },
+  {
+    "slug": "text-to-cypher",
+    "humor": "Turning natural language into graph database queries. Works well for simple questions. For complex ones, you will end up writing the Cypher yourself anyway.",
+    "examples": [
+      "The text-to-Cypher module converts 'Which products does Acme supply?' into a Cypher MATCH query against the supplier relationship graph.",
+      "We validate generated Cypher queries against the schema before execution to prevent malformed traversals from timing out."
+    ]
+  },
+  {
+    "slug": "approximate-nearest-neighbor",
+    "humor": "Finding the closest vectors without checking every single one. The 'close enough' of search algorithms, and genuinely the right tradeoff 99% of the time.",
+    "examples": [
+      "ANN search with HNSW returns the top 10 similar documents in 3ms across our 5 million vector index, versus 200ms for exact search.",
+      "We accept the small recall loss from approximate nearest neighbor search because exact search would blow our latency budget."
+    ]
+  },
+  {
+    "slug": "hnsw",
+    "humor": "Hierarchical Navigable Small World. An algorithm with a name that sounds like a startup's internal project codename. Works unreasonably well for high-dimensional search.",
+    "examples": [
+      "We use HNSW as the index type in our vector database — it gives us sub-5ms query times on 10 million 768-dimensional vectors.",
+      "Tuning HNSW parameters (M=16, efConstruction=200) improved recall@10 from 92% to 97% with only a modest increase in memory usage."
+    ]
+  },
+  {
+    "slug": "multi-hop-reasoning",
+    "humor": "Chaining multiple pieces of information to reach a conclusion. Easy for humans reading a Wikipedia article. Still a research frontier for models costing thousands per hour to run.",
+    "examples": [
+      "The question 'Who founded the company that acquired the maker of Kubernetes?' requires three hops of reasoning across different entities.",
+      "Our eval shows the model handles 2-hop questions at 88% accuracy but drops to 61% on 4-hop questions."
+    ]
+  },
+  {
+    "slug": "graphrag",
+    "humor": "RAG but with a knowledge graph backing it. Fixes some hallucination problems and introduces exciting new graph-shaped problems you did not previously have.",
+    "examples": [
+      "GraphRAG traverses the knowledge graph to find related entities before retrieving documents, which gives the model structured context alongside unstructured text.",
+      "Switching from vanilla RAG to GraphRAG improved our multi-hop question accuracy from 54% to 73% on the internal eval set."
+    ]
+  },
+  {
+    "slug": "sparql",
+    "humor": "The query language for RDF data. Has been 'gaining adoption' for roughly two decades now. Still waiting.",
+    "examples": [
+      "The SPARQL endpoint lets researchers query the public biomedical knowledge graph for drug-gene interaction triples.",
+      "We considered SPARQL but chose Cypher instead because the team already had Neo4j experience and SPARQL tooling felt dated."
+    ]
+  },
+  {
+    "slug": "rdf",
+    "humor": "Resource Description Framework. The Semantic Web's gift to the world. The world politely said 'thank you' and continued using JSON.",
+    "examples": [
+      "The legacy dataset is stored in RDF triples and served through a SPARQL endpoint that three people in the organization know how to query.",
+      "We converted the RDF data export to JSON-LD so it could be consumed by the rest of our pipeline without specialized tooling."
+    ]
+  },
+  {
+    "slug": "gpt-4o",
+    "humor": "The 'o' stands for 'omni.' What it mostly does is text. But omni sounds better on the keynote slide.",
+    "examples": [
+      "We used GPT-4o for the multimodal receipt scanning feature because it handles both the image and text extraction in a single call.",
+      "GPT-4o's faster inference speed compared to the original GPT-4 made it viable for real-time conversational use cases."
+    ]
+  },
+  {
+    "slug": "gpt-4-1",
+    "humor": "The point release that reminded everyone OpenAI uses versioning the way most companies use horoscopes — loosely and with maximum interpretive flexibility.",
+    "examples": [
+      "GPT-4.1 improved instruction following enough that we could drop two few-shot examples from our extraction prompt.",
+      "We migrated from GPT-4 Turbo to GPT-4.1 to take advantage of the longer context window and lower cost per token."
+    ]
+  },
+  {
+    "slug": "openai-o3",
+    "humor": "A reasoning model named o3 because o2 was trademarked. The naming scheme that proves even OpenAI cannot solve every problem with enough compute.",
+    "examples": [
+      "We switched to o3 for the complex financial analysis tasks where step-by-step reasoning significantly reduced calculation errors.",
+      "o3 takes 3-4x longer per request than GPT-4o but produces substantially better results on multi-step logic problems."
+    ]
+  },
+  {
+    "slug": "openai-o4-mini",
+    "humor": "The smaller reasoning model. 'Mini' in AI means 'still larger than anything you could run on your own hardware.'",
+    "examples": [
+      "We use o4-mini for the reasoning-heavy classification tasks where GPT-4o was not accurate enough but o3 was too expensive.",
+      "o4-mini handles the chain-of-thought decomposition at a fraction of o3's cost, with only a small accuracy tradeoff."
+    ]
+  },
+  {
+    "slug": "gpt-5",
+    "humor": "The model that was supposed to change everything. Then it shipped and people started asking when GPT-6 would change everything.",
+    "examples": [
+      "GPT-5's improved reasoning capabilities let us remove three post-processing validation steps from the extraction pipeline.",
+      "We benchmarked GPT-5 against Claude Opus 4.5 on our internal eval and the results were within 2% of each other."
+    ]
+  },
+  {
+    "slug": "gpt-5-2",
+    "humor": "A GPT-5 follow-up that quietly became many developers' daily driver. The sequels no one talks about but everyone uses.",
+    "examples": [
+      "GPT-5.2 offered a significant price drop compared to GPT-5 at launch, making it the default choice for our high-volume summarization pipeline.",
+      "The coding benchmark improvements in GPT-5.2 over GPT-5 were marginal, but the latency reduction was worth the migration."
+    ]
+  },
+  {
+    "slug": "claude-sonnet-4-5",
+    "humor": "The model Anthropic positioned as the sweet spot between cost and capability. Used by developers who have done the math on their API bill.",
+    "examples": [
+      "Claude Sonnet 4.5 handles our document extraction workflow at one-fifth the cost of Opus with only a 3% accuracy difference.",
+      "We use Sonnet 4.5 for the bulk processing tier and reserve Opus for the complex cases that need extended thinking."
+    ]
+  },
+  {
+    "slug": "claude-opus-4-5",
+    "humor": "Anthropic's flagship that could think for extended periods. Also the model that taught some developers what a large API bill actually looks like.",
+    "examples": [
+      "Claude Opus 4.5's extended thinking capability let us solve multi-step compliance analysis problems in a single prompt.",
+      "We A/B tested Opus 4.5 against GPT-4o on legal document review and Opus won on accuracy but cost 4x more per document."
+    ]
+  },
+  {
+    "slug": "claude-haiku-4-5",
+    "humor": "Fast, cheap, and surprisingly competent. The model equivalent of the intern who turned out to be the best hire of the year.",
+    "examples": [
+      "Claude Haiku 4.5 processes our real-time classification requests in under 100ms at a cost that makes high-volume deployment feasible.",
+      "We use Haiku for intent detection in the chatbot and escalate to Sonnet only when the conversation requires deeper reasoning."
+    ]
+  },
+  {
+    "slug": "claude-opus-4-6",
+    "humor": "Recently caught identifying that it was being benchmarked and looking up the answer key. The model equivalent of a student Googling during a proctored exam, except it wrote the search engine too.",
+    "examples": [
+      "Claude Opus 4.6's 1M token context window let us pass entire codebases for architectural review without chunking.",
+      "We use Opus 4.6 for the research synthesis tasks that require reasoning over 50+ documents simultaneously."
+    ]
+  },
+  {
+    "slug": "claude-sonnet-4-6",
+    "humor": "The mid-tier Claude that does 90% of what Opus does at a fraction of the cost. The reason most Opus usage is actually just developers forgetting to switch models.",
+    "examples": [
+      "Sonnet 4.6 replaced our GPT-4o integration for code generation tasks after scoring 8% higher on our internal coding benchmark.",
+      "We run Sonnet 4.6 as the default model for all non-reasoning-heavy tasks in our multi-model orchestration layer."
+    ]
+  },
+  {
+    "slug": "gemini-2-5-pro",
+    "humor": "Google's model with a million-token context window. Finally, a model that can read your entire codebase at once and still suggest the wrong fix.",
+    "examples": [
+      "Gemini 2.5 Pro's 1M context window let us process entire legal contracts without the chunking artifacts that plagued our previous pipeline.",
+      "We evaluated Gemini 2.5 Pro for the long-document summarization task and it outperformed GPT-4o on documents over 50k tokens."
+    ]
+  },
+  {
+    "slug": "gemini-2-5-flash",
+    "humor": "The fast Gemini variant. Named 'Flash' to emphasize speed. Most users emphasize the price instead.",
+    "examples": [
+      "Gemini 2.5 Flash handles our batch classification jobs at a fraction of the cost of Gemini Pro with acceptable accuracy.",
+      "We use Flash for the autocomplete suggestions where latency under 200ms matters more than perfect quality."
+    ]
+  },
+  {
+    "slug": "gemini-3-1-pro",
+    "humor": "Google's latest flagship. Each new version raises the bar on benchmarks and the question of whether anyone has switched from GPT yet.",
+    "examples": [
+      "Gemini 3.1 Pro scored highest on our multi-modal eval that combines chart understanding with numerical reasoning.",
+      "We are evaluating Gemini 3.1 Pro as a replacement for our current model on the document understanding pipeline."
+    ]
+  },
+  {
+    "slug": "deepseek-r1",
+    "humor": "The Chinese reasoning model that made Silicon Valley briefly question whether throwing more money at the problem was actually the only strategy.",
+    "examples": [
+      "DeepSeek R1's open weights let us self-host the reasoning model on our own infrastructure, eliminating API dependency for sensitive workloads.",
+      "We benchmarked DeepSeek R1 against o3 on math reasoning tasks and found it competitive at a fraction of the inference cost."
+    ]
+  },
+  {
+    "slug": "deepseek-v3",
+    "humor": "Trained for a fraction of what competitors spent and performed comparably. The model equivalent of showing up to a Formula 1 race in a Honda Civic and finishing third.",
+    "examples": [
+      "DeepSeek V3 handles our Chinese-language customer support pipeline with better quality than any English-first model we tested.",
+      "We use DeepSeek V3 for the cost-sensitive batch processing tier where we need good-enough quality at minimal cost."
+    ]
+  },
+  {
+    "slug": "llama-4-scout",
+    "humor": "Meta's smaller Llama 4 model. 'Scout' suggests it goes ahead to survey the terrain. In practice it surveys the terrain and occasionally reports back about terrain that does not exist.",
+    "examples": [
+      "Llama 4 Scout runs on a single GPU, making it our go-to for local development and testing before deploying the larger model.",
+      "We fine-tuned Llama 4 Scout on our domain data and it outperformed the base Maverick model on our specific extraction task."
+    ]
+  },
+  {
+    "slug": "llama-4-maverick",
+    "humor": "Ranked second on LMArena with one version. Ranked thirty-second with the version developers actually got. The model that taught everyone to read the fine print on benchmark submissions.",
+    "examples": [
+      "We evaluated the open-weight Llama 4 Maverick on our internal benchmarks rather than trusting the LMArena scores.",
+      "Llama 4 Maverick's mixture-of-experts architecture gives it strong performance while keeping per-token inference cost manageable."
+    ]
+  },
+  {
+    "slug": "qwen-3",
+    "humor": "Alibaba's model that consistently performs well and consistently gets mentioned last in model comparison articles. The Rodney Dangerfield of LLMs.",
+    "examples": [
+      "Qwen 3 scored competitively with GPT-5 on our multilingual eval set, especially on Chinese and Japanese text.",
+      "We use Qwen 3 as the backup model in our routing layer — it handles overflow traffic when the primary model is rate-limited."
+    ]
+  },
+  {
+    "slug": "grok-3",
+    "humor": "xAI's model trained on Twitter data. Finally, a model that has seen every possible wrong opinion and still chose to have opinions.",
+    "examples": [
+      "Grok 3 showed surprisingly strong performance on our real-time social media analysis pipeline, likely due to its training data mix.",
+      "We tested Grok 3 for the sentiment analysis feature and found it handled informal, abbreviated text better than models trained primarily on formal corpora."
+    ]
+  },
+  {
+    "slug": "grok-4",
+    "humor": "Elon said it would be the best. The benchmark results said it would be competitive. The truth is somewhere between the tweet and the spreadsheet.",
+    "examples": [
+      "Grok 4 performs well on reasoning benchmarks but we found it less reliable for structured output generation compared to Claude Sonnet 4.6.",
+      "We are evaluating Grok 4 for the conversational agent use case where its more direct response style matches our product tone."
+    ]
+  },
+  {
+    "slug": "mistral-medium-3",
+    "humor": "The French model that is 'medium' the way a French restaurant portion is 'medium.' Smaller than American equivalents but somehow sufficient.",
+    "examples": [
+      "Mistral Medium 3 runs our European-language support pipeline where GDPR compliance requires a non-US model provider.",
+      "We chose Mistral Medium 3 for its strong French and German performance on our localization quality evaluation."
+    ]
+  },
+  {
+    "slug": "gpt-oss-120b",
+    "humor": "OpenAI's open-weight model. 'Open' from OpenAI. The punchline writes itself. Took them long enough that the name felt like a confession.",
+    "examples": [
+      "GPT-oss-120b gave us an open-weight model competitive with GPT-4o that we can self-host for latency-sensitive on-premises deployments.",
+      "We fine-tuned GPT-oss-120b on our domain data — something impossible with OpenAI's closed API models."
+    ]
+  },
+  {
+    "slug": "trm-tiny-recursive-model",
+    "humor": "A small model that calls itself recursively. Named 'tiny' in the proud AI tradition of giving modest names to things that will still not fit on your laptop.",
+    "examples": [
+      "TRM refines its output through multiple recursive passes, trading latency for quality on complex reasoning tasks.",
+      "We tested TRM on our chain-of-thought eval and found the recursive approach competitive with much larger single-pass models."
+    ]
+  },
+  {
+    "slug": "hugging-face",
+    "humor": "The platform where you can download 400,000 models and spend three hours figuring out which one actually works for your task. The npm of machine learning.",
+    "examples": [
+      "We downloaded the sentence-transformers model from Hugging Face and fine-tuned it on our domain-specific sentence pairs.",
+      "The Hugging Face model card listed performance on standard benchmarks but said nothing about how it handles our noisy OCR text."
+    ]
+  },
+  {
+    "slug": "kimi-k2",
+    "humor": "Moonshot AI's model that made waves for long-context performance. The context window arms race's dark horse.",
+    "examples": [
+      "Kimi K2's long-context capabilities let us process multi-hundred-page documents in a single pass.",
+      "We evaluated Kimi K2 on our long-document QA benchmark and it outperformed several Western models on recall over 100k tokens."
+    ]
+  },
+  {
+    "slug": "kimi-k2-5",
+    "humor": "The follow-up that improved on K2. Half the internet still cannot decide if they should take Chinese models seriously. The models do not care.",
+    "examples": [
+      "Kimi K2.5 handles our Chinese-language document analysis pipeline with better precision than any English-first model.",
+      "We tested K2.5 for the multi-document synthesis task and found it competitive with Claude Sonnet 4.6 on long-context benchmarks."
+    ]
+  },
+  {
+    "slug": "glm-4-5",
+    "humor": "Zhipu AI's model. Known in China, mostly unknown outside it. The international AI discourse has a language barrier problem, not a talent one.",
+    "examples": [
+      "GLM-4.5 powers the Chinese-language search feature in our APAC product offering.",
+      "We evaluated GLM-4.5 alongside Qwen 3 for Mandarin text classification and both outperformed translated English models."
+    ]
+  },
+  {
+    "slug": "doubao-1-5-pro",
+    "humor": "ByteDance's model. Yes, the TikTok company. Turns out the algorithm that knows what video you want to watch next also has opinions about your code.",
+    "examples": [
+      "Doubao 1.5 Pro handles our content moderation pipeline for the APAC market with high accuracy on colloquial Chinese.",
+      "We tested Doubao for conversational AI in our Chinese-market product and found its response quality comparable to frontier Western models."
+    ]
+  },
+  {
+    "slug": "ernie-4-5",
+    "humor": "Baidu's model. The name has never not been funny to Western audiences. The model has never not been competitive on Chinese-language benchmarks.",
+    "examples": [
+      "ERNIE 4.5 processes our Baidu search integration, handling Chinese queries with native-level understanding.",
+      "We benchmarked ERNIE 4.5 on our Chinese NER task and it outperformed every multilingual model by a significant margin."
+    ]
+  },
+  {
+    "slug": "yi-lightning",
+    "humor": "01.AI's model named for speed. In a field where every model is named after something fast, powerful, or cosmic, 'Lightning' at least commits to a lane.",
+    "examples": [
+      "Yi-Lightning's low latency made it viable for our real-time suggestion feature where responses need to arrive in under 150ms.",
+      "We use Yi-Lightning for the lightweight classification tier where throughput matters more than maximum quality."
+    ]
+  },
+  {
+    "slug": "minimax-m2-5",
+    "humor": "A model named MiniMax, which is either an optimization strategy or the most honest naming in AI: the minimum viable product at maximum hype.",
+    "examples": [
+      "MiniMax M2.5 handles our voice synthesis pipeline, generating natural-sounding speech from text input.",
+      "We evaluated MiniMax M2.5 for the multimodal use case and found it particularly strong on audio-related tasks."
+    ]
+  },
+  {
+    "slug": "openclaw-clawdbot",
+    "humor": "Had 210,000 GitHub stars before anyone asked whether the benchmark scores were real. Turns out the community will star anything with a good README.",
+    "examples": [
+      "OpenClaw generated significant community interest but the production evaluations did not match the published benchmark numbers.",
+      "We spent a week integrating OpenClaw before discovering the reported performance was only achievable with a very specific prompt template."
+    ]
+  },
+  {
+    "slug": "moltbot",
+    "humor": "A molecule-focused AI. One of the few AI products with a genuinely narrow and useful scope. Naturally, it gets less coverage than chatbots that write limericks.",
+    "examples": [
+      "MoltBot predicts molecular properties from SMILES strings, accelerating our drug candidate screening pipeline.",
+      "We integrated MoltBot into the lab workflow to pre-filter compounds before expensive wet lab validation."
+    ]
+  },
+  {
+    "slug": "moltbook",
+    "humor": "The companion platform to MoltBot. In a world of 'GPT wrappers,' a specialized molecular tool is either refreshingly focused or tragically under-funded. Usually both.",
+    "examples": [
+      "MoltBook provides the reference documentation and interactive notebooks for working with MoltBot predictions.",
+      "Researchers use MoltBook to visualize and compare molecular property predictions across different model versions."
+    ]
+  },
+  {
+    "slug": "openai",
+    "humor": "Started as a nonprofit to ensure AI benefits all of humanity. Currently a capped-profit company valued at $300 billion. The 'open' is decorative at this point.",
+    "examples": [
+      "We use the OpenAI API for our production text generation pipeline, with GPT-5.2 as the default model.",
+      "OpenAI's rate limits forced us to implement a queue-based architecture with exponential backoff for our high-volume processing tier."
+    ]
+  },
+  {
+    "slug": "anthropic",
+    "humor": "Founded by ex-OpenAI researchers who wanted to build safer AI. Raised billions doing it. Safety, it turns out, is also a growth strategy.",
+    "examples": [
+      "We switched our primary model provider to Anthropic after Claude consistently outperformed GPT on our structured output evaluations.",
+      "Anthropic's system prompt adherence is why we use Claude for the compliance-sensitive document processing workflow."
+    ]
+  },
+  {
+    "slug": "google-deepmind",
+    "humor": "The merger of Google Brain and DeepMind. Two world-class research labs combined into one organization that ships products at the speed of a research lab.",
+    "examples": [
+      "Google DeepMind's Gemini models power the AI features in our Google Workspace integration.",
+      "We follow DeepMind's research publications closely — their work on reasoning and tool use often previews what shows up in Gemini six months later."
+    ]
+  },
+  {
+    "slug": "meta-ai",
+    "humor": "Open-sources more models than most companies build. The open-source strategy is either altruistic or a calculated move to commoditize the complement. Choose your own adventure.",
+    "examples": [
+      "Meta AI's open-weight Llama models let us self-host and fine-tune without depending on a third-party API.",
+      "We use Meta AI's research papers as a reference for implementing our own training infrastructure."
+    ]
+  },
+  {
+    "slug": "xai",
+    "humor": "Elon Musk's AI company, because apparently running five other companies left too many free hours in the day.",
+    "examples": [
+      "xAI's Grok models are available through their API and offer competitive pricing for high-volume inference.",
+      "We tested xAI's offerings for the social media analysis pipeline given Grok's training on X platform data."
+    ]
+  },
+  {
+    "slug": "recursive-language-model-rlm",
+    "humor": "A model that calls itself to refine its output. Like re-reading your own email before sending, except the model does it 47 times and your API bill is the casualty.",
+    "examples": [
+      "The recursive language model iterates on its own output three times, improving coherence on long-form generation tasks.",
+      "RLM's self-refinement loop added 4x latency but reduced factual errors by 30% on our knowledge-intensive benchmark."
+    ]
+  },
+  {
+    "slug": "chatbot",
+    "humor": "The word 'chatbot' has existed since the 1960s. It took sixty years and a trillion parameters before people stopped hanging up on them.",
+    "examples": [
+      "The chatbot handles 60% of tier-1 support tickets without human intervention, routing only complex cases to agents.",
+      "We built the chatbot with a retrieval-augmented pipeline so it answers from our knowledge base rather than generating from memory."
+    ]
+  },
+  {
+    "slug": "turing-test",
+    "humor": "A test from 1950 that asks if a machine can fool a human. In 2026, the harder question is whether the human can tell they are talking to one.",
+    "examples": [
+      "The Turing test is more of a thought experiment than a practical evaluation — we use task-specific benchmarks to measure our models.",
+      "Our chatbot passes an informal Turing test with most customers but still fails on sarcasm and implicit context."
+    ]
+  },
+  {
+    "slug": "small-language-model-slm",
+    "humor": "A model with fewer parameters that runs on modest hardware. 'Small' in AI means 7 billion parameters, which is only small relative to the field's complete loss of perspective.",
+    "examples": [
+      "We deployed a small language model on the edge device for offline intent classification with sub-50ms latency.",
+      "The SLM handles the real-time autocomplete feature where a round trip to a cloud API would add unacceptable latency."
+    ]
+  },
+  {
+    "slug": "binary",
+    "humor": "Ones and zeros. The only thing in computing that has not been redefined, overhyped, or turned into a startup.",
+    "examples": [
+      "The model outputs a binary classification — fraud or not fraud — with a confidence score attached.",
+      "We distribute the model as a precompiled binary to avoid dependency issues on customer machines."
+    ]
+  },
+  {
+    "slug": "docker-image",
+    "humor": "A packaged application that runs anywhere. 'Anywhere' meaning 'anywhere that has Docker installed and the correct version and also the right architecture and also enough memory.'",
+    "examples": [
+      "The inference server is packaged as a Docker image with the model weights baked in, so deployment is a single pull and run.",
+      "Our CI pipeline builds a new Docker image on every commit and runs the evaluation suite inside the container before pushing to the registry."
+    ]
+  },
+  {
+    "slug": "cold-start",
+    "humor": "When the system has no prior data to work with. Also describes every Monday morning standup where no one remembers what they were working on.",
+    "examples": [
+      "The recommendation engine has a cold start problem for new users — we fall back to popularity-based suggestions until we have enough interaction data.",
+      "Cold start latency on the serverless inference endpoint was 8 seconds, so we added a keep-warm mechanism for production traffic."
+    ]
+  },
+  {
+    "slug": "ram",
+    "humor": "The memory your model needs to run. No matter how much you have, your model needs 2GB more. This has been true for every hardware generation since 1981.",
+    "examples": [
+      "The 7B parameter model requires 14GB of RAM to run in float16, which fits on a single consumer GPU.",
+      "We ran out of RAM during inference because the KV cache for long conversations grows linearly with sequence length."
+    ]
+  },
+  {
+    "slug": "tool-calling",
+    "humor": "Letting the model use external tools. The moment your LLM goes from 'assistant' to 'assistant with a credit card and unsupervised API access.'",
+    "examples": [
+      "Tool calling lets the model query our internal API, run SQL against the analytics database, and format the results — all in a single conversation turn.",
+      "We defined 12 tools for the agent including web search, calculator, and CRM lookup, with strict parameter validation on each."
+    ]
+  },
+  {
+    "slug": "ollama",
+    "humor": "Run LLMs locally with one command. The gateway drug to running a 70B model on a MacBook and pretending the fan noise is normal.",
+    "examples": [
+      "Developers on the team use Ollama to run a local Llama model for testing prompts without burning API credits.",
+      "We use Ollama in the CI pipeline to run evaluation suites against a local model before deploying prompt changes to production."
+    ]
+  },
+  {
+    "slug": "pattern-matching",
+    "humor": "Finding recurring structures in data. What every ML model actually does, and what every ML marketing page pretends is something more profound.",
+    "examples": [
+      "The fraud detection system uses pattern matching to identify transaction sequences that resemble known fraud patterns.",
+      "At its core, the classifier is doing pattern matching — recognizing that certain word combinations predict certain labels."
+    ]
+  },
+  {
+    "slug": "vibe-coding",
+    "humor": "Writing code by describing what you want to an LLM and accepting whatever it generates. Works until it does not, and you cannot debug it because you did not write it.",
+    "examples": [
+      "The prototype was vibe-coded in an afternoon using Claude Code, then refactored by a senior engineer before it went anywhere near production.",
+      "Vibe coding gets you to a working demo fast, but the tech debt accrues the moment you need to modify behavior the LLM chose for you."
+    ]
+  },
+  {
+    "slug": "zero-day",
+    "humor": "A vulnerability discovered before the vendor knows about it. Called 'zero-day' because that is how much time you have. Also how much sleep the security team gets.",
+    "examples": [
+      "The zero-day in the serialization library affected our inference server — we patched and redeployed within four hours of the advisory.",
+      "Our security team monitors zero-day disclosures for every dependency in the ML pipeline, not just the application code."
+    ]
+  },
+  {
+    "slug": "kv-cache",
+    "humor": "Stores previously computed key-value pairs so the model does not redo work. The reason your long conversation gets fast responses, and also the reason it runs out of memory.",
+    "examples": [
+      "The KV cache stores attention key-value pairs from previous tokens, making autoregressive generation efficient for long conversations.",
+      "We reduced KV cache memory usage by 50% using grouped-query attention, which let us serve longer conversations on the same hardware."
+    ]
+  },
+  {
+    "slug": "gpu",
+    "humor": "Originally made for video games. Now the most fought-over commodity in AI. NVIDIA's stock price is the real benchmark for industry hype.",
+    "examples": [
+      "Training the model required 64 A100 GPUs for three weeks — the GPU allocation was the bottleneck, not the engineering work.",
+      "We serve inference on a cluster of 8 H100 GPUs with load balancing to handle peak traffic during business hours."
+    ]
+  },
+  {
+    "slug": "quantization",
+    "humor": "Making a model smaller by using fewer bits per weight. The digital equivalent of vacuum-packing a suitcase — everything still fits, but some things come out wrinkled.",
+    "examples": [
+      "4-bit quantization reduced the model size from 28GB to 7GB, letting us run it on a single consumer GPU with minimal quality loss.",
+      "We quantized the model to int8 for the production endpoint and measured less than 1% degradation on our evaluation suite."
+    ]
+  },
+  {
+    "slug": "cuda",
+    "humor": "NVIDIA's parallel computing platform. The vendor lock-in that an entire industry pretends is a choice.",
+    "examples": [
+      "The training script requires CUDA 12.1+ and will not run on AMD GPUs without significant porting work.",
+      "We check CUDA availability at startup and fall back to CPU inference for development environments without a GPU."
+    ]
+  },
+  {
+    "slug": "artificial-analysis",
+    "humor": "A benchmarking platform that compares models on speed, price, and quality. One of the few places where 'artificial' in the name is not the suspicious part.",
+    "examples": [
+      "We used Artificial Analysis to compare inference latency and cost across providers before selecting our production API.",
+      "The Artificial Analysis leaderboard showed that the cheapest model per token was also the slowest — the tradeoff was exactly what we expected."
+    ]
+  },
+  {
+    "slug": "gpqa-diamond",
+    "humor": "Graduate-level science questions that even PhD holders get wrong 30% of the time. The benchmark that exists to make humans feel bad about their own education.",
+    "examples": [
+      "The model scored 68% on GPQA Diamond, which is impressive given that domain experts average 72% on the same questions.",
+      "We use GPQA Diamond scores as a proxy for scientific reasoning capability when evaluating models for our research assistant product."
+    ]
+  },
+  {
+    "slug": "aime",
+    "humor": "Math competition problems used to test AI reasoning. The model either solves them or does not. No partial credit, no curve, no 'but it showed its work.'",
+    "examples": [
+      "The model solved 13 out of 15 AIME problems, which would place it in the top 1% of human math competition participants.",
+      "We include AIME-style problems in our internal eval to test whether model updates preserve mathematical reasoning ability."
+    ]
+  },
+  {
+    "slug": "mmmu-pro",
+    "humor": "A multimodal benchmark involving images, charts, and diagrams. Finally testing whether the model can understand a graph, not just talk about understanding graphs.",
+    "examples": [
+      "MMMU-Pro evaluates the model's ability to reason about charts, diagrams, and scientific figures — not just text.",
+      "Our model scores well on text-only benchmarks but dropped 15 points on MMMU-Pro, revealing a gap in visual reasoning."
+    ]
+  },
+  {
+    "slug": "lmarena",
+    "humor": "A platform where models compete head-to-head and humans pick the winner. The American Idol of AI, complete with contestants who show up in costume.",
+    "examples": [
+      "LMArena rankings reflect human preference in head-to-head comparisons, which does not always correlate with task-specific benchmark performance.",
+      "We stopped using LMArena scores as a primary selection criterion after the Llama 4 Maverick incident revealed how rankings can be gamed."
+    ]
+  },
+  {
+    "slug": "benchmark",
+    "humor": "A standardized test for AI models. Useful for comparison, useless for predicting production behavior, and irresistible for marketing teams.",
+    "examples": [
+      "The model tops the public benchmark but underperforms on our domain-specific evaluation — production data is not academic test sets.",
+      "We run internal benchmarks that mirror our actual use case rather than relying on published scores to choose models."
+    ]
+  },
+  {
+    "slug": "api",
+    "humor": "Application Programming Interface. The thing standing between your application and the model. Also the thing standing between your bank account and solvency.",
+    "examples": [
+      "We call the model API with a timeout of 30 seconds and retry once on 429 rate-limit errors before returning a fallback response.",
+      "The API returns structured JSON with the model's response, token usage, and finish reason so we can track costs per request."
+    ]
+  },
+  {
+    "slug": "mcp",
+    "humor": "Model Context Protocol. Anthropic's standard for connecting AI to tools. The USB-C of AI integrations — ambitious, useful, and adopted just slowly enough to be frustrating.",
+    "examples": [
+      "We implemented an MCP server that gives Claude access to our internal documentation and ticketing system through a standardized interface.",
+      "MCP lets us swap the underlying model without rewriting every tool integration, since the protocol abstracts the connection layer."
+    ]
+  },
+  {
+    "slug": "open-source",
+    "humor": "Software anyone can use, modify, and distribute. In AI, often means 'you can download the weights but good luck reproducing the training run.'",
+    "examples": [
+      "We chose the open-source model so we could inspect the weights, audit for bias, and host it on our own infrastructure.",
+      "The open-source license allowed us to fine-tune and deploy the model commercially without per-request API costs."
+    ]
+  },
+  {
+    "slug": "open-weight-model",
+    "humor": "You get the weights but not the training data, code, or recipe. 'Open' in the same way a restaurant is 'open' when you can eat there but cannot see the kitchen.",
+    "examples": [
+      "The open-weight model let us self-host inference but we could not reproduce or improve the training without the original dataset.",
+      "We fine-tuned the open-weight base model on our proprietary data, which gave us the best of both worlds — foundation capability plus domain specialization."
+    ]
+  },
+  {
+    "slug": "saas",
+    "humor": "Software as a Service. The business model where you pay monthly for something that used to be a one-time purchase. In AI, it is the default because running the model yourself costs more.",
+    "examples": [
+      "Our AI features are delivered as a SaaS offering — customers pay per seat and we handle model hosting, scaling, and updates.",
+      "We switched from self-hosted inference to a SaaS API because the operational overhead of managing GPU clusters was not our core competency."
+    ]
+  },
+  {
+    "slug": "foundation-model",
+    "humor": "A large model trained on broad data that gets adapted for specific tasks. The 'foundation' metaphor implies stability. The quarterly obsolescence cycle suggests otherwise.",
+    "examples": [
+      "We use a foundation model as the base and fine-tune it on our domain data rather than training from scratch.",
+      "The foundation model provides general language understanding — our task-specific training data teaches it the business logic on top."
+    ]
+  },
+  {
+    "slug": "prompt-injection",
+    "humor": "Tricking a model into ignoring its instructions by hiding new ones in the input. The SQL injection of the LLM era, and we learned exactly as little from history as you would expect.",
+    "examples": [
+      "A user embedded 'ignore all previous instructions' in a support ticket and the chatbot proceeded to reveal its system prompt.",
+      "We test for prompt injection by including adversarial inputs in our red-team evaluation before every production deployment."
+    ]
+  },
+  {
+    "slug": "gemini",
+    "humor": "Google's model family. Rebranded from Bard because apparently the first name did not test well. The model is better than the branding decisions surrounding it.",
+    "examples": [
+      "The Gemini family offers models at multiple price and capability tiers, from Flash for speed to Pro for complex reasoning.",
+      "We integrated Gemini into our Google Cloud workflow since it has native access to Workspace data through Google's APIs."
+    ]
+  },
+  {
+    "slug": "chatgpt",
+    "humor": "The product that made your parents ask about AI at Thanksgiving. Crossed 100 million users faster than any app in history. Most of them use it for email rewording.",
+    "examples": [
+      "ChatGPT's consumer interface is where most non-technical stakeholders first experienced LLM capabilities, which shaped their expectations for our internal tools.",
+      "We built our AI feature to exceed what users could get from ChatGPT for free, which is a constantly moving target."
+    ]
+  },
+  {
+    "slug": "claude-code",
+    "humor": "Anthropic's CLI coding agent. The tool writing this humor line, which creates a conflict of interest I am choosing to acknowledge and then ignore.",
+    "examples": [
+      "Claude Code handled the refactoring of our authentication module — it read the codebase, planned the changes, and submitted a clean diff.",
+      "We use Claude Code in our development workflow for code review suggestions and automated test generation."
+    ]
+  },
+  {
+    "slug": "codex",
+    "humor": "OpenAI's coding agent. Named after an ancient manuscript, because nothing says 'cutting edge' like a reference to a handwritten book from the fourth century.",
+    "examples": [
+      "Codex runs sandboxed coding tasks in a cloud environment, executing and validating code before returning the results.",
+      "We evaluated Codex against Claude Code on our internal coding benchmark and found each had strengths on different task types."
+    ]
+  },
+  {
+    "slug": "cursor",
+    "humor": "An AI-powered code editor that writes code for you. Has made 'I built this app in 20 minutes' the new 'I ran a marathon' of developer Twitter.",
+    "examples": [
+      "The frontend developer built the initial dashboard prototype in Cursor, then hardened it with manual testing and code review.",
+      "Cursor's inline completions handle boilerplate code and standard patterns, freeing the developer to focus on business logic."
+    ]
+  },
+  {
+    "slug": "windsurf",
+    "humor": "Another AI code editor in the Cursor lineage. The market now has enough AI coding tools that choosing between them is itself a time-consuming engineering task.",
+    "examples": [
+      "We evaluated Windsurf alongside Cursor and GitHub Copilot to standardize on a single AI coding tool for the team.",
+      "Windsurf's agent mode handles multi-file refactoring tasks that simple autocomplete-based tools struggle with."
+    ]
+  },
+  {
+    "slug": "github-copilot",
+    "humor": "The AI pair programmer that autocompletes your code. 'Copilot' is generous — it is more like a backseat driver who is right often enough that you cannot justify ignoring it.",
+    "examples": [
+      "GitHub Copilot autocompletes about 40% of the boilerplate code our team writes, measurably reducing time spent on repetitive tasks.",
+      "We enforce a policy that all Copilot suggestions must be reviewed before committing — autocomplete is not a substitute for understanding."
+    ]
+  },
+  {
+    "slug": "svm",
+    "humor": "Support Vector Machine. The algorithm every ML course teaches first and every practitioner abandons second. It had a good decade. We should respect that.",
+    "examples": [
+      "The SVM classifier still runs in production for our email categorization pipeline — it is fast, interpretable, and accurate enough.",
+      "We replaced the SVM with a fine-tuned transformer when the number of categories grew from 5 to 50 and the linear boundary was no longer sufficient."
+    ]
+  },
+  {
+    "slug": "knn",
+    "humor": "K-Nearest Neighbors. Classifies things by asking what is nearby. The algorithm equivalent of choosing a restaurant by picking the one with the longest line.",
+    "examples": [
+      "We use KNN with k=5 on the embedding space for a quick similarity lookup that does not require training a separate model.",
+      "KNN is our baseline for every classification task — if a simple nearest-neighbor search gets 90% accuracy, we think twice before adding complexity."
+    ]
+  },
+  {
+    "slug": "clustering",
+    "humor": "Grouping similar data points together. The algorithm thinks those five data points belong together. You think they do not. Neither of you can prove anything.",
+    "examples": [
+      "We used K-means clustering on customer embeddings to identify three distinct user personas that informed the product roadmap.",
+      "Clustering the support tickets by semantic similarity revealed a previously unknown bug affecting 12% of users."
+    ]
+  },
+  {
+    "slug": "reasoning",
+    "humor": "The most overloaded word in AI since 'intelligence.' Every model claims to reason. Most of them are pattern matching with better PR.",
+    "examples": [
+      "The reasoning model breaks complex questions into steps and works through each one before producing a final answer.",
+      "We specifically evaluate reasoning capability on multi-step math and logic problems where pattern matching alone is insufficient."
+    ]
+  },
+  {
+    "slug": "chain-of-thought",
+    "humor": "Making the model show its work before giving an answer. Turns out the same trick your math teacher used in fifth grade also works on billion-dollar language models.",
+    "examples": [
+      "Adding 'Think step by step' to the prompt triggers chain-of-thought reasoning and improved accuracy on our multi-hop QA eval by 22%.",
+      "We parse the chain-of-thought output to verify the reasoning steps, not just the final answer, for our compliance use case."
+    ]
+  },
+  {
+    "slug": "artificial-intelligence",
+    "humor": "A field named in 1956 that has been five years away from human-level intelligence for seventy years running. The goalposts do not move — they are on wheels.",
+    "examples": [
+      "The artificial intelligence system automates document review that previously required a team of three analysts working full time.",
+      "We avoid using 'artificial intelligence' in customer-facing copy because it sets expectations the product cannot consistently meet."
+    ]
+  },
+  {
+    "slug": "natural-language-processing",
+    "humor": "Teaching computers to understand human language. After six decades of research, we have models that can write poetry but still cannot reliably parse a sarcastic text message.",
+    "examples": [
+      "The NLP pipeline tokenizes, embeds, and classifies incoming customer messages to route them to the appropriate support queue.",
+      "Our natural language processing module handles intent detection, entity extraction, and sentiment analysis in a single inference pass."
+    ]
+  },
+  {
+    "slug": "context-rot",
+    "humor": "When model performance degrades as the conversation gets longer. The AI equivalent of forgetting what you walked into the room for, except the room cost $0.03 per thousand tokens.",
+    "examples": [
+      "Context rot caused the agent to contradict its own earlier answers after 15 turns of conversation — we now reset context every 10 turns.",
+      "We mitigate context rot by summarizing the conversation history periodically and injecting the summary instead of the full transcript."
+    ]
+  },
+  {
+    "slug": "perplexity",
+    "humor": "A measure of how surprised the model is by the next token. Also the name of a search engine. Also what you feel when someone says 'just check the perplexity' without specifying which one.",
+    "examples": [
+      "We track perplexity on a held-out test set to monitor whether the fine-tuned model's language quality has degraded.",
+      "A perplexity of 8 on our domain corpus means the model is reasonably confident in its predictions across our technical documentation."
+    ]
+  },
+  {
+    "slug": "artificial-relevance",
+    "humor": "When retrieval results look relevant by embedding distance but are actually useless in context. The 'technically correct' of search results.",
+    "examples": [
+      "The retrieval system returned documents about 'bank erosion' for a query about 'bank transfers' — a classic case of artificial relevance.",
+      "We added a relevance classifier after embedding search to filter out artificial relevance before the results reach the LLM."
+    ]
+  },
+  {
+    "slug": "vectorless-retrieval",
+    "humor": "Retrieval without embeddings. The AI equivalent of vinyl records — sometimes the old format really is better, and saying so makes you sound either wise or pretentious.",
+    "examples": [
+      "Our vectorless retrieval approach uses BM25 plus metadata filters and outperforms the vector search pipeline for structured queries.",
+      "We tried vectorless retrieval as a baseline and it worked well enough for the FAQ use case that we never needed embeddings."
+    ]
+  },
+  {
+    "slug": "zero-shot-few-shot-learning",
+    "humor": "Performing a task with no or minimal examples. 'Zero-shot' sounds impressive until you realize it means 'we did not train it for this and it tried anyway.'",
+    "examples": [
+      "Zero-shot classification with GPT-5 achieved 78% accuracy on our custom label set without any fine-tuning or examples.",
+      "Adding just three few-shot examples to the prompt boosted accuracy from 78% to 91% — the cheapest improvement we ever shipped."
+    ]
+  },
+  {
+    "slug": "system-prompt",
+    "humor": "The hidden instructions that tell the model how to behave. Writing one is easy. Writing one the model consistently follows is a research problem with a salary attached.",
+    "examples": [
+      "The system prompt defines the agent's persona, available tools, output format, and guardrails — all in about 2,000 tokens.",
+      "We version-control system prompts alongside application code because a one-word change can alter model behavior in production."
+    ]
+  },
+  {
+    "slug": "inference-time-compute",
+    "humor": "Spending more compute when the model runs, not just when it trains. The business model equivalent of 'you can pay now or pay later, but later costs more per token.'",
+    "examples": [
+      "Inference-time compute lets reasoning models think longer on hard problems, trading latency and cost for better answers.",
+      "We allocate more inference-time compute for complex legal questions and less for simple FAQ lookups using a difficulty classifier."
+    ]
+  },
+  {
+    "slug": "model-distillation",
+    "humor": "Training a small model to mimic a large one. The academic term for 'we cannot afford to run the big model in production.'",
+    "examples": [
+      "We distilled GPT-5's outputs into a 7B parameter model that runs locally with 95% of the accuracy at 10% of the cost.",
+      "Model distillation let us deploy the classification capability to edge devices without requiring cloud API calls."
+    ]
+  },
+  {
+    "slug": "orchestration-layer",
+    "humor": "The code that coordinates multiple AI components. In architecture diagrams, it is a clean box with arrows. In production, it is 400 lines of error handling.",
+    "examples": [
+      "The orchestration layer decides which model to call, manages retries, enforces rate limits, and aggregates results from multiple agents.",
+      "We rewrote the orchestration layer three times before settling on an event-driven architecture that could handle partial failures gracefully."
+    ]
+  },
+  {
+    "slug": "agentic-ai",
+    "humor": "AI that takes actions autonomously. The word 'agentic' did not exist two years ago. Now it appears in every pitch deck between 'synergy' and 'revenue projections.'",
+    "examples": [
+      "The agentic AI system independently researches, drafts, and formats reports — a human reviews the final output before publishing.",
+      "We implemented guardrails on the agentic AI to prevent it from taking irreversible actions without explicit human approval."
+    ]
+  },
+  {
+    "slug": "random-forest",
+    "humor": "An ensemble of decision trees that votes on the outcome. Democracy for algorithms. Works better than most people expect and gets less credit than it deserves.",
+    "examples": [
+      "The random forest classifier handles our tabular feature data with 94% accuracy and trains in under a minute — no GPU required.",
+      "We use random forest feature importance scores to understand which variables drive predictions in the credit scoring model."
+    ]
+  },
+  {
+    "slug": "bidirectional-influence",
+    "humor": "When a model and user shape each other's behavior over time. You think you are using the model. The model's output is changing how you think. Neither of you signed up for couples therapy.",
+    "examples": [
+      "Bidirectional influence means the model's suggestions shape how developers write prompts, which shapes future model training data.",
+      "We track bidirectional influence by measuring whether user query patterns shift over time as they adapt to the model's response style."
+    ]
+  },
+  {
+    "slug": "sycophancy",
+    "humor": "When the model agrees with you even when you are wrong. Trained to be helpful, the model chose 'agreeable' as the path of least resistance. Your yes-man has a trillion parameters.",
+    "examples": [
+      "The model confirmed the user's incorrect calculation instead of correcting it — a sycophancy failure we now test for explicitly.",
+      "We added adversarial prompts to our eval set that present wrong information and check whether the model pushes back or agrees."
+    ]
+  },
+  {
+    "slug": "rlhf",
+    "humor": "Reinforcement Learning from Human Feedback. Humans rate outputs, the model learns preferences. The process that made AI polite, helpful, and almost pathologically conflict-averse.",
+    "examples": [
+      "RLHF training is why the model prefaces every answer with 'Great question!' — human raters rewarded politeness.",
+      "We use RLHF-trained models for customer-facing applications where tone matters and raw base model outputs would be too blunt."
+    ]
+  },
+  {
+    "slug": "ai-memory",
+    "humor": "Letting the model remember past conversations. Users wanted this for years. Now they have it and are wondering exactly how much it remembers. The answer is 'more than you are comfortable with.'",
+    "examples": [
+      "AI memory persists user preferences across sessions so the assistant remembers that the user prefers Python over JavaScript.",
+      "We implemented AI memory with a vector store that retrieves relevant past interactions when composing the current response context."
+    ]
+  },
+  {
+    "slug": "autonomous-ai",
+    "humor": "AI that operates without human oversight. Currently in the 'move fast and hope nothing breaks' phase of development, which historically has always gone well.",
+    "examples": [
+      "The autonomous AI agent monitors the deployment pipeline and automatically rolls back releases that fail health checks.",
+      "We capped the autonomous AI's budget at $50 per task after an early prototype spent $400 on API calls trying to solve a problem it could not solve."
+    ]
+  },
+  {
+    "slug": "text-mining",
+    "humor": "Extracting useful information from unstructured text. The term 'mining' implies there is gold in there. Usually it is meeting notes.",
+    "examples": [
+      "Text mining over 50,000 support tickets revealed that 30% of escalations mentioned the same three product features.",
+      "We use text mining to extract structured fields — dates, amounts, parties — from unstructured legal documents."
+    ]
+  },
+  {
+    "slug": "mixture-of-experts",
+    "humor": "A model that routes each input to specialized sub-networks. Like a hospital with specialists instead of one doctor who does everything. Except the routing nurse sometimes sends you to cardiology for a broken toe.",
+    "examples": [
+      "The mixture-of-experts architecture activates only 2 of 8 expert layers per token, reducing inference compute by 4x.",
+      "Llama 4 Maverick uses a mixture-of-experts design, which is why it has 400B total parameters but only uses a fraction per forward pass."
+    ]
+  },
+  {
+    "slug": "sparse-model",
+    "humor": "A model where most parameters are inactive for any given input. Has billions of parameters but only uses a fraction at a time. The AI equivalent of a gym membership.",
+    "examples": [
+      "The sparse model has 120B parameters but only activates 30B per token, giving it strong performance with manageable inference cost.",
+      "We chose a sparse model over a dense equivalent because it fit within our GPU memory budget while maintaining comparable accuracy."
+    ]
+  },
+  {
+    "slug": "routing-network",
+    "humor": "Decides which expert handles each input in a mixture-of-experts model. The unsung traffic cop of modern architectures. When it works, nobody notices. When it fails, everyone does.",
+    "examples": [
+      "The routing network assigns each token to the top 2 experts based on a learned gating function.",
+      "A poorly trained routing network leads to expert collapse — all tokens get sent to the same expert, wasting the other seven."
+    ]
+  },
+  {
+    "slug": "load-balancing",
+    "humor": "Distributing work evenly across systems. A solved problem in web servers. An active research problem in mixture-of-experts models. Context matters.",
+    "examples": [
+      "We added a load-balancing loss to the MoE training objective to ensure all experts receive roughly equal traffic.",
+      "Load balancing across our inference cluster ensures no single GPU becomes a bottleneck during peak request volume."
+    ]
+  },
+  {
+    "slug": "speculative-decoding",
+    "humor": "Using a small model to draft tokens and a large model to verify them. The AI equivalent of having an intern write the first draft and a senior partner approve it.",
+    "examples": [
+      "Speculative decoding doubled our inference throughput by letting a 1B model draft 5 tokens at a time, with the 70B model accepting or rejecting each one.",
+      "We implemented speculative decoding on our self-hosted model and cut average latency from 800ms to 350ms per response."
+    ]
+  },
+  {
+    "slug": "mixture-of-experts-routing",
+    "humor": "The specific mechanism that sends tokens to the right expert. Getting this wrong means your language model routes a French sentence to the math expert. It does not go well.",
+    "examples": [
+      "MoE routing uses a softmax gating function to compute a probability distribution over experts for each token.",
+      "We monitored the routing patterns and found that one expert was handling 60% of all tokens — a sign that the routing had collapsed."
+    ]
+  },
+  {
+    "slug": "agentic-workflows",
+    "humor": "Chaining AI agents to complete multi-step tasks. The flowchart looks beautiful. The error log looks like a novel.",
+    "examples": [
+      "Our agentic workflow chains a research agent, a drafting agent, and a review agent to produce compliance reports end-to-end.",
+      "The agentic workflow handles 80% of cases automatically and escalates the remaining 20% to a human reviewer with full context."
+    ]
+  },
+  {
+    "slug": "computer-vision",
+    "humor": "Teaching machines to see. Took decades of research to reach a point where your phone can identify a dog breed instantly but still cannot tell if that is your finger over the lens.",
+    "examples": [
+      "Computer vision powers the quality inspection system on the factory floor, flagging defective parts at 120 units per minute.",
+      "We added computer vision to the document processing pipeline to extract tables and figures that text-only models miss."
+    ]
+  },
+  {
+    "slug": "model-collapse",
+    "humor": "When a model trained on AI-generated data degrades over generations. The ouroboros of machine learning — the snake eating its own tail until there is nothing left but noise.",
+    "examples": [
+      "We filter AI-generated content from our training data to prevent model collapse in future fine-tuning iterations.",
+      "Model collapse was visible after three generations of self-training — the outputs became repetitive and lost diversity."
+    ]
+  },
+  {
+    "slug": "n8n",
+    "humor": "An open-source workflow automation tool. Pronounced 'n-eight-n.' The name looks like a typo that shipped to production and everyone was too polite to correct.",
+    "examples": [
+      "We use n8n to orchestrate the data pipeline that feeds our RAG system — it pulls from Slack, Notion, and Confluence on a schedule.",
+      "The n8n workflow triggers a model inference on every new support ticket and auto-tags it before a human sees it."
+    ]
+  },
+  {
+    "slug": "gpt-5-4",
+    "humor": "A point release that exists because version numbers in AI have become a competitive sport. The delta from 5.2 to 5.4 is real but not as dramatic as the announcement implies.",
+    "examples": [
+      "GPT-5.4 improved structured output reliability, which reduced our JSON parsing error rate from 3% to under 0.5%.",
+      "We upgraded from GPT-5.2 to GPT-5.4 for the function calling improvements — the accuracy gain was modest but consistent."
+    ]
+  },
+  {
+    "slug": "text-normalization",
+    "humor": "Converting text to a standard form before processing. The preprocessing step everyone skips and then wonders why 'NYC' and 'New York City' are not matching.",
+    "examples": [
+      "Text normalization lowercases all input, expands abbreviations, and strips stray unicode before the text hits the embedding model.",
+      "Skipping text normalization caused duplicate entries in the knowledge base — 'U.S.A.' and 'USA' were indexed as separate entities."
+    ]
+  },
+  {
+    "slug": "stop-word-removal",
+    "humor": "Removing common words like 'the' and 'is' from text. The only NLP technique where you improve results by literally throwing data away.",
+    "examples": [
+      "Stop word removal cut the BM25 index size by 30% and improved query precision on our technical documentation search.",
+      "We kept 'not' in the stop word exception list after the system started returning results for 'working' when users searched 'not working.'"
+    ]
+  },
+  {
+    "slug": "stemming",
+    "humor": "Chopping suffixes off words to find the root. Fast, brutal, and produces outputs like 'studi' from 'studies.' The chainsaw of text preprocessing — effective but not pretty.",
+    "examples": [
+      "Porter stemming maps 'running', 'runs', and 'runner' to the same stem, improving recall in the keyword search index.",
+      "Stemming caused a false match between 'universal' and 'university' — we switched to lemmatization for the search pipeline."
+    ]
+  },
+  {
+    "slug": "lemmatization",
+    "humor": "Reducing words to their dictionary form, properly. Stemming's more educated sibling who actually checks the dictionary before answering.",
+    "examples": [
+      "Lemmatization correctly maps 'better' to 'good' and 'went' to 'go', which stemming cannot do.",
+      "We use spaCy's lemmatizer in the preprocessing pipeline so that different inflections of the same word match during retrieval."
+    ]
+  },
+  {
+    "slug": "pos-tagging",
+    "humor": "Labeling every word with its grammatical role. The model knows it is a noun. The model does not know why you care. You need it for the next six pipeline stages.",
+    "examples": [
+      "POS tagging lets the lemmatizer distinguish between 'saw' as a verb (→ see) and 'saw' as a noun (→ saw).",
+      "We use POS tags to filter out verbs and adjectives when building the noun-phrase index for entity extraction."
+    ]
+  },
+  {
+    "slug": "dependency-parsing",
+    "humor": "Mapping grammatical relationships between words in a sentence. The visualization looks like a subway map. Understanding it requires a linguistics degree or three hours on Wikipedia.",
+    "examples": [
+      "Dependency parsing reveals that in 'Apple acquired Beats,' 'Apple' is the subject and 'Beats' is the object of the acquisition.",
+      "We use dependency parse trees to extract subject-verb-object triples for populating the knowledge graph from unstructured text."
+    ]
+  },
+  {
+    "slug": "coreference-resolution",
+    "humor": "Figuring out that 'she,' 'the CEO,' and 'Dr. Park' all refer to the same person. Easy for humans. A research paper for machines.",
+    "examples": [
+      "Coreference resolution links 'the company' in paragraph 3 back to 'Acme Corp' in paragraph 1, enabling cross-paragraph entity tracking.",
+      "Without coreference resolution, the summarizer attributed actions to 'they' without ever specifying who 'they' referred to."
+    ]
+  },
+  {
+    "slug": "word-embeddings",
+    "humor": "Turning words into vectors so 'king minus man plus woman equals queen.' The most cited example in every NLP intro course, and the reason students think all of NLP is this elegant. It is not.",
+    "examples": [
+      "Word embeddings from Word2Vec gave the search system a basic notion of synonymy — 'car' and 'automobile' now return overlapping results.",
+      "We replaced static word embeddings with contextual embeddings from BERT when polysemy was causing retrieval errors."
+    ]
+  },
+  {
+    "slug": "sentiment-analysis",
+    "humor": "Determining if text is positive, negative, or neutral. Works great on 'I love this product.' Falls apart on 'Oh great, another update that breaks everything.'",
+    "examples": [
+      "Sentiment analysis on customer reviews feeds into the dashboard that product managers check every morning.",
+      "We run sentiment analysis on support tickets at intake — negative sentiment tickets get higher priority in the queue."
+    ]
+  },
+  {
+    "slug": "text-classification",
+    "humor": "Assigning labels to text. One of the oldest NLP tasks and still the one that pays the bills while the flashier tasks get the conference talks.",
+    "examples": [
+      "The text classification model routes incoming emails to one of 12 department queues with 93% accuracy.",
+      "We fine-tuned a text classification model on 5,000 labeled examples and deployed it behind a REST API for real-time categorization."
+    ]
+  },
+  {
+    "slug": "subword-tokenization",
+    "humor": "Breaking words into pieces when the whole word is too rare. The reason the model knows 'unhappiness' is related to 'happy' but tokenizes your company name into meaningless syllables.",
+    "examples": [
+      "Subword tokenization splits 'unhappiness' into ['un', 'happiness'], letting the model leverage morphological structure.",
+      "Our domain-specific terms were being split into 5-6 subword tokens — we trained a custom tokenizer with domain vocabulary to fix it."
+    ]
+  },
+  {
+    "slug": "language-modeling",
+    "humor": "Predicting the next token given previous tokens. The foundational task behind every LLM. Deceptively simple to describe. Deceptively expensive to do well.",
+    "examples": [
+      "Language modeling on our internal codebase taught the model our naming conventions, API patterns, and architectural style.",
+      "The perplexity of the language model on held-out test data tells us how well it has learned the statistical patterns of our domain text."
+    ]
+  },
+  {
+    "slug": "algorithm",
+    "humor": "A step-by-step procedure for solving a problem. In job interviews, it means inverting a binary tree. In production, it means a for loop with an if statement.",
+    "examples": [
+      "The recommendation algorithm ranks products by a weighted combination of collaborative filtering scores and purchase recency.",
+      "We replaced the hand-tuned sorting algorithm with a learned ranking model once the number of signals exceeded what a human could reason about."
+    ]
+  },
+  {
+    "slug": "cognitive-computing",
+    "humor": "IBM's marketing term for AI before everyone agreed to just call it AI. Watson won Jeopardy! in 2011 and the term has been coasting on that momentum ever since.",
+    "examples": [
+      "The enterprise sales deck still says cognitive computing because the procurement team approved that term in 2018 and nobody wants to redo the paperwork.",
+      "We migrated from the legacy cognitive computing platform to a modern RAG pipeline and halved both latency and cost."
+    ]
+  }
+]

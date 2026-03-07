@@ -3612,5 +3612,32 @@
       "foundation-model"
     ],
     "lastUpdated": "2026-03-06"
+  },
+  {
+    "name": "Algorithm",
+    "slug": "algorithm",
+    "shortDef": "A finite sequence of well-defined instructions for solving a problem or performing a computation.",
+    "fullDef": "An algorithm is a step-by-step procedure that takes an input, processes it through a defined sequence of operations, and produces an output. Algorithms are the foundation of all computing — every program, model, and system is ultimately an implementation of one or more algorithms.\n\nIn machine learning, the term usually refers to the learning algorithm: the method by which a model updates its parameters from data. Gradient descent, backpropagation, and k-means clustering are all algorithms. The choice of algorithm determines how a model learns, what tradeoffs it makes between speed and accuracy, and what kinds of patterns it can capture.\n\nAlgorithms are evaluated on correctness, time complexity (how runtime scales with input size), and space complexity (how memory usage scales). In practice, an algorithm that is theoretically optimal but impossible to implement efficiently on real hardware loses to one that is 'good enough' and runs fast. This tradeoff between theoretical elegance and practical performance is a recurring theme across computer science and AI.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "machine-learning",
+      "gradient-descent",
+      "neural-network"
+    ],
+    "lastUpdated": "2026-03-07"
+  },
+  {
+    "name": "Cognitive Computing",
+    "slug": "cognitive-computing",
+    "shortDef": "A category of AI systems designed to simulate human thought processes by combining machine learning, natural language processing, and reasoning.",
+    "fullDef": "Cognitive computing refers to technology platforms that combine machine learning, natural language processing, computer vision, and reasoning to mimic the way the human brain works. The goal is to build systems that can understand unstructured data, learn from interactions, and make decisions in ambiguous or complex situations without explicit programming for every scenario.\n\nThe term became prominent with IBM Watson in the early 2010s. Watson's Jeopardy! win in 2011 was framed as a cognitive computing milestone — a system that could parse natural language questions, weigh evidence from millions of documents, and produce ranked answers. IBM positioned cognitive computing as a distinct category from traditional AI, emphasizing augmentation of human decision-making rather than replacement.\n\nIn practice, cognitive computing systems combine many of the same components found in modern AI pipelines: retrieval, language understanding, entity recognition, and probabilistic reasoning. The term has largely fallen out of favor as 'artificial intelligence' and 'machine learning' became the dominant vocabulary. Most capabilities once marketed as cognitive computing are now described as NLP, RAG, or agentic AI — the techniques matured, but the branding did not survive.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "artificial-intelligence",
+      "natural-language-processing",
+      "machine-learning",
+      "reasoning"
+    ],
+    "lastUpdated": "2026-03-07"
   }
 ]
