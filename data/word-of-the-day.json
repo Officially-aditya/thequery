@@ -1758,5 +1758,21 @@
       "The guardrails layer validates every model response against our content policy before returning it to the user, adding 50ms of latency that nobody complains about.",
       "We added output guardrails after the model recommended a competitor's product to a customer — the rule now filters any response mentioning brands outside our approved list."
     ]
+  },
+  {
+    "slug": "nvidia",
+    "humor": "A graphics card company that accidentally became the most important company in AI. Jensen Huang wore a leather jacket to every keynote and somehow that became the aesthetic of a $3 trillion enterprise.",
+    "examples": [
+      "The training run required a cluster of 256 NVIDIA H100 GPUs reserved for three weeks — the GPU allocation was the longest lead-time item in the entire project.",
+      "We evaluated AMD MI300X as an alternative to NVIDIA but the CUDA dependency in our training pipeline made switching prohibitively expensive."
+    ]
+  },
+  {
+    "slug": "llama-3-1",
+    "humor": "The open-weight model that proved you do not need a trillion-dollar company to build a competitive LLM. You just need a trillion-dollar company to open-source one.",
+    "examples": [
+      "We self-host Llama 3.1 70B for our internal tools — the open weights let us fine-tune on proprietary data without sending it to a third-party API.",
+      "The Llama 3.1 8B model runs locally on developer laptops via Ollama for prompt testing before we deploy changes to the production pipeline."
+    ]
   }
 ]

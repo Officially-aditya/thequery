@@ -3680,5 +3680,34 @@
       "hallucination"
     ],
     "lastUpdated": "2026-03-08"
+  },
+  {
+    "name": "NVIDIA",
+    "slug": "nvidia",
+    "shortDef": "The semiconductor company whose GPUs became the dominant hardware platform for training and running AI models, making it one of the most valuable companies in the world.",
+    "fullDef": "NVIDIA is a semiconductor company founded in 1993 that originally designed graphics processing units for gaming. Its GPUs turned out to be exceptionally well-suited for the parallel matrix operations that underpin neural network training and inference, and NVIDIA pivoted aggressively into AI hardware starting in the early 2010s.\n\nThe company's dominance in AI rests on three pillars: hardware, software, and ecosystem lock-in. Its A100 and H100 GPUs became the standard training accelerators for large language models, and the H200 and B200 followed as inference-optimized successors. CUDA, NVIDIA's proprietary parallel computing platform, is the software layer that most deep learning frameworks — PyTorch, TensorFlow, JAX — are built on top of. Switching away from NVIDIA hardware means rewriting code that depends on CUDA, which keeps customers on the platform even as competitors like AMD, Intel, Google (TPUs), and startups like Groq and Cerebras offer alternatives.\n\nNVIDIA's market capitalization surpassed $3 trillion during the AI boom, briefly making it the most valuable public company in the world. The company's data center revenue — driven almost entirely by AI workloads — grew from $15 billion in 2023 to over $100 billion annually. Whether this concentration of AI infrastructure in a single vendor is sustainable or healthy for the ecosystem is an open question the industry is actively debating.",
+    "category": "Companies",
+    "relatedTerms": [
+      "gpu",
+      "cuda",
+      "inference",
+      "deep-learning"
+    ],
+    "lastUpdated": "2026-03-08"
+  },
+  {
+    "name": "Llama 3.1",
+    "slug": "llama-3-1",
+    "shortDef": "Meta's open-weight large language model family released in July 2024, available in 8B, 70B, and 405B parameter sizes with a 128k token context window.",
+    "fullDef": "Llama 3.1 is a family of open-weight language models released by Meta AI in July 2024. It shipped in three sizes — 8B, 70B, and 405B parameters — making the 405B variant the largest open-weight model available at the time of release. All three sizes support a 128,000 token context window and were trained on over 15 trillion tokens of publicly available data.\n\nThe 8B variant became particularly significant in the AI ecosystem. Small enough to run on consumer hardware and fast enough for real-time applications, it became the default model for edge deployment, local inference with tools like Ollama, and cost-sensitive production workloads. Taalas later hardwired Llama 3.1 8B directly into silicon with their HC1 chip, achieving 17,000 tokens per second — a use case that demonstrated how a fixed, well-understood model could be optimized far beyond what general-purpose hardware allows.\n\nThe 405B model competed with proprietary frontier models on major benchmarks while being fully open-weight under Meta's community license. This made it the first open-weight model to credibly challenge closed-source alternatives at the frontier, accelerating the debate about whether open or closed model development would dominate the industry. Llama 3.1 laid the groundwork for Llama 4, which introduced mixture-of-experts architectures with the Scout and Maverick variants.",
+    "category": "Models",
+    "relatedTerms": [
+      "llama-4-scout",
+      "llama-4-maverick",
+      "meta-ai",
+      "open-weight-model",
+      "large-language-model"
+    ],
+    "lastUpdated": "2026-03-08"
   }
 ]
