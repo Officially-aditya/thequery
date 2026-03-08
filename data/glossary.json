@@ -3709,5 +3709,22 @@
       "large-language-model"
     ],
     "lastUpdated": "2026-03-08"
+  },
+  {
+    "name": "Semantic Collapse",
+    "slug": "semantic-collapse",
+    "shortDef": "When an AI model loses the ability to distinguish between different or opposing concepts — mapping them to similar representations — causing repetitive outputs, failed negation handling, and retrieval systems that return irrelevant results.",
+    "seoDescription": "Why your LLM keeps giving the same answer, your embeddings treat opposites as identical, and your RAG search returns irrelevant results. Semantic collapse is the loss of meaningful distinctions in AI model representations — when 'good' and 'not good' become the same vector.",
+    "seoKeywords": ["semantic collapse", "why does my llm give similar answers", "llm homogeneous output", "embedding similarity problem", "antonyms same vector", "rag returning wrong results", "model outputs all the same", "llm repetitive responses", "embedding collapse", "vector search wrong results", "negation not working llm", "semantic search failures"],
+    "fullDef": "Semantic collapse occurs when an embedding model or generative system fails to preserve meaningful distinctions between concepts, mapping semantically different inputs to nearly identical representations. The result is a system that treats genuinely distinct ideas as interchangeable.\n\nIn retrieval and search systems, semantic collapse manifests when antonyms, negations, or contextually opposite terms receive similar vector representations. A query about 'why the system is not working' may retrieve documents about 'why the system is working' because the embedding model collapses the negation. This is a fundamental limitation of reducing complex meaning to a single point in a fixed-dimensional vector space, and it is one of the reasons hybrid search and cross-encoder reranking remain necessary in production RAG pipelines.\n\nIn generative models, semantic collapse appears during fine-tuning or personalization when a learned concept drifts in embedding space through unconstrained optimization. The concept gradually shifts from its original meaning and begins to dominate other concepts in the prompt, producing outputs that overrepresent one idea at the expense of others. Research presented at NeurIPS 2025 identified this as a distinct failure mode from model collapse — where recursive training on synthetic data degrades output diversity. Semantic collapse is about losing distinctions within a single model's representation space, while model collapse is about losing diversity across generations of models trained on each other's outputs.",
+    "category": "NLP",
+    "relatedTerms": [
+      "embedding",
+      "semantic-search",
+      "model-collapse",
+      "cosine-similarity",
+      "vector-database"
+    ],
+    "lastUpdated": "2026-03-08"
   }
 ]

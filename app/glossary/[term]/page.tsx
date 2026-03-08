@@ -16,10 +16,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { term: slug } = await params;
   const term = getTermBySlug(slug);
   if (!term) return {};
+  const description = term.seoDescription || term.shortDef;
   return {
     title: `${term.name} - AI Glossary`,
-    description: term.shortDef,
-    openGraph: { title: `${term.name} - AI Glossary`, description: term.shortDef },
+    description,
+    keywords: term.seoKeywords,
+    openGraph: { title: `${term.name} - AI Glossary`, description },
   };
 }
 

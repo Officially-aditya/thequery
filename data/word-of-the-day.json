@@ -1774,5 +1774,13 @@
       "We self-host Llama 3.1 70B for our internal tools — the open weights let us fine-tune on proprietary data without sending it to a third-party API.",
       "The Llama 3.1 8B model runs locally on developer laptops via Ollama for prompt testing before we deploy changes to the production pipeline."
     ]
+  },
+  {
+    "slug": "semantic-collapse",
+    "humor": "When your embedding model decides that \"good\" and \"not good\" mean the same thing. The vector space equivalent of a shrug.",
+    "examples": [
+      "Semantic collapse caused our search system to return \"how to cancel your subscription\" when users searched \"how to renew your subscription\" — the embeddings treated both as the same intent.",
+      "We added a cross-encoder reranker specifically to catch semantic collapse cases where negations and antonyms were getting identical similarity scores."
+    ]
   }
 ]

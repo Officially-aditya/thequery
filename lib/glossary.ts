@@ -11,6 +11,8 @@ export interface GlossaryTerm {
   category: string;
   relatedTerms: string[];
   references?: { title: string; url: string }[];
+  seoDescription?: string;
+  seoKeywords?: string[];
   lastUpdated: string;
 }
 
