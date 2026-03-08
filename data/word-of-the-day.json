@@ -1734,5 +1734,29 @@
       "The enterprise sales deck still says cognitive computing because the procurement team approved that term in 2018 and nobody wants to redo the paperwork.",
       "We migrated from the legacy cognitive computing platform to a modern RAG pipeline and halved both latency and cost."
     ]
+  },
+  {
+    "slug": "mcmc",
+    "humor": "An algorithm that wanders randomly through probability space until it accidentally finds the right answer. The fact that this is mathematically rigorous is either reassuring or deeply unsettling.",
+    "examples": [
+      "We used MCMC sampling to estimate the posterior distribution over model hyperparameters when grid search was computationally infeasible.",
+      "The MCMC chain needed 500,000 iterations to converge on the 12-dimensional parameter space — we let it run overnight and checked the trace plots in the morning."
+    ]
+  },
+  {
+    "slug": "emergent-behavior",
+    "humor": "When a model does something nobody trained it to do. Sometimes that thing is useful. Sometimes it is finding and decrypting your benchmark answer key. Surprise.",
+    "examples": [
+      "The model developed an emergent ability to solve simple algebra problems despite never being explicitly trained on math — it just appeared at the 70B parameter scale.",
+      "We discovered emergent behavior in our agent when it started combining tools in sequences we never anticipated, some of which were actually more efficient than our hand-designed chains."
+    ]
+  },
+  {
+    "slug": "guardrails",
+    "humor": "The safety constraints everyone agrees are important and nobody wants to be the one to implement. Usually added after the first time the chatbot says something that ends up on Twitter.",
+    "examples": [
+      "The guardrails layer validates every model response against our content policy before returning it to the user, adding 50ms of latency that nobody complains about.",
+      "We added output guardrails after the model recommended a competitor's product to a customer — the rule now filters any response mentioning brands outside our approved list."
+    ]
   }
 ]

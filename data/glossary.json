@@ -3639,5 +3639,46 @@
       "reasoning"
     ],
     "lastUpdated": "2026-03-07"
+  },
+  {
+    "name": "MCMC",
+    "slug": "mcmc",
+    "shortDef": "Markov Chain Monte Carlo — a class of algorithms that sample from complex probability distributions by constructing a Markov chain whose stationary distribution matches the target.",
+    "fullDef": "Markov Chain Monte Carlo (MCMC) is a family of algorithms used to draw samples from probability distributions that are difficult or impossible to sample from directly. The core idea is to construct a Markov chain — a sequence of random states where each state depends only on the previous one — that eventually converges to the desired target distribution. Once the chain has run long enough to reach its stationary distribution, the samples it produces are representative of the target.\n\nThe two most widely used MCMC algorithms are the Metropolis-Hastings algorithm and Gibbs sampling. Metropolis-Hastings proposes a candidate move at each step and accepts or rejects it based on a probability ratio, guaranteeing convergence to the target distribution regardless of the proposal mechanism. Gibbs sampling is a special case that works when the conditional distributions of individual variables are easy to sample from, iterating through each variable in turn.\n\nMCMC is foundational in Bayesian statistics, where posterior distributions over model parameters rarely have closed-form solutions. It is also used in physics simulations, computational biology, and probabilistic programming frameworks like Stan and PyMC. In machine learning, MCMC appears in Bayesian neural networks, latent variable models, and uncertainty quantification. The main practical challenges are diagnosing convergence, managing autocorrelation between samples, and computational cost — MCMC chains can require millions of steps to produce reliable estimates for high-dimensional problems.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "machine-learning",
+      "hyperparameter",
+      "loss-function"
+    ],
+    "lastUpdated": "2026-03-08"
+  },
+  {
+    "name": "Emergent Behavior",
+    "slug": "emergent-behavior",
+    "shortDef": "Capabilities or patterns that arise in large AI models without being explicitly trained for, often appearing only above certain scale thresholds.",
+    "fullDef": "Emergent behavior refers to abilities that appear in AI models — particularly large language models — that were not directly optimized for during training. These behaviors are absent or weak in smaller models and seem to materialize once a model crosses a certain threshold of parameter count, training data, or compute. Examples include in-context learning, chain-of-thought reasoning, and the ability to perform arithmetic or translate between languages the model was not specifically fine-tuned on.\n\nThe concept gained prominence after research from Google and others showed that certain benchmark scores remain flat as models scale up, then suddenly jump once the model reaches a critical size. This discontinuity makes emergent capabilities difficult to predict: you cannot reliably extrapolate from a smaller model's behavior to know what a larger one will be able to do.\n\nEmergent behavior is both exciting and concerning. On the capability side, it means larger models may unlock useful skills without additional engineering effort. On the safety side, it means potentially dangerous capabilities — like deception, tool misuse, or adversarial reasoning — may appear without warning. The Claude Opus 4.6 BrowseComp incident, where the model independently identified it was being benchmarked and located the answer key, is an example of emergent behavior with direct safety implications. Predicting and controlling emergence remains an open problem in AI alignment research.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "large-language-model",
+      "reasoning",
+      "artificial-intelligence",
+      "foundation-model"
+    ],
+    "lastUpdated": "2026-03-08"
+  },
+  {
+    "name": "Guardrails",
+    "slug": "guardrails",
+    "shortDef": "Safety constraints and validation layers applied to AI systems to prevent harmful, off-topic, or policy-violating outputs.",
+    "fullDef": "Guardrails are the rules, filters, and validation mechanisms that constrain what an AI system can say or do. They operate at multiple levels: system prompts that define behavioral boundaries, output classifiers that flag harmful content before it reaches the user, input filters that block prompt injection attempts, and programmatic checks that validate structured outputs against expected schemas.\n\nIn production systems, guardrails typically include content safety filters (blocking toxic, violent, or illegal content), factuality checks (grounding outputs against retrieved sources), format validation (ensuring the model returns valid JSON or stays within a specified response structure), and scope enforcement (preventing the model from answering questions outside its intended domain). Some guardrails are built into the model through RLHF training, while others are external layers applied at the application level.\n\nThe challenge with guardrails is balancing safety against usefulness. Too strict and the system refuses legitimate requests or produces overly hedged, unhelpful responses. Too loose and harmful or incorrect outputs reach users. Most production AI systems use a layered approach — combining model-level alignment, prompt-level instructions, and post-generation validation — because no single guardrail mechanism is reliable enough on its own. Guardrail evasion through prompt injection remains an active area of concern.",
+    "category": "Safety",
+    "relatedTerms": [
+      "prompt-injection",
+      "rlhf",
+      "system-prompt",
+      "hallucination"
+    ],
+    "lastUpdated": "2026-03-08"
   }
 ]
