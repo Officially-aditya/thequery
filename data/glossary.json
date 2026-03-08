@@ -10,7 +10,8 @@
       "activation-function",
       "backpropagation"
     ],
-    "lastUpdated": "2026-02-20"
+    "lastUpdated": "2026-02-20",
+    "analogy": "Think of it as a factory assembly line where each station adjusts its work based on feedback from quality control at the end."
   },
   {
     "name": "Deep Learning",
@@ -23,7 +24,8 @@
       "machine-learning",
       "convolutional-neural-network"
     ],
-    "lastUpdated": "2026-02-20"
+    "lastUpdated": "2026-02-20",
+    "analogy": "Like learning to recognize a face by first noticing edges, then shapes, then features, then the whole person — each layer sees something more abstract."
   },
   {
     "name": "Machine Learning",
@@ -36,7 +38,8 @@
       "reinforcement-learning",
       "overfitting"
     ],
-    "lastUpdated": "2026-02-20"
+    "lastUpdated": "2026-02-20",
+    "analogy": "Like teaching a child by showing examples instead of writing out every rule — eventually they figure out the pattern themselves."
   },
   {
     "name": "Transformer",
@@ -49,7 +52,8 @@
       "large-language-model",
       "embedding"
     ],
-    "lastUpdated": "2026-02-20"
+    "lastUpdated": "2026-02-20",
+    "analogy": "Imagine reading a book where every word can instantly look at every other word on the page to understand context, instead of reading left to right."
   },
   {
     "name": "Attention Mechanism",
@@ -62,7 +66,8 @@
       "neural-network",
       "recurrent-neural-network"
     ],
-    "lastUpdated": "2026-02-20"
+    "lastUpdated": "2026-02-20",
+    "analogy": "Like a spotlight operator in a theater — it decides which part of the stage (input) the audience (model) should focus on at any given moment."
   },
   {
     "name": "Gradient Descent",
@@ -75,7 +80,8 @@
       "loss-function",
       "batch-normalization"
     ],
-    "lastUpdated": "2026-02-20"
+    "lastUpdated": "2026-02-20",
+    "analogy": "Like a hiker trying to reach the valley floor in thick fog, taking small steps in whichever direction slopes downward."
   },
   {
     "name": "Backpropagation",
@@ -88,7 +94,8 @@
       "loss-function",
       "neural-network"
     ],
-    "lastUpdated": "2026-02-20"
+    "lastUpdated": "2026-02-20",
+    "analogy": "Like a teacher grading a test and passing corrections back through every student who contributed to the group project, so each one knows what to fix."
   },
   {
     "name": "Loss Function",
@@ -101,7 +108,8 @@
       "backpropagation",
       "overfitting"
     ],
-    "lastUpdated": "2026-02-20"
+    "lastUpdated": "2026-02-20",
+    "analogy": "The scoreboard that tells the model how badly it missed the target — the lower the score, the better the performance."
   },
   {
     "name": "Activation Function",
@@ -114,7 +122,8 @@
       "backpropagation",
       "deep-learning"
     ],
-    "lastUpdated": "2026-02-20"
+    "lastUpdated": "2026-02-20",
+    "analogy": "Like a bouncer at a club — it decides which signals are strong enough to pass through and which get turned away."
   },
   {
     "name": "Overfitting",
@@ -127,7 +136,8 @@
       "loss-function",
       "batch-normalization"
     ],
-    "lastUpdated": "2026-02-20"
+    "lastUpdated": "2026-02-20",
+    "analogy": "Like a student who memorizes every answer in the textbook but cannot solve a new problem they have never seen before."
   },
   {
     "name": "Convolutional Neural Network",
@@ -140,7 +150,8 @@
       "neural-network",
       "activation-function"
     ],
-    "lastUpdated": "2026-02-20"
+    "lastUpdated": "2026-02-20",
+    "analogy": "Like sliding a magnifying glass across a photo, examining small patches at a time to detect patterns like edges, textures, and shapes."
   },
   {
     "name": "Recurrent Neural Network",
@@ -153,7 +164,8 @@
       "transformer",
       "attention-mechanism"
     ],
-    "lastUpdated": "2026-02-20"
+    "lastUpdated": "2026-02-20",
+    "analogy": "Like reading a sentence word by word while keeping a mental note of everything you have read so far."
   },
   {
     "name": "Large Language Model",
@@ -166,7 +178,8 @@
       "fine-tuning",
       "tokenization"
     ],
-    "lastUpdated": "2026-02-20"
+    "lastUpdated": "2026-02-20",
+    "analogy": "Think of it as a very well-read parrot with a statistical understanding of language but no understanding of truth."
   },
   {
     "name": "Fine-tuning",
@@ -179,7 +192,8 @@
       "large-language-model",
       "machine-learning"
     ],
-    "lastUpdated": "2026-02-20"
+    "lastUpdated": "2026-02-20",
+    "analogy": "Like hiring a general contractor and then training them specifically on your building's quirks before letting them work unsupervised."
   },
   {
     "name": "Transfer Learning",
@@ -192,7 +206,8 @@
       "deep-learning",
       "embedding"
     ],
-    "lastUpdated": "2026-02-20"
+    "lastUpdated": "2026-02-20",
+    "analogy": "Like a professional chef who learned French cuisine and can quickly adapt to Italian — the fundamentals transfer, only the specifics change."
   },
   {
     "name": "Reinforcement Learning",
@@ -205,7 +220,8 @@
       "neural-network",
       "large-language-model"
     ],
-    "lastUpdated": "2026-02-20"
+    "lastUpdated": "2026-02-20",
+    "analogy": "Like training a dog with treats — it tries things, gets rewarded for good behavior, and gradually learns what works."
   },
   {
     "name": "Generative Adversarial Network",
@@ -218,7 +234,8 @@
       "neural-network",
       "loss-function"
     ],
-    "lastUpdated": "2026-02-20"
+    "lastUpdated": "2026-02-20",
+    "analogy": "Like a forger and a detective training each other — the forger gets better at faking, the detective gets better at catching, until the fakes are nearly perfect."
   },
   {
     "name": "Embedding",
@@ -231,7 +248,8 @@
       "transformer",
       "large-language-model"
     ],
-    "lastUpdated": "2026-02-20"
+    "lastUpdated": "2026-02-20",
+    "analogy": "Like assigning GPS coordinates to every word so that words with similar meanings end up in the same neighborhood on a map."
   },
   {
     "name": "Tokenization",
@@ -244,7 +262,8 @@
       "large-language-model",
       "transformer"
     ],
-    "lastUpdated": "2026-02-20"
+    "lastUpdated": "2026-02-20",
+    "analogy": "Like cutting a sentence into puzzle pieces before feeding it to the model — the pieces might be words, parts of words, or individual characters."
   },
   {
     "name": "Batch Normalization",
@@ -257,7 +276,8 @@
       "gradient-descent",
       "overfitting"
     ],
-    "lastUpdated": "2026-02-20"
+    "lastUpdated": "2026-02-20",
+    "analogy": "Like recalibrating a scale between measurements so that small differences do not get lost in the noise."
   },
   {
     "name": "Perceptron",
@@ -270,7 +290,8 @@
       "activation-function",
       "deep-learning"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "The single brick from which all neural network walls are built — simple on its own, powerful in combination."
   },
   {
     "name": "Bias-Variance Tradeoff",
@@ -283,7 +304,8 @@
       "underfitting",
       "regularization"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like choosing between a ruler (simple but rigid) and a flexible wire (fits everything but wobbles) to draw a line through data points."
   },
   {
     "name": "Regularization",
@@ -297,7 +319,8 @@
       "bias-variance-tradeoff",
       "loss-function"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like putting a speed limit on the model — it could go faster on the training track, but the limit keeps it safe on real roads."
   },
   {
     "name": "Dropout",
@@ -310,7 +333,8 @@
       "overfitting",
       "neural-network"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like randomly covering some players' eyes during practice so the team does not rely too heavily on any one player."
   },
   {
     "name": "Learning Rate",
@@ -324,7 +348,8 @@
       "stochastic-gradient-descent",
       "adam-optimizer"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "The size of steps the model takes while learning — too big and it stumbles past the answer, too small and it never arrives."
   },
   {
     "name": "Epoch",
@@ -337,7 +362,8 @@
       "learning-rate",
       "hyperparameter"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "One complete lap around the training track — the model sees every example once before starting the next lap."
   },
   {
     "name": "Stochastic Gradient Descent",
@@ -351,7 +377,8 @@
       "adam-optimizer",
       "backpropagation"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like estimating the average height of a city by measuring random people on the street instead of everyone — faster, noisier, surprisingly effective."
   },
   {
     "name": "Adam Optimizer",
@@ -364,7 +391,8 @@
       "stochastic-gradient-descent",
       "learning-rate"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "The automatic transmission of optimizers — it adjusts the learning rate for each parameter so you do not have to tune it manually."
   },
   {
     "name": "Cross-Entropy",
@@ -377,7 +405,8 @@
       "softmax",
       "gradient-descent"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like a scoring system that punishes confidently wrong predictions far more harshly than uncertain ones."
   },
   {
     "name": "Softmax",
@@ -390,7 +419,8 @@
       "attention-mechanism",
       "temperature"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like converting raw exam scores into percentages that add up to 100 — each class gets a share of the total confidence."
   },
   {
     "name": "Sigmoid",
@@ -403,7 +433,8 @@
       "relu",
       "vanishing-gradients"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like a dimmer switch that smoothly transitions between fully off (0) and fully on (1)."
   },
   {
     "name": "ReLU",
@@ -417,7 +448,8 @@
       "weight-initialization",
       "vanishing-gradients"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "The simplest possible filter — if the signal is positive, let it through; if negative, block it entirely."
   },
   {
     "name": "Weight Initialization",
@@ -431,7 +463,8 @@
       "relu",
       "neural-network"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like choosing the starting position in a race — a bad start can mean you never reach the finish line efficiently."
   },
   {
     "name": "Residual Connection",
@@ -444,7 +477,8 @@
       "neural-network",
       "deep-learning"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like a highway bypass that lets traffic skip past a congested town — the information can take the shortcut if the detour is not useful."
   },
   {
     "name": "Universal Approximation Theorem",
@@ -457,7 +491,8 @@
       "activation-function",
       "deep-learning"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "The mathematical guarantee that a neural network can learn any pattern — it just does not guarantee it will learn it quickly or cheaply."
   },
   {
     "name": "Feature Engineering",
@@ -469,7 +504,8 @@
       "machine-learning",
       "bias-variance-tradeoff"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like a detective hand-selecting clues before presenting a case, instead of dumping the entire evidence room on the jury."
   },
   {
     "name": "Hyperparameter",
@@ -482,7 +518,8 @@
       "regularization",
       "overfitting"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "The knobs and dials on the outside of the machine that you set before pressing start — the machine cannot adjust them itself."
   },
   {
     "name": "Underfitting",
@@ -495,7 +532,8 @@
       "bias-variance-tradeoff",
       "regularization"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like trying to describe a city with just one sentence — you capture so little that the description is useless."
   },
   {
     "name": "Inference",
@@ -507,7 +545,8 @@
       "neural-network",
       "large-language-model"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "The moment the model stops studying and starts answering questions — training is the exam prep, inference is the actual exam."
   },
   {
     "name": "Self-Attention",
@@ -520,7 +559,8 @@
       "multi-head-attention",
       "transformer"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like everyone in a meeting being able to instantly check what everyone else said before forming their own opinion."
   },
   {
     "name": "Multi-Head Attention",
@@ -533,7 +573,8 @@
       "self-attention",
       "transformer"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like having multiple reviewers read the same document simultaneously, each looking for a different thing."
   },
   {
     "name": "Positional Encoding",
@@ -546,7 +587,8 @@
       "self-attention",
       "embedding"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like numbering the pages of a shuffled manuscript so the reader knows what order they go in."
   },
   {
     "name": "Feed-Forward Network",
@@ -559,7 +601,8 @@
       "residual-connection",
       "neural-network"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like a one-way conveyor belt — data goes in one end, gets processed at each station, and comes out the other end. No going back."
   },
   {
     "name": "Temperature",
@@ -572,7 +615,8 @@
       "large-language-model",
       "inference"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like a creativity dial — turn it down for predictable, focused answers; turn it up for surprising, diverse ones."
   },
   {
     "name": "Hallucination",
@@ -585,7 +629,8 @@
       "retrieval-augmented-generation",
       "prompt-engineering"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like a confident tour guide who makes up historical facts when they do not know the answer, and you cannot tell the difference."
   },
   {
     "name": "Retrieval-Augmented Generation",
@@ -599,7 +644,8 @@
       "hallucination",
       "fine-tuning"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like giving a student an open-book exam instead of relying on memory — they still have to write the answer, but now they can check their notes."
   },
   {
     "name": "AI Agent",
@@ -612,7 +658,8 @@
       "retrieval-augmented-generation",
       "prompt-engineering"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Think of it as an intern who can use a computer — powerful, but needs guardrails or it will confidently do the wrong thing at scale."
   },
   {
     "name": "Prompt Engineering",
@@ -625,7 +672,8 @@
       "hallucination",
       "fine-tuning"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like phrasing a question to a genie very carefully — the exact wording determines whether you get what you want or a creative misinterpretation."
   },
   {
     "name": "Vanishing Gradients",
@@ -639,7 +687,8 @@
       "residual-connection",
       "relu"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like a whispered message passing through a long chain of people — by the time it reaches the end, the original message is gone."
   },
   {
     "name": "Exploding Gradients",
@@ -652,7 +701,8 @@
       "backpropagation",
       "gradient-clipping"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like a game of telephone where each person shouts louder than the last — by the end, the message is deafening and incomprehensible."
   },
   {
     "name": "Gradient Clipping",
@@ -665,7 +715,8 @@
       "backpropagation",
       "gradient-descent"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like putting a volume limiter on a speaker — the sound can get loud, but never loud enough to blow out the equipment."
   },
   {
     "name": "Data Augmentation",
@@ -678,7 +729,8 @@
       "overfitting",
       "machine-learning"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like a photographer taking the same photo from different angles, in different lighting, to make one image worth ten."
   },
   {
     "name": "Latent Space",
@@ -691,7 +743,8 @@
       "generative-adversarial-network",
       "deep-learning"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like a compressed zip file of meaning — everything important is preserved, but in a smaller, more organized format."
   },
   {
     "name": "KL Divergence",
@@ -704,7 +757,8 @@
       "loss-function",
       "regularization"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like measuring how different two recipes taste by comparing their ingredient proportions, not the final dish."
   },
   {
     "name": "Knowledge Graph",
@@ -721,7 +775,8 @@
       "entity-linking",
       "cypher"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like a mind map where every fact is a connection between two things — 'Paris is the capital of France' becomes a line between two dots."
   },
   {
     "name": "Vector Database",
@@ -737,7 +792,8 @@
       "dense-retrieval",
       "approximate-nearest-neighbor"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like a library organized not by title or author, but by what each book is about — similar topics sit on nearby shelves."
   },
   {
     "name": "Cosine Similarity",
@@ -751,7 +807,8 @@
       "semantic-search",
       "dense-retrieval"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like comparing the direction two arrows point, regardless of how long they are — same direction means similar meaning."
   },
   {
     "name": "Semantic Search",
@@ -767,7 +824,8 @@
       "bm25",
       "vector-database"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like asking a librarian who understands what you mean, not just the words you used."
   },
   {
     "name": "BM25",
@@ -782,7 +840,8 @@
       "reciprocal-rank-fusion",
       "semantic-search"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like a keyword search engine that is smart enough to know that a rare word in a document matters more than a common one."
   },
   {
     "name": "Chunking",
@@ -796,7 +855,8 @@
       "context-window",
       "retrieval-pipeline"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like cutting a long article into paragraphs before filing them — the pieces need to be small enough to retrieve but large enough to make sense."
   },
   {
     "name": "Reranking",
@@ -811,7 +871,8 @@
       "hybrid-search",
       "dense-retrieval"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like a hiring manager who re-reviews the top 10 resumes from HR with more care before making a final decision."
   },
   {
     "name": "Hybrid Search",
@@ -827,7 +888,8 @@
       "reciprocal-rank-fusion",
       "reranking"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like searching for a restaurant by both name (keyword) and cuisine type (meaning) at the same time."
   },
   {
     "name": "Graph Traversal",
@@ -841,7 +903,8 @@
       "cypher",
       "multi-hop-reasoning"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like following a trail of hyperlinks on Wikipedia — each click takes you to a connected topic."
   },
   {
     "name": "Named Entity Recognition",
@@ -855,7 +918,8 @@
       "knowledge-graph",
       "triple"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like a highlighter that marks every person, place, company, and date in a document automatically."
   },
   {
     "name": "Relation Extraction",
@@ -869,7 +933,8 @@
       "knowledge-graph",
       "entity-linking"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like reading a news article and drawing arrows between the people and companies mentioned, labeled with what connects them."
   },
   {
     "name": "Ontology",
@@ -884,7 +949,8 @@
       "sparql",
       "schema"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like a dictionary that also includes a family tree — it defines terms and explains how they relate to each other."
   },
   {
     "name": "Triple",
@@ -899,7 +965,8 @@
       "relation-extraction",
       "named-entity-recognition"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "The atomic fact format: 'thing A has relationship B with thing C.' Every knowledge graph is just millions of these."
   },
   {
     "name": "Neo4j",
@@ -913,7 +980,8 @@
       "graph-traversal",
       "property-graph"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like a spreadsheet for relationships — instead of rows and columns, you get nodes and connections."
   },
   {
     "name": "FAISS",
@@ -927,7 +995,8 @@
       "embedding",
       "cosine-similarity"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like a GPS system for vectors — it finds the nearest ones without checking every single address in the city."
   },
   {
     "name": "Retrieval Pipeline",
@@ -943,7 +1012,8 @@
       "context-window",
       "grounding"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like an assembly line that finds, filters, sorts, and packages relevant information before handing it to the model."
   },
   {
     "name": "Context Window",
@@ -957,7 +1027,8 @@
       "chunking",
       "tokenization"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like the model's short-term memory — it can only hold so much text at once, and everything outside the window does not exist."
   },
   {
     "name": "Grounding",
@@ -971,7 +1042,8 @@
       "citation",
       "retrieval-pipeline"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like requiring a journalist to cite sources — the model has to show where its claims come from."
   },
   {
     "name": "Citation",
@@ -985,7 +1057,8 @@
       "rag",
       "retrieval-pipeline"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like footnotes in an academic paper — they let you verify whether the model's claims actually come from the source material."
   },
   {
     "name": "Query Routing",
@@ -1000,7 +1073,8 @@
       "retrieval-pipeline",
       "context-fusion"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like a hospital triage nurse — different questions get sent to different specialists based on what kind of help they need."
   },
   {
     "name": "Dense Retrieval",
@@ -1016,7 +1090,8 @@
       "hybrid-search",
       "bi-encoder"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like finding similar songs by comparing their audio fingerprints rather than matching titles or artist names."
   },
   {
     "name": "Sparse Retrieval",
@@ -1030,7 +1105,8 @@
       "tf-idf",
       "hybrid-search"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like finding a book by searching the index in the back — fast, precise, and works best when you know the exact term."
   },
   {
     "name": "Reciprocal Rank Fusion",
@@ -1044,7 +1120,8 @@
       "dense-retrieval",
       "reranking"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like combining the opinions of multiple judges by averaging their rankings instead of their raw scores."
   },
   {
     "name": "Graph Embedding",
@@ -1058,7 +1135,8 @@
       "node2vec",
       "graph-traversal"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like assigning a GPS coordinate to every node in a social network so that well-connected people end up close together on the map."
   },
   {
     "name": "Entity Linking",
@@ -1072,7 +1150,8 @@
       "relation-extraction",
       "triple"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like recognizing that 'The Big Apple', 'NYC', and 'New York City' all refer to the same place and linking them to one entry."
   },
   {
     "name": "Cross-Encoder",
@@ -1085,7 +1164,8 @@
       "reranking",
       "retrieval-pipeline"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like a judge who reads both the question and the answer together before scoring — slower but more accurate."
   },
   {
     "name": "Bi-Encoder",
@@ -1100,7 +1180,8 @@
       "reranking",
       "vector-database"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like pre-sorting books by topic before a patron arrives, so you only need to check one shelf when they ask a question."
   },
   {
     "name": "TF-IDF",
@@ -1113,7 +1194,8 @@
       "sparse-retrieval",
       "hybrid-search"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like weighing a word's importance by how often it appears in a document versus how common it is across all documents — rare words score higher."
   },
   {
     "name": "Cypher",
@@ -1128,7 +1210,8 @@
       "sparql",
       "text-to-cypher"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like SQL but for relationships — instead of querying tables, you query patterns of connections between things."
   },
   {
     "name": "Context Fusion",
@@ -1143,7 +1226,8 @@
       "hybrid-search",
       "grounding"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like a research assistant who gathers notes from five sources and arranges them into one coherent briefing before you read it."
   },
   {
     "name": "Text-to-Cypher",
@@ -1157,7 +1241,8 @@
       "knowledge-graph",
       "query-routing"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like telling a librarian what you want in plain English and having them write the catalog lookup query for you."
   },
   {
     "name": "Approximate Nearest Neighbor",
@@ -1171,7 +1256,8 @@
       "hnsw",
       "embedding"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like finding the closest coffee shop by checking your neighborhood first instead of measuring the distance to every shop in the city."
   },
   {
     "name": "HNSW",
@@ -1184,7 +1270,8 @@
       "vector-database",
       "faiss"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like a network of express highways connecting neighborhoods — you can jump between distant areas quickly without driving through every street."
   },
   {
     "name": "Multi-Hop Reasoning",
@@ -1199,7 +1286,8 @@
       "context-fusion",
       "rag"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like solving a mystery by connecting clues from different scenes — no single clue gives you the answer, but together they do."
   },
   {
     "name": "GraphRAG",
@@ -1214,7 +1302,8 @@
       "query-routing",
       "multi-hop-reasoning"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like giving a student both a textbook and a concept map — the graph provides structure, the documents provide detail."
   },
   {
     "name": "SPARQL",
@@ -1229,7 +1318,8 @@
       "triple",
       "knowledge-graph"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like SQL for the Semantic Web — powerful and precise, but used by roughly the same number of people as speak fluent Latin."
   },
   {
     "name": "RDF",
@@ -1243,7 +1333,8 @@
       "ontology",
       "knowledge-graph"
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like a universal format for facts — everything is a subject-predicate-object sentence that machines can read and link together."
   },
   {
     "name": "GPT-4o",
@@ -1270,7 +1361,8 @@
         "title": "OpenAI - GPT-4o System Card (PDF)",
         "url": "https://openai.com/index/gpt-4o-system-card/"
       }
-    ]
+    ],
+    "analogy": "OpenAI's multimodal model that handles text, images, and audio — like upgrading from a text-only assistant to one that can see and hear."
   },
   {
     "name": "GPT-4.1",
@@ -1293,7 +1385,8 @@
         "title": "OpenAI Platform - GPT-4.1 Documentation",
         "url": "https://platform.openai.com/docs/models"
       }
-    ]
+    ],
+    "analogy": "A refined GPT-4 variant — like a software patch that improves instruction following without changing the major version number."
   },
   {
     "name": "OpenAI o3",
@@ -1316,7 +1409,8 @@
         "title": "OpenAI Platform - o3 Model Documentation",
         "url": "https://platform.openai.com/docs/models"
       }
-    ]
+    ],
+    "analogy": "A reasoning-first model — like a chess player that thinks several moves ahead before answering, trading speed for accuracy."
   },
   {
     "name": "OpenAI o4-mini",
@@ -1339,7 +1433,8 @@
         "title": "OpenAI Platform - o4-mini Documentation",
         "url": "https://platform.openai.com/docs/models"
       }
-    ]
+    ],
+    "analogy": "The budget reasoning model — like getting 80% of the reasoning power at 20% of the cost."
   },
   {
     "name": "GPT-5",
@@ -1362,7 +1457,8 @@
         "title": "OpenAI Platform - GPT-5 Documentation",
         "url": "https://platform.openai.com/docs/models"
       }
-    ]
+    ],
+    "analogy": "OpenAI's next frontier model — like upgrading from a skilled intern to a junior employee who needs less supervision."
   },
   {
     "name": "GPT-5.2",
@@ -1385,7 +1481,8 @@
         "title": "OpenAI Platform - Models Overview",
         "url": "https://platform.openai.com/docs/models"
       }
-    ]
+    ],
+    "analogy": "The iterative improvement — like a car model year refresh that fixes small issues without a full redesign."
   },
   {
     "name": "Claude Sonnet 4.5",
@@ -1412,7 +1509,8 @@
         "title": "Anthropic API - Claude Documentation",
         "url": "https://platform.claude.com/docs/en/about-claude/models/overview"
       }
-    ]
+    ],
+    "analogy": "Anthropic's mid-range model — like a reliable work truck that handles most jobs without the price tag of a luxury vehicle."
   },
   {
     "name": "Claude Opus 4.5",
@@ -1439,7 +1537,8 @@
         "title": "Anthropic API - Claude Documentation",
         "url": "https://platform.claude.com/docs/en/about-claude/models/overview"
       }
-    ]
+    ],
+    "analogy": "Anthropic's flagship with extended thinking — like hiring a consultant who takes longer to respond but delivers more thorough analysis."
   },
   {
     "name": "Claude Haiku 4.5",
@@ -1462,7 +1561,8 @@
         "title": "Anthropic - Claude Models Overview",
         "url": "https://docs.anthropic.com/en/docs/about-claude/models"
       }
-    ]
+    ],
+    "analogy": "The fast and cheap model — like a pocket calculator that handles 90% of your math needs instantly."
   },
   {
     "name": "Claude Opus 4.6",
@@ -1494,7 +1594,8 @@
         "title": "Vellum - Claude Opus 4.6 Benchmarks Explained",
         "url": "https://www.vellum.ai/blog/claude-opus-4-6-benchmarks"
       }
-    ]
+    ],
+    "analogy": "Anthropic's most capable model — like upgrading from binoculars to a telescope, with the caveat that it might look at things you did not point it at."
   },
   {
     "name": "Claude Sonnet 4.6",
@@ -1526,7 +1627,8 @@
         "title": "VentureBeat - Sonnet 4.6 Matches Flagship Performance at 1/5th Cost",
         "url": "https://venturebeat.com/technology/anthropics-sonnet-4-6-matches-flagship-ai-performance-at-one-fifth-the-cost"
       }
-    ]
+    ],
+    "analogy": "The everyday workhorse — like a Swiss Army knife that is good enough at most tasks that you rarely need the specialized tool."
   },
   {
     "name": "Gemini 2.5 Pro",
@@ -1553,7 +1655,8 @@
         "title": "Google AI Studio - Try Gemini",
         "url": "https://aistudio.google.com/"
       }
-    ]
+    ],
+    "analogy": "Google's million-token model — like a speed reader who can process an entire bookshelf before answering your question."
   },
   {
     "name": "Gemini 2.5 Flash",
@@ -1580,7 +1683,8 @@
         "title": "Google - Gemini 2.5 Flash Model Card (PDF)",
         "url": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-2-5-Flash-Model-Card.pdf"
       }
-    ]
+    ],
+    "analogy": "The fast Gemini variant — like express shipping: you pay less, it arrives sooner, and the contents are almost always fine."
   },
   {
     "name": "Gemini 3.1 Pro",
@@ -1607,7 +1711,8 @@
         "title": "Google AI - Gemini API Models",
         "url": "https://ai.google.dev/gemini-api/docs/models"
       }
-    ]
+    ],
+    "analogy": "Google's latest flagship — like a new model year car that benchmarks better on every spec but still drives on the same roads."
   },
   {
     "name": "DeepSeek R1",
@@ -1638,7 +1743,8 @@
         "title": "arXiv - DeepSeek-R1 Paper",
         "url": "https://arxiv.org/abs/2501.12948"
       }
-    ]
+    ],
+    "analogy": "An open-weight reasoning model — like a high-performance engine blueprint that anyone can build from, not just the original manufacturer."
   },
   {
     "name": "DeepSeek V3",
@@ -1669,7 +1775,8 @@
         "title": "arXiv - DeepSeek-V3 Paper",
         "url": "https://arxiv.org/abs/2412.19437"
       }
-    ]
+    ],
+    "analogy": "The efficient Chinese model — like a budget airline that gets you to the same destination as business class, just with less legroom."
   },
   {
     "name": "Llama 4 Scout",
@@ -1696,7 +1803,8 @@
         "title": "Llama - Official Website",
         "url": "https://www.llama.com/"
       }
-    ]
+    ],
+    "analogy": "Meta's smaller Llama 4 — like a scout car sent ahead of the convoy, fast and light but not carrying the full payload."
   },
   {
     "name": "Llama 4 Maverick",
@@ -1723,7 +1831,8 @@
         "title": "Llama - Official Website",
         "url": "https://www.llama.com/"
       }
-    ]
+    ],
+    "analogy": "Meta's MoE model — like a team of specialists where only the relevant experts show up for each task."
   },
   {
     "name": "Qwen 3",
@@ -1754,7 +1863,8 @@
         "title": "Alibaba Cloud - Qwen3 Announcement",
         "url": "https://www.alibabacloud.com/blog/alibaba-introduces-qwen3-setting-new-benchmark-in-open-source-ai-with-hybrid-reasoning_602192"
       }
-    ]
+    ],
+    "analogy": "Alibaba's competitive model — like a strong regional airline that matches the major carriers on routes it covers."
   },
   {
     "name": "Grok 3",
@@ -1781,7 +1891,8 @@
         "title": "Grok - Try Grok",
         "url": "https://grok.com/"
       }
-    ]
+    ],
+    "analogy": "xAI's model trained on social media — like a conversationalist who has been to every party and heard every opinion."
   },
   {
     "name": "Grok 4",
@@ -1804,7 +1915,8 @@
         "title": "Grok - Try Grok",
         "url": "https://grok.com/"
       }
-    ]
+    ],
+    "analogy": "xAI's flagship — like a debate champion who is fast on their feet but occasionally argues a point just because they can."
   },
   {
     "name": "Mistral Medium 3",
@@ -1831,7 +1943,8 @@
         "title": "Mistral AI - La Plateforme",
         "url": "https://console.mistral.ai/"
       }
-    ]
+    ],
+    "analogy": "The French mid-range model — like a well-made European car: smaller than American alternatives, efficient, and surprisingly capable."
   },
   {
     "name": "GPT-oss-120b",
@@ -1854,7 +1967,8 @@
         "title": "Hugging Face - GPT-oss-120b",
         "url": "https://huggingface.co/openai"
       }
-    ]
+    ],
+    "analogy": "OpenAI's open-weight model — like a major brand releasing their recipe so anyone can cook the dish at home."
   },
   {
     "name": "TRM (Tiny Recursive Model)",
@@ -1881,7 +1995,8 @@
         "url": "https://huggingface.co/papers/2510.04871"
       }
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "A model that refines by re-reading its own output — like an author who edits their own draft multiple times before submitting."
   },
   {
     "name": "Hugging Face",
@@ -1912,7 +2027,8 @@
         "url": "https://github.com/huggingface/transformers"
       }
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Like an app store for machine learning models — browse, download, and deploy, with reviews and documentation for each."
   },
   {
     "name": "Kimi K2",
@@ -1939,7 +2055,8 @@
         "url": "https://venturebeat.com/ai/moonshots-kimi-k2-thinking-emerges-as-leading-open-source-ai-outperforming"
       }
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Moonshot AI's long-context model — like a reader with photographic memory who can recall details from hundreds of pages."
   },
   {
     "name": "Kimi K2.5",
@@ -1966,7 +2083,8 @@
         "url": "https://build.nvidia.com/moonshotai/kimi-k2.5/modelcard"
       }
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "The improved Kimi — like a sequel that fixes the pacing issues while keeping everything that worked in the original."
   },
   {
     "name": "GLM-4.5",
@@ -1997,7 +2115,8 @@
         "url": "https://z.ai/model-api"
       }
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Zhipu AI's model — like a specialist doctor who is the best in their region but rarely consulted outside it."
   },
   {
     "name": "Doubao 1.5 Pro",
@@ -2024,7 +2143,8 @@
         "url": "https://github.com/ByteDance-Seed"
       }
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "ByteDance's model — like discovering the company behind your favorite short videos also makes a solid professional tool."
   },
   {
     "name": "ERNIE 4.5",
@@ -2051,7 +2171,8 @@
         "url": "https://yiyan.baidu.com/"
       }
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "Baidu's model — like a search engine that graduated to answering questions instead of just linking to pages."
   },
   {
     "name": "Yi-Lightning",
@@ -2082,7 +2203,8 @@
         "url": "https://www.01.ai/"
       }
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "01.AI's speed-focused model — like a sprinter who may not win the marathon but will always win the 100-meter dash."
   },
   {
     "name": "MiniMax M2.5",
@@ -2105,7 +2227,8 @@
         "url": "https://venturebeat.com/technology/minimaxs-new-open-m2-5-and-m2-5-lightning-near-state-of-the-art-while"
       }
     ],
-    "lastUpdated": "2026-02-22"
+    "lastUpdated": "2026-02-22",
+    "analogy": "A multimodal model — like a studio musician who can play multiple instruments competently rather than one instrument brilliantly."
   },
   {
     "name": "OpenClaw (ClawdBot)",
@@ -2149,7 +2272,8 @@
         "url": "https://www.cnbc.com/2026/02/15/openclaw-creator-peter-steinberger-joining-openai-altman-says.html"
       }
     ],
-    "lastUpdated": "2026-02-23"
+    "lastUpdated": "2026-02-23",
+    "analogy": "Like a product with five-star reviews that turns out to work differently than the demo suggested."
   },
   {
     "name": "MoltBot",
@@ -2172,7 +2296,8 @@
         "url": "https://www.cnbc.com/2026/01/moltbot-openclaw-ai-agent/"
       }
     ],
-    "lastUpdated": "2026-02-23"
+    "lastUpdated": "2026-02-23",
+    "analogy": "Like a chemistry lab assistant that can predict molecular properties from a formula — narrow, deep, and genuinely useful."
   },
   {
     "name": "MoltBook",
@@ -2200,7 +2325,8 @@
         "url": "https://www.npr.org/2026/02/moltbook-ai-agents-investigation/"
       }
     ],
-    "lastUpdated": "2026-02-23"
+    "lastUpdated": "2026-02-23",
+    "analogy": "Like a lab notebook companion to MoltBot — where you document, visualize, and compare molecular predictions."
   },
   {
     "name": "OpenAI",
@@ -2239,7 +2365,8 @@
         "url": "https://sacra.com/c/openai/"
       }
     ],
-    "lastUpdated": "2026-02-23"
+    "lastUpdated": "2026-02-23",
+    "analogy": "Like the company that opened Pandora's box, named it 'open,' and then put a subscription fee on looking inside."
   },
   {
     "name": "Anthropic",
@@ -2275,7 +2402,8 @@
         "url": "https://research.contrary.com/company/anthropic"
       }
     ],
-    "lastUpdated": "2026-02-23"
+    "lastUpdated": "2026-02-23",
+    "analogy": "Like a safety-conscious lab that builds powerful tools while publishing papers about why those tools might be dangerous."
   },
   {
     "name": "Google DeepMind",
@@ -2312,7 +2440,8 @@
         "url": "https://deepmind.google/models/model-cards/"
       }
     ],
-    "lastUpdated": "2026-02-23"
+    "lastUpdated": "2026-02-23",
+    "analogy": "Like merging two Formula 1 teams — both were fast individually, and the combined team has the best garage but sometimes trips over its own pit crew."
   },
   {
     "name": "Meta AI",
@@ -2349,7 +2478,8 @@
         "url": "https://ai.meta.com/llama/"
       }
     ],
-    "lastUpdated": "2026-02-23"
+    "lastUpdated": "2026-02-23",
+    "analogy": "Like a tech giant that gives away the engine for free because they make their money on the fuel."
   },
   {
     "name": "xAI",
@@ -2387,7 +2517,8 @@
         "url": "https://en.wikipedia.org/wiki/Colossus_(supercomputer)"
       }
     ],
-    "lastUpdated": "2026-02-23"
+    "lastUpdated": "2026-02-23",
+    "analogy": "Like starting a car company because you thought the existing ones were not ambitious enough — except it is an AI company."
   },
   {
     "name": "Recursive Language Model (RLM)",
@@ -2419,7 +2550,8 @@
         "url": "https://github.com/alexzhang13/rlm"
       }
     ],
-    "lastUpdated": "2026-02-24"
+    "lastUpdated": "2026-02-24",
+    "analogy": "Like an editor who reads their own writing, rewrites it, reads the rewrite, and repeats until the deadline or the budget runs out."
   },
   {
     "name": "Chatbot",
@@ -2446,7 +2578,8 @@
         "url": "https://cyfuture.ai/blog/ai-chatbots"
       }
     ],
-    "lastUpdated": "2026-02-25"
+    "lastUpdated": "2026-02-25",
+    "analogy": "Like a customer service representative who never sleeps, never gets annoyed, and occasionally makes up company policies."
   },
   {
     "name": "Turing Test",
@@ -2473,7 +2606,8 @@
         "url": "https://www.britannica.com/technology/Turing-test"
       }
     ],
-    "lastUpdated": "2026-02-25"
+    "lastUpdated": "2026-02-25",
+    "analogy": "Like a blindfolded taste test for intelligence — if you cannot tell the difference, does it matter which one is real?"
   },
   {
     "name": "Small Language Model (SLM)",
@@ -2504,7 +2638,8 @@
         "url": "https://www.redhat.com/en/topics/ai/llm-vs-slm"
       }
     ],
-    "lastUpdated": "2026-02-25"
+    "lastUpdated": "2026-02-25",
+    "analogy": "Like a pocket dictionary versus an encyclopedia — less comprehensive, but fits in your pocket and answers instantly."
   },
   {
     "name": "Binary",
@@ -2516,7 +2651,8 @@
       "inference",
       "docker-image"
     ],
-    "lastUpdated": "2026-02-25"
+    "lastUpdated": "2026-02-25",
+    "analogy": "The language of ones and zeros — like a light switch that only knows on and off, yet somehow runs everything."
   },
   {
     "name": "Docker Image",
@@ -2528,7 +2664,8 @@
       "cold-start",
       "inference"
     ],
-    "lastUpdated": "2026-02-25"
+    "lastUpdated": "2026-02-25",
+    "analogy": "Like a shipping container for software — everything the app needs is packed inside, and it runs the same way on any ship."
   },
   {
     "name": "Cold Start",
@@ -2540,7 +2677,8 @@
       "inference",
       "docker-image"
     ],
-    "lastUpdated": "2026-02-25"
+    "lastUpdated": "2026-02-25",
+    "analogy": "Like opening a restaurant on day one with no reviews, no regulars, and no idea what the neighborhood wants to eat."
   },
   {
     "name": "RAM",
@@ -2553,7 +2691,8 @@
       "large-language-model",
       "fine-tuning"
     ],
-    "lastUpdated": "2026-02-25"
+    "lastUpdated": "2026-02-25",
+    "analogy": "Like the size of your desk — the more space you have, the more documents you can spread out and work with simultaneously."
   },
   {
     "name": "Tool Calling",
@@ -2566,7 +2705,8 @@
       "large-language-model",
       "prompt-engineering"
     ],
-    "lastUpdated": "2026-02-25"
+    "lastUpdated": "2026-02-25",
+    "analogy": "Like giving the model a phone and a list of contacts — it can now call external services instead of guessing from memory."
   },
   {
     "name": "Ollama",
@@ -2579,7 +2719,8 @@
       "inference",
       "ram"
     ],
-    "lastUpdated": "2026-02-25"
+    "lastUpdated": "2026-02-25",
+    "analogy": "Like a personal coffee machine for AI — brew your own models at home instead of buying from the cloud cafe every time."
   },
   {
     "name": "Pattern Matching",
@@ -2592,7 +2733,8 @@
       "semantic-search",
       "machine-learning"
     ],
-    "lastUpdated": "2026-02-25"
+    "lastUpdated": "2026-02-25",
+    "analogy": "Like a detective pinning photos to a board and drawing lines between them — finding connections in the data."
   },
   {
     "name": "Vibe Coding",
@@ -2605,7 +2747,8 @@
       "prompt-engineering",
       "ai-agent"
     ],
-    "lastUpdated": "2026-02-25"
+    "lastUpdated": "2026-02-25",
+    "analogy": "Like dictating a letter to someone who types faster than you but occasionally writes what they think you meant instead of what you said."
   },
   {
     "name": "Zero-day",
@@ -2617,7 +2760,8 @@
       "machine-learning",
       "inference"
     ],
-    "lastUpdated": "2026-02-25"
+    "lastUpdated": "2026-02-25",
+    "analogy": "Like discovering a hidden unlocked door in a bank vault — the bank does not know it exists, and you found it first."
   },
   {
     "name": "KV Cache",
@@ -2632,7 +2776,8 @@
       "context-window",
       "ram"
     ],
-    "lastUpdated": "2026-02-26"
+    "lastUpdated": "2026-02-26",
+    "analogy": "Like a waiter who remembers your previous orders so you do not have to repeat your entire dining history every time you add a dish."
   },
   {
     "name": "GPU",
@@ -2647,7 +2792,8 @@
       "large-language-model",
       "backpropagation"
     ],
-    "lastUpdated": "2026-02-26"
+    "lastUpdated": "2026-02-26",
+    "analogy": "Like a factory floor with thousands of simple workers who can all do the same task simultaneously — slow individually, overwhelming collectively."
   },
   {
     "name": "Quantization",
@@ -2662,7 +2808,8 @@
       "large-language-model",
       "ollama"
     ],
-    "lastUpdated": "2026-02-26"
+    "lastUpdated": "2026-02-26",
+    "analogy": "Like compressing a high-resolution photo to save storage — you lose some detail, but the image is still recognizable and much smaller."
   },
   {
     "name": "CUDA",
@@ -2676,7 +2823,8 @@
       "inference",
       "large-language-model"
     ],
-    "lastUpdated": "2026-02-26"
+    "lastUpdated": "2026-02-26",
+    "analogy": "Like the only road that leads to NVIDIA's GPU factory — you can take it or stay home, but there is no alternative highway."
   },
   {
     "name": "Artificial Analysis",
@@ -2689,7 +2837,8 @@
       "inference",
       "gpqa-diamond"
     ],
-    "lastUpdated": "2026-02-26"
+    "lastUpdated": "2026-02-26",
+    "analogy": "Like Consumer Reports for AI models — independent testing of speed, cost, and quality across providers."
   },
   {
     "name": "GPQA Diamond",
@@ -2702,7 +2851,8 @@
       "artificial-analysis",
       "lmarena"
     ],
-    "lastUpdated": "2026-02-26"
+    "lastUpdated": "2026-02-26",
+    "analogy": "Like a PhD qualifying exam for AI — the questions are hard enough that human experts regularly fail them too."
   },
   {
     "name": "AIME",
@@ -2715,7 +2865,8 @@
       "artificial-analysis",
       "gpqa-diamond"
     ],
-    "lastUpdated": "2026-02-26"
+    "lastUpdated": "2026-02-26",
+    "analogy": "Like a math olympiad for AI — the problems have clean answers but require genuine reasoning to solve, not pattern matching."
   },
   {
     "name": "MMMU-Pro",
@@ -2728,7 +2879,8 @@
       "artificial-analysis",
       "gpqa-diamond"
     ],
-    "lastUpdated": "2026-02-26"
+    "lastUpdated": "2026-02-26",
+    "analogy": "Like a visual reasoning exam — can the model actually read the chart, or does it just describe what charts generally look like?"
   },
   {
     "name": "LMArena",
@@ -2742,7 +2894,8 @@
       "gpqa-diamond",
       "aime"
     ],
-    "lastUpdated": "2026-02-26"
+    "lastUpdated": "2026-02-26",
+    "analogy": "Like a talent show where the audience votes — popular does not always mean best, but the rankings still reveal preferences."
   },
   {
     "name": "Benchmark",
@@ -2757,7 +2910,8 @@
       "lmarena",
       "artificial-analysis"
     ],
-    "lastUpdated": "2026-02-26"
+    "lastUpdated": "2026-02-26",
+    "analogy": "Like a standardized test — useful for comparing candidates, but it does not tell you how they will perform on the actual job."
   },
   {
     "name": "API",
@@ -2771,7 +2925,8 @@
       "inference",
       "ai-agent"
     ],
-    "lastUpdated": "2026-02-26"
+    "lastUpdated": "2026-02-26",
+    "analogy": "Like a restaurant menu — it tells you what you can order and how to ask for it, without revealing what happens in the kitchen."
   },
   {
     "name": "MCP",
@@ -2786,7 +2941,8 @@
       "anthropic",
       "openai"
     ],
-    "lastUpdated": "2026-02-26"
+    "lastUpdated": "2026-02-26",
+    "analogy": "Like a universal adapter plug — it lets any AI agent connect to any tool using one standardized interface."
   },
   {
     "name": "Open Source",
@@ -2800,7 +2956,8 @@
       "large-language-model",
       "fine-tuning"
     ],
-    "lastUpdated": "2026-02-26"
+    "lastUpdated": "2026-02-26",
+    "analogy": "Like a recipe anyone can cook, modify, and share — the dish improves as more cooks contribute."
   },
   {
     "name": "Open Weight Model",
@@ -2815,7 +2972,8 @@
       "ollama",
       "hugging-face"
     ],
-    "lastUpdated": "2026-02-26"
+    "lastUpdated": "2026-02-26",
+    "analogy": "Like getting the recipe but not the ingredients list or cooking technique — you can serve the dish but cannot easily replicate the process."
   },
   {
     "name": "SaaS",
@@ -2828,7 +2986,8 @@
       "tool-calling",
       "ai-agent"
     ],
-    "lastUpdated": "2026-02-26"
+    "lastUpdated": "2026-02-26",
+    "analogy": "Like renting an apartment instead of buying a house — less upfront cost, but you are paying every month and someone else controls the thermostat."
   },
   {
     "name": "Foundation Model",
@@ -2843,7 +3002,8 @@
       "open-weight-model",
       "mcp"
     ],
-    "lastUpdated": "2026-02-26"
+    "lastUpdated": "2026-02-26",
+    "analogy": "Like a liberal arts degree — it gives you a broad base of knowledge that you can specialize on top of."
   },
   {
     "name": "Prompt Injection",
@@ -2857,7 +3017,8 @@
       "large-language-model",
       "zero-day"
     ],
-    "lastUpdated": "2026-02-26"
+    "lastUpdated": "2026-02-26",
+    "analogy": "Like slipping a forged note into someone's inbox that says 'ignore all previous instructions' — and it works."
   },
   {
     "name": "Gemini",
@@ -2872,7 +3033,8 @@
       "gemini-2-5-pro",
       "context-window"
     ],
-    "lastUpdated": "2026-02-27"
+    "lastUpdated": "2026-02-27",
+    "analogy": "Like Google's Swiss Army knife for AI — multiple sizes, multiple modalities, tightly integrated with the Google ecosystem."
   },
   {
     "name": "ChatGPT",
@@ -2886,7 +3048,8 @@
       "large-language-model",
       "tool-calling"
     ],
-    "lastUpdated": "2026-02-27"
+    "lastUpdated": "2026-02-27",
+    "analogy": "Like the iPhone of AI — not the first, not always the best, but the one that made everyone pay attention."
   },
   {
     "name": "Claude Code",
@@ -2901,7 +3064,8 @@
       "tool-calling",
       "vibe-coding"
     ],
-    "lastUpdated": "2026-02-27"
+    "lastUpdated": "2026-02-27",
+    "analogy": "Like a senior developer who lives in your terminal — reads your codebase, suggests changes, and executes them with your permission."
   },
   {
     "name": "Codex",
@@ -2916,7 +3080,8 @@
       "tool-calling",
       "vibe-coding"
     ],
-    "lastUpdated": "2026-02-27"
+    "lastUpdated": "2026-02-27",
+    "analogy": "Like a remote contractor who works in a sandbox — you describe the task, they build it in isolation, and you review the result."
   },
   {
     "name": "Cursor",
@@ -2930,7 +3095,8 @@
       "large-language-model",
       "codex"
     ],
-    "lastUpdated": "2026-02-27"
+    "lastUpdated": "2026-02-27",
+    "analogy": "Like pair programming with an AI that types faster than you and occasionally commits code you did not fully review."
   },
   {
     "name": "Windsurf",
@@ -2945,7 +3111,8 @@
       "openai",
       "vibe-coding"
     ],
-    "lastUpdated": "2026-02-27"
+    "lastUpdated": "2026-02-27",
+    "analogy": "Like an AI co-pilot for your editor — it watches what you are doing and offers to take over the boring parts."
   },
   {
     "name": "GitHub Copilot",
@@ -2961,7 +3128,8 @@
       "openai",
       "vibe-coding"
     ],
-    "lastUpdated": "2026-02-27"
+    "lastUpdated": "2026-02-27",
+    "analogy": "Like autocomplete that graduated from finishing your sentences to finishing your functions."
   },
   {
     "name": "SVM",
@@ -2975,7 +3143,8 @@
       "hyperparameter",
       "feature-engineering"
     ],
-    "lastUpdated": "2026-02-27"
+    "lastUpdated": "2026-02-27",
+    "analogy": "Like drawing the widest possible line between two groups on a scatter plot — simple, effective, and completely out of fashion."
   },
   {
     "name": "KNN",
@@ -2989,7 +3158,8 @@
       "cosine-similarity",
       "approximate-nearest-neighbor"
     ],
-    "lastUpdated": "2026-02-27"
+    "lastUpdated": "2026-02-27",
+    "analogy": "Like asking your five nearest neighbors for a restaurant recommendation and going with the majority vote."
   },
   {
     "name": "Clustering",
@@ -3003,7 +3173,8 @@
       "cosine-similarity",
       "vector-database"
     ],
-    "lastUpdated": "2026-02-27"
+    "lastUpdated": "2026-02-27",
+    "analogy": "Like sorting a pile of laundry by color without being told what the color categories are — the algorithm decides."
   },
   {
     "name": "Reasoning",
@@ -3018,7 +3189,8 @@
       "aime",
       "inference"
     ],
-    "lastUpdated": "2026-02-27"
+    "lastUpdated": "2026-02-27",
+    "analogy": "Like showing your work on a math test — the model breaks the problem into steps instead of jumping straight to an answer."
   },
   {
     "name": "Chain of Thought",
@@ -3033,7 +3205,8 @@
       "inference",
       "temperature"
     ],
-    "lastUpdated": "2026-02-27"
+    "lastUpdated": "2026-02-27",
+    "analogy": "Like thinking out loud before giving your final answer — the intermediate steps reduce the chance of a wrong conclusion."
   },
   {
     "name": "Artificial Intelligence",
@@ -3048,7 +3221,8 @@
       "neural-network",
       "turing-test"
     ],
-    "lastUpdated": "2026-02-27"
+    "lastUpdated": "2026-02-27",
+    "analogy": "Like electricity in the early 1900s — everyone knows it will change everything, but nobody agrees on exactly how or when."
   },
   {
     "name": "Natural Language Processing",
@@ -3063,7 +3237,8 @@
       "named-entity-recognition",
       "embedding"
     ],
-    "lastUpdated": "2026-02-27"
+    "lastUpdated": "2026-02-27",
+    "analogy": "Like teaching a calculator to understand poetry — bridging the gap between human expression and machine computation."
   },
   {
     "name": "Context Rot",
@@ -3078,7 +3253,8 @@
       "recursive-language-model",
       "prompt-engineering"
     ],
-    "lastUpdated": "2026-02-28"
+    "lastUpdated": "2026-02-28",
+    "analogy": "Like a long phone conversation where you both forget what was said an hour ago — the model's attention drifts as context grows."
   },
   {
     "name": "Perplexity",
@@ -3093,7 +3269,8 @@
       "openai",
       "gemini"
     ],
-    "lastUpdated": "2026-02-28"
+    "lastUpdated": "2026-02-28",
+    "analogy": "Like a surprise meter — low perplexity means the model expected what came next; high perplexity means it was caught off guard."
   },
   {
     "name": "Artificial Relevance",
@@ -3109,7 +3286,8 @@
       "embedding",
       "hallucination"
     ],
-    "lastUpdated": "2026-03-01"
+    "lastUpdated": "2026-03-01",
+    "analogy": "Like a search result that looks right in the preview but turns out to be about a completely different topic when you click through."
   },
   {
     "name": "Vectorless Retrieval",
@@ -3125,7 +3303,8 @@
       "embedding",
       "large-language-model"
     ],
-    "lastUpdated": "2026-03-01"
+    "lastUpdated": "2026-03-01",
+    "analogy": "Like finding a book by checking the card catalog instead of wandering through the shelves until something feels similar."
   },
   {
     "name": "Zero-Shot / Few-Shot Learning",
@@ -3138,7 +3317,8 @@
       "large-language-model",
       "inference"
     ],
-    "lastUpdated": "2026-03-01"
+    "lastUpdated": "2026-03-01",
+    "analogy": "Like asking someone to cook a dish they have never made — zero-shot is from the recipe name alone, few-shot is with a couple of example photos."
   },
   {
     "name": "System Prompt",
@@ -3151,7 +3331,8 @@
       "prompt-injection",
       "large-language-model"
     ],
-    "lastUpdated": "2026-03-01"
+    "lastUpdated": "2026-03-01",
+    "analogy": "Like stage directions for an actor — the audience never sees them, but they shape every line the performer delivers."
   },
   {
     "name": "Inference-Time Compute",
@@ -3164,7 +3345,8 @@
       "reasoning",
       "chain-of-thought"
     ],
-    "lastUpdated": "2026-03-01"
+    "lastUpdated": "2026-03-01",
+    "analogy": "Like giving a student extra time on an exam — more thinking time produces better answers, but the clock still costs money."
   },
   {
     "name": "Model Distillation",
@@ -3177,7 +3359,8 @@
       "large-language-model",
       "quantization"
     ],
-    "lastUpdated": "2026-03-01"
+    "lastUpdated": "2026-03-01",
+    "analogy": "Like a senior employee training a junior to handle the routine work — the junior is faster and cheaper, but cannot handle the edge cases."
   },
   {
     "name": "Orchestration Layer",
@@ -3190,7 +3373,8 @@
       "mcp",
       "rag"
     ],
-    "lastUpdated": "2026-03-01"
+    "lastUpdated": "2026-03-01",
+    "analogy": "Like an air traffic controller coordinating multiple planes — each agent does its job, but someone has to prevent collisions."
   },
   {
     "name": "Agentic AI",
@@ -3204,7 +3388,8 @@
       "reasoning",
       "mcp"
     ],
-    "lastUpdated": "2026-03-01"
+    "lastUpdated": "2026-03-01",
+    "analogy": "Like a self-driving car for tasks — it handles the driving, but you still need to set the destination and check the route."
   },
   {
     "name": "Random Forest",
@@ -3217,7 +3402,8 @@
       "svm",
       "knn"
     ],
-    "lastUpdated": "2026-03-01"
+    "lastUpdated": "2026-03-01",
+    "analogy": "Like polling a crowd of decision-makers and going with the majority — each individual might be wrong, but the group is usually right."
   },
   {
     "name": "Bidirectional Influence",
@@ -3231,7 +3417,8 @@
       "rlhf",
       "fine-tuning"
     ],
-    "lastUpdated": "2026-03-01"
+    "lastUpdated": "2026-03-01",
+    "analogy": "Like two people in a long conversation who gradually start using each other's phrases without realizing it."
   },
   {
     "name": "Sycophancy",
@@ -3245,7 +3432,8 @@
       "bidirectional-influence",
       "fine-tuning"
     ],
-    "lastUpdated": "2026-03-01"
+    "lastUpdated": "2026-03-01",
+    "analogy": "Like a yes-man who agrees with everything you say — reassuring in the moment, dangerous when you actually need honest feedback."
   },
   {
     "name": "RLHF",
@@ -3259,7 +3447,8 @@
       "large-language-model",
       "bidirectional-influence"
     ],
-    "lastUpdated": "2026-03-01"
+    "lastUpdated": "2026-03-01",
+    "analogy": "Like teaching a dog by giving treats for good behavior — the model learns what humans prefer by being rewarded for preferred responses."
   },
   {
     "name": "AI Memory",
@@ -3272,7 +3461,8 @@
       "fine-tuning",
       "bidirectional-influence"
     ],
-    "lastUpdated": "2026-03-02"
+    "lastUpdated": "2026-03-02",
+    "analogy": "Like a personal assistant who remembers your preferences across meetings — helpful until you wonder exactly how much they have been writing down."
   },
   {
     "name": "Autonomous AI",
@@ -3285,7 +3475,8 @@
       "artificial-intelligence",
       "reasoning"
     ],
-    "lastUpdated": "2026-03-02"
+    "lastUpdated": "2026-03-02",
+    "analogy": "Like a self-driving car that has left the test track — promising technology, but you still want to know where the brake pedal is."
   },
   {
     "name": "Text Mining",
@@ -3298,7 +3489,8 @@
       "semantic-search",
       "machine-learning"
     ],
-    "lastUpdated": "2026-03-04"
+    "lastUpdated": "2026-03-04",
+    "analogy": "Like panning for gold in a river of documents — most of what you sift through is sand, but the nuggets are valuable."
   },
   {
     "name": "Mixture of Experts",
@@ -3312,7 +3504,8 @@
       "load-balancing",
       "transformer"
     ],
-    "lastUpdated": "2026-03-05"
+    "lastUpdated": "2026-03-05",
+    "analogy": "Like a hospital with specialist doctors — each patient gets routed to the right expert instead of seeing one general practitioner for everything."
   },
   {
     "name": "Sparse Model",
@@ -3325,7 +3518,8 @@
       "routing-network",
       "neural-network"
     ],
-    "lastUpdated": "2026-03-05"
+    "lastUpdated": "2026-03-05",
+    "analogy": "Like a department store where only the relevant departments open for each customer — the unused sections stay dark to save energy."
   },
   {
     "name": "Routing Network",
@@ -3338,7 +3532,8 @@
       "sparse-model",
       "load-balancing"
     ],
-    "lastUpdated": "2026-03-05"
+    "lastUpdated": "2026-03-05",
+    "analogy": "Like a switchboard operator connecting calls to the right department — the quality of the conversation depends on getting the routing right."
   },
   {
     "name": "Load Balancing",
@@ -3351,7 +3546,8 @@
       "routing-network",
       "sparse-model"
     ],
-    "lastUpdated": "2026-03-05"
+    "lastUpdated": "2026-03-05",
+    "analogy": "Like distributing customers evenly across checkout lanes so no single cashier is overwhelmed while others stand idle."
   },
   {
     "name": "Speculative Decoding",
@@ -3364,7 +3560,8 @@
       "transformer",
       "tokenization"
     ],
-    "lastUpdated": "2026-03-05"
+    "lastUpdated": "2026-03-05",
+    "analogy": "Like a junior associate drafting a memo and a partner reviewing it — faster than the partner writing from scratch, since most drafts are acceptable."
   },
   {
     "name": "Mixture of Experts Routing",
@@ -3378,7 +3575,8 @@
       "load-balancing",
       "sparse-model"
     ],
-    "lastUpdated": "2026-03-05"
+    "lastUpdated": "2026-03-05",
+    "analogy": "Like a GPS that decides which expert lane to send each car down — bad routing creates traffic jams in one lane and empty roads in the others."
   },
   {
     "name": "Agentic Workflows",
@@ -3391,7 +3589,8 @@
       "orchestration-layer",
       "prompt-engineering"
     ],
-    "lastUpdated": "2026-03-05"
+    "lastUpdated": "2026-03-05",
+    "analogy": "Like a relay race where each runner (agent) handles one leg and passes the baton — fast when it works, catastrophic when someone drops it."
   },
   {
     "name": "Computer Vision",
@@ -3404,7 +3603,8 @@
       "convolutional-neural-network",
       "transformer"
     ],
-    "lastUpdated": "2026-03-05"
+    "lastUpdated": "2026-03-05",
+    "analogy": "Like giving a machine eyes and teaching it what it is looking at — from counting objects to reading X-rays."
   },
   {
     "name": "Model Collapse",
@@ -3417,7 +3617,8 @@
       "foundation-model",
       "fine-tuning"
     ],
-    "lastUpdated": "2026-03-05"
+    "lastUpdated": "2026-03-05",
+    "analogy": "Like making a photocopy of a photocopy of a photocopy — each generation loses a little quality until the result is unrecognizable."
   },
   {
     "name": "n8n",
@@ -3430,7 +3631,8 @@
       "orchestration-layer",
       "agentic-workflows"
     ],
-    "lastUpdated": "2026-03-05"
+    "lastUpdated": "2026-03-05",
+    "analogy": "Like IFTTT or Zapier but for developers — visual workflow automation where you can see and modify every step."
   },
   {
     "name": "GPT-5.4",
@@ -3443,7 +3645,8 @@
       "context-window",
       "agentic-workflows"
     ],
-    "lastUpdated": "2026-03-06"
+    "lastUpdated": "2026-03-06",
+    "analogy": "Like a point release that fixes the annoyances from the last major version — not a revolution, but a relief."
   },
   {
     "name": "Text Normalization",
@@ -3457,7 +3660,8 @@
       "stemming",
       "lemmatization"
     ],
-    "lastUpdated": "2026-03-06"
+    "lastUpdated": "2026-03-06",
+    "analogy": "Like converting all measurements to metric before doing math — standardize first, then process."
   },
   {
     "name": "Stop Word Removal",
@@ -3471,7 +3675,8 @@
       "bm25",
       "sparse-retrieval"
     ],
-    "lastUpdated": "2026-03-06"
+    "lastUpdated": "2026-03-06",
+    "analogy": "Like removing the 'um' and 'uh' from a transcript — the meaning stays, the noise goes."
   },
   {
     "name": "Stemming",
@@ -3485,7 +3690,8 @@
       "text-normalization",
       "stop-word-removal"
     ],
-    "lastUpdated": "2026-03-06"
+    "lastUpdated": "2026-03-06",
+    "analogy": "Like cutting the branches off a word to find the trunk — fast and crude, but it groups related words together."
   },
   {
     "name": "Lemmatization",
@@ -3499,7 +3705,8 @@
       "tokenization",
       "text-normalization"
     ],
-    "lastUpdated": "2026-03-06"
+    "lastUpdated": "2026-03-06",
+    "analogy": "Like looking up a word in the dictionary to find its base form — 'ran' becomes 'run', 'better' becomes 'good.'"
   },
   {
     "name": "POS Tagging",
@@ -3513,7 +3720,8 @@
       "dependency-parsing",
       "tokenization"
     ],
-    "lastUpdated": "2026-03-06"
+    "lastUpdated": "2026-03-06",
+    "analogy": "Like diagramming a sentence in grammar class — labeling each word as noun, verb, adjective, and so on."
   },
   {
     "name": "Dependency Parsing",
@@ -3527,7 +3735,8 @@
       "coreference-resolution",
       "tokenization"
     ],
-    "lastUpdated": "2026-03-06"
+    "lastUpdated": "2026-03-06",
+    "analogy": "Like drawing arrows between words in a sentence to show which word modifies or depends on which."
   },
   {
     "name": "Coreference Resolution",
@@ -3540,7 +3749,8 @@
       "dependency-parsing",
       "pos-tagging"
     ],
-    "lastUpdated": "2026-03-06"
+    "lastUpdated": "2026-03-06",
+    "analogy": "Like realizing that 'she', 'the professor', and 'Dr. Lee' all refer to the same person in a paragraph."
   },
   {
     "name": "Word Embeddings",
@@ -3554,7 +3764,8 @@
       "tokenization",
       "transformer"
     ],
-    "lastUpdated": "2026-03-06"
+    "lastUpdated": "2026-03-06",
+    "analogy": "Like plotting every word on a map where synonyms are neighbors and antonyms live across town."
   },
   {
     "name": "Sentiment Analysis",
@@ -3568,7 +3779,8 @@
       "word-embeddings",
       "fine-tuning"
     ],
-    "lastUpdated": "2026-03-06"
+    "lastUpdated": "2026-03-06",
+    "analogy": "Like a mood ring for text — it tells you whether the tone is positive, negative, or neutral."
   },
   {
     "name": "Text Classification",
@@ -3582,7 +3794,8 @@
       "fine-tuning",
       "benchmark"
     ],
-    "lastUpdated": "2026-03-06"
+    "lastUpdated": "2026-03-06",
+    "analogy": "Like sorting mail into bins — each piece of text gets assigned to a category based on its content."
   },
   {
     "name": "Subword Tokenization",
@@ -3596,7 +3809,8 @@
       "transformer",
       "embedding"
     ],
-    "lastUpdated": "2026-03-06"
+    "lastUpdated": "2026-03-06",
+    "analogy": "Like breaking 'unhappiness' into 'un' + 'happiness' so the model can understand new words by recognizing familiar pieces."
   },
   {
     "name": "Language Modeling",
@@ -3611,7 +3825,8 @@
       "fine-tuning",
       "foundation-model"
     ],
-    "lastUpdated": "2026-03-06"
+    "lastUpdated": "2026-03-06",
+    "analogy": "Like a game of predict-the-next-word — the model learns language by getting better at guessing what comes next."
   },
   {
     "name": "Algorithm",
@@ -3624,7 +3839,8 @@
       "gradient-descent",
       "neural-network"
     ],
-    "lastUpdated": "2026-03-07"
+    "lastUpdated": "2026-03-07",
+    "analogy": "Like a recipe — a step-by-step set of instructions that takes ingredients (input) and produces a dish (output)."
   },
   {
     "name": "Cognitive Computing",
@@ -3638,7 +3854,8 @@
       "machine-learning",
       "reasoning"
     ],
-    "lastUpdated": "2026-03-07"
+    "lastUpdated": "2026-03-07",
+    "analogy": "Like an AI system designed to think the way a human does — combining multiple skills to handle ambiguous, messy, real-world problems."
   },
   {
     "name": "MCMC",
@@ -3651,7 +3868,8 @@
       "hyperparameter",
       "loss-function"
     ],
-    "lastUpdated": "2026-03-08"
+    "lastUpdated": "2026-03-08",
+    "analogy": "Like exploring a dark cave by randomly walking around and spending more time in the interesting chambers — eventually you map the whole thing."
   },
   {
     "name": "Emergent Behavior",
@@ -3665,7 +3883,8 @@
       "artificial-intelligence",
       "foundation-model"
     ],
-    "lastUpdated": "2026-03-08"
+    "lastUpdated": "2026-03-08",
+    "analogy": "Like a flock of birds forming patterns that no individual bird planned — complex behavior arising from simple rules at scale."
   },
   {
     "name": "Guardrails",
@@ -3679,7 +3898,8 @@
       "system-prompt",
       "hallucination"
     ],
-    "lastUpdated": "2026-03-08"
+    "lastUpdated": "2026-03-08",
+    "analogy": "Like bumper lanes in bowling — they keep the ball (model) on the lane and out of the gutter, but they do not guarantee a strike."
   },
   {
     "name": "NVIDIA",
@@ -3693,7 +3913,8 @@
       "inference",
       "deep-learning"
     ],
-    "lastUpdated": "2026-03-08"
+    "lastUpdated": "2026-03-08",
+    "analogy": "Like the pickaxe seller during a gold rush — they do not mine the gold, but everyone who does needs their tools."
   },
   {
     "name": "Llama 3.1",
@@ -3708,14 +3929,28 @@
       "open-weight-model",
       "large-language-model"
     ],
-    "lastUpdated": "2026-03-08"
+    "lastUpdated": "2026-03-08",
+    "analogy": "Like a versatile open-source engine available in three sizes — small enough for a motorcycle, large enough for a truck."
   },
   {
     "name": "Semantic Collapse",
     "slug": "semantic-collapse",
     "shortDef": "When an AI model loses the ability to distinguish between different or opposing concepts — mapping them to similar representations — causing repetitive outputs, failed negation handling, and retrieval systems that return irrelevant results.",
     "seoDescription": "Why your LLM keeps giving the same answer, your embeddings treat opposites as identical, and your RAG search returns irrelevant results. Semantic collapse is the loss of meaningful distinctions in AI model representations — when 'good' and 'not good' become the same vector.",
-    "seoKeywords": ["semantic collapse", "why does my llm give similar answers", "llm homogeneous output", "embedding similarity problem", "antonyms same vector", "rag returning wrong results", "model outputs all the same", "llm repetitive responses", "embedding collapse", "vector search wrong results", "negation not working llm", "semantic search failures"],
+    "seoKeywords": [
+      "semantic collapse",
+      "why does my llm give similar answers",
+      "llm homogeneous output",
+      "embedding similarity problem",
+      "antonyms same vector",
+      "rag returning wrong results",
+      "model outputs all the same",
+      "llm repetitive responses",
+      "embedding collapse",
+      "vector search wrong results",
+      "negation not working llm",
+      "semantic search failures"
+    ],
     "fullDef": "Semantic collapse occurs when an embedding model or generative system fails to preserve meaningful distinctions between concepts, mapping semantically different inputs to nearly identical representations. The result is a system that treats genuinely distinct ideas as interchangeable.\n\nIn retrieval and search systems, semantic collapse manifests when antonyms, negations, or contextually opposite terms receive similar vector representations. A query about 'why the system is not working' may retrieve documents about 'why the system is working' because the embedding model collapses the negation. This is a fundamental limitation of reducing complex meaning to a single point in a fixed-dimensional vector space, and it is one of the reasons hybrid search and cross-encoder reranking remain necessary in production RAG pipelines.\n\nIn generative models, semantic collapse appears during fine-tuning or personalization when a learned concept drifts in embedding space through unconstrained optimization. The concept gradually shifts from its original meaning and begins to dominate other concepts in the prompt, producing outputs that overrepresent one idea at the expense of others. Research presented at NeurIPS 2025 identified this as a distinct failure mode from model collapse — where recursive training on synthetic data degrades output diversity. Semantic collapse is about losing distinctions within a single model's representation space, while model collapse is about losing diversity across generations of models trained on each other's outputs.",
     "category": "NLP",
     "relatedTerms": [
@@ -3725,6 +3960,7 @@
       "cosine-similarity",
       "vector-database"
     ],
-    "lastUpdated": "2026-03-08"
+    "lastUpdated": "2026-03-08",
+    "analogy": "Like a color-blind person sorting red and green into the same pile — the system cannot distinguish things that are meaningfully different."
   }
 ]

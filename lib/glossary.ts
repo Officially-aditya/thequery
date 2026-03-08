@@ -10,6 +10,7 @@ export interface GlossaryTerm {
   fullDef: string;
   category: string;
   relatedTerms: string[];
+  analogy?: string;
   references?: { title: string; url: string }[];
   seoDescription?: string;
   seoKeywords?: string[];
