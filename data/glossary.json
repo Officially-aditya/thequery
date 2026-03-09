@@ -4102,5 +4102,37 @@
     "seoKeywords": ["what is Sarvam AI", "what is Sarvam AI in India", "Sarvam AI explained", "Sarvam 105B", "Sarvam 30B", "Sarvam AI models", "Indian AI company", "Sarvam AI funding", "Sarvam Indus chatbot", "sovereign AI India", "Sarvam AI languages"],
     "lastUpdated": "2026-03-09",
     "analogy": "Like building an entire phone network specifically for a country's languages instead of expecting everyone to speak English — infrastructure designed from the ground up for local needs."
+  },
+  {
+    "name": "Perplexity Computer",
+    "slug": "perplexity-computer",
+    "shortDef": "A multi-model agentic AI system by Perplexity that orchestrates 19 AI models to autonomously execute complex, long-running workflows — from research to code to media generation — in isolated compute environments.",
+    "fullDef": "Perplexity Computer is not a physical device. It is a cloud-based multi-agent orchestration platform launched by Perplexity on February 25, 2026. The company describes it as a general-purpose digital worker that can break high-level goals into subtasks, assign each to the most suitable AI model, and execute entire workflows autonomously in the background.\n\n## Architecture\n\nComputer coordinates **19 different AI models**, each selected for a specific capability. Claude Opus 4.6 serves as the core reasoning engine. Gemini handles deep research and spawns sub-agents. Nano Banana generates images. Veo 3.1 produces video. Grok handles lightweight speed-sensitive tasks. ChatGPT 5.2 provides long-context recall and broad search. The system routes each subtask to the model best suited for it rather than relying on a single model for everything.\n\nEvery task runs in an **isolated compute environment** with access to a real filesystem, a real browser, and real tool integrations. This means Computer can browse the web, write and execute code, manage files, and interact with external services — not just generate text.\n\n## How It Works\n\nA user describes a desired outcome — for example, \"plan a weeklong trip to Japan, find flights under $1,200, and build a full itinerary with restaurant reservations\" — and Computer autonomously decomposes the project into components, assigns each to the right model, and works on it in the background. Workflows can run for hours or even months, with the user checking in on progress rather than supervising each step.\n\n## Pricing and Availability\n\nComputer is available exclusively to Perplexity Max subscribers at **$200/month**. Max subscribers receive 10,000 credits per month, with a one-time bonus of 20,000 additional credits at signup (expiring after 30 days). A rollout to Pro and Enterprise tiers is planned.\n\n## Samsung Integration\n\nSamsung announced that Perplexity will be integrated into upcoming Galaxy S26 phones, accessible via \"Hey Plex\" voice activation alongside Google's Gemini Assistant.\n\nPerplexity Computer represents a shift from single-model chat interfaces to multi-model orchestration systems where the AI layer decides which model to use for each part of a task — a pattern that may define the next generation of consumer AI products.",
+    "category": "Companies & Platforms",
+    "relatedTerms": [
+      "agentic-workflows",
+      "orchestration-layer",
+      "large-language-model",
+      "ai-agent",
+      "inference"
+    ],
+    "references": [
+      {
+        "title": "Introducing Perplexity Computer — Perplexity Blog",
+        "url": "https://www.perplexity.ai/hub/blog/introducing-perplexity-computer"
+      },
+      {
+        "title": "Perplexity's new Computer is another bet that users need many AI models — TechCrunch",
+        "url": "https://techcrunch.com/2026/02/27/perplexitys-new-computer-is-another-bet-that-users-need-many-ai-models/"
+      },
+      {
+        "title": "Perplexity launches 'Computer' AI agent — VentureBeat",
+        "url": "https://venturebeat.com/technology/perplexity-launches-computer-ai-agent-that-coordinates-19-models-priced-at"
+      }
+    ],
+    "seoDescription": "Perplexity Computer is a multi-model AI agent that orchestrates 19 models to execute complex workflows autonomously. Learn how it works, pricing, and what makes it different from ChatGPT and Claude.",
+    "seoKeywords": ["what is Perplexity Computer", "what is Perplexity Computer in AI", "Perplexity Computer explained", "Perplexity Computer review", "Perplexity Computer pricing", "Perplexity Computer models", "Perplexity Computer vs Claude", "Perplexity Computer vs OpenClaw", "Perplexity AI agent", "Perplexity Max $200"],
+    "lastUpdated": "2026-03-09",
+    "analogy": "Like hiring a project manager who delegates to 19 specialists — you describe the goal, it figures out who does what."
   }
 ]

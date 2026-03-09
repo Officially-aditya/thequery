@@ -1830,5 +1830,13 @@
       "We replaced our English-only chatbot with Sarvam's Indus API and saw a 3x increase in engagement from users in tier-2 and tier-3 cities who preferred interacting in their native language.",
       "The team deployed Sarvam Translate to localize our entire product documentation across 12 Indian languages in under a week — a task that previously took months with human translators."
     ]
+  },
+  {
+    "slug": "perplexity-computer",
+    "humor": "It is called Computer but it is not a computer. It uses 19 models but you pay for one subscription. It runs for months but you check in once. Peak 2026 naming conventions.",
+    "examples": [
+      "We pointed Perplexity Computer at a market research brief and it came back with competitor analysis, pricing comparisons, and a slide deck — all generated across different models without us assigning any of them manually.",
+      "The product team uses Perplexity Computer to prototype landing pages end-to-end: it researches copy angles with Gemini, generates hero images with Nano Banana, and writes the HTML with Opus — all from a single prompt."
+    ]
   }
 ]
