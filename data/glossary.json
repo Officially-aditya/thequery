@@ -4134,5 +4134,38 @@
     "seoKeywords": ["what is Perplexity Computer", "what is Perplexity Computer in AI", "Perplexity Computer explained", "Perplexity Computer review", "Perplexity Computer pricing", "Perplexity Computer models", "Perplexity Computer vs Claude", "Perplexity Computer vs OpenClaw", "Perplexity AI agent", "Perplexity Max $200"],
     "lastUpdated": "2026-03-09",
     "analogy": "Like hiring a project manager who delegates to 19 specialists — you describe the goal, it figures out who does what."
+  },
+  {
+    "name": "Vectorless Database",
+    "slug": "vectorless-database",
+    "shortDef": "A retrieval approach that bypasses vector embeddings and similarity search entirely, instead using structured indexing and LLM reasoning to find relevant information in documents.",
+    "fullDef": "A vectorless database is a retrieval system that does not rely on vector embeddings, approximate nearest-neighbor search, or a vector database to find relevant content. Instead of converting text into high-dimensional vectors and matching by cosine similarity, vectorless approaches use alternative structures like hierarchical tree indexes, keyword indexes, or direct LLM reasoning over document structure to locate information.\n\n## Why Vectorless?\n\nTraditional vector-based RAG pipelines have known limitations. Embeddings compress meaning into fixed-dimensional vectors, which means semantically different content can end up with similar vectors (the query-knowledge mismatch problem). Chunking breaks documents into fixed-size fragments, often splitting context across chunk boundaries. And similarity is not the same as relevance: a passage that is linguistically similar to a query is not necessarily the one that answers it.\n\nVectorless retrieval sidesteps these problems by reasoning about document structure rather than computing similarity scores. The LLM reads an index, decides which sections are relevant based on the query, retrieves those sections, and determines if it has enough context to answer. If not, it navigates further. This mirrors how a human expert reads a long document: scan the table of contents, go to the relevant chapter, read the section, follow cross-references if needed.\n\n## PageIndex: A Working Example\n\nPageIndex, built by VectifyAI, is the most prominent open-source implementation of vectorless retrieval. It works in two phases:\n\n**Indexing.** PageIndex parses a document (typically a PDF) into a hierarchical JSON tree, similar to an intelligent table of contents. Each node contains a title, summary, metadata, and child nodes. No embeddings are generated. No chunks are created. The entire index fits inside an LLM's context window.\n\n**Retrieval.** When a query arrives, the LLM reads the tree index and reasons about which nodes contain the answer. It selects nodes, reads their content, assesses whether it has enough information, and iterates if necessary. Every answer traces back to specific pages and sections, providing a fully auditable retrieval path.\n\nPageIndex achieved 98.7% accuracy on FinanceBench, a benchmark for financial document question answering, outperforming traditional vector-based RAG on structured, long-form documents like financial reports, legal contracts, and regulatory filings. The system handles cross-references naturally: when a document says \"see Appendix G,\" PageIndex follows the reference through the tree hierarchy, something vector similarity search cannot do.\n\n## When to Use Vectorless vs. Vector-Based\n\nVectorless retrieval excels on structured, long-form documents where hierarchy and cross-references matter: financial reports, legal filings, technical manuals, academic papers. Vector-based RAG remains better suited for large, unstructured corpora where fast approximate search across millions of documents is needed. The two approaches are complementary rather than competing.",
+    "category": "Infrastructure",
+    "relatedTerms": [
+      "retrieval-augmented-generation",
+      "vector-database",
+      "embedding",
+      "chunking",
+      "large-language-model",
+      "knowledge-graph"
+    ],
+    "references": [
+      {
+        "title": "PageIndex: Vectorless, Reasoning-based RAG — PageIndex Blog",
+        "url": "https://pageindex.ai/blog/pageindex-intro"
+      },
+      {
+        "title": "VectifyAI/PageIndex — GitHub",
+        "url": "https://github.com/VectifyAI/PageIndex"
+      },
+      {
+        "title": "VectifyAI Launches Mafin 2.5 and PageIndex — MarkTechPost",
+        "url": "https://www.marktechpost.com/2026/02/22/vectifyai-launches-mafin-2-5-and-pageindex-achieving-98-7-financial-rag-accuracy-with-a-new-open-source-vectorless-tree-indexing/"
+      }
+    ],
+    "seoDescription": "A vectorless database retrieves information using LLM reasoning over structured indexes instead of vector embeddings. Learn how PageIndex achieves 98.7% accuracy without a vector database.",
+    "seoKeywords": ["what is vectorless database", "what is vectorless database in AI", "vectorless RAG", "PageIndex", "retrieval without embeddings", "vectorless search", "reasoning-based RAG", "PageIndex vs vector database", "VectifyAI PageIndex", "RAG without vector database"],
+    "lastUpdated": "2026-03-10",
+    "analogy": "Like using a book's table of contents and index to find what you need, instead of reading every page and guessing which one sounds most similar to your question."
   }
 ]

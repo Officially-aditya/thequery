@@ -1838,5 +1838,13 @@
       "We pointed Perplexity Computer at a market research brief and it came back with competitor analysis, pricing comparisons, and a slide deck — all generated across different models without us assigning any of them manually.",
       "The product team uses Perplexity Computer to prototype landing pages end-to-end: it researches copy angles with Gemini, generates hero images with Nano Banana, and writes the HTML with Opus — all from a single prompt."
     ]
+  },
+  {
+    "slug": "vectorless-database",
+    "humor": "We spent two years building a vector pipeline. Then someone read the table of contents and got a better answer. Sometimes the old ways win.",
+    "examples": [
+      "We replaced our vector RAG pipeline with PageIndex for financial report Q&A and accuracy jumped from 78% to 97% — the tree index follows cross-references between sections that our chunking strategy was splitting apart.",
+      "The legal team needed answers traceable to exact pages for audit compliance. Vectorless retrieval gives page-level citations by default, which eliminated a manual verification step that was adding two days to every report."
+    ]
   }
 ]
