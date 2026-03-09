@@ -1822,5 +1822,13 @@
       "LightGBM's leaf-wise growth strategy let us train on 50 million rows in under 10 minutes — the same dataset took XGBoost over an hour with comparable accuracy.",
       "We use LightGBM's native categorical feature support instead of one-hot encoding, which reduced our feature matrix size by 60% and improved both speed and accuracy."
     ]
+  },
+  {
+    "slug": "sarvam-ai",
+    "humor": "India finally got tired of waiting for Silicon Valley to support Hindi and built the whole stack themselves. 22 languages, one company, zero patience left.",
+    "examples": [
+      "We replaced our English-only chatbot with Sarvam's Indus API and saw a 3x increase in engagement from users in tier-2 and tier-3 cities who preferred interacting in their native language.",
+      "The team deployed Sarvam Translate to localize our entire product documentation across 12 Indian languages in under a week — a task that previously took months with human translators."
+    ]
   }
 ]

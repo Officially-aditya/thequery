@@ -4070,5 +4070,37 @@
     "seoKeywords": ["what is LightGBM", "what is LightGBM in ai", "LightGBM explained", "LightGBM machine learning", "LightGBM vs XGBoost", "LightGBM algorithm", "how LightGBM works", "LightGBM leaf-wise", "LightGBM Microsoft", "LightGBM large datasets"],
     "lastUpdated": "2026-03-09",
     "analogy": "Like XGBoost's faster younger sibling — it takes shortcuts that sound risky but almost always get to the same destination quicker."
+  },
+  {
+    "name": "Sarvam AI",
+    "slug": "sarvam-ai",
+    "shortDef": "An Indian AI company building sovereign, full-stack AI infrastructure for Indian languages — including open-source LLMs, speech models, translation, and agentic products across 22 Indian languages.",
+    "fullDef": "Sarvam AI is an Indian artificial intelligence company founded in August 2023 by Dr. Vivek Raghavan and Dr. Pratyush Kumar, both IIT alumni. Headquartered in Bengaluru, the company builds large language models, speech systems, and enterprise AI products specifically designed for India's linguistic diversity.\n\n## Models\n\nIn February 2026, Sarvam open-sourced two flagship models at the India AI Impact Summit: **Sarvam 30B** (30 billion parameters) and **Sarvam 105B** (105 billion parameters, using a Mixture-of-Experts architecture with 10.3 billion active parameters). Both were trained from scratch on Indian language datasets and support reasoning, multilingual tasks, mathematics, and coding. The company also released **Sarvam-1**, a 2-billion parameter model optimized for 10 Indic languages, along with dedicated text-to-speech, speech-to-text, and vision models.\n\n## Products\n\nSarvam's product lineup includes **Indus**, a consumer AI chatbot available in 22 Indian languages; **Sarvam Translate**, an open-weights translation model covering all 22 officially recognized Indian languages; **Sarvam Agents**, voice-enabled multilingual business agents deployable via phone, WhatsApp, or in-app; and **Sarvam Vision**, a vision-language model for document understanding and OCR in Indian scripts.\n\nThe company also announced **Sarvam Kaze**, an AI-powered wearable glass supporting real-time voice interaction and translation in 10+ Indian languages, planned for launch in May 2026.\n\n## Funding and Government Support\n\nSarvam raised approximately \\$41 million in a combined seed and Series A round in December 2023, led by Lightspeed Venture Partners with participation from Peak XV Partners and Khosla Ventures. Total funding stands at around \\$54 million. In April 2025, the Ministry of Electronics and Information Technology (MeitY) selected Sarvam AI under the IndiaAI Mission to develop indigenous foundational models, providing access to government-supported GPU infrastructure.\n\nSarvam positions itself as a sovereign AI alternative — building models trained on Indian data, optimized for Indian languages, and deployable on Indian infrastructure.",
+    "category": "Companies & Platforms",
+    "relatedTerms": [
+      "foundation-model",
+      "large-language-model",
+      "mixture-of-experts",
+      "open-source-ai",
+      "tokenization"
+    ],
+    "references": [
+      {
+        "title": "Sarvam AI — Official Website",
+        "url": "https://www.sarvam.ai/"
+      },
+      {
+        "title": "Indian AI lab Sarvam's new models — TechCrunch",
+        "url": "https://techcrunch.com/2026/02/18/indian-ai-lab-sarvams-new-models-are-a-major-bet-on-the-viability-of-open-source-ai/"
+      },
+      {
+        "title": "Sarvam AI launches Indus AI chat app — TechCrunch",
+        "url": "https://techcrunch.com/2026/02/20/indias-sarvam-launches-indus-ai-chat-app-as-competition-heats-up/"
+      }
+    ],
+    "seoDescription": "Sarvam AI is an Indian AI company building open-source LLMs, speech models, and enterprise AI products for 22 Indian languages. Learn about Sarvam 105B, Indus, and India's sovereign AI stack.",
+    "seoKeywords": ["what is Sarvam AI", "what is Sarvam AI in India", "Sarvam AI explained", "Sarvam 105B", "Sarvam 30B", "Sarvam AI models", "Indian AI company", "Sarvam AI funding", "Sarvam Indus chatbot", "sovereign AI India", "Sarvam AI languages"],
+    "lastUpdated": "2026-03-09",
+    "analogy": "Like building an entire phone network specifically for a country's languages instead of expecting everyone to speak English — infrastructure designed from the ground up for local needs."
   }
 ]
