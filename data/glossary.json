@@ -3637,15 +3637,33 @@
   {
     "name": "GPT-5.4",
     "slug": "gpt-5-4",
-    "shortDef": "OpenAI's flagship model released March 2026, available in standard, Thinking, and Pro variants with a 1 million token context window, built-in computer use, and significant improvements in reasoning, coding, and factual accuracy.",
-    "fullDef": "GPT-5.4 is OpenAI's most capable frontier model as of March 2026, described by the company as its most capable and efficient model for professional work. It ships in three variants: GPT-5.4 (standard), GPT-5.4 Thinking (a reasoning-focused variant), and GPT-5.4 Pro (optimized for enterprise and high-performance tasks).\n\nThe model supports a 1 million token context window through the API, the largest OpenAI has offered. It is the first mainline GPT model with built-in computer use, enabling agents to interact directly with software environments to complete, verify, and fix tasks. On the GDPval benchmark for professional knowledge work, GPT-5.4 matches or exceeds industry professionals in 83% of comparisons, up from 71% for GPT-5.2. Individual claims are 33% less likely to be false and full responses 18% less likely to contain errors compared to its predecessor.\n\nGPT-5.4 also achieves equivalent results while requiring substantially fewer tokens than previous models, representing a meaningful efficiency improvement. It is available to ChatGPT Plus, Team, and Pro subscribers, as well as through the OpenAI API. The Pro variant is restricted to Pro and Enterprise plans. The release positions GPT-5.4 as a direct competitor to Claude Opus 4.6 and Gemini 3.1 Pro in the frontier model tier.",
+    "shortDef": "OpenAI's flagship model released March 2026, available in standard, Thinking, and Pro variants with a 1 million token context window, native computer use, Tool Search, and significant improvements in reasoning, coding, and factual accuracy.",
+    "fullDef": "GPT-5.4 is OpenAI's most capable frontier model as of March 2026, described by the company as its most capable and efficient model for professional work. It ships in three variants: GPT-5.4 (standard), GPT-5.4 Thinking (a reasoning-focused variant that presents initial reasoning plans before generating full answers), and GPT-5.4 Pro (optimized for enterprise and high-performance tasks).\n\n## Context and Efficiency\n\nThe model supports a **1 million token context window** through the API (922K input, 128K output), the largest OpenAI has offered. GPT-5.4 uses up to 47% fewer tokens than GPT-5.2 on some tasks, translating to lower costs and faster responses.\n\n## Native Computer Use\n\nGPT-5.4 is the first general-purpose GPT model with **native computer-use capabilities**, enabling agents to interact directly with software environments — navigating applications, executing workflows, and completing multi-step tasks across tools. It achieves record results on OSWorld-Verified and WebArena Verified benchmarks for computer use.\n\n## Tool Search\n\nThe API introduces **Tool Search**, a new system where the model looks up tool definitions on demand rather than loading all definitions upfront in the system prompt. This reduces token consumption and latency in agentic systems with large tool ecosystems.\n\n## Benchmarks\n\nOn GDPval, which tests agents across 44 professional occupations, GPT-5.4 matches or exceeds industry professionals in **83.0%** of comparisons, up from 70.9% for GPT-5.2. Individual claims are 33% less likely to be false, and full responses are 18% less likely to contain errors compared to its predecessor. It also achieves top performance on the APEX-Agents benchmark for professional domain tasks.\n\n## Safety\n\nOpenAI introduced chain-of-thought reasoning safety evaluation for GPT-5.4. The Thinking variant shows lower deception risk compared to previous reasoning models.\n\n## Availability\n\nGPT-5.4 is available to ChatGPT Plus, Team, and Pro subscribers, as well as through the OpenAI API. The Pro variant is restricted to Pro and Enterprise plans. The release positions GPT-5.4 as a direct competitor to Claude Opus 4.6 and Gemini 3.1 Pro in the frontier model tier.",
     "category": "Models",
     "relatedTerms": [
       "foundation-model",
       "context-window",
-      "agentic-workflows"
+      "agentic-workflows",
+      "reasoning",
+      "guardrails"
     ],
-    "lastUpdated": "2026-03-06",
+    "references": [
+      {
+        "title": "Introducing GPT-5.4 — OpenAI",
+        "url": "https://openai.com/index/introducing-gpt-5-4/"
+      },
+      {
+        "title": "GPT-5.4 API Documentation",
+        "url": "https://developers.openai.com/api/docs/models/gpt-5.4"
+      },
+      {
+        "title": "OpenAI launches GPT-5.4 — TechCrunch",
+        "url": "https://techcrunch.com/2026/03/05/openai-launches-gpt-5-4-with-pro-and-thinking-versions/"
+      }
+    ],
+    "seoDescription": "GPT-5.4 is OpenAI's March 2026 flagship model with 1M token context, native computer use, Tool Search, and three variants: standard, Thinking, and Pro.",
+    "seoKeywords": ["what is GPT-5.4", "GPT-5.4 explained", "GPT-5.4", "OpenAI GPT-5.4", "GPT-5.4 Thinking", "GPT-5.4 Pro", "OpenAI 2026 model", "GPT-5.4 features", "GPT-5.4 computer use", "GPT-5.4 context window", "GPT-5.4 vs Claude", "GPT-5.4 benchmarks", "GPT-5.4 Tool Search", "GPT-5.4 release date", "GPT-5.4 pricing"],
+    "lastUpdated": "2026-03-09",
     "analogy": "Like a point release that fixes the annoyances from the last major version — not a revolution, but a relief."
   },
   {
@@ -3962,5 +3980,95 @@
     ],
     "lastUpdated": "2026-03-08",
     "analogy": "Like a color-blind person sorting red and green into the same pile — the system cannot distinguish things that are meaningfully different."
+  },
+  {
+    "name": "Decision Tree",
+    "slug": "decision-tree",
+    "shortDef": "A supervised learning algorithm that splits data into branches based on feature values, forming a tree-like structure of if-then decisions that leads to a prediction at each leaf.",
+    "fullDef": "A decision tree is a flowchart-like model that makes predictions by learning a series of binary splits on input features. Starting at the root, each internal node tests a condition — such as 'is age > 30?' or 'is income < \\$50k?' — and branches left or right based on the answer. This process repeats until the data reaches a leaf node, which contains the final prediction.\n\nThe tree is built top-down by selecting the split at each node that best separates the data according to a criterion like Gini impurity (for classification) or mean squared error (for regression). The most informative feature is chosen first, creating a natural ranking of feature importance. This makes decision trees one of the most interpretable models in machine learning — you can trace any prediction through the tree and explain exactly why it was made.\n\nThe main weakness of a single decision tree is that it overfits easily. A tree grown without constraints will memorize the training data by creating increasingly specific splits until every training example is classified perfectly. Pruning techniques and depth limits help, but the real breakthrough came from ensemble methods: random forests average many decorrelated trees, and boosting methods like AdaBoost, XGBoost, and LightGBM build trees sequentially to correct each other's mistakes. Decision trees are rarely used alone in production, but they are the building block of some of the most powerful algorithms in machine learning.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "random-forest",
+      "boosting",
+      "machine-learning",
+      "overfitting"
+    ],
+    "seoDescription": "A decision tree is a supervised learning algorithm that splits data using if-then rules to make predictions. Learn how decision trees work, their strengths, weaknesses, and role in ensemble methods.",
+    "seoKeywords": ["what is a decision tree", "what is decision tree in ai", "decision tree explained", "decision tree machine learning", "decision tree algorithm", "Gini impurity", "decision tree vs random forest", "decision tree overfitting", "decision tree classification", "how decision trees work"],
+    "lastUpdated": "2026-03-09",
+    "analogy": "Like a game of 20 questions — each question narrows down the possibilities until you arrive at the answer."
+  },
+  {
+    "name": "Boosting (Ensemble Methods)",
+    "slug": "boosting",
+    "shortDef": "A family of ensemble learning techniques that combine many weak learners sequentially, where each new model focuses on correcting the mistakes of the previous ones.",
+    "fullDef": "Boosting is an ensemble strategy that builds models one at a time, with each new model trained to fix the errors left by the ensemble so far. Unlike bagging (used in random forests), which trains models independently in parallel, boosting is inherently sequential — the order matters because each model learns from the failures of its predecessors.\n\nThe core insight is that many weak learners — models only slightly better than random guessing — can be combined into a single strong learner. Each iteration focuses the learning on the hardest examples: the data points that previous models got wrong receive higher weight, forcing the next model to pay more attention to them. The final prediction is a weighted combination of all the individual models.\n\nBoosting has produced some of the most successful algorithms in applied machine learning. AdaBoost (1997) was the first widely adopted boosting algorithm and remains a useful teaching example. Gradient Boosted Decision Trees generalized the approach by framing boosting as gradient descent in function space. XGBoost (2016) added regularization and engineering optimizations that made it the dominant algorithm in Kaggle competitions for years. LightGBM (2017) introduced leaf-wise tree growth and histogram-based splitting for dramatically faster training on large datasets. CatBoost (2018) added native handling of categorical features.\n\nBoosting methods consistently outperform other approaches on tabular data and remain the go-to choice for structured data problems in production — fraud detection, credit scoring, recommendation ranking, and ad click prediction all rely heavily on boosted trees.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "decision-tree",
+      "random-forest",
+      "adaboost",
+      "xgboost",
+      "lightgbm",
+      "machine-learning"
+    ],
+    "seoDescription": "Boosting is an ensemble learning technique that combines weak learners sequentially to build a strong model. Learn how boosting works, its types (AdaBoost, XGBoost, LightGBM), and why it dominates tabular data.",
+    "seoKeywords": ["what is boosting", "what is boosting in ai", "boosting explained", "boosting machine learning", "boosting ensemble methods", "boosting vs bagging", "gradient boosting", "boosting algorithm types", "how boosting works", "boosting in deep learning"],
+    "lastUpdated": "2026-03-09",
+    "analogy": "Like a relay team where each runner studies where the previous runner stumbled and trains specifically for those sections of the track."
+  },
+  {
+    "name": "AdaBoost (Boosting)",
+    "slug": "adaboost",
+    "shortDef": "The original boosting algorithm that trains a sequence of weak classifiers, reweighting misclassified examples after each round so subsequent models focus on the hardest cases.",
+    "fullDef": "AdaBoost — short for Adaptive Boosting — was introduced by Freund and Schapire in 1997 and became the first boosting algorithm to see widespread practical adoption. It works by training a sequence of weak learners (typically decision stumps — trees with a single split) on weighted versions of the training data.\n\nAfter each round, AdaBoost increases the weight of misclassified examples and decreases the weight of correctly classified ones. The next weak learner is trained on this reweighted dataset, forcing it to focus on the examples the ensemble currently gets wrong. Each weak learner also receives a coefficient proportional to its accuracy — better classifiers get more say in the final vote.\n\nThe final prediction is a weighted majority vote of all weak learners. Despite its simplicity, AdaBoost achieves strong performance on many classification tasks and was one of the first algorithms to demonstrate that combining many weak models could match or exceed a single complex one. Its main limitations are sensitivity to noisy data and outliers (since misclassified outliers receive exponentially increasing weight) and its restriction to exponential loss, which later algorithms like gradient boosting generalized.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "boosting",
+      "decision-tree",
+      "xgboost",
+      "lightgbm",
+      "random-forest"
+    ],
+    "seoDescription": "AdaBoost (Adaptive Boosting) is the original boosting algorithm that reweights misclassified examples each round. Learn how AdaBoost works, its strengths, limitations, and difference from XGBoost.",
+    "seoKeywords": ["what is AdaBoost", "what is AdaBoost in ai", "AdaBoost explained", "AdaBoost algorithm", "AdaBoost machine learning", "adaptive boosting", "AdaBoost vs XGBoost", "how AdaBoost works", "AdaBoost weak learners", "AdaBoost classification"],
+    "lastUpdated": "2026-03-09",
+    "analogy": "Like a teacher who gives extra homework on the questions students got wrong — each round of practice targets the weak spots."
+  },
+  {
+    "name": "XGBoost (Boosting)",
+    "slug": "xgboost",
+    "shortDef": "An optimized gradient boosting library that adds regularization, parallel tree construction, and efficient handling of sparse data, making it one of the most widely used ML algorithms for tabular data.",
+    "fullDef": "XGBoost — eXtreme Gradient Boosting — was released by Tianqi Chen in 2016 and quickly became the dominant algorithm in machine learning competitions and production systems. It implements gradient boosted decision trees with a set of engineering and algorithmic improvements that make it faster, more accurate, and more resistant to overfitting than previous implementations.\n\nThe key innovations include L1 and L2 regularization on leaf weights (preventing overfitting), a weighted quantile sketch for approximate split finding (enabling distributed training on large datasets), sparsity-aware algorithms (handling missing values natively), and column block structure for parallelized tree construction. These improvements sound incremental but their combined effect was dramatic — XGBoost won virtually every structured data competition on Kaggle for several years running.\n\nXGBoost remains a top choice for tabular data problems in production: fraud detection, credit risk scoring, insurance pricing, recommendation system ranking, and ad click-through prediction. It is often the strongest baseline before trying neural approaches, and on many tabular tasks it outperforms deep learning entirely. The main downsides are that it requires more hyperparameter tuning than random forests and is slower to train than LightGBM on very large datasets.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "boosting",
+      "decision-tree",
+      "lightgbm",
+      "adaboost",
+      "random-forest"
+    ],
+    "seoDescription": "XGBoost (eXtreme Gradient Boosting) is an optimized gradient boosting library with regularization and parallel training. Learn how XGBoost works, why it dominated Kaggle, and when to use it.",
+    "seoKeywords": ["what is XGBoost", "what is XGBoost in ai", "XGBoost explained", "XGBoost machine learning", "XGBoost algorithm", "XGBoost vs LightGBM", "XGBoost gradient boosting", "how XGBoost works", "XGBoost tabular data", "XGBoost hyperparameter tuning"],
+    "lastUpdated": "2026-03-09",
+    "analogy": "Like a championship-winning sports team — individually decent players, but the coaching system (regularization, optimization) turns them into something dominant."
+  },
+  {
+    "name": "LightGBM (Boosting)",
+    "slug": "lightgbm",
+    "shortDef": "A gradient boosting framework by Microsoft that uses leaf-wise tree growth and histogram-based splitting for significantly faster training on large datasets while maintaining competitive accuracy.",
+    "fullDef": "LightGBM — Light Gradient Boosting Machine — was released by Microsoft Research in 2017 as a faster alternative to XGBoost. Its two main innovations are leaf-wise (best-first) tree growth and histogram-based feature bucketing, both of which reduce training time dramatically on large datasets.\n\nTraditional gradient boosting grows trees level-wise — completing each depth level before moving to the next. LightGBM grows leaf-wise instead, always splitting the leaf with the highest loss reduction. This produces deeper, more asymmetric trees that converge faster with fewer total leaves. The risk is overfitting on small datasets, which is managed through a max-depth parameter.\n\nHistogram-based splitting bins continuous features into discrete buckets before training, reducing the number of split candidates the algorithm needs to evaluate. This trades a small amount of precision for a large speedup and lower memory usage. On datasets with millions of rows, LightGBM can be 10 to 20x faster than XGBoost while producing models of comparable accuracy.\n\nLightGBM also supports Gradient-based One-Side Sampling (GOSS), which keeps all instances with large gradients but randomly samples from those with small gradients, and Exclusive Feature Bundling (EFB), which bundles mutually exclusive sparse features to reduce dimensionality. These techniques make LightGBM particularly effective on high-dimensional, large-scale tabular data — the kind found in advertising, recommendation systems, and financial modeling.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "boosting",
+      "decision-tree",
+      "xgboost",
+      "adaboost",
+      "random-forest"
+    ],
+    "seoDescription": "LightGBM is Microsoft's fast gradient boosting framework using leaf-wise growth and histogram splitting. Learn how LightGBM works, why it's faster than XGBoost, and when to use it.",
+    "seoKeywords": ["what is LightGBM", "what is LightGBM in ai", "LightGBM explained", "LightGBM machine learning", "LightGBM vs XGBoost", "LightGBM algorithm", "how LightGBM works", "LightGBM leaf-wise", "LightGBM Microsoft", "LightGBM large datasets"],
+    "lastUpdated": "2026-03-09",
+    "analogy": "Like XGBoost's faster younger sibling — it takes shortcuts that sound risky but almost always get to the same destination quicker."
   }
 ]

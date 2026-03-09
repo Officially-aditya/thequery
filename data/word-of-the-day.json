@@ -1782,5 +1782,45 @@
       "Semantic collapse caused our search system to return \"how to cancel your subscription\" when users searched \"how to renew your subscription\" — the embeddings treated both as the same intent.",
       "We added a cross-encoder reranker specifically to catch semantic collapse cases where negations and antonyms were getting identical similarity scores."
     ]
+  },
+  {
+    "slug": "decision-tree",
+    "humor": "A flowchart that got a computer science degree. It asks yes-or-no questions until it reaches a conclusion — just like your manager, but faster.",
+    "examples": [
+      "We used a decision tree to classify loan applications because the compliance team needed to explain exactly why each application was approved or rejected.",
+      "The decision tree split first on income, then on credit score — the interpretable structure let us spot that the model was over-indexing on zip code as a proxy variable."
+    ]
+  },
+  {
+    "slug": "boosting",
+    "humor": "The ensemble technique where weak learners form a support group and collectively become strong. Proof that even stumps can be useful if you stack enough of them.",
+    "examples": [
+      "We switched from a single random forest to gradient boosting and saw our ranking metric improve by 8% on the holdout set.",
+      "The boosting ensemble trains each new tree on the residual errors of the previous round, so the model progressively focuses on the hardest examples in the dataset."
+    ]
+  },
+  {
+    "slug": "adaboost",
+    "humor": "The original 'fail forward' algorithm. It looks at what it got wrong, panics slightly harder about those samples, and tries again. Rinse and repeat until the committee votes correctly.",
+    "examples": [
+      "We used AdaBoost with decision stumps as base learners for the binary spam classifier — the simplicity of each weak learner kept inference under 2ms per request.",
+      "AdaBoost reweighted the misclassified training samples each round, which naturally focused the ensemble on the ambiguous boundary cases between spam and legitimate email."
+    ]
+  },
+  {
+    "slug": "xgboost",
+    "humor": "The Kaggle cheat code. For years, the winning formula was: step one, try XGBoost; step two, there is no step two.",
+    "examples": [
+      "Our XGBoost model handles 47 tabular features for churn prediction and consistently outperforms the deep learning baseline on this structured dataset.",
+      "We tuned XGBoost's regularization parameters (lambda and alpha) to prevent overfitting on the sparse feature matrix from our one-hot encoded categorical variables."
+    ]
+  },
+  {
+    "slug": "lightgbm",
+    "humor": "XGBoost looked at its training time and said 'that is fine.' LightGBM looked at the same training time and said 'absolutely not.' Microsoft energy.",
+    "examples": [
+      "LightGBM's leaf-wise growth strategy let us train on 50 million rows in under 10 minutes — the same dataset took XGBoost over an hour with comparable accuracy.",
+      "We use LightGBM's native categorical feature support instead of one-hot encoding, which reduced our feature matrix size by 60% and improved both speed and accuracy."
+    ]
   }
 ]
