@@ -1846,5 +1846,21 @@
       "We replaced our vector RAG pipeline with PageIndex for financial report Q&A and accuracy jumped from 78% to 97% — the tree index follows cross-references between sections that our chunking strategy was splitting apart.",
       "The legal team needed answers traceable to exact pages for audit compliance. Vectorless retrieval gives page-level citations by default, which eliminated a manual verification step that was adding two days to every report."
     ]
+  },
+  {
+    "slug": "supervised-learning",
+    "humor": "The only learning method where someone gives you both the questions and the answers, and you still manage to get some wrong on the test.",
+    "examples": [
+      "We trained a supervised classifier on 50,000 labeled support tickets to auto-route incoming requests to the correct team, cutting median response time from 4 hours to 20 minutes.",
+      "The fraud detection model uses supervised learning on historically flagged transactions, but we retrain monthly because fraud patterns shift faster than the labels can keep up."
+    ]
+  },
+  {
+    "slug": "unsupervised-learning",
+    "humor": "Give it data with no labels. It finds patterns you never asked for. Half the time it discovers something brilliant. The other half it clusters everything by file size.",
+    "examples": [
+      "We ran k-means clustering on user behavior data and discovered three distinct usage segments that our product team had never identified, which directly informed the new pricing tiers.",
+      "The anomaly detection pipeline uses unsupervised learning to flag unusual network traffic patterns without needing a labeled dataset of known attacks."
+    ]
   }
 ]
