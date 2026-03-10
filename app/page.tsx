@@ -35,8 +35,35 @@ const sections = [
 ];
 
 export default function Home() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://www.thequery.in/#website",
+        url: "https://www.thequery.in",
+        name: "TheQuery",
+        description: "AI knowledge from first principles",
+        publisher: { "@id": "https://www.thequery.in/#organization" },
+        inLanguage: "en",
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://www.thequery.in/#organization",
+        name: "TheQuery",
+        url: "https://www.thequery.in",
+        description:
+          "TheQuery is where developers go to understand AI, not just use it. Glossary, books, and articles covering AI from first principles.",
+      },
+    ],
+  };
+
   return (
     <div className="max-w-[960px] mx-auto px-4 py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="text-center mb-16">
         <h1 className="font-serif text-4xl font-bold text-text-primary mb-4">
           TheQuery
@@ -48,6 +75,20 @@ export default function Home() {
 
       <div className="mb-12">
         <WordOfTheDay />
+      </div>
+
+      <div className="mb-12 text-text-secondary leading-relaxed space-y-4">
+        <p>
+          TheQuery is where developers go to understand AI, not just use it. Every resource here
+          is written from first principles -- starting with the foundational math, building through
+          core algorithms, and arriving at practical implementation. No hand-waving, no black boxes.
+        </p>
+        <p>
+          The library includes two free technical books covering AI fundamentals and retrieval-augmented
+          generation, 233+ glossary terms with in-depth definitions, analytical articles tracking
+          developments across the AI field, and study guides for practitioners building real systems.
+          All content is free, with no signup required.
+        </p>
       </div>
 
       <div className="space-y-8">

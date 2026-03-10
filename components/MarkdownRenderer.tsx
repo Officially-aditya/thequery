@@ -96,6 +96,16 @@ function buildComponents(glossaryTerms: GlossaryLink[]): Components {
     h1: ({ children }) => <HeadingWithId level={1}>{children}</HeadingWithId>,
     h2: ({ children }) => <HeadingWithId level={2}>{children}</HeadingWithId>,
     h3: ({ children }) => <HeadingWithId level={3}>{children}</HeadingWithId>,
+    img: ({ src, alt, ...props }) => (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src={src}
+        alt={alt || ""}
+        loading="lazy"
+        style={{ maxWidth: "100%", height: "auto" }}
+        {...props}
+      />
+    ),
     // Auto-link glossary terms in paragraph text nodes
     p: ({ children }) => {
       if (glossaryTerms.length === 0) return <p>{children}</p>;

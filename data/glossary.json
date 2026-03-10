@@ -25,7 +25,7 @@
       "convolutional-neural-network"
     ],
     "lastUpdated": "2026-02-20",
-    "analogy": "Like learning to recognize a face by first noticing edges, then shapes, then features, then the whole person - each layer sees something more abstract."
+    "analogy": "Think of it as learning to recognize a face by first noticing edges, then shapes, then features, then the whole person - each layer sees something more abstract."
   },
   {
     "name": "Machine Learning",
@@ -95,7 +95,7 @@
       "neural-network"
     ],
     "lastUpdated": "2026-02-20",
-    "analogy": "Like a teacher grading a test and passing corrections back through every student who contributed to the group project, so each one knows what to fix."
+    "analogy": "Imagine a teacher grading a test and passing corrections back through every student who contributed to the group project, so each one knows what to fix."
   },
   {
     "name": "Loss Function",
@@ -165,7 +165,7 @@
       "attention-mechanism"
     ],
     "lastUpdated": "2026-02-20",
-    "analogy": "Like reading a sentence word by word while keeping a mental note of everything you have read so far."
+    "analogy": "Think of it as reading a sentence word by word while keeping a mental note of everything you have read so far."
   },
   {
     "name": "Large Language Model",
@@ -207,7 +207,7 @@
       "embedding"
     ],
     "lastUpdated": "2026-02-20",
-    "analogy": "Like a professional chef who learned French cuisine and can quickly adapt to Italian - the fundamentals transfer, only the specifics change."
+    "analogy": "Think of it as a professional chef who learned French cuisine and can quickly adapt to Italian - the fundamentals transfer, only the specifics change."
   },
   {
     "name": "Reinforcement Learning",
@@ -221,7 +221,7 @@
       "large-language-model"
     ],
     "lastUpdated": "2026-02-20",
-    "analogy": "Like training a dog with treats - it tries things, gets rewarded for good behavior, and gradually learns what works."
+    "analogy": "Picture training a dog with treats - it tries things, gets rewarded for good behavior, and gradually learns what works."
   },
   {
     "name": "Generative Adversarial Network",
@@ -235,7 +235,7 @@
       "loss-function"
     ],
     "lastUpdated": "2026-02-20",
-    "analogy": "Like a forger and a detective training each other - the forger gets better at faking, the detective gets better at catching, until the fakes are nearly perfect."
+    "analogy": "Consider a forger and a detective training each other - the forger gets better at faking, the detective gets better at catching, until the fakes are nearly perfect."
   },
   {
     "name": "Embedding",
@@ -249,7 +249,7 @@
       "large-language-model"
     ],
     "lastUpdated": "2026-02-20",
-    "analogy": "Like assigning GPS coordinates to every word so that words with similar meanings end up in the same neighborhood on a map."
+    "analogy": "Think of it as assigning GPS coordinates to every word so that words with similar meanings end up in the same neighborhood on a map."
   },
   {
     "name": "Tokenization",
@@ -263,7 +263,7 @@
       "transformer"
     ],
     "lastUpdated": "2026-02-20",
-    "analogy": "Like cutting a sentence into puzzle pieces before feeding it to the model - the pieces might be words, parts of words, or individual characters."
+    "analogy": "Imagine cutting a sentence into puzzle pieces before feeding it to the model - the pieces might be words, parts of words, or individual characters."
   },
   {
     "name": "Batch Normalization",
@@ -277,7 +277,7 @@
       "overfitting"
     ],
     "lastUpdated": "2026-02-20",
-    "analogy": "Like recalibrating a scale between measurements so that small differences do not get lost in the noise."
+    "analogy": "Imagine recalibrating a scale between measurements so that small differences do not get lost in the noise."
   },
   {
     "name": "Perceptron",
@@ -305,7 +305,7 @@
       "regularization"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like choosing between a ruler (simple but rigid) and a flexible wire (fits everything but wobbles) to draw a line through data points."
+    "analogy": "Picture choosing between a ruler (simple but rigid) and a flexible wire (fits everything but wobbles) to draw a line through data points."
   },
   {
     "name": "Regularization",
@@ -334,7 +334,7 @@
       "neural-network"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like randomly covering some players' eyes during practice so the team does not rely too heavily on any one player."
+    "analogy": "Imagine randomly covering some players' eyes during practice so the team does not rely too heavily on any one player."
   },
   {
     "name": "Learning Rate",
@@ -378,7 +378,7 @@
       "backpropagation"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like estimating the average height of a city by measuring random people on the street instead of everyone - faster, noisier, surprisingly effective."
+    "analogy": "Consider estimating the average height of a city by measuring random people on the street instead of everyone - faster, noisier, surprisingly effective."
   },
   {
     "name": "Adam Optimizer",
@@ -406,7 +406,7 @@
       "gradient-descent"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like a scoring system that punishes confidently wrong predictions far more harshly than uncertain ones."
+    "analogy": "Imagine a scoring system that punishes confidently wrong predictions far more harshly than uncertain ones."
   },
   {
     "name": "Softmax",
@@ -434,7 +434,7 @@
       "vanishing-gradients"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like a dimmer switch that smoothly transitions between fully off (0) and fully on (1)."
+    "analogy": "Think of it as a dimmer switch that smoothly transitions between fully off (0) and fully on (1)."
   },
   {
     "name": "ReLU",
@@ -464,7 +464,7 @@
       "neural-network"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like choosing the starting position in a race - a bad start can mean you never reach the finish line efficiently."
+    "analogy": "Think of it as choosing the starting position in a race - a bad start can mean you never reach the finish line efficiently."
   },
   {
     "name": "Residual Connection",
@@ -478,7 +478,7 @@
       "deep-learning"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like a highway bypass that lets traffic skip past a congested town - the information can take the shortcut if the detour is not useful."
+    "analogy": "Consider a highway bypass that lets traffic skip past a congested town - the information can take the shortcut if the detour is not useful."
   },
   {
     "name": "Universal Approximation Theorem",
@@ -505,7 +505,7 @@
       "bias-variance-tradeoff"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like a detective hand-selecting clues before presenting a case, instead of dumping the entire evidence room on the jury."
+    "analogy": "Think of it as a detective hand-selecting clues before presenting a case, instead of dumping the entire evidence room on the jury."
   },
   {
     "name": "Hyperparameter",
@@ -574,7 +574,7 @@
       "transformer"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like having multiple reviewers read the same document simultaneously, each looking for a different thing."
+    "analogy": "Picture having multiple reviewers read the same document simultaneously, each looking for a different thing."
   },
   {
     "name": "Positional Encoding",
@@ -616,7 +616,7 @@
       "inference"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like a creativity dial - turn it down for predictable, focused answers; turn it up for surprising, diverse ones."
+    "analogy": "Consider a creativity dial - turn it down for predictable, focused answers; turn it up for surprising, diverse ones."
   },
   {
     "name": "Hallucination",
@@ -630,7 +630,7 @@
       "prompt-engineering"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like a confident tour guide who makes up historical facts when they do not know the answer, and you cannot tell the difference."
+    "analogy": "Imagine a confident tour guide who makes up historical facts when they do not know the answer, and you cannot tell the difference."
   },
   {
     "name": "Retrieval-Augmented Generation",
@@ -645,7 +645,7 @@
       "fine-tuning"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like giving a student an open-book exam instead of relying on memory - they still have to write the answer, but now they can check their notes."
+    "analogy": "Imagine giving a student an open-book exam instead of relying on memory - they still have to write the answer, but now they can check their notes."
   },
   {
     "name": "AI Agent",
@@ -688,7 +688,7 @@
       "relu"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like a whispered message passing through a long chain of people - by the time it reaches the end, the original message is gone."
+    "analogy": "Think of it as a whispered message passing through a long chain of people - by the time it reaches the end, the original message is gone."
   },
   {
     "name": "Exploding Gradients",
@@ -716,7 +716,7 @@
       "gradient-descent"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like putting a volume limiter on a speaker - the sound can get loud, but never loud enough to blow out the equipment."
+    "analogy": "Imagine putting a volume limiter on a speaker - the sound can get loud, but never loud enough to blow out the equipment."
   },
   {
     "name": "Data Augmentation",
@@ -730,7 +730,7 @@
       "machine-learning"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like a photographer taking the same photo from different angles, in different lighting, to make one image worth ten."
+    "analogy": "Imagine a photographer taking the same photo from different angles, in different lighting, to make one image worth ten."
   },
   {
     "name": "Latent Space",
@@ -744,7 +744,7 @@
       "deep-learning"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like a compressed zip file of meaning - everything important is preserved, but in a smaller, more organized format."
+    "analogy": "Think of it as a compressed zip file of meaning - everything important is preserved, but in a smaller, more organized format."
   },
   {
     "name": "KL Divergence",
@@ -758,7 +758,7 @@
       "regularization"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like measuring how different two recipes taste by comparing their ingredient proportions, not the final dish."
+    "analogy": "Imagine measuring how different two recipes taste by comparing their ingredient proportions, not the final dish."
   },
   {
     "name": "Knowledge Graph",
@@ -767,7 +767,7 @@
     "fullDef": "A knowledge graph is a graph-structured database where knowledge is stored as entities (nodes) and relationships (edges), with properties attached to both. Unlike relational databases that store data in tables, knowledge graphs model information as interconnected networks, making it natural to represent and query complex relationships between concepts.\n\nKnowledge graphs excel at multi-hop reasoning -- answering questions like \"find friends-of-friends who work at competitors\" -- which would require expensive self-joins in SQL. They are used by major companies including Google (Google Knowledge Graph), Microsoft (GraphRAG), and Amazon (product knowledge graphs). In hybrid RAG+KG systems, the knowledge graph provides structured facts and relationship traversal while RAG provides unstructured document retrieval.\n\nCommon implementations use graph databases like Neo4j with query languages such as Cypher or SPARQL. Knowledge graphs are built from triples (subject-predicate-object), and their construction involves entity extraction, relation extraction, entity linking, and schema design.",
     "category": "Knowledge Graphs",
     "relatedTerms": [
-      "rag",
+      "retrieval-augmented-generation",
       "neo4j",
       "triple",
       "ontology",
@@ -825,7 +825,7 @@
       "vector-database"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like asking a librarian who understands what you mean, not just the words you used."
+    "analogy": "Consider asking a librarian who understands what you mean, not just the words you used."
   },
   {
     "name": "BM25",
@@ -841,7 +841,7 @@
       "semantic-search"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like a keyword search engine that is smart enough to know that a rare word in a document matters more than a common one."
+    "analogy": "Imagine a keyword search engine that is smart enough to know that a rare word in a document matters more than a common one."
   },
   {
     "name": "Chunking",
@@ -850,13 +850,13 @@
     "fullDef": "Chunking is the process of splitting documents into smaller segments (chunks) that can be individually embedded and retrieved. It is one of the most critical steps in a RAG pipeline because embedding models have token limits, LLM context windows require concise relevant content, and large chunks spanning multiple topics produce poor similarity scores.\n\nCommon chunking strategies include fixed-size chunking (split every N tokens with overlap), sentence-based chunking, structural chunking (split by headers and sections), semantic chunking (split when consecutive sentence similarity drops), and hierarchical chunking (create chunks at multiple granularities). Advanced approaches include entity-aware chunking that never splits named entities across boundaries and code-aware chunking that keeps code blocks intact.\n\nThe sweet spot for most use cases is 200-800 tokens per chunk with 10-20% overlap between consecutive chunks. Too-small chunks lack context and produce poor embeddings, while too-large chunks mix topics and dilute similarity scores. Chunk overlap prevents information loss at boundaries where important context might be split across adjacent chunks.",
     "category": "Information Retrieval",
     "relatedTerms": [
-      "rag",
+      "retrieval-augmented-generation",
       "embedding",
       "context-window",
       "retrieval-pipeline"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like cutting a long article into paragraphs before filing them - the pieces need to be small enough to retrieve but large enough to make sense."
+    "analogy": "Think of it as cutting a long article into paragraphs before filing them - the pieces need to be small enough to retrieve but large enough to make sense."
   },
   {
     "name": "Reranking",
@@ -946,11 +946,10 @@
       "knowledge-graph",
       "triple",
       "rdf",
-      "sparql",
-      "schema"
+      "sparql"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like a dictionary that also includes a family tree - it defines terms and explains how they relate to each other."
+    "analogy": "Think of it as a dictionary that also includes a family tree - it defines terms and explains how they relate to each other."
   },
   {
     "name": "Triple",
@@ -977,8 +976,7 @@
     "relatedTerms": [
       "knowledge-graph",
       "cypher",
-      "graph-traversal",
-      "property-graph"
+      "graph-traversal"
     ],
     "lastUpdated": "2026-02-22",
     "analogy": "Like a spreadsheet for relationships - instead of rows and columns, you get nodes and connections."
@@ -1005,7 +1003,7 @@
     "fullDef": "A retrieval pipeline is the complete sequence of steps that transforms a user query into a grounded, cited answer in a RAG system. The standard pipeline consists of: (1) query processing (rewriting, expansion, decomposition), (2) retrieval (searching for relevant document chunks using vector similarity, keyword matching, or both), (3) reranking (rescoring candidates with a cross-encoder for better precision), (4) context construction (formatting retrieved documents for the LLM), and (5) generation (producing the final answer with citations).\n\nEach stage in the pipeline involves design decisions with significant quality implications. Query rewriting can improve recall by 15% or more. Hybrid retrieval combining BM25 and dense search outperforms either alone. Reranking improves precision of the final top results. Context construction must balance providing enough information against overwhelming the LLM with noise.\n\nIn hybrid RAG+KG systems, the pipeline is extended with knowledge graph components: entity extraction from the query, graph traversal for structured facts, and context fusion that combines graph results with document results before generation. Production pipelines also include caching, cost optimization, monitoring, and evaluation metrics like faithfulness, relevancy, and groundedness.",
     "category": "Information Retrieval",
     "relatedTerms": [
-      "rag",
+      "retrieval-augmented-generation",
       "chunking",
       "reranking",
       "hybrid-search",
@@ -1013,7 +1011,7 @@
       "grounding"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like an assembly line that finds, filters, sorts, and packages relevant information before handing it to the model."
+    "analogy": "Imagine an assembly line that finds, filters, sorts, and packages relevant information before handing it to the model."
   },
   {
     "name": "Context Window",
@@ -1022,13 +1020,13 @@
     "fullDef": "The context window is the maximum number of tokens that a language model can accept as input in a single request. This is a hard architectural limit determined by the model's positional encoding scheme and training configuration. Examples include 2,048 tokens for GPT-3, 128K tokens for GPT-4, and 200K tokens for Claude 3.\n\nThe context window is a critical constraint in RAG system design because it limits how much retrieved content can be provided to the LLM alongside the user query and system instructions. If you retrieve 20 chunks of 500 tokens each, that is 10,000 tokens of context before accounting for the prompt template and desired output length. Larger context windows allow more retrieved content but increase cost (API pricing scales with tokens) and can degrade quality due to the \"lost in the middle\" problem where LLMs pay less attention to information in the middle of long contexts.\n\nContext window optimization involves balancing retrieval breadth (more documents for better recall) against context efficiency (fewer, more relevant documents for better precision and lower cost). Most RAG systems find a sweet spot of 5-20 retrieved chunks, with reranking ensuring only the most relevant content occupies the limited context space.",
     "category": "NLP",
     "relatedTerms": [
-      "rag",
+      "retrieval-augmented-generation",
       "retrieval-pipeline",
       "chunking",
       "tokenization"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like the model's short-term memory - it can only hold so much text at once, and everything outside the window does not exist."
+    "analogy": "Picture the model's short-term memory - it can only hold so much text at once, and everything outside the window does not exist."
   },
   {
     "name": "Grounding",
@@ -1038,7 +1036,7 @@
     "category": "NLP",
     "relatedTerms": [
       "hallucination",
-      "rag",
+      "retrieval-augmented-generation",
       "citation",
       "retrieval-pipeline"
     ],
@@ -1054,11 +1052,11 @@
     "relatedTerms": [
       "grounding",
       "hallucination",
-      "rag",
+      "retrieval-augmented-generation",
       "retrieval-pipeline"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like footnotes in an academic paper - they let you verify whether the model's claims actually come from the source material."
+    "analogy": "Think of it as footnotes in an academic paper - they let you verify whether the model's claims actually come from the source material."
   },
   {
     "name": "Query Routing",
@@ -1068,7 +1066,7 @@
     "category": "Information Retrieval",
     "relatedTerms": [
       "knowledge-graph",
-      "rag",
+      "retrieval-augmented-generation",
       "hybrid-search",
       "retrieval-pipeline",
       "context-fusion"
@@ -1091,7 +1089,7 @@
       "bi-encoder"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like finding similar songs by comparing their audio fingerprints rather than matching titles or artist names."
+    "analogy": "Think of it as finding similar songs by comparing their audio fingerprints rather than matching titles or artist names."
   },
   {
     "name": "Sparse Retrieval",
@@ -1121,7 +1119,7 @@
       "reranking"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like combining the opinions of multiple judges by averaging their rankings instead of their raw scores."
+    "analogy": "Consider combining the opinions of multiple judges by averaging their rankings instead of their raw scores."
   },
   {
     "name": "Graph Embedding",
@@ -1132,7 +1130,6 @@
     "relatedTerms": [
       "knowledge-graph",
       "embedding",
-      "node2vec",
       "graph-traversal"
     ],
     "lastUpdated": "2026-02-22",
@@ -1195,7 +1192,7 @@
       "hybrid-search"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like weighing a word's importance by how often it appears in a document versus how common it is across all documents - rare words score higher."
+    "analogy": "Imagine weighing a word's importance by how often it appears in a document versus how common it is across all documents - rare words score higher."
   },
   {
     "name": "Cypher",
@@ -1211,7 +1208,7 @@
       "text-to-cypher"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like SQL but for relationships - instead of querying tables, you query patterns of connections between things."
+    "analogy": "Consider SQL but for relationships - instead of querying tables, you query patterns of connections between things."
   },
   {
     "name": "Context Fusion",
@@ -1221,13 +1218,13 @@
     "category": "Information Retrieval",
     "relatedTerms": [
       "knowledge-graph",
-      "rag",
+      "retrieval-augmented-generation",
       "query-routing",
       "hybrid-search",
       "grounding"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like a research assistant who gathers notes from five sources and arranges them into one coherent briefing before you read it."
+    "analogy": "Imagine a research assistant who gathers notes from five sources and arranges them into one coherent briefing before you read it."
   },
   {
     "name": "Text-to-Cypher",
@@ -1242,7 +1239,7 @@
       "query-routing"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like telling a librarian what you want in plain English and having them write the catalog lookup query for you."
+    "analogy": "Think of it as telling a librarian what you want in plain English and having them write the catalog lookup query for you."
   },
   {
     "name": "Approximate Nearest Neighbor",
@@ -1271,7 +1268,7 @@
       "faiss"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like a network of express highways connecting neighborhoods - you can jump between distant areas quickly without driving through every street."
+    "analogy": "Consider a network of express highways connecting neighborhoods - you can jump between distant areas quickly without driving through every street."
   },
   {
     "name": "Multi-Hop Reasoning",
@@ -1284,10 +1281,10 @@
       "graph-traversal",
       "query-routing",
       "context-fusion",
-      "rag"
+      "retrieval-augmented-generation"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like solving a mystery by connecting clues from different scenes - no single clue gives you the answer, but together they do."
+    "analogy": "Think of it as solving a mystery by connecting clues from different scenes - no single clue gives you the answer, but together they do."
   },
   {
     "name": "GraphRAG",
@@ -1297,7 +1294,7 @@
     "category": "Information Retrieval",
     "relatedTerms": [
       "knowledge-graph",
-      "rag",
+      "retrieval-augmented-generation",
       "context-fusion",
       "query-routing",
       "multi-hop-reasoning"
@@ -1319,7 +1316,7 @@
       "knowledge-graph"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like SQL for the Semantic Web - powerful and precise, but used by roughly the same number of people as speak fluent Latin."
+    "analogy": "Imagine SQL for the Semantic Web - powerful and precise, but used by roughly the same number of people as speak fluent Latin."
   },
   {
     "name": "RDF",
@@ -1334,7 +1331,7 @@
       "knowledge-graph"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Like a universal format for facts - everything is a subject-predicate-object sentence that machines can read and link together."
+    "analogy": "Consider a universal format for facts - everything is a subject-predicate-object sentence that machines can read and link together."
   },
   {
     "name": "GPT-4o",
@@ -2239,8 +2236,7 @@
     "relatedTerms": [
       "ai-agent",
       "moltbot",
-      "moltbook",
-      "function-calling"
+      "moltbook"
     ],
     "references": [
       {
@@ -2273,7 +2269,7 @@
       }
     ],
     "lastUpdated": "2026-02-23",
-    "analogy": "Like a product with five-star reviews that turns out to work differently than the demo suggested."
+    "analogy": "Imagine a product with five-star reviews that turns out to work differently than the demo suggested."
   },
   {
     "name": "MoltBot",
@@ -2308,8 +2304,7 @@
     "relatedTerms": [
       "openclaw",
       "moltbot",
-      "ai-agent",
-      "multi-agent-system"
+      "ai-agent"
     ],
     "references": [
       {
@@ -2338,7 +2333,6 @@
       "gpt-5",
       "gpt-5-2",
       "gpt-4o",
-      "o3",
       "chatgpt",
       "openclaw",
       "anthropic"
@@ -2366,7 +2360,7 @@
       }
     ],
     "lastUpdated": "2026-02-23",
-    "analogy": "Like the company that opened Pandora's box, named it 'open,' and then put a subscription fee on looking inside."
+    "analogy": "Consider the company that opened Pandora's box, named it 'open,' and then put a subscription fee on looking inside."
   },
   {
     "name": "Anthropic",
@@ -2377,7 +2371,7 @@
     "relatedTerms": [
       "claude-opus-4-6",
       "claude-sonnet-4-6",
-      "constitutional-ai",
+      "rlhf",
       "openai"
     ],
     "references": [
@@ -2441,7 +2435,7 @@
       }
     ],
     "lastUpdated": "2026-02-23",
-    "analogy": "Like merging two Formula 1 teams - both were fast individually, and the combined team has the best garage but sometimes trips over its own pit crew."
+    "analogy": "Consider merging two Formula 1 teams - both were fast individually, and the combined team has the best garage but sometimes trips over its own pit crew."
   },
   {
     "name": "Meta AI",
@@ -2479,7 +2473,7 @@
       }
     ],
     "lastUpdated": "2026-02-23",
-    "analogy": "Like a tech giant that gives away the engine for free because they make their money on the fuel."
+    "analogy": "Imagine a tech giant that gives away the engine for free because they make their money on the fuel."
   },
   {
     "name": "xAI",
@@ -2518,7 +2512,7 @@
       }
     ],
     "lastUpdated": "2026-02-23",
-    "analogy": "Like starting a car company because you thought the existing ones were not ambitious enough - except it is an AI company."
+    "analogy": "Think of it as starting a car company because you thought the existing ones were not ambitious enough - except it is an AI company."
   },
   {
     "name": "Recursive Language Model (RLM)",
@@ -2551,7 +2545,7 @@
       }
     ],
     "lastUpdated": "2026-02-24",
-    "analogy": "Like an editor who reads their own writing, rewrites it, reads the rewrite, and repeats until the deadline or the budget runs out."
+    "analogy": "Think of it as an editor who reads their own writing, rewrites it, reads the rewrite, and repeats until the deadline or the budget runs out."
   },
   {
     "name": "Chatbot",
@@ -2665,7 +2659,7 @@
       "inference"
     ],
     "lastUpdated": "2026-02-25",
-    "analogy": "Like a shipping container for software - everything the app needs is packed inside, and it runs the same way on any ship."
+    "analogy": "Think of it as a shipping container for software - everything the app needs is packed inside, and it runs the same way on any ship."
   },
   {
     "name": "Cold Start",
@@ -2720,7 +2714,7 @@
       "ram"
     ],
     "lastUpdated": "2026-02-25",
-    "analogy": "Like a personal coffee machine for AI - brew your own models at home instead of buying from the cloud cafe every time."
+    "analogy": "Picture a personal coffee machine for AI - brew your own models at home instead of buying from the cloud cafe every time."
   },
   {
     "name": "Pattern Matching",
@@ -2734,7 +2728,7 @@
       "machine-learning"
     ],
     "lastUpdated": "2026-02-25",
-    "analogy": "Like a detective pinning photos to a board and drawing lines between them - finding connections in the data."
+    "analogy": "Think of it as a detective pinning photos to a board and drawing lines between them - finding connections in the data."
   },
   {
     "name": "Vibe Coding",
@@ -2748,7 +2742,7 @@
       "ai-agent"
     ],
     "lastUpdated": "2026-02-25",
-    "analogy": "Like dictating a letter to someone who types faster than you but occasionally writes what they think you meant instead of what you said."
+    "analogy": "Imagine dictating a letter to someone who types faster than you but occasionally writes what they think you meant instead of what you said."
   },
   {
     "name": "Zero-day",
@@ -2761,7 +2755,7 @@
       "inference"
     ],
     "lastUpdated": "2026-02-25",
-    "analogy": "Like discovering a hidden unlocked door in a bank vault - the bank does not know it exists, and you found it first."
+    "analogy": "Consider discovering a hidden unlocked door in a bank vault - the bank does not know it exists, and you found it first."
   },
   {
     "name": "KV Cache",
@@ -2777,7 +2771,7 @@
       "ram"
     ],
     "lastUpdated": "2026-02-26",
-    "analogy": "Like a waiter who remembers your previous orders so you do not have to repeat your entire dining history every time you add a dish."
+    "analogy": "Picture a waiter who remembers your previous orders so you do not have to repeat your entire dining history every time you add a dish."
   },
   {
     "name": "GPU",
@@ -2809,7 +2803,7 @@
       "ollama"
     ],
     "lastUpdated": "2026-02-26",
-    "analogy": "Like compressing a high-resolution photo to save storage - you lose some detail, but the image is still recognizable and much smaller."
+    "analogy": "Think of it as compressing a high-resolution photo to save storage - you lose some detail, but the image is still recognizable and much smaller."
   },
   {
     "name": "CUDA",
@@ -2852,7 +2846,7 @@
       "lmarena"
     ],
     "lastUpdated": "2026-02-26",
-    "analogy": "Like a PhD qualifying exam for AI - the questions are hard enough that human experts regularly fail them too."
+    "analogy": "Imagine a PhD qualifying exam for AI - the questions are hard enough that human experts regularly fail them too."
   },
   {
     "name": "AIME",
@@ -2866,7 +2860,7 @@
       "gpqa-diamond"
     ],
     "lastUpdated": "2026-02-26",
-    "analogy": "Like a math olympiad for AI - the problems have clean answers but require genuine reasoning to solve, not pattern matching."
+    "analogy": "Imagine a math olympiad for AI - the problems have clean answers but require genuine reasoning to solve, not pattern matching."
   },
   {
     "name": "MMMU-Pro",
@@ -2926,7 +2920,7 @@
       "ai-agent"
     ],
     "lastUpdated": "2026-02-26",
-    "analogy": "Like a restaurant menu - it tells you what you can order and how to ask for it, without revealing what happens in the kitchen."
+    "analogy": "Consider a restaurant menu - it tells you what you can order and how to ask for it, without revealing what happens in the kitchen."
   },
   {
     "name": "MCP",
@@ -2942,7 +2936,7 @@
       "openai"
     ],
     "lastUpdated": "2026-02-26",
-    "analogy": "Like a universal adapter plug - it lets any AI agent connect to any tool using one standardized interface."
+    "analogy": "Imagine a universal adapter plug - it lets any AI agent connect to any tool using one standardized interface."
   },
   {
     "name": "Open Source",
@@ -2973,7 +2967,7 @@
       "hugging-face"
     ],
     "lastUpdated": "2026-02-26",
-    "analogy": "Like getting the recipe but not the ingredients list or cooking technique - you can serve the dish but cannot easily replicate the process."
+    "analogy": "Imagine getting the recipe but not the ingredients list or cooking technique - you can serve the dish but cannot easily replicate the process."
   },
   {
     "name": "SaaS",
@@ -2987,7 +2981,7 @@
       "ai-agent"
     ],
     "lastUpdated": "2026-02-26",
-    "analogy": "Like renting an apartment instead of buying a house - less upfront cost, but you are paying every month and someone else controls the thermostat."
+    "analogy": "Think of it as renting an apartment instead of buying a house - less upfront cost, but you are paying every month and someone else controls the thermostat."
   },
   {
     "name": "Foundation Model",
@@ -3018,7 +3012,7 @@
       "zero-day"
     ],
     "lastUpdated": "2026-02-26",
-    "analogy": "Like slipping a forged note into someone's inbox that says 'ignore all previous instructions' - and it works."
+    "analogy": "Think of it as slipping a forged note into someone's inbox that says 'ignore all previous instructions' - and it works."
   },
   {
     "name": "Gemini",
@@ -3034,7 +3028,7 @@
       "context-window"
     ],
     "lastUpdated": "2026-02-27",
-    "analogy": "Like Google's Swiss Army knife for AI - multiple sizes, multiple modalities, tightly integrated with the Google ecosystem."
+    "analogy": "Picture Google's Swiss Army knife for AI - multiple sizes, multiple modalities, tightly integrated with the Google ecosystem."
   },
   {
     "name": "ChatGPT",
@@ -3065,7 +3059,7 @@
       "vibe-coding"
     ],
     "lastUpdated": "2026-02-27",
-    "analogy": "Like a senior developer who lives in your terminal - reads your codebase, suggests changes, and executes them with your permission."
+    "analogy": "Imagine a senior developer who lives in your terminal - reads your codebase, suggests changes, and executes them with your permission."
   },
   {
     "name": "Codex",
@@ -3081,7 +3075,7 @@
       "vibe-coding"
     ],
     "lastUpdated": "2026-02-27",
-    "analogy": "Like a remote contractor who works in a sandbox - you describe the task, they build it in isolation, and you review the result."
+    "analogy": "Think of it as a remote contractor who works in a sandbox - you describe the task, they build it in isolation, and you review the result."
   },
   {
     "name": "Cursor",
@@ -3112,7 +3106,7 @@
       "vibe-coding"
     ],
     "lastUpdated": "2026-02-27",
-    "analogy": "Like an AI co-pilot for your editor - it watches what you are doing and offers to take over the boring parts."
+    "analogy": "Consider an AI co-pilot for your editor - it watches what you are doing and offers to take over the boring parts."
   },
   {
     "name": "GitHub Copilot",
@@ -3144,7 +3138,7 @@
       "feature-engineering"
     ],
     "lastUpdated": "2026-02-27",
-    "analogy": "Like drawing the widest possible line between two groups on a scatter plot - simple, effective, and completely out of fashion."
+    "analogy": "Imagine drawing the widest possible line between two groups on a scatter plot - simple, effective, and completely out of fashion."
   },
   {
     "name": "KNN",
@@ -3174,7 +3168,7 @@
       "vector-database"
     ],
     "lastUpdated": "2026-02-27",
-    "analogy": "Like sorting a pile of laundry by color without being told what the color categories are - the algorithm decides."
+    "analogy": "Think of it as sorting a pile of laundry by color without being told what the color categories are - the algorithm decides."
   },
   {
     "name": "Reasoning",
@@ -3190,7 +3184,7 @@
       "inference"
     ],
     "lastUpdated": "2026-02-27",
-    "analogy": "Like showing your work on a math test - the model breaks the problem into steps instead of jumping straight to an answer."
+    "analogy": "Think of it as showing your work on a math test - the model breaks the problem into steps instead of jumping straight to an answer."
   },
   {
     "name": "Chain of Thought",
@@ -3206,7 +3200,7 @@
       "temperature"
     ],
     "lastUpdated": "2026-02-27",
-    "analogy": "Like thinking out loud before giving your final answer - the intermediate steps reduce the chance of a wrong conclusion."
+    "analogy": "Think of it as thinking out loud before giving your final answer - the intermediate steps reduce the chance of a wrong conclusion."
   },
   {
     "name": "Artificial Intelligence",
@@ -3238,7 +3232,7 @@
       "embedding"
     ],
     "lastUpdated": "2026-02-27",
-    "analogy": "Like teaching a calculator to understand poetry - bridging the gap between human expression and machine computation."
+    "analogy": "Picture teaching a calculator to understand poetry - bridging the gap between human expression and machine computation."
   },
   {
     "name": "Context Rot",
@@ -3254,7 +3248,7 @@
       "prompt-engineering"
     ],
     "lastUpdated": "2026-02-28",
-    "analogy": "Like a long phone conversation where you both forget what was said an hour ago - the model's attention drifts as context grows."
+    "analogy": "Imagine a long phone conversation where you both forget what was said an hour ago - the model's attention drifts as context grows."
   },
   {
     "name": "Perplexity",
@@ -3270,7 +3264,7 @@
       "gemini"
     ],
     "lastUpdated": "2026-02-28",
-    "analogy": "Like a surprise meter - low perplexity means the model expected what came next; high perplexity means it was caught off guard."
+    "analogy": "Imagine a surprise meter - low perplexity means the model expected what came next; high perplexity means it was caught off guard."
   },
   {
     "name": "Artificial Relevance",
@@ -3287,7 +3281,7 @@
       "hallucination"
     ],
     "lastUpdated": "2026-03-01",
-    "analogy": "Like a search result that looks right in the preview but turns out to be about a completely different topic when you click through."
+    "analogy": "Picture a search result that looks right in the preview but turns out to be about a completely different topic when you click through."
   },
   {
     "name": "Vectorless Retrieval",
@@ -3304,7 +3298,7 @@
       "large-language-model"
     ],
     "lastUpdated": "2026-03-01",
-    "analogy": "Like finding a book by checking the card catalog instead of wandering through the shelves until something feels similar."
+    "analogy": "Imagine finding a book by checking the card catalog instead of wandering through the shelves until something feels similar."
   },
   {
     "name": "Zero-Shot / Few-Shot Learning",
@@ -3318,7 +3312,7 @@
       "inference"
     ],
     "lastUpdated": "2026-03-01",
-    "analogy": "Like asking someone to cook a dish they have never made - zero-shot is from the recipe name alone, few-shot is with a couple of example photos."
+    "analogy": "Picture asking someone to cook a dish they have never made - zero-shot is from the recipe name alone, few-shot is with a couple of example photos."
   },
   {
     "name": "System Prompt",
@@ -3371,10 +3365,10 @@
     "relatedTerms": [
       "tool-calling",
       "mcp",
-      "rag"
+      "retrieval-augmented-generation"
     ],
     "lastUpdated": "2026-03-01",
-    "analogy": "Like an air traffic controller coordinating multiple planes - each agent does its job, but someone has to prevent collisions."
+    "analogy": "Picture an air traffic controller coordinating multiple planes - each agent does its job, but someone has to prevent collisions."
   },
   {
     "name": "Agentic AI",
@@ -3403,7 +3397,7 @@
       "knn"
     ],
     "lastUpdated": "2026-03-01",
-    "analogy": "Like polling a crowd of decision-makers and going with the majority - each individual might be wrong, but the group is usually right."
+    "analogy": "Think of it as polling a crowd of decision-makers and going with the majority - each individual might be wrong, but the group is usually right."
   },
   {
     "name": "Bidirectional Influence",
@@ -3418,7 +3412,7 @@
       "fine-tuning"
     ],
     "lastUpdated": "2026-03-01",
-    "analogy": "Like two people in a long conversation who gradually start using each other's phrases without realizing it."
+    "analogy": "Think of it as two people in a long conversation who gradually start using each other's phrases without realizing it."
   },
   {
     "name": "Sycophancy",
@@ -3433,7 +3427,7 @@
       "fine-tuning"
     ],
     "lastUpdated": "2026-03-01",
-    "analogy": "Like a yes-man who agrees with everything you say - reassuring in the moment, dangerous when you actually need honest feedback."
+    "analogy": "Think of it as a yes-man who agrees with everything you say - reassuring in the moment, dangerous when you actually need honest feedback."
   },
   {
     "name": "RLHF",
@@ -3462,7 +3456,7 @@
       "bidirectional-influence"
     ],
     "lastUpdated": "2026-03-02",
-    "analogy": "Like a personal assistant who remembers your preferences across meetings - helpful until you wonder exactly how much they have been writing down."
+    "analogy": "Imagine a personal assistant who remembers your preferences across meetings - helpful until you wonder exactly how much they have been writing down."
   },
   {
     "name": "Autonomous AI",
@@ -3476,7 +3470,7 @@
       "reasoning"
     ],
     "lastUpdated": "2026-03-02",
-    "analogy": "Like a self-driving car that has left the test track - promising technology, but you still want to know where the brake pedal is."
+    "analogy": "Consider a self-driving car that has left the test track - promising technology, but you still want to know where the brake pedal is."
   },
   {
     "name": "Text Mining",
@@ -3490,7 +3484,7 @@
       "machine-learning"
     ],
     "lastUpdated": "2026-03-04",
-    "analogy": "Like panning for gold in a river of documents - most of what you sift through is sand, but the nuggets are valuable."
+    "analogy": "Picture panning for gold in a river of documents - most of what you sift through is sand, but the nuggets are valuable."
   },
   {
     "name": "Mixture of Experts",
@@ -3505,7 +3499,7 @@
       "transformer"
     ],
     "lastUpdated": "2026-03-05",
-    "analogy": "Like a hospital with specialist doctors - each patient gets routed to the right expert instead of seeing one general practitioner for everything."
+    "analogy": "Imagine a hospital with specialist doctors - each patient gets routed to the right expert instead of seeing one general practitioner for everything."
   },
   {
     "name": "Sparse Model",
@@ -3519,7 +3513,7 @@
       "neural-network"
     ],
     "lastUpdated": "2026-03-05",
-    "analogy": "Like a department store where only the relevant departments open for each customer - the unused sections stay dark to save energy."
+    "analogy": "Imagine a department store where only the relevant departments open for each customer - the unused sections stay dark to save energy."
   },
   {
     "name": "Routing Network",
@@ -3547,7 +3541,7 @@
       "sparse-model"
     ],
     "lastUpdated": "2026-03-05",
-    "analogy": "Like distributing customers evenly across checkout lanes so no single cashier is overwhelmed while others stand idle."
+    "analogy": "Picture distributing customers evenly across checkout lanes so no single cashier is overwhelmed while others stand idle."
   },
   {
     "name": "Speculative Decoding",
@@ -3561,7 +3555,7 @@
       "tokenization"
     ],
     "lastUpdated": "2026-03-05",
-    "analogy": "Like a junior associate drafting a memo and a partner reviewing it - faster than the partner writing from scratch, since most drafts are acceptable."
+    "analogy": "Picture a junior associate drafting a memo and a partner reviewing it - faster than the partner writing from scratch, since most drafts are acceptable."
   },
   {
     "name": "Mixture of Experts Routing",
@@ -3604,7 +3598,7 @@
       "transformer"
     ],
     "lastUpdated": "2026-03-05",
-    "analogy": "Like giving a machine eyes and teaching it what it is looking at - from counting objects to reading X-rays."
+    "analogy": "Think of it as giving a machine eyes and teaching it what it is looking at - from counting objects to reading X-rays."
   },
   {
     "name": "Model Collapse",
@@ -3618,7 +3612,7 @@
       "fine-tuning"
     ],
     "lastUpdated": "2026-03-05",
-    "analogy": "Like making a photocopy of a photocopy of a photocopy - each generation loses a little quality until the result is unrecognizable."
+    "analogy": "Imagine making a photocopy of a photocopy of a photocopy - each generation loses a little quality until the result is unrecognizable."
   },
   {
     "name": "n8n",
@@ -3680,7 +3674,7 @@
       "GPT-5.4 pricing"
     ],
     "lastUpdated": "2026-03-09",
-    "analogy": "Like a point release that fixes the annoyances from the last major version - not a revolution, but a relief."
+    "analogy": "Think of it as a point release that fixes the annoyances from the last major version - not a revolution, but a relief."
   },
   {
     "name": "Text Normalization",
@@ -3710,7 +3704,7 @@
       "sparse-retrieval"
     ],
     "lastUpdated": "2026-03-06",
-    "analogy": "Like removing the 'um' and 'uh' from a transcript - the meaning stays, the noise goes."
+    "analogy": "Think of it as removing the 'um' and 'uh' from a transcript - the meaning stays, the noise goes."
   },
   {
     "name": "Stemming",
@@ -3740,7 +3734,7 @@
       "text-normalization"
     ],
     "lastUpdated": "2026-03-06",
-    "analogy": "Like looking up a word in the dictionary to find its base form - 'ran' becomes 'run', 'better' becomes 'good.'"
+    "analogy": "Imagine looking up a word in the dictionary to find its base form - 'ran' becomes 'run', 'better' becomes 'good.'"
   },
   {
     "name": "POS Tagging",
@@ -3755,7 +3749,7 @@
       "tokenization"
     ],
     "lastUpdated": "2026-03-06",
-    "analogy": "Like diagramming a sentence in grammar class - labeling each word as noun, verb, adjective, and so on."
+    "analogy": "Imagine diagramming a sentence in grammar class - labeling each word as noun, verb, adjective, and so on."
   },
   {
     "name": "Dependency Parsing",
@@ -3784,7 +3778,7 @@
       "pos-tagging"
     ],
     "lastUpdated": "2026-03-06",
-    "analogy": "Like realizing that 'she', 'the professor', and 'Dr. Lee' all refer to the same person in a paragraph."
+    "analogy": "Think of it as realizing that 'she', 'the professor', and 'Dr. Lee' all refer to the same person in a paragraph."
   },
   {
     "name": "Word Embeddings",
@@ -3829,7 +3823,7 @@
       "benchmark"
     ],
     "lastUpdated": "2026-03-06",
-    "analogy": "Like sorting mail into bins - each piece of text gets assigned to a category based on its content."
+    "analogy": "Think of it as sorting mail into bins - each piece of text gets assigned to a category based on its content."
   },
   {
     "name": "Subword Tokenization",
@@ -3860,7 +3854,7 @@
       "foundation-model"
     ],
     "lastUpdated": "2026-03-06",
-    "analogy": "Like a game of predict-the-next-word - the model learns language by getting better at guessing what comes next."
+    "analogy": "Consider a game of predict-the-next-word - the model learns language by getting better at guessing what comes next."
   },
   {
     "name": "Algorithm",
@@ -3889,7 +3883,7 @@
       "reasoning"
     ],
     "lastUpdated": "2026-03-07",
-    "analogy": "Like an AI system designed to think the way a human does - combining multiple skills to handle ambiguous, messy, real-world problems."
+    "analogy": "Imagine an AI system designed to think the way a human does - combining multiple skills to handle ambiguous, messy, real-world problems."
   },
   {
     "name": "MCMC",
@@ -3903,7 +3897,7 @@
       "loss-function"
     ],
     "lastUpdated": "2026-03-08",
-    "analogy": "Like exploring a dark cave by randomly walking around and spending more time in the interesting chambers - eventually you map the whole thing."
+    "analogy": "Consider exploring a dark cave by randomly walking around and spending more time in the interesting chambers - eventually you map the whole thing."
   },
   {
     "name": "Emergent Behavior",
@@ -3918,7 +3912,7 @@
       "foundation-model"
     ],
     "lastUpdated": "2026-03-08",
-    "analogy": "Like a flock of birds forming patterns that no individual bird planned - complex behavior arising from simple rules at scale."
+    "analogy": "Consider a flock of birds forming patterns that no individual bird planned - complex behavior arising from simple rules at scale."
   },
   {
     "name": "Guardrails",
@@ -3933,7 +3927,7 @@
       "hallucination"
     ],
     "lastUpdated": "2026-03-08",
-    "analogy": "Like bumper lanes in bowling - they keep the ball (model) on the lane and out of the gutter, but they do not guarantee a strike."
+    "analogy": "Think of it as bumper lanes in bowling - they keep the ball (model) on the lane and out of the gutter, but they do not guarantee a strike."
   },
   {
     "name": "NVIDIA",
@@ -3948,7 +3942,7 @@
       "deep-learning"
     ],
     "lastUpdated": "2026-03-08",
-    "analogy": "Like the pickaxe seller during a gold rush - they do not mine the gold, but everyone who does needs their tools."
+    "analogy": "Consider the pickaxe seller during a gold rush - they do not mine the gold, but everyone who does needs their tools."
   },
   {
     "name": "Llama 3.1",
@@ -3964,7 +3958,7 @@
       "large-language-model"
     ],
     "lastUpdated": "2026-03-08",
-    "analogy": "Like a versatile open-source engine available in three sizes - small enough for a motorcycle, large enough for a truck."
+    "analogy": "Consider a versatile open-source engine available in three sizes - small enough for a motorcycle, large enough for a truck."
   },
   {
     "name": "Semantic Collapse",
@@ -4023,7 +4017,7 @@
       "how decision trees work"
     ],
     "lastUpdated": "2026-03-09",
-    "analogy": "Like a game of 20 questions - each question narrows down the possibilities until you arrive at the answer."
+    "analogy": "Imagine a game of 20 questions - each question narrows down the possibilities until you arrive at the answer."
   },
   {
     "name": "Boosting (Ensemble Methods)",
@@ -4053,7 +4047,7 @@
       "boosting in deep learning"
     ],
     "lastUpdated": "2026-03-09",
-    "analogy": "Like a relay team where each runner studies where the previous runner stumbled and trains specifically for those sections of the track."
+    "analogy": "Imagine a relay team where each runner studies where the previous runner stumbled and trains specifically for those sections of the track."
   },
   {
     "name": "AdaBoost (Boosting)",
@@ -4082,7 +4076,7 @@
       "AdaBoost classification"
     ],
     "lastUpdated": "2026-03-09",
-    "analogy": "Like a teacher who gives extra homework on the questions students got wrong - each round of practice targets the weak spots."
+    "analogy": "Imagine a teacher who gives extra homework on the questions students got wrong - each round of practice targets the weak spots."
   },
   {
     "name": "XGBoost (Boosting)",
@@ -4140,7 +4134,7 @@
       "LightGBM large datasets"
     ],
     "lastUpdated": "2026-03-09",
-    "analogy": "Like XGBoost's faster younger sibling - it takes shortcuts that sound risky but almost always get to the same destination quicker."
+    "analogy": "Imagine XGBoost's faster younger sibling - it takes shortcuts that sound risky but almost always get to the same destination quicker."
   },
   {
     "name": "Sarvam AI",
@@ -4152,8 +4146,8 @@
       "foundation-model",
       "large-language-model",
       "mixture-of-experts",
-      "open-source-ai",
-      "tokenization"
+      "tokenization",
+      "open-weight-model"
     ],
     "references": [
       {
@@ -4184,7 +4178,7 @@
       "Sarvam AI languages"
     ],
     "lastUpdated": "2026-03-09",
-    "analogy": "Like building an entire phone network specifically for a country's languages instead of expecting everyone to speak English - infrastructure designed from the ground up for local needs."
+    "analogy": "Imagine building an entire phone network specifically for a country's languages instead of expecting everyone to speak English - infrastructure designed from the ground up for local needs."
   },
   {
     "name": "Perplexity Computer",
@@ -4271,7 +4265,7 @@
       "RAG without vector database"
     ],
     "lastUpdated": "2026-03-10",
-    "analogy": "Like using a book's table of contents and index to find what you need, instead of reading every page and guessing which one sounds most similar to your question."
+    "analogy": "Consider using a book's table of contents and index to find what you need, instead of reading every page and guessing which one sounds most similar to your question."
   },
   {
     "name": "Supervised Learning",
@@ -4310,8 +4304,7 @@
       "supervised-learning",
       "machine-learning",
       "embedding",
-      "neural-network",
-      "self-supervised-learning"
+      "neural-network"
     ],
     "seoDescription": "Unsupervised learning finds patterns in unlabeled data without predefined answers. Learn how clustering, dimensionality reduction, and density estimation work in AI.",
     "seoKeywords": [
@@ -4325,6 +4318,6 @@
       "unsupervised learning algorithms"
     ],
     "lastUpdated": "2026-03-10",
-    "analogy": "Like sorting a pile of unlabeled photos into albums - nobody tells you the categories, you figure out the groupings yourself based on what you see."
+    "analogy": "Imagine sorting a pile of unlabeled photos into albums - nobody tells you the categories, you figure out the groupings yourself based on what you see."
   }
 ]

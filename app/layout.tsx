@@ -24,6 +24,10 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.thequery.in"),
+  alternates: {
+    canonical: "./",
+  },
   title: {
     default: "TheQuery - AI Knowledge from First Principles",
     template: "%s | TheQuery",
@@ -43,11 +47,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
-          crossOrigin="anonymous"
-        />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-SXRT67W8V7" />
         <script
           dangerouslySetInnerHTML={{

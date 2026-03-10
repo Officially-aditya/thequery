@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useDeferredValue } from "react";
 import Link from "next/link";
 
 interface Term {
@@ -33,8 +33,10 @@ export default function GlossarySearch({ terms }: { terms: Term[] }) {
   const [category, setCategory] = useState("All");
   const [letter, setLetter] = useState<string | null>(null);
 
+  const deferredQuery = useDeferredValue(query);
+
   const filtered = terms.filter((t) => {
-    if (query && !t.name.toLowerCase().includes(query.toLowerCase())) return false;
+    if (deferredQuery && !t.name.toLowerCase().includes(deferredQuery.toLowerCase())) return false;
     if (category !== "All" && t.category !== category) return false;
     if (letter && !t.name.toUpperCase().startsWith(letter)) return false;
     return true;

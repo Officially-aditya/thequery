@@ -37,13 +37,28 @@ export default async function TermPage({ params }: Props) {
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "DefinedTerm",
-    name: term.name,
-    description: term.shortDef,
-    inDefinedTermSet: {
-      "@type": "DefinedTermSet",
-      name: "TheQuery AI Glossary",
-    },
+    "@graph": [
+      {
+        "@type": "DefinedTerm",
+        name: term.name,
+        description: term.shortDef,
+        url: `https://www.thequery.in/glossary/${term.slug}`,
+        inDefinedTermSet: {
+          "@type": "DefinedTermSet",
+          "@id": "https://www.thequery.in/glossary",
+          name: "TheQuery AI Glossary",
+          url: "https://www.thequery.in/glossary",
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.thequery.in" },
+          { "@type": "ListItem", position: 2, name: "Glossary", item: "https://www.thequery.in/glossary" },
+          { "@type": "ListItem", position: 3, name: term.name },
+        ],
+      },
+    ],
   };
 
   return (

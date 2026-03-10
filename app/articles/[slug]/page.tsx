@@ -29,8 +29,48 @@ export default async function ArticlePage({ params }: Props) {
   const issue = getIssueBySlug(slug);
   if (!issue) notFound();
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        headline: issue.title,
+        description: issue.summary,
+        datePublished: issue.date,
+        url: `https://www.thequery.in/articles/${issue.slug}`,
+        author: {
+          "@type": "Person",
+          name: "Addy",
+          url: "https://www.thequery.in/about",
+        },
+        publisher: {
+          "@type": "Organization",
+          "@id": "https://www.thequery.in/#organization",
+          name: "TheQuery",
+        },
+        mainEntityOfPage: {
+          "@type": "WebPage",
+          "@id": `https://www.thequery.in/articles/${issue.slug}`,
+        },
+        inLanguage: "en",
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.thequery.in" },
+          { "@type": "ListItem", position: 2, name: "Articles", item: "https://www.thequery.in/articles" },
+          { "@type": "ListItem", position: 3, name: issue.title },
+        ],
+      },
+    ],
+  };
+
   return (
     <div className="max-w-[720px] mx-auto px-4 py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Link href="/articles" className="text-sm text-text-muted hover:text-text-secondary transition-colors mb-6 inline-block">
         &larr; All Articles
       </Link>
@@ -39,7 +79,7 @@ export default async function ArticlePage({ params }: Props) {
         {issue.title}
       </h1>
       <p className="text-sm text-text-muted mb-8">
-        {new Date(issue.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+        By Addy &middot; {new Date(issue.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
       </p>
 
       <MarkdownRenderer content={issue.content} glossaryTerms={getAllTerms().map((t) => ({ name: t.name, slug: t.slug }))} />
