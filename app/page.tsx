@@ -73,10 +73,6 @@ export default function Home() {
         </p>
       </div>
 
-      <div className="mb-12">
-        <WordOfTheDay />
-      </div>
-
       <div className="mb-12 text-text-secondary leading-relaxed space-y-4">
         <p>
           TheQuery is where developers go to understand AI, not just use it. Every resource here
@@ -89,6 +85,10 @@ export default function Home() {
           developments across the AI field, and study guides for practitioners building real systems.
           All content is free, with no signup required.
         </p>
+      </div>
+
+      <div className="mb-12">
+        <WordOfTheDay />
       </div>
 
       <div className="space-y-8">
