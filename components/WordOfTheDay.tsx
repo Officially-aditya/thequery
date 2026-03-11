@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getTodaysWord } from "@/lib/word-of-the-day";
+import { getTodaysWord } from "@/lib/ai-word-of-the-day";
 
 export default function WordOfTheDay() {
   const wotd = getTodaysWord();
@@ -7,12 +7,12 @@ export default function WordOfTheDay() {
 
   return (
     <Link
-      href="/word-of-the-day"
+      href="/ai-word-of-the-day"
       className="block border border-border rounded-xl px-6 py-5 hover:border-accent transition-colors group"
     >
       <div className="flex items-center justify-between mb-2">
         <span className="text-xs font-medium uppercase tracking-wider text-text-muted">
-          Word of the Day
+          AI Word of the Day
         </span>
         <svg
           xmlns="http://www.w3.org/2000/svg"

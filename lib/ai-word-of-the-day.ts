@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import { getAllTerms, type GlossaryTerm } from "./glossary";
 
-const dataPath = path.join(process.cwd(), "data", "word-of-the-day.json");
+const dataPath = path.join(process.cwd(), "data", "ai-word-of-the-day.json");
 
 export interface WotdEntry {
   slug: string;

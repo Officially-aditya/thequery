@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getTodaysWord } from "@/lib/word-of-the-day";
+import { getTodaysWord } from "@/lib/ai-word-of-the-day";
 import { getAllTerms } from "@/lib/glossary";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
 import type { Metadata } from "next";
@@ -8,12 +8,12 @@ export const revalidate = 3600;
 
 export async function generateMetadata(): Promise<Metadata> {
   const wotd = getTodaysWord();
-  if (!wotd) return { title: "Word of the Day" };
+  if (!wotd) return { title: "AI Word of the Day" };
   return {
-    title: `${wotd.term.name} — Word of the Day`,
+    title: `${wotd.term.name} — AI Word of the Day`,
     description: wotd.term.shortDef,
     openGraph: {
-      title: `${wotd.term.name} — Word of the Day`,
+      title: `${wotd.term.name} — AI Word of the Day`,
       description: wotd.term.shortDef,
     },
   };
@@ -21,7 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function WordOfTheDayPage() {
   const wotd = getTodaysWord();
-  if (!wotd) return <div className="max-w-[960px] mx-auto px-4 py-12">No word of the day available.</div>;
+  if (!wotd) return <div className="max-w-[960px] mx-auto px-4 py-12">No AI word of the day available.</div>;
 
   const { term, humor, examples } = wotd;
   const allTerms = getAllTerms();
@@ -36,7 +36,7 @@ export default function WordOfTheDayPage() {
       </Link>
 
       <div className="mb-2">
-        <span className="text-xs font-medium uppercase tracking-wider text-text-muted">Word of the Day</span>
+        <span className="text-xs font-medium uppercase tracking-wider text-text-muted">AI Word of the Day</span>
       </div>
 
       <div className="flex items-start justify-between mb-4">
