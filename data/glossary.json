@@ -4319,5 +4319,103 @@
     ],
     "lastUpdated": "2026-03-10",
     "analogy": "Imagine sorting a pile of unlabeled photos into albums - nobody tells you the categories, you figure out the groupings yourself based on what you see."
+  },
+  {
+    "name": "Claude Code Review",
+    "slug": "claude-code-review",
+    "shortDef": "An AI-powered code review tool by Anthropic that dispatches multiple agents in parallel to analyze pull requests for bugs, security issues, and logic errors, with a verification layer to filter false positives before surfacing findings.",
+    "fullDef": "Claude Code Review is an automated code review system built into Claude Code, launched by Anthropic on March 9, 2026. It uses a multi-agent architecture where several AI agents examine a pull request concurrently from different angles, then a verification layer cross-checks and filters findings before presenting them to the developer.\n\nThe system produces a single overview comment plus inline annotations ranked by severity. It does not approve or merge pull requests - it reports findings and stops there. Review depth scales with PR complexity: large PRs (1,000+ lines) receive findings 84% of the time, averaging 7.5 issues per review, while small PRs (under 50 lines) receive findings 31% of the time.\n\nInternally at Anthropic, code output per engineer grew 200% in a year, creating a review bottleneck where only 16% of pull requests received substantive review comments. After deploying Claude Code Review, that figure rose to 54%. Less than 1% of findings are marked incorrect by reviewing engineers.\n\nClaude Code Review is available as a research preview for Team and Enterprise customers at an estimated cost of $15-25 per review, depending on PR complexity. Organizations can set monthly spending caps and enable reviews selectively by repository.",
+    "category": "Developer Tools",
+    "relatedTerms": [
+      "anthropic",
+      "ai-agent",
+      "coderabbit",
+      "agentic-workflows"
+    ],
+    "references": [
+      {
+        "title": "Code Review for Claude Code - Anthropic",
+        "url": "https://claude.com/blog/code-review"
+      },
+      {
+        "title": "Anthropic launches code review tool - TechCrunch",
+        "url": "https://techcrunch.com/2026/03/09/anthropic-launches-code-review-tool-to-check-flood-of-ai-generated-code/"
+      }
+    ],
+    "seoDescription": "Claude Code Review uses multi-agent AI to analyze pull requests for bugs and security issues. Learn how it works, pricing, and how it compares to CodeRabbit.",
+    "seoKeywords": [
+      "what is Claude Code Review",
+      "what is Claude Code Review in AI",
+      "Claude Code Review explained",
+      "Claude Code Review pricing",
+      "Claude Code Review vs CodeRabbit",
+      "Anthropic code review",
+      "AI code review tool",
+      "Claude Code Review features"
+    ],
+    "lastUpdated": "2026-03-11",
+    "analogy": "You do not call a forensic accountant for every invoice. But when the numbers are large enough and the stakes are real, that is exactly who you want reviewing the books before they are signed off."
+  },
+  {
+    "name": "CodeRabbit",
+    "slug": "coderabbit",
+    "shortDef": "An always-on AI code review platform that automatically analyzes every pull request using 40+ integrated linters, security analyzers, and context-aware AI to provide inline feedback without human prompting.",
+    "fullDef": "CodeRabbit is an AI-powered code review platform that runs automatically on every pull request the moment it is opened. It integrates with GitHub, GitLab, Azure DevOps, and Bitbucket, and requires no manual triggering - reviews happen continuously as part of the existing development workflow.\n\nCodeRabbit builds context before reviewing. It constructs a lightweight map of definitions and references across the codebase, scans commit history for files that frequently change together, and assembles this context before forming any opinion on the changes. It then runs the diff through 40+ industry-standard tools including linters, security analyzers, and performance checkers, synthesizing everything into human-readable inline comments.\n\nThe platform provides line-by-line comments, high-level PR summaries, and automatic release note drafts. It learns from team feedback over time, adapting its review style to match team conventions.\n\nCodeRabbit is the most-installed AI app on GitHub and GitLab, with reviews running on over 2 million repositories and processing more than 13 million pull requests. It is free for public repositories with full Pro features. Paid plans start at $12/month per developer (Lite) and $24/month per developer (Pro). Enterprise plans with self-hosting start at custom pricing.\n\nIndependent benchmarks from January 2026 scored CodeRabbit 4/5 on correctness and actionability but 1/5 on completeness, indicating strong surface-level analysis with limited depth on architectural reasoning and cross-service dependencies.",
+    "category": "Developer Tools",
+    "relatedTerms": [
+      "claude-code-review",
+      "ai-agent",
+      "api",
+      "agentic-workflows"
+    ],
+    "references": [
+      {
+        "title": "CodeRabbit - AI Code Reviews",
+        "url": "https://www.coderabbit.ai"
+      },
+      {
+        "title": "CodeRabbit Documentation",
+        "url": "https://docs.coderabbit.ai"
+      }
+    ],
+    "seoDescription": "CodeRabbit is an always-on AI code review tool that automatically reviews every pull request using 40+ tools. Learn how it works, pricing, and how it compares to Claude Code Review.",
+    "seoKeywords": [
+      "what is CodeRabbit",
+      "what is CodeRabbit in AI",
+      "CodeRabbit explained",
+      "CodeRabbit pricing",
+      "CodeRabbit vs Claude Code Review",
+      "AI code review",
+      "CodeRabbit features",
+      "automated code review tool"
+    ],
+    "lastUpdated": "2026-03-11",
+    "analogy": "Airport security screens every passenger the same way, every time. It is fast, consistent, and catches known threats automatically. It is not running a deep background check on anyone - that is not the job."
+  },
+  {
+    "name": "AI Code Review",
+    "slug": "ai-code-review",
+    "shortDef": "The use of AI models to automatically analyze code changes in pull requests, identifying bugs, security vulnerabilities, style violations, and logic errors before human reviewers see them.",
+    "fullDef": "AI code review refers to automated systems that use machine learning models to analyze code changes and provide feedback on pull requests. These tools sit in the development workflow between code submission and human review, catching issues that might otherwise slip through.\n\nAI code review is splitting into two distinct categories:\n\n**Ambient review** runs automatically on every pull request without being triggered. Tools like CodeRabbit fall into this category - they provide broad, consistent coverage across all code changes, catching surface-level issues like style violations, known vulnerability patterns, and common bugs. The value is coverage: every PR gets reviewed, even when human reviewers are busy.\n\n**Targeted review** is deployed on-demand for specific pull requests where deeper analysis is needed. Claude Code Review by Anthropic is an example - it dispatches multiple agents in parallel for thorough analysis at higher cost per review. The value is depth: critical PRs get the scrutiny they deserve.\n\nThe rise of AI code review is driven by a feedback loop: AI coding assistants dramatically increase code output per developer, which overwhelms human review capacity, which creates demand for AI review tools to fill the gap. At Anthropic, code output per engineer grew 200% in a year while substantive review coverage was only 16% before deploying automated review.\n\nKey considerations when adopting AI code review include false positive rates (noisy tools get ignored), integration with existing workflows (GitHub, GitLab, CI/CD), cost structure (per-seat vs per-review), and whether the tool catches deep logic errors or only surface patterns.",
+    "category": "Developer Tools",
+    "relatedTerms": [
+      "claude-code-review",
+      "coderabbit",
+      "ai-agent",
+      "benchmark"
+    ],
+    "seoDescription": "AI code review uses machine learning to automatically analyze pull requests for bugs, security issues, and code quality. Learn about ambient vs targeted review and top tools.",
+    "seoKeywords": [
+      "what is AI code review",
+      "what is AI code review in software development",
+      "AI code review explained",
+      "AI code review tools",
+      "automated code review",
+      "AI pull request review",
+      "best AI code review tools 2026",
+      "Claude Code Review vs CodeRabbit"
+    ],
+    "lastUpdated": "2026-03-11",
+    "analogy": "A proofreader catches the typos and grammar issues before your editor sees the draft. The editor can then focus on whether the argument actually holds together, instead of circling missing commas."
   }
 ]

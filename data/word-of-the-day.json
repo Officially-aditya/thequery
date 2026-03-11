@@ -1862,5 +1862,29 @@
       "We ran k-means clustering on user behavior data and discovered three distinct usage segments that our product team had never identified, which directly informed the new pricing tiers.",
       "The anomaly detection pipeline uses unsupervised learning to flag unusual network traffic patterns without needing a labeled dataset of known attacks."
     ]
+  },
+  {
+    "slug": "claude-code-review",
+    "humor": "Anthropic built a tool to review the code that Anthropic's other tool wrote. The snake is eating its own tail, but at least it is checking for bugs first.",
+    "examples": [
+      "We enabled Claude Code Review on our infrastructure repo and it flagged a race condition in the deployment script that three human reviewers had missed across two review cycles.",
+      "The security team runs Claude Code Review on every PR that touches authentication or payment code - at $20 per review, it is cheaper than the bug bounty payout for a missed vulnerability."
+    ]
+  },
+  {
+    "slug": "coderabbit",
+    "humor": "It reviews every single PR you open, whether you asked or not. The most proactive colleague you have ever had, except it never asks how your weekend was.",
+    "examples": [
+      "CodeRabbit caught a missing null check on line 47 within seconds of opening the PR - the kind of issue that would have made it to staging and wasted half a day debugging.",
+      "We configured CodeRabbit to enforce our team's naming conventions and import ordering automatically, which eliminated 80% of the style nits from human code reviews."
+    ]
+  },
+  {
+    "slug": "ai-code-review",
+    "humor": "We used AI to write the code. Then we used AI to review the code. Soon we will use AI to review the AI that reviewed the code. It is reviewers all the way down.",
+    "examples": [
+      "Our CI pipeline now includes an AI code review step that blocks merge on high-severity findings, catching an average of 2.3 issues per PR that human reviewers were not flagging.",
+      "The team uses ambient AI review on all PRs for baseline coverage, then triggers targeted deep review on any PR touching the billing or authentication modules."
+    ]
   }
 ]
