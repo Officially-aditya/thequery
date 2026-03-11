@@ -4417,5 +4417,111 @@
     ],
     "lastUpdated": "2026-03-11",
     "analogy": "A proofreader catches the typos and grammar issues before your editor sees the draft. The editor can then focus on whether the argument actually holds together, instead of circling missing commas."
+  },
+  {
+    "name": "Federated Learning",
+    "slug": "federated-learning",
+    "shortDef": "A machine learning approach where a model is trained across multiple decentralized devices or servers holding local data, without ever exchanging the raw data itself - only model updates are shared.",
+    "fullDef": "Federated learning is a training technique where a shared model is improved collaboratively across many participants without centralizing their data. Instead of sending raw data to a central server, each participant trains the model locally on their own data and sends only the model updates (gradients or weight changes) back to a coordinating server. The server aggregates these updates to produce an improved global model, then sends it back to participants for the next round.\n\nGoogle introduced federated learning in 2016 to improve the Gboard keyboard predictions on Android phones. Each phone trained a local model on the user's typing patterns, sent only the model update to Google's servers, and the aggregated model improved predictions for all users without Google ever seeing individual keystrokes.\n\nThe core algorithm is Federated Averaging (FedAvg). Each participant trains for several local epochs, then the server averages the resulting weights proportional to each participant's dataset size. This reduces communication rounds significantly compared to sending gradients after every batch.\n\nFederated learning addresses three practical problems: privacy (raw data never leaves the device), regulation (data stays within jurisdictional boundaries, relevant for GDPR and HIPAA), and bandwidth (sending model updates is far cheaper than transmitting raw datasets).\n\nChallenges include non-IID data (participants have different data distributions, which can cause the global model to diverge), communication overhead (even compressed updates are expensive at scale), and security (malicious participants can poison the model by sending adversarial updates). Techniques like secure aggregation and differential privacy are used to mitigate these risks.\n\nFederated learning is used in healthcare (hospitals collaborating on diagnostic models without sharing patient records), finance (banks building fraud detection models without sharing transaction data), and mobile devices (improving autocomplete, voice recognition, and recommendations locally).",
+    "category": "Training Techniques",
+    "relatedTerms": [
+      "deep-learning",
+      "gradient-descent",
+      "differential-privacy",
+      "supervised-learning"
+    ],
+    "references": [
+      {
+        "title": "Communication-Efficient Learning of Deep Networks from Decentralized Data",
+        "url": "https://arxiv.org/abs/1602.05629"
+      },
+      {
+        "title": "Federated Learning: Challenges, Methods, and Future Directions",
+        "url": "https://arxiv.org/abs/1908.07873"
+      }
+    ],
+    "seoDescription": "Federated learning trains AI models across decentralized devices without sharing raw data. Learn how it works, key algorithms like FedAvg, and real-world applications in healthcare and mobile.",
+    "seoKeywords": [
+      "what is federated learning",
+      "what is federated learning in AI",
+      "federated learning explained",
+      "federated learning examples",
+      "FedAvg algorithm",
+      "federated learning privacy",
+      "federated learning healthcare"
+    ],
+    "lastUpdated": "2026-03-11",
+    "analogy": "Each hospital trains a diagnostic model on its own patient data, then shares only what the model learned - not the patient records. The central server combines the lessons into a smarter model and sends it back. No hospital ever sees another hospital's data."
+  },
+  {
+    "name": "TensorFlow",
+    "slug": "tensorflow",
+    "shortDef": "An open-source machine learning framework developed by Google Brain, designed for building and deploying ML models across research and production environments, from mobile devices to distributed clusters.",
+    "fullDef": "TensorFlow is an open-source machine learning framework released by Google Brain in November 2015. It provides a comprehensive ecosystem for building, training, and deploying machine learning models at every scale, from mobile phones to large distributed systems.\n\nThe name comes from its core abstraction: tensors (multi-dimensional arrays) that flow through a computational graph. In TensorFlow 1.x, users defined a static computational graph first, then executed it in a session. TensorFlow 2.0, released in 2019, switched to eager execution by default, making it behave more like standard Python and significantly lowering the learning curve.\n\nTensorFlow's high-level API is Keras, which became the official high-level interface in TensorFlow 2.0. Keras provides a simple, consistent API for defining layers, models, and training loops. Most TensorFlow users interact with Keras rather than the lower-level TensorFlow operations directly.\n\nThe framework includes TensorFlow Serving for production model deployment, TensorFlow Lite for mobile and embedded devices, TensorFlow.js for browser-based ML, and TensorFlow Extended (TFX) for end-to-end ML pipelines. This breadth of deployment targets is TensorFlow's primary advantage over competitors.\n\nTensorFlow was the dominant ML framework from 2015 to roughly 2019, when PyTorch began overtaking it in research usage. By 2024, PyTorch dominates academic research and most new AI projects, while TensorFlow retains significant presence in production systems, particularly at Google and in mobile/edge deployment via TensorFlow Lite.\n\nGoogle's own AI infrastructure runs heavily on TensorFlow, and it remains the framework behind many Google products including Search, Translate, and Google Photos. JAX, also from Google, has increasingly replaced TensorFlow for Google's internal research.",
+    "category": "Frameworks",
+    "relatedTerms": [
+      "pytorch",
+      "deep-learning",
+      "neural-network",
+      "gpu"
+    ],
+    "references": [
+      {
+        "title": "TensorFlow: Large-Scale Machine Learning on Heterogeneous Systems",
+        "url": "https://arxiv.org/abs/1603.04467"
+      },
+      {
+        "title": "TensorFlow Official Website",
+        "url": "https://www.tensorflow.org"
+      }
+    ],
+    "seoDescription": "TensorFlow is Google's open-source ML framework for building and deploying models from mobile to production. Learn how it works, Keras integration, and how it compares to PyTorch.",
+    "seoKeywords": [
+      "what is TensorFlow",
+      "what is TensorFlow in AI",
+      "TensorFlow explained",
+      "TensorFlow vs PyTorch",
+      "TensorFlow Keras",
+      "TensorFlow tutorial",
+      "Google TensorFlow"
+    ],
+    "lastUpdated": "2026-03-11",
+    "analogy": "A full workshop with every tool you could need - table saw, drill press, lathe, sander. It can build anything, but you spend time learning where everything is and how to set it up before you start cutting wood."
+  },
+  {
+    "name": "PyTorch",
+    "slug": "pytorch",
+    "shortDef": "An open-source machine learning framework developed by Meta AI, known for its Pythonic design, dynamic computation graphs, and dominance in AI research - the framework behind most frontier model development today.",
+    "fullDef": "PyTorch is an open-source machine learning framework released by Meta AI (then Facebook AI Research) in October 2016. It was built as a Python-first framework with dynamic computational graphs, making it feel like writing standard Python rather than configuring a separate computation engine.\n\nThe key design decision that defined PyTorch was dynamic computation graphs (define-by-run). Unlike TensorFlow 1.x, which required building a static graph before execution, PyTorch builds the graph on the fly as operations execute. This means standard Python control flow (if statements, for loops, print statements) works naturally during model execution, making debugging straightforward - you can set breakpoints and inspect tensors at any point.\n\nPyTorch's autograd system automatically computes gradients through any computation, no matter how dynamic. This makes implementing novel architectures and experimenting with new ideas significantly faster than in frameworks requiring static graph definitions.\n\nThe framework includes torch.nn for defining neural network layers, torch.optim for optimization algorithms, torch.utils.data for data loading and batching, and torchvision/torchaudio/torchtext for domain-specific utilities. PyTorch Lightning and Hugging Face's libraries are built on top of PyTorch, extending its ecosystem further.\n\nPyTorch overtook TensorFlow in research adoption around 2019-2020. By 2024, virtually all major AI research papers use PyTorch, and most frontier models (GPT-4, Claude, Llama, Gemini's research prototypes) were developed using PyTorch or PyTorch-derived frameworks. Its dominance in research is nearly absolute.\n\nFor production deployment, PyTorch added TorchScript (for exporting models), TorchServe (for serving), and torch.compile (introduced in PyTorch 2.0) which compiles models for significantly faster inference. PyTorch 2.0, released in March 2023, brought compilation-based speedups that closed much of the remaining production performance gap with TensorFlow.",
+    "category": "Frameworks",
+    "relatedTerms": [
+      "tensorflow",
+      "deep-learning",
+      "neural-network",
+      "gpu",
+      "foundation-model"
+    ],
+    "references": [
+      {
+        "title": "PyTorch: An Imperative Style, High-Performance Deep Learning Library",
+        "url": "https://arxiv.org/abs/1912.01703"
+      },
+      {
+        "title": "PyTorch Official Website",
+        "url": "https://pytorch.org"
+      }
+    ],
+    "seoDescription": "PyTorch is Meta's open-source ML framework dominating AI research with dynamic graphs and Pythonic design. Learn how it works, key features, and how it compares to TensorFlow.",
+    "seoKeywords": [
+      "what is PyTorch",
+      "what is PyTorch in AI",
+      "PyTorch explained",
+      "PyTorch vs TensorFlow",
+      "PyTorch tutorial",
+      "PyTorch deep learning",
+      "Meta PyTorch"
+    ],
+    "lastUpdated": "2026-03-11",
+    "analogy": "A well-organized workbench where every tool is within arm's reach and works exactly how you expect. You pick up a tool, use it, and see the result immediately. No setup ritual, no waiting for a machine to warm up."
   }
 ]

@@ -1886,5 +1886,29 @@
       "Our CI pipeline now includes an AI code review step that blocks merge on high-severity findings, catching an average of 2.3 issues per PR that human reviewers were not flagging.",
       "The team uses ambient AI review on all PRs for baseline coverage, then triggers targeted deep review on any PR touching the billing or authentication modules."
     ]
+  },
+  {
+    "slug": "federated-learning",
+    "humor": "We trained the model together, but nobody saw each other's data. The most productive group project in history where nobody actually shared their work.",
+    "examples": [
+      "A consortium of five hospitals used federated learning to build a tumor detection model that outperformed any single hospital's model, without a single patient record leaving its home institution.",
+      "The keyboard app trains locally on your typing patterns and sends only the model updates back to the server, which is why your autocomplete gets better without the company reading your messages."
+    ]
+  },
+  {
+    "slug": "tensorflow",
+    "humor": "Google built TensorFlow, the world adopted it, then the world switched to PyTorch, and now Google is quietly building JAX. The circle of framework life.",
+    "examples": [
+      "The team deployed their image classification model using TensorFlow Lite on Android devices, running inference in under 50ms without any server calls.",
+      "We migrated from raw TensorFlow operations to the Keras API and cut our model definition code from 200 lines to 40, with identical training performance."
+    ]
+  },
+  {
+    "slug": "pytorch",
+    "humor": "PyTorch won the research community by letting scientists write normal Python instead of constructing computational graphs like they were assembling IKEA furniture from a diagram.",
+    "examples": [
+      "Switching from TensorFlow to PyTorch cut our prototyping time in half because we could set breakpoints and inspect tensors mid-training instead of staring at graph execution errors.",
+      "The research team uses PyTorch for experimentation and then exports the final model with torch.compile for production inference at 3x the speed of eager mode."
+    ]
   }
 ]
