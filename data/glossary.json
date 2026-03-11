@@ -4523,5 +4523,36 @@
     ],
     "lastUpdated": "2026-03-11",
     "analogy": "A well-organized workbench where every tool is within arm's reach and works exactly how you expect. You pick up a tool, use it, and see the result immediately. No setup ritual, no waiting for a machine to warm up."
+  },
+  {
+    "name": "Passive Code Reviewer",
+    "slug": "passive-code-reviewer",
+    "shortDef": "A code analysis tool that monitors your work automatically without requiring any action from you, detecting when you go idle and surfacing findings when you return.",
+    "fullDef": "A passive code reviewer is a tool that analyzes your code automatically, without requiring any action from you. No command to run. No pull request to open. No workflow to initiate. It monitors your work in the background and surfaces findings when you return.\n\nThe word passive is the whole point. Most code review tools are active by design. They wait for you to push a commit, open a PR, or run a command. A passive reviewer does not wait. It detects when you have gone idle and starts working on its own.\n\nWhat makes it different from traditional AI code reviewers like CodeRabbit and Claude Code Review is the stage at which it operates. Those tools operate at the pull request stage -- they need a git repository, a commit, and an open PR before they can do anything. They see your code at its most polished. A passive code reviewer sees your code as it actually is: messy, in progress, uncommitted. That is where the real bugs live.\n\nIt also works without git entirely. No repository needed. No PR. No team workflow. Just your editor, your files, and a tool watching quietly in the background.\n\nAFKmate is the first passive AI code reviewer. It detects when you step away from your keyboard, analyzes your open files, and has findings ready when you return.",
+    "category": "Developer Tools",
+    "relatedTerms": [
+      "ai-code-review",
+      "claude-code-review",
+      "coderabbit",
+      "ai-agent"
+    ],
+    "references": [
+      {
+        "title": "What Is a Passive Code Reviewer? - AFKmate",
+        "url": "https://www.afkmate.in/blog/what-is-a-passive-code-reviewer"
+      }
+    ],
+    "seoDescription": "A passive code reviewer analyzes your code automatically when you go idle, no PR or command needed. Learn how it differs from traditional AI code review tools.",
+    "seoKeywords": [
+      "what is a passive code reviewer",
+      "passive code review",
+      "passive code reviewer",
+      "AFKmate",
+      "automatic code review",
+      "AI code review without PR",
+      "background code analysis"
+    ],
+    "lastUpdated": "2026-03-11",
+    "analogy": "Think of it like a smoke alarm. You do not run a smoke alarm. You do not trigger it. It monitors continuously and tells you when something needs your attention. You never had to think about it."
   }
 ]
