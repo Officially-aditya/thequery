@@ -45,6 +45,11 @@
   --font-mono: var(--font-jetbrains);
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background: var(--bg-primary);
   color: var(--text-primary);
