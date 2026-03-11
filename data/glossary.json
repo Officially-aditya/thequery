@@ -4554,5 +4554,30 @@
     ],
     "lastUpdated": "2026-03-11",
     "analogy": "Think of it like a smoke alarm. You do not run a smoke alarm. You do not trigger it. It monitors continuously and tells you when something needs your attention. You never had to think about it."
+  },
+  {
+    "name": "Code Reviewer",
+    "slug": "code-reviewer",
+    "shortDef": "A person or tool responsible for examining code changes before they are merged, checking for bugs, security issues, style violations, and whether the implementation matches the intended design.",
+    "fullDef": "A code reviewer examines proposed code changes -- typically in the form of a pull request or diff -- before they are accepted into a codebase. The goal is to catch bugs, security vulnerabilities, and logic errors that the original author missed, enforce consistency with the rest of the codebase, and ensure the implementation actually solves the problem it was meant to solve.\n\nTraditionally, code reviewers are engineers on the same team as the author. They read the diff, leave inline comments, request changes, and eventually approve or reject the PR. The process is collaborative but slow -- a reviewer needs context, time, and familiarity with the codebase to do it well. High PR volume is the most common reason review quality degrades: when there are more PRs than time to review them, reviewers skim instead of read.\n\nAI has introduced a new category of code reviewer. Tools like CodeRabbit and Claude Code Review act as automated reviewers that analyze every PR without fatigue, backlog, or distraction. They operate at the pull request stage and surface findings before human reviewers see the diff, effectively triaging the workload. The human reviewer then focuses on architectural decisions and business logic rather than catching typos and security patterns.\n\nMore recently, passive code reviewers like AFKmate have extended the concept outside the PR workflow entirely, analyzing code while it is still being written rather than waiting for a commit. This shifts review earlier in the development cycle, closer to where bugs are actually introduced.\n\nThe role of the human code reviewer has evolved alongside these tools. Rather than being replaced, reviewers are increasingly acting as the final judgment layer -- deciding whether AI-flagged issues actually matter in context, and focusing their attention on the parts of the diff that automated tools cannot fully evaluate.",
+    "category": "Developer Tools",
+    "relatedTerms": [
+      "ai-code-review",
+      "claude-code-review",
+      "coderabbit",
+      "passive-code-reviewer"
+    ],
+    "seoDescription": "A code reviewer examines code changes before they are merged, catching bugs and security issues. Learn how AI is changing the role of the code reviewer.",
+    "seoKeywords": [
+      "what is a code reviewer",
+      "code reviewer",
+      "code review",
+      "AI code reviewer",
+      "automated code reviewer",
+      "code reviewer vs AI",
+      "pull request review"
+    ],
+    "lastUpdated": "2026-03-11",
+    "analogy": "Like a copy editor at a newspaper -- not the one writing the story, but the one who catches what the writer was too close to see."
   }
 ]

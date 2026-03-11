@@ -1910,5 +1910,21 @@
       "Switching from TensorFlow to PyTorch cut our prototyping time in half because we could set breakpoints and inspect tensors mid-training instead of staring at graph execution errors.",
       "The research team uses PyTorch for experimentation and then exports the final model with torch.compile for production inference at 3x the speed of eager mode."
     ]
+  },
+  {
+    "slug": "code-reviewer",
+    "humor": "The code reviewer is the person who finds the bug you introduced three weeks ago and asks, very politely, if you meant to do that.",
+    "examples": [
+      "After introducing AI code review into the pipeline, the human reviewers stopped spending time on style violations and security patterns and started focusing entirely on architecture and business logic.",
+      "The senior engineer acted as the final code reviewer on every payment-related PR, approving AI-flagged findings that were genuinely critical and dismissing the ones that did not apply in context."
+    ]
+  },
+  {
+    "slug": "passive-code-reviewer",
+    "humor": "You stepped away to make coffee. It read your code. It has opinions. You have not even committed yet.",
+    "examples": [
+      "The developer returned from a 10-minute break to find AFKmate had flagged a SQL injection vulnerability in the draft function she had not yet saved to git.",
+      "Using a passive code reviewer meant bugs were caught at the editing stage rather than the PR stage, cutting the average time-to-fix from two days to under an hour."
+    ]
   }
 ]
