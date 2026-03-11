@@ -4579,5 +4579,57 @@
     ],
     "lastUpdated": "2026-03-11",
     "analogy": "Like a copy editor at a newspaper -- not the one writing the story, but the one who catches what the writer was too close to see."
+  },
+  {
+    "name": "Edge AI",
+    "slug": "edge-ai",
+    "shortDef": "Running artificial intelligence models directly on local devices like phones, cameras, or sensors rather than sending data to the cloud for processing.",
+    "fullDef": "Edge AI refers to the deployment and execution of AI algorithms on hardware devices at the edge of a network, close to where data is generated. Instead of streaming raw data to a centralized cloud server for inference, the model runs locally on the device itself -- a smartphone, an IoT sensor, a security camera, a car, or an industrial controller.\n\nThe primary motivations for edge AI are latency, privacy, and reliability. A self-driving car cannot wait 200 milliseconds for a cloud server to decide whether to brake. A medical device processing patient vitals should not send sensitive health data over the internet. A factory robot on a shop floor needs to keep operating even when the network goes down. Edge AI addresses all of these constraints by keeping computation local.\n\nThe main engineering challenge is fitting capable models onto constrained hardware. Edge devices typically have limited memory, processing power, and battery life compared to cloud GPUs. Techniques like model quantization, knowledge distillation, pruning, and purpose-built architectures (MobileNet, TinyML) make this possible by shrinking models without destroying their accuracy. Hardware manufacturers like NVIDIA (Jetson), Google (Coral TPU), and Apple (Neural Engine) have built dedicated AI accelerators specifically for edge inference.\n\nEdge AI is not a replacement for cloud AI -- it is a complement. Many production systems use a hybrid approach where edge devices handle real-time inference locally and periodically sync with cloud services for model updates, aggregated analytics, or tasks that require larger models. The trend is clearly toward more intelligence at the edge as chips get more capable and models get more efficient.",
+    "category": "Infrastructure",
+    "relatedTerms": [
+      "inference",
+      "model-compression",
+      "neural-network"
+    ],
+    "seoDescription": "Edge AI runs machine learning models directly on local devices instead of the cloud. Learn why latency, privacy, and reliability drive the shift to on-device AI inference.",
+    "seoKeywords": [
+      "what is edge AI",
+      "edge AI",
+      "on-device AI",
+      "edge computing AI",
+      "TinyML",
+      "edge inference",
+      "AI on device",
+      "edge AI vs cloud AI"
+    ],
+    "lastUpdated": "2026-03-11",
+    "analogy": "Like having a doctor living in your house instead of driving to the hospital every time you have a question. The answer is instant because the expertise is right there."
+  },
+  {
+    "name": "Agent Orchestration",
+    "slug": "agent-orchestration",
+    "shortDef": "The coordination layer that manages how multiple AI agents work together, routing tasks between them, handling dependencies, and combining their outputs into a coherent result.",
+    "fullDef": "Agent orchestration is the practice of designing systems where multiple AI agents collaborate to accomplish tasks that no single agent could handle well alone. An orchestrator acts as the central coordinator -- it decides which agent should handle which subtask, passes context between agents, manages execution order, handles failures, and assembles the final output.\n\nThe simplest form of orchestration is sequential chaining: Agent A produces output that becomes Agent B's input. More sophisticated patterns include parallel fan-out (multiple agents work on subtasks simultaneously), hierarchical delegation (a supervisor agent breaks down a goal and assigns pieces to specialist agents), and competitive routing (multiple agents attempt the same task and the best result is selected). Frameworks like LangGraph, CrewAI, and AutoGen provide abstractions for building these patterns.\n\nOrchestration becomes necessary when tasks are too complex or too broad for a single prompt or a single model. A research task might need one agent to search the web, another to analyze documents, a third to synthesize findings, and a fourth to fact-check the synthesis. Each agent can have different tools, system prompts, and even different underlying models optimized for its specific role.\n\nThe hard problems in agent orchestration are error propagation, context management, and cost control. When Agent B fails because Agent A gave it bad input, the orchestrator needs to decide whether to retry, fall back, or escalate. As agents pass context to each other, information can degrade or bloat -- a phenomenon sometimes called context rot. And because each agent call costs tokens, poorly designed orchestration can burn through API budgets quickly without producing better results than a single well-prompted agent.",
+    "category": "Agents",
+    "relatedTerms": [
+      "ai-agent",
+      "agentic-ai",
+      "orchestration-layer",
+      "tool-calling",
+      "mcp"
+    ],
+    "seoDescription": "Agent orchestration coordinates multiple AI agents to collaborate on complex tasks. Learn about routing, delegation patterns, and frameworks like LangGraph and CrewAI.",
+    "seoKeywords": [
+      "what is agent orchestration",
+      "agent orchestration",
+      "multi-agent systems",
+      "AI agent coordination",
+      "LangGraph",
+      "CrewAI",
+      "multi-agent orchestration",
+      "agent workflow"
+    ],
+    "lastUpdated": "2026-03-11",
+    "analogy": "A film director on set -- they do not operate the camera, act, or edit the footage, but they decide who does what, in what order, and make sure all the pieces come together into a coherent movie."
   }
 ]
