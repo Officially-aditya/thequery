@@ -4631,5 +4631,59 @@
     ],
     "lastUpdated": "2026-03-11",
     "analogy": "A film director on set -- they do not operate the camera, act, or edit the footage, but they decide who does what, in what order, and make sure all the pieces come together into a coherent movie."
+  },
+  {
+    "name": "BERT",
+    "slug": "bert",
+    "shortDef": "A transformer-based language model developed by Google that learns bidirectional representations of text, meaning it considers both left and right context simultaneously to understand word meaning.",
+    "fullDef": "BERT (Bidirectional Encoder Representations from Transformers) is a language model introduced by Google in 2018 that fundamentally changed how machines understand text. Unlike previous models that read text left-to-right or right-to-left, BERT reads entire sequences at once, allowing it to understand context from both directions simultaneously.\n\nBERT is pre-trained on two tasks: masked language modeling (MLM), where random words in a sentence are hidden and the model predicts them using surrounding context, and next sentence prediction (NSP), where the model learns whether two sentences logically follow each other. This pre-training on massive unlabeled text corpora gives BERT a deep understanding of language structure and semantics.\n\nWhat made BERT revolutionary was the fine-tuning paradigm it popularized. After pre-training, BERT can be adapted to specific downstream tasks -- sentiment analysis, question answering, named entity recognition, text classification -- by adding a simple output layer and training on a relatively small labeled dataset. This transfer learning approach dramatically reduced the amount of task-specific data needed to achieve strong performance.\n\nBERT and its variants (RoBERTa, ALBERT, DistilBERT, DeBERTa) remain widely used in production systems, particularly for tasks that require deep text understanding rather than text generation. While large language models like GPT have captured more attention for generation tasks, BERT-family models are often preferred for classification and extraction tasks due to their efficiency and strong bidirectional understanding.",
+    "category": "NLP",
+    "relatedTerms": [
+      "transformer",
+      "natural-language-processing",
+      "word-embeddings",
+      "text-classification",
+      "sentiment-analysis"
+    ],
+    "seoDescription": "BERT (Bidirectional Encoder Representations from Transformers) is Google's transformer model that reads text bidirectionally for deep language understanding. Learn how BERT works, its pre-training tasks, and fine-tuning applications.",
+    "seoKeywords": [
+      "what is BERT",
+      "BERT model",
+      "BERT NLP",
+      "bidirectional encoder representations from transformers",
+      "BERT transformer",
+      "BERT fine-tuning",
+      "Google BERT",
+      "BERT language model"
+    ],
+    "lastUpdated": "2026-03-12",
+    "analogy": "Like reading a sentence with both eyes open instead of one -- you see the full picture of what each word means by looking at everything around it, not just what came before."
+  },
+  {
+    "name": "Data Labeling",
+    "slug": "data-labeling",
+    "shortDef": "The process of annotating raw data with meaningful tags or labels so that machine learning models can learn from it during supervised training.",
+    "fullDef": "Data labeling (also called data annotation) is the process of attaching meaningful labels, tags, or annotations to raw data -- images, text, audio, video, or sensor readings -- so that supervised machine learning models can learn the relationship between inputs and desired outputs. Without labeled data, a model has no ground truth to learn from.\n\nLabeling takes many forms depending on the task. For image classification, it might mean tagging an image as \"cat\" or \"dog.\" For object detection, annotators draw bounding boxes around objects. For text tasks, it could involve marking sentiment, identifying named entities, or classifying intent. For audio, it might mean transcribing speech or tagging speaker identity. More complex tasks like semantic segmentation require pixel-level annotation, which is significantly more time-consuming.\n\nData labeling is often the most expensive and time-consuming part of building a machine learning system. Organizations use a mix of approaches to manage this: human annotators (in-house teams or crowdsourcing platforms like Scale AI, Labelbox, or Amazon Mechanical Turk), semi-automated labeling (where a model suggests labels that humans verify), active learning (where the model identifies the most informative examples to label next), and synthetic data generation (where labeled data is created programmatically).\n\nLabel quality directly impacts model quality -- the saying \"garbage in, garbage out\" applies forcefully here. Inconsistent labels, ambiguous guidelines, or annotator disagreement can introduce noise that degrades model performance. Best practices include clear annotation guidelines, multi-annotator redundancy, inter-annotator agreement metrics, and iterative quality audits.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "machine-learning",
+      "feature-engineering",
+      "training-data",
+      "overfitting",
+      "epoch"
+    ],
+    "seoDescription": "Data labeling is the process of annotating raw data with tags so machine learning models can learn from it. Learn about annotation types, tools, quality control, and why labeled data matters.",
+    "seoKeywords": [
+      "what is data labeling",
+      "data labeling",
+      "data annotation",
+      "training data labeling",
+      "image labeling",
+      "text annotation",
+      "data labeling tools",
+      "annotation for machine learning"
+    ],
+    "lastUpdated": "2026-03-12",
+    "analogy": "Like a teacher grading practice tests and writing the correct answers next to each question -- the student (model) needs those answer keys to learn what right looks like."
   }
 ]
