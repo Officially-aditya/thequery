@@ -1864,6 +1864,35 @@
     "analogy": "Alibaba's competitive model - like a strong regional airline that matches the major carriers on routes it covers."
   },
   {
+    "name": "Qwen 3.5",
+    "slug": "qwen-3-5",
+    "shortDef": "Alibaba's February 2026 open-source model family using sparse MoE with 397B total parameters (17B active), supporting 201 languages and a 262K context window while claiming to outperform GPT-5.2 and Claude Opus 4.5 on 80% of benchmarks.",
+    "fullDef": "Qwen 3.5, released by Alibaba on February 16, 2026, is a major leap from Qwen 3, introducing a Gated Delta Networks architecture combined with sparse Mixture-of-Experts (MoE). The flagship model, Qwen3.5-397B-A17B, packs 397 billion total parameters while activating only 17 billion per forward pass, achieving a 95% reduction in activation memory compared to dense models of equivalent capability.\n\nThe family spans a wide range of sizes: from the flagship 397B-A17B and mid-tier models (122B-A10B, 35B-A3B, 27B dense) released on February 24, down to compact variants (9B, 4B, 2B, 0.8B) released on March 2, 2026. All models are released under the Apache 2.0 license, making them fully open for commercial use.\n\nQwen 3.5 expands language support to 201 languages and dialects, up from 119 in Qwen 3. It introduces early fusion multimodal training on trillions of tokens, enabling native vision-language capabilities including image understanding (up to 1344x1344) and 60-second video processing. The context window extends to 262,144 tokens, with the hosted Qwen 3.5-Plus variant offering up to 1 million tokens.\n\nOn benchmarks, the flagship model scores 83.6 on LiveCodeBench v6, 91.3 on AIME26, 88.4 on GPQA Diamond, and 76.4 on SWE-bench Verified. Alibaba claims it outperforms GPT-5.2, Claude Opus 4.5, and Gemini 3 Pro on 80% of evaluated categories. The smaller Qwen3.5-9B also punches well above its weight, beating OpenAI's gpt-oss-120B on GPQA Diamond despite being over 10x smaller. Qwen 3.5 delivers these results at roughly 60% lower cost and 8x higher throughput than its predecessor, reinforcing Alibaba's position as a leading open-source AI competitor.",
+    "category": "LLM Models",
+    "relatedTerms": [
+      "large-language-model",
+      "mixture-of-experts",
+      "context-window",
+      "qwen-3"
+    ],
+    "lastUpdated": "2026-03-12",
+    "references": [
+      {
+        "title": "GitHub - QwenLM/Qwen3.5",
+        "url": "https://github.com/QwenLM/Qwen3.5"
+      },
+      {
+        "title": "Hugging Face - Qwen",
+        "url": "https://huggingface.co/Qwen"
+      },
+      {
+        "title": "VentureBeat - Qwen3.5-Medium Models",
+        "url": "https://venturebeat.com/technology/alibabas-new-open-source-qwen3-5-medium-models-offer-sonnet-4-5-performance"
+      }
+    ],
+    "analogy": "Alibaba's open-source heavyweight that activates only a fraction of its power per query - like having a 400-person team where only the 17 best-suited experts handle each task."
+  },
+  {
     "name": "Grok 3",
     "slug": "grok-3",
     "shortDef": "xAI's June 2025 model with 1M context window, beating GPT-4o and Claude 3.5 Sonnet on AIME and GPQA with 1402 Arena Elo.",
