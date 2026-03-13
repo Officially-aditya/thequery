@@ -1942,5 +1942,21 @@
       "The translation system used beam search with width 5, producing outputs that scored 2.3 BLEU points higher than greedy decoding at a cost of roughly 5x inference time.",
       "Switching from beam search to nucleus sampling in the chatbot cut repetitive responses by 60% -- beam search kept generating the statistically safest reply rather than the most useful one."
     ]
+  },
+  {
+    "slug": "nemotron",
+    "humor": "NVIDIA spent decades making the hardware everyone trains AI on. Then they looked around and said: maybe we should also make the thing being trained. The GPU company is now an AI lab.",
+    "examples": [
+      "The team evaluated Nemotron Ultra 253B against proprietary alternatives and found it matched frontier performance on their domain tasks at zero API cost -- they just needed the inference hardware.",
+      "NVIDIA released Nemotron under a permissive license because an open model ecosystem keeps developers writing CUDA code, which keeps them buying NVIDIA GPUs. The business model is the hardware."
+    ]
+  },
+  {
+    "slug": "nemotron-3-super",
+    "humor": "120 billion parameters, 12 billion active. NVIDIA figured out how to charge you for a 120B model while only running 12B of it. The rest are morally present.",
+    "examples": [
+      "We switched to Nemotron 3 Super for our long-document analysis pipeline -- 1 million token context meant we could send entire contracts without chunking, and the DeepResearch Bench results held up in production.",
+      "Running Nemotron 3 Super on Blackwell hardware with NVFP4 gave us 4x the throughput of our previous setup at the same hardware cost -- the model and the chip were clearly designed together."
+    ]
   }
 ]

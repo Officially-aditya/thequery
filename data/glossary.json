@@ -4775,5 +4775,68 @@
     ],
     "lastUpdated": "2026-03-13",
     "analogy": "Instead of always taking the first exit off the highway, you drive a few miles on K routes simultaneously before deciding which one actually leads to the best destination."
+  },
+  {
+    "name": "Nemotron",
+    "slug": "nemotron",
+    "shortDef": "NVIDIA's family of open large language models designed for agentic AI workflows, reasoning, and enterprise deployment, built on open-weight base models like Llama and fine-tuned with NVIDIA's training infrastructure.",
+    "fullDef": "Nemotron is NVIDIA's family of open large language models, released under permissive licenses for commercial and research use. Unlike most AI labs that train foundation models from scratch, NVIDIA's Nemotron strategy has largely centered on taking open-weight base models -- particularly Meta's Llama series -- and applying NVIDIA's training expertise, hardware, and alignment techniques to produce models optimized for reasoning, instruction following, and agentic tasks.\n\nThe family spans several generations. Nemotron-4 340B (2024) was one of NVIDIA's first large-scale releases, a fully internally trained model targeting enterprise use cases. Llama-3.1-Nemotron-Ultra-253B followed as a fine-tuned derivative of Llama 3.1, positioning itself as a frontier reasoning model. Nemotron Super 49B targeted efficient deployment with strong performance at lower serving cost.\n\nNemotron 3 Super (March 2026) represents the most significant architectural departure, introducing a hybrid mixture-of-experts design that combines Mamba state-space layers with transformer attention, alongside NVIDIA's Latent MoE technique. The result is 120 billion total parameters with only 12 billion active at inference -- frontier capability at a fraction of the compute cost.\n\nNVIDIA's motivation for the Nemotron line is strategic as much as technical. As the dominant supplier of AI training and inference hardware, NVIDIA benefits from a healthy open-weight model ecosystem -- more developers building with open models means more demand for NVIDIA GPUs. Releasing capable open models aligned with NVIDIA's own hardware optimizations (CUDA, NVFP4, Blackwell) creates a flywheel that reinforces the company's infrastructure position.",
+    "category": "Models",
+    "relatedTerms": [
+      "large-language-model",
+      "mixture-of-experts",
+      "open-weight-model",
+      "nvidia",
+      "nemotron-3-super"
+    ],
+    "references": [
+      {
+        "title": "Nemotron -- NVIDIA Blog",
+        "url": "https://blogs.nvidia.com/blog/nemotron/"
+      }
+    ],
+    "seoDescription": "Nemotron is NVIDIA's family of open LLMs for agentic AI and reasoning. Learn about the model lineup, architecture, and how it fits NVIDIA's AI strategy.",
+    "seoKeywords": [
+      "what is Nemotron",
+      "NVIDIA Nemotron",
+      "Nemotron explained",
+      "Nemotron models",
+      "NVIDIA open source LLM",
+      "Nemotron vs Llama"
+    ],
+    "lastUpdated": "2026-03-13",
+    "analogy": "NVIDIA sells the picks and shovels of the AI gold rush. Nemotron is NVIDIA also planting a flag in the mine -- showing what is possible when the hardware maker optimizes the model for their own silicon."
+  },
+  {
+    "name": "Nemotron 3 Super",
+    "slug": "nemotron-3-super",
+    "shortDef": "NVIDIA's March 2026 open-weight reasoning model with 120 billion total parameters and 12 billion active, combining Mamba and transformer layers in a hybrid MoE architecture with a 1 million token context window.",
+    "fullDef": "Nemotron 3 Super is NVIDIA's flagship open-weight model released on March 11, 2026. It introduces a hybrid mixture-of-experts architecture that combines transformer attention layers with Mamba state-space model layers -- a design that improves long-context efficiency while reducing the computational overhead of pure attention at large context lengths. NVIDIA's Latent MoE technique further optimizes routing, resulting in 120 billion total parameters with only 12 billion active per token at inference.\n\nThe model supports a 1 million token context window -- matching the longest context windows offered by proprietary frontier models -- and is designed for agentic and deep research workflows that require processing large documents, codebases, or extended conversation histories.\n\nPerformance improvements over the previous generation are significant: up to 5x higher throughput, 2x accuracy gains, and 3x faster inference through Multi-Token Prediction, which generates multiple tokens per forward pass rather than one. On NVIDIA's Blackwell hardware using NVFP4 precision, inference is up to 4x faster than FP8 on the previous Hopper generation.\n\nNemotron 3 Super ranked first on both DeepResearch Bench and DeepResearch Bench II at launch -- benchmarks designed to evaluate models on complex, multi-step research tasks requiring sustained reasoning over long contexts. On Artificial Analysis, it ranked top among open models of comparable size for efficiency and overall capability.\n\nThe model is available under a permissive open-weight license via Hugging Face, build.nvidia.com, Perplexity, OpenRouter, and major cloud providers. Its combination of open weights, 1M context, and strong reasoning benchmarks positions it as one of the most capable openly available models as of March 2026.",
+    "category": "Models",
+    "relatedTerms": [
+      "nemotron",
+      "mixture-of-experts",
+      "open-weight-model",
+      "nvidia",
+      "context-window"
+    ],
+    "references": [
+      {
+        "title": "Nemotron -- NVIDIA Blog",
+        "url": "https://blogs.nvidia.com/blog/nemotron/"
+      }
+    ],
+    "seoDescription": "NVIDIA's March 2026 open model: 120B parameters, 12B active, 1M context window, hybrid Mamba-transformer MoE. Ranked #1 on DeepResearch Bench.",
+    "seoKeywords": [
+      "what is Nemotron 3 Super",
+      "Nemotron 3 Super explained",
+      "NVIDIA Nemotron 3 Super",
+      "Nemotron 3 Super benchmarks",
+      "Nemotron 3 Super context window",
+      "Nemotron 3 Super vs Llama",
+      "NVIDIA open weight model 2026"
+    ],
+    "lastUpdated": "2026-03-13",
+    "analogy": "A sports car engine with cylinder deactivation -- all 120 billion parameters are there when you need them, but only 12 billion fire on the highway to save fuel without losing speed."
   }
 ]
