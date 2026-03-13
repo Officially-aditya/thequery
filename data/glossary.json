@@ -4714,5 +4714,66 @@
     ],
     "lastUpdated": "2026-03-12",
     "analogy": "Like a teacher grading practice tests and writing the correct answers next to each question -- the student (model) needs those answer keys to learn what right looks like."
+  },
+  {
+    "name": "Layer Normalization",
+    "slug": "layer-normalization",
+    "shortDef": "A technique that normalizes the inputs across the features of a single training example during a forward pass, stabilizing training and reducing sensitivity to learning rate choice.",
+    "fullDef": "Layer normalization is a technique that normalizes the activations within a single layer for each individual training example, rather than across the batch. For each input, it computes the mean and variance across all features in that layer, then shifts and scales the values to have zero mean and unit variance. Two learned parameters -- gamma (scale) and beta (shift) -- allow the network to restore any representational power lost through normalization.\n\nThe key distinction from batch normalization is what gets averaged over. Batch normalization computes statistics across the batch dimension, meaning its behavior depends on batch size and it performs differently during training and inference. Layer normalization computes statistics across the feature dimension for each individual example, making it independent of batch size and consistent between training and inference.\n\nThis property makes layer normalization the standard choice for transformers and language models. Sequences in NLP have variable lengths and are often processed one at a time during autoregressive generation, making batch normalization impractical. Layer normalization works correctly regardless of sequence length or batch size, which is why every major transformer architecture -- GPT, BERT, Claude, Llama -- uses it.\n\nIn the original transformer paper, layer normalization was applied after the attention and feed-forward sublayers (post-norm). Most modern architectures have switched to pre-norm, where normalization is applied before each sublayer. Pre-norm training is more stable at large scale and has largely become the default in frontier model architectures.\n\nLayer normalization also accelerates training by reducing the internal covariate shift problem -- the tendency for the distribution of layer inputs to change as weights update -- allowing higher learning rates and reducing the number of steps needed to converge.",
+    "category": "Deep Learning",
+    "relatedTerms": [
+      "transformer",
+      "self-attention",
+      "feed-forward-network",
+      "residual-connection",
+      "deep-learning"
+    ],
+    "references": [
+      {
+        "title": "Layer Normalization",
+        "url": "https://arxiv.org/abs/1607.06450"
+      }
+    ],
+    "seoDescription": "Layer normalization normalizes activations per example, not per batch. Learn how it works and why every major transformer uses it over batch norm.",
+    "seoKeywords": [
+      "what is layer normalization",
+      "layer normalization explained",
+      "layer norm vs batch norm",
+      "layer normalization in transformers",
+      "pre-norm post-norm",
+      "layer normalization deep learning"
+    ],
+    "lastUpdated": "2026-03-13",
+    "analogy": "Before passing notes down the row, you standardize the handwriting size so nobody has to squint -- the message stays the same but everyone can read it equally well."
+  },
+  {
+    "name": "Beam Search",
+    "slug": "beam-search",
+    "shortDef": "A decoding algorithm that generates text by keeping track of the top K most probable partial sequences at each step, balancing output quality against the cost of exploring all possible completions.",
+    "fullDef": "Beam search is a heuristic search algorithm used during text generation to find high-probability output sequences without exhaustively evaluating every possible completion. At each generation step, the algorithm maintains a fixed number of candidate sequences, called the beam width or K. For each candidate, it computes the probability of every possible next token, then keeps only the top K sequences by cumulative log-probability. This continues until all beams produce an end-of-sequence token or a maximum length is reached.\n\nGreedy decoding -- always picking the single most probable next token -- is the special case where beam width equals 1. The problem with greedy decoding is that a locally optimal choice can lead to a globally poor sequence. Beam search explores K paths simultaneously, recovering from early suboptimal choices by keeping alternatives alive. Wider beams produce better-quality outputs at the cost of more computation.\n\nBeam search was the dominant decoding strategy for sequence-to-sequence tasks like machine translation and summarization throughout the 2010s, and it remains the default for tasks where deterministic, high-quality outputs are required. Translation systems, code generation pipelines, and structured output tasks often use beam search because it consistently produces fluent, coherent results.\n\nFor open-ended generation tasks like conversation and creative writing, beam search has largely been replaced by sampling-based methods such as top-k sampling, top-p (nucleus) sampling, and temperature scaling. Beam search tends to produce repetitive, generic text in open-ended settings because the highest-probability sequences are often common phrases. Sampling introduces randomness that produces more varied and natural-sounding outputs.\n\nLength penalties and coverage penalties are common additions to standard beam search. Without a length penalty, beam search tends to favor shorter sequences because they accumulate less probability mass. Length normalization divides the log-probability score by sequence length, encouraging the algorithm to consider longer completions.",
+    "category": "NLP",
+    "relatedTerms": [
+      "temperature",
+      "large-language-model",
+      "tokenization",
+      "transformer"
+    ],
+    "references": [
+      {
+        "title": "Sequence to Sequence Learning with Neural Networks",
+        "url": "https://arxiv.org/abs/1409.3215"
+      }
+    ],
+    "seoDescription": "Beam search tracks the top K most probable sequences during text generation. Learn how it works and how it compares to greedy decoding and sampling.",
+    "seoKeywords": [
+      "what is beam search",
+      "beam search explained",
+      "beam search vs greedy decoding",
+      "beam search NLP",
+      "beam search text generation",
+      "beam width"
+    ],
+    "lastUpdated": "2026-03-13",
+    "analogy": "Instead of always taking the first exit off the highway, you drive a few miles on K routes simultaneously before deciding which one actually leads to the best destination."
   }
 ]

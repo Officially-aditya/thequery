@@ -1926,5 +1926,21 @@
       "The developer returned from a 10-minute break to find AFKmate had flagged a SQL injection vulnerability in the draft function she had not yet saved to git.",
       "Using a passive code reviewer meant bugs were caught at the editing stage rather than the PR stage, cutting the average time-to-fix from two days to under an hour."
     ]
+  },
+  {
+    "slug": "layer-normalization",
+    "humor": "Layer norm is what happens when the neural network realizes its neurons are all shouting at different volumes and decides to make everyone use their indoor voice.",
+    "examples": [
+      "Switching from post-norm to pre-norm transformer architecture stabilized training at 70B parameters, eliminating the gradient explosions that had been crashing runs in the first thousand steps.",
+      "The team traced their model's sensitivity to learning rate directly to the absence of layer normalization in the early layers -- adding it let them train 3x faster without instability."
+    ]
+  },
+  {
+    "slug": "beam-search",
+    "humor": "Beam search is greedy decoding with commitment issues. It cannot pick just one path, so it keeps several alive until one of them proves it was right all along.",
+    "examples": [
+      "The translation system used beam search with width 5, producing outputs that scored 2.3 BLEU points higher than greedy decoding at a cost of roughly 5x inference time.",
+      "Switching from beam search to nucleus sampling in the chatbot cut repetitive responses by 60% -- beam search kept generating the statistically safest reply rather than the most useful one."
+    ]
   }
 ]
