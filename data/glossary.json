@@ -4903,5 +4903,50 @@
     ],
     "lastUpdated": "2026-03-14",
     "analogy": "You are guessing how many jellybeans are in a jar. MLE just uses the count from your sample. MAP also factors in your prior experience that jars like this usually hold between 200 and 400 -- so your guess gets pulled toward that range, especially when your sample is small."
+  },
+  {
+    "name": "DALL-E",
+    "slug": "dall-e",
+    "shortDef": "OpenAI's family of text-to-image models that generate images from natural language descriptions, using a diffusion-based architecture. DALL-E 3, the current version, achieves strong prompt adherence by training on images re-captioned with GPT-4.",
+    "fullDef": "DALL-E is OpenAI's series of text-to-image generation models, each built on a different underlying architecture. The name is a portmanteau of Salvador Dali and WALL-E.\n\n**DALL-E (2021):** The original model (arXiv:2102.12092) used a 12-billion-parameter transformer trained autoregressively on text and image tokens as a single stream. Given a text prompt, the model predicted the image tokens that followed, effectively treating image generation as a sequence prediction problem. It demonstrated zero-shot text-to-image generation -- producing plausible images for descriptions it had never explicitly seen during training -- but output resolution was limited and prompt adherence was inconsistent.\n\n**DALL-E 2 (2022):** A complete architectural shift. DALL-E 2 (arXiv:2204.06125) replaced the autoregressive transformer with a two-stage diffusion pipeline. First, a prior network maps a text caption to a CLIP image embedding. Then a diffusion decoder generates a high-resolution image conditioned on that embedding. Because CLIP embeds text and images in a shared latent space, DALL-E 2 could perform zero-shot image editing, style transfer, and semantic interpolation between images -- capabilities the original could not. Output resolution reached 1024x1024.\n\n**DALL-E 3 (2023):** Rather than changing the diffusion architecture significantly, Anthropic focused on the training data. Images in the training set were re-captioned using GPT-4 to produce highly detailed, accurate descriptions of visual content. This addressed the core limitation of DALL-E 2, which would ignore or misinterpret parts of complex prompts. DALL-E 3 follows long, detailed prompts reliably enough to be integrated directly into ChatGPT, where users interact in natural language rather than crafting prompt strings. It supports output at up to 1792x1024 pixels and is available through the OpenAI API.\n\nDALL-E models are distinct from open-source image generation approaches like Stable Diffusion. OpenAI does not release model weights, applies content filtering at inference time, and prohibits generating real people's likenesses without consent. The trade-off is a more constrained but more production-ready system.",
+    "category": "Models",
+    "relatedTerms": [
+      "openai",
+      "large-language-model",
+      "transformer",
+      "computer-vision",
+      "generative-adversarial-network",
+      "fine-tuning"
+    ],
+    "references": [
+      {
+        "title": "Zero-Shot Text-to-Image Generation (DALL-E 1) -- Ramesh et al., OpenAI",
+        "url": "https://arxiv.org/abs/2102.12092"
+      },
+      {
+        "title": "Hierarchical Text-Conditional Image Generation with CLIP Latents (DALL-E 2) -- Ramesh et al., OpenAI",
+        "url": "https://arxiv.org/abs/2204.06125"
+      },
+      {
+        "title": "DALL-E 3 -- OpenAI",
+        "url": "https://openai.com/index/dall-e-3/"
+      },
+      {
+        "title": "OpenAI Image Generation API Docs",
+        "url": "https://platform.openai.com/docs/guides/images"
+      }
+    ],
+    "seoDescription": "DALL-E is OpenAI's text-to-image model family. DALL-E 3 uses diffusion and GPT-4 recaptioning for accurate prompt adherence. Available via ChatGPT and the OpenAI API.",
+    "seoKeywords": [
+      "what is DALL-E",
+      "DALL-E 3 explained",
+      "DALL-E vs Stable Diffusion",
+      "how does DALL-E work",
+      "DALL-E 3 text to image",
+      "OpenAI image generation",
+      "DALL-E API"
+    ],
+    "lastUpdated": "2026-03-14",
+    "analogy": "Like asking a painter who has studied millions of photographs and their captions -- you describe the scene in words and the painter renders it. DALL-E 3 is the version who actually reads the whole description before picking up a brush."
   }
 ]
