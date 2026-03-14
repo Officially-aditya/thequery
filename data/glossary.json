@@ -4838,5 +4838,70 @@
     ],
     "lastUpdated": "2026-03-13",
     "analogy": "A sports car engine with cylinder deactivation -- all 120 billion parameters are there when you need them, but only 12 billion fire on the highway to save fuel without losing speed."
+  },
+  {
+    "name": "BLEU Score",
+    "slug": "bleu-score",
+    "shortDef": "A metric that measures how closely a machine-generated text matches one or more human reference translations, calculated by comparing overlapping word sequences (n-grams) between the output and reference.",
+    "fullDef": "BLEU (Bilingual Evaluation Understudy) is an automatic evaluation metric originally designed for machine translation, introduced by Papineni et al. at IBM in 2002. It works by counting how many n-grams (contiguous sequences of n words) in the model's output appear in one or more human reference translations, then applying a brevity penalty to discourage overly short outputs.\n\nThe score ranges from 0 to 1 (often expressed as 0 to 100). A score of 1 means the output is identical to a reference; a score of 0 means no overlap. In practice, state-of-the-art machine translation systems score in the 0.4--0.6 range on standard benchmarks, and human translators score around 0.6--0.7 when evaluated against other humans.\n\nBLEU is fast to compute and has historically correlated well with human judgements at the corpus level, which made it the dominant MT evaluation metric for two decades. However, it has significant limitations: it is sensitive to tokenization choices, does not account for synonyms or paraphrasing, ignores fluency and meaning beyond surface overlap, and correlates poorly with human judgement at the sentence level.\n\nFor large language model evaluation, BLEU is now largely supplemented or replaced by neural metrics like BERTScore, COMET, and BLEURT, which use contextual embeddings to capture semantic similarity rather than exact string matches. Despite its limitations, BLEU remains widely reported because of its long track record, reproducibility, and interpretability as a baseline comparison.",
+    "category": "Evaluation",
+    "relatedTerms": [
+      "benchmark",
+      "large-language-model",
+      "natural-language-processing",
+      "hallucination",
+      "fine-tuning"
+    ],
+    "references": [
+      {
+        "title": "BLEU: a Method for Automatic Evaluation of Machine Translation -- Papineni et al.",
+        "url": "https://aclanthology.org/P02-1040.pdf"
+      }
+    ],
+    "seoDescription": "BLEU score measures machine translation and text generation quality by comparing n-gram overlap with human references. Ranges 0-1; widely used but limited for LLM evaluation.",
+    "seoKeywords": [
+      "what is BLEU score",
+      "BLEU score explained",
+      "BLEU score machine translation",
+      "how is BLEU score calculated",
+      "BLEU score NLP",
+      "BLEU score vs BERTScore",
+      "BLEU score limitations"
+    ],
+    "lastUpdated": "2026-03-14",
+    "analogy": "Like grading an essay by counting how many exact phrases from the answer key appear in the student's response -- useful as a rough signal, but it misses a student who said the same thing in different words."
+  },
+  {
+    "name": "Maximum A Posteriori",
+    "slug": "maximum-a-posteriori",
+    "shortDef": "A method of estimating model parameters that finds the single most probable value given the observed data and a prior belief, balancing evidence from data with prior assumptions.",
+    "fullDef": "Maximum A Posteriori (MAP) estimation is a statistical technique for finding the most probable value of unknown parameters given observed data. It extends Maximum Likelihood Estimation (MLE) by incorporating a prior distribution over parameters -- a mathematical encoding of beliefs about what parameter values are plausible before seeing any data.\n\nFormally, MAP finds the parameter value θ that maximizes P(θ | data) = P(data | θ) × P(θ) / P(data). Since P(data) is constant with respect to θ, this reduces to maximizing the product of the likelihood P(data | θ) and the prior P(θ).\n\nIn practice, the prior acts as a regularizer. A Gaussian prior on model weights, for example, penalizes large weight values -- which is mathematically equivalent to L2 regularization (weight decay) in neural network training. This connection makes MAP estimation directly relevant to how modern deep learning models are trained: many regularization techniques can be interpreted as imposing implicit prior distributions on the model's parameters.\n\nMAP differs from full Bayesian inference in that it produces a point estimate (a single best guess) rather than a full posterior distribution over parameters. This makes it computationally tractable for large models where computing the full posterior is intractable. The trade-off is that a point estimate discards uncertainty information -- you know the most probable value but not how confident to be in it.\n\nIn the context of LLMs and fine-tuning, MAP intuitions appear in techniques like RLHF, where prior policy distributions constrain how far the model can shift from its pretrained state, and in Bayesian approaches to prompt optimization and uncertainty quantification.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "reinforcement-learning",
+      "fine-tuning",
+      "rlhf",
+      "regularization",
+      "machine-learning",
+      "mcmc"
+    ],
+    "references": [
+      {
+        "title": "Pattern Recognition and Machine Learning -- Bishop",
+        "url": "https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf"
+      }
+    ],
+    "seoDescription": "Maximum A Posteriori (MAP) estimation finds the most probable model parameters given data and a prior belief. Bridges Bayesian inference and regularization in deep learning.",
+    "seoKeywords": [
+      "what is Maximum A Posteriori",
+      "MAP estimation explained",
+      "MAP vs MLE",
+      "MAP estimation machine learning",
+      "MAP Bayesian inference",
+      "MAP estimation deep learning",
+      "maximum a posteriori probability"
+    ],
+    "lastUpdated": "2026-03-14",
+    "analogy": "You are guessing how many jellybeans are in a jar. MLE just uses the count from your sample. MAP also factors in your prior experience that jars like this usually hold between 200 and 400 -- so your guess gets pulled toward that range, especially when your sample is small."
   }
 ]
