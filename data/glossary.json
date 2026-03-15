@@ -4948,5 +4948,81 @@
     ],
     "lastUpdated": "2026-03-14",
     "analogy": "Like asking a painter who has studied millions of photographs and their captions -- you describe the scene in words and the painter renders it. DALL-E 3 is the version who actually reads the whole description before picking up a brush."
+  },
+  {
+    "name": "Convolutional Embedding",
+    "slug": "convolutional-embedding",
+    "shortDef": "A dense vector representation of input data produced by passing it through a convolutional neural network, capturing learned spatial features in a fixed-size numeric form suitable for downstream tasks like similarity search, classification, or retrieval.",
+    "fullDef": "A convolutional embedding is the output vector produced when data -- typically an image -- is passed through a convolutional neural network and the activations from a late layer are extracted as a compact, fixed-dimensional representation. Rather than using the CNN purely for classification, the convolutional layers act as a feature extractor, and their output serves as a rich semantic summary of the input.\n\nIn practice, a global average pooling layer is commonly applied after the final convolutional block to collapse the spatial dimensions into a single vector of fixed size regardless of the input resolution. This vector is the embedding. Images that are visually or semantically similar will have embeddings that are close to each other in the resulting vector space, making convolutional embeddings directly usable for nearest-neighbor search, clustering, and similarity ranking.\n\nConvolutional embeddings underpin several important application categories. In transfer learning, a CNN pretrained on a large dataset such as ImageNet is repurposed by discarding its classification head and using the penultimate layer activations as embeddings for a new task with far less data. In metric learning setups -- such as siamese networks trained with contrastive loss or triplet loss -- the CNN is fine-tuned specifically so that the embedding space reflects semantic similarity rather than class boundaries.\n\nFace recognition systems like FaceNet and DeepFace are among the most widely deployed uses of convolutional embeddings. The network maps a face image to a point in a high-dimensional embedding space, and identity verification becomes a distance comparison rather than a classification problem.\n\nWhile vision transformers have replaced CNNs as the backbone of choice in many high-performance systems, convolutional embeddings remain widely used due to their efficiency, interpretability, and strong performance on constrained hardware.",
+    "category": "Computer Vision",
+    "relatedTerms": [
+      "convolutional-neural-network",
+      "embedding",
+      "transfer-learning",
+      "deep-learning",
+      "feature-extraction"
+    ],
+    "references": [
+      {
+        "title": "FaceNet: A Unified Embedding for Face Recognition and Clustering -- Schroff et al. (2015)",
+        "url": "https://arxiv.org/abs/1503.03832"
+      },
+      {
+        "title": "Learning Transferable Features with Deep Adaptation Networks -- Long et al. (2015)",
+        "url": "https://arxiv.org/abs/1502.02791"
+      },
+      {
+        "title": "DeCAF: A Deep Convolutional Activation Feature for Generic Visual Recognition -- Donahue et al. (2013)",
+        "url": "https://arxiv.org/abs/1310.1531"
+      }
+    ],
+    "seoDescription": "Convolutional embeddings are fixed-size feature vectors extracted from CNN layers, used for image similarity search, face recognition, and transfer learning.",
+    "seoKeywords": [
+      "what is convolutional embedding",
+      "convolutional embedding explained",
+      "CNN embedding",
+      "image embedding CNN",
+      "convolutional feature extraction",
+      "CNN transfer learning embedding",
+      "image similarity embedding"
+    ],
+    "lastUpdated": "2026-03-15",
+    "analogy": "Like reducing a full painting to a short description that captures its style, subject, and mood -- enough that you could find similar paintings in a library without looking at them directly."
+  },
+  {
+    "name": "Feature Extraction",
+    "slug": "feature-extraction",
+    "shortDef": "The process of transforming raw input data into a set of informative, non-redundant numeric representations that capture the properties most useful for a downstream machine learning task.",
+    "fullDef": "Feature extraction is the step in a machine learning pipeline where raw data is converted into structured numeric representations that algorithms can work with effectively. Rather than feeding raw pixels, text characters, or audio samples directly into a model, feature extraction surfaces the properties that carry predictive signal -- reducing dimensionality, removing noise, and making patterns more learnable.\n\nIn classical machine learning, feature extraction was largely hand-engineered. Computer vision practitioners used techniques like SIFT, HOG, and SURF to extract edge maps and gradient histograms from images. Audio engineers computed MFCCs (Mel-frequency cepstral coefficients) to represent sound. NLP practitioners built bag-of-words vectors and TF-IDF matrices from text. The quality of these hand-crafted features was the dominant factor in model performance.\n\nDeep learning shifted this paradigm substantially. Convolutional neural networks learn to extract visual features automatically through training, discovering hierarchies from low-level edges in early layers to high-level semantic concepts in later layers. Transformer-based language models extract contextual features from text through self-attention, capturing relationships that static bag-of-words representations miss entirely.\n\nIn the context of transfer learning, feature extraction refers specifically to the practice of using a pretrained model as a fixed feature extractor: passing new inputs through the pretrained network, capturing the activations of an intermediate layer, and using those activations as input features for a new, simpler model. This approach is particularly effective when the new task has limited labeled data but is similar to the task the pretrained model was originally trained on.\n\nFeature extraction sits at the intersection of domain knowledge and representation learning. The choice of which layer to extract from, how to aggregate spatial or sequential dimensions, and whether to fine-tune the extractor or freeze it are decisions that significantly affect downstream task performance.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "convolutional-neural-network",
+      "convolutional-embedding",
+      "transfer-learning",
+      "deep-learning",
+      "embedding"
+    ],
+    "references": [
+      {
+        "title": "Deep Learning -- Goodfellow, Bengio, Courville (Chapter 9: Convolutional Networks)",
+        "url": "https://www.deeplearningbook.org/contents/convnets.html"
+      },
+      {
+        "title": "CS231n: Convolutional Neural Networks for Visual Recognition -- Stanford",
+        "url": "https://cs231n.github.io/transfer-learning/"
+      }
+    ],
+    "seoDescription": "Feature extraction converts raw data into informative numeric representations for ML models. Covers classical hand-engineered features and deep learning approaches.",
+    "seoKeywords": [
+      "what is feature extraction",
+      "feature extraction in machine learning",
+      "deep learning feature extraction",
+      "CNN feature extraction",
+      "feature extraction vs feature selection",
+      "transfer learning feature extraction",
+      "feature extraction explained"
+    ],
+    "lastUpdated": "2026-03-15",
+    "analogy": "Like a sommelier who, from a single sip of wine, pulls out the relevant descriptors -- acidity, tannins, oak, fruit -- discarding the irrelevant and surfacing only what is useful for comparison."
   }
 ]
