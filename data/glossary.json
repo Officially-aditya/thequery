@@ -5065,5 +5065,44 @@
     ],
     "lastUpdated": "2026-03-16",
     "analogy": "Like how a sentence is made of words but a typesetter works in individual letter blocks - the model thinks in tokens, not words, and the granularity of those blocks shapes everything from what it can remember to what you pay."
+  },
+  {
+    "name": "Byte Pair Encoding",
+    "slug": "byte-pair-encoding",
+    "shortDef": "A subword tokenization algorithm that builds a vocabulary by iteratively merging the most frequent adjacent byte or character pairs in a corpus, used by most modern language models to split text into tokens.",
+    "fullDef": "Byte Pair Encoding (BPE) is a data compression algorithm adapted for use as a subword tokenization method in natural language processing. It was originally described by Philip Gage in 1994 as a text compression technique, then repurposed for NLP by Sennrich et al. in 2016 to handle rare and out-of-vocabulary words in neural machine translation.\n\nThe algorithm works in two phases. In the training phase, BPE starts with a vocabulary of individual characters (or bytes) and counts the frequency of every adjacent pair in the training corpus. It then merges the most frequent pair into a single new symbol and repeats this process for a fixed number of merge operations. Each merge adds one entry to the vocabulary. After enough merges, common words become single tokens while rare words are represented as sequences of subword pieces.\n\nFor example, starting from characters, BPE might first merge 'e' and 'd' into 'ed' because that pair appears frequently. Then 'ed' and ' ' might merge into 'ed ' as a token representing a word ending. Eventually 'low', 'lower', 'lowest' each become single tokens if frequent enough, while an unusual word like 'Unidirectionally' gets split into recognizable subword chunks.\n\nIn the inference phase, a trained BPE tokenizer applies the learned merge rules greedily to encode new text. The result is a sequence of integer IDs that the model processes.\n\nBPE is the tokenization method underlying GPT-2, GPT-3, GPT-4, and the cl100k_base tokenizer used by OpenAI models. It strikes a practical balance: common words get efficient single-token representations, rare words are handled gracefully without an unknown-token fallback, and the vocabulary size stays bounded and predictable. The vocabulary size is a hyperparameter chosen at training time - GPT-4 uses roughly 100,000 tokens, while earlier models like GPT-2 used 50,257.\n\nAlternatives to BPE include WordPiece (used by BERT) and SentencePiece (used by many multilingual models including T5 and LLaMA), which differ in how they score candidate merges and handle whitespace.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "token",
+      "tokenization",
+      "transformer",
+      "large-language-model"
+    ],
+    "references": [
+      {
+        "title": "Neural Machine Translation of Rare Words with Subword Units - Sennrich et al. (2016)",
+        "url": "https://arxiv.org/abs/1508.07909"
+      },
+      {
+        "title": "Language Models are Unsupervised Multitask Learners (GPT-2) - Radford et al. (2019)",
+        "url": "https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf"
+      },
+      {
+        "title": "A New Algorithm for Data Compression - Philip Gage (1994)",
+        "url": "https://www.drdobbs.com/a-new-algorithm-for-data-compression/184402829"
+      }
+    ],
+    "seoDescription": "Byte Pair Encoding (BPE) is the subword tokenization algorithm used by GPT-4 and most modern LLMs. It merges frequent character pairs to build an efficient vocabulary.",
+    "seoKeywords": [
+      "what is byte pair encoding",
+      "byte pair encoding NLP",
+      "BPE tokenization explained",
+      "byte pair encoding vs wordpiece",
+      "how GPT tokenizer works",
+      "subword tokenization",
+      "BPE algorithm language model"
+    ],
+    "lastUpdated": "2026-03-16",
+    "analogy": "Like building a shorthand dictionary by watching which letter combinations you write most often and assigning them a single symbol - common words earn their own glyph, rare ones get spelled out in pieces."
   }
 ]
