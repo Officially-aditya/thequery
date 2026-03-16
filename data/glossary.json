@@ -297,7 +297,7 @@
     "name": "Bias-Variance Tradeoff",
     "slug": "bias-variance-tradeoff",
     "shortDef": "The fundamental tension in machine learning between a model being too simple to capture patterns (high bias) and too complex, fitting noise instead of signal (high variance).",
-    "fullDef": "The bias-variance tradeoff is arguably the most important concept in machine learning. Prediction errors come from two sources: bias (the model is too simple to capture the true pattern, leading to systematic underprediction or overprediction) and variance (the model is too sensitive to the specific training data, performing well on training examples but poorly on new data).\n\nHigh-bias models underfit -- they have high error on both training and test data because they cannot represent the complexity of the underlying relationship. High-variance models overfit -- they have low training error but high test error because they memorize noise in the training data rather than learning the true signal. The classic illustration is fitting polynomials: a degree-1 polynomial underfits a sine wave (high bias), while a degree-15 polynomial overfits to noise (high variance).\n\nThe goal is to find the sweet spot that balances both. Techniques like regularization, cross-validation, and early stopping help manage this tradeoff. In practice, you start simple (high bias, low variance), evaluate whether the model underfits or overfits, and adjust complexity accordingly. Understanding this tradeoff is essential for choosing model complexity, tuning hyperparameters, and diagnosing why a model fails in production.",
+    "fullDef": "The bias-variance tradeoff is arguably the most important concept in machine learning. Prediction errors come from two sources: bias (the model is too simple to capture the true pattern, leading to systematic underprediction or overprediction) and variance (the model is too sensitive to the specific training data, performing well on training examples but poorly on new data).\n\nHigh-bias models underfit: they have high error on both training and test data because they cannot represent the complexity of the underlying relationship. High-variance models overfit: they have low training error but high test error because they memorize noise in the training data rather than learning the true signal. The classic illustration is fitting polynomials: a degree-1 polynomial underfits a sine wave (high bias), while a degree-15 polynomial overfits to noise (high variance).\n\nThe goal is to find the sweet spot that balances both. Techniques like regularization, cross-validation, and early stopping help manage this tradeoff. In practice, you start simple (high bias, low variance), evaluate whether the model underfits or overfits, and adjust complexity accordingly. Understanding this tradeoff is essential for choosing model complexity, tuning hyperparameters, and diagnosing why a model fails in production.",
     "category": "Fundamentals",
     "relatedTerms": [
       "overfitting",
@@ -305,7 +305,8 @@
       "regularization"
     ],
     "lastUpdated": "2026-02-22",
-    "analogy": "Picture choosing between a ruler (simple but rigid) and a flexible wire (fits everything but wobbles) to draw a line through data points."
+    "analogy": "Picture choosing between a ruler (simple but rigid) and a flexible wire (fits everything but wobbles) to draw a line through data points.",
+    "seoDescription": "The core ML tension between underfitting (high bias) and overfitting (high variance) - and how to find the model complexity sweet spot."
   },
   {
     "name": "Regularization",
