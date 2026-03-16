@@ -5092,7 +5092,7 @@
         "url": "https://www.drdobbs.com/a-new-algorithm-for-data-compression/184402829"
       }
     ],
-    "seoDescription": "Byte Pair Encoding (BPE) is the subword tokenization algorithm used by GPT-4 and most modern LLMs. It merges frequent character pairs to build an efficient vocabulary.",
+    "seoDescription": "Byte Pair Encoding (BPE) is the subword tokenization algorithm behind GPT-4 and most modern LLMs, merging frequent character pairs into vocabulary tokens.",
     "seoKeywords": [
       "what is byte pair encoding",
       "byte pair encoding NLP",
