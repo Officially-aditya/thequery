@@ -5144,5 +5144,41 @@
     ],
     "lastUpdated": "2026-03-17",
     "analogy": "Like a person taking notes during a long lecture with a highlighter and an eraser - actively deciding what to keep, what to cross out, and what to write down fresh, rather than trying to remember everything verbatim."
+  },
+  {
+    "name": "Gated Recurrent Unit",
+    "slug": "gated-recurrent-unit",
+    "shortDef": "A recurrent neural network architecture introduced in 2014 that uses two gates - a reset gate and an update gate - to control information flow across timesteps, offering similar sequential modeling capability to LSTM with fewer parameters.",
+    "fullDef": "The Gated Recurrent Unit (GRU) is a recurrent neural network architecture introduced by Cho et al. in 2014 as part of their work on neural machine translation. It was designed as a simpler alternative to the Long Short-Term Memory network, retaining the core idea of gated control over memory while reducing the number of parameters and computational overhead.\n\nWhere LSTM uses three gates and a separate cell state, GRU collapses this into two gates and a single hidden state:\n\nThe update gate decides how much of the previous hidden state to carry forward into the next timestep. A value near 1 preserves the existing memory almost entirely; a value near 0 allows the new input to dominate. This gate effectively combines the forget and input gates of LSTM into a single operation.\n\nThe reset gate controls how much of the previous hidden state to expose when computing the candidate new state. When the reset gate is near 0, the network ignores the previous state and behaves more like a standard feedforward layer processing only the current input.\n\nBecause GRU has no separate cell state and one fewer gate than LSTM, it has fewer parameters per layer, trains faster, and requires less memory. In practice, the performance difference between GRU and LSTM varies by task. A 2014 empirical comparison by Chung et al. found that neither architecture consistently outperforms the other - the right choice depends on dataset size, sequence length, and the specific structure of the problem.\n\nGRUs are widely used in speech recognition, time series modeling, natural language generation, and any sequential task where the efficiency gains over LSTM matter more than marginal accuracy differences. Like LSTM, GRUs have largely been replaced by transformer-based architectures for large-scale NLP tasks, but remain a practical and well-understood tool in settings where sequential structure is important and training compute is constrained.",
+    "category": "Deep Learning",
+    "relatedTerms": [
+      "long-short-term-memory",
+      "recurrent-neural-network",
+      "transformer",
+      "deep-learning",
+      "neural-network"
+    ],
+    "references": [
+      {
+        "title": "Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation - Cho et al. (2014)",
+        "url": "https://arxiv.org/abs/1406.1078"
+      },
+      {
+        "title": "Empirical Evaluation of Gated Recurrent Neural Networks on Sequence Modeling - Chung et al. (2014)",
+        "url": "https://arxiv.org/abs/1412.3555"
+      }
+    ],
+    "seoDescription": "The GRU is a streamlined alternative to LSTM with two gates instead of three - similar sequence modeling power with fewer parameters and faster training.",
+    "seoKeywords": [
+      "what is a GRU",
+      "gated recurrent unit explained",
+      "GRU vs LSTM",
+      "gated recurrent unit deep learning",
+      "GRU reset gate update gate",
+      "recurrent neural network GRU",
+      "GRU sequence modeling"
+    ],
+    "lastUpdated": "2026-03-17",
+    "analogy": "Like LSTM but with a simpler filing system: instead of three separate drawers for what to forget, what to add, and what to output, a GRU uses just two controls to manage the same job with less overhead."
   }
 ]
