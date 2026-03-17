@@ -5105,5 +5105,44 @@
     ],
     "lastUpdated": "2026-03-16",
     "analogy": "Like building a shorthand dictionary by watching which letter combinations you write most often and assigning them a single symbol - common words earn their own glyph, rare ones get spelled out in pieces."
+  },
+  {
+    "name": "Long Short-Term Memory",
+    "slug": "long-short-term-memory",
+    "shortDef": "A recurrent neural network architecture that uses input, forget, and output gates to selectively retain or discard information across long sequences, solving the vanishing gradient problem that made earlier RNNs fail on long-range dependencies.",
+    "fullDef": "Long Short-Term Memory (LSTM) is a type of recurrent neural network introduced by Sepp Hochreiter and Jurgen Schmidhuber in 1997 to address a fundamental limitation of standard RNNs: the vanishing gradient problem. In a standard RNN, gradients shrink exponentially as they propagate back through many timesteps during training, which means the network effectively cannot learn dependencies between events that are far apart in a sequence.\n\nLSTM solves this by introducing a cell state - a separate memory lane that runs alongside the hidden state and can carry information across arbitrarily long sequences without being forced through repeated nonlinear transformations. Three gating mechanisms control what happens to this cell state:\n\nThe forget gate decides which information from the previous cell state to discard. The input gate decides which new information from the current input to write into the cell state. The output gate decides what portion of the cell state to expose as the hidden state at the current timestep.\n\nEach gate is a sigmoid layer producing values between 0 and 1, acting as a soft switch. A forget gate output near 0 means discard everything; near 1 means keep everything. This gating lets the network learn when to remember and when to forget, rather than having that determined rigidly by the architecture.\n\nLSTMs were the dominant architecture for sequence modeling from the late 2000s through 2017. They powered Google Translate, Apple Siri, Amazon Alexa, and most speech recognition systems of that era. They remain widely used in time series forecasting, anomaly detection, and any domain where sequential structure matters but labeled data is limited.\n\nThe transformer architecture, introduced in 2017, largely displaced LSTMs for language tasks by enabling parallel training instead of sequential processing and handling very long dependencies more effectively through attention. But LSTMs remain a standard tool in the practitioner toolkit, particularly for problems where the sequential inductive bias of an RNN matches the structure of the data better than a general attention mechanism would.",
+    "category": "Deep Learning",
+    "relatedTerms": [
+      "recurrent-neural-network",
+      "neural-network",
+      "deep-learning",
+      "transformer"
+    ],
+    "references": [
+      {
+        "title": "Long Short-Term Memory - Hochreiter and Schmidhuber (1997)",
+        "url": "https://www.bioinf.jku.at/publications/older/2604.pdf"
+      },
+      {
+        "title": "Learning to Forget: Continual Prediction with LSTM - Gers et al. (1999)",
+        "url": "https://www.semanticscholar.org/paper/Learning-to-forget%3A-continual-prediction-with-LSTM-Gers-Schmidhuber/11540131eae85b2e11d53df7f1360eeb6476e7f6"
+      },
+      {
+        "title": "Sequence to Sequence Learning with Neural Networks - Sutskever et al. (2014)",
+        "url": "https://arxiv.org/abs/1409.3215"
+      }
+    ],
+    "seoDescription": "LSTM is the gated RNN architecture that solved vanishing gradients in sequential data - the dominant sequence model before transformers arrived in 2017.",
+    "seoKeywords": [
+      "what is LSTM",
+      "long short-term memory explained",
+      "LSTM vs transformer",
+      "LSTM gates explained",
+      "vanishing gradient problem LSTM",
+      "LSTM recurrent neural network",
+      "how LSTM works"
+    ],
+    "lastUpdated": "2026-03-17",
+    "analogy": "Like a person taking notes during a long lecture with a highlighter and an eraser - actively deciding what to keep, what to cross out, and what to write down fresh, rather than trying to remember everything verbatim."
   }
 ]
