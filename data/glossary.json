@@ -3591,7 +3591,7 @@
     "name": "Mixture of Experts Routing",
     "slug": "mixture-of-experts-routing",
     "shortDef": "The mechanism within a Mixture of Experts model that determines which expert sub-networks process each input token, directly controlling how model capacity is utilized.",
-    "fullDef": "Mixture of Experts routing is the process by which a gating mechanism assigns input tokens to specific expert sub-networks within a Mixture of Experts architecture. The router is typically a small neural network, often a single linear layer followed by a softmax, that produces a score for each expert given an input token. The top-k experts by score are selected to process that token, and their outputs are combined using the router scores as weights.\n\nRouting strategies vary in sophistication. Token-choice routing lets each token pick its preferred experts, which is simple but can cause load imbalance. Expert-choice routing inverts the process, letting each expert select which tokens to process from a batch, which naturally balances load but can leave some tokens underserved. Hash-based routing assigns tokens to experts deterministically based on token properties, eliminating the learned router entirely but sacrificing adaptive specialization.\n\nThe quality of routing determines whether a Mixture of Experts model lives up to its theoretical capacity advantage. Poor routing leads to expert collapse, where a few experts handle most tokens while others sit idle, or to misrouting, where tokens reach experts that are not specialized for them. Modern architectures like DeepSeek's Sparse Attention and Qwen 3.5's hybrid gating use auxiliary losses, capacity constraints, and learned affinity scores to keep routing both balanced and specialized. The routing decision happens at every layer of the network, so a single token may visit different experts at different depths, enabling fine-grained specialization throughout the model.",
+    "fullDef": "Mixture of Experts routing is the process by which a gating mechanism assigns input tokens to specific expert sub-networks within a Mixture of Experts architecture. The router is typically a small neural network, often a single linear layer followed by a softmax, that produces a score for each expert given an input token.\n\nWhen a token arrives at a MoE layer, its hidden representation flows through the router network, which multiplies it by learned weights to produce a score for each expert. These scores become probabilities through softmax normalization - all scores sum to 1, with each representing the likelihood that this expert should process the token.\n\nIn token-choice routing (used by Switch Transformers), each token selects its top expert based on the highest probability. The system then bins all tokens by their chosen expert and processes them sequentially until that expert reaches its capacity limit - a fixed maximum number of tokens it can handle. Tokens assigned to a full expert simply don't get processed by that expert in that forward pass.\n\nThe key design decision is simplicity over perfect load balancing. Rather than complex negotiations about who processes what, the system uses a hard capacity cutoff. During training, auxiliary losses push experts toward receiving equal numbers of tokens, and router logits include noise to prevent rigid routing patterns. At inference time, the noise is removed for deterministic routing.\n\nAfter experts process their assigned tokens, outputs are combined using a weighted average where the weights come from the router probabilities. This weighted combination allows downstream layers to integrate contributions from multiple experts even though each token was routed to a single expert for computation.\n\nThe quality of routing directly determines whether a MoE model achieves its theoretical capacity advantage. Poor routing causes expert collapse, where a few experts handle most tokens while others sit idle. Modern architectures monitor router statistics during training to detect and correct imbalanced distributions. The routing decision happens at every layer, so a single token may visit different experts at different depths through the network.",
     "category": "Architecture",
     "relatedTerms": [
       "mixture-of-experts",
@@ -3600,7 +3600,26 @@
       "sparse-model"
     ],
     "lastUpdated": "2026-03-05",
-    "analogy": "Like a GPS that decides which expert lane to send each car down - bad routing creates traffic jams in one lane and empty roads in the others."
+    "analogy": "Like a GPS that decides which expert lane to send each car down - bad routing creates traffic jams in one lane and empty roads in the others.",
+    "seoDescription": "Routing determines which experts process each token in MoE models. Simple top-1 routing picks the best expert per token, sorting by probability scores.",
+    "references": [
+      {
+        "title": "Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity - Lepikhin et al. (2021)",
+        "url": "https://arxiv.org/abs/2101.03961"
+      },
+      {
+        "title": "Mixture of Experts with Expert Choice Routing - Lewis et al. (2021)",
+        "url": "https://arxiv.org/abs/2202.09368"
+      },
+      {
+        "title": "Sparse MoE Implementation - Hugging Face Transformers Documentation",
+        "url": "https://huggingface.co/docs/transformers/model_doc/switch_transformers"
+      },
+      {
+        "title": "Stabilizing Transformers with Mixture-of-Experts through Base Layer Freezing - Shazeer et al. (2022)",
+        "url": "https://arxiv.org/abs/2210.07641"
+      }
+    ]
   },
   {
     "name": "Agentic Workflows",
