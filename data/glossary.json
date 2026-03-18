@@ -3600,7 +3600,7 @@
       "sparse-model"
     ],
     "lastUpdated": "2026-03-05",
-    "analogy": "Like a GPS that decides which expert lane to send each car down - bad routing creates traffic jams in one lane and empty roads in the others.",
+    "analogy": "Like a bouncer deciding where each person goes in a club - poor routing sends wrong people to wrong places and clashes can occur between people.",
     "seoDescription": "Routing determines which experts process each token in MoE models. Simple top-1 routing picks the best expert per token, sorting by probability scores.",
     "references": [
       {
@@ -5199,5 +5199,45 @@
     ],
     "lastUpdated": "2026-03-17",
     "analogy": "Like LSTM but with a simpler filing system: instead of three separate drawers for what to forget, what to add, and what to output, a GRU uses just two controls to manage the same job with less overhead."
+  },
+  {
+    "name": "MiniMax M2.7",
+    "slug": "minimax-m27",
+    "shortDef": "A large language model released in March 2026 by Chinese AI lab MiniMax that participated in its own training loop, achieving competitive performance on software engineering and research benchmarks compared to GPT-5.3-Codex and Opus 4.6.",
+    "fullDef": "MiniMax M2.7 is a frontier-class large language model released in March 2026 by MiniMax, a Chinese AI research lab. It is notable for incorporating a self-evolution training process where earlier versions of the model actively participated in the research workflow, autonomously analyzing failure trajectories, planning architectural changes, modifying code, running evaluations, and deciding what improvements to retain or revert across over 100 consecutive iterations.\n\nThe self-evolution approach enabled the model to handle 30 to 50 percent of MiniMax's research workflow that previously required multiple researchers: data pipeline construction, experiment monitoring, log analysis, debugging, and merge request management. This contributed to a 30 percent performance improvement on MiniMax's internal evaluation benchmarks.\n\nOn established external benchmarks, M2.7 demonstrates competitive performance across multiple dimensions. On SWE-Pro, which evaluates real-world software engineering tasks across multiple programming languages, M2.7 scored 56.22 percent, matching GPT-5.3-Codex. On MLE-bench Lite (the 22 Kaggle competitions used by OpenAI for research capability evaluation), M2.7 achieved a 66.6 percent medal rate, placing it alongside Gemini-3.1 and ahead of many other frontier models. On VIBE-Pro (end-to-end project delivery across web, mobile, and simulation tasks), M2.7 scored 55.6 percent, nearly matching Opus 4.6. On GDPval-AA (professional domain expertise across 45 models), M2.7 achieved an ELO of 1495, the highest among open-source models.\n\nM2.7 represents a significant milestone in the narrowing performance gap between Western and Chinese frontier AI models. DeepSeek's 2025 release, Alibaba's Qwen, and MiniMax's rapid release cadence (five versions released within roughly one year) have compressed what was once a substantial capability gap into percentage-point differences on specific benchmarks.\n\nDevelopers evaluating M2.7 should note that while the engineering performance is genuine and the API access is live, Chinese AI models operate under different regulatory and governance frameworks than Western models, with documented concerns regarding data protection, government access, and content alignment with Chinese government narratives.",
+    "category": "LLM Models",
+    "relatedTerms": [
+      "large-language-model",
+      "reinforcement-learning",
+      "gpt-5",
+      "opus-4-6",
+      "gemini-3-1"
+    ],
+    "references": [
+      {
+        "title": "MiniMax M2.7 Official Release",
+        "url": "https://www.minimax.io/news/minimax-m27-en"
+      },
+      {
+        "title": "MLE-bench: Evaluating Machine Learning Agents on Kaggle",
+        "url": "https://arxiv.org/abs/2410.07095"
+      },
+      {
+        "title": "Testing AI Systems for Alignment and Censorship",
+        "url": "https://rsf.org"
+      }
+    ],
+    "seoDescription": "MiniMax M2.7 is a March 2026 frontier AI model that participated in its own training. Competitive with GPT-5.3-Codex on software engineering.",
+    "seoKeywords": [
+      "what is MiniMax M2.7",
+      "MiniMax M2.7 explained",
+      "M2.7 benchmark performance",
+      "MiniMax M2.7 vs GPT-5.3",
+      "Chinese AI models M2.7",
+      "self-evolution AI training",
+      "MiniMax M2.7 API"
+    ],
+    "lastUpdated": "2026-03-18",
+    "analogy": "Like a researcher who not only writes code but also reads their own papers, runs their own experiments, debugs their own work, and plans the next phase - doing 30 to 50 percent of the research journey while humans guide the critical decisions."
   }
 ]
