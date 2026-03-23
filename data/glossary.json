@@ -5306,5 +5306,29 @@
     ],
     "lastUpdated": "2026-03-21",
     "analogy": "Like upgrading a hand-cranked adding machine to a calculator - the underlying math is the same, but trapezoidal discretization and MIMO give the machine enough computational intensity to actually keep up with the hardware it runs on."
+  },
+  {
+    "name": "ElevenLabs",
+    "slug": "elevenlabs",
+    "shortDef": "An AI voice synthesis platform that converts text to speech and clones voices using neural audio models. Its Flash v2.5 model achieves approximately 75ms latency, making it the dominant infrastructure layer for real-time voice agents.",
+    "fullDef": "ElevenLabs is an AI audio company founded in 2022 by Piotr Dabkowski and Mati Staniszewski, focused on building neural text-to-speech and voice cloning models. It has become the most widely used voice synthesis infrastructure for AI voice agents, audiobook production, dubbing pipelines, and real-time conversational applications.\n\n**Models**\n\nElevenLabs maintains a model family tiered by the latency-quality tradeoff:\n\n- **Flash v2.5**: Designed specifically for real-time applications. Achieves approximately 75ms time-to-first-audio, low enough to feel synchronous in live conversation. Used as the voice layer in most production AI voice agent deployments.\n- **Turbo v2.5**: Balanced quality and speed, targeting 250-300ms latency. Suited for interactive but not strictly real-time use cases like voice previews and on-demand narration.\n- **Multilingual v2**: Optimized for consistent quality across 29 languages in long-form content up to 10,000 characters per request. The default choice for audiobook and podcast dubbing workflows.\n- **Eleven v3**: The highest-expressiveness model, capable of nuanced emotional range, character differentiation, and dramatic delivery. Designed for creative applications where naturalness and emotional texture matter more than latency.\n\n**Voice Cloning**\n\nElevenLabs offers two cloning tiers. Instant Voice Cloning generates a usable voice from as little as 10 seconds of audio. It captures pitch, tone, accent, and rhythm and is available immediately via API. Professional Voice Cloning requires longer recordings and a manual review process, producing higher fidelity results for unique accents and unusual vocal characteristics.\n\nThe platform maintains a library of over 10,000 pre-built voices spanning accents, ages, genders, and emotional registers, accessible directly through the API without cloning.\n\n**API and Integration**\n\nElevenLabs provides official SDKs for Python and JavaScript/TypeScript, and a REST HTTP API. The primary endpoint accepts text and a voice ID and returns audio as a stream or file. Streaming responses allow audio playback to begin before the full generation is complete, which is essential for the sub-200ms perceived latency required in voice agent applications.\n\nThe platform integrates directly with major AI agent frameworks. In the Razorpay Agent Studio announcement, ElevenLabs was named as the voice layer for the Subscription Recovery Agent that contacts customers via voice call about failed payments - an example of voice synthesis embedded as a step in an autonomous agent workflow rather than as a standalone product.\n\n**Commercial Licensing**\n\nAudio generated through the ElevenLabs API using their models is commercially licensed, meaning businesses can use the output in products and customer-facing applications without additional licensing negotiations.",
+    "category": "Models",
+    "relatedTerms": [
+      "ai-agent",
+      "inference",
+      "large-language-model"
+    ],
+    "seoDescription": "ElevenLabs builds AI voice synthesis models for text-to-speech, voice cloning, and real-time voice agents. Flash v2.5 hits 75ms latency for live use.",
+    "seoKeywords": [
+      "what is ElevenLabs",
+      "ElevenLabs text to speech",
+      "ElevenLabs voice cloning",
+      "ElevenLabs Flash v2.5 latency",
+      "ElevenLabs API voice agents",
+      "ElevenLabs vs alternatives",
+      "ElevenLabs real-time TTS"
+    ],
+    "lastUpdated": "2026-03-21",
+    "analogy": "Like a voice actor on call with zero booking time - you send text, specify a voice, and get broadcast-quality audio back in under a second. The Flash model is the version that responds fast enough to hold a live phone conversation."
   }
 ]
