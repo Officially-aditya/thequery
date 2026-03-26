@@ -5330,5 +5330,43 @@
     ],
     "lastUpdated": "2026-03-21",
     "analogy": "Like a voice actor on call with zero booking time - you send text, specify a voice, and get broadcast-quality audio back in under a second. The Flash model is the version that responds fast enough to hold a live phone conversation."
+  },
+  {
+    "name": "Lovable",
+    "slug": "lovable",
+    "shortDef": "An AI app-building platform that lets people create full-stack web applications by describing what they want in natural language, then iterating on generated code.",
+    "fullDef": "Lovable is an AI development platform focused on turning natural-language product ideas into working web applications. Instead of starting from a blank repository, users describe the app they want and Lovable generates an implementation that can include frontend, backend, database, authentication, and integrations. The platform is designed for rapid iteration, allowing users to refine behavior through additional prompts while keeping access to real, editable code.\n\nLovable supports both individual makers and collaborative teams through shared workspaces. Its documented workflow is: describe what you want to build, review and iterate, sync code to GitHub, then deploy and operate using existing engineering processes. This positioning makes it useful as an acceleration layer for prototypes, MVPs, internal tools, and production-oriented web apps where teams still want ownership and portability of their codebase.\n\nThe company also emphasizes enterprise controls including security and governance features, and publicly lists compliance signals such as SOC 2 Type II, ISO 27001:2022, and GDPR-related documentation in its trust and policy materials. In practice, Lovable sits in the broader \"AI-native software creation\" category alongside other prompt-to-app tools, with its differentiation centered on full-stack generation, collaboration, and workflow integration with conventional development stacks.",
+    "category": "Companies & Platforms",
+    "relatedTerms": [
+      "ai-agent",
+      "large-language-model",
+      "prompt-engineering"
+    ],
+    "references": [
+      {
+        "title": "Lovable - AI App Builder",
+        "url": "https://lovable.dev"
+      },
+      {
+        "title": "Lovable Docs - Welcome",
+        "url": "https://docs.lovable.dev/introduction/welcome"
+      },
+      {
+        "title": "Lovable Trust Center",
+        "url": "https://trust.lovable.dev/"
+      }
+    ],
+    "seoDescription": "Lovable is a full-stack AI app-building platform where users describe software in natural language, iterate collaboratively, and sync generated code to GitHub.",
+    "seoKeywords": [
+      "what is Lovable",
+      "Lovable AI app builder",
+      "Lovable full stack generation",
+      "Lovable GitHub sync",
+      "Lovable documentation",
+      "Lovable enterprise security",
+      "Lovable vs app builders"
+    ],
+    "lastUpdated": "2026-03-25",
+    "analogy": "Like having a rapid prototype team on standby: you describe the product in plain English, they generate a working app draft, and your engineers can immediately review and extend the real code."
   }
 ]
