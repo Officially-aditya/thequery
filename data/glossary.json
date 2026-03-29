@@ -5368,5 +5368,38 @@
     ],
     "lastUpdated": "2026-03-25",
     "analogy": "Like having a rapid prototype team on standby: you describe the product in plain English, they generate a working app draft, and your engineers can immediately review and extend the real code."
+  },
+  {
+    "name": "Chinchilla Scaling Law",
+    "slug": "chinchilla-scaling-law",
+    "shortDef": "A 2022 DeepMind finding that optimal language model training requires scaling training tokens proportionally with model parameters - roughly 20 tokens per parameter - overturning the prior assumption that larger models always outperform smaller ones given the same compute budget.",
+    "fullDef": "The Chinchilla Scaling Law comes from \"Training Compute-Optimal Large Language Models\" (Hoffmann et al., DeepMind, 2022), a paper that challenged the dominant approach to scaling AI models by demonstrating that most large language models of that era were significantly undertrained relative to their size.\n\nThe paper's central finding: for a fixed compute budget, the optimal strategy is to train a smaller model on more tokens rather than a larger model on fewer tokens. The authors derived a simple rule of thumb - roughly 20 training tokens per model parameter. A 70 billion parameter model, by this rule, should be trained on approximately 1.4 trillion tokens to reach its compute-optimal point.\n\nTo validate this, DeepMind trained Chinchilla, a 70 billion parameter model on 1.4 trillion tokens, as a direct test of the hypothesis. Chinchilla matched or outperformed Gopher (280B parameters), GPT-3 (175B), and Megatron-Turing NLG (530B) across most benchmarks despite being 4 times smaller than Gopher and using the same training compute budget. The result was striking: models the industry had treated as state-of-the-art were being beaten by a model one quarter their size, simply because it had been trained on more data.\n\nThe practical implications reshaped how labs approach training. GPT-4, LLaMA, Mistral, and most post-2022 frontier models were trained with Chinchilla ratios in mind. LLaMA in particular was designed explicitly around this insight: Meta trained smaller models on far more tokens than the Chinchilla-optimal point (\"overtrained\" relative to compute-optimal) so that the resulting models would be cheaper to run at inference time on limited hardware.\n\nThis exposed an important distinction the original Chinchilla paper did not fully address: compute-optimal for training is not the same as optimal for deployment. If inference costs matter (and they do at scale), training a smaller model on more tokens than strictly necessary produces a model that is cheaper to serve while maintaining strong performance. This variant is sometimes called \"inference-optimal\" scaling.\n\nThe Chinchilla law has known limitations. It was derived from transformer models trained on text; its applicability to multimodal models, mixture-of-experts architectures, or models trained with reinforcement learning from human feedback is an open research question. Later work (including analysis of LLaMA 3 and Mistral training runs) has suggested the relationship between parameters and tokens is more nuanced than the 20:1 ratio implies, particularly at very large scale. But the core insight - that data quantity matters as much as model size for a fixed compute budget - remains one of the most practically influential findings in the history of large language model research.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "large-language-model",
+      "token",
+      "transformer",
+      "inference",
+      "fine-tuning",
+      "benchmark"
+    ],
+    "references": [
+      {
+        "title": "Training Compute-Optimal Large Language Models (Chinchilla) - Hoffmann et al., DeepMind (2022)",
+        "url": "https://arxiv.org/abs/2203.15556"
+      }
+    ],
+    "seoDescription": "DeepMind's 2022 finding that optimal LLM training needs ~20 tokens per parameter. Chinchilla (70B) outperformed GPT-3 (175B) on the same compute budget.",
+    "seoKeywords": [
+      "what is Chinchilla scaling law",
+      "Chinchilla law explained",
+      "compute optimal training LLM",
+      "tokens per parameter scaling",
+      "Chinchilla vs GPT-3",
+      "DeepMind scaling law",
+      "optimal LLM training tokens"
+    ],
+    "lastUpdated": "2026-03-29",
+    "analogy": "Like baking: you can use all your budget on an enormous oven or on premium ingredients. Chinchilla showed that most labs had bought enormous ovens while skimping on ingredients - and that a smaller oven loaded with quality ingredients produced better results for the same total cost."
   }
 ]
