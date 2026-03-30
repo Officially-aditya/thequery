@@ -424,6 +424,32 @@
     "analogy": "Like converting raw exam scores into percentages that add up to 100 - each class gets a share of the total confidence."
   },
   {
+    "name": "Logits",
+    "slug": "logits",
+    "shortDef": "Raw, unnormalized scores produced by a model before applying softmax or sigmoid to turn them into probabilities.",
+    "fullDef": "In modern machine learning, logits are the raw output scores a model produces before any probability-normalizing function is applied. They are not probabilities: they can be positive or negative, do not need to sum to 1, and can take any real value. To turn logits into probabilities, models typically apply softmax for multi-class outputs or sigmoid for binary outputs.\n\n**Logits in transformers**\n\nIn a transformer language model, the final hidden state for each token is projected through an output matrix (often called the language modeling head or `lm_head`) to produce one logit per vocabulary token. If the vocabulary has 50,000 tokens, the model produces a 50,000-dimensional logit vector for the next-token prediction. Softmax converts that vector into a probability distribution over the vocabulary, and decoding strategies like greedy sampling, top-k, or temperature sampling operate on those logits or their derived probabilities.\n\nThe highest logit corresponds to the token the model currently prefers most strongly, but the full logit distribution matters. Small changes in logits can significantly change probabilities after softmax, especially when temperature is applied. This is why people sometimes inspect logits directly when debugging model behavior, evaluating calibration, or implementing custom decoding.\n\n**Logits in PyTorch**\n\nIn PyTorch, the word logits usually means raw model outputs before softmax or sigmoid, and many loss functions expect logits directly rather than probabilities. For example, `torch.nn.CrossEntropyLoss` expects raw logits with shape `[batch_size, num_classes]` and internally applies `log_softmax`, so passing already-softmaxed probabilities is incorrect. Similarly, `torch.nn.BCEWithLogitsLoss` expects raw logits for binary or multi-label classification and combines sigmoid with binary cross-entropy in one numerically stable operation.\n\nThis is a common beginner mistake: applying softmax or sigmoid in the model and then passing the result into a PyTorch loss that already expects logits. The safer mental model is that logits are the model's scores, while probabilities are a post-processing view of those scores.\n\n**The logit function in statistics**\n\nThe singular term logit has an older and more precise statistical meaning: the log-odds transform of a probability. If p is a probability between 0 and 1, then the logit function is:\n\n`logit(p) = log(p / (1 - p))`\n\nThis maps probabilities from the interval (0, 1) to the full real line (-infinity, +infinity). The inverse of the logit function is the sigmoid function. In logistic regression, the model predicts a linear score in log-odds space; applying sigmoid converts that score into a probability.\n\nThis is why the terminology can feel confusing. In statistics, a logit is specifically a log-odds value. In deep learning practice, logits usually means the vector of pre-softmax or pre-sigmoid scores emitted by a model. These usages are related because both live in the \"before probability conversion\" space, but they are not identical concepts.\n\nA useful rule of thumb: if you are working with transformers or PyTorch, logits usually means raw prediction scores. If you are reading statistics or logistic regression theory, logit usually means the log-odds transform of a probability.",
+    "category": "Deep Learning",
+    "relatedTerms": [
+      "softmax",
+      "sigmoid",
+      "transformer",
+      "pytorch",
+      "cross-entropy"
+    ],
+    "seoDescription": "Logits are raw model scores before softmax or sigmoid. Learn what logits mean in transformers, PyTorch losses, and the statistical logit function.",
+    "seoKeywords": [
+      "what are logits",
+      "logits in transformers",
+      "logits in pytorch",
+      "logit function",
+      "logits vs probabilities",
+      "cross entropy logits",
+      "bcewithlogitsloss explained"
+    ],
+    "lastUpdated": "2026-03-30",
+    "analogy": "Think of logits as unfinalized election vote counts before they are normalized into percentages for the public dashboard. The raw totals contain the ranking signal; softmax or sigmoid turns that signal into probabilities."
+  },
+  {
     "name": "Sigmoid",
     "slug": "sigmoid",
     "shortDef": "An S-shaped activation function that maps any real number to a value between 0 and 1, historically important but largely replaced by ReLU in hidden layers.",
