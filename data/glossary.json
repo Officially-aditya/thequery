@@ -196,6 +196,58 @@
     "analogy": "Like hiring a general contractor and then training them specifically on your building's quirks before letting them work unsupervised."
   },
   {
+    "name": "PEFT",
+    "slug": "peft",
+    "shortDef": "Parameter-Efficient Fine-Tuning, a family of methods that adapts large pretrained models by training only a small subset of new or selected parameters instead of updating the full model.",
+    "fullDef": "PEFT stands for Parameter-Efficient Fine-Tuning. It is a category of techniques for adapting a pretrained model to a new task while training only a tiny fraction of the model's parameters. Instead of updating every weight in a large language model or foundation model, PEFT methods freeze most of the base model and learn small task-specific additions or modifications.\n\nThe motivation is practical. Full fine-tuning of large models is expensive in GPU memory, storage, and training time. It also creates a separate full model checkpoint for every task, which is wasteful when the base model remains mostly the same. PEFT methods reduce that cost by keeping the original model fixed and storing only the lightweight adaptation layers or vectors needed for the new behavior.\n\nCommon PEFT methods include LoRA (Low-Rank Adaptation), adapter layers, prefix tuning, prompt tuning, and IA3. These approaches make different architectural tradeoffs, but they share the same goal: preserve most of the pretrained model while learning a much smaller set of task-specific parameters.\n\n**PEFT vs LoRA**\n\nThe simplest distinction is: PEFT is the umbrella category, and LoRA is one specific method inside that category. Saying \"I used PEFT\" is like saying \"I used a compression method\"; saying \"I used LoRA\" is naming the exact technique. Not every PEFT method is LoRA, but every LoRA setup is a form of PEFT.\n\nIn practice, people often blur the two because LoRA became the default PEFT method for many open-model workflows. But adapter tuning, prompt tuning, prefix tuning, and IA3 are also PEFT methods, even though they work differently under the hood.\n\nIn practice, PEFT is one of the main reasons smaller teams can customize large models at all. It lowers hardware requirements, shortens experimentation cycles, and makes it easier to maintain many specialized variants of the same base model. In the open-source model ecosystem, PEFT checkpoints are often small enough to distribute independently from the original model weights.\n\nA useful mental model is that full fine-tuning rewrites the whole book, while PEFT adds an annotated layer on top of it. The base knowledge stays in place; the adaptation tells the model how to behave differently for a narrower job.",
+    "category": "MLOps",
+    "relatedTerms": [
+      "fine-tuning",
+      "transfer-learning",
+      "lora",
+      "large-language-model",
+      "foundation-model"
+    ],
+    "seoDescription": "PEFT stands for Parameter-Efficient Fine-Tuning: methods like LoRA and adapters that customize large models by training only a small fraction of parameters.",
+    "seoKeywords": [
+      "what is PEFT",
+      "parameter efficient fine tuning",
+      "PEFT explained",
+      "PEFT vs fine tuning",
+      "LoRA and PEFT",
+      "adapter tuning",
+      "prompt tuning"
+    ],
+    "lastUpdated": "2026-03-31",
+    "analogy": "Like customizing a rental apartment with removable furniture and fixtures instead of tearing down the walls. The base structure stays intact, but the space behaves differently for your needs."
+  },
+  {
+    "name": "LoRA",
+    "slug": "lora",
+    "shortDef": "Low-Rank Adaptation, a PEFT method that fine-tunes large models by learning small low-rank update matrices instead of modifying the full weight matrices.",
+    "fullDef": "LoRA stands for Low-Rank Adaptation. It is one of the most widely used Parameter-Efficient Fine-Tuning (PEFT) techniques for adapting large pretrained models. Instead of updating a model's full weight matrices during fine-tuning, LoRA freezes the original weights and learns two much smaller matrices whose product approximates the desired update.\n\nThe core idea is that many useful task-specific changes to a model can be represented as a low-rank update rather than a full dense rewrite. If a weight matrix W would normally be updated by some large matrix Delta W, LoRA constrains that update to the form A x B where A and B are much smaller than W. This dramatically reduces the number of trainable parameters while preserving much of the benefit of full fine-tuning.\n\nLoRA is especially common in transformer models, where it is typically applied to attention and sometimes feed-forward projection matrices. Because the base model remains frozen, training requires less memory, and the learned LoRA weights can be saved as a compact adapter checkpoint rather than a full copy of the model.\n\nOne reason LoRA became so popular is operational simplicity. You can keep one base model and load different LoRA adapters for different tasks, styles, or domains. At inference time, the LoRA weights can either be applied dynamically or merged into the base weights ahead of deployment, depending on the serving setup.\n\nLoRA is also the foundation for variants such as QLoRA, which combines low-rank adaptation with quantized base weights to make fine-tuning even more memory efficient. In practice, when people say they \"fine-tuned\" an open model on consumer hardware, they often mean they trained a LoRA rather than updating the full model.\n\nA useful rule of thumb: PEFT is the umbrella category, and LoRA is the best-known tool under that umbrella.",
+    "category": "MLOps",
+    "relatedTerms": [
+      "peft",
+      "fine-tuning",
+      "quantization",
+      "transformer",
+      "foundation-model"
+    ],
+    "seoDescription": "LoRA, or Low-Rank Adaptation, is a PEFT method that fine-tunes large models by learning small low-rank weight updates instead of changing every parameter.",
+    "seoKeywords": [
+      "what is LoRA",
+      "LoRA AI explained",
+      "low rank adaptation",
+      "LoRA vs fine tuning",
+      "LoRA vs PEFT",
+      "QLoRA",
+      "LoRA transformer"
+    ],
+    "lastUpdated": "2026-03-31",
+    "analogy": "Like adding a lightweight lens in front of a camera instead of rebuilding the whole camera body. The base system stays the same, but the output changes in a targeted way."
+  },
+  {
     "name": "Transfer Learning",
     "slug": "transfer-learning",
     "shortDef": "A technique where a model trained on one task is reused as the starting point for a model on a different but related task.",
