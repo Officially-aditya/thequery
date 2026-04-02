@@ -248,6 +248,103 @@
     "analogy": "Like adding a lightweight lens in front of a camera instead of rebuilding the whole camera body. The base system stays the same, but the output changes in a targeted way."
   },
   {
+    "name": "Adapter Layers",
+    "slug": "adapter-layers",
+    "shortDef": "A PEFT method that inserts small trainable neural modules into a frozen pretrained model, allowing task-specific adaptation without updating the full network.",
+    "fullDef": "Adapter layers are one of the earliest and most influential Parameter-Efficient Fine-Tuning (PEFT) methods. Instead of changing the full weights of a large pretrained model, adapters insert small trainable modules between or inside existing layers while keeping the original model frozen.\n\nIn transformer models, adapter layers are usually added after attention or feed-forward blocks. They often use a bottleneck structure: project the hidden state down to a smaller dimension, apply a nonlinearity, then project back up. Because only these small inserted layers are trained, the number of trainable parameters is far lower than in full fine-tuning.\n\n**Advantages**\n\nAdapter layers are modular and easy to swap. You can keep one base model and load different adapters for sentiment analysis, legal drafting, medical Q&A, or code generation. They also work well when you need many task-specific variants of the same model because each adapter checkpoint is much smaller than a full model copy.\n\n**Disadvantages**\n\nAdapters add new layers to the network, which can increase inference latency and architectural complexity compared with methods that do not add extra computation at every forward pass. They can also be more cumbersome to integrate than LoRA in ecosystems where LoRA has become the default tooling standard.\n\n**Example**\n\nA company might keep one 7B base model for internal document work, then attach one adapter for finance summarization and another for customer support classification. The base model stays fixed; the adapters specialize it for each task.",
+    "category": "MLOps",
+    "relatedTerms": [
+      "peft",
+      "fine-tuning",
+      "lora",
+      "transformer",
+      "foundation-model"
+    ],
+    "seoDescription": "Adapter layers are a PEFT method that inserts small trainable modules into a frozen model, making task-specific tuning cheaper than full fine-tuning.",
+    "seoKeywords": [
+      "what are adapter layers",
+      "adapter tuning",
+      "adapter layers PEFT",
+      "adapter layers vs LoRA",
+      "transformer adapters",
+      "parameter efficient fine tuning adapters"
+    ],
+    "lastUpdated": "2026-04-02",
+    "analogy": "Like snapping interchangeable attachments onto the same power tool. The motor stays the same, but each attachment makes it suitable for a different job."
+  },
+  {
+    "name": "Prefix Tuning",
+    "slug": "prefix-tuning",
+    "shortDef": "A PEFT method that learns small trainable prefix vectors prepended to a model's internal attention states, steering generation without updating the full model.",
+    "fullDef": "Prefix tuning is a Parameter-Efficient Fine-Tuning (PEFT) method that adapts a frozen model by learning a set of trainable vectors, called prefixes, that are injected into the model's attention mechanism. These prefixes are not ordinary text tokens. They are learned continuous representations that influence the model's behavior during generation.\n\nIn transformer language models, the learned prefix is typically attached to the key and value states used by attention. This gives the model a task-specific \"setup\" before it processes the actual user input, steering outputs without modifying the main pretrained weights.\n\n**Advantages**\n\nPrefix tuning can be extremely parameter-efficient because the learned prefix is small relative to the full model. It is especially attractive when you want to steer generation behavior while keeping the base model fully frozen. It also avoids changing the core model weights, which can simplify checkpoint management.\n\n**Disadvantages**\n\nBecause the method works by steering attention through learned prefixes rather than directly modifying model weights, it may be less expressive than methods like LoRA for some tasks. It can also be less intuitive to debug, since the learned control signal lives in internal hidden states rather than in obvious weight updates or inserted layers.\n\n**Example**\n\nA team building a report generator might train one prefix for concise executive summaries and another for long-form analytical explanations, using the same base model under both modes.",
+    "category": "MLOps",
+    "relatedTerms": [
+      "peft",
+      "prompt-tuning",
+      "attention-mechanism",
+      "transformer",
+      "fine-tuning"
+    ],
+    "seoDescription": "Prefix tuning is a PEFT method that learns trainable prefix vectors to steer a frozen transformer's attention without changing the full model.",
+    "seoKeywords": [
+      "what is prefix tuning",
+      "prefix tuning PEFT",
+      "prefix tuning vs prompt tuning",
+      "prefix tuning vs LoRA",
+      "transformer prefix tuning"
+    ],
+    "lastUpdated": "2026-04-02",
+    "analogy": "Like whispering a learned stage direction into an actor's earpiece before every scene instead of retraining the actor from scratch."
+  },
+  {
+    "name": "Prompt Tuning",
+    "slug": "prompt-tuning",
+    "shortDef": "A PEFT method that learns a small set of trainable virtual prompt embeddings to steer a frozen model toward a task or behavior.",
+    "fullDef": "Prompt tuning is a Parameter-Efficient Fine-Tuning (PEFT) technique in which a frozen model is adapted by learning a small set of trainable embeddings that function like a soft prompt. These embeddings are prepended to the input at the embedding level rather than written as literal human-readable text.\n\nThe idea is similar to prompting, but instead of hand-writing instructions such as \"Summarize this text in bullet points,\" the system learns a continuous prompt representation that the model responds to more reliably. Because only the prompt embeddings are trained, the number of trainable parameters is tiny.\n\n**Advantages**\n\nPrompt tuning is one of the lightest-weight adaptation methods available. It is cheap to store, easy to swap, and attractive when you need very small task-specific checkpoints. It can work well for simple steering tasks or for large models that are already highly capable and only need a small nudge.\n\n**Disadvantages**\n\nPrompt tuning is often less expressive than LoRA or adapter layers, especially for harder tasks requiring deeper behavioral changes. It can also be fragile: performance may depend heavily on model scale, prompt length, and training setup. In smaller or weaker models, prompt tuning may underperform more direct adaptation methods.\n\n**Example**\n\nA company might learn one virtual prompt that makes a base model answer as a terse support bot and another that makes it respond as a formal legal assistant, without modifying the underlying model weights.",
+    "category": "MLOps",
+    "relatedTerms": [
+      "peft",
+      "prefix-tuning",
+      "prompt-engineering",
+      "fine-tuning",
+      "large-language-model"
+    ],
+    "seoDescription": "Prompt tuning is a PEFT method that learns soft prompt embeddings to steer a frozen model with very few trainable parameters.",
+    "seoKeywords": [
+      "what is prompt tuning",
+      "prompt tuning PEFT",
+      "soft prompt tuning",
+      "prompt tuning vs prefix tuning",
+      "prompt tuning vs LoRA"
+    ],
+    "lastUpdated": "2026-04-02",
+    "analogy": "Like handing the same speaker a hidden cue card before they begin talking. The person stays the same, but the opening cue changes the direction of the response."
+  },
+  {
+    "name": "IA3",
+    "slug": "ia3",
+    "shortDef": "Infused Adapter by Inhibiting and Amplifying Inner Activations, a PEFT method that learns small scaling vectors to modulate a frozen model's internal activations.",
+    "fullDef": "IA3 stands for Infused Adapter by Inhibiting and Amplifying Inner Activations. It is a Parameter-Efficient Fine-Tuning (PEFT) method that adapts a frozen model by learning small vectors that scale internal activations, rather than inserting full new layers or training low-rank matrix updates.\n\nIn transformer models, IA3 typically learns multiplicative rescaling factors for selected attention and feed-forward components. Instead of changing the full weight matrices, it changes how strongly certain channels are amplified or suppressed during computation. This keeps the number of trainable parameters extremely small.\n\n**Advantages**\n\nIA3 is very lightweight, often even smaller than LoRA in trainable parameter count. Because it works through scaling rather than full inserted modules, it can be efficient to store and conceptually simple once implemented. It is attractive when you want stronger adaptation than prompt tuning but still want to keep the update footprint minimal.\n\n**Disadvantages**\n\nIA3 is less widely supported in tooling than LoRA, which makes it less common in practical open-model workflows. It can also be harder to explain intuitively to newcomers, and in some settings the extra simplicity of scaling-only updates may limit expressiveness compared with richer methods like LoRA or adapter layers.\n\n**Example**\n\nA research team might use IA3 to adapt one foundation model for biomedical question answering and another for software issue classification, storing only tiny learned scaling vectors for each domain-specific variant.",
+    "category": "MLOps",
+    "relatedTerms": [
+      "peft",
+      "lora",
+      "adapter-layers",
+      "fine-tuning",
+      "transformer"
+    ],
+    "seoDescription": "IA3 is a PEFT method that adapts a frozen transformer by learning tiny scaling vectors that amplify or inhibit internal activations.",
+    "seoKeywords": [
+      "what is IA3",
+      "IA3 PEFT",
+      "IA3 vs LoRA",
+      "infused adapter by inhibiting and amplifying inner activations",
+      "IA3 transformer"
+    ],
+    "lastUpdated": "2026-04-02",
+    "analogy": "Like adjusting the gain knobs on a mixing board instead of replacing the instruments. You change which signals are emphasized without rebuilding the whole system."
+  },
+  {
     "name": "Transfer Learning",
     "slug": "transfer-learning",
     "shortDef": "A technique where a model trained on one task is reused as the starting point for a model on a different but related task.",
