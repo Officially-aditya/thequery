@@ -42,6 +42,32 @@
     "analogy": "Like teaching a child by showing examples instead of writing out every rule - eventually they figure out the pattern themselves."
   },
   {
+    "name": "Neural Architecture Search",
+    "slug": "neural-architecture-search",
+    "shortDef": "A set of methods for automatically discovering neural network architectures instead of designing them entirely by hand.",
+    "fullDef": "Neural Architecture Search (NAS) is the process of automatically searching for the best neural network architecture for a given task, rather than relying only on human intuition and manual experimentation. Instead of an engineer hand-designing every layer, connection pattern, kernel size, and width/depth tradeoff, a NAS system explores many candidate architectures and evaluates which ones perform best under a chosen objective.\n\nA NAS system usually has three parts: a search space (the kinds of architectures it is allowed to consider), a search strategy (how it explores those candidates), and an evaluation method (how it judges whether one architecture is better than another). Search strategies have included reinforcement learning, evolutionary algorithms, gradient-based optimization, and more efficient one-shot or weight-sharing approaches.\n\nThe appeal of NAS is obvious: architecture design is one of the most expensive parts of deep learning research, and good architectures can produce large gains in accuracy, efficiency, or latency. NAS helped popularize the broader AutoML idea that not just model weights, but model structures themselves, can be optimized automatically.\n\nClassic examples include NASNet, where Google used reinforcement learning to search for image-classification cells, and EfficientNet, whose scaling rules were derived from architecture-search ideas in combination with compound scaling. In practice, NAS has also been used for hardware-aware design, where the goal is not just maximum accuracy but the best tradeoff between quality, parameter count, memory use, and inference speed on a target device.\n\nThe main advantage of NAS is that it can discover architectures humans might not think to try, especially when optimizing for unusual hardware or multi-objective constraints. The main disadvantage is cost: early NAS methods were famously expensive, sometimes requiring enormous compute budgets just to search the design space. That expense is why later work focused heavily on making NAS cheaper and more practical through proxy tasks, shared weights, and differentiable search.\n\nA useful way to think about NAS is that ordinary training asks, \"What are the best weights for this architecture?\" Neural Architecture Search asks the prior question: \"What architecture should we be training in the first place?\"",
+    "category": "Deep Learning",
+    "relatedTerms": [
+      "neural-network",
+      "deep-learning",
+      "reinforcement-learning",
+      "transformer",
+      "inference"
+    ],
+    "seoDescription": "Neural Architecture Search (NAS) automatically discovers neural network designs instead of hand-crafting them, often optimizing for accuracy, efficiency, and hardware constraints.",
+    "seoKeywords": [
+      "what is neural architecture search",
+      "NAS deep learning",
+      "neural architecture search explained",
+      "AutoML NAS",
+      "NASNet",
+      "EfficientNet NAS",
+      "hardware aware neural architecture search"
+    ],
+    "lastUpdated": "2026-04-16",
+    "analogy": "Like using software to search through thousands of blueprint variations for a building instead of asking an architect to sketch every option by hand."
+  },
+  {
     "name": "Transformer",
     "slug": "transformer",
     "shortDef": "A neural network architecture based on self-attention mechanisms that processes input data in parallel, forming the basis of modern large language models.",
