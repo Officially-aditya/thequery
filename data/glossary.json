@@ -5702,5 +5702,83 @@
     ],
     "lastUpdated": "2026-04-30",
     "analogy": "Think of it like a construction kit for AI systems: it gives you prebuilt beams, joints, and connectors so you can assemble something quickly, even if you still need to understand the structure underneath."
+  },
+  {
+    "name": "Midjourney",
+    "slug": "midjourney",
+    "shortDef": "An AI image and video generation platform best known for highly stylized, cinematic text-to-image outputs and a creator workflow built around prompts, references, and variations.",
+    "fullDef": "Midjourney is an independent generative AI lab and creative platform focused on image generation, with newer support for short image-to-video generation. Users describe an image in natural language, optionally add image references or style controls, and the system generates visual outputs that can be varied, remixed, upscaled, or animated.\n\nMidjourney became one of the defining consumer AI image tools because of its strong default aesthetic. Compared with many image generators that emphasize literal prompt following or enterprise-safe stock imagery, Midjourney is known for cinematic lighting, painterly composition, fashion/editorial looks, fantasy art, concept art, and visually polished outputs that often look finished without heavy prompt engineering.\n\nAs of 2026, Midjourney's current main image model is V7, which was released in April 2025 and became the default in June 2025. V7 improved prompt precision, detail coherence, textures, bodies, hands, and objects, and introduced features such as Draft Mode and Omni Reference. Midjourney also offers a video feature that turns generated or uploaded images into short clips, starting at 5 seconds and extendable in 4-second increments up to 21 seconds.\n\nThe platform is useful for concept art, moodboards, campaign visuals, game and film previsualization, product ideation, character exploration, and social creative work. Its tradeoffs are typical of closed creative AI systems: model weights are not released, outputs depend on platform rules and subscription access, and copyright questions around training data and generated likenesses remain active industry debates.",
+    "category": "Platforms & Tools",
+    "relatedTerms": [
+      "computer-vision",
+      "dall-e",
+      "openai",
+      "artificial-intelligence"
+    ],
+    "references": [
+      {
+        "title": "Midjourney",
+        "url": "https://www.midjourney.com/"
+      },
+      {
+        "title": "Midjourney Docs - Version",
+        "url": "https://docs.midjourney.com/docs/models"
+      },
+      {
+        "title": "Midjourney Docs - Video",
+        "url": "https://docs.midjourney.com/docs/en/video"
+      }
+    ],
+    "seoDescription": "Midjourney is an AI image and video generation platform known for cinematic, stylized text-to-image outputs, V7 image generation, and short image-to-video animation.",
+    "seoKeywords": [
+      "what is Midjourney",
+      "Midjourney AI image generator",
+      "Midjourney V7",
+      "Midjourney video generation",
+      "Midjourney vs DALL-E",
+      "AI art generator",
+      "text to image AI"
+    ],
+    "lastUpdated": "2026-05-09",
+    "analogy": "Like a highly opinionated art director inside a prompt box: you describe the visual direction, and Midjourney returns polished creative options with a strong built-in sense of style."
+  },
+  {
+    "name": "Higgsfield",
+    "slug": "higgsfield",
+    "shortDef": "An AI video and image creation platform for generating cinematic clips, ads, product visuals, and social content using multiple leading video models in one workspace.",
+    "fullDef": "Higgsfield is an AI video and image creation company focused on making high-end generative video workflows usable for creators, marketers, agencies, and brands. The company was launched by Alex Mashrabov, former head of generative AI at Snap, and first gained attention with Diffuse, a mobile-first app for creating personalized videos from selfies, prompts, reference images, and video templates.\n\nThe current Higgsfield platform is broader than a single model. It positions itself as an AI creative workspace where users can generate and edit videos, control motion, set first and last frames, create marketing assets, produce product ads, and use multiple major video models from one interface. Higgsfield's own site highlights access to models such as Seedance, Kling, Veo, Wan, and Sora, along with workflow tools like Canvas, Marketing Studio, MCP integration, and Cinema Studio.\n\nHiggsfield also includes image-focused products such as Soul, which is aimed at ultra-realistic fashion and editorial-style visuals. This makes the platform less like a single prompt-to-video model and more like a creative production layer for people who need repeatable visual workflows across short-form video, ads, UGC-style assets, product demos, and cinematic experiments.\n\nIts main value is workflow consolidation: instead of learning separate interfaces for every new video model, users can compare models, reuse assets, control motion, and produce campaign-ready visual content in one place. The tradeoff is that outputs, pricing, model availability, and quality depend on the underlying models Higgsfield integrates as well as Higgsfield's own orchestration and editing tools.",
+    "category": "Platforms & Tools",
+    "relatedTerms": [
+      "computer-vision",
+      "artificial-intelligence",
+      "mcp",
+      "ai-agent"
+    ],
+    "references": [
+      {
+        "title": "Higgsfield",
+        "url": "https://higgsfield.ai/"
+      },
+      {
+        "title": "Higgsfield AI Video Generator",
+        "url": "https://higgsfield.ai/ai-video"
+      },
+      {
+        "title": "TechCrunch - Former Snap AI chief launches Higgsfield",
+        "url": "https://techcrunch.com/2024/04/03/former-snap-ai-chief-launches-higgsfield-to-take-on-openais-sora-video-generator/"
+      }
+    ],
+    "seoDescription": "Higgsfield is an AI video and image platform for cinematic clips, product ads, UGC-style assets, Soul fashion visuals, and multi-model creative workflows.",
+    "seoKeywords": [
+      "what is Higgsfield",
+      "Higgsfield AI video generator",
+      "Higgsfield Soul",
+      "Higgsfield Diffuse",
+      "AI video generation platform",
+      "Higgsfield vs Sora",
+      "AI marketing video generator"
+    ],
+    "lastUpdated": "2026-05-09",
+    "analogy": "Like a creative studio desk with every major AI video model plugged in: one place to storyboard, generate, animate, revise, and package visuals for the channel you need."
   }
 ]
