@@ -4225,6 +4225,45 @@
     "analogy": "Think of it as bumper lanes in bowling - they keep the ball (model) on the lane and out of the gutter, but they do not guarantee a strike."
   },
   {
+    "name": "Guardrails AI",
+    "slug": "guardrails-ai",
+    "shortDef": "An open-source framework and tooling ecosystem for adding input/output validation, risk checks, and structured output controls to LLM applications.",
+    "fullDef": "Guardrails AI is an open-source framework for adding validation and control layers around large language model applications. Its core package lets developers define Input Guards and Output Guards that inspect prompts and model responses, detect specific risks, and apply configured actions when a validation fails. Those checks can be rule-based, model-based, or custom validators written by the application team.\n\nThe framework is commonly used for structured output generation, toxicity and PII checks, hallucination and provenance validation, prompt-injection defenses, code-safety checks, and application-specific policies. Guardrails Hub provides reusable validators that can be installed and combined into a guard, so teams do not have to build every safety check from scratch.\n\nGuardrails AI matters because it treats LLM safety as an application-layer engineering problem rather than a property of the base model alone. A model may be aligned and still produce malformed JSON, leak sensitive data, hallucinate a source, or answer outside its allowed scope. Guardrails AI gives developers a way to validate, correct, block, or escalate those outputs before they reach users or downstream systems.",
+    "category": "Developer Tools",
+    "relatedTerms": [
+      "guardrails",
+      "large-language-model",
+      "prompt-injection",
+      "hallucination"
+    ],
+    "references": [
+      {
+        "title": "Guardrails AI Documentation",
+        "url": "https://guardrailsai.com/guardrails/docs"
+      },
+      {
+        "title": "Guardrails AI Validators",
+        "url": "https://guardrailsai.com/docs/concepts/validators/"
+      },
+      {
+        "title": "Guardrails AI on GitHub",
+        "url": "https://github.com/guardrails-ai/guardrails"
+      }
+    ],
+    "seoDescription": "Guardrails AI is an open-source framework for validating LLM inputs and outputs, enforcing structured responses, and adding safety checks to AI applications.",
+    "seoKeywords": [
+      "what is Guardrails AI",
+      "Guardrails AI framework",
+      "LLM guardrails",
+      "Guardrails Hub",
+      "AI output validation",
+      "structured LLM outputs",
+      "LLM safety framework"
+    ],
+    "lastUpdated": "2026-05-13",
+    "analogy": "Like a quality-control station on an AI assembly line: the model produces the part, and Guardrails AI checks whether it is safe, valid, and shaped correctly before it moves on."
+  },
+  {
     "name": "NVIDIA",
     "slug": "nvidia",
     "shortDef": "The semiconductor company whose GPUs became the dominant hardware platform for training and running AI models, making it one of the most valuable companies in the world.",
