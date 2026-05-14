@@ -1922,7 +1922,8 @@
     "relatedTerms": [
       "large-language-model",
       "reinforcement-learning",
-      "inference"
+      "inference",
+      "deepseek-v4"
     ],
     "lastUpdated": "2026-02-22",
     "references": [
@@ -1948,17 +1949,54 @@
   {
     "name": "DeepSeek V4",
     "slug": "deepseek-v4",
-    "shortDef": "A DeepSeek open-weight model family with million-token context, Mixture of Experts architecture, and unusually strong coding and reasoning benchmarks for its price tier.",
-    "fullDef": "DeepSeek V4 is a family of open-weight DeepSeek models designed around long-context efficiency, coding performance, and lower-cost frontier-style deployment. The two main variants are **DeepSeek V4-Pro** and **DeepSeek V4-Flash**.\n\n## Architecture\n\nDeepSeek V4 uses a **Mixture of Experts (MoE)** design, which means only part of the model is active for any given token. In the official DeepSeek release, V4-Pro is listed at **1.6 trillion total parameters with 49 billion activated**, while V4-Flash is **284 billion total with 13 billion activated**. Both support a **1 million token context window**.\n\nDeepSeek also frames V4 as a long-context architecture story, not just a benchmark story. Its technical report says the hybrid attention system reduces the cost of million-token inference substantially versus DeepSeek V3.2, including lower KV-cache usage and lower per-token inference FLOPs.\n\n## Official benchmark profile\n\nDeepSeek's own published evaluation table positions V4-Pro-Max as one of the strongest open-weight models available in spring 2026. Some of the most notable published results are:\n\n- **Codeforces:** 3206\n- **LiveCodeBench:** 93.5\n- **IMOAnswerBench:** 89.8\n- **Toolathlon:** 51.8\n- **SWE Verified:** 80.6\n- **Terminal Bench 2.0:** 67.9\n\nThose numbers matter because they put DeepSeek V4 in the same conversation as premium closed models on several coding and reasoning tasks, while remaining open-weight under the MIT license.\n\n## Strengths and weaknesses\n\nDeepSeek V4 is strongest where reasoning, code generation, tool use, and long-context efficiency intersect. It is especially important for teams that want frontier-adjacent performance without locking themselves into a premium proprietary API stack.\n\nIts tradeoffs are equally important. In DeepSeek's own table, V4-Pro-Max trails the best closed models on some harder long-horizon software and retrieval-heavy tasks, including **SWE Pro (55.4)** and **MRCR 1M (83.5)**. So the story is not that it beats every frontier model. The story is that it gets close enough, often enough, that cost and deployment control become part of the model-selection decision.\n\n## Why people care\n\nDeepSeek V4 matters because it compresses the gap between open-weight and proprietary models. It is not just a technical artifact; it is part of the larger shift toward locally deployable or self-hostable systems that are good enough for serious coding, agentic, and enterprise work at much lower cost.",
-    "category": "Models",
+    "shortDef": "DeepSeek V4 is DeepSeek's open-weight MoE model family with Pro and Flash variants, 1M-token context, DSA attention, and strong coding, reasoning, and agentic benchmarks.",
+    "fullDef": "DeepSeek V4 is DeepSeek's fourth-generation open-weight model family, released as a preview on April 24, 2026. It includes two main instruct variants: DeepSeek-V4-Pro, the largest and strongest model, and DeepSeek-V4-Flash, the smaller, faster, cheaper model for high-throughput use.\n\nDeepSeek frames V4 around one central idea: efficient million-token context. Both variants support a 1 million token context window, and the technical report describes a hybrid attention architecture combining Compressed Sparse Attention and Heavily Compressed Attention. DeepSeek says that in the 1M-token setting, V4-Pro uses only 27% of the single-token inference FLOPs and 10% of the KV cache required by DeepSeek V3.2.\n\n## DeepSeek V4 Variants\n\n| Variant | Total parameters | Active parameters | Context window | Best fit |\n| --- | --- | --- | --- | --- |\n| DeepSeek-V4-Pro | 1.6T | 49B | 1M tokens | Frontier-style reasoning, coding, agentic workflows, and knowledge-heavy tasks |\n| DeepSeek-V4-Flash | 284B | 13B | 1M tokens | Faster production inference, cheaper API use, and simpler agent tasks |\n\nBoth variants are Mixture-of-Experts models. That means the full model stores far more capacity than it activates on each token. V4-Pro is enormous in stored capacity, but it only activates 49B parameters per token. V4-Flash pushes the same idea further for cost-sensitive deployment, activating 13B parameters per token.\n\n## Architecture\n\nDeepSeek V4 uses three major architectural and optimization changes over prior DeepSeek models:\n\n- Hybrid attention: CSA plus HCA for cheaper long-context inference.\n- Manifold-Constrained Hyper-Connections: a residual connection upgrade intended to improve signal propagation and model stability.\n- Muon optimizer: used to improve training convergence and stability.\n\nThe models were pretrained on more than 32 trillion tokens and then post-trained through a pipeline that combines supervised fine-tuning, reinforcement learning, and on-policy distillation across domain-specific capabilities.\n\n## Benchmark Profile\n\nDeepSeek's own reported evaluation positions V4-Pro-Max, the maximum reasoning effort mode of V4-Pro, as one of the strongest open-weight models available in spring 2026. Published highlights include:\n\n- Codeforces: 3206\n- LiveCodeBench: 93.5\n- IMOAnswerBench: 89.8\n- SWE Verified: 80.6\n- Terminal Bench 2.0: 67.9\n- Toolathlon: 51.8\n\nThe important point is not that DeepSeek V4 beats every closed frontier model. It does not. The important point is that an open-weight model family is now close enough on coding, reasoning, browsing, tool use, and long-context tasks that cost, deployment control, and data sovereignty become first-order model-selection factors.\n\n## Why It Matters\n\nDeepSeek V4 matters because it compresses the gap between open-weight and proprietary models while making 1M-token context a default part of the product. For teams building coding agents, document analysis systems, repository-scale assistants, and enterprise workflows, that changes the tradeoff. The question is no longer only which model is best. It is whether a slightly weaker but much more controllable and cheaper open-weight model is good enough.\n\nDeepSeek V4 also sits in the broader shift toward efficient sparse models. Like GLM-5, Qwen, and other frontier open-weight releases, it separates stored knowledge from active inference cost. The model is huge, but the per-token compute path is much smaller than the headline parameter count suggests.",
+    "category": "LLM Models",
     "relatedTerms": [
+      "deepseek-v3",
       "deepseek-r1",
+      "large-language-model",
       "mixture-of-experts",
-      "foundation-model",
-      "inference"
+      "context-window",
+      "inference",
+      "benchmark",
+      "open-weight-model",
+      "open-source",
+      "reasoning",
+      "agentic-ai",
+      "glm-5"
     ],
-    "lastUpdated": "2026-04-30",
-    "analogy": "Think of it like a modular factory that only powers the machinery needed for the current job instead of turning on the entire building every time."
+    "lastUpdated": "2026-05-15",
+    "analogy": "Think of it like a massive research library with a smart retrieval desk: the whole building is available, but each query only lights up the shelves it needs.",
+    "references": [
+      {
+        "title": "DeepSeek V4 Preview Release - DeepSeek API Docs",
+        "url": "https://api-docs.deepseek.com/news/news260424"
+      },
+      {
+        "title": "DeepSeek-V4-Pro on Hugging Face",
+        "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+      },
+      {
+        "title": "DeepSeek-V4-Flash on Hugging Face",
+        "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash"
+      },
+      {
+        "title": "Build with DeepSeek V4 Using NVIDIA Blackwell",
+        "url": "https://developer.nvidia.com/blog/build-with-deepseek-v4-using-nvidia-blackwell-and-gpu-accelerated-endpoints/"
+      }
+    ],
+    "seoDescription": "DeepSeek V4 is an open-weight MoE model family with Pro and Flash variants, 1M-token context, DSA attention, and strong coding and reasoning benchmarks.",
+    "seoKeywords": [
+      "what is DeepSeek V4",
+      "DeepSeek V4 explained",
+      "DeepSeek V4 Pro",
+      "DeepSeek V4 Flash",
+      "DeepSeek V4 vs DeepSeek V3",
+      "1M context open weight model",
+      "DeepSeek Sparse Attention",
+      "open weight coding model"
+    ]
   },
   {
     "name": "DeepSeek V3",
@@ -1969,7 +2007,8 @@
     "relatedTerms": [
       "large-language-model",
       "transformer",
-      "inference"
+      "inference",
+      "deepseek-v4"
     ],
     "lastUpdated": "2026-02-22",
     "references": [
@@ -2338,7 +2377,8 @@
     "relatedTerms": [
       "large-language-model",
       "ai-agent",
-      "transformer"
+      "transformer",
+      "glm-5"
     ],
     "references": [
       {
@@ -2360,6 +2400,55 @@
     ],
     "lastUpdated": "2026-02-22",
     "analogy": "Zhipu AI's model - like a specialist doctor who is the best in their region but rarely consulted outside it."
+  },
+  {
+    "name": "GLM-5",
+    "slug": "glm-5",
+    "shortDef": "Z.ai's 744B-parameter open-weight MoE model for agentic engineering, coding, reasoning, and long-horizon tool-use tasks.",
+    "fullDef": "GLM-5 is a large language model from Z.ai, formerly Zhipu AI, released in February 2026 as the successor to GLM-4.5 and GLM-4.7. The model is built for what Z.ai calls agentic engineering: long-horizon coding, tool use, system building, debugging, and multi-step software engineering work that goes beyond single-turn code completion.\n\nThe base GLM-5 model uses a Mixture-of-Experts architecture with 744 billion total parameters and about 40 billion active parameters per token. Compared with GLM-4.5, Z.ai says it scaled from 355B total parameters and 32B active parameters to 744B total and 40B active, while increasing pretraining data from 23 trillion to 28.5 trillion tokens. It also integrates DeepSeek Sparse Attention, or DSA, to reduce deployment cost while preserving long-context capability.\n\n## Why GLM-5 Matters\n\nGLM-5 matters because it represents the Chinese open-weight model ecosystem moving from strong chat and coding models toward full agentic software engineering systems. The model is not optimized only for answering questions. It is optimized for long-running tasks where the model has to reason, call tools, inspect results, recover from errors, and keep working across many steps.\n\nOn Z.ai's reported benchmark table, GLM-5 scores 77.8 on SWE-bench Verified, 73.3 on SWE-bench Multilingual, 92.7 on AIME 2026 I, 86.0 on GPQA-Diamond, and 62.0 on BrowseComp. The important pattern is not any single number. It is that GLM-5 is competitive with closed frontier models on coding, browsing, reasoning, and agentic benchmarks while publishing open weights.\n\n## GLM-5 vs GLM-4.5\n\n| Feature | GLM-4.5 | GLM-5 |\n| --- | --- | --- |\n| Release period | July 2025 | February 2026 |\n| Total parameters | 355B | 744B |\n| Active parameters | 32B | 40B |\n| Pretraining data | 23T tokens | 28.5T tokens |\n| Architecture | MoE agentic model | MoE with DeepSeek Sparse Attention |\n| Main focus | Agentic, reasoning, and coding tasks | Long-horizon agentic engineering and complex systems work |\n| Open weights | Yes | Yes |\n\n## Deployment\n\nThe weights are available through the Z.ai organization on Hugging Face and ModelScope. The Hugging Face model card lists an MIT license and shows support for local serving through frameworks such as vLLM, SGLang, KTransformers, Transformers, and xLLM. That makes GLM-5 relevant for developers who want a frontier-class model that can run outside a closed API environment, though serving a 744B MoE model still requires serious infrastructure.\n\nGLM-5 should also be distinguished from GLM-5.1, the later Z.ai update that focuses even more heavily on sustained long-horizon agentic work. GLM-5 is the base release that established the 744B-A40B architecture and benchmark position; GLM-5.1 builds on that line.\n\n## Practical Use Cases\n\nGLM-5 is most relevant for agentic coding systems, repository-scale software engineering, autonomous debugging, browser and terminal tasks, research automation, tool-calling agents, and multilingual coding workflows. It is less relevant for simple chatbots or lightweight local applications, where smaller models will be much cheaper and easier to serve.\n\nThe short version: GLM-5 is not just another large chat model. It is an open-weight attempt to make frontier agentic engineering capability available outside the closed-model API stack.",
+    "category": "LLM Models",
+    "relatedTerms": [
+      "glm-4-5",
+      "large-language-model",
+      "mixture-of-experts",
+      "agentic-ai",
+      "reasoning",
+      "benchmark",
+      "open-source",
+      "transformer",
+      "deepseek-v4"
+    ],
+    "references": [
+      {
+        "title": "GLM-5: from Vibe Coding to Agentic Engineering",
+        "url": "https://arxiv.org/abs/2602.15763"
+      },
+      {
+        "title": "zai-org/GLM-5 on Hugging Face",
+        "url": "https://huggingface.co/zai-org/GLM-5"
+      },
+      {
+        "title": "zai-org/GLM-5 on GitHub",
+        "url": "https://github.com/zai-org/GLM-5"
+      },
+      {
+        "title": "GLM-5 Technical Blog - Z.ai",
+        "url": "https://z.ai/blog/glm-5"
+      }
+    ],
+    "seoDescription": "GLM-5 is Z.ai's 744B-parameter open-weight MoE model for agentic engineering, coding, reasoning, long-context tasks, and tool-use workflows.",
+    "seoKeywords": [
+      "what is GLM-5",
+      "GLM-5 model explained",
+      "Z.ai GLM-5",
+      "Zhipu AI GLM-5",
+      "GLM-5 vs GLM-4.5",
+      "744B MoE model",
+      "open weight coding model",
+      "agentic engineering model"
+    ],
+    "lastUpdated": "2026-05-15",
+    "analogy": "Like a very large engineering team where only the relevant specialists show up for each task: the full organization is huge, but each token only activates the experts it needs."
   },
   {
     "name": "Doubao 1.5 Pro",
@@ -3459,10 +3548,44 @@
       "deep-learning",
       "large-language-model",
       "neural-network",
-      "turing-test"
+      "turing-test",
+      "agi"
     ],
     "lastUpdated": "2026-02-27",
     "analogy": "Like electricity in the early 1900s - everyone knows it will change everything, but nobody agrees on exactly how or when."
+  },
+  {
+    "name": "AGI",
+    "slug": "agi",
+    "shortDef": "Artificial General Intelligence: a hypothetical AI system able to learn, reason, adapt, and perform economically or cognitively valuable tasks across domains at roughly human-level or beyond.",
+    "fullDef": "AGI stands for Artificial General Intelligence. It refers to a hypothetical AI system that can perform a wide range of cognitive tasks across domains, rather than being limited to one narrow task like image classification, translation, or code completion.\n\nThe key word is general. A narrow AI system can be excellent at one thing and brittle outside that domain. A chess engine can beat world champions but cannot write a legal brief. A speech model can transcribe audio but cannot plan a product launch. An AGI system, by contrast, would be able to learn new tasks, transfer knowledge between domains, reason through unfamiliar problems, use tools, adapt to new environments, and improve its performance without needing to be rebuilt for each task.\n\n## Narrow AI vs AGI\n\n| Dimension | Narrow AI | AGI |\n| --- | --- | --- |\n| Scope | Built for specific tasks or domains | Works across many domains |\n| Adaptability | Limited outside its training distribution | Can learn and adapt to unfamiliar tasks |\n| Transfer learning | Often task-specific or partial | Broad transfer across domains |\n| Autonomy | Usually constrained by a fixed workflow | Can plan, act, and revise plans over time |\n| Current status | Exists today | Still debated and not clearly achieved |\n\n## Why AGI Is Hard To Define\n\nAGI does not have one universally accepted definition. Some researchers define it as human-level performance across most economically valuable work. Others define it as the ability to learn any intellectual task a human can learn. Some definitions focus on autonomy and agency. Others focus on reasoning, generalization, scientific discovery, or the ability to improve itself.\n\nThis disagreement matters because a lab can claim progress toward AGI while using a different threshold than another lab, regulator, or researcher. A model that beats humans on many benchmarks may still fail at robust planning, long-term memory, causal reasoning, or real-world reliability. Benchmark performance is evidence of capability, but it is not the same thing as general intelligence.\n\n## AGI vs Frontier Models\n\nModern frontier models such as GPT, Claude, Gemini, DeepSeek, and GLM systems show pieces of what people associate with AGI: language understanding, coding, reasoning, tool use, multimodal perception, and agentic workflows. But they still fail in ways that humans usually do not. They hallucinate, lose track of goals, struggle with persistent memory, make brittle assumptions, and require scaffolding to operate reliably in the world.\n\nThat is why many people describe current systems as moving toward AGI rather than being AGI. They are increasingly general-purpose, but they are not yet reliably general in the way the term implies.\n\n## Why AGI Matters\n\nAGI matters because the economic, safety, and governance implications are much larger than those of ordinary software. A genuinely general system could automate large portions of knowledge work, accelerate scientific research, design new technologies, operate digital systems, and reshape labor markets. It could also create major risks if deployed without alignment, security, accountability, and human oversight.\n\nThe practical way to think about AGI is not as a magic switch where AI suddenly becomes human. It is a threshold where AI systems become broadly capable enough, autonomous enough, and reliable enough that they stop being tools for isolated tasks and start functioning as general-purpose cognitive infrastructure.\n\nThe debate is no longer whether AI systems are becoming more general. They are. The debate is where the line should be drawn, how we would know when it has been crossed, and what institutions should exist before that happens.",
+    "category": "Fundamentals",
+    "relatedTerms": [
+      "artificial-intelligence",
+      "large-language-model",
+      "foundation-model",
+      "reasoning",
+      "agentic-ai",
+      "emergent-behavior",
+      "benchmark",
+      "machine-learning",
+      "deep-learning",
+      "reinforcement-learning",
+      "openai",
+      "anthropic"
+    ],
+    "seoDescription": "AGI, or Artificial General Intelligence, is a hypothetical AI system with broad human-level capability across domains, unlike today's narrow AI systems.",
+    "seoKeywords": [
+      "what is AGI",
+      "artificial general intelligence explained",
+      "AGI vs AI",
+      "AGI vs narrow AI",
+      "human level AI",
+      "frontier models and AGI",
+      "AI safety and AGI"
+    ],
+    "lastUpdated": "2026-05-15",
+    "analogy": "Like the difference between a calculator and a person who can learn any subject: narrow AI may be brilliant at one job, while AGI would be able to figure out many kinds of jobs it was never explicitly built for."
   },
   {
     "name": "Natural Language Processing",
@@ -5788,6 +5911,33 @@
     ],
     "lastUpdated": "2026-04-30",
     "analogy": "Think of it like a construction kit for AI systems: it gives you prebuilt beams, joints, and connectors so you can assemble something quickly, even if you still need to understand the structure underneath."
+  },
+  {
+    "name": "Kaggle",
+    "slug": "kaggle",
+    "shortDef": "Google's data science and machine learning platform for competitions, datasets, notebooks, models, courses, and community collaboration.",
+    "fullDef": "Kaggle is a data science and machine learning platform owned by Google. It is best known for hosted competitions, where individuals and teams build models against a shared dataset and are ranked on a public or private leaderboard. Over time, Kaggle has grown into a broader ML workspace: datasets, notebooks, models, forums, courses, and community hackathons all live under the same platform.\n\n## What Kaggle Is Used For\n\nKaggle is used for five main workflows:\n\n| Area | What it does |\n| --- | --- |\n| Competitions | Hosts predictive modeling, data science, and AI challenges with leaderboards, submissions, prizes, and discussion forums. |\n| Datasets | Lets users find, publish, version, document, and download datasets for analysis and model training. |\n| Notebooks | Provides a browser-based coding environment for Python and R, often with free access to accelerators for ML experiments. |\n| Models | Hosts discoverable pretrained models that can be used inside Kaggle workflows and notebooks. |\n| Learn and community | Offers short courses, forums, write-ups, and discussion spaces for people learning or practicing data science. |\n\nThe platform matters because it turns machine learning into a shared, measurable activity. A competition defines the dataset, metric, evaluation rules, and leaderboard. That makes progress visible: two teams can try different feature engineering, model selection, ensembling, or validation strategies and compare results against the same target.\n\n## Why Kaggle Became Important\n\nKaggle became one of the most important proving grounds for practical machine learning because it compressed the full modeling loop into a public environment. Participants could download data, explore it in notebooks, train models, submit predictions, read other people's approaches, and learn from winning solutions. That feedback loop made Kaggle especially useful for tabular modeling, forecasting, computer vision, natural language processing, and applied ML education.\n\nIt also influenced real-world machine learning culture. Techniques like cross-validation discipline, leaderboard awareness, feature engineering, ensembling, leakage detection, and careful metric selection became widely taught through Kaggle competitions. Libraries such as XGBoost, LightGBM, and CatBoost gained huge visibility because they performed so well on Kaggle-style structured data problems.\n\n## The Limits\n\nKaggle is not the same as production machine learning. A Kaggle competition usually starts with a fixed dataset, a fixed target, and a fixed metric. Real production systems have shifting data distributions, messy labels, deployment constraints, latency budgets, monitoring requirements, product tradeoffs, and business goals that are rarely captured by a single leaderboard score.\n\nThat distinction matters. Kaggle is excellent for learning modeling, evaluation, experimentation, and competitive problem solving. It is less complete as a proxy for production ML engineering. The best Kaggle practitioners understand both sides: how to optimize a metric inside a competition, and when that optimization would fail in the real world.\n\n## Kaggle In The AI Era\n\nIn the agentic AI era, Kaggle has become relevant again in a different way. Benchmarks such as MLE-bench use Kaggle competitions to evaluate whether AI agents can perform real machine learning research tasks: inspect data, write code, train models, debug failures, and submit predictions. That makes Kaggle not only a learning platform for humans, but also a testbed for measuring machine learning agents.\n\nKaggle's role is therefore bigger than competitions alone. It is one of the few public environments where data, code, metrics, leaderboards, and community knowledge are all structured enough for humans and AI systems to be evaluated on the same kind of applied ML work.",
+    "category": "Platforms & Tools",
+    "relatedTerms": [
+      "machine-learning",
+      "benchmark",
+      "supervised-learning",
+      "deep-learning",
+      "artificial-intelligence",
+      "computer-vision"
+    ],
+    "seoDescription": "Kaggle is Google's machine learning and data science platform for competitions, datasets, notebooks, models, courses, and AI benchmark workflows.",
+    "seoKeywords": [
+      "what is Kaggle",
+      "Kaggle competitions",
+      "Kaggle datasets",
+      "Kaggle notebooks",
+      "Kaggle models",
+      "Kaggle machine learning",
+      "Kaggle vs production ML"
+    ],
+    "lastUpdated": "2026-05-15",
+    "analogy": "Like a public gym for machine learning: the equipment, scoreboards, coaches, and other competitors are all in one place, but winning the workout is not the same as running a production system."
   },
   {
     "name": "Midjourney",
