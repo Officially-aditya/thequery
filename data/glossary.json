@@ -3467,7 +3467,7 @@
       "opencode MCP"
     ],
     "lastUpdated": "2026-05-15",
-    "analogy": "Like an open workbench for AI coding: you choose the model, connect the tools, set the safety rules, and let the agent work inside your project instead of inside one vendor's closed box."
+    "analogy": "An open workbench for AI coding: you choose the model, connect the tools, set the safety rules, and let the agent work inside your project instead of inside one vendor's closed box."
   },
   {
     "name": "NVIDIA OpenShell",
@@ -3519,7 +3519,7 @@
       "agent sandbox runtime"
     ],
     "lastUpdated": "2026-05-15",
-    "analogy": "Like a secure workshop for AI agents: the agent can use tools and get real work done, but the doors, outlets, file cabinets, and network lines are all controlled by the building, not by the agent."
+    "analogy": "A secure workshop for AI agents: the agent can use tools and get real work done, but the doors, outlets, file cabinets, and network lines are controlled by the building, not by the agent."
   },
   {
     "name": "Cursor",
@@ -3695,7 +3695,7 @@
       "AI safety and AGI"
     ],
     "lastUpdated": "2026-05-15",
-    "analogy": "Like the difference between a calculator and a person who can learn any subject: narrow AI may be brilliant at one job, while AGI would be able to figure out many kinds of jobs it was never explicitly built for."
+    "analogy": "A useful contrast is a calculator versus a person who can learn any subject: narrow AI may be brilliant at one job, while AGI would be able to figure out many kinds of jobs it was never explicitly built for."
   },
   {
     "name": "Natural Language Processing",
