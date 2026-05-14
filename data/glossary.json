@@ -2571,7 +2571,8 @@
     "relatedTerms": [
       "ai-agent",
       "moltbot",
-      "moltbook"
+      "moltbook",
+      "openshell"
     ],
     "references": [
       {
@@ -3407,10 +3408,118 @@
       "gpt-5-2",
       "ai-agent",
       "tool-calling",
-      "vibe-coding"
+      "vibe-coding",
+      "opencode",
+      "openshell"
     ],
     "lastUpdated": "2026-02-27",
     "analogy": "Think of it as a remote contractor who works in a sandbox - you describe the task, they build it in isolation, and you review the result."
+  },
+  {
+    "name": "OpenCode",
+    "slug": "opencode",
+    "shortDef": "An open-source AI coding agent from Anomaly that runs in the terminal, desktop app, and IDE extensions, with support for many model providers and MCP tools.",
+    "fullDef": "OpenCode is an open-source AI coding agent from Anomaly, the team behind SST. It helps developers read, edit, refactor, test, and navigate codebases through a terminal interface, desktop app, or IDE extension. The project is MIT-licensed and developed in the open at the anomalyco/opencode GitHub repository.\n\nOpenCode sits in the same broad category as Codex, Claude Code, Cursor agents, and GitHub Copilot agent mode, but with a strong terminal-first and provider-flexible design. You can connect it to hosted providers such as OpenAI, Anthropic, Google, DeepSeek, OpenRouter, GitHub Copilot, GitLab Duo, and many others, or run it against local models through compatible providers.\n\n## What OpenCode Does\n\n| Capability | How OpenCode handles it |\n| --- | --- |\n| Codebase questions | Reads files, searches code, and uses project context to explain how a codebase works. |\n| Code changes | Uses edit, write, and apply_patch tools to modify files inside the project. |\n| Shell tasks | Can run terminal commands through its bash tool when permissions allow it. |\n| Planning | Supports a plan-style workflow before switching into build mode for changes. |\n| Multi-session work | Can run multiple sessions or agents against the same project. |\n| Provider choice | Supports 75+ LLM providers through Models.dev and the AI SDK, including local models. |\n| MCP tools | Can connect local or remote MCP servers so external tools become available to the agent. |\n| Team sharing | Supports share links for sessions when developers want to debug or hand off context. |\n\n## Permissions and Safety\n\nOpenCode gives developers control over what the agent can do through its permission configuration. Actions can be allowed, denied, or set to ask for approval. That matters because coding agents operate inside real repositories: reading files is low risk, but editing code, applying patches, running shell commands, or calling external tools can have real consequences.\n\nThe permission system lets teams decide whether tools such as bash, edit, write, webfetch, and MCP tools should run automatically or require human approval. For example, a team might allow code search, require approval for shell commands, and deny destructive commands by pattern. This makes OpenCode more suitable for professional development workflows than a raw chatbot connected to a terminal.\n\n## Why Developers Use It\n\nOpenCode is useful when developers want an AI coding agent that is open-source, auditable, local-workflow friendly, and not tied to one model provider. That makes it attractive for teams that want to experiment with different models, use existing subscriptions, connect internal tools, or avoid putting all coding-agent usage behind a single proprietary interface.\n\nIts main tradeoff is the same one shared by most open coding agents: flexibility creates configuration work. A hosted proprietary agent may be smoother out of the box. OpenCode gives more control over providers, tools, permissions, prompts, MCP servers, and local workflow integration, but that control is only valuable if the team is willing to configure and maintain it.\n\n## OpenCode vs Codex and Copilot\n\nOpenCode is not a model. It is an agent harness around models. Codex and GitHub Copilot are vertically integrated products from OpenAI and GitHub. OpenCode is closer to an open, model-agnostic workbench: the value is the interface, tool layer, permissions, provider support, and ability to run the same coding workflow across many models.\n\nThe short version: OpenCode is for developers who want a coding agent they can inspect, configure, and plug into their own model and tool stack.",
+    "category": "Developer Tools",
+    "relatedTerms": [
+      "ai-agent",
+      "agentic-ai",
+      "agentic-workflows",
+      "tool-calling",
+      "mcp",
+      "github-copilot",
+      "codex",
+      "open-source",
+      "api",
+      "openshell"
+    ],
+    "references": [
+      {
+        "title": "OpenCode",
+        "url": "https://dev.opencode.ai/"
+      },
+      {
+        "title": "OpenCode Docs",
+        "url": "https://dev.opencode.ai/docs"
+      },
+      {
+        "title": "OpenCode Providers",
+        "url": "https://dev.opencode.ai/docs/providers/"
+      },
+      {
+        "title": "OpenCode Tools",
+        "url": "https://dev.opencode.ai/docs/tools/"
+      },
+      {
+        "title": "OpenCode on GitHub",
+        "url": "https://github.com/anomalyco/opencode"
+      }
+    ],
+    "seoDescription": "OpenCode is an open-source AI coding agent from Anomaly for terminal, desktop, and IDE workflows, with provider choice, MCP support, tools, and permissions.",
+    "seoKeywords": [
+      "what is OpenCode",
+      "OpenCode AI coding agent",
+      "opencode terminal agent",
+      "OpenCode vs Codex",
+      "OpenCode vs GitHub Copilot",
+      "open source coding agent",
+      "AI coding agent terminal",
+      "opencode MCP"
+    ],
+    "lastUpdated": "2026-05-15",
+    "analogy": "Like an open workbench for AI coding: you choose the model, connect the tools, set the safety rules, and let the agent work inside your project instead of inside one vendor's closed box."
+  },
+  {
+    "name": "NVIDIA OpenShell",
+    "slug": "openshell",
+    "shortDef": "NVIDIA's open-source runtime for running autonomous AI agents inside sandboxed environments with policy controls, inference routing, and kernel-level isolation.",
+    "fullDef": "NVIDIA OpenShell is an open-source runtime for executing autonomous AI agents in sandboxed environments. It is designed for the specific risk created by modern coding agents and long-running AI assistants: the model needs access to files, shells, packages, APIs, credentials, and networks to be useful, but giving an agent unrestricted access to those resources turns every prompt injection, malicious dependency, or bad tool call into a real security incident.\n\nOpenShell sits between the agent and the infrastructure it wants to use. Instead of relying only on prompts or the agent's own self-restraint, it enforces rules outside the agent process. NVIDIA describes the runtime around three stable components: the CLI for user access, the Gateway as the control plane, and the Supervisor inside each sandbox workload as the local security boundary. The Gateway manages state, providers, policies, inference configuration, and sandbox lifecycle. The Supervisor launches the agent as a restricted child process and enforces policy where filesystem access, process identity, network egress, and credentials are visible.\n\n## What OpenShell Controls\n\n| Component | What it does | Why it matters |\n| --- | --- | --- |\n| Gateway | Manages sandbox lifecycle, providers, settings, policies, authorization, and inference configuration. | Gives teams one control plane for agent sessions instead of letting each agent decide its own access. |\n| Sandbox | Runs the agent in an isolated execution environment with controlled file, process, and network access. | Limits the blast radius when an agent makes a bad decision or runs untrusted code. |\n| Supervisor | Runs inside every sandbox workload and enforces local policy around process identity, filesystem, network egress, and credentials. | Moves enforcement outside the model so the agent cannot prompt its way around the rule. |\n| Policies | Declarative YAML rules define what the agent can read, write, call, and reach. | Turns agent permissions into reviewable infrastructure instead of ad hoc approvals. |\n| Inference routing | Routes model calls through controlled backends such as local or approved external providers. | Keeps sensitive context under policy control rather than letting the agent send data anywhere. |\n\nOpenShell uses multiple layers of protection, including filesystem restrictions, network controls, process restrictions, and inference routing. NVIDIA's docs describe filesystem controls through Landlock, syscall restrictions through seccomp, network namespace isolation, and a privacy-enforcing proxy for outbound traffic. The important design choice is deny-by-default runtime enforcement: every session is sandboxed, every permission is verified by the runtime, and policies can be reviewed like infrastructure code.\n\n## OpenShell vs Coding Agents\n\nOpenShell is not a coding assistant in the same sense as Codex, Claude Code, OpenCode, Cursor, or GitHub Copilot. Those tools decide what work to do and generate actions. OpenShell is the runtime layer underneath them. It provides the sandbox, policy engine, gateway, and inference routing that make those actions safer to execute.\n\nThat distinction matters. A coding agent can be excellent at solving a task and still be unsafe if it has unrestricted shell access, live credentials, broad network access, and the ability to install packages. OpenShell treats agent safety as an operating-environment problem rather than a personality trait of the model. The agent can still plan, write code, run tools, and call models, but it does so inside boundaries that the runtime enforces.\n\n## Why It Matters\n\nAs AI agents move from chat windows into terminals, CI systems, and developer workstations, the security problem shifts from \"what did the model say\" to \"what can the model do.\" OpenShell is NVIDIA's answer to that shift. It gives developers and enterprises a way to run powerful autonomous agents while keeping file access, network access, credentials, model routing, and auditability under explicit control.\n\nThe short version: OpenShell is not the agent. It is the secure room the agent works inside.",
+    "category": "Developer Tools",
+    "relatedTerms": [
+      "nvidia",
+      "ai-agent",
+      "agentic-ai",
+      "agentic-workflows",
+      "tool-calling",
+      "mcp",
+      "guardrails",
+      "inference",
+      "open-source",
+      "openclaw",
+      "opencode",
+      "codex"
+    ],
+    "references": [
+      {
+        "title": "NVIDIA OpenShell Overview",
+        "url": "https://docs.nvidia.com/openshell/about/overview"
+      },
+      {
+        "title": "How OpenShell Works",
+        "url": "https://docs.nvidia.com/openshell/about/how-it-works"
+      },
+      {
+        "title": "NVIDIA OpenShell on GitHub",
+        "url": "https://github.com/NVIDIA/OpenShell"
+      },
+      {
+        "title": "NVIDIA Technical Blog - Run Autonomous Agents More Safely with OpenShell",
+        "url": "https://developer.nvidia.com/blog/run-autonomous-self-evolving-agents-more-safely-with-nvidia-openshell/"
+      }
+    ],
+    "seoDescription": "NVIDIA OpenShell is an open-source runtime for autonomous AI agents, adding sandboxed execution, policies, inference routing, and runtime security controls.",
+    "seoKeywords": [
+      "what is NVIDIA OpenShell",
+      "OpenShell AI agent runtime",
+      "NVIDIA OpenShell explained",
+      "OpenShell sandbox",
+      "secure AI agent runtime",
+      "OpenShell vs Codex",
+      "OpenShell OpenCode",
+      "agent sandbox runtime"
+    ],
+    "lastUpdated": "2026-05-15",
+    "analogy": "Like a secure workshop for AI agents: the agent can use tools and get real work done, but the doors, outlets, file cabinets, and network lines are all controlled by the building, not by the agent."
   },
   {
     "name": "Cursor",
@@ -3455,7 +3564,8 @@
       "windsurf",
       "claude-code",
       "openai",
-      "vibe-coding"
+      "vibe-coding",
+      "opencode"
     ],
     "lastUpdated": "2026-02-27",
     "analogy": "Like autocomplete that graduated from finishing your sentences to finishing your functions."
@@ -4396,7 +4506,8 @@
       "gpu",
       "cuda",
       "inference",
-      "deep-learning"
+      "deep-learning",
+      "openshell"
     ],
     "lastUpdated": "2026-03-08",
     "analogy": "Consider the pickaxe seller during a gold rush - they do not mine the gold, but everyone who does needs their tools."
