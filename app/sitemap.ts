@@ -39,6 +39,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/articles`, lastModified: latestArticleDate },
     { url: `${BASE_URL}/guides`, lastModified: latestGuideDate },
     { url: `${BASE_URL}/ai-word-of-the-day`, lastModified: siteLastModified },
+    { url: `${BASE_URL}/about`, lastModified: siteLastModified },
+    { url: `${BASE_URL}/privacy`, lastModified: siteLastModified },
   ];
 
   // Books and chapters

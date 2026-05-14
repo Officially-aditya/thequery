@@ -5212,8 +5212,8 @@
   {
     "name": "DALL-E",
     "slug": "dall-e",
-    "shortDef": "OpenAI's family of text-to-image models that generate images from natural language descriptions, using a diffusion-based architecture. DALL-E 3, the current version, achieves strong prompt adherence by training on images re-captioned with GPT-4.",
-    "fullDef": "DALL-E is OpenAI's series of text-to-image generation models, each built on a different underlying architecture. The name is a portmanteau of Salvador Dali and WALL-E.\n\n**DALL-E (2021):** The original model (arXiv:2102.12092) used a 12-billion-parameter transformer trained autoregressively on text and image tokens as a single stream. Given a text prompt, the model predicted the image tokens that followed, effectively treating image generation as a sequence prediction problem. It demonstrated zero-shot text-to-image generation , producing plausible images for descriptions it had never explicitly seen during training , but output resolution was limited and prompt adherence was inconsistent.\n\n**DALL-E 2 (2022):** A complete architectural shift. DALL-E 2 (arXiv:2204.06125) replaced the autoregressive transformer with a two-stage diffusion pipeline. First, a prior network maps a text caption to a CLIP image embedding. Then a diffusion decoder generates a high-resolution image conditioned on that embedding. Because CLIP embeds text and images in a shared latent space, DALL-E 2 could perform zero-shot image editing, style transfer, and semantic interpolation between images , capabilities the original could not. Output resolution reached 1024x1024.\n\n**DALL-E 3 (2023):** Rather than changing the diffusion architecture significantly, Anthropic focused on the training data. Images in the training set were re-captioned using GPT-4 to produce highly detailed, accurate descriptions of visual content. This addressed the core limitation of DALL-E 2, which would ignore or misinterpret parts of complex prompts. DALL-E 3 follows long, detailed prompts reliably enough to be integrated directly into ChatGPT, where users interact in natural language rather than crafting prompt strings. It supports output at up to 1792x1024 pixels and is available through the OpenAI API.\n\nDALL-E models are distinct from open-source image generation approaches like Stable Diffusion. OpenAI does not release model weights, applies content filtering at inference time, and prohibits generating real people's likenesses without consent. The trade-off is a more constrained but more production-ready system.",
+    "shortDef": "OpenAI's family of text-to-image models that generate images from natural language descriptions. DALL-E 3 improved prompt adherence and text rendering, but it is now a previous-generation model in OpenAI's API docs.",
+    "fullDef": "DALL-E is OpenAI's series of text-to-image generation models, each built on a different underlying architecture. The name is a portmanteau of Salvador Dali and WALL-E.\n\n**DALL-E (2021):** The original model (arXiv:2102.12092) used a 12-billion-parameter transformer trained autoregressively on text and image tokens as a single stream. Given a text prompt, the model predicted the image tokens that followed, effectively treating image generation as a sequence prediction problem. It demonstrated zero-shot text-to-image generation , producing plausible images for descriptions it had never explicitly seen during training , but output resolution was limited and prompt adherence was inconsistent.\n\n**DALL-E 2 (2022):** A complete architectural shift. DALL-E 2 (arXiv:2204.06125) replaced the autoregressive transformer with a two-stage diffusion pipeline. First, a prior network maps a text caption to a CLIP image embedding. Then a diffusion decoder generates a high-resolution image conditioned on that embedding. Because CLIP embeds text and images in a shared latent space, DALL-E 2 could perform zero-shot image editing, style transfer, and semantic interpolation between images , capabilities the original could not. Output resolution reached 1024x1024.\n\n**DALL-E 3 (2023):** Rather than changing the diffusion architecture significantly, OpenAI focused on the training data. Images in the training set were re-captioned using GPT-4 to produce highly detailed, accurate descriptions of visual content. This addressed the core limitation of DALL-E 2, which would ignore or misinterpret parts of complex prompts. DALL-E 3 follows long, detailed prompts reliably enough to be integrated directly into ChatGPT, where users interact in natural language rather than crafting prompt strings. It supports landscape and portrait outputs and remains historically important, although OpenAI now lists DALL-E 3 as a previous-generation, deprecated model in its API docs.\n\nDALL-E models are distinct from open-source image generation approaches like Stable Diffusion. For new OpenAI image generation and editing workflows, GPT Image 2 is now the more current model family. OpenAI does not release model weights, applies content filtering at inference time, and prohibits generating real people's likenesses without consent. The trade-off is a more constrained but more production-ready system.",
     "category": "Models",
     "relatedTerms": [
       "openai",
@@ -5221,7 +5221,8 @@
       "transformer",
       "computer-vision",
       "generative-adversarial-network",
-      "fine-tuning"
+      "fine-tuning",
+      "gpt-image-2"
     ],
     "references": [
       {
@@ -5241,7 +5242,7 @@
         "url": "https://platform.openai.com/docs/guides/images"
       }
     ],
-    "seoDescription": "DALL-E is OpenAI's text-to-image model family. DALL-E 3 uses diffusion and GPT-4 recaptioning for accurate prompt adherence. Available via ChatGPT and the OpenAI API.",
+    "seoDescription": "DALL-E is OpenAI's earlier text-to-image model family. DALL-E 3 improved prompt adherence, but GPT Image 2 is now OpenAI's current image generation model.",
     "seoKeywords": [
       "what is DALL-E",
       "DALL-E 3 explained",
@@ -5251,8 +5252,54 @@
       "OpenAI image generation",
       "DALL-E API"
     ],
-    "lastUpdated": "2026-03-14",
-    "analogy": "Like asking a painter who has studied millions of photographs and their captions , you describe the scene in words and the painter renders it. DALL-E 3 is the version who actually reads the whole description before picking up a brush."
+    "lastUpdated": "2026-05-15",
+    "analogy": "Like asking a painter who has studied millions of photographs and their captions: you describe the scene in words and the painter renders it. DALL-E 3 was the version who read the whole description carefully; GPT Image 2 is the newer studio built for more controlled production work."
+  },
+  {
+    "name": "GPT Image 2",
+    "slug": "gpt-image-2",
+    "shortDef": "OpenAI's state-of-the-art image generation and editing model behind ChatGPT Images 2.0, designed for higher-quality visual outputs, image inputs, and production-ready text rendering.",
+    "fullDef": "GPT Image 2 is OpenAI's current flagship image generation model, exposed in the API as `gpt-image-2` and presented to ChatGPT users through ChatGPT Images 2.0. OpenAI describes it as its state-of-the-art image generation model for fast, high-quality generation and editing, with text and image inputs and image output.\n\nThe important shift from DALL-E 3 is that GPT Image 2 is not just a text-to-image endpoint. It sits inside the newer GPT Image family, supports both generation and editing workflows, accepts high-fidelity image inputs, and is designed for conversational or multi-step image work through the Responses API as well as single-prompt image generation through the Image API. In practical terms, it is the model you reach for when the task is closer to producing a usable asset than making a one-off illustration.\n\nGPT Image 2 is especially relevant for design, advertising, product mockups, educational visuals, multilingual typography, UI concepts, infographics, and image editing workflows where prompt adherence and text accuracy matter. OpenAI's launch examples emphasize stronger typography, global scripts, multi-panel layouts, realism, and more precise visual control than earlier generations.\n\n## DALL-E 3 vs GPT Image 2\n\n| Feature | DALL-E 3 | GPT Image 2 |\n| --- | --- | --- |\n| Status in OpenAI API docs | Previous-generation image model, marked deprecated | Current default state-of-the-art image generation model |\n| API model name | `dall-e-3` | `gpt-image-2` |\n| Core use case | Generate a new image from a text prompt | Generate and edit high-quality images from text and image inputs |\n| Inputs | Text only | Text and image |\n| Output | Image | Image |\n| Editing workflow | Not the main strength; DALL-E 2 historically handled variations and edits | Built for generation and image edits through GPT Image endpoints |\n| Conversation support | ChatGPT can refine prompts for DALL-E 3 | Designed for newer GPT Image workflows, including conversational editing through the Responses API |\n| Prompt behavior | Works best with detailed prompts; the API may expand prompts automatically | Better suited for direct production prompts and iterative visual refinement |\n| Text inside images | Improved over DALL-E 2, but less reliable for production typography | Stronger text rendering and multilingual visual text, based on ChatGPT Images 2.0 launch examples |\n| Sizes and aspect ratios | Fixed API sizes such as 1024x1024, 1024x1536, and 1536x1024 in current docs | Flexible image sizes, with quality, size, format, and compression controls through GPT Image APIs |\n| Transparent background | Not the modern default path | Not currently supported for `gpt-image-2` in OpenAI docs |\n| Best fit | Legacy DALL-E workflows, simple prompt-to-image generation, compatibility | New OpenAI image workflows, higher-fidelity generation, image editing, design assets, and visual production tasks |\n\nThe short version: DALL-E 3 made OpenAI image generation much better at following prompts. GPT Image 2 moves the center of gravity from prompt-following image generation to controllable, editable, production-oriented visual creation.\n\n## How Developers Use It\n\nDevelopers can call GPT Image 2 through the Image API when they need a single generation or edit from one prompt. For conversational image experiences, the Responses API lets image generation become part of a larger multi-step flow with image inputs and outputs in context.\n\nOpenAI notes that some organizations may need API organization verification before using GPT Image models. That matters for teams planning production deployments: GPT Image 2 is not just a creative toy inside ChatGPT, it is part of OpenAI's developer platform and carries the same governance and safety expectations as other production API models.",
+    "category": "Models",
+    "relatedTerms": [
+      "openai",
+      "dall-e",
+      "computer-vision",
+      "reasoning",
+      "api",
+      "chatgpt",
+      "midjourney"
+    ],
+    "references": [
+      {
+        "title": "GPT Image 2 Model - OpenAI API",
+        "url": "https://developers.openai.com/api/docs/models/gpt-image-2"
+      },
+      {
+        "title": "Image generation - OpenAI API",
+        "url": "https://developers.openai.com/api/docs/guides/image-generation"
+      },
+      {
+        "title": "Introducing ChatGPT Images 2.0 - OpenAI",
+        "url": "https://openai.com/index/introducing-chatgpt-images-2-0/"
+      },
+      {
+        "title": "DALL-E 3 Model - OpenAI API",
+        "url": "https://developers.openai.com/api/docs/models/dall-e-3"
+      }
+    ],
+    "seoDescription": "GPT Image 2 is OpenAI's current image generation and editing model behind ChatGPT Images 2.0, replacing DALL-E 3 for modern API image workflows.",
+    "seoKeywords": [
+      "what is GPT Image 2",
+      "gpt-image-2 explained",
+      "GPT Image 2 vs DALL-E 3",
+      "ChatGPT Images 2.0",
+      "OpenAI image generation model",
+      "GPT Image API",
+      "AI image editing model"
+    ],
+    "lastUpdated": "2026-05-15",
+    "analogy": "Like moving from a poster generator to a production design assistant: DALL-E 3 could paint the scene, while GPT Image 2 is built to revise, compose, and prepare visual assets with much tighter control."
   },
   {
     "name": "Convolutional Embedding",
