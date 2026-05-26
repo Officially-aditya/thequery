@@ -5,6 +5,7 @@ import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import rehypeHighlight from "rehype-highlight";
+import rehypeRaw from "rehype-raw";
 import type { Components } from "react-markdown";
 import React from "react";
 
@@ -141,7 +142,9 @@ export default function MarkdownRenderer({
 }) {
   const components = buildComponents(glossaryTerms);
   const remarkPlugins = disableMath ? [remarkGfm] : [remarkGfm, remarkMath];
-  const rehypePlugins = disableMath ? [rehypeHighlight] : [rehypeKatex, rehypeHighlight];
+  const rehypePlugins = disableMath
+    ? [rehypeRaw, rehypeHighlight]
+    : [rehypeRaw, rehypeKatex, rehypeHighlight];
 
   return (
     <div className="prose-custom">

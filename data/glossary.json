@@ -2149,6 +2149,43 @@
     "analogy": "Alibaba's open-source heavyweight that activates only a fraction of its power per query - like having a 400-person team where only the 17 best-suited experts handle each task."
   },
   {
+    "name": "Qwen 3.7",
+    "slug": "qwen-3-7",
+    "shortDef": "Alibaba's May 2026 Qwen generation led by the closed-weight Qwen3.7-Max agent model, with preview Plus and expected mid-tier variants forming the broader family.",
+    "fullDef": "Qwen 3.7 is Alibaba's May 2026 generation of Qwen models, formally led by Qwen3.7-Max, a proprietary, API-only model designed for agentic coding, office automation, long-horizon tool use, and one-million-token context workflows. Unlike the open-weight Qwen 3 and Qwen 3.5 releases, the first Qwen 3.7 flagship release is not available as downloadable weights on Hugging Face, GGUF, Ollama, or a self-hosted checkpoint.\n\nThe Qwen 3.7 family is best understood as a hosted flagship line rather than a fully open model drop. As of May 26, 2026, the public family includes:\n\n<table>\n  <thead>\n    <tr>\n      <th>Model</th>\n      <th>Status</th>\n      <th>Role</th>\n      <th>Notes</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Qwen3.7-Max</td>\n      <td>API-only</td>\n      <td>Flagship agent model</td>\n      <td>Built for coding agents, long-horizon autonomous execution, MCP tool use, and one-million-token context workloads.</td>\n    </tr>\n    <tr>\n      <td>Qwen3.7-Max-Preview</td>\n      <td>Preview / evaluation SKU</td>\n      <td>Leaderboard and early-access version</td>\n      <td>Used in public previews and benchmark discussions before or alongside the commercial Max endpoint.</td>\n    </tr>\n    <tr>\n      <td>Qwen3.7-Plus-Preview</td>\n      <td>Preview</td>\n      <td>Multimodal sibling</td>\n      <td>Reported as the Plus-side preview for vision and broader multimodal use, while Max is positioned around agentic text, coding, and tool execution.</td>\n    </tr>\n    <tr>\n      <td>Qwen 3.7 open or mid-tier variants</td>\n      <td>Not officially released</td>\n      <td>Expected ecosystem layer</td>\n      <td>Developers expect smaller or mid-tier open-weight variants based on Qwen's earlier release cadence, but Alibaba has not made those weights available yet.</td>\n    </tr>\n  </tbody>\n</table>\n\nQwen3.7-Max is positioned above Qwen 3.6 Plus and Qwen 3.5 in Alibaba's hosted model stack. It is especially aimed at agent workloads: multi-file software engineering, tool calls across external systems, office document automation, and tasks that require the model to maintain state across many steps. Alibaba's launch material highlighted a 35-hour autonomous kernel optimization run with more than 1,000 tool calls as the signature example of what the model was built to do.\n\n## Benchmark Comparison\n\nThe cleanest comparison is against Claude Opus 4.7 and GPT-5.5, because all three are positioned as frontier-class agent and reasoning models rather than small local models. The important pattern is mixed: Qwen 3.7 Max is close to the frontier on reasoning and coding, but GPT-5.5 keeps a large terminal-workflow lead while Opus 4.7 remains stronger on repository-level coding.\n\n<table>\n  <thead>\n    <tr>\n      <th>Benchmark</th>\n      <th>Qwen 3.7 Max</th>\n      <th>Claude Opus 4.7</th>\n      <th>GPT-5.5</th>\n      <th>Read</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>GPQA Diamond</td>\n      <td>92.4%</td>\n      <td>94.2%</td>\n      <td>93.6%</td>\n      <td>All three are close; Opus has the narrow reasoning lead.</td>\n    </tr>\n    <tr>\n      <td>SWE-bench Pro</td>\n      <td>60.6%</td>\n      <td>64.3%</td>\n      <td>58.6%</td>\n      <td>Opus leads repository-level coding; Qwen clears GPT-5.5 on this metric.</td>\n    </tr>\n    <tr>\n      <td>Terminal-Bench 2.0 family</td>\n      <td>69.7%</td>\n      <td>69.4%</td>\n      <td>82.7%</td>\n      <td>GPT-5.5 is clearly ahead on terminal-heavy execution.</td>\n    </tr>\n    <tr>\n      <td>MCP-Atlas / tool orchestration</td>\n      <td>76.4%</td>\n      <td>77.3%</td>\n      <td>75.3%</td>\n      <td>Opus and Qwen are tightly grouped for complex tool workflows.</td>\n    </tr>\n    <tr>\n      <td>Humanity's Last Exam</td>\n      <td>41.4%</td>\n      <td>46.9%</td>\n      <td>41.4%</td>\n      <td>Opus holds the broad expert-reasoning lead without tools.</td>\n    </tr>\n  </tbody>\n</table>\n\nThe strategic shift is the important part. Qwen's earlier reputation came from releasing strong open-weight models under permissive licenses. Qwen 3.7 Max moves the best model in the family behind an API gate, using open and mid-tier releases to support the ecosystem while reserving the flagship for hosted enterprise revenue. That makes Qwen 3.7 both a technical upgrade and a change in Alibaba's open-weight playbook.",
+    "category": "LLM Models",
+    "relatedTerms": [
+      "large-language-model",
+      "mixture-of-experts",
+      "context-window",
+      "api",
+      "agentic-ai",
+      "mcp",
+      "open-weight-model",
+      "qwen-3-5"
+    ],
+    "lastUpdated": "2026-05-26",
+    "references": [
+      {
+        "title": "Qwen3.7: The Agent Frontier",
+        "url": "https://www.alibabacloud.com/blog/qwen3-7-the-agent-frontier_603154"
+      },
+      {
+        "title": "Alibaba Cloud Model Studio",
+        "url": "https://modelstudio.alibabacloud.com/"
+      },
+      {
+        "title": "Qwen3.7-Max: Features, Benchmarks and Agent Capabilities",
+        "url": "https://www.datacamp.com/blog/qwen3-7-max"
+      },
+      {
+        "title": "Claude Opus 4.7 vs GPT-5.5: Which Frontier Model Is Best?",
+        "url": "https://www.datacamp.com/blog/gpt-5-5-vs-claude-opus-4-7"
+      }
+    ],
+    "analogy": "A flagship workshop with locked doors: the best tools are inside and ready for enterprise work, but developers can use them only through Alibaba Cloud rather than taking the machines home."
+  },
+  {
     "name": "Grok 3",
     "slug": "grok-3",
     "shortDef": "xAI's June 2025 model with 1M context window, beating GPT-4o and Claude 3.5 Sonnet on AIME and GPQA with 1402 Arena Elo.",
@@ -6131,18 +6168,69 @@
   {
     "name": "SynthID",
     "slug": "synthid",
-    "shortDef": "Google DeepMind's imperceptible watermarking technology that embeds a cryptographic signal directly into AI-generated images, audio, video, and text at the point of generation so the content can be identified as machine-made even after editing or compression.",
-    "fullDef": "SynthID is a watermarking system developed by Google DeepMind that solves a specific problem: how do you prove a piece of content was generated by AI when the content itself looks identical to something a human could have made?\n\nThe approach is to embed the mark inside the content itself rather than in metadata. Metadata -- the file information that records when a photo was taken or which app created it -- is easy to strip. A single right-click and 'remove metadata' deletes it. SynthID's signal lives in the pixels of an image, the waveform of audio, or the probability distribution of text tokens. It survives cropping, recompression, format conversion, and social media upload cycles that would destroy a metadata-based label.\n\nThe technical implementation differs by modality. For images, two deep learning models -- one for embedding, one for detecting -- are trained together on a diverse image set. The embedding model makes imperceptible pixel-level changes that encode the watermark pattern. The detection model scores any image for the likelihood it carries that pattern. For text, SynthID adjusts the probability scores of tokens at generation time using a pseudorandom function, encoding watermark information in the statistical pattern of word choices without changing the meaning or quality of the output. For audio, the signal is woven into the waveform itself. For video, it is applied per segment.\n\nSynthID launched in beta in August 2023 for images generated by Imagen on Vertex AI. It expanded to audio in 2024 through Lyria and NotebookLM. The text version was open-sourced on Hugging Face in October 2024. By May 2026, Google reported 100 billion watermarked pieces of content across all modalities, with 60,000 years of audio watermarked and 50 million verifications performed in the Gemini app alone. At Google I/O 2026, OpenAI, NVIDIA, ElevenLabs, and Kakao announced adoption of the standard, moving SynthID from a Google-specific tool toward an industry-wide provenance layer. Chrome is receiving a right-click SynthID verification tool, and the Pixel 10 writes C2PA provenance credentials at the hardware level at the moment of capture.\n\nSynthID operates alongside C2PA (Coalition for Content Provenance and Authenticity), which provides digitally signed metadata confirming where content originated. The two systems are complementary: C2PA is a shipping label that can be torn off, SynthID is a dye injected into the contents. Together they cover the full provenance problem for AI-generated and camera-captured content.\n\nThe system has a structural limitation that Google has acknowledged: SynthID only detects content watermarked with SynthID. Open-weight models that generate images, audio, or video without watermarking are outside the detection perimeter. The voluntary adoption model means tools used for coordinated disinformation or deepfake abuse are the least likely to join the coalition.",
+    "shortDef": "Google DeepMind's imperceptible watermarking system for AI-generated images, video, audio, and text, designed to identify SynthID-marked content without relying on removable metadata.",
+    "fullDef": "SynthID is Google DeepMind's watermarking system for content generated or altered by AI. Its job is narrower, and more useful, than a generic AI detector: it helps answer whether a piece of content appears to carry a SynthID watermark from a participating tool.\n\nThe important part is where the signal lives. SynthID does not depend on ordinary file metadata, which can be stripped by upload pipelines, screenshots, exports, or basic editing. The watermark is embedded into the generated content itself at creation time, then checked later by a detector.\n\n## SynthID vs C2PA\n\nSynthID and C2PA solve adjacent parts of the authenticity problem. SynthID looks for a signal embedded inside the content. C2PA carries signed metadata about where the content came from and how it changed. One is a watermark. The other is a provenance receipt.\n\n<table>\n  <thead>\n    <tr>\n      <th>Question</th>\n      <th>SynthID</th>\n      <th>C2PA</th>\n      <th>Why it matters</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Where is the signal?</td>\n      <td>Inside the generated pixels, frames, waveform, or token pattern.</td>\n      <td>In signed provenance metadata attached to the file.</td>\n      <td>SynthID is harder to lose through normal sharing; C2PA is easier to inspect and audit.</td>\n    </tr>\n    <tr>\n      <td>What does it prove?</td>\n      <td>That content likely carries a SynthID watermark from a participating AI system.</td>\n      <td>Who created, captured, or edited the file, assuming the metadata chain is intact.</td>\n      <td>SynthID identifies a generation-time signal; C2PA explains the chain of custody.</td>\n    </tr>\n    <tr>\n      <td>What survives better?</td>\n      <td>Common edits such as compression, cropping, filters, or re-encoding.</td>\n      <td>Workflows that preserve signed metadata from capture to publication.</td>\n      <td>The two systems cover different failure modes.</td>\n    </tr>\n    <tr>\n      <td>What breaks it?</td>\n      <td>Heavy rewriting, regeneration, adversarial editing, or content from non-participating tools.</td>\n      <td>Metadata stripping, screenshots, file conversions, or broken provenance chains.</td>\n      <td>Neither system should be treated as final proof on its own.</td>\n    </tr>\n    <tr>\n      <td>Best use</td>\n      <td>Checking whether supported AI-generated content carries an embedded watermark.</td>\n      <td>Showing the history of a file from capture or creation through edits.</td>\n      <td>Together, they give a stronger authenticity signal than either one alone.</td>\n    </tr>\n  </tbody>\n</table>\n\nFor text, SynthID works during generation. A language model chooses each next token from a probability distribution. SynthID subtly adjusts those probabilities so the final sequence carries a detectable statistical pattern without changing the visible meaning of the answer. It works best on longer, varied outputs where the model has many valid word choices. It is weaker on very short factual answers, quotations, translations, or heavily rewritten text because there are fewer usable choices or the original token pattern gets destroyed.\n\nFor images, video, and audio, the watermark is content-level rather than label-level. Google says the mark is designed to survive common transformations such as cropping, compression, filters, frame-rate changes, speed changes, and social media re-encoding. That does not make it indestructible. It means ordinary distribution and editing are less likely to erase it than they would erase metadata.\n\n## What It Is For\n\nSynthID is a provenance signal. It helps platforms, journalists, researchers, and users distinguish content that was generated or edited by participating AI systems. Google has also built SynthID detection into Gemini workflows and launched SynthID Detector as a portal for checking supported content types.\n\nThe best mental model is not \"AI detector.\" It is \"watermark detector.\" SynthID can confirm the presence of a SynthID-style signal, but absence of that signal does not prove a file is human-made. It may have been generated by a model that does not use SynthID, edited enough to degrade the signal, or produced by an open tool with no watermarking at all.\n\n\n## Limits\n\nSynthID does not detect all AI-generated content. It detects SynthID-marked content. That distinction matters. A tool has to apply the watermark in the first place, and motivated adversaries can still try to remove, obscure, regenerate, or route around it.\n\nIts strongest role is transparency, not enforcement. It gives platforms and users a useful signal that something likely came from a participating AI pipeline. It does not solve deepfakes, impersonation, copyright disputes, or misinformation by itself.",
     "category": "AI Safety & Ethics",
     "relatedTerms": [
-      "watermarking-ai-content",
       "c2pa",
-      "deepfake",
-      "provenance",
+      "google-deepmind",
       "gemini",
-      "generative-ai"
+      "hugging-face",
+      "large-language-model",
+      "token"
     ],
-    "lastUpdated": "2026-05-22",
-    "analogy": "Think of SynthID like a dye injected into paper during manufacturing -- invisible to readers but detectable under the right light. A counterfeit detector does not look for a label on the banknote. It checks whether the dye is present in the paper itself. Strip the packaging, change the wrapper, run it through a photocopier -- the dye is still there."
+    "lastUpdated": "2026-05-26",
+    "analogy": "A banknote security thread is not printed on the wrapper and it is not visible in normal use. It is built into the note itself, so a scanner can check for the signal even after the note has been handled, folded, or copied.",
+    "references": [
+      {
+        "title": "SynthID",
+        "url": "https://deepmind.google/models/synthid/"
+      },
+      {
+        "title": "Watermarking AI-generated text and video with SynthID",
+        "url": "https://deepmind.google/blog/watermarking-ai-generated-text-and-video-with-synthid/"
+      },
+      {
+        "title": "SynthID Detector: A portal to help identify AI-generated content",
+        "url": "https://blog.google/innovation-and-ai/products/google-synthid-ai-content-detector/"
+      },
+      {
+        "title": "google-deepmind/synthid-text",
+        "url": "https://github.com/google-deepmind/synthid-text"
+      }
+    ]
+  },
+  {
+    "name": "C2PA",
+    "slug": "c2pa",
+    "shortDef": "The open technical standard behind Content Credentials, used to attach cryptographically signed provenance metadata to images, video, audio, documents, and other digital media.",
+    "fullDef": "C2PA stands for the Coalition for Content Provenance and Authenticity. It is the open technical standard behind Content Credentials, the signed metadata that can travel with a digital file and describe where it came from, who or what created it, and how it was changed.\n\nThe point of C2PA is not to detect whether something \"looks AI-generated.\" It is to preserve a verifiable history of a file. A C2PA-aware camera, editor, publishing system, or AI tool can create a Content Credential that records claims about the asset, then signs those claims cryptographically so later viewers can check whether the credential and the file still match.\n\n## What C2PA Records\n\nC2PA records provenance as a signed set of claims about a digital asset. The asset is the actual media file, such as an image, video, audio clip, or document. The claims, called assertions, can describe capture details, edits, ingredients, tools used, AI involvement, timestamps, and other history attached to the file.\n\nThose assertions are bundled into a C2PA Manifest, which is the technical object behind a Content Credential. The manifest is digitally signed by the hardware, software, or service that created it. When someone verifies the file later, the verifier checks whether the manifest, signature, and asset binding still match. That validation can show whether the provenance data is intact. It does not prove that the content itself is true.\n\n## SynthID vs C2PA\n\nSynthID and C2PA are often discussed together because both are provenance tools, but they work at different layers. SynthID embeds a watermark into generated content. C2PA attaches signed provenance metadata to content.\n\n<table>\n  <thead>\n    <tr>\n      <th>Question</th>\n      <th>C2PA</th>\n      <th>SynthID</th>\n      <th>Why it matters</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Where is the signal?</td>\n      <td>In signed provenance metadata attached to, or associated with, the file.</td>\n      <td>Inside generated pixels, frames, waveforms, or token patterns.</td>\n      <td>C2PA is explicit and auditable; SynthID is more durable when metadata is stripped.</td>\n    </tr>\n    <tr>\n      <td>What does it explain?</td>\n      <td>The file's chain of custody: source, edits, tools, ingredients, and AI disclosures when provided.</td>\n      <td>Whether supported content likely carries a watermark from a participating AI generator.</td>\n      <td>C2PA tells a history; SynthID checks for a generation-time signal.</td>\n    </tr>\n    <tr>\n      <td>Best strength</td>\n      <td>Readable provenance claims that platforms and users can inspect.</td>\n      <td>Detection that can survive some normal edits and re-encoding.</td>\n      <td>They answer different authenticity questions.</td>\n    </tr>\n    <tr>\n      <td>Main weakness</td>\n      <td>Metadata can be stripped, broken, or never added.</td>\n      <td>It only detects content watermarked by participating systems.</td>\n      <td>Absence of either signal is not proof that content is real or human-made.</td>\n    </tr>\n    <tr>\n      <td>Best together</td>\n      <td>Provides the signed history.</td>\n      <td>Provides an embedded backup signal.</td>\n      <td>The combination is stronger than either system alone.</td>\n    </tr>\n  </tbody>\n</table>\n\n## C2PA vs AI Detection\n\nC2PA is often discussed alongside AI watermarking, but it is a different kind of system. AI detectors infer whether content looks machine-made. C2PA records a signed chain of custody. A Content Credential can say that an image was captured by a particular camera, edited in a particular tool, exported at a particular time, or generated by an AI system that chose to disclose that fact.\n\nThat makes C2PA stronger for provenance than for detection. If the credential chain is intact, it can provide useful evidence about the file's history. If the credential is missing, that does not prove the file is fake or AI-generated. It may simply have passed through a tool, platform, screenshot, or conversion step that stripped the metadata.\n\n## Limits\n\nC2PA is tamper-evident, not truth-creating. It can tell you whether a credential was signed and whether the file still matches that credential. It cannot guarantee that every claim is honest, that every edit was disclosed, or that a file without credentials is untrustworthy.\n\nIts value depends on adoption. Cameras, creative tools, AI systems, publishers, platforms, and viewers all have to support the standard for the chain of custody to survive normal use. Without that ecosystem, C2PA becomes a strong receipt that too many workflows still throw away.",
+    "category": "AI Safety & Ethics",
+    "relatedTerms": [
+      "synthid",
+      "google-deepmind",
+      "openai",
+      "nvidia"
+    ],
+    "lastUpdated": "2026-05-26",
+    "analogy": "A Content Credential works like a sealed chain-of-custody form attached to evidence: it can show who handled the item and whether the form was altered, but it cannot by itself prove that every person in the chain told the truth.",
+    "references": [
+      {
+        "title": "C2PA Specifications",
+        "url": "https://spec.c2pa.org/"
+      },
+      {
+        "title": "C2PA and Content Credentials Explainer",
+        "url": "https://spec.c2pa.org/specifications/specifications/2.2/explainer/Explainer.html"
+      },
+      {
+        "title": "Content Credentials: C2PA Technical Specification",
+        "url": "https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"
+      },
+      {
+        "title": "C2PA FAQ",
+        "url": "https://c2pa.org/faqs/"
+      }
+    ]
   }
 ]
