@@ -79,7 +79,7 @@ export default async function ChapterPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <ReadingProgress />
-      <div className="max-w-[1100px] mx-auto px-4 py-12">
+      <div data-reading-frame className="max-w-[1100px] mx-auto px-4 py-12">
         <ChapterView
           bookSlug={slug}
           bookTitle={data.book.title}

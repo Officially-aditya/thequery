@@ -3,6 +3,7 @@ import { getAllIssues, getIssueBySlug } from "@/lib/articles";
 import { getAllTerms } from "@/lib/glossary";
 import { notFound } from "next/navigation";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
+import ReadingProgress from "@/components/ReadingProgress";
 import type { Metadata } from "next";
 
 interface Props {
@@ -66,23 +67,26 @@ export default async function ArticlePage({ params }: Props) {
   };
 
   return (
-    <div className="max-w-[720px] mx-auto px-4 py-12">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <Link href="/articles" className="text-sm text-text-muted hover:text-text-secondary transition-colors mb-6 inline-block">
-        &larr; All Articles
-      </Link>
+    <>
+      <ReadingProgress />
+      <div data-reading-frame className="max-w-[720px] mx-auto px-4 py-12">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <Link href="/articles" className="text-sm text-text-muted hover:text-text-secondary transition-colors mb-6 inline-block">
+          &larr; All Articles
+        </Link>
 
-      <h1 className="font-serif text-3xl font-bold text-text-primary mb-2">
-        {issue.title}
-      </h1>
-      <p className="text-sm text-text-muted mb-8">
-        By Addy &middot; {new Date(issue.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
-      </p>
+        <h1 className="font-serif text-3xl font-bold text-text-primary mb-2">
+          {issue.title}
+        </h1>
+        <p className="text-sm text-text-muted mb-8">
+          By Addy &middot; {new Date(issue.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+        </p>
 
-      <MarkdownRenderer content={issue.content} glossaryTerms={getAllTerms().map((t) => ({ name: t.name, slug: t.slug }))} />
-    </div>
+        <MarkdownRenderer content={issue.content} glossaryTerms={getAllTerms().map((t) => ({ name: t.name, slug: t.slug }))} />
+      </div>
+    </>
   );
 }
