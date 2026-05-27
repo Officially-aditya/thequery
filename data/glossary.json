@@ -3398,10 +3398,52 @@
       "large-language-model",
       "gemini-3-1-pro",
       "gemini-2-5-pro",
+      "gemini-spark",
       "context-window"
     ],
     "lastUpdated": "2026-02-27",
     "analogy": "Picture Google's Swiss Army knife for AI - multiple sizes, multiple modalities, tightly integrated with the Google ecosystem."
+  },
+  {
+    "name": "Gemini Spark",
+    "slug": "gemini-spark",
+    "shortDef": "Google's 24/7 personal AI agent in the Gemini app, designed to work proactively across connected Google apps and tools under the user's direction.",
+    "fullDef": "Gemini Spark is Google's persistent personal AI agent for the Gemini app. Announced at Google I/O 2026, it marks a shift from session-based AI assistants that answer when opened to background agents that can keep working after the user closes a laptop, locks a phone, or leaves the app.\n\nSpark is not a separate foundation model. It is an agentic product layer built on Gemini 3.5 and Google's Antigravity harness. Google describes it as a 24/7 personal AI agent that can manage tasks, navigate a user's digital life, and operate across connected apps such as Gmail, Docs, Slides, Calendar, and other Workspace surfaces. The practical idea is simple: instead of asking Gemini one question at a time, a user gives Spark a goal, trigger, or recurring job, and Spark works through the steps in the background.\n\n## How It Works\n\nSpark runs as a cloud-based agent, which means the work continues even when the user's local device is not active. It can use connected Google apps as context and action surfaces, then return drafts, summaries, plans, or suggested next steps for the user to review. Google has described examples such as parsing monthly credit card statements to flag subscription fees, watching school emails for deadlines, turning meeting notes into a polished Google Doc, and drafting the companion email for a project kickoff.\n\nThe product also connects to the broader agent ecosystem through MCP. Google said MCP connections to services such as Canva, OpenTable, and Instacart are part of the first wave, with more partners integrating. This matters because Spark is not limited to answering from text context. As more MCP connectors become available, Spark can become an action layer across third-party services, not just a smarter Gemini chat tab.\n\n## Spark vs Traditional Chatbots\n\n<table>\n  <thead>\n    <tr>\n      <th>Question</th>\n      <th>Traditional chatbot</th>\n      <th>Gemini Spark</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>When does it work?</td>\n      <td>During an active chat session.</td>\n      <td>Continuously in the background after the user delegates a task.</td>\n    </tr>\n    <tr>\n      <td>What is the unit of work?</td>\n      <td>A prompt and a response.</td>\n      <td>A goal, trigger, workflow, or recurring task.</td>\n    </tr>\n    <tr>\n      <td>Where does context come from?</td>\n      <td>Mostly from what the user pastes or says in the session.</td>\n      <td>From connected Google apps, Gemini history, Workspace files, and permitted tools.</td>\n    </tr>\n    <tr>\n      <td>What does it produce?</td>\n      <td>Answers, drafts, summaries, and suggestions.</td>\n      <td>Work products, follow-up actions, monitored updates, and drafts for approval.</td>\n    </tr>\n    <tr>\n      <td>What is the main risk?</td>\n      <td>A bad answer.</td>\n      <td>A bad action, overbroad permission, or workflow that runs longer than intended.</td>\n    </tr>\n  </tbody>\n</table>\n\n## Why It Matters\n\nSpark is important because it moves consumer AI from a pull model to a push model. In the pull model, the user asks and the assistant responds. In the push model, the assistant watches for relevant changes, organizes information before the user asks, and proposes actions at the right moment. Daily Brief, which Google announced alongside Spark, follows the same direction by turning connected app context into a morning overview of priorities and next steps.\n\nThat shift makes permissions and governance more important. A passive assistant can give a wrong answer and waste a few minutes. A persistent agent can act on a wrong assumption, draft the wrong message, spend money, or expose private context if its permissions are too broad. Google says Spark is user-directed, opt-in, and designed to ask before high-stakes actions such as sending emails or spending money. Those approval points are the difference between useful autonomy and reckless automation.\n\n## Availability\n\nAs of its May 2026 announcement, Gemini Spark is rolling out first to trusted testers, with beta access planned for Google AI Ultra subscribers in the United States who are 18 or older. Google's Gemini subscription page lists Spark as an advanced Gemini feature for AI Ultra, with U.S. and English availability noted. Feature availability may vary by tier, region, language, and connected app support.\n\nThe key thing to remember is that Gemini Spark is less a single feature than a new operating mode for Gemini: persistent, proactive, connected, and action-oriented.",
+    "category": "Platforms & Tools",
+    "relatedTerms": [
+      "gemini",
+      "ai-agent",
+      "agentic-ai",
+      "mcp",
+      "tool-calling",
+      "google-deepmind"
+    ],
+    "references": [
+      {
+        "title": "The Gemini app becomes more agentic, delivering proactive, 24/7 help",
+        "url": "https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/"
+      },
+      {
+        "title": "Gemini Apps release notes - Gemini Spark",
+        "url": "https://gemini.google/us/release-notes/?hl=en"
+      },
+      {
+        "title": "Gemini subscriptions and AI Ultra availability",
+        "url": "https://gemini.google/us/about/?hl=en"
+      }
+    ],
+    "seoDescription": "Gemini Spark is Google's 24/7 Gemini agent for proactive tasks across Gmail, Workspace, MCP tools, and connected apps.",
+    "seoKeywords": [
+      "what is Gemini Spark",
+      "Google Gemini Spark",
+      "Gemini 24/7 AI agent",
+      "Gemini persistent agent",
+      "Gemini Spark AI Ultra",
+      "agentic Gemini",
+      "Google AI agent"
+    ],
+    "lastUpdated": "2026-05-27",
+    "analogy": "A background operations assistant with a cloud desk: you assign priorities, connect the tools it may use, and it keeps working until it has something useful or risky enough to bring back for review."
   },
   {
     "name": "ChatGPT",
