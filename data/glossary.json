@@ -858,10 +858,54 @@
     "relatedTerms": [
       "large-language-model",
       "retrieval-augmented-generation",
-      "prompt-engineering"
+      "prompt-engineering",
+      "agent-harness"
     ],
     "lastUpdated": "2026-02-22",
     "analogy": "Think of it as an intern who can use a computer - powerful, but needs guardrails or it will confidently do the wrong thing at scale."
+  },
+  {
+    "name": "Agent Harness",
+    "slug": "agent-harness",
+    "shortDef": "The runtime scaffolding around an AI model that turns it into an agent by managing tools, state, permissions, context, execution loops, and logs.",
+    "fullDef": "An agent harness is the software layer that sits around a language model and makes it behave like an agent. The model supplies reasoning and language generation. The harness supplies the operating environment: what tools the model can call, what context it sees, how it stores state, when it loops, how errors are handled, what actions require approval, and how every step is logged.\n\nThis distinction matters because an agent is not just a model with a longer prompt. A model can suggest a shell command. A harness decides whether that command is allowed, runs it in the right environment, captures the output, feeds the result back to the model, and decides whether the next step should continue, retry, ask the user, or stop. The harness is what turns single-turn intelligence into a repeatable workflow.\n\n## What An Agent Harness Controls\n\n| Layer | What the harness does |\n| --- | --- |\n| Prompt and instructions | Builds the system prompt, task prompt, policies, examples, and model-specific formatting. |\n| Tool interface | Defines available tools, schemas, permissions, retries, timeouts, and validation rules. |\n| State and memory | Tracks conversation history, task state, intermediate files, observations, and summaries. |\n| Execution loop | Runs the observe, reason, act, observe cycle until the task completes or hits a stop condition. |\n| Environment | Provides the workspace, sandbox, browser, terminal, filesystem, network access, or remote VM. |\n| Context management | Chooses what to keep, summarize, retrieve, or discard as the context window fills. |\n| Safety gates | Requires approval for risky actions such as sending email, spending money, deleting files, or pushing code. |\n| Evaluation and logging | Records tool calls, model outputs, costs, failures, diffs, test results, and replayable traces. |\n\n## Harness vs Model\n\nThe model is the brain. The harness is the body, workspace, rulebook, and notebook. Two products can use the same underlying model and behave very differently because their harnesses are different.\n\nA coding model without a harness can write a patch in text. A coding agent harness can clone a repository, inspect files, edit code, run tests, interpret failures, revise the patch, create a pull request, and show proof of work. That is why tools such as Claude Code, Codex, OpenCode, and benchmark systems like SWE-agent or mini-SWE-agent are not interchangeable wrappers. Their tool design, file editing strategy, context policy, permission model, and retry loop all change what the same model can accomplish.\n\nThis is also why benchmark scores often measure the model and the harness together. A model may score higher because the harness gives it better tools, better prompts, cleaner state, or a more useful editing interface. The reverse is also true: a strong model can underperform inside a weak harness that hides useful context, blocks self-testing, exposes unsafe shortcuts, or handles tool failures poorly.\n\n## Harness vs Orchestration Layer\n\nThe terms overlap, but they are not identical. An orchestration layer is the broader application logic that coordinates models, tools, workflows, and sometimes multiple agents. An agent harness is the runtime shell around one agent or one family of agents.\n\nIn a small system, the harness and orchestration layer may be the same code. In a larger system, the harness manages individual agent execution while orchestration decides which agent should run, how tasks are routed, how results are merged, and when humans are brought in.\n\n## What A Good Harness Gets Right\n\nA good harness makes capability usable and inspectable. It gives the model enough freedom to solve the task, but not enough freedom to damage the system around it. The best harnesses have explicit tool contracts, narrow permissions, deterministic stop conditions, clear approval gates, durable logs, replayable traces, cost controls, and a way to recover from partial failure.\n\nFor coding agents, the harness should also separate reading from writing, prefer patch-based edits over blind file rewrites, run tests when available, preserve git state, block destructive commands by default, and show diffs before irreversible actions. For browser or office-work agents, the same principle applies to emails, calendar changes, purchases, CRM updates, and file sharing: draft first, approve before action.\n\n## Common Failure Modes\n\nWeak harnesses make agents look smarter in demos than they are in production. They give broad shell access with no approval gates. They let the model browse untrusted content and then follow hidden instructions inside that content. They keep too much stale context and bury the important state. They retry failed actions until costs explode. They produce logs that cannot be replayed. They evaluate success by whether the model said it was done rather than by checking the external system.\n\nThe short version: the model determines how well the agent can think. The harness determines what that thinking is allowed to touch, how reliably it turns into action, and whether a human can understand what happened afterward.",
+    "category": "Agents",
+    "relatedTerms": [
+      "ai-agent",
+      "agentic-ai",
+      "orchestration-layer",
+      "tool-calling",
+      "mcp",
+      "codex",
+      "claude-code",
+      "opencode"
+    ],
+    "references": [
+      {
+        "title": "OpenAI - A Practical Guide to Building Agents",
+        "url": "https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf"
+      },
+      {
+        "title": "Anthropic - Building Effective Agents",
+        "url": "https://www.anthropic.com/research/building-effective-agents"
+      },
+      {
+        "title": "mini-swe-agent",
+        "url": "https://github.com/SWE-agent/mini-swe-agent"
+      }
+    ],
+    "seoDescription": "An agent harness is the runtime around an AI model that manages tools, memory, permissions, context, execution loops, and logs.",
+    "seoKeywords": [
+      "what is an agent harness",
+      "AI agent harness",
+      "agent runtime",
+      "LLM agent framework",
+      "agent orchestration",
+      "coding agent harness",
+      "tool calling harness"
+    ],
+    "lastUpdated": "2026-05-28",
+    "analogy": "A trained pilot still needs a cockpit, instruments, checklists, air traffic rules, and a flight recorder. The model is the pilot; the harness is the system that lets the flight happen safely."
   },
   {
     "name": "Prompt Engineering",
@@ -3923,6 +3967,7 @@
     "relatedTerms": [
       "tool-calling",
       "mcp",
+      "agent-harness",
       "retrieval-augmented-generation"
     ],
     "lastUpdated": "2026-03-01",
@@ -3937,6 +3982,7 @@
     "relatedTerms": [
       "tool-calling",
       "orchestration-layer",
+      "agent-harness",
       "reasoning",
       "mcp"
     ],
