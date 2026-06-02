@@ -5950,6 +5950,50 @@
     "analogy": "Like a researcher who not only writes code but also reads their own papers, runs their own experiments, debugs their own work, and plans the next phase - doing 30 to 50 percent of the research journey while humans guide the critical decisions."
   },
   {
+    "name": "MiniMax M3",
+    "slug": "minimax-m3",
+    "shortDef": "MiniMax's June 2026 frontier open-weight model claim combining coding strength, 1M context, native multimodality, and low-cost agentic API access.",
+    "fullDef": "MiniMax M3 is a June 2026 model from Shanghai-based AI lab MiniMax. MiniMax positions it as the first open-weight model to combine three frontier-style capabilities in one system: strong coding and agentic benchmark results, a native 1 million token context window, and native multimodal input for text, images, and video, plus desktop computer operation.\n\n## What it claims\n\nMiniMax reports that M3 scores 59.0% on SWE-bench Pro, slightly ahead of GPT-5.5's 58.6% and Gemini 3.1 Pro's 54.2% on that vendor-reported comparison. It also reports 66.0% on Terminal-Bench 2.1, 74.2% on MCP Atlas, and a leading result on SVG-Bench against Claude Opus 4.7.\n\nThe model uses MiniMax Sparse Attention, or MSA, a sparse attention architecture designed to make million-token contexts cheaper and faster than dense attention. MiniMax says MSA gives M3 up to a 1M token context window and improves long-context prefill and decoding speed compared with its previous generation.\n\n## Why it matters\n\nThe important part is not only the score. It is the combination. Before M3, open-weight models usually forced a tradeoff: strong coding but shorter context, long context but weaker agentic behavior, or multimodality without frontier coding. M3 claims all three at once.\n\nIf the weights ship as promised and independent evaluations hold up, M3 becomes a serious option for local or self-hosted coding agents, document analysis, long-context retrieval, and multimodal workflows where code or data cannot leave the organization.\n\n## The verification caveat\n\nAt launch, M3 was available through MiniMax products and API access, but the promised model weights had not yet been released on Hugging Face. That makes the open-weight label a commitment rather than a fully verifiable fact until the weights, license, and technical report are public.\n\nThe benchmark caveat matters too. MiniMax disclosed that several results were run on its own infrastructure and sometimes used scaffolding such as Claude Code, Mini-SWE-Agent, Terminus, and Codex. That does not make the numbers false, but it means they should be read as launch-day vendor results until independent teams reproduce them under standardized harnesses such as DeepSWE.\n\n## Practical tradeoffs\n\nMiniMax M3's API economics are aggressive. Launch pricing on routing platforms was reported around USD 0.30 per million input tokens and USD 1.20 per million output tokens during the promotion, while MiniMax token plans started at USD 20 per month for very large token quotas.\n\nThe tradeoff is trust and timing. Until the weights are public, self-hosting is not available. Until independent benchmarks run, the coding claim is not settled. And because MiniMax is a Chinese company, API use also carries the jurisdictional and procurement considerations that apply to Chinese AI vendors.",
+    "category": "LLM Models",
+    "relatedTerms": [
+      "minimax-m27",
+      "open-weight-model",
+      "context-window",
+      "agentic-ai",
+      "mcp",
+      "claude-code",
+      "codex",
+      "gpt-5-5",
+      "gemini-3-1-pro"
+    ],
+    "references": [
+      {
+        "title": "MiniMax M3 Launch",
+        "url": "https://www.minimax.io/blog/minimax-m3"
+      },
+      {
+        "title": "MiniMax M3 Model Page",
+        "url": "https://www.minimax.io/models/text/m3"
+      },
+      {
+        "title": "DeepSWE Leaderboard",
+        "url": "https://deepswe.datacurve.ai/"
+      }
+    ],
+    "seoDescription": "MiniMax M3 is a June 2026 model claiming frontier coding, 1M context, native multimodality, and open weights, pending weight release.",
+    "seoKeywords": [
+      "what is MiniMax M3",
+      "MiniMax M3 explained",
+      "MiniMax M3 benchmarks",
+      "MiniMax M3 open weights",
+      "MiniMax M3 1M context",
+      "MiniMax Sparse Attention",
+      "MiniMax M3 vs GPT-5.5"
+    ],
+    "lastUpdated": "2026-06-02",
+    "analogy": "A promising research prototype shown on stage with the test results, roadmap, and price tag already posted, but the keys to inspect the engine have not been handed over yet."
+  },
+  {
     "name": "A2A",
     "slug": "a2a",
     "shortDef": "Agent2Agent (A2A) is an open protocol developed by Google that enables AI agents built on different frameworks to communicate, delegate tasks, and coordinate with each other without sharing internal memory or proprietary logic.",
