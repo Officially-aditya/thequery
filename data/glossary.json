@@ -6409,35 +6409,55 @@
   {
     "name": "GLM 5.2",
     "slug": "glm-5-2",
-    "shortDef": "GLM 5.2 is Z.ai's open-weight model designed for long-horizon agentic tasks, featuring a 1 million token context window, IndexShare architecture, and strong performance on production coding benchmarks like SWE-bench Pro.",
-    "fullDef": "GLM 5.2, released by Tsinghua-affiliated lab Z.ai in June 2026, is an advanced open-weight model positioned as a long-horizon agentic powerhouse. It was released 11 weeks following its predecessor, GLM 5.1, and includes a 5x context expansion alongside a new architecture.\n\n## Architecture and Capabilities\n\nGLM 5.2 is specifically designed to handle long-context, long-session agentic work stably and efficiently. The model features an IndexShare architecture that reuses one lightweight indexer across every four sparse-attention layers. This cuts per-token FLOPs by roughly 2.9x at a 1M context. It also includes an improved MTP layer for speculative decoding extending the accepted token length by up to 20%.\n\n## Benchmark Performance\n\nZ.ai explicitly targeted enterprise developers running long, complex coding sessions on large codebases. On SWE-bench Pro, GLM 5.2 scores 62.1%, outperforming GPT-5.5's 58.6%. On FrontierSWE—a benchmark testing sustained multi-step reasoning across full agentic sessions—it achieved 74.4%. It scored 51 points on the Artificial Analysis Intelligence Index for open-weight models, placing it at the top globally at the time of release.\n\n## Pricing and Tradeoffs\n\nWhile GLM 5.2 leads the open-weight pack in production coding benchmarks, its output pricing is slightly higher than open competitors at USD 4.40 per million output tokens—although this is still 5.7 times cheaper than models like Claude Opus 4.8. For developers who need focused, robust performance over long agentic software refactors instead of generalized multimodality, GLM 5.2 offers a powerful choice.",
+    "shortDef": "Z.ai's June 2026 open-weight GLM model for long-horizon agentic coding, 1M-token context, IndexShare attention, and repository-scale engineering work.",
+    "fullDef": "GLM 5.2 is Z.ai's June 2026 open-weight model for long-horizon agentic engineering. It follows GLM 5.1 and is positioned less as a general chat model and more as a coding and tool-use model for long sessions: large repositories, multi-step refactors, extended debugging runs, and agent workflows that need to stay coherent over many steps.\n\n## Core profile\n\nGLM 5.2 is released under an MIT license and is available through the Z.ai organization on Hugging Face. The model card positions it around a solid **1 million token context window**, stronger coding with flexible thinking effort, and local serving through frameworks such as vLLM, SGLang, Transformers, KTransformers, Docker Model Runner, llama.cpp, Ollama, and LM Studio.\n\nThe important framing is focus. MiniMax M3 is the broader multimodal bet. DeepSeek V4 Pro is the algorithmic reasoning and competitive programming specialist. GLM 5.2 is the long-horizon engineering bet: the model you reach for when the task is too large for a short coding prompt and too structured to treat as casual chat.\n\n## Architecture\n\nThe signature architectural change is **IndexShare**. Instead of giving every sparse-attention layer its own separate indexer, GLM 5.2 reuses the same lightweight indexer across every four sparse-attention layers. Z.ai says this reduces per-token FLOPs by about **2.9x** at a 1M context length.\n\nGLM 5.2 also improves its MTP layer for speculative decoding, increasing accepted token length by up to **20%**. In practical terms, the architecture is trying to make long-context agent runs cheaper and less fragile: more context, fewer wasted compute cycles, and better throughput when the model has to generate or revise a lot of code.\n\n## Benchmark profile\n\nLaunch benchmarks and third-party coverage put GLM 5.2 near the top of the open-weight coding tier. The useful pattern is not that it wins every benchmark. It does not. The useful pattern is that it leads or stays close on the benchmarks most associated with sustained engineering work.\n\n| Benchmark | GLM 5.2 | Comparison | What it suggests |\n| --- | ---: | --- | --- |\n| SWE-bench Pro | 62.1% | GPT-5.5 at 58.6%, MiniMax M3 at 59.0%, DeepSeek V4 Pro at 55.4% | Strong repository-level software engineering for an open-weight model. |\n| FrontierSWE | 74.4% | GPT-5.5 at 72.6%, Claude Opus 4.8 at 75.1% | Very strong long-horizon agentic engineering performance. |\n| Terminal-Bench 2.1 | 81.0% | MiniMax M3 around 65-66%, DeepSeek V4 Pro around 64-68% depending on harness | Stronger live-terminal execution than the main open-weight peers. |\n| HLE with tools | 54.7% | GPT-5.5 at 52.2%, Claude Opus 4.8 at 57.9% | Competitive tool-assisted reasoning, though not the absolute leader. |\n| Artificial Analysis Intelligence Index | 51 | MiniMax M3 at 44, DeepSeek V4 Pro at 44 | Top open-weight composite score at launch in TheQuery's comparison set. |\n\nThese numbers should be read as launch-era benchmark signals, not permanent truths. Coding benchmarks are changing quickly, and harness choice matters. GLM 5.2's most important claim is not a single score; it is the combination of open weights, million-token context, and strong long-running coding behavior.\n\n## How it differs from MiniMax M3 and DeepSeek V4\n\nGLM 5.2 is the most focused of the three big Chinese open-weight releases in this wave.\n\n- **Versus MiniMax M3:** GLM 5.2 is stronger on shared coding benchmarks, while M3 is cheaper and broader because it includes native multimodality and desktop-style computer operation.\n- **Versus DeepSeek V4 Pro:** GLM 5.2 looks stronger on production coding and long-horizon agent benchmarks, while DeepSeek remains the cleaner algorithmic reasoning and competitive programming specialist.\n- **Versus closed frontier models:** GLM 5.2 is cheaper and self-hostable, but Claude Opus 4.8 and GPT-5.5 still have stronger ecosystems, more mature hosted products, and more independent scrutiny.\n\n## When to use it\n\nGLM 5.2 makes the most sense for teams building coding agents, repository-scale assistants, autonomous refactoring workflows, internal developer tools, long-context code review, and enterprise systems where the codebase cannot be sent to a closed API provider.\n\nIt is especially relevant when the task is measured in hours rather than minutes. A model that can maintain context across a large codebase, call tools repeatedly, and follow engineering standards over a long run is more valuable there than a model that only writes a good single-file answer.\n\n## When not to use it\n\nGLM 5.2 is probably not the right first choice for lightweight chatbots, simple summarization, high-volume low-stakes requests, or workflows that need native multimodal input. It is also not a small local model. Open weights do not make a frontier-scale model cheap to serve; teams still need serious inference infrastructure or a hosted endpoint.\n\nThe other caveat is procurement. Z.ai is a Chinese AI company, and some organizations will need to evaluate jurisdiction, licensing, security review, and deployment controls before using GLM 5.2 in production. Self-hosting reduces data exposure to a vendor API, but it does not remove every policy consideration.\n\n## Bottom line\n\nGLM 5.2 is the open-weight model for teams that care most about long-horizon engineering. It is not trying to be the most creative assistant or the broadest multimodal model. It is trying to be the model that keeps working through the hard engineering job after the easy code generation part is over.",
     "category": "LLM Models",
     "relatedTerms": [
+      "glm-5",
       "deepseek-v4",
       "minimax-m3",
+      "open-weight-model",
+      "large-language-model",
+      "mixture-of-experts",
       "agentic-ai",
-      "context-window"
+      "agentic-workflows",
+      "context-window",
+      "benchmark",
+      "speculative-decoding",
+      "inference"
     ],
     "lastUpdated": "2026-06-18",
-    "analogy": "Think of it as a deeply focused software architect—while some models bring multiple tools for different jobs, GLM 5.2 brings immense stamina and computational efficiency specifically needed for multi-day, large-scale engineering problems.",
+    "analogy": "A marathon engineering lead with a huge whiteboard: not the flashiest generalist in the room, but the one built to keep a sprawling refactor organized until the last file is done.",
     "references": [
+      {
+        "title": "zai-org/GLM-5.2 on Hugging Face",
+        "url": "https://huggingface.co/zai-org/GLM-5.2"
+      },
       {
         "title": "GLM-5.2 vs MiniMax M3: Open-Weight Coding Showdown",
         "url": "https://codingfleet.com/blog/glm-5-2-vs-minimax-m3/"
+      },
+      {
+        "title": "China's Z.ai GLM-5.2 tops OpenAI's GPT 5.5 model on key benchmarks",
+        "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/chinas-z-ai-glm-5-2-tops-openais-gpt-5-5-model-on-key-benchmarks/articleshow/131805202.cms"
       },
       {
         "title": "The Real AI Race Nobody Is Covering: MiniMax M3, GLM 5.2, and DeepSeek V4 Are Fighting Each Other",
         "url": "/articles/real-ai-race-minimax-m3-glm-52-deepseek-v4"
       }
     ],
-    "seoDescription": "GLM 5.2 is Z.ai's open-weight AI model optimized for long-horizon agentic software development, featuring a 1M token context window and IndexShare architecture.",
+    "seoDescription": "GLM 5.2 is Z.ai's open-weight model for long-horizon coding, 1M-token context, IndexShare attention, and agentic engineering.",
     "seoKeywords": [
       "GLM 5.2",
       "Z.ai GLM 5.2",
       "open-weight model",
       "SWE-bench Pro",
       "agentic powerhouse",
-      "IndexShare architecture"
+      "IndexShare architecture",
+      "FrontierSWE",
+      "long-horizon coding model",
+      "GLM 5.2 vs MiniMax M3",
+      "GLM 5.2 vs DeepSeek V4"
     ]
   }
 ]
