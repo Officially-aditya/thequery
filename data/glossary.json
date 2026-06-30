@@ -4371,6 +4371,65 @@
     "analogy": "A top expert who finally joined the main office after months in a restricted lab: available for normal work, expensive to book, and still escorted away from the rooms where the risky tools are kept."
   },
   {
+    "name": "Claude Sonnet 5",
+    "slug": "claude-sonnet-5",
+    "shortDef": "Anthropic's June 2026 agentic Sonnet model, combining a 1M-token context window, near-Opus performance, and lower production pricing.",
+    "fullDef": "Claude Sonnet 5 is Anthropic's June 2026 mid-tier model for agentic coding, tool use, computer interaction, and professional knowledge work. Anthropic positions it as the most agentic Sonnet release yet: substantially stronger than Claude Sonnet 4.6 and close enough to Claude Opus 4.8 that cost, latency, and workload shape become the main routing decisions.\n\n## Core profile\n\nSonnet 5 is the default model for Claude Free and Pro plans and is also available to Max, Team, and Enterprise users. Developers can use it in Claude Code or through the Claude API with the model identifier **claude-sonnet-5**. GitHub Copilot added the model on launch day, and Anthropic supports it across its broader cloud platform ecosystem.\n\nThe model has a **1 million token context window** by default and supports up to **128,000 output tokens** on standard requests. Anthropic's Message Batches API can raise the output ceiling to 300,000 tokens using the existing output beta. Adaptive thinking is the recommended operating mode, with effort controls that trade token use and latency against capability.\n\nPricing starts at **USD 2 per million input tokens** and **USD 10 per million output tokens** through August 31, 2026. Standard pricing then becomes **USD 3 input** and **USD 15 output**. That makes Sonnet 5 40% of Opus 4.8's list price during the introductory window and 60% at standard pricing.\n\n## The tokenizer caveat\n\nSonnet 5 uses a new tokenizer. Anthropic says the same text can map to roughly **1.0 to 1.35 times more tokens** than it did with Sonnet 4.6, depending on the content type. The introductory pricing is designed to make migration roughly cost-neutral, but teams should still measure cost per completed task rather than comparing rate cards alone.\n\nThe model may consume more tokens for the same input while needing fewer turns to finish a complex job. Production traces, not nominal token prices, determine which effect wins.\n\n## Official benchmark profile\n\nAnthropic's Sonnet 5 system card reports the following launch results. Claude scores generally use adaptive thinking at maximum effort and are averaged over multiple trials. Competitor scores come from published provider results or benchmark leaderboards, so the comparison is directional rather than perfectly controlled.\n\n| Benchmark | Sonnet 4.6 | Sonnet 5 | GPT-5.5 | Gemini 3.5 Flash |\n| --- | ---: | ---: | ---: | ---: |\n| SWE-bench Pro | 58.1% | **63.2%** | 58.6% | 55.1% |\n| Terminal-Bench 2.1 | 67.0% | **80.4%** | 83.4% | 76.2% |\n| BrowseComp, single agent | 76.2% | **84.7%** | 84.4% | Not reported |\n| Humanity's Last Exam, no tools | 34.6% | **43.2%** | 41.4% | 40.2% |\n| Humanity's Last Exam, with tools | 46.8% | **57.4%** | 52.2% | Not reported |\n| OSWorld-Verified | 78.5% | **81.2%** | 78.7% | 78.4% |\n| FrontierCode v1 | 15.1% | **38.8%** | 25.5% | Not reported |\n| GDPval-AA v2, Elo | 1395 | **1618** | 1509 | 1357 |\n\nThe benchmark pattern is mixed in a useful way. Sonnet 5 beats GPT-5.5 on SWE-bench Pro, BrowseComp, tool-assisted HLE, OSWorld, FrontierCode, and GDPval-AA v2. GPT-5.5 retains a Terminal-Bench lead. Sonnet 5 remains below Opus 4.8 on SWE-bench Pro but is statistically tied with it on GDPval-AA v2, where Sonnet 5 scores 1618 Elo and Opus 4.8 scores 1615.\n\n## How it compares with Sonnet 4.6 and Opus 4.8\n\nSonnet 5 is a clear upgrade over Sonnet 4.6. The largest practical gains are in terminal work, long-running coding, tool use, computer interaction, and following a complex task through to completion rather than stopping after the first successful-looking step.\n\nAgainst Opus 4.8, the model is more selective. Sonnet 5 costs substantially less and matches Opus on some knowledge-work and agentic tasks. Opus remains the stronger escalation model for the hardest reasoning, coding, and high-risk review tasks. A sensible production system routes routine and moderately difficult work to Sonnet, then escalates failures or high-value decisions to Opus.\n\n## Safety and cybersecurity\n\nAnthropic says it did not deliberately train Sonnet 5 on cybersecurity tasks. In an exploit-development evaluation using patched Firefox vulnerabilities, Sonnet 5 never produced a complete working exploit, though it showed more partial progress than Sonnet 4.6. Its dangerous cyber capability remains substantially below Opus 4.8 and Mythos 5.\n\nSonnet 5 still ships with cyber safeguards enabled by default. These controls use the same general framework as Opus 4.7 and 4.8 but are less restrictive than Fable 5's safeguards because Anthropic assesses Sonnet 5's overall cyber risk as lower.\n\nAcross broader safety evaluations, Sonnet 5 is more resistant to malicious requests and prompt-injection hijacking than Sonnet 4.6. It also shows lower hallucination and sycophancy rates. However, Anthropic reports somewhat more misaligned behavior than Opus 4.8 and Mythos Preview on its automated behavioral audit.\n\n## What it is good at\n\nClaude Sonnet 5 is best suited for production workloads where a cheaper model needs to behave like an agent rather than a chatbot: repository-scale coding, multi-file debugging, browser and terminal workflows, computer-use automation, research, legal or financial analysis, document-heavy knowledge work, and tool-using assistants that run across many steps.\n\nIt is especially attractive as the default model in a routing system. Sonnet handles the bulk of work at lower cost, while Opus or Fable can be reserved for tasks where failure is expensive enough to justify premium pricing.\n\n## Tradeoffs\n\nSonnet 5 is not a full replacement for Opus 4.8. It remains weaker on some difficult coding and pure-reasoning evaluations, and GPT-5.5 still leads on Terminal-Bench 2.1 in Anthropic's comparison.\n\nThe updated tokenizer can also make naive cost comparisons misleading. Teams migrating from Sonnet 4.6 should retune max-token limits and monitor actual token consumption. And as with every current coding model, launch benchmark scores should be checked against internal repositories because harness choice, effort level, tool permissions, and verifier behavior can move the result significantly.\n\nThe practical takeaway is straightforward: Sonnet 5 is the everyday agent model in Anthropic's lineup. It brings much of the recent Opus capability curve into a cheaper tier without making the premium models obsolete.",
+    "category": "Models",
+    "relatedTerms": [
+      "anthropic",
+      "claude-sonnet-4-6",
+      "claude-opus-4-8",
+      "claude-fable-5",
+      "gpt-5-5",
+      "agentic-ai",
+      "ai-agent",
+      "agent-harness",
+      "claude-code",
+      "github-copilot",
+      "api",
+      "context-window",
+      "benchmark",
+      "prompt-injection",
+      "inference-time-compute"
+    ],
+    "references": [
+      {
+        "title": "Introducing Claude Sonnet 5",
+        "url": "https://www.anthropic.com/news/claude-sonnet-5"
+      },
+      {
+        "title": "Claude Sonnet 5 System Card",
+        "url": "https://www-cdn.anthropic.com/9e6a1044980d8c4ed85669faf9c2a8342e2e9f1e/Claude%20Sonnet%205%20System%20Card.pdf"
+      },
+      {
+        "title": "Prompting Claude Sonnet 5",
+        "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-sonnet-5"
+      },
+      {
+        "title": "Claude Sonnet 5 is generally available for GitHub Copilot",
+        "url": "https://github.blog/changelog/2026-06-30-claude-sonnet-5-is-generally-available-for-github-copilot/"
+      },
+      {
+        "title": "Claude Sonnet 5 Finally Launched",
+        "url": "/articles/claude-sonnet-5-rumors-benchmarks-pricing"
+      }
+    ],
+    "seoDescription": "Claude Sonnet 5 is Anthropic's agentic mid-tier model with 1M context, near-Opus performance, and lower pricing for production workloads.",
+    "seoKeywords": [
+      "Claude Sonnet 5",
+      "Claude Sonnet 5 explained",
+      "Claude Sonnet 5 benchmarks",
+      "Claude Sonnet 5 pricing",
+      "Claude Sonnet 5 vs Opus 4.8",
+      "Claude Sonnet 5 vs GPT-5.5",
+      "Anthropic Sonnet 5",
+      "agentic coding model"
+    ],
+    "lastUpdated": "2026-07-01",
+    "analogy": "A highly capable staff engineer assigned to the everyday queue: cheaper than the specialist architect, strong enough to finish most jobs, and smart enough to escalate the few that need deeper expertise."
+  },
+  {
     "name": "Text Normalization",
     "slug": "text-normalization",
     "shortDef": "The process of transforming raw text into a consistent, canonical form to reduce variation before further processing.",
