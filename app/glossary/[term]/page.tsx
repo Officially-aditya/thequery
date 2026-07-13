@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${term.name} - AI Glossary`,
     description,
     keywords: term.seoKeywords,
-    openGraph: { title: `${term.name} - AI Glossary`, description },
+    openGraph: { title: `${term.name} - AI Glossary`, description, images: ["/opengraph-image"] },
   };
 }
 

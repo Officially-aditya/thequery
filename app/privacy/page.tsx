@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Privacy Policy - TheQuery",
     description: "Privacy policy for TheQuery - how we handle your data.",
+    images: ["/opengraph-image"],
   },
 };
 

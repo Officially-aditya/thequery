@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "TheQuery - AI Knowledge from First Principles",
     description: "TheQuery is where developers go to understand AI, not just use it. Glossary, books, and articles covering AI from first principles.",
+    images: ["/opengraph-image"],
   },
 };
 

@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Guides - TheQuery",
     description: "Evergreen study guides on AI concepts - written to build understanding, not just familiarity.",
+    images: ["/opengraph-image"],
   },
 };
 

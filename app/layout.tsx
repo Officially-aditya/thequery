@@ -36,6 +36,12 @@ export const metadata: Metadata = {
   openGraph: {
     siteName: "TheQuery",
     type: "website",
+    images: ["/opengraph-image"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "TheQuery - AI Knowledge from First Principles",
+    description: "TheQuery is where developers go to understand AI, not just use it.",
   },
 };
 

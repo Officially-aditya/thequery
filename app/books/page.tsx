@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Books - TheQuery",
     description: "In-depth AI and machine learning books, written from first principles. Read online for free.",
+    images: ["/opengraph-image"],
   },
 };
 

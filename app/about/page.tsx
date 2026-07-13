@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     title: "About - TheQuery",
     description:
       "Learn about TheQuery - an independent AI education platform built for developers who want to understand AI from first principles.",
+    images: ["/opengraph-image"],
   },
 };
 

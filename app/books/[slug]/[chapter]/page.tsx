@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${data.meta.title} - ${data.book.title}`,
     description: `Read "${data.meta.title}" from ${data.book.title} on TheQuery.`,
-    openGraph: { title: `${data.meta.title} - ${data.book.title}` },
+    openGraph: { title: `${data.meta.title} - ${data.book.title}`, images: ["/opengraph-image"] },
   };
 }
 

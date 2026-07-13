@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AI Glossary - TheQuery",
     description: "100+ AI and ML terms explained clearly - from backpropagation to knowledge graphs.",
+    images: ["/opengraph-image"],
   },
 };
 

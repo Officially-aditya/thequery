@@ -15,6 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: `${wotd.term.name} — AI Word of the Day`,
       description: wotd.term.shortDef,
+      images: ["/opengraph-image"],
     },
   };
 }
