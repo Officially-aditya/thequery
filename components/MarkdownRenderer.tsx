@@ -41,7 +41,11 @@ function extractText(node: React.ReactNode): string {
   return "";
 }
 
-function linkifyText(text: string, terms: GlossaryLink[]): React.ReactNode[] {
+function linkifyText(
+  text: string,
+  terms: GlossaryLink[],
+  linkedTerms: Set<string>,
+): React.ReactNode[] {
   if (terms.length === 0) return [text];
 
   // Build regex matching all term names, longest first to avoid partial matches
@@ -51,7 +55,6 @@ function linkifyText(text: string, terms: GlossaryLink[]): React.ReactNode[] {
 
   const parts: React.ReactNode[] = [];
   let lastIndex = 0;
-  const linked = new Set<string>(); // only link first occurrence per render
   let match: RegExpExecArray | null;
 
   while ((match = regex.exec(text)) !== null) {
@@ -60,10 +63,10 @@ function linkifyText(text: string, terms: GlossaryLink[]): React.ReactNode[] {
 
     // Find the matching term
     const term = sorted.find((t) => t.name.toLowerCase() === termKey);
-    if (!term || linked.has(termKey)) {
+    if (!term || linkedTerms.has(termKey)) {
       continue;
     }
-    linked.add(termKey);
+    linkedTerms.add(termKey);
 
     // Add text before match
     if (match.index > lastIndex) {
@@ -93,6 +96,10 @@ function linkifyText(text: string, terms: GlossaryLink[]): React.ReactNode[] {
 }
 
 function buildComponents(glossaryTerms: GlossaryLink[]): Components {
+  // Keep this set for the lifetime of one MarkdownRenderer render so a glossary
+  // term is auto-linked only at its first appearance in the full document.
+  const linkedTerms = new Set<string>();
+
   return {
     h1: ({ children }) => <HeadingWithId level={1}>{children}</HeadingWithId>,
     h2: ({ children }) => <HeadingWithId level={2}>{children}</HeadingWithId>,
@@ -112,7 +119,7 @@ function buildComponents(glossaryTerms: GlossaryLink[]): Components {
       if (glossaryTerms.length === 0) return <p>{children}</p>;
       const processed = React.Children.map(children, (child) => {
         if (typeof child === "string") {
-          return <>{linkifyText(child, glossaryTerms)}</>;
+          return <>{linkifyText(child, glossaryTerms, linkedTerms)}</>;
         }
         return child;
       });
@@ -122,7 +129,7 @@ function buildComponents(glossaryTerms: GlossaryLink[]): Components {
       if (glossaryTerms.length === 0) return <li>{children}</li>;
       const processed = React.Children.map(children, (child) => {
         if (typeof child === "string") {
-          return <>{linkifyText(child, glossaryTerms)}</>;
+          return <>{linkifyText(child, glossaryTerms, linkedTerms)}</>;
         }
         return child;
       });
