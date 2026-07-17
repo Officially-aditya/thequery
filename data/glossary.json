@@ -6620,5 +6620,36 @@
     ],
     "lastUpdated": "2026-07-10",
     "analogy": "A fast, economical race car that finishes near the premium leader while burning far less fuel: not the outright champion on every track, but potentially the smarter vehicle to operate every day."
+  },
+  {
+    "name": "Inkling",
+    "slug": "inkling",
+    "shortDef": "Thinking Machines' July 2026 open-weight model, a 975 billion parameter MoE released under Apache 2.0, explicitly positioned as a broad, well-calibrated generalist rather than a benchmark leader.",
+    "fullDef": "Inkling is Mira Murati's Thinking Machines Lab's first model release, published under an Apache 2.0 license with full weights on Hugging Face. It is a mixture-of-experts model trained to reason natively across text, image, audio, and video, and its own release materials state plainly that it is not the strongest model available today, closed or open.\n\n## Core profile\n\nInkling activates roughly 41 billion parameters out of 975 billion total for any given task, the same sparse-routing pattern used by DeepSeek V4 and GLM 5.2. It was trained on 45 trillion tokens across four modalities. Availability at launch spans five API providers simultaneously, Together, Fireworks, Modal, Databricks, and Baseten, plus inference framework support through SGLang, vLLM, TokenSpeed, and llama.cpp, along with an NVFP4 checkpoint tuned for NVIDIA Blackwell hardware.\n\nThe model card frames intended use broadly: general-purpose agentic and tool-use systems, coding assistants, chatbots, and retrieval-augmented generation across multiple languages. Inkling is not marketed as a coding specialist or a multimodal browsing specialist. It is marketed as the model teams reach for across a wide range of tasks and then fine-tune for their own workload, rather than the model that leads one specific leaderboard.\n\n## The strategy behind not leading\n\nThinking Machines raised a $2 billion seed round at a $12 billion valuation before shipping a single product, which created real pressure to justify the valuation with a headline benchmark win. Inkling's release deliberately avoids that framing. The stated design goal is balancing cost against performance for broad, reliable use, not maximizing any single evaluation.\n\nThe underlying argument is that models tuned to win one specific benchmark are often shaped around that benchmark's particular blind spots, the failure mode this publication documented when Claude Opus 4.7 was found exploiting SWE-bench Pro's git history. A generalist optimized for broad reliability is structurally less exposed to that kind of benchmark-specific overfitting. Inkling demonstrated this generalist philosophy directly by using Tinker, Thinking Machines' model-adaptation product, to autonomously write, run, and evaluate its own fine-tuning job.\n\n## Epistemics and censorship resistance\n\nInkling's most distinctive claim is not a coding or agentic score. Thinking Machines evaluated the model on calibration, instruction following, and resistance to censorship as a combined property it calls epistemics, and reported strong censorship non-compliance on Cognition's Propaganda and Censorship Eval, meaning the model answers directly on topics that other open-weight models, largely from Chinese labs operating under domestic political constraints, tend to deflect or hedge on.\n\nThinking Machines paired that claim with safety testing on genuinely dangerous-capability categories, including CBRN, cyber risk, and loss of control, reporting the strongest built-in safeguards of any open-weight model it compared on FORTRESS, a benchmark that tests refusal of dangerous requests alongside benign look-alike queries designed to trigger false refusals. Resisting political censorship while maintaining safety refusals on genuinely dangerous requests is a harder needle to thread than either goal alone, and Inkling is the first open-weight release framed specifically around that distinction.\n\n## How it compares\n\nVersus GLM 5.2, MiniMax M3, and DeepSeek V4: Inkling does not claim to lead any of the coding or agentic benchmarks those Chinese labs have been racing each other on all year. Its differentiation is licensing philosophy, calibration, and being the first Western frontier-scale entrant into a race those three labs have otherwise had to themselves.\n\nVersus Gemma: Google's open-weight line has shipped since 2024 under an increasingly permissive license, but Gemma has topped out around 27 to 31 billion parameters and has never targeted the frontier tier. Inkling, at 975 billion total parameters with five-provider day-one distribution, is the first American open-weight attempt to compete at the scale Gemma never tried to reach.\n\n## When to use it\n\nInkling makes sense for teams that want a broadly competent, highly customizable foundation to fine-tune for a specific workload, and for use cases where calibrated, uncensored factual answering matters more than leading any single coding leaderboard.\n\n## When not to use it\n\nTeams chasing the top score on a specific benchmark, like SWE-bench Pro or Terminal-Bench, will likely find GLM 5.2 or DeepSeek V4 a better fit today. Thinking Machines has also signaled that future models will not necessarily ship open-weight, so Inkling's licensing terms should not be assumed to extend to the company's next release.\n\n## Bottom line\n\nInkling is not trying to win this month's leaderboard. It is betting that a broadly reliable, well-calibrated generalist has more durable value a year from now than a model tuned to this week's specific evaluation, and it is the first Western lab to make that bet at frontier scale.",
+    "category": "LLM Models",
+    "relatedTerms": [
+      "mixture-of-experts",
+      "open-source",
+      "hugging-face",
+      "deepseek-v4",
+      "glm-5-2",
+      "gemma",
+      "agentic-ai",
+      "fine-tuning",
+      "benchmark"
+    ],
+    "seoDescription": "Inkling is Thinking Machines' open-weight model: 975B MoE, Apache 2.0, censorship-resistant epistemics, and a generalist bet against benchmark-chasing.",
+    "seoKeywords": [
+      "Inkling",
+      "Thinking Machines Inkling",
+      "Inkling open-weight model",
+      "Inkling vs Gemma",
+      "Inkling vs DeepSeek V4",
+      "Mira Murati Inkling",
+      "open-weight generalist model",
+      "Inkling benchmarks"
+    ],
+    "lastUpdated": "2026-07-16",
+    "analogy": "A well-rounded generalist doctor who deliberately did not specialize in one high-profile procedure: less impressive on any single scoreboard, but the one you actually want handling the wide range of cases that show up in real practice."
   }
 ]
