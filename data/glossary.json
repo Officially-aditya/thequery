@@ -6651,5 +6651,54 @@
     ],
     "lastUpdated": "2026-07-16",
     "analogy": "A well-rounded generalist doctor who deliberately did not specialize in one high-profile procedure: less impressive on any single scoreboard, but the one you actually want handling the wide range of cases that show up in real practice."
+  },
+  {
+    "name": "Kimi K3",
+    "slug": "kimi-k3",
+    "shortDef": "Moonshot AI's July 2026 2.8T-parameter frontier model for long-horizon coding, vision, and 1M-token work, with full open weights promised by July 27.",
+    "fullDef": "Kimi K3 is Moonshot AI's July 2026 frontier model for long-horizon coding, agentic knowledge work, and multimodal reasoning. At **2.8 trillion total parameters**, it is the largest model announced for an open-weight release. K3 is available through Kimi's apps, Kimi Code, and the Moonshot API, while the full downloadable weights and technical report are promised by July 27, 2026.\n\n## Core profile\n\nK3 is a sparse mixture-of-experts model with **896 total experts and 16 activated for each token**. It accepts text and images, produces text, and supports a **1 million token context window**. Reasoning runs at maximum effort by default at launch, with lower-effort modes planned for later updates.\n\nThe model sits in the proprietary frontier tier before its weights are public. Artificial Analysis scored K3 at **57** on its independently run Intelligence Index, placing it third overall at launch behind Claude Fable 5 and GPT-5.6 Sol, and in the same capability tier as Claude Opus 4.8 and GPT-5.5. If Moonshot releases the weights under usable terms, K3 will become the strongest open-weight model Artificial Analysis has measured.\n\n## Architecture\n\nK3 combines **Kimi Delta Attention**, or KDA, with **Attention Residuals**. KDA is designed to make attention scale more efficiently across long sequences, while Attention Residuals selectively retrieve representations across model depth instead of accumulating every layer uniformly.\n\nMoonshot uses a framework called **Stable LatentMoE** to keep routing stable at extreme sparsity. Quantile Balancing assigns expert load from router-score quantiles, while Per-Head Muon optimizes attention heads independently. The goal is to prevent a small number of experts from becoming overloaded while others remain underused as the model scales.\n\nK3 also uses quantization-aware training from the supervised fine-tuning stage onward, with **MXFP4 weights and MXFP8 activations**. Moonshot presents this as a route to broad hardware compatibility, but K3 is not a small local model. The company recommends supernode deployments with **64 or more accelerators**, so self-hosting requires data-center-scale infrastructure even after the weights become available.\n\n## Benchmark profile\n\nK3's strongest launch results are concentrated in coding and agentic work. The important distinction is who ran each evaluation and which agent harness was used.\n\n| Evaluation | Kimi K3 result | What it means |\n| --- | ---: | --- |\n| Artificial Analysis Intelligence Index | 57 | Independent API evaluation; third overall at launch. |\n| DeepSWE with Kimi Code | 67.5% | Moonshot-run coding-agent result. |\n| DeepSWE with mini-SWE-agent | 67.3% | Near-identical result on the benchmark's standard harness. |\n| Terminal-Bench 2.1 | 88.3% | Near GPT-5.6 Sol, but compared across different harnesses. |\n| Frontend Code Arena | Number 1 | Blind human preference win over the leading closed models tested. |\n\nThe two DeepSWE results are unusually close: 67.5% with Kimi Code and 67.3% with the benchmark's mini-SWE-agent harness. That small gap is evidence that the result is not entirely created by Moonshot's own wrapper. K3 still trails GPT-5.5 and GPT-5.6 Sol on DeepSWE, while beating Claude Opus 4.8.\n\nThe Terminal-Bench comparison needs more caution. K3 ran through Kimi Code, Claude models through Terminus 2, and GPT models through Codex. A benchmark score measures the model and the harness together, so results produced through different agent systems are directional rather than perfectly interchangeable.\n\nArena's Frontend Code Arena result is the clearest independent coding win. Users judged outputs blindly and preferred K3 over every leading American model tested, including Claude Fable 5 and GPT-5.6 Sol, for that specific category of front-end work. That does not make K3 the best model overall; it shows that an open-weight candidate can already lead the proprietary frontier on a meaningful task.\n\n## Pricing and efficiency\n\nMoonshot prices K3 at **USD 0.30 per million cached input tokens**, **USD 3 per million cache-miss input tokens**, and **USD 15 per million output tokens**. The company says its Mooncake serving system reaches cache-hit rates above 90% on coding workloads, which can reduce repeated repository-input costs substantially.\n\nThe low cached-input rate does not make every K3 task cheap. Artificial Analysis measured an average cost of **USD 0.94 per Intelligence Index task**, compared with USD 1.80 for Claude Opus 4.8 and USD 1.04 for GPT-5.6 Sol. K3 was roughly half the cost of Opus but only slightly cheaper than Sol, and it remained more expensive than open-weight peers such as GLM 5.2 and DeepSeek V4 Pro.\n\nOutput volume explains part of the difference. K3 generated roughly 132 million output tokens across the Artificial Analysis evaluation suite. Always-on maximum reasoning can consume enough tokens to narrow the advantage suggested by the API rate card.\n\n## The open-weight caveat\n\nK3 is available as a hosted model today, but its open-weight status remains a commitment until the checkpoint and license are public. Without the weights, outside researchers cannot fully inspect the architecture, reproduce deployment behavior, test quantized checkpoints, or verify that self-hosted K3 matches Moonshot's API.\n\nThe July 27 release therefore matters more than another launch benchmark. If the checkpoint arrives on time under terms that permit inspection, fine-tuning, and deployment, K3 becomes both the largest downloadable model and the leading open-weight model in independent composite evaluation. If the release slips or the license restricts meaningful use, the open-weight label will have described a roadmap rather than a shipped artifact.\n\n## When to use it\n\nK3 is a strong candidate for repository-scale coding, terminal agents, front-end generation, long-document analysis, visual software tasks, and sustained knowledge work where high capability matters more than minimum output cost. Its cache economics may be attractive for repeated work over the same large codebase or document collection.\n\n## When not to use it\n\nK3 is not the obvious choice for lightweight classification, high-volume low-stakes requests, latency-sensitive chat, or local deployment on ordinary workstations. Teams that require auditable open weights today should wait for the checkpoint, license, and technical report rather than treating the promised release as complete.\n\n## Bottom line\n\nKimi K3 is already a frontier model and a serious coding system. What remains unproven is the claim that makes it structurally different from Claude or GPT: that a 2.8-trillion-parameter model this capable is about to become something developers can inspect, fine-tune, and control rather than only rent through an API.",
+    "category": "LLM Models",
+    "relatedTerms": [
+      "kimi-k2",
+      "kimi-k2-5",
+      "open-weight-model",
+      "mixture-of-experts",
+      "context-window",
+      "agentic-ai",
+      "artificial-analysis",
+      "benchmark",
+      "quantization",
+      "inference-time-compute",
+      "fine-tuning",
+      "api"
+    ],
+    "references": [
+      {
+        "title": "Kimi K3: Open Frontier Intelligence",
+        "url": "https://www.kimi.com/blog/kimi-k3"
+      },
+      {
+        "title": "Kimi K3 achieves #3 in the Artificial Analysis Intelligence Index",
+        "url": "https://artificialanalysis.ai/articles/kimi-k3-achieves-3-in-the-artificial-analysis-intelligence-index-comparable-to-opus-4-8-and-gpt-5-5/"
+      },
+      {
+        "title": "Kimi K3 Is the Largest Open-Weight Model Ever Announced",
+        "url": "/articles/kimi-k3-largest-open-weight-model-claude-opus-gpt-55"
+      }
+    ],
+    "seoDescription": "Kimi K3 explained: 2.8T MoE architecture, 1M-token context, coding benchmarks, API pricing, deployment needs, and the July 27 weights caveat.",
+    "seoKeywords": [
+      "Kimi K3",
+      "Moonshot AI Kimi K3",
+      "Kimi K3 benchmarks",
+      "Kimi K3 pricing",
+      "Kimi K3 open weights",
+      "Kimi K3 2.8T parameters",
+      "Kimi Delta Attention",
+      "Kimi K3 vs Claude Opus 4.8",
+      "Kimi K3 vs GPT-5.5"
+    ],
+    "lastUpdated": "2026-07-17",
+    "analogy": "A record-setting cargo ship already carrying freight through a commercial port, but with its engine-room doors still locked until July 27: the performance is visible, while the machinery that makes it open remains unavailable for inspection."
   }
 ]
