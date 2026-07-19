@@ -4,6 +4,7 @@ import { getAllTerms } from "@/lib/glossary";
 import { notFound } from "next/navigation";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
 import ReadingProgress from "@/components/ReadingProgress";
+import X402RealityCheck from "@/components/article/X402RealityCheck";
 import type { Metadata } from "next";
 
 interface Props {
@@ -29,6 +30,30 @@ export default async function ArticlePage({ params }: Props) {
   const { slug } = await params;
   const issue = getIssueBySlug(slug);
   if (!issue) notFound();
+
+  const glossaryTerms = getAllTerms().map((term) => ({
+    name: term.name,
+    slug: term.slug,
+  }));
+  const x402VisualizationAnchor =
+    "The payment rail is becoming real. The market on top of it is not.";
+  const hasX402Visualization =
+    issue.slug === "x402-40-companies-agent-economy-demand-gap" &&
+    issue.content.includes(x402VisualizationAnchor);
+  const visualizationIndex = hasX402Visualization
+    ? issue.content.indexOf(x402VisualizationAnchor) +
+      x402VisualizationAnchor.length
+    : -1;
+  const contentBeforeVisualization = hasX402Visualization
+    ? issue.content.slice(0, visualizationIndex)
+    : issue.content;
+  const contentAfterVisualization = hasX402Visualization
+    ? issue.content.slice(visualizationIndex).trimStart()
+    : "";
+  // This article already has explicit glossary backlinks. Using the stateful
+  // auto-linker across two MarkdownRenderer instances can produce different
+  // server and client trees, so keep the split render deterministic.
+  const renderedGlossaryTerms = hasX402Visualization ? [] : glossaryTerms;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -85,7 +110,17 @@ export default async function ArticlePage({ params }: Props) {
           By Addy &middot; {new Date(issue.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
         </p>
 
-        <MarkdownRenderer content={issue.content} glossaryTerms={getAllTerms().map((t) => ({ name: t.name, slug: t.slug }))} />
+        <MarkdownRenderer
+          content={contentBeforeVisualization}
+          glossaryTerms={renderedGlossaryTerms}
+        />
+        {hasX402Visualization ? <X402RealityCheck /> : null}
+        {contentAfterVisualization ? (
+          <MarkdownRenderer
+            content={contentAfterVisualization}
+            glossaryTerms={renderedGlossaryTerms}
+          />
+        ) : null}
       </div>
     </>
   );
