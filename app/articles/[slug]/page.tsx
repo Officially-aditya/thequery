@@ -42,7 +42,7 @@ export default async function ArticlePage({ params }: Props) {
           anchor:
             "The payment rail is becoming real. The market on top of it is not.",
           component: <X402RealityCheck />,
-          placement: "inline" as const,
+          placement: "right-rail" as const,
         }
       : issue.slug === "gemini-36-flash-google-outside-top-ten"
         ? {

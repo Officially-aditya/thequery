@@ -119,7 +119,7 @@ function Panel({
 export default function X402RealityCheck() {
   return (
     <figure
-      className="relative left-1/2 my-10 w-[min(960px,calc(100vw-2rem))] -translate-x-1/2 rounded-xl p-5 sm:p-7"
+      className="my-10 w-full rounded-xl p-5 sm:p-7 xl:my-0"
       style={{
         backgroundColor: COLORS.background,
         border: `1px solid ${COLORS.border}`,
@@ -141,7 +141,7 @@ export default function X402RealityCheck() {
         volume changes dramatically depending on what the tracker counts.
       </div>
 
-      <div className="grid gap-5 md:grid-cols-2">
+      <div className="grid gap-5">
         <Panel
           title="x402 Foundation members"
           subtitle="Founding cohort to operational launch"
@@ -255,38 +255,40 @@ export default function X402RealityCheck() {
         </div>
       </div>
 
-      <table className="sr-only">
-        <caption>x402 Foundation membership and reported payment volume</caption>
-        <thead>
-          <tr>
-            <th scope="col">Measure</th>
-            <th scope="col">Period or methodology</th>
-            <th scope="col">Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Foundation members</td>
-            <td>April 2, 2026 founding cohort</td>
-            <td>22</td>
-          </tr>
-          <tr>
-            <td>Foundation members</td>
-            <td>July 14, 2026 operational launch</td>
-            <td>40</td>
-          </tr>
-          <tr>
-            <td>30-day volume</td>
-            <td>x402 headline</td>
-            <td>USD 24.2 million</td>
-          </tr>
-          <tr>
-            <td>30-day volume</td>
-            <td>DefiLlama narrower metric</td>
-            <td>USD 572,000</td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="sr-only">
+        <table>
+          <caption>x402 Foundation membership and reported payment volume</caption>
+          <thead>
+            <tr>
+              <th scope="col">Measure</th>
+              <th scope="col">Period or methodology</th>
+              <th scope="col">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Foundation members</td>
+              <td>April 2, 2026 founding cohort</td>
+              <td>22</td>
+            </tr>
+            <tr>
+              <td>Foundation members</td>
+              <td>July 14, 2026 operational launch</td>
+              <td>40</td>
+            </tr>
+            <tr>
+              <td>30-day volume</td>
+              <td>x402 headline</td>
+              <td>USD 24.2 million</td>
+            </tr>
+            <tr>
+              <td>30-day volume</td>
+              <td>DefiLlama narrower metric</td>
+              <td>USD 572,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </figure>
   );
 }
