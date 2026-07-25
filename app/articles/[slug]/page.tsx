@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
 import ReadingProgress from "@/components/ReadingProgress";
 import GeminiLeaderboardChart from "@/components/article/GeminiLeaderboardChart";
+import OpusLeaderboardChart from "@/components/article/OpusLeaderboardChart";
 import X402RealityCheck from "@/components/article/X402RealityCheck";
 import type { Metadata } from "next";
 
@@ -51,6 +52,13 @@ export default async function ArticlePage({ params }: Props) {
             component: <GeminiLeaderboardChart />,
             placement: "right-rail" as const,
           }
+        : issue.slug === "claude-opus-5-fable-5-benchmark-reaction"
+          ? {
+              anchor:
+                "The benchmarks were never the bottleneck. The timing was.",
+              component: <OpusLeaderboardChart />,
+              placement: "right-rail" as const,
+            }
         : null;
   const visualizationAnchor = visualizationConfig?.anchor ?? "";
   const hasEmbeddedVisualization =
