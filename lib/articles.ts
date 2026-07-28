@@ -9,6 +9,7 @@ export interface Article {
   date: string;
   summary: string;
   content: string;
+  manualGlossaryLinks?: boolean;
 }
 
 export function getAllIssues(): Article[] {

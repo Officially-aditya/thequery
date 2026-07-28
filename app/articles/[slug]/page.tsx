@@ -76,7 +76,8 @@ export default async function ArticlePage({ params }: Props) {
   // This article already has explicit glossary backlinks. Using the stateful
   // auto-linker across two MarkdownRenderer instances can produce different
   // server and client trees, so keep the split render deterministic.
-  const renderedGlossaryTerms = hasEmbeddedVisualization ? [] : glossaryTerms;
+  const renderedGlossaryTerms =
+    hasEmbeddedVisualization || issue.manualGlossaryLinks ? [] : glossaryTerms;
   const hasRightRailVisualization =
     hasEmbeddedVisualization && visualizationConfig?.placement === "right-rail";
 
