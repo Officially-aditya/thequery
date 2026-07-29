@@ -7,6 +7,7 @@ import ReadingProgress from "@/components/ReadingProgress";
 import GeminiLeaderboardChart from "@/components/article/GeminiLeaderboardChart";
 import OpusLeaderboardChart from "@/components/article/OpusLeaderboardChart";
 import X402RealityCheck from "@/components/article/X402RealityCheck";
+import ClaudeSharedChatsPrivacy from "@/components/article/ClaudeSharedChatsPrivacy";
 import type { Metadata } from "next";
 
 interface Props {
@@ -59,7 +60,14 @@ export default async function ArticlePage({ params }: Props) {
               component: <OpusLeaderboardChart />,
               placement: "right-rail" as const,
             }
-        : null;
+          : issue.slug === "claude-shared-chats-google-indexed-privacy"
+            ? {
+                anchor:
+                  "What users already bring to a chat has changed faster than the interface has.",
+                component: <ClaudeSharedChatsPrivacy />,
+                placement: "right-rail" as const,
+              }
+            : null;
   const visualizationAnchor = visualizationConfig?.anchor ?? "";
   const hasEmbeddedVisualization =
     visualizationConfig !== null &&
