@@ -6700,5 +6700,67 @@
     ],
     "lastUpdated": "2026-07-17",
     "analogy": "A record-setting cargo ship already carrying freight through a commercial port, but with its engine-room doors still locked until July 27: the performance is visible, while the machinery that makes it open remains unavailable for inspection."
-  }
+  } ,
+{
+  "name": "Qwen 3.8 Max",
+  "slug": "qwen-3-8-max",
+  "shortDef": "Alibaba's August 2026 flagship model, a 2.4T-parameter Mixture-of-Experts system with a 1M-token context window aimed at coding, agentic work, and multimodal tasks.",
+  "fullDef": "Qwen 3.8 Max is Alibaba's August 2026 flagship large language model. It uses a 2.4 trillion parameter Mixture-of-Experts architecture and supports a one-million-token context window, positioning it for long-running coding, research, and agentic workflows.\n\nAlibaba's launch chart compared Qwen 3.8 Max with Qwen 3.7 Max, Qwen 3.7 Plus, Claude Opus 4.8, Claude Fable 5, Gemini 3.1 Pro, and GPT-5.6 Sol across sixteen benchmarks. The model's strongest results came on vision, perception, and research-reproduction tasks including PaperBench, BabyVision, CharXiv, ERQA, PerceptionBench, LVBench, and OSWorld-Verified.\n\nThe same chart showed a more mixed picture on software engineering and long-horizon agent work. Claude Fable 5 led Qwen 3.8 Max on SWE-Pro, FrontierSWE, QwenReactBench, CoWorkBench, JobBench, Vision2Web, and MobileWorld, while GPT-5.6 Sol led on TerminalBench-2.1 and Agents' Last Exam. Alibaba notes that competing models were evaluated through their preferred harnesses, so cross-lab comparisons should be treated as directional rather than exact.",
+  "category": "LLM Models",
+  "relatedTerms": [
+    "large-language-model",
+    "mixture-of-experts",
+    "context-window",
+    "agentic-ai",
+    "benchmark",
+    "open-weight-model"
+  ],
+  "lastUpdated": "2026-08-03",
+  "references": [
+    {
+      "title": "Qwen3.8",
+      "url": "https://openlm.ai/qwen3.8/"
+    },
+    {
+      "title": "LLM Leaderboard",
+      "url": "https://artificialanalysis.ai/leaderboards/models"
+    },
+    {
+      "title": "Qwen 3.8 Max Ships: 2.4T MoE, 1M Context, Open Weights Next Week",
+      "url": "https://www.developersdigest.tech/blog/qwen-3-8-max-release-2026"
+    }
+  ],
+  "analogy": "A giant specialist team with a million-token desk: it can draw on enormous capacity, but the useful question is which specialists are actually winning the tasks you care about."
+},
+{
+  "name": "Claude Opus 5",
+  "slug": "claude-opus-5",
+  "shortDef": "Anthropic's July 2026 flagship model, narrowly leading Claude Fable 5 on the Artificial Analysis Intelligence Index while targeting advanced coding and knowledge work.",
+  "fullDef": "Claude Opus 5 is Anthropic's July 2026 flagship large language model. In the July 24–25 snapshot of the Artificial Analysis Intelligence Index, it scored 61, one point ahead of Claude Fable 5 at 60 and two points ahead of GPT-5.6 Sol at 59. The narrow lead made Opus 5 the highest-scoring model in that snapshot.\n\nThe model is positioned for difficult software engineering, long-horizon agentic workflows, and professional knowledge work. Its benchmark profile is not a clean sweep: Fable 5 remains ahead on SWE-bench Pro in the comparison published around launch, while Opus 5 leads on several composite and coding-oriented measures. The result is best read as a close frontier snapshot rather than a permanent ranking.\n\nOpus 5 also kept Anthropic's premium flagship positioning while matching the previous Opus rate card. That combination of a small Intelligence Index lead and lower measured task cost than Fable 5 made the launch more significant than the muted reaction suggested.",
+  "category": "LLM Models",
+  "relatedTerms": [
+    "large-language-model",
+    "ai-agent",
+    "agentic-workflows",
+    "benchmark",
+    "claude-code",
+    "inference"
+  ],
+  "lastUpdated": "2026-08-03",
+  "references": [
+    {
+      "title": "Claude Opus 5 Just Edged Out Fable 5 on the Benchmarks",
+      "url": "/articles/claude-opus-5-fable-5-benchmark-reaction"
+    },
+    {
+      "title": "Artificial Analysis Intelligence Index",
+      "url": "https://artificialanalysis.ai/leaderboards/models"
+    },
+    {
+      "title": "Anthropic Claude Models Overview",
+      "url": "https://platform.claude.com/docs/en/about-claude/models/overview"
+    }
+  ],
+  "analogy": "Anthropic's flagship research partner: strong enough to lead a crowded leaderboard, but only by the narrow margin that makes the next benchmark matter."
+}
 ]
