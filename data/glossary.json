@@ -6704,18 +6704,19 @@
 {
   "name": "Qwen 3.8 Max",
   "slug": "qwen-3-8-max",
-  "shortDef": "Alibaba's August 2026 flagship model, a 2.4T-parameter Mixture-of-Experts system with a 1M-token context window aimed at coding, agentic work, and multimodal tasks.",
-  "fullDef": "Qwen 3.8 Max is Alibaba's August 2026 flagship large language model. It uses a 2.4 trillion parameter Mixture-of-Experts architecture and supports a one-million-token context window, positioning it for long-running coding, research, and agentic workflows.\n\nAlibaba's launch chart compared Qwen 3.8 Max with Qwen 3.7 Max, Qwen 3.7 Plus, Claude Opus 4.8, Claude Fable 5, Gemini 3.1 Pro, and GPT-5.6 Sol across sixteen benchmarks. The model's strongest results came on vision, perception, and research-reproduction tasks including PaperBench, BabyVision, CharXiv, ERQA, PerceptionBench, LVBench, and OSWorld-Verified.\n\nThe same chart showed a more mixed picture on software engineering and long-horizon agent work. Claude Fable 5 led Qwen 3.8 Max on SWE-Pro, FrontierSWE, QwenReactBench, CoWorkBench, JobBench, Vision2Web, and MobileWorld, while GPT-5.6 Sol led on TerminalBench-2.1 and Agents' Last Exam. Alibaba notes that competing models were evaluated through their preferred harnesses, so cross-lab comparisons should be treated as directional rather than exact.",
+  "shortDef": "Alibaba's August 2026 flagship model: a 2.4T-parameter sparse Mixture-of-Experts system with a 1M-token context window, strong multimodal results, and a mixed coding profile.",
+  "fullDef": "Qwen 3.8 Max is Alibaba's August 2026 flagship [large language model](/glossary/large-language-model), built for coding, long-horizon [agentic workflows](/glossary/agentic-workflows), research, and multimodal perception. Its headline architecture is a sparse [Mixture-of-Experts](/glossary/mixture-of-experts) system with 2.4 trillion total parameters and a one-million-token [context window](/glossary/context-window). The total parameter count describes the model's stored capacity; only a subset of experts is activated for each token, which is what makes a model at this scale practical to serve.\n\n## Core profile\n\nQwen 3.8 Max arrived as a hosted flagship in the Qwen line, following Qwen 3.7 Max and Qwen 3.7 Plus. Alibaba's launch positioning emphasized software engineering, long-running tool use, and agent work, while the model's public benchmark chart also highlighted vision and research-reproduction tasks. The release should therefore be read as a broad multimodal model rather than a coding-only system.\n\nThe one-million-token context window is designed for repository-scale code, long documents, image-heavy research, and workflows where the model must retain state across many tool calls. In practice, a large context limit is not the same as perfect long-context recall: teams still need retrieval, file selection, and a harness that keeps the working set manageable.\n\n## Benchmark profile\n\nAlibaba published a sixteen-panel comparison against Qwen 3.7 Max, Qwen 3.7 Plus, Claude Opus 4.8, Claude Fable 5, Gemini 3.1 Pro, and GPT-5.6 Sol. The strongest cluster for Qwen 3.8 Max was vision, perception, and research reproduction: it led on PaperBench, BabyVision, CharXiv, ERQA, PerceptionBench, LVBench, and OSWorld-Verified. Those results suggest real strength at interpreting visual information and reproducing research tasks.\n\nThe coding and agentic picture was less decisive. Claude Fable 5 led Qwen 3.8 Max on SWE-Pro (80.0% to 67.7%), FrontierSWE (88.8% to 73.5%), QwenReactBench (1770 to 1724), CoWorkBench (75.9% to 74.8%), JobBench (57.4% to 53.4%), Vision2Web (70.5% to 69.0%), and MobileWorld (85.5% to 77.8%). GPT-5.6 Sol led on TerminalBench-2.1 (88.8% to 86.6%) and Agents' Last Exam (53.6% to 52.4%).\n\nThat leaves an important distinction between capability and positioning. Qwen 3.8 Max is clearly competitive, but the launch chart does not show it leading the coding-agent field Alibaba used to frame the product. The omitted comparisons matter too: Kimi K3 was the leading open-weight model on the independent Artificial Analysis Intelligence Index, while Claude Opus 5 had already taken the top overall score in the July 24–25 snapshot.\n\n## How to read Alibaba's chart\n\nAlibaba notes that competing models were evaluated in their preferred harnesses: Claude models through Claude Code and GPT-5.6 Sol through Codex. That makes the cross-lab numbers directional rather than perfectly interchangeable. A benchmark score measures the model, its prompting, its tools, and its [agent harness](/glossary/agent-harness) together. The caveat is legitimate, but it applies equally to every bar and does not explain why the newest relevant comparison points were absent.\n\n## When to use it\n\nQwen 3.8 Max is a sensible candidate for multimodal research, visual understanding, long-document analysis, repository-scale tasks, and applications that benefit from a very large context window. Teams comparing it for coding agents should test it on their own repositories and tool stack rather than treating Alibaba's sixteen-panel chart as a final ranking.\n\n## Bottom line\n\nQwen 3.8 Max looks strongest as a multimodal and perception-heavy flagship. It is competitive on coding and agent work, but the published evidence does not establish a clear lead, especially after accounting for the missing Kimi K3 and Claude Opus 5 comparisons.",
   "category": "LLM Models",
   "relatedTerms": [
     "large-language-model",
     "mixture-of-experts",
     "context-window",
     "agentic-ai",
+    "agent-harness",
     "benchmark",
     "open-weight-model"
   ],
-  "lastUpdated": "2026-08-03",
+  "lastUpdated": "2026-08-05",
   "references": [
     {
       "title": "Qwen3.8",
@@ -6730,23 +6731,36 @@
       "url": "https://www.developersdigest.tech/blog/qwen-3-8-max-release-2026"
     }
   ],
-  "analogy": "A giant specialist team with a million-token desk: it can draw on enormous capacity, but the useful question is which specialists are actually winning the tasks you care about."
+  "analogy": "A giant specialist team with a million-token desk: it can draw on enormous capacity, but the useful question is which specialists are actually winning the tasks you care about.",
+  "seoDescription": "Qwen 3.8 Max explained: Alibaba’s 2.4T-parameter MoE flagship, 1M-token context window, benchmark profile, multimodal strengths, and coding caveats.",
+  "seoKeywords": [
+    "Qwen 3.8 Max",
+    "Qwen3.8 Max benchmarks",
+    "Qwen 3.8 Max parameters",
+    "Qwen 3.8 Max context window",
+    "Qwen 3.8 Max vs Claude Opus 5",
+    "Qwen 3.8 Max vs Kimi K3",
+    "Qwen 3.8 Max coding",
+    "Qwen 3.8 Max multimodal"
+  ]
 },
 {
   "name": "Claude Opus 5",
   "slug": "claude-opus-5",
-  "shortDef": "Anthropic's July 2026 flagship model, narrowly leading Claude Fable 5 on the Artificial Analysis Intelligence Index while targeting advanced coding and knowledge work.",
-  "fullDef": "Claude Opus 5 is Anthropic's July 2026 flagship large language model. In the July 24–25 snapshot of the Artificial Analysis Intelligence Index, it scored 61, one point ahead of Claude Fable 5 at 60 and two points ahead of GPT-5.6 Sol at 59. The narrow lead made Opus 5 the highest-scoring model in that snapshot.\n\nThe model is positioned for difficult software engineering, long-horizon agentic workflows, and professional knowledge work. Its benchmark profile is not a clean sweep: Fable 5 remains ahead on SWE-bench Pro in the comparison published around launch, while Opus 5 leads on several composite and coding-oriented measures. The result is best read as a close frontier snapshot rather than a permanent ranking.\n\nOpus 5 also kept Anthropic's premium flagship positioning while matching the previous Opus rate card. That combination of a small Intelligence Index lead and lower measured task cost than Fable 5 made the launch more significant than the muted reaction suggested.",
+  "shortDef": "Anthropic's July 2026 flagship model with five effort levels, a narrow independent Intelligence Index lead, and strong coding and knowledge-work results at a lower task cost than Fable 5.",
+  "fullDef": "Claude Opus 5 is Anthropic's July 2026 flagship [large language model](/glossary/large-language-model), designed for difficult software engineering, long-horizon [AI agent](/glossary/ai-agent) work, and professional knowledge tasks. It launched on July 24 with five effort levels — low, medium, high, xhigh, and max — that let users trade latency and output-token spend for more deliberate reasoning. The effort setting is part of the product, not just a hidden inference detail: the same model can behave like a fast workhorse or a slower project team depending on the task.\n\n## Benchmark profile\n\nIn the July 24–25 snapshot of the independent Artificial Analysis Intelligence Index, Opus 5 scored 61, one point ahead of Claude Fable 5 at 60 and two points ahead of GPT-5.6 Sol at 59. The lead made Opus 5 the highest-scoring model in that snapshot, but the margin is narrow and should be treated as a frontier snapshot rather than a permanent hierarchy.\n\nThe result is broader than one composite score. Opus 5 reached 96% on SWE-bench Verified against Fable 5's 95%, led or tied the Artificial Analysis Coding Agent Index depending on effort configuration, scored 1,861 Elo on GDPval-AA v2, and led Fable 5 by 146 Elo on AA-Briefcase. On CursorBench 3.2 at maximum effort, Anthropic reported that Opus 5 came within 0.5% of Fable 5's peak score at half the cost per task. Those company-reported results are useful context, but they are not interchangeable with an independent evaluation.\n\nThe benchmark profile is not a sweep. Fable 5 remained ahead on SWE-bench Pro, 80.0% to 79.2%, and Opus 5 was behind Anthropic's restricted Mythos 5 on exploit development by design. The more accurate summary is that Opus 5 wins or stays close across a wide layer of coding and knowledge-work evaluations while losing specific tasks.\n\n## Effort and cost\n\nAnthropic priced Opus 5 at USD 5 per million input tokens and USD 25 per million output tokens, the same rate card as Claude Opus 4.8 and half of Fable 5's token price. Artificial Analysis measured an average cost of USD 2.03 per Intelligence Index task for Opus 5 against USD 2.75 for Fable 5. That cost comparison depends on effort settings and benchmark harnesses, so production teams should measure their own workload rather than assume the leaderboard ratio will transfer directly.\n\nThe five effort levels create a practical cost-performance curve. Maximum effort is appropriate for ambiguous, high-value tasks where extra reasoning pays for itself; lower settings can preserve latency and budget for routine work. A benchmark run at max effort does not describe the economics of every production request, just as a low-effort run does not reveal the model's peak capability.\n\n## Workflow fit\n\nOpus 5 is a strong candidate for repository-scale debugging, code review, multi-step implementation, long-form analysis, and knowledge-work tasks where reliability matters more than first-token speed. Early workflow reports were mixed: some users found the model brilliant but frustrating because it pushed back on instructions or stopped before finishing, while others improved results by rebuilding their setup around its more deliberate behavior. That gap is a reminder that a model is used through prompts, tools, permissions, memory, and a [benchmark](/glossary/benchmark) or production harness — not in isolation.\n\n## Bottom line\n\nClaude Opus 5 is a quiet number-one finish rather than an uncontested victory. It combines a narrow independent lead, strong coding and knowledge-work evidence, explicit effort controls, and a lower measured task cost than Fable 5. Its margin is real but small, and the right production question is not whether it wins every benchmark. It is whether the extra reasoning and workflow adaptation pay off on the tasks a team actually runs.",
   "category": "LLM Models",
   "relatedTerms": [
     "large-language-model",
     "ai-agent",
     "agentic-workflows",
+    "agent-harness",
     "benchmark",
     "claude-code",
+    "context-window",
     "inference"
   ],
-  "lastUpdated": "2026-08-03",
+  "lastUpdated": "2026-08-05",
   "references": [
     {
       "title": "Claude Opus 5 Just Edged Out Fable 5 on the Benchmarks",
@@ -6761,6 +6775,17 @@
       "url": "https://platform.claude.com/docs/en/about-claude/models/overview"
     }
   ],
-  "analogy": "Anthropic's flagship research partner: strong enough to lead a crowded leaderboard, but only by the narrow margin that makes the next benchmark matter."
+  "analogy": "Anthropic's flagship research partner: strong enough to lead a crowded leaderboard, but only by the narrow margin that makes the next benchmark matter.",
+  "seoDescription": "Claude Opus 5 explained: benchmark results, effort levels, pricing, coding performance, task economics, and how it compares with Fable 5.",
+  "seoKeywords": [
+    "Claude Opus 5",
+    "Claude Opus 5 benchmarks",
+    "Claude Opus 5 pricing",
+    "Claude Opus 5 vs Fable 5",
+    "Claude Opus 5 SWE-bench",
+    "Claude Opus 5 effort levels",
+    "Claude Opus 5 coding",
+    "Anthropic Opus 5"
+  ]
 }
 ]
