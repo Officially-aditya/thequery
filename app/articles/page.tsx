@@ -12,8 +12,23 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ArticlesPage() {
+const PAGE_SIZE = 10;
+
+type ArticlesPageProps = {
+  searchParams: Promise<{ page?: string }>;
+};
+
+export default async function ArticlesPage({ searchParams }: ArticlesPageProps) {
   const issues = getAllIssues();
+  const { page: pageParam } = await searchParams;
+  const requestedPage = Number.parseInt(pageParam ?? "1", 10);
+  const totalPages = Math.max(1, Math.ceil(issues.length / PAGE_SIZE));
+  const currentPage = Number.isFinite(requestedPage)
+    ? Math.min(Math.max(requestedPage, 1), totalPages)
+    : 1;
+  const pageIssues = issues.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+
+  const pageHref = (page: number) => (page === 1 ? "/articles" : `/articles?page=${page}`);
 
   return (
     <div className="max-w-[960px] mx-auto px-4 py-12">
@@ -26,7 +41,7 @@ export default function ArticlesPage() {
         <p className="text-sm text-text-muted text-center py-12">No articles yet. Check back soon!</p>
       ) : (
         <div className="space-y-4">
-          {issues.map((issue) => (
+          {pageIssues.map((issue) => (
             <Link
               key={issue.slug}
               href={`/articles/${issue.slug}`}
@@ -44,6 +59,53 @@ export default function ArticlesPage() {
             </Link>
           ))}
         </div>
+      )}
+
+      {totalPages > 1 && (
+        <nav aria-label="Article pages" className="flex items-center justify-center gap-2 mt-10">
+          {currentPage > 1 ? (
+            <Link
+              href={pageHref(currentPage - 1)}
+              className="px-3 py-2 text-sm text-text-secondary border border-border rounded-md hover:border-accent hover:text-accent transition-colors"
+            >
+              Previous
+            </Link>
+          ) : (
+            <span className="px-3 py-2 text-sm text-text-muted/50 border border-border/50 rounded-md">
+              Previous
+            </span>
+          )}
+
+          <div className="flex items-center gap-1" role="list">
+            {Array.from({ length: totalPages }, (_, index) => index + 1).map((page) => (
+              <Link
+                key={page}
+                href={pageHref(page)}
+                aria-current={page === currentPage ? "page" : undefined}
+                className={`min-w-9 px-2 py-2 text-sm text-center rounded-md border transition-colors ${
+                  page === currentPage
+                    ? "border-accent bg-accent text-white"
+                    : "border-border text-text-secondary hover:border-accent hover:text-accent"
+                }`}
+              >
+                {page}
+              </Link>
+            ))}
+          </div>
+
+          {currentPage < totalPages ? (
+            <Link
+              href={pageHref(currentPage + 1)}
+              className="px-3 py-2 text-sm text-text-secondary border border-border rounded-md hover:border-accent hover:text-accent transition-colors"
+            >
+              Next
+            </Link>
+          ) : (
+            <span className="px-3 py-2 text-sm text-text-muted/50 border border-border/50 rounded-md">
+              Next
+            </span>
+          )}
+        </nav>
       )}
     </div>
   );
