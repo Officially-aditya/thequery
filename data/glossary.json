@@ -6787,5 +6787,36 @@
     "Claude Opus 5 coding",
     "Anthropic Opus 5"
   ]
+},
+{
+  "name": "FLOP",
+  "slug": "flop",
+  "shortDef": "A floating-point operation: one arithmetic calculation on decimal-like numbers, used as the basic unit for measuring computational work in AI and scientific computing.",
+  "fullDef": "A FLOP, short for floating-point operation, is one arithmetic operation performed on a number represented in floating-point format. Addition, subtraction, multiplication, and division on values such as 3.14 or 0.001 can each count as a floating-point operation, depending on how a system defines and reports the workload. FLOPs measure work performed, not time taken: two processors can execute the same number of FLOPs at very different speeds.\n\n## FLOPs, FLOPS, and prefixes\n\nThe singular unit is FLOP. FLOPS, usually pronounced \"flops,\" means floating-point operations per second and describes a rate of computation. Hardware is often described in gigaflops (GFLOPS, 10^9 operations per second), teraflops (TFLOPS, 10^12), petaflops (PFLOPS, 10^15), or exaflops (EFLOPS, 10^18). A chip's advertised peak FLOPS is a theoretical upper bound under ideal instruction mix, precision, and utilization; real workloads usually achieve less.\n\nThe precision matters. A device may report separate peak rates for FP64, FP32, FP16, BF16, or FP8 arithmetic. Lower-precision formats can deliver much higher throughput and are common in modern [large language model](/glossary/large-language-model) training and [inference](/glossary/inference), but they do not always provide the same numerical accuracy. Tensor operations may also be counted as multiple FLOPs: a multiply-add is commonly counted as two operations, one multiplication and one addition.\n\n## How FLOPs are used in AI\n\nDuring model training, researchers estimate total FLOPs to compare the computational scale of runs, plan hardware capacity, and study the relationship between training compute and model quality. A rough dense-transformer estimate is often expressed in terms of parameter count and training tokens, while the actual total depends on architecture, sequence length, attention implementation, batch size, optimizer, precision, and the number of training steps. [Mixture-of-Experts](/glossary/mixture-of-experts) models complicate the headline number because total parameters and active parameters are different: routing only some experts can reduce the FLOPs used per token even when the stored model is enormous.\n\nAt inference time, FLOPs help estimate how expensive it is to answer a request, but they are not the whole bill. Memory bandwidth, model loading, communication between accelerators, batching, cache behavior, and the number of generated tokens can dominate. Two models with similar FLOPs can have different latency or cost if one moves more data or uses hardware more efficiently. This is why production teams pair FLOP estimates with throughput, latency, utilization, and energy measurements.\n\n## Applications\n\nFLOPs are used to size [GPU](/glossary/gpu) clusters, compare accelerators, estimate training budgets, benchmark supercomputers, and report the computational requirements of scientific simulations, weather models, graphics, and signal processing. In AI research, FLOPs are also used to make efficiency claims: a smaller model that reaches the same quality with fewer training FLOPs may be cheaper to develop, while a model that uses fewer inference FLOPs can be cheaper to serve at scale.\n\n## Why FLOPs matter\n\nFLOPs provide a common language for computational demand, but they should never be mistaken for intelligence or performance by themselves. More FLOPs can buy more capacity, longer training, or more inference-time reasoning, yet data quality, architecture, software, memory, and evaluation determine what those operations accomplish. The useful comparison is usually quality per FLOP, cost per task, or energy per result rather than the largest FLOP number.\n\nA simple analogy: FLOPs are the individual motions a factory performs, while FLOPS is how quickly the factory can perform them. Counting motions tells you how much work a job contains; it does not tell you how fast or efficiently a particular factory will finish it.",
+  "category": "Infrastructure",
+  "relatedTerms": [
+    "gpu",
+    "inference",
+    "inference-time-compute",
+    "large-language-model",
+    "mixture-of-experts",
+    "benchmark"
+  ],
+  "lastUpdated": "2026-08-10",
+  "references": [
+    {
+      "title": "Floating-point operations per second",
+      "url": "https://en.wikipedia.org/wiki/FLOPS"
+    },
+    {
+      "title": "NVIDIA Tensor Cores",
+      "url": "https://www.nvidia.com/en-us/data-center/tensor-cores/"
+    },
+    {
+      "title": "Computing at Exascale",
+      "url": "https://www.energy.gov/science/articles/exascale-computing"
+    }
+  ],
+  "analogy": "FLOPs are the individual motions a factory performs; FLOPS is how quickly the factory can perform them."
 }
 ]
