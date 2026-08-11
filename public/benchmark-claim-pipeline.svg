@@ -1,0 +1,88 @@
+<svg viewBox="0 0 1400 620" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#4FB0A5" />
+    </marker>
+  </defs>
+
+  <rect width="1400" height="620" fill="#12161F" />
+
+  <text x="700" y="50" text-anchor="middle" fill="#E9EAEC" font-size="26" font-weight="bold">The Benchmark Claim Pipeline</text>
+  <text x="700" y="78" text-anchor="middle" fill="#8B93A3" font-size="15" font-family="Arial, sans-serif">Every stage has a documented way to go wrong</text>
+
+  <!-- Stage boxes -->
+  <g font-family="Arial, sans-serif">
+    <!-- Stage 1 -->
+    <rect x="30" y="150" width="220" height="80" rx="8" fill="#1B2230" stroke="#2A3241" stroke-width="1.5"/>
+    <text x="140" y="185" text-anchor="middle" fill="#E9EAEC" font-size="15" font-weight="bold">Model Trained</text>
+    <text x="140" y="206" text-anchor="middle" fill="#8B93A3" font-size="12">on scraped web data</text>
+
+    <!-- Stage 2 -->
+    <rect x="325" y="150" width="220" height="80" rx="8" fill="#1B2230" stroke="#2A3241" stroke-width="1.5"/>
+    <text x="435" y="185" text-anchor="middle" fill="#E9EAEC" font-size="15" font-weight="bold">Benchmark Run</text>
+    <text x="435" y="206" text-anchor="middle" fill="#8B93A3" font-size="12">inside a harness/scaffold</text>
+
+    <!-- Stage 3 -->
+    <rect x="620" y="150" width="220" height="80" rx="8" fill="#1B2230" stroke="#2A3241" stroke-width="1.5"/>
+    <text x="730" y="185" text-anchor="middle" fill="#E9EAEC" font-size="15" font-weight="bold">Verifier Grades</text>
+    <text x="730" y="206" text-anchor="middle" fill="#8B93A3" font-size="12">pass or fail decision</text>
+
+    <!-- Stage 4 -->
+    <rect x="915" y="150" width="220" height="80" rx="8" fill="#1B2230" stroke="#2A3241" stroke-width="1.5"/>
+    <text x="1025" y="185" text-anchor="middle" fill="#E9EAEC" font-size="15" font-weight="bold">Result Published</text>
+    <text x="1025" y="206" text-anchor="middle" fill="#8B93A3" font-size="12">chart, blog post, tweet</text>
+
+    <!-- Stage 5 -->
+    <rect x="1180" y="150" width="190" height="80" rx="8" fill="#1B2230" stroke="#4FB0A5" stroke-width="2"/>
+    <text x="1275" y="185" text-anchor="middle" fill="#E9EAEC" font-size="15" font-weight="bold">You Read It</text>
+    <text x="1275" y="206" text-anchor="middle" fill="#4FB0A5" font-size="12">this is the checkpoint</text>
+
+    <!-- Arrows -->
+    <line x1="250" y1="190" x2="322" y2="190" stroke="#4FB0A5" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="545" y1="190" x2="617" y2="190" stroke="#4FB0A5" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="840" y1="190" x2="912" y2="190" stroke="#4FB0A5" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="1135" y1="190" x2="1177" y2="190" stroke="#4FB0A5" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- Failure point callouts below each arrow -->
+    <line x1="286" y1="230" x2="286" y2="290" stroke="#D98C4A" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <rect x="60" y="290" width="452" height="110" rx="6" fill="#1B2230" stroke="#D98C4A" stroke-width="1.5"/>
+    <text x="286" y="315" text-anchor="middle" fill="#D98C4A" font-size="13" font-weight="bold">CONTAMINATION</text>
+    <text x="286" y="338" text-anchor="middle" fill="#B7BEC9" font-size="12">Model may have seen the test</text>
+    <text x="286" y="356" text-anchor="middle" fill="#B7BEC9" font-size="12">during training. MMLU: 29.1%</text>
+    <text x="286" y="374" text-anchor="middle" fill="#B7BEC9" font-size="12">of items showed contamination.</text>
+
+    <line x1="581" y1="230" x2="581" y2="290" stroke="#D98C4A" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <rect x="355" y="290" width="452" height="110" rx="6" fill="#1B2230" stroke="#D98C4A" stroke-width="1.5"/>
+    <text x="581" y="315" text-anchor="middle" fill="#D98C4A" font-size="13" font-weight="bold">HARNESS AND EXPLOITS</text>
+    <text x="581" y="338" text-anchor="middle" fill="#B7BEC9" font-size="12">Same model, different scaffold,</text>
+    <text x="581" y="356" text-anchor="middle" fill="#B7BEC9" font-size="12">different score. Or the model finds</text>
+    <text x="581" y="374" text-anchor="middle" fill="#B7BEC9" font-size="12">a shortcut, like reading git history.</text>
+
+    <line x1="876" y1="230" x2="876" y2="290" stroke="#D98C4A" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <rect x="650" y="290" width="452" height="110" rx="6" fill="#1B2230" stroke="#D98C4A" stroke-width="1.5"/>
+    <text x="876" y="315" text-anchor="middle" fill="#D98C4A" font-size="13" font-weight="bold">GRADER ERROR</text>
+    <text x="876" y="338" text-anchor="middle" fill="#B7BEC9" font-size="12">The verifier itself can be wrong.</text>
+    <text x="876" y="356" text-anchor="middle" fill="#B7BEC9" font-size="12">SWE-bench Pro: 24% false negatives,</text>
+    <text x="876" y="374" text-anchor="middle" fill="#B7BEC9" font-size="12">8.5% false positives, per audit.</text>
+
+    <line x1="1171" y1="230" x2="1171" y2="290" stroke="#D98C4A" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <rect x="945" y="290" width="425" height="110" rx="6" fill="#1B2230" stroke="#D98C4A" stroke-width="1.5"/>
+    <text x="1171" y="315" text-anchor="middle" fill="#D98C4A" font-size="13" font-weight="bold">FRAMING</text>
+    <text x="1171" y="338" text-anchor="middle" fill="#B7BEC9" font-size="12">Cherry-picked comparisons, hidden</text>
+    <text x="1171" y="356" text-anchor="middle" fill="#B7BEC9" font-size="12">cost-per-task, style mistaken for</text>
+    <text x="1171" y="374" text-anchor="middle" fill="#B7BEC9" font-size="12">substance in preference leaderboards.</text>
+  </g>
+
+  <!-- Bottom checklist strip -->
+  <rect x="30" y="450" width="1340" height="140" rx="8" fill="#1B2230" stroke="#2A3241" stroke-width="1.5"/>
+  <text x="700" y="480" text-anchor="middle" fill="#E9EAEC" font-size="15" font-weight="bold" font-family="Arial, sans-serif">Before you repeat the number</text>
+  <text x="60" y="512" fill="#B7BEC9" font-size="13" font-family="Arial, sans-serif">- Independent or vendor-run?</text>
+  <text x="60" y="536" fill="#B7BEC9" font-size="13" font-family="Arial, sans-serif">- Contamination checked?</text>
+  <text x="60" y="560" fill="#B7BEC9" font-size="13" font-family="Arial, sans-serif">- Verifier audited?</text>
+  <text x="490" y="512" fill="#B7BEC9" font-size="13" font-family="Arial, sans-serif">- Same harness for every model?</text>
+  <text x="490" y="536" fill="#B7BEC9" font-size="13" font-family="Arial, sans-serif">- Full comparison set shown?</text>
+  <text x="490" y="560" fill="#B7BEC9" font-size="13" font-family="Arial, sans-serif">- Cost per solved task, not just win/loss?</text>
+  <text x="960" y="512" fill="#B7BEC9" font-size="13" font-family="Arial, sans-serif">- Preference or capability?</text>
+  <text x="960" y="536" fill="#B7BEC9" font-size="13" font-family="Arial, sans-serif">- Has it been reproduced?</text>
+  <text x="960" y="560" fill="#4FB0A5" font-size="13" font-family="Arial, sans-serif">TheQuery.in</text>
+</svg>
