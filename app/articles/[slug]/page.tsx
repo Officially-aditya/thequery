@@ -8,6 +8,7 @@ import GeminiLeaderboardChart from "@/components/article/GeminiLeaderboardChart"
 import OpusLeaderboardChart from "@/components/article/OpusLeaderboardChart";
 import X402RealityCheck from "@/components/article/X402RealityCheck";
 import ClaudeSharedChatsPrivacy from "@/components/article/ClaudeSharedChatsPrivacy";
+import { AUTHOR, ORGANIZATION_ID, ORGANIZATION_LOGO, SITE_URL, authorJsonLd } from "@/lib/site";
 import type { Metadata } from "next";
 
 interface Props {
@@ -97,28 +98,29 @@ export default async function ArticlePage({ params }: Props) {
         headline: issue.title,
         description: issue.summary,
         datePublished: issue.date,
-        url: `https://www.thequery.in/articles/${issue.slug}`,
-        author: {
-          "@type": "Person",
-          name: "Addy",
-          url: "https://www.thequery.in/about",
-        },
+        dateModified: issue.date,
+        url: `${SITE_URL}/articles/${issue.slug}`,
+        author: { ...authorJsonLd },
         publisher: {
           "@type": "Organization",
-          "@id": "https://www.thequery.in/#organization",
+          "@id": ORGANIZATION_ID,
           name: "TheQuery",
+          logo: {
+            "@type": "ImageObject",
+            url: ORGANIZATION_LOGO,
+          },
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": `https://www.thequery.in/articles/${issue.slug}`,
+          "@id": `${SITE_URL}/articles/${issue.slug}`,
         },
         inLanguage: "en",
       },
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.thequery.in" },
-          { "@type": "ListItem", position: 2, name: "Articles", item: "https://www.thequery.in/articles" },
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+          { "@type": "ListItem", position: 2, name: "Articles", item: `${SITE_URL}/articles` },
           { "@type": "ListItem", position: 3, name: issue.title },
         ],
       },
@@ -151,7 +153,9 @@ export default async function ArticlePage({ params }: Props) {
             {issue.title}
           </h1>
           <p className="text-sm text-text-muted mb-8">
-            By Addy &middot; {new Date(issue.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+            By <Link href={AUTHOR.url} className="text-accent hover:text-accent-hover transition-colors">{AUTHOR.name}</Link>
+            {" "}&middot; {new Date(issue.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+            {" "}&middot; <Link href="/about#editorial-standards" className="hover:text-text-secondary transition-colors">Editorial standards</Link>
           </p>
         </div>
 

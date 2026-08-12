@@ -1,31 +1,50 @@
 import Link from "next/link";
 import { getAllIssues } from "@/lib/articles";
+import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Articles",
-  description: "A curated weekly summary of the most important AI developments, research, and news.",
-  openGraph: {
-    title: "Articles - TheQuery",
-    description: "A weekly roundup of what actually matters in AI - no hype, just signal.",
-    images: ["/opengraph-image"],
-  },
-};
-
+const SITE_URL = "https://www.thequery.in";
 const PAGE_SIZE = 10;
 
 type ArticlesPageProps = {
   searchParams: Promise<{ page?: string }>;
 };
 
+function getValidPage(pageParam: string | undefined, totalPages: number): number {
+  if (pageParam === undefined) return 1;
+  if (!/^[1-9]\d*$/.test(pageParam)) notFound();
+
+  const page = Number(pageParam);
+  if (!Number.isSafeInteger(page) || page > totalPages) notFound();
+  return page;
+}
+
+export async function generateMetadata({ searchParams }: ArticlesPageProps): Promise<Metadata> {
+  const totalPages = Math.max(1, Math.ceil(getAllIssues().length / PAGE_SIZE));
+  const { page: pageParam } = await searchParams;
+  const currentPage = getValidPage(pageParam, totalPages);
+  const canonical = currentPage === 1
+    ? `${SITE_URL}/articles`
+    : `${SITE_URL}/articles?page=${currentPage}`;
+
+  return {
+    title: "Articles",
+    description: "A curated weekly summary of the most important AI developments, research, and news.",
+    alternates: { canonical },
+    openGraph: {
+      title: "Articles - TheQuery",
+      description: "A weekly roundup of what actually matters in AI - no hype, just signal.",
+      url: canonical,
+      images: ["/opengraph-image"],
+    },
+  };
+}
+
 export default async function ArticlesPage({ searchParams }: ArticlesPageProps) {
   const issues = getAllIssues();
   const { page: pageParam } = await searchParams;
-  const requestedPage = Number.parseInt(pageParam ?? "1", 10);
   const totalPages = Math.max(1, Math.ceil(issues.length / PAGE_SIZE));
-  const currentPage = Number.isFinite(requestedPage)
-    ? Math.min(Math.max(requestedPage, 1), totalPages)
-    : 1;
+  const currentPage = getValidPage(pageParam, totalPages);
   const pageIssues = issues.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
 
   const pageHref = (page: number) => (page === 1 ? "/articles" : `/articles?page=${page}`);

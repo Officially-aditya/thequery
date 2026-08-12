@@ -3,6 +3,7 @@ import { getAllGuides, getGuideBySlug } from "@/lib/guides";
 import { getAllTerms } from "@/lib/glossary";
 import { notFound } from "next/navigation";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
+import { AUTHOR, ORGANIZATION_ID, ORGANIZATION_LOGO, SITE_URL, authorJsonLd } from "@/lib/site";
 import type { Metadata } from "next";
 
 interface Props {
@@ -37,24 +38,25 @@ export default async function GuidePage({ params }: Props) {
         headline: guide.title,
         description: guide.summary,
         datePublished: guide.date,
-        url: `https://www.thequery.in/guides/${guide.slug}`,
-        author: {
-          "@type": "Person",
-          name: "Addy",
-          url: "https://www.thequery.in/about",
-        },
+        dateModified: guide.date,
+        url: `${SITE_URL}/guides/${guide.slug}`,
+        author: { ...authorJsonLd },
         publisher: {
           "@type": "Organization",
-          "@id": "https://www.thequery.in/#organization",
+          "@id": ORGANIZATION_ID,
           name: "TheQuery",
+          logo: {
+            "@type": "ImageObject",
+            url: ORGANIZATION_LOGO,
+          },
         },
         inLanguage: "en",
       },
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.thequery.in" },
-          { "@type": "ListItem", position: 2, name: "Guides", item: "https://www.thequery.in/guides" },
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+          { "@type": "ListItem", position: 2, name: "Guides", item: `${SITE_URL}/guides` },
           { "@type": "ListItem", position: 3, name: guide.title },
         ],
       },
@@ -75,7 +77,9 @@ export default async function GuidePage({ params }: Props) {
         {guide.title}
       </h1>
       <p className="text-sm text-text-muted mb-8">
-        By Addy &middot; {new Date(guide.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+        By <Link href={AUTHOR.url} className="text-accent hover:text-accent-hover transition-colors">{AUTHOR.name}</Link>
+        {" "}&middot; {new Date(guide.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+        {" "}&middot; <Link href="/about#editorial-standards" className="hover:text-text-secondary transition-colors">Editorial standards</Link>
       </p>
 
       <MarkdownRenderer content={guide.content} glossaryTerms={getAllTerms().map((t) => ({ name: t.name, slug: t.slug }))} />

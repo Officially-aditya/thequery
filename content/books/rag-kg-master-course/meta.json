@@ -2,87 +2,104 @@
   "title": "RAG + Knowledge Graph Master Course",
   "slug": "rag-kg-master-course",
   "description": "From beginner to hire-ready enterprise AI engineer. Master RAG, Knowledge Graphs, and hybrid retrieval systems for production-grade AI applications.",
-  "author": "TheQuery Editorial",
+  "author": "Addy",
+  "lastModified": "2026-02-25",
   "chapters": [
     {
       "slug": "introduction",
       "title": "Introduction",
-      "file": "00-introduction.md"
+      "file": "00-introduction.md",
+      "lastModified": "2026-02-22"
     },
     {
       "slug": "course-overview",
       "title": "Chapter 1 - Course Overview",
-      "file": "01-course-overview.md"
+      "file": "01-course-overview.md",
+      "lastModified": "2026-02-23"
     },
     {
       "slug": "key-terminology",
       "title": "Chapter 2 - Key Terminology",
-      "file": "02-key-terminology.md"
+      "file": "02-key-terminology.md",
+      "lastModified": "2026-02-25"
     },
     {
       "slug": "beginner-foundations",
       "title": "Chapter 3 - Beginner Foundations",
-      "file": "03-beginner-foundations.md"
+      "file": "03-beginner-foundations.md",
+      "lastModified": "2026-02-23"
     },
     {
       "slug": "theoretical-foundations",
       "title": "Chapter 4 - Theoretical Foundations",
-      "file": "04-theoretical-foundations.md"
+      "file": "04-theoretical-foundations.md",
+      "lastModified": "2026-02-25"
     },
     {
       "slug": "rag-engineering",
       "title": "Chapter 5 - RAG Engineering",
-      "file": "05-rag-engineering.md"
+      "file": "05-rag-engineering.md",
+      "lastModified": "2026-02-23"
     },
     {
       "slug": "kg-engineering",
       "title": "Chapter 6 - Knowledge Graph Engineering",
-      "file": "06-kg-engineering.md"
+      "file": "06-kg-engineering.md",
+      "lastModified": "2026-02-23"
     },
     {
       "slug": "hybrid-rag-kg",
       "title": "Chapter 7 - Hybrid RAG + KG Systems",
-      "file": "07-hybrid-rag-kg.md"
+      "file": "07-hybrid-rag-kg.md",
+      "lastModified": "2026-02-23"
     },
     {
       "slug": "practical-skills",
       "title": "Chapter 8 - Practical Engineering Skills",
-      "file": "08-practical-skills.md"
+      "file": "08-practical-skills.md",
+      "lastModified": "2026-02-23"
     },
     {
       "slug": "hands-on-projects",
       "title": "Chapter 9 - Hands-On Projects",
-      "file": "09-hands-on-projects.md"
+      "file": "09-hands-on-projects.md",
+      "lastModified": "2026-02-22"
     },
     {
       "slug": "capstone-project",
       "title": "Chapter 10 - Capstone Project",
-      "file": "10-capstone-project.md"
+      "file": "10-capstone-project.md",
+      "lastModified": "2026-02-22"
     },
     {
       "slug": "assessments",
       "title": "Chapter 11 - Assessments & Quizzes",
-      "file": "11-assessments.md"
+      "file": "11-assessments.md",
+      "lastModified": "2026-02-22"
     },
     {
       "slug": "resources",
       "title": "Chapter 12 - Resources & Next Steps",
-      "file": "12-resources.md"
+      "file": "12-resources.md",
+      "lastModified": "2026-02-22"
     },
     {
       "slug": "pdf-export",
       "title": "Chapter 13 - PDF Export Instructions",
-      "file": "13-pdf-export.md"
+      "file": "13-pdf-export.md",
+      "lastModified": "2026-02-23"
     },
     {
       "slug": "appendix",
       "title": "Appendix - Quick Reference",
-      "file": "14-appendix.md"
+      "file": "14-appendix.md",
+      "lastModified": "2026-02-22"
     },
     {
       "slug": "conclusion",
       "title": "Conclusion",
-      "file": "15-conclusion.md"
+      "file": "15-conclusion.md",
+      "lastModified": "2026-02-23"
     }
   ]
 }

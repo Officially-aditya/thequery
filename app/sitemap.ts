@@ -45,14 +45,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Books and chapters
   for (const book of allBooks) {
+    const bookLastModified = book.lastModified
+      ? new Date(book.lastModified)
+      : book.chapters.reduce((max, chapter) => {
+          const date = chapter.lastModified ? new Date(chapter.lastModified) : max;
+          return date > max ? date : max;
+        }, new Date(0));
     entries.push({
       url: `${BASE_URL}/books/${book.slug}`,
-      lastModified: siteLastModified,
+      lastModified: bookLastModified.getTime() ? bookLastModified : siteLastModified,
     });
     for (const ch of book.chapters) {
       entries.push({
         url: `${BASE_URL}/books/${book.slug}/${ch.slug}`,
-        lastModified: siteLastModified,
+        lastModified: ch.lastModified ? new Date(ch.lastModified) : bookLastModified,
       });
     }
   }

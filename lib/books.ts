@@ -8,6 +8,7 @@ export interface ChapterMeta {
   slug: string;
   title: string;
   file: string;
+  lastModified?: string;
 }
 
 export interface BookMeta {
@@ -15,6 +16,7 @@ export interface BookMeta {
   slug: string;
   description: string;
   author: string;
+  lastModified?: string;
   chapters: ChapterMeta[];
 }
 

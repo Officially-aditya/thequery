@@ -3,6 +3,7 @@ import { Lora, Source_Serif_4, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { AUTHOR, ORGANIZATION_ID, SITE_NAME, organizationJsonLd } from "@/lib/site";
 import "./globals.css";
 
 const lora = Lora({
@@ -32,6 +33,9 @@ export const metadata: Metadata = {
     default: "TheQuery - AI Knowledge from First Principles",
     template: "%s | TheQuery",
   },
+  authors: [{ name: AUTHOR.name, url: AUTHOR.url }],
+  creator: AUTHOR.name,
+  publisher: SITE_NAME,
   description: "TheQuery is where developers go to understand AI, not just use it. Glossary, books, and articles covering AI from first principles.",
   openGraph: {
     siteName: "TheQuery",
@@ -50,9 +54,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const siteJsonLd = {
+    "@context": "https://schema.org",
+    ...organizationJsonLd,
+    "@id": ORGANIZATION_ID,
+  };
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
+        />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-SXRT67W8V7" />
         <script
           dangerouslySetInnerHTML={{

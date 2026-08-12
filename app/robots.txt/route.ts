@@ -19,7 +19,6 @@ User-agent: Google-Extended
 Allow: /
 
 Sitemap: https://www.thequery.in/sitemap.xml
-ai-generated: true
 `;
 
   return new NextResponse(robots, {

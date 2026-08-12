@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getAllBooks, getBookMeta } from "@/lib/books";
 import { notFound } from "next/navigation";
+import { ORGANIZATION_ID, ORGANIZATION_LOGO, SITE_URL, authorJsonLd } from "@/lib/site";
 import type { Metadata } from "next";
 
 interface Props {
@@ -34,17 +35,18 @@ export default async function BookPage({ params }: Props) {
         "@type": "Book",
         name: book.title,
         description: book.description,
-        author: {
-          "@type": "Person",
-          name: "Addy",
-          url: "https://www.thequery.in/about",
-        },
-        url: `https://www.thequery.in/books/${book.slug}`,
+        author: { ...authorJsonLd, name: book.author },
+        dateModified: book.lastModified,
+        url: `${SITE_URL}/books/${book.slug}`,
         inLanguage: "en",
         publisher: {
           "@type": "Organization",
-          "@id": "https://www.thequery.in/#organization",
+          "@id": ORGANIZATION_ID,
           name: "TheQuery",
+          logo: {
+            "@type": "ImageObject",
+            url: ORGANIZATION_LOGO,
+          },
         },
         isAccessibleForFree: true,
         numberOfPages: book.chapters.length,
@@ -52,8 +54,8 @@ export default async function BookPage({ params }: Props) {
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.thequery.in" },
-          { "@type": "ListItem", position: 2, name: "Books", item: "https://www.thequery.in/books" },
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+          { "@type": "ListItem", position: 2, name: "Books", item: `${SITE_URL}/books` },
           { "@type": "ListItem", position: 3, name: book.title },
         ],
       },
@@ -73,9 +75,17 @@ export default async function BookPage({ params }: Props) {
       <h1 className="font-serif text-3xl font-bold text-text-primary mb-2">
         {book.title}
       </h1>
-      <p className="text-sm text-text-muted mb-2">By {book.author}</p>
+      <p className="text-sm text-text-muted mb-2">
+        By <Link href="/about" className="text-accent hover:text-accent-hover transition-colors">{book.author}</Link>
+        {book.lastModified ? (
+          <> &middot; Updated {new Date(book.lastModified).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</>
+        ) : null}
+      </p>
       <p className="text-text-secondary mb-4 leading-relaxed">
         {book.description}
+      </p>
+      <p className="text-sm text-text-muted mb-8">
+        This educational book follows TheQuery&apos;s <Link href="/about#editorial-standards" className="text-accent hover:text-accent-hover transition-colors">editorial standards</Link>. Report a factual correction at <a href="mailto:addy@thequery.in" className="text-accent hover:text-accent-hover transition-colors">addy@thequery.in</a>.
       </p>
 
       <div className="border border-border rounded-lg overflow-hidden">

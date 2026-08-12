@@ -1,8 +1,10 @@
 import { getAllBooks, getChapterContent, getAdjacentChapters, splitIntoSections } from "@/lib/books";
 import { getAllTerms } from "@/lib/glossary";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import ReadingProgress from "@/components/ReadingProgress";
 import ChapterView from "@/components/ChapterView";
+import { AUTHOR, ORGANIZATION_ID, ORGANIZATION_LOGO, SITE_URL, authorJsonLd } from "@/lib/site";
 import type { Metadata } from "next";
 
 interface Props {
@@ -47,20 +49,31 @@ export default async function ChapterPage({ params }: Props) {
       {
         "@type": "Chapter",
         name: data.meta.title,
-        url: `https://www.thequery.in/books/${slug}/${chapter}`,
+        url: `${SITE_URL}/books/${slug}/${chapter}`,
         position: currentIdx + 1,
+        author: { ...authorJsonLd, name: data.book.author },
+        dateModified: data.meta.lastModified ?? data.book.lastModified,
+        publisher: {
+          "@type": "Organization",
+          "@id": ORGANIZATION_ID,
+          name: "TheQuery",
+          logo: {
+            "@type": "ImageObject",
+            url: ORGANIZATION_LOGO,
+          },
+        },
         isPartOf: {
           "@type": "Book",
           name: data.book.title,
-          url: `https://www.thequery.in/books/${slug}`,
+          url: `${SITE_URL}/books/${slug}`,
         },
       },
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.thequery.in" },
-          { "@type": "ListItem", position: 2, name: "Books", item: "https://www.thequery.in/books" },
-          { "@type": "ListItem", position: 3, name: data.book.title, item: `https://www.thequery.in/books/${slug}` },
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+          { "@type": "ListItem", position: 2, name: "Books", item: `${SITE_URL}/books` },
+          { "@type": "ListItem", position: 3, name: data.book.title, item: `${SITE_URL}/books/${slug}` },
           { "@type": "ListItem", position: 4, name: data.meta.title },
         ],
       },
@@ -80,6 +93,12 @@ export default async function ChapterPage({ params }: Props) {
       />
       <ReadingProgress />
       <div data-reading-frame className="max-w-[1100px] mx-auto px-4 py-12">
+        <p className="text-xs text-text-muted mb-6">
+          By <Link href={AUTHOR.url} className="text-accent hover:text-accent-hover transition-colors">{data.book.author}</Link>
+          {data.meta.lastModified ? (
+            <> &middot; Updated {new Date(data.meta.lastModified).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</>
+          ) : null}
+        </p>
         <ChapterView
           bookSlug={slug}
           bookTitle={data.book.title}
