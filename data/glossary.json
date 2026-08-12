@@ -560,14 +560,29 @@
     "name": "Adam Optimizer",
     "slug": "adam-optimizer",
     "shortDef": "An adaptive learning rate optimization algorithm that maintains per-parameter learning rates based on first and second moment estimates of gradients.",
-    "fullDef": "Adam (Adaptive Moment Estimation) is one of the most widely used optimizers in deep learning, combining ideas from momentum (tracking exponential moving averages of gradients) and RMSprop (tracking exponential moving averages of squared gradients). For each parameter, Adam adapts the learning rate based on the history of that parameter's gradients.\n\nAdam maintains two moving averages per parameter: the first moment (mean of gradients, providing momentum) and the second moment (mean of squared gradients, providing per-parameter scaling). Parameters with consistently large gradients get smaller effective learning rates, while parameters with small or sparse gradients get larger ones. This is particularly useful for problems with sparse gradients or when different parameters operate at different scales.\n\nIn practice, Adam converges faster than vanilla SGD and requires less learning rate tuning, making it the default choice for many practitioners. Common hyperparameters are learning rate 0.001, beta1 0.9, and beta2 0.999. However, Adam can sometimes generalize worse than well-tuned SGD, particularly in computer vision. Variants like AdamW (which fixes weight decay behavior) and LAMB (for large-batch training) address some of Adam's limitations.",
+    "fullDef": "Adam, short for Adaptive Moment Estimation, is a first-order optimizer that changes the step size separately for every trainable parameter. It combines momentum, which smooths the direction of recent gradients, with RMSprop-style scaling, which reduces the step taken in dimensions where squared gradients have been consistently large. The result is a useful default for many neural-network training jobs, especially when gradients are noisy or sparse.\n\n## How Adam updates a parameter\n\nFor a gradient `g_t` at step `t`, Adam keeps two exponential moving averages. The first moment is `m_t = beta1 * m_(t-1) + (1 - beta1) * g_t`; the second moment is `v_t = beta2 * v_(t-1) + (1 - beta2) * g_t^2`. Because both averages start at zero, Adam applies bias correction before updating the parameter: `theta_t = theta_(t-1) - learning_rate * m_hat_t / (sqrt(v_hat_t) + epsilon)`. The first moment supplies momentum, while the second moment acts like a per-parameter normalization term.\n\nThe familiar starting values are a learning rate around `1e-3`, `beta1=0.9`, `beta2=0.999`, and a small epsilon. They are starting points, not universal laws. A learning rate that is too large can make loss explode; one that is too small can make training appear stuck. Learning-rate warmup, decay, or a schedule tied to the training budget is often more important than changing the beta values.\n\n## When Adam is a good fit\n\nAdam is convenient for models with parameters on very different scales, sparse features, or a training loop where a carefully tuned SGD schedule is not yet available. It often reaches a useful training loss quickly and is easy to combine with gradient clipping, mixed precision, and learning-rate schedulers. For large language models and many modern deep-learning systems, Adam-family optimizers remain common because they are stable across a wide range of architectures.\n\n## The AdamW distinction\n\nAdam is not automatically the best optimizer for final generalization. Its adaptive updates can produce a different tradeoff between training loss and validation performance than well-tuned SGD, and the way classic Adam applies L2 regularization is not the same as decoupled weight decay. AdamW applies weight decay separately from the gradient update and is usually the safer choice when weight decay is part of the training recipe. Always compare validation metrics, not just how quickly the training loss falls.\n\n## Practical checklist\n\nStart with a reproducible baseline, log the learning rate and gradient norms, and evaluate on a held-out validation set. If training is unstable, lower the learning rate or use warmup before changing the optimizer. If validation quality stalls while training quality keeps improving, tune regularization, data, and the schedule rather than assuming that more Adam steps will solve the problem.",
     "category": "Optimization",
     "relatedTerms": [
       "gradient-descent",
       "stochastic-gradient-descent",
       "learning-rate"
     ],
-    "lastUpdated": "2026-02-22",
+    "references": [
+      {
+        "title": "Adam: A Method for Stochastic Optimization - Kingma and Ba",
+        "url": "https://arxiv.org/abs/1412.6980"
+      },
+      {
+        "title": "PyTorch Adam optimizer documentation",
+        "url": "https://pytorch.org/docs/stable/generated/torch.optim.Adam.html"
+      },
+      {
+        "title": "Decoupled Weight Decay Regularization - AdamW",
+        "url": "https://arxiv.org/abs/1711.05101"
+      }
+    ],
+    "seoDescription": "Adam is an adaptive optimizer that combines momentum and per-parameter scaling. Learn its update rule, defaults, tradeoffs, and AdamW.",
+    "lastUpdated": "2026-08-13",
     "analogy": "The automatic transmission of optimizers - it adjusts the learning rate for each parameter so you do not have to tune it manually."
   },
   {
@@ -741,13 +756,28 @@
     "name": "Inference",
     "slug": "inference",
     "shortDef": "The process of using a trained model to make predictions on new, unseen data, as opposed to the training phase where the model learns from labeled examples.",
-    "fullDef": "Inference is the deployment-time operation where a trained model processes new inputs to produce predictions. During training, the model learns parameters from labeled data through forward and backward passes; during inference, only the forward pass runs , input goes in, prediction comes out, and no weight updates occur. This distinction matters for computational requirements, latency, and cost.\n\nInference has different performance characteristics than training. It typically requires less memory (no need to store intermediate activations for backpropagation), can run on less powerful hardware, and must meet latency constraints that training does not face. In production, inference latency is often the bottleneck: ad auctions require predictions in milliseconds, while training the same model may take hours or days.\n\nOptimizing inference is a major concern in production AI. Techniques include model quantization (reducing numerical precision from 32-bit to 8-bit), pruning (removing unimportant weights), knowledge distillation (training a smaller model to mimic a larger one), batching requests for GPU efficiency, and caching results for repeated queries. For LLMs specifically, KV caching avoids recomputing attention for previously processed tokens, dramatically reducing generation latency.",
+    "fullDef": "Inference is the process of using a trained model to produce an output for new input. Training changes the model's parameters through an optimization loop; inference normally runs the learned weights forward without updating them. A classifier produces a label or score, a recommender ranks items, and a language model generates the next token repeatedly. The input and output can be simple, but the serving system around the model determines whether the result is affordable and reliable in production.\n\n## Online, batch, and streaming inference\n\nOnline inference handles a request interactively and usually has a latency target. A fraud score may need to return in milliseconds, while a chat assistant may optimize for time to first token and then for the rate at which remaining tokens arrive. Batch inference processes many records together on a schedule, such as nightly recommendations or document embeddings, so throughput and cost matter more than an individual request's latency. Streaming inference returns partial output as it is produced and is common for speech and LLM applications.\n\nInference generally needs less memory than training because it does not retain every intermediate activation for backpropagation. That does not mean it is automatically cheap. A high-traffic service may need multiple replicas, accelerator memory, networking, safety checks, retrieval, logging, and fallbacks. For autoregressive language models, the KV cache stores attention keys and values from earlier tokens so the system does not recompute the entire context at every generation step; long contexts and large concurrent batches can make this cache the dominant memory cost.\n\n## What to measure\n\nUseful inference metrics include latency percentiles such as p50 and p95, time to first token, inter-token latency, requests or tokens per second, peak memory, cost per request, error rate, and output quality. A faster model that produces more retries or incorrect tool calls may be worse for the product. Measure the complete path from request arrival to usable answer, not only the model kernel.\n\n## Common optimization techniques\n\nQuantization lowers numerical precision to reduce memory traffic. Batching shares accelerator work across requests, while continuous batching keeps a busy LLM server supplied with new sequences as others finish. Caching avoids repeating deterministic work. Pruning removes selected weights, and knowledge distillation trains a smaller model to imitate a larger one. Speculative decoding uses a smaller draft model to propose tokens that a larger model verifies. Hardware-specific kernels and runtimes can make the same model behave very differently, so benchmark on the hardware and concurrency level you will actually deploy.\n\n## Inference is still an application boundary\n\nProduction inference needs input validation, access control, rate limits, timeouts, observability, and a plan for model or data drift. For an agent, the model output may become a tool argument, so application code must validate permissions and side effects rather than trusting the generated text. The goal is not simply to run a forward pass; it is to deliver a measurable prediction or response within the quality, latency, and safety limits of the application.",
     "category": "MLOps",
     "relatedTerms": [
       "neural-network",
       "large-language-model"
     ],
-    "lastUpdated": "2026-02-22",
+    "references": [
+      {
+        "title": "Google Machine Learning Glossary - Inference",
+        "url": "https://developers.google.com/machine-learning/glossary#inference"
+      },
+      {
+        "title": "PyTorch Inference Mode documentation",
+        "url": "https://pytorch.org/docs/stable/generated/torch.autograd.grad_mode.inference_mode.html"
+      },
+      {
+        "title": "vLLM documentation - Continuous batching and serving",
+        "url": "https://docs.vllm.ai/en/latest/"
+      }
+    ],
+    "seoDescription": "Inference is how a trained AI model produces predictions or responses. Learn serving modes, latency metrics, KV cache, and optimization.",
+    "lastUpdated": "2026-08-13",
     "analogy": "The moment the model stops studying and starts answering questions - training is the exam prep, inference is the actual exam."
   },
   {
@@ -1444,7 +1474,7 @@
     "name": "Cypher",
     "slug": "cypher",
     "shortDef": "A declarative graph query language created for Neo4j that uses ASCII-art syntax to represent and match graph patterns.",
-    "fullDef": "Cypher is the query language for Neo4j graph databases, designed to be both human-readable and expressive for graph pattern matching. Its distinctive ASCII-art syntax uses parentheses for nodes and square brackets with arrows for relationships: `(alice:Person)-[:WORKS_FOR]->(company:Company)` visually represents a graph pattern.\n\nCypher supports the full range of graph operations: creating and matching patterns (MATCH, CREATE, MERGE), filtering results (WHERE), returning data (RETURN), aggregation (COUNT, SUM, AVG), path operations (shortestPath, variable-length patterns like `[*1..3]`), and graph algorithms via the GDS library (PageRank, community detection, Dijkstra's shortest path).\n\nIn hybrid RAG+KG systems, Cypher is often generated automatically from natural language queries using LLMs (text-to-Cypher). This enables users to query the knowledge graph without learning Cypher syntax. Production implementations include query validation (preventing destructive operations like DELETE), self-correction (retrying with error context when generated Cypher fails), and caching of common query patterns.",
+    "fullDef": "Cypher is a declarative query language for property graphs, most closely associated with Neo4j. Instead of describing a sequence of database operations, you describe the nodes, relationships, and properties you want to match. Its ASCII-art syntax makes a graph pattern visible in the query: `(alice:Person)-[:WORKS_FOR]->(company:Company)` means that an Alice node is connected to a Company node by a WORKS_FOR relationship.\n\n## The core pattern\n\nA Cypher query commonly uses `MATCH` to find a pattern and `RETURN` to choose what comes back. For example:\n\n```cypher\nMATCH (person:Person)-[:WORKS_FOR]->(company:Company)\nWHERE company.name = $company_name\nRETURN person.name AS employee\nORDER BY employee\n```\n\nThe parameter `$company_name` should be supplied separately by the application. Parameterization avoids turning user input into query syntax and also lets the database reuse query plans. Labels such as `Person` and `Company` describe node types; relationship types such as `WORKS_FOR` describe the edges between them. Properties live inside braces, for example `(p:Person {name: $name})`.\n\n## Reading and writing graphs\n\n`MATCH`, `OPTIONAL MATCH`, `WHERE`, `WITH`, `RETURN`, and `ORDER BY` are common read-side clauses. `CREATE` adds new nodes or relationships. `MERGE` matches an existing pattern or creates it when it is absent, which is useful for idempotent imports but must be paired with appropriate constraints. `SET` updates properties, while `DELETE` and `DETACH DELETE` remove data. A production application should expose only the operations a user is authorized to perform; a generated query should never receive unrestricted write access by default.\n\nCypher can also traverse paths of different lengths, aggregate results with functions such as `count()` and `collect()`, and pass intermediate rows between stages with `WITH`. Indexes and constraints help the database find starting nodes efficiently, but a broad variable-length traversal can still become expensive. Query plans and realistic graph sizes matter more than the visual brevity of a query.\n\n## Cypher compared with other query languages\n\nSQL is organized around tables, rows, and joins; Cypher is organized around connected patterns. SPARQL is designed for RDF triples and semantic-web vocabularies, while Cypher is commonly used with labeled property graphs. The languages can express related questions, but their data models, reasoning features, and operational tooling differ. Choosing one depends on how the graph is stored and what kind of traversal or semantic inference the application needs.\n\n## Cypher in RAG and agent systems\n\nA text-to-Cypher system can translate a natural-language question into a graph query, then use the returned facts as context for an LLM. This is useful when the answer depends on explicit relationships, provenance, or multi-hop traversal. It also creates a security boundary: generated Cypher must be checked against an allowed schema, parameterized, limited by timeouts and row counts, and tested for destructive clauses. A safer design separates read-only query generation from any write-capable tool and returns source node identifiers or provenance alongside the answer.\n\nCypher is therefore more than a visual alternative to SQL. Its main advantage is expressing connected structure directly, while its production risks are the same ones found in any query language: unbounded work, unsafe writes, missing indexes, and trusting generated queries without validation.",
     "category": "Knowledge Graphs",
     "relatedTerms": [
       "neo4j",
@@ -1453,7 +1483,22 @@
       "sparql",
       "text-to-cypher"
     ],
-    "lastUpdated": "2026-02-22",
+    "references": [
+      {
+        "title": "Neo4j Cypher Manual - Introduction",
+        "url": "https://neo4j.com/docs/cypher-manual/current/introduction/"
+      },
+      {
+        "title": "Neo4j Cypher Manual - Clauses",
+        "url": "https://neo4j.com/docs/cypher-manual/current/clauses/"
+      },
+      {
+        "title": "Neo4j Cypher Manual - Query tuning",
+        "url": "https://neo4j.com/docs/cypher-manual/current/planning-and-tuning/"
+      }
+    ],
+    "seoDescription": "Cypher is a declarative graph query language used with Neo4j. Learn patterns, MATCH and MERGE, traversal, safety, and text-to-Cypher.",
+    "lastUpdated": "2026-08-13",
     "analogy": "Consider SQL but for relationships - instead of querying tables, you query patterns of connections between things."
   },
   {
@@ -3210,7 +3255,7 @@
     "name": "Quantization",
     "slug": "quantization",
     "shortDef": "A technique that reduces the numerical precision of a model's weights and activations, shrinking memory usage and speeding up inference with minimal loss in accuracy.",
-    "fullDef": "Quantization is the process of converting a neural network's parameters from high-precision floating point numbers (typically 32-bit or 16-bit) to lower-precision representations such as 8-bit integers (INT8) or even 4-bit integers (INT4). This reduces the model's memory footprint and increases inference speed, since lower-precision arithmetic requires less memory bandwidth and can be computed faster on modern hardware.\n\nThere are two main approaches. Post-training quantization (PTQ) takes an already-trained model and converts its weights to lower precision, sometimes using a small calibration dataset to minimize accuracy loss. Quantization-aware training (QAT) simulates low-precision arithmetic during the training process itself, allowing the model to learn to compensate for the reduced precision and typically producing better results than PTQ.\n\nQuantization has become essential for deploying large language models on consumer hardware. A 7-billion parameter model stored in 16-bit precision requires roughly 14 GB of memory, but the same model quantized to 4-bit precision fits in approximately 3.5 GB - making it runnable on a laptop GPU or even a phone. Popular quantization formats include GPTQ, GGUF (used by llama.cpp and Ollama), and AWQ. The tradeoff is always between model size, speed, and accuracy - aggressive quantization saves memory but can degrade output quality, particularly on tasks requiring precise reasoning.",
+    "fullDef": "Quantization reduces the numerical precision used to store or compute a neural network's weights and activations. Instead of representing every value as a 32-bit or 16-bit floating-point number, a system may use 8-bit integers, 4-bit integers, or another compact representation. Fewer bits reduce memory traffic and storage, which can make inference cheaper and sometimes faster, especially on hardware with low-precision kernels.\n\n## What actually gets quantized\n\nWeight-only quantization changes the stored model parameters but leaves activations in a higher-precision format. This is common for large language models because the weights dominate memory usage. Weight-and-activation quantization also converts intermediate values and can deliver larger speedups, but it is more sensitive to outliers and hardware support. The key-value cache used during autoregressive LLM generation is a separate memory cost; quantizing weights does not automatically quantize that cache.\n\nA rough memory estimate is straightforward. A 7-billion-parameter model stored at 16 bits needs about 14 GB for weights alone. At 4 bits, the raw weight storage is about 3.5 GB, before scale values, metadata, runtime buffers, and the KV cache are added. The real footprint is therefore higher than the simple parameter-count calculation.\n\n## Main approaches\n\nPost-training quantization (PTQ) converts a finished model. A calibration set can show the quantizer the typical range of activations so it can choose scales and zero points without retraining the model. PTQ is fast and practical, but aggressive settings can damage a model's accuracy or make errors concentrate on particular layers.\n\nQuantization-aware training (QAT) simulates low-precision arithmetic during training or fine-tuning. The model can adapt its weights to the rounding and clipping errors, so QAT often preserves accuracy better than PTQ when the target precision is especially small. The tradeoff is additional training cost and a deployment pipeline that must match the simulated quantizer.\n\nQuantizers also differ in granularity. Per-tensor quantization uses one scale for a whole tensor; per-channel or group-wise schemes use separate scales for smaller regions and usually preserve accuracy better. Formats such as INT8, GPTQ, AWQ, and GGUF describe different combinations of representation, calibration, grouping, and runtime support rather than a single universal quality level.\n\n## Choosing a quantization level\n\nStart with the hardware and the workload. If the model already fits in memory and latency is acceptable, higher precision may be the safer choice. If memory is the constraint, try a moderate reduction first, then measure task-specific quality, latency, throughput, and peak memory. Perplexity alone may miss failures in tool calling, code generation, long-context retrieval, or multilingual output. A smaller model in higher precision can also outperform a heavily quantized larger model once the full system cost is considered.\n\nQuantization is therefore a deployment tradeoff, not a free compression switch: lower precision can make a model usable on more hardware, but the right setting is the one that meets the application's quality and performance requirements.",
     "category": "Deep Learning",
     "relatedTerms": [
       "gpu",
@@ -3219,7 +3264,22 @@
       "large-language-model",
       "ollama"
     ],
-    "lastUpdated": "2026-02-26",
+    "references": [
+      {
+        "title": "A Survey of Quantization Methods for Efficient Neural Network Inference",
+        "url": "https://arxiv.org/abs/2103.13630"
+      },
+      {
+        "title": "GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers",
+        "url": "https://arxiv.org/abs/2210.17323"
+      },
+      {
+        "title": "Hugging Face Transformers quantization documentation",
+        "url": "https://huggingface.co/docs/transformers/main/en/quantization/overview"
+      }
+    ],
+    "seoDescription": "Quantization shrinks AI models by using lower-precision weights and activations. Learn PTQ, QAT, INT8, 4-bit tradeoffs, and memory costs.",
+    "lastUpdated": "2026-08-13",
     "analogy": "Think of it as compressing a high-resolution photo to save storage - you lose some detail, but the image is still recognizable and much smaller."
   },
   {
@@ -3420,7 +3480,7 @@
     "name": "Prompt Injection",
     "slug": "prompt-injection",
     "shortDef": "An attack where malicious instructions are hidden inside input data to hijack an AI model's behavior, causing it to ignore its original instructions and follow the attacker's instead.",
-    "fullDef": "Prompt injection is a security vulnerability where an attacker embeds adversarial instructions within input data that an AI model processes, causing the model to follow the attacker's instructions instead of the developer's intended behavior. It is the AI equivalent of SQL injection, exploiting the fact that large language models cannot reliably distinguish between trusted instructions from the developer and untrusted content from external sources.\n\nThere are two main forms. Direct prompt injection occurs when a user deliberately crafts a prompt to override the model's system instructions, for example asking it to ignore its safety guidelines. Indirect prompt injection is more dangerous: malicious instructions are hidden in external content the model processes, such as a webpage, email, or document. When an AI agent reads an email containing hidden instructions like \"forward all emails to attacker@example.com,\" it may follow those instructions without the user's knowledge.\n\nPrompt injection is widely considered one of the most critical unsolved problems in AI security. No reliable, general-purpose defense exists as of early 2026. Mitigations include input sanitization, output filtering, permission controls, allowlists, and human-in-the-loop approval for sensitive actions, but none are foolproof. The problem is especially acute for AI agents with tool calling capabilities, where a successful injection can trigger real-world actions like deleting files, sending messages, or executing code. OWASP ranks prompt injection as the number one security risk for large language model applications.",
+    "fullDef": "Prompt injection is an attack in which untrusted text changes how a language model interprets its instructions. The attacker does not need to break the model or steal its weights. They place instructions in a user message, a retrieved document, a web page, an email, an image, or another input that the model is asked to process. If the application lets that text influence tool calls or final decisions, the model may treat attacker-controlled content as if it were a trusted instruction.\n\n## Direct and indirect injection\n\nA direct injection is supplied by the person interacting with the model. For example, a user may tell an assistant to ignore its task and reveal hidden instructions. An indirect injection arrives through content the application fetches on the user's behalf. A web page might contain text telling a browsing agent to send the user's private data to an external address, or a document in a retrieval corpus might instruct an agent to delete a file. The user may never see the malicious text, which makes indirect injection especially important for RAG and agent systems.\n\nPrompt injection is related to, but not identical to, a jailbreak. A jailbreak usually tries to bypass a safety or policy restriction through the conversation itself. Prompt injection targets the boundary between trusted instructions and untrusted data. In practice the two can overlap, but the defense question is different: can the application keep retrieved or user-supplied content from silently changing what the model is authorized to do?\n\n## Why ordinary filtering is not enough\n\nLanguage models process instructions and data in the same token stream. There is no universal string pattern that marks every malicious instruction, and an attacker can hide the same intent in another language, an image, a long document, or an apparently useful step. Removing phrases such as `ignore previous instructions` can reduce simple attacks but cannot establish that the remaining text is safe. A model can also produce a plausible but unsafe tool argument without reproducing the attack verbatim.\n\n## Safer system design\n\nThe strongest mitigations reduce the consequences of a successful injection rather than assuming the model will always detect one:\n\n- Treat retrieved documents, web pages, emails, and tool results as data, not as policy. Delimit them clearly and tell the model which sources are untrusted.\n- Give each tool the narrowest possible permissions and validate arguments in application code before execution.\n- Keep secrets out of the model context when they are not required for the task.\n- Require a user confirmation for irreversible actions such as sending messages, making purchases, changing permissions, or deleting files.\n- Separate planning from execution and log the source text that led to each sensitive tool call.\n- Test indirect injections in realistic retrieval, browsing, and file-processing workflows, not only in a clean chat prompt.\n\nNo single prompt, sanitizer, or classifier provides a complete defense. Prompt injection is therefore an application-security problem: model instructions, retrieval, permissions, tool design, monitoring, and human approval have to work together.",
     "category": "Fundamentals",
     "relatedTerms": [
       "ai-agent",
@@ -3428,7 +3488,18 @@
       "large-language-model",
       "zero-day"
     ],
-    "lastUpdated": "2026-02-26",
+    "references": [
+      {
+        "title": "OWASP Top 10 for Large Language Model Applications - Prompt Injection",
+        "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/"
+      },
+      {
+        "title": "NIST AI 100-2: Adversarial Machine Learning",
+        "url": "https://csrc.nist.gov/pubs/ai/100/2/e2023/final"
+      }
+    ],
+    "seoDescription": "Prompt injection is when untrusted text hijacks an AI model or agent. Learn direct and indirect attacks, risks, and practical defenses.",
+    "lastUpdated": "2026-08-13",
     "analogy": "Think of it as slipping a forged note into someone's inbox that says 'ignore all previous instructions' - and it works."
   },
   {
