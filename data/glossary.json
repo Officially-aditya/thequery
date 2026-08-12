@@ -6818,5 +6818,110 @@
     }
   ],
   "analogy": "FLOPs are the individual motions a factory performs; FLOPS is how quickly the factory can perform them."
+},
+{
+  "name": "Muse Spark",
+  "slug": "muse-spark",
+  "shortDef": "Meta's proprietary frontier model for coding, multimodal reasoning, tool use, and long-running AI agents; Muse Spark 1.2 has a 1M-token context window and powers Muse Code.",
+  "fullDef": "Muse Spark is Meta's proprietary family of frontier [large language models](/glossary/large-language-model) from Meta Superintelligence Labs. The current version, **Muse Spark 1.2**, launched on August 5, 2026 as a coding-focused update to Muse Spark 1.1. It is built for software engineering, multimodal reasoning, computer use, [tool-using AI agents](/glossary/ai-agent), and projects that continue across many steps rather than ending after one answer. Muse Spark 1.2 also powers **Muse Code**, Meta's terminal coding agent.\n\nThe simplest distinction is that Muse Spark is Meta's larger, cloud-hosted model. Developers access it through the Meta Model API or through Muse Code; Meta does not publish downloadable Muse Spark weights. **Muse Glimmer**, by contrast, is a smaller 30B [open-weight model](/glossary/open-weight-model) distilled from Spark for local deployment.\n\n## What Muse Spark can do\n\nMuse Spark 1.2 concentrates on code generation, complex debugging, large-codebase understanding, repository-wide changes, and end-to-end developer workflows. Meta says it increased the amount of coding compute and the diversity of training environments used for 1.2 while preserving the broader agent capabilities of Muse Spark 1.1. Those capabilities include planning, calling tools, operating software, interpreting images and documents, coordinating subagents, and maintaining direction over long tasks.\n\nMuse Spark 1.2 was co-trained with the Muse Code harness. Training included trajectories from the agent's tools plus optimizations for planning, goals, context compaction, and subagent delegation. That pairing matters when reading benchmark results: a score from Muse Spark inside Muse Code measures the model and Meta's agent runtime together, not the model in isolation.\n\nMeta demonstrated the long-horizon design with GPU-kernel optimization runs lasting more than 1,000 tool calls and as long as 24 hours. A demonstration is not the same as a general reliability guarantee, but it shows the type of sustained engineering work the model is intended to handle.\n\n## Context window and multimodal input\n\nMuse Spark 1.2 retains the **one-million-token context window** introduced with Muse Spark 1.1. A context window that large can hold extensive repositories, long documents, tool histories, images, video-derived information, and earlier decisions from an agent run. Meta also trains the model to compact its working history and retrieve important earlier actions instead of treating the entire million-token window as equally useful at every step.\n\nThe model family is multimodal. Muse Spark 1.1 accepts and reasons over text, images, video, PDFs, and computer interfaces, and 1.2 is presented as retaining those general-agent strengths while improving coding. A large context limit does not guarantee perfect recall, and multimodal support does not mean every input type performs equally well. Production systems still need file selection, retrieval, permissions, and checks around tool actions.\n\nMeta has not publicly disclosed Muse Spark's parameter count, detailed architecture, training-data mixture, or downloadable checkpoint. The model therefore cannot be independently inspected or self-hosted in the way an open-weight model can.\n\n## Benchmark profile\n\nMeta's official launch comparison placed Muse Spark 1.2 against frontier coding models, each running in its vendor's preferred agent harness.\n\n| Official launch evaluation | Muse Spark 1.2 | Claude Opus 5 | GPT-5.6 Terra | Read |\n| --- | ---: | ---: | ---: | --- |\n| Terminal-Bench 2.1 | 82.9% | **86.7%** | 81.8% | Spark ranks second in Meta's chart. |\n| DeepSWE 1.1 | 59.3% | **65.0%** | 64.8% | Spark ranks third among these models. |\n| Meta Internal Coding Bench | 70.6% | **79.4%** | 65.4% | Opus leads even on Meta's internal test. |\n\nThe table is transcribed from Meta's official launch charts and methodology material. Spark ran in Muse Code, Claude in Claude Code, and GPT in Codex, so the results measure each **model-plus-harness combination** rather than isolating the underlying models. Meta also co-trained Spark with Muse Code, making the harness part of the product advantage being evaluated.\n\nIndependent testing gives a broader, more reproducible view.\n\n| Artificial Analysis evaluation | Muse Spark 1.2 | Comparison or context |\n| --- | ---: | --- |\n| Intelligence Index at launch | 54 | Spark 1.1 scored 51. |\n| GDPval-AA v2 | 1,631 Elo | Fifth among models tested at launch; ahead of Claude Opus 4.8 at 1,588. |\n| Terminal-Bench v2.1 | 80% | Up from 78% for Spark 1.1. |\n| tau3-Banking | 27% | Up from 25% for Spark 1.1. |\n| Intelligence Index task cost | USD 0.40 | Based on standard USD 1.25 / USD 4.25 token pricing. |\n| AA-Omniscience hallucination rate | 28% | Down from 38% for Spark 1.1; lower is better. |\n\nArtificial Analysis later listed Spark 1.2 at 57 after an index update, a reminder that leaderboard scores can change when graders or index versions change. The independent results show a material improvement in agentic knowledge work without placing Spark ahead of every frontier model.\n\n## API access, pricing, and data use\n\nMuse Spark 1.2 is available through the **Meta Model API** and Muse Code. Standard API pricing at launch is **USD 1.25 per million input tokens**, **USD 4.25 per million output tokens**, and **USD 0.15 per million cached input tokens**. Meta states that standard-tier prompts and completions are not used to train its models.\n\nMeta also offers a lower-priced **Contributor tier**: USD 0.10 per million input tokens, USD 0.20 per million output tokens, and USD 0.002 per million cached input tokens. In exchange, users give Meta permission to use their prompts and completions for model training. That makes the contributor tier inappropriate for proprietary code, confidential documents, personal data, or regulated workloads unless the organization has explicitly accepted that use. The standard and contributor tiers are the same model but have different data terms, prices, and rate limits.\n\nMuse Spark is not a free local model. It requires an API account and paid usage, even when accessed through the discounted contributor tier. Prices and availability can change, so production buyers should verify the current Meta Model API documentation.\n\n## When to use it\n\nMuse Spark 1.2 is a candidate for repository-scale coding, complex debugging, software migrations, multimodal computer-use agents, research workflows, and long-running tasks that benefit from a very large context window. Muse Code is the most integrated way to use its coding behavior because the model and harness were trained together.\n\n## When not to use it\n\nMuse Spark is not the right choice when downloadable weights, offline operation, full architecture transparency, or local data control are requirements. The contributor API should not be used for sensitive material when training-data reuse is unacceptable. Teams that mainly need short classification or simple chat may also pay for agent-oriented capabilities they do not use.\n\n## Muse Spark vs. Muse Glimmer\n\nMuse Spark is the more capable proprietary teacher model, accessed through Meta's cloud. Muse Glimmer is the smaller 30B student model, released under Apache 2.0 and designed to run on a high-end Mac or a single consumer GPU. Spark offers the stronger frontier-level service and a one-million-token context; Glimmer offers downloadable weights, local privacy, customization, and a 131K-plus context window.\n\n## Bottom line\n\nMuse Spark 1.2 is Meta's cloud model for serious coding and agent work, not a continuation of Llama's downloadable-weight strategy. Its strongest practical features are the million-token context window, close integration with Muse Code, and relatively low standard API price. The tradeoffs are equally important: its architecture is undisclosed, its weights cannot be downloaded, and its cheapest API tier exchanges a steep discount for permission to train on user data.",
+  "category": "LLM Models",
+  "relatedTerms": [
+    "large-language-model",
+    "ai-agent",
+    "agentic-ai",
+    "context-window",
+    "benchmark",
+    "inference",
+    "reinforcement-learning",
+    "meta-ai",
+    "open-weight-model"
+  ],
+  "lastUpdated": "2026-08-12",
+  "references": [
+    {
+      "title": "Introducing Muse Code and Muse Spark 1.2",
+      "url": "https://research.meta.ai/blog/introducing-muse-code-and-muse-spark-1-2"
+    },
+    {
+      "title": "Introducing Muse Spark 1.1 and the Meta Model API",
+      "url": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/"
+    },
+    {
+      "title": "Muse Spark 1.2: Independent Benchmarks and Analysis",
+      "url": "https://artificialanalysis.ai/articles/muse-spark-1-2"
+    }
+  ],
+  "analogy": "Muse Spark is a cloud-based senior engineer with an enormous desk and Meta's own tool belt: capable of holding a whole project in view, but available only as a service rather than as a model you can take home.",
+  "seoDescription": "Meta Muse Spark 1.2 explained: 1M-token context, coding benchmarks, API pricing, Muse Code integration, availability, and data-use tradeoffs.",
+  "seoKeywords": [
+    "Muse Spark",
+    "Meta Muse Spark",
+    "Muse Spark 1.2",
+    "Muse Spark model",
+    "Muse Spark API",
+    "Muse Spark pricing",
+    "Muse Spark benchmarks",
+    "Muse Spark context window",
+    "Muse Spark vs Claude Opus 5",
+    "Muse Spark vs Muse Glimmer",
+    "Muse Code model",
+    "Meta coding model",
+    "is Muse Spark open source"
+  ]
+},
+{
+  "name": "Muse Glimmer",
+  "slug": "muse-glimmer",
+  "shortDef": "Meta's 30B open-weight multimodal model for local AI agents, coding, tool use, and long-running tasks, with a 131K+ context window and Apache 2.0 license.",
+  "fullDef": "Muse Glimmer is Meta's **30-billion-parameter open-weight model** for always-on local [AI agents](/glossary/ai-agent). Released on August 10, 2026 by Meta Superintelligence Labs, it is designed to run on a high-end Mac or a single consumer [GPU](/glossary/gpu) instead of requiring a cloud API. It accepts text and images, produces text, calls tools, writes and debugs code, follows multi-step plans, and is trained to recover when a tool action fails.\n\nGlimmer is distilled from Meta's much larger proprietary **Muse Spark** model. That means Meta trained the smaller model to reproduce useful parts of Spark's behavior, then continued training it on long-context, coding, reasoning, and agent tasks. The result is not a miniature copy with identical capability; it is a local model optimized for a narrower balance of quality, memory use, and speed.\n\n## Architecture and technical specifications\n\nMuse Glimmer is a **dense causal transformer** with approximately **29.6 billion parameters across 52 layers**. Unlike a [Mixture-of-Experts model](/glossary/mixture-of-experts), a dense model uses all of its language-model parameters for each token. Its attention pattern repeats three local sliding-window layers followed by one global-attention layer, reducing memory pressure while preserving periodic access to the wider sequence.\n\nThe model includes a dedicated **ViT-G/14 perception encoder** of roughly 1.8 billion parameters for image understanding. It accepts interleaved text and images and returns text; audio output is not supported, and video is handled as individual frames rather than through a video-native encoder. The model card lists a **131,072-plus-token context length**, a 202,048-token vocabulary, grouped-query attention, SwiGLU feed-forward layers, and RoPE position encoding. Its stated knowledge cutoff is January 4, 2026.\n\nMuse Glimmer supports low, medium, high, and xhigh reasoning strengths. It was trained on data spanning more than 100 languages, although Meta warns that it has not evaluated performance equally across all of them.\n\n## What it is built for\n\nThe model targets local personal agents that manage files, schedules, documents, and other private context; coding agents that modify and debug software; structured function calling; screenshot and chart interpretation; synthetic-data generation; and LLM-as-a-judge evaluation. It is trained for long-horizon execution, precise tool schemas, scaffold compatibility, and retrying after failed actions rather than simply stopping.\n\nRunning locally can keep prompts, documents, code, and credentials on the user's machine and removes per-token API charges. That privacy benefit depends on the surrounding application: a local model can still send data elsewhere if its tools, telemetry, or agent integrations use external services. Local weights also do not make autonomous actions inherently safe, so irreversible operations still need permission checks and application-level guardrails.\n\n## Hardware and local deployment\n\nThe full BF16 checkpoint is about **60 GB** and targets systems with roughly **64 GB of GPU or unified memory**. Meta also publishes approximately 4-bit quantized versions. Its K-Quant-17GB language-model weights fit under 20 GB, while the complete runtime needs a **24 GB or 32 GB memory envelope** for the KV cache, image encoder, and optional speculative-decoding model. In ordinary terms, Muse Glimmer can run on one computer, but not comfortably on a typical low-memory laptop.\n\nMeta validated quantized deployment on an NVIDIA RTX 5090 and Apple M4 Max and M5 Max systems. The release includes a small DFlash drafter model that proposes blocks of tokens for the main model to verify, improving generation speed without changing the accepted output. Meta reported 233.4 tokens per second on an RTX 5090 with this speculative-decoding setup, but speed depends heavily on context length, quantization, runtime, prompt, and hardware.\n\nThe weights are available through Hugging Face. Deployment options include llama.cpp, MLX, ExecuTorch, vLLM, SGLang, Ollama, LM Studio, and hosted third-party providers. At launch, Meta did not offer Glimmer through its own metered Model API, so there is no single official API price; hosted cost and speed depend on the provider, while self-hosting shifts the expense to hardware and electricity.\n\n## License and openness\n\nMuse Glimmer's full-precision weights, quantized checkpoints, perception encoder, and DFlash drafter are released under the permissive **Apache License 2.0**. Developers can download, modify, fine-tune, and use them commercially subject to the license and Meta's usage policy.\n\nOpen weights do not mean every part of the development process is public. Meta provides architecture and methodology details, but it does not release the complete training dataset or every artifact needed to reproduce training from scratch. Artificial Analysis gave Glimmer 44 on its Openness Index, stronger than most open models but short of complete reproducibility.\n\n## Benchmark profile\n\nMeta's official model card compares Glimmer at high reasoning with similarly sized Gemma and Qwen models.\n\n| Official model-card evaluation | Muse Glimmer 30B | Gemma 4 31B | Qwen3.6 27B |\n| --- | ---: | ---: | ---: |\n| MCP Atlas (public) | **75.5** | 54.2 | 62.5 |\n| DeepSearch QA | **74.6** | 61.7 | 71.1 |\n| tau3-Banking | **23.5** | 15.1 | 16.7 |\n| AIME 2026 | **94.7** | 89.2 | 94.1 |\n| GPQA Diamond | 83.5 | **85.7** | 84.2 |\n| Humanity's Last Exam, text | 22.0 | **23.6** | 23.1 |\n| AA-LCR | **80.0** | 68.3 | 73.3 |\n| Beam128K | **65.1** | 58.2 | 63.0 |\n\nMeta separately reports **76% on SWE-bench Verified**, **51.2% on SWE-bench Pro**, and **74% on MMMU-Pro** for Glimmer. Bold in the comparison table marks the highest reported score on that row, not an overall winner. These are vendor-run evaluations from Meta's model card and methodology report; prompt settings, reasoning modes, and evaluation scaffolds affect the result.\n\nArtificial Analysis tested the released model independently and found a more mixed profile.\n\n| Independent evaluation | Muse Glimmer | Qwen3.6 27B | Gemma 4 31B | Read |\n| --- | ---: | ---: | ---: | --- |\n| Intelligence Index | 35 | **38** | 30 | Strong for 30B, but not the size-class leader. |\n| GDPval-AA v2 | 953 Elo | **1,141 Elo** | Lower than Glimmer | Agentic knowledge work is a weakness. |\n| Terminal-Bench v2.1 | 52% | **61%** | Lower than Glimmer | Qwen leads terminal-agent work. |\n| tau3-Banking | **24%** | 17% | — | Tool use is Glimmer's clearest independent strength. |\n| AA-Omniscience hallucination rate | 82% | 49% | — | Lower is better; Glimmer is substantially worse. |\n| MMMU-Pro | 74% | — | — | Visual reasoning with the 1.8B perception encoder. |\n\nA dash means the cited independent analysis did not provide a directly comparable number in that comparison, not that the model scored zero. The independent result makes the useful verdict narrower than Meta's launch framing: Glimmer is unusually capable for a locally deployable 30B model, especially at tool use, but it is not a small frontier model across every form of agent work.\n\n## When to use it\n\nMuse Glimmer is a strong candidate when local data control, offline availability, predictable self-hosting costs, customization, image understanding, or agentic tool use matters. It is particularly relevant for developers with 24–32 GB of GPU or unified memory who want a capable coding or personal agent without sending every prompt to a cloud model.\n\n## When not to use it\n\nIt is not the easiest choice for low-memory consumer machines, latency-sensitive services without suitable accelerators, audio-native applications, or tasks that require the strongest available cloud-model reasoning. Its weak independent hallucination and knowledge-work results mean high-stakes agents still need retrieval, verification, human approval, and narrow tool permissions.\n\n## Muse Glimmer vs. Muse Spark\n\nMuse Glimmer is the downloadable student; Muse Spark 1.2 is the proprietary teacher. Glimmer has 29.6B parameters, a 131K-plus context window, Apache 2.0 weights, and local deployment. Spark's parameter count is undisclosed, its context window is one million tokens, and access is through Meta's paid API or Muse Code. Choose Glimmer for control and local privacy; choose Spark when higher capability and its tightly integrated cloud coding workflow matter more than self-hosting.\n\n## Bottom line\n\nMuse Glimmer is a meaningful return to open weights for Meta: permissively licensed, technically documented, multimodal, and genuinely deployable on one high-end computer. Its practical achievement is not that it replaces the best cloud models. It is that a model small enough to keep private files and agent loops on-device can still compete with much larger systems on selected coding and tool-use tasks.",
+  "category": "LLM Models",
+  "relatedTerms": [
+    "large-language-model",
+    "open-weight-model",
+    "ai-agent",
+    "agentic-ai",
+    "context-window",
+    "quantization",
+    "gpu",
+    "inference",
+    "mixture-of-experts",
+    "benchmark",
+    "reinforcement-learning",
+    "meta-ai",
+    "ollama"
+  ],
+  "lastUpdated": "2026-08-12",
+  "references": [
+    {
+      "title": "Introducing Muse Glimmer: An Open Agentic Model That Runs on Your Device",
+      "url": "https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model"
+    },
+    {
+      "title": "Muse Glimmer 30B Model Card and Weights",
+      "url": "https://huggingface.co/meta-models/Muse-Glimmer-30B"
+    },
+    {
+      "title": "Muse Glimmer: Independent Benchmarks and Analysis",
+      "url": "https://artificialanalysis.ai/articles/muse-glimmer"
+    }
+  ],
+  "analogy": "Muse Glimmer is a compact workshop distilled from Meta's cloud-scale factory: it cannot match every frontier machine, but it brings the tools, plans, and materials onto one powerful computer you control.",
+  "seoDescription": "Meta Muse Glimmer explained: 30B open-weight agent model, 131K context, local GPU needs, benchmarks, multimodal features, and Apache 2.0 license.",
+  "seoKeywords": [
+    "Muse Glimmer",
+    "Meta Muse Glimmer",
+    "Muse Glimmer 30B",
+    "Muse Glimmer model",
+    "Muse Glimmer download",
+    "Muse Glimmer benchmarks",
+    "Muse Glimmer context window",
+    "Muse Glimmer system requirements",
+    "Muse Glimmer GPU requirements",
+    "Muse Glimmer Hugging Face",
+    "Muse Glimmer vs Muse Spark",
+    "Muse Glimmer vs Qwen3.6 27B",
+    "local AI agent model",
+    "Apache 2.0 AI model"
+  ]
 }
 ]
