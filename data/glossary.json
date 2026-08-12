@@ -6923,5 +6923,106 @@
     "local AI agent model",
     "Apache 2.0 AI model"
   ]
+},
+{
+  "name": "EAGLE-3",
+  "slug": "eagle-3",
+  "shortDef": "A lossless speculative-decoding method that accelerates LLM generation with a trained draft model using multi-layer target-model features and dynamic draft trees.",
+  "fullDef": "EAGLE-3 is a [speculative decoding](/glossary/speculative-decoding) method for making a [large language model](/glossary/large-language-model) generate text faster without changing the distribution of its output. Its name expands to **Extrapolation Algorithm for Greater Language-model Efficiency**. EAGLE-3 was introduced by researchers from Peking University, Microsoft Research, the University of Waterloo, and the Vector Institute, and was accepted at NeurIPS 2025.\n\nEAGLE-3 is not a chatbot or a standalone foundation model. It is a small, separately trained **draft model** attached to a larger **target model** such as Llama 3.1 8B or Llama 3.3 70B. The draft model proposes several likely next tokens cheaply. The target model checks those proposals together, accepts the valid prefix, and corrects the first rejected token. When enough proposals are accepted, the target model produces several tokens per expensive verification pass instead of one.\n\n## The plain-language idea\n\nNormal autoregressive decoding writes one token, checks the entire model, writes the next token, and repeats. EAGLE-3 is closer to a junior writer preparing several possible continuations while a senior editor reviews a whole batch at once. A good draft saves the editor from writing every word. A bad draft is rejected, so the final text still follows the senior model's decisions.\n\nThe term **lossless** is important here. It does not mean compression without larger files or that every implementation is bug-free. It means the speculative sampling acceptance rule preserves the same token distribution as ordinary decoding when implemented correctly. EAGLE-3 accelerates the target model; it does not improve that model's knowledge, reasoning, or factual accuracy.\n\n## How EAGLE-3 works\n\nThe original EAGLE predicted the target model's next hidden feature and then passed that prediction through the target model's language-model head to obtain draft tokens. EAGLE-3 removes the feature-regression constraint and trains directly for token prediction. Its draft model receives a fusion of **low-, middle-, and high-level hidden features** recorded during the target model's previous pass. Those layers carry different kinds of information, giving the drafter a richer signal than the top layer alone.\n\nEAGLE-3's core drafter is a lightweight, single-layer Transformer decoder. During what the paper calls **training-time test**, the draft model generates intermediate predictions and feeds its own predicted states back into later simulated draft steps. This exposes it during training to the same imperfect inputs it will encounter during inference. Without that simulation, a drafter trained only on correct target-model states can deteriorate rapidly after its first self-generated token.\n\nAt runtime, EAGLE-3 uses the context-aware dynamic draft tree introduced by EAGLE-2. Instead of betting on only one continuation, it proposes a tree of likely tokens and allocates more draft capacity to branches with higher estimated acceptance. The target model verifies that tree using tree attention.\n\n## EAGLE, EAGLE-2, and EAGLE-3\n\n| Version | Main idea | Reported Vicuna 13B speedup |\n| --- | --- | ---: |\n| EAGLE | Predict the target model's next hidden feature. | About 3.05x mean |\n| EAGLE-2 | Build and prune a dynamic draft tree using confidence. | About 4.22x mean |\n| EAGLE-3 | Predict tokens directly, fuse multiple target layers, and simulate drafting during training. | **About 5.51x mean** |\n\nThese figures come from the EAGLE-3 paper at temperature 0 across MT-bench, HumanEval, GSM8K, Alpaca, and CNN/DailyMail. They are controlled research results, not a promise that every application will become 5.5 times faster.\n\n## Paper benchmark results\n\nThe following table reports mean wall-clock speedup over ordinary autoregressive decoding across the paper's five evaluation tasks.\n\n| Target model | EAGLE-2, temperature 0 | EAGLE-3, temperature 0 | EAGLE-3, temperature 1 |\n| --- | ---: | ---: | ---: |\n| Vicuna 13B | 4.22x | **5.51x** | 4.65x |\n| Llama 3.1 8B Instruct | 3.23x | **4.44x** | 3.45x |\n| Llama 3.3 70B Instruct | 2.85x | **4.12x** | 3.95x |\n| DeepSeek-R1-Distill-Llama 8B | 3.26x | **4.16x** | 3.52x |\n\nThe largest individual result was **6.47x on HumanEval with Vicuna 13B** at temperature 0. Code contains repeated syntax and templates that can be easier for a draft model to predict. Across all tasks and target models in the paper, EAGLE-3 reported roughly 3.0x to 6.5x acceleration and a 20% to 40% improvement over EAGLE-2.\n\nThe paper also tested throughput against vLLM without speculative decoding. EAGLE-3 reported 1.75x throughput at batch size 2, 1.49x at batch size 16, 1.21x at batch size 48, and 1.01x at batch size 56. That shrinking gain shows the central limitation: speculative decoding is most useful when generation is memory-bound and spare compute is available. Large batches already use the GPU's arithmetic capacity more fully, leaving less free computation for drafting and verification.\n\n## Output quality and acceptance length\n\nEAGLE-3 does not need a separate quality score because accepted output is verified by the unchanged target model. The paper instead measures **speedup ratio** and **average acceptance length**, the average number of tokens completed per draft-and-verify cycle. On Llama 3.1 8B at temperature 0, EAGLE-3 increased mean acceptance length from 4.11 tokens with EAGLE-2 to 6.23 while raising mean speedup from 3.23x to 4.44x.\n\nHigher acceptance is not automatically higher end-to-end speed. The draft model, tree construction, target verification, memory movement, and serving framework all add overhead. The useful production metric is measured latency or throughput on the exact model, hardware, batch size, prompt distribution, and decoding settings.\n\n## Models, training, and deployment\n\nEAGLE-3 requires a compatible draft checkpoint trained for the specific target model. A checkpoint for Llama 3.1 8B cannot simply be attached to an unrelated model with a different vocabulary, hidden size, or internal layers. Creating a new drafter requires access to the target model's intermediate features and a training pipeline; it does not change the target model's weights.\n\nThe official Apache 2.0 implementation provides checkpoints for several Llama, Vicuna, DeepSeek-distilled, and other models. EAGLE support is also available across serving and optimization projects including SGLang, vLLM-related speculators, TensorRT-LLM, NVIDIA Model Optimizer, NeMo, AMD ROCm, MLC-LLM, and PaddleNLP, though supported versions and checkpoint formats differ. The project recommends comparing official checkpoints and official draft-tree configurations because unofficial drafters can produce different acceptance and speed results.\n\n## When to use EAGLE-3\n\nEAGLE-3 is most attractive for latency-sensitive, batch-one or low-batch generation; long responses where decode time dominates prompt processing; repeated production use that justifies training or obtaining a matched draft checkpoint; and self-hosted deployments where both target-model features and inference configuration are controllable.\n\n## When it may not help\n\nIt may provide little benefit when prompts are long but outputs are short, because speculative decoding accelerates the decode phase rather than the initial prompt prefill. Gains also shrink at high batch sizes, with poor draft-target alignment, on compute-bound hardware, or when framework overhead dominates. Hosted API users generally cannot add EAGLE-3 unless the provider exposes it. Memory use can also rise because the system must load the drafter and keep extra states and draft-tree data.\n\n## EAGLE-3 vs. DFlash\n\nBoth methods use cheap proposals plus target-model verification, but their drafters are different. EAGLE-3 autoregressively builds a dynamic token tree from fused internal features of the target model. DFlash uses a small block-diffusion drafter to propose a group of tokens in parallel and iteratively refine it. Both need a drafter matched to the target model, and neither makes unverified draft tokens part of the final answer.\n\n## Bottom line\n\nEAGLE-3 is one of the strongest specialized methods for lossless, low-batch LLM decoding acceleration. Its headline speedups are credible within the paper's controlled setup, and its support in major serving stacks makes it more than a research diagram. The practical question is not whether EAGLE-3 can reach 6.5x on one benchmark. It is whether a matched checkpoint, low enough batch size, and memory-bound workload let its accepted drafts save more time than the drafting machinery costs.",
+  "category": "Infrastructure",
+  "relatedTerms": [
+    "speculative-decoding",
+    "inference",
+    "large-language-model",
+    "transformer",
+    "token",
+    "gpu",
+    "model-distillation",
+    "quantization",
+    "dflash"
+  ],
+  "lastUpdated": "2026-08-12",
+  "references": [
+    {
+      "title": "EAGLE-3: Scaling up Inference Acceleration of Large Language Models via Training-Time Test",
+      "url": "https://arxiv.org/abs/2503.01840"
+    },
+    {
+      "title": "Official EAGLE Implementation and Checkpoints",
+      "url": "https://github.com/SafeAILab/EAGLE"
+    },
+    {
+      "title": "NVIDIA: An Introduction to Speculative Decoding and EAGLE-3",
+      "url": "https://developer.nvidia.com/blog/an-introduction-to-speculative-decoding-for-reducing-latency-in-ai-inference/"
+    }
+  ],
+  "analogy": "A fast junior writer drafts several possible next lines while the original author checks the batch; accepted lines save time, and rejected ones never enter the final text.",
+  "seoDescription": "EAGLE-3 explained: lossless speculative decoding, multi-layer feature fusion, dynamic draft trees, benchmarks, speedups, training, and limitations.",
+  "seoKeywords": [
+    "EAGLE-3",
+    "EAGLE 3 speculative decoding",
+    "EAGLE-3 explained",
+    "EAGLE-3 paper",
+    "EAGLE-3 benchmarks",
+    "EAGLE-3 speedup",
+    "EAGLE-3 GitHub",
+    "EAGLE-3 vLLM",
+    "EAGLE-3 SGLang",
+    "EAGLE-3 vs EAGLE-2",
+    "EAGLE-3 vs DFlash",
+    "lossless LLM acceleration",
+    "LLM speculative decoding"
+  ]
+},
+{
+  "name": "DFlash",
+  "slug": "dflash",
+  "shortDef": "A speculative-decoding architecture that uses a small block-diffusion draft model to propose multiple tokens in parallel for verification by a larger target LLM.",
+  "fullDef": "DFlash is a [speculative decoding](/glossary/speculative-decoding) architecture that accelerates a [large language model](/glossary/large-language-model) with a small **block-diffusion draft model**. Instead of asking the expensive target model to generate every token sequentially, DFlash proposes a block of future tokens at low cost. The target model then verifies those proposals in parallel, accepts the valid portion, and corrects rejected predictions.\n\nDFlash is not a standalone chatbot, foundation model, or replacement for the target LLM. It is an inference component trained for a particular target model. Meta's Muse Glimmer release is a concrete deployment: its optional five-layer DFlash drafter proposes blocks of 16 tokens for Muse Glimmer 30B and is released alongside the main weights.\n\n## The plain-language idea\n\nOrdinary text generation is like writing a sentence one word at a time and asking an expert to approve every word separately. DFlash lets a fast assistant fill in a short strip of blank spaces simultaneously, revise that strip over several cheap passes, and hand the whole proposal to the expert for one parallel check. Only expert-approved tokens survive.\n\nThe name combines **diffusion** with **Flash**. Image diffusion models begin with noise and refine a whole image over repeated steps. A block-diffusion language model applies a related principle to a small block of token positions: it begins with masked or uncertain positions and predicts or refines multiple positions together. This differs from a normal autoregressive drafter, which must generate draft token one, then token two, then token three in strict order.\n\n## How DFlash works\n\nA DFlash system has two components:\n\n1. The **target model** is the full language model whose output distribution must be preserved.\n2. The **DFlash drafter** is a much smaller block-diffusion network trained to approximate several upcoming target tokens cheaply.\n\nThe drafter predicts a block in parallel rather than producing the entire block left to right. It can iteratively update uncertain token positions while conditioning on the accepted prefix and, in implementations such as Muse Glimmer's, selected hidden features from the target model. The target model scores the proposed block in parallel. A speculative acceptance rule determines which prefix can be kept; when a token is rejected, the target model supplies the correction and later unverified draft tokens are discarded or regenerated.\n\nBecause the target remains the verifier, a correct lossless implementation preserves the target model's sampling distribution. The drafter changes how quickly candidates arrive, not which unverified answer is allowed through. DFlash therefore improves latency or throughput; it does not increase the target model's intelligence or repair its hallucinations.\n\n## DFlash in Muse Glimmer\n\nMeta's released Muse Glimmer drafter documents one practical DFlash configuration:\n\n| Component | Muse Glimmer DFlash setting |\n| --- | --- |\n| Draft-model depth | 5 layers |\n| Proposed block size | 16 tokens |\n| Draft attention | 2,048-token sliding window |\n| Attention heads | 32 query / 8 key-value heads |\n| Supported sequence length | 131,072 tokens |\n| Target hidden-feature inputs | Layers 1, 13, 25, 37, and 49 of 52 |\n| Distribution format | Separate full-precision and quantized drafter artifacts |\n\nThis is a target-specific implementation, not a universal DFlash configuration. Another target model can require a different drafter size, feature mapping, context length, block size, training recipe, and runtime integration. A Muse Glimmer DFlash checkpoint cannot be attached unchanged to an unrelated model.\n\n## Official speed benchmark\n\nMeta measured its K-Quant-17GB Muse Glimmer model with and without DFlash at batch size 1 using greedy decoding.\n\n| Hardware | Without speculation | With DFlash | Reported speedup |\n| --- | ---: | ---: | ---: |\n| NVIDIA RTX 5090 | 74.9 tokens/s | 233.4 tokens/s | **3.1x** |\n| Apple M4 Max | 23.7 tokens/s | 37.8 tokens/s | **1.5x** |\n| Apple M5 Max | 26.6 tokens/s | 50.2 tokens/s | **1.8x** |\n\nThese are official Meta measurements for one quantized model, a particular prompt set, greedy decoding, and specific llama.cpp or ExecuTorch implementations. They demonstrate that DFlash can materially improve a real local model, but they are not universal DFlash benchmarks. Sampling temperature, prompt and response length, acceptance rate, quantization, memory bandwidth, kernel quality, and hardware all change the result.\n\n## Why block diffusion can be faster\n\nAn autoregressive draft model is cheaper than the target, but it still produces its draft sequentially. DFlash exposes more parallel work inside the draft itself by updating multiple token positions together. That can reduce the time spent creating a proposal, especially on GPUs and accelerators that are good at parallel matrix operations.\n\nThe target still must verify the proposal. Speed comes only when the accepted-token savings exceed the cost of the DFlash passes, extra model memory, hidden-feature transfer, and verification. A larger block creates more opportunity to accept tokens but can also waste more work after an early rejection. The optimal block size and refinement schedule depend on the model and workload.\n\n## DFlash vs. ordinary speculative decoding\n\n| Method | How draft tokens are proposed | Main tradeoff |\n| --- | --- | --- |\n| Small autoregressive draft model | One draft token after another | Simple, but drafting remains sequential. |\n| EAGLE-3 | Autoregressive dynamic draft tree using fused target-model features | High acceptance, but needs target-specific features, training, and tree verification. |\n| DFlash | A block-diffusion drafter predicts and refines multiple token positions in parallel | More parallel drafting, but needs specialized block-diffusion training and runtime support. |\n\nThe methods share the same basic safety net: the target model verifies draft tokens. Their main difference is how they generate useful candidates cheaply enough to make verification worthwhile.\n\n## Memory and deployment costs\n\nDFlash adds a second set of weights. Muse Glimmer's drafter is about 5.1 GB in its reference artifact, with smaller quantized variants available. That overhead sits alongside the target-model weights, KV cache, vision encoder, and application runtime. DFlash may improve response speed while increasing memory use, startup time, packaging complexity, and integration work.\n\nProduction support is not automatic. The serving engine must know how to run the block-diffusion drafter, share the required target features, form the proposed block, verify it correctly, and maintain cache state after acceptance or rejection. Meta provides Muse Glimmer recipes through its supported local deployment ecosystem, but a generic OpenAI-compatible endpoint does not imply DFlash support.\n\n## When to use DFlash\n\nDFlash is most useful for low-batch, latency-sensitive generation; local or self-hosted targets with an official matched drafter; long outputs where decoding is a meaningful share of total time; and hardware with enough memory and parallel compute to run both models efficiently. It can be particularly attractive for always-on local agents, where faster multi-step reasoning and tool-call generation improve responsiveness without sending data to a cloud service.\n\n## When it may not help\n\nIt may not justify its overhead for very short outputs, long-prompt/short-answer workloads dominated by prefill, high-batch servers already saturating the accelerator, low-memory devices, or targets without a trained compatible drafter. Poorly matched drafts reduce acceptance and can make speculative decoding slower than ordinary generation. Quantization and runtime differences can also erase paper or vendor gains.\n\n## DFlash and model quality\n\nDFlash should not be evaluated like a new foundation model. The relevant measurements are accepted tokens per verification cycle, end-to-end latency, output tokens per second, time to first token, memory overhead, and throughput under realistic concurrency. Quality should match the target model when lossless verification is correctly implemented. If an implementation relaxes verification or uses approximate acceptance, it must disclose that tradeoff separately.\n\n## Bottom line\n\nDFlash moves speculative drafting from a miniature left-to-right writer toward a parallel block editor. Muse Glimmer shows that the idea can produce a measured 1.5x to 3.1x speedup on consumer-class systems. The honest production claim is narrower: DFlash is fast when a well-trained, target-specific drafter proposes blocks that the target accepts often enough to repay the extra memory and computation.",
+  "category": "Infrastructure",
+  "relatedTerms": [
+    "speculative-decoding",
+    "inference",
+    "large-language-model",
+    "transformer",
+    "token",
+    "gpu",
+    "model-distillation",
+    "quantization",
+    "eagle-3",
+    "muse-glimmer"
+  ],
+  "lastUpdated": "2026-08-12",
+  "references": [
+    {
+      "title": "DFlash Paper (arXiv:2602.06036)",
+      "url": "https://arxiv.org/abs/2602.06036"
+    },
+    {
+      "title": "Muse Glimmer 30B Model Card and DFlash Configuration",
+      "url": "https://huggingface.co/meta-models/Muse-Glimmer-30B"
+    },
+    {
+      "title": "Introducing Muse Glimmer: Local Deployment and DFlash Benchmarks",
+      "url": "https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model"
+    }
+  ],
+  "analogy": "A fast assistant fills an entire strip of blanks at once and revises it before an expert checks the batch; only the expert-approved sequence becomes final.",
+  "seoDescription": "DFlash explained: block-diffusion speculative decoding, parallel token drafting, Muse Glimmer benchmarks, speedups, memory costs, and EAGLE-3 comparison.",
+  "seoKeywords": [
+    "DFlash",
+    "dFlash speculative decoding",
+    "DFlash explained",
+    "DFlash paper",
+    "DFlash benchmarks",
+    "DFlash block diffusion",
+    "DFlash draft model",
+    "DFlash Muse Glimmer",
+    "DFlash speedup",
+    "DFlash vs EAGLE-3",
+    "block diffusion language model",
+    "parallel token generation",
+    "LLM inference acceleration"
+  ]
 }
 ]
