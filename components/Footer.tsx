@@ -13,7 +13,7 @@ export default function Footer() {
             <Link href="/articles" className="hover:text-text-secondary transition-colors">Articles</Link>
           </nav>
 
-          <nav aria-label="About TheQuery" className="flex flex-col items-start gap-3">
+          <nav aria-label="About TheQuery" className="justify-self-end flex flex-col items-end gap-3 text-right">
             <p className="font-serif text-base font-semibold text-text-primary">TheQuery</p>
             <Link href="/about" className="hover:text-text-secondary transition-colors">About</Link>
             <Link href="/privacy" className="hover:text-text-secondary transition-colors">Privacy</Link>
