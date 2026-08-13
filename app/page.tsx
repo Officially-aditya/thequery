@@ -77,7 +77,7 @@ export default function Home() {
       <div className="mb-12 text-text-secondary leading-relaxed space-y-4">
         <p>
           TheQuery is where developers go to understand AI, not just use it. Every resource here
-          is written from first principles -- starting with the foundational math, building through
+          is written from first principles - starting with the foundational math, building through
           core algorithms, and arriving at practical implementation. No hand-waving, no black boxes.
         </p>
         <p>
