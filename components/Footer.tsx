@@ -2,18 +2,28 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border py-8 mt-16">
-      <div className="max-w-[960px] mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-text-muted">
-        <p>&copy; {new Date().getFullYear()} TheQuery.in</p>
-        <nav className="flex items-center gap-4 flex-wrap justify-center">
-          <Link href="/books" className="hover:text-text-secondary transition-colors">Books</Link>
-          <Link href="/guides" className="hover:text-text-secondary transition-colors">Guides</Link>
-          <Link href="/glossary" className="hover:text-text-secondary transition-colors">Glossary</Link>
-          <Link href="/articles" className="hover:text-text-secondary transition-colors">Articles</Link>
-          <Link href="/about" className="hover:text-text-secondary transition-colors">About</Link>
-          <Link href="/privacy" className="hover:text-text-secondary transition-colors">Privacy</Link>
-          <a href="mailto:addy@thequery.in" className="hover:text-text-secondary transition-colors">Contact</a>
-        </nav>
+    <footer className="border-t border-border mt-16">
+      <div className="max-w-[960px] mx-auto px-4 py-10 text-sm text-text-muted">
+        <div className="grid grid-cols-2 gap-8 sm:gap-16">
+          <nav aria-label="Explore TheQuery" className="flex flex-col items-start gap-3">
+            <p className="font-serif text-base font-semibold text-text-primary">Explore</p>
+            <Link href="/books" className="hover:text-text-secondary transition-colors">Books</Link>
+            <Link href="/guides" className="hover:text-text-secondary transition-colors">Guides</Link>
+            <Link href="/glossary" className="hover:text-text-secondary transition-colors">Glossary</Link>
+            <Link href="/articles" className="hover:text-text-secondary transition-colors">Articles</Link>
+          </nav>
+
+          <nav aria-label="About TheQuery" className="flex flex-col items-start gap-3">
+            <p className="font-serif text-base font-semibold text-text-primary">TheQuery</p>
+            <Link href="/about" className="hover:text-text-secondary transition-colors">About</Link>
+            <Link href="/privacy" className="hover:text-text-secondary transition-colors">Privacy</Link>
+            <a href="mailto:addy@thequery.in" className="hover:text-text-secondary transition-colors">Contact</a>
+          </nav>
+        </div>
+
+        <div className="border-t border-border mt-10 pt-4">
+          <p>&copy; {new Date().getFullYear()} TheQuery.in</p>
+        </div>
       </div>
     </footer>
   );
