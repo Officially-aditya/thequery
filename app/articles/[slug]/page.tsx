@@ -172,7 +172,7 @@ export default async function ArticlePage({ params }: Props) {
               />
             </div>
             <aside
-              className="2xl:absolute 2xl:left-[calc(50%+400px)] 2xl:top-0 2xl:w-[320px]"
+              className="w-full 2xl:absolute 2xl:left-[calc(50%+368px)] 2xl:top-0 2xl:w-[400px]"
               aria-label="Article data visualization"
             >
               {visualizationConfig?.component}

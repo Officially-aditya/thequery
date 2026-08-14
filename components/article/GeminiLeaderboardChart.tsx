@@ -12,6 +12,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import { getHorizontalBarChartHeight } from "./chartSizing";
 
 const COLORS = {
   background: "#12161f",
@@ -121,7 +122,8 @@ export default function GeminiLeaderboardChart() {
         }}
       >
         <div
-          className="h-[390px] w-full"
+          className="w-full"
+          style={{ height: getHorizontalBarChartHeight(data.length) }}
           role="img"
           aria-label="Selected Artificial Analysis Intelligence Index scores. Claude Fable 5 scores 60, GPT-5.6 Sol 59, Kimi K3 57, Claude Opus 4.8 56, Grok 4.5 54, GLM-5.2 and Muse Spark 1.1 each 51, and Gemini 3.6 Flash 50."
         >

@@ -11,6 +11,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import { getHorizontalBarChartHeight } from "./chartSizing";
 
 const COLORS = {
   background: "#12161f",
@@ -147,7 +148,11 @@ export default function X402RealityCheck() {
           subtitle="Founding cohort to operational launch"
           source="CoinDesk; x402 Foundation"
         >
-          <div className="h-[220px]" role="img" aria-label="x402 Foundation membership rose from 22 in April 2026 to 40 in July 2026">
+          <div
+            style={{ height: getHorizontalBarChartHeight(membershipData.length) }}
+            role="img"
+            aria-label="x402 Foundation membership rose from 22 in April 2026 to 40 in July 2026"
+          >
             <ResponsiveContainer width="100%" height="100%">
               <BarChart
                 data={membershipData}
@@ -194,7 +199,11 @@ export default function X402RealityCheck() {
           subtitle="The smaller figure is narrower, not wash-adjusted"
           source="x402 dashboard; CoinDesk citing DefiLlama"
         >
-          <div className="h-[220px]" role="img" aria-label="x402 reported 24.2 million US dollars in 30-day volume while DefiLlama tracked a narrower 572 thousand US dollar metric">
+          <div
+            style={{ height: getHorizontalBarChartHeight(volumeData.length) }}
+            role="img"
+            aria-label="x402 reported 24.2 million US dollars in 30-day volume while DefiLlama tracked a narrower 572 thousand US dollar metric"
+          >
             <ResponsiveContainer width="100%" height="100%">
               <BarChart
                 data={volumeData}

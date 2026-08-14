@@ -12,6 +12,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import { getHorizontalBarChartHeight } from "./chartSizing";
 
 const COLORS = {
   background: "#12161f",
@@ -97,7 +98,8 @@ export default function OpusLeaderboardChart() {
         }}
       >
         <div
-          className="h-[340px] w-full"
+          className="w-full"
+          style={{ height: getHorizontalBarChartHeight(data.length) }}
           role="img"
           aria-label="Selected Artificial Analysis Intelligence Index scores. Claude Opus 5 scores 61, Claude Fable 5 60, GPT-5.6 Sol 59, Kimi K3 57, Claude Opus 4.8 56, and Grok 4.5 54."
         >

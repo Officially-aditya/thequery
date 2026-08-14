@@ -11,6 +11,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import { getHorizontalBarChartHeight } from "./chartSizing";
 
 const COLORS = {
   background: "#12161f",
@@ -153,7 +154,8 @@ export default function ClaudeSharedChatsPrivacy() {
           Nearly two out of three did not tell anyone.
         </div>
         <div
-          className="h-[200px] w-full"
+          className="w-full"
+          style={{ height: getHorizontalBarChartHeight(youthData.length) }}
           role="img"
           aria-label="The share of people ages 12 to 21 using AI chatbots for mental health advice rose from 13.1 percent a year earlier to 19.2 percent this year."
         >

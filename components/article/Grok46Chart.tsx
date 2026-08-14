@@ -12,6 +12,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import { getHorizontalBarChartHeight } from "./chartSizing";
 
 const COLORS = {
   background: "#12161f",
@@ -89,7 +90,10 @@ function BenchmarkPanel({
     <div className="rounded-lg p-4" style={{ backgroundColor: COLORS.panel, border: `1px solid ${COLORS.border}` }}>
       <h2 className="text-sm font-semibold" style={{ color: COLORS.text }}>{title}</h2>
       <p className="mb-3 mt-1 text-xs" style={{ color: COLORS.muted }}>{subtitle}</p>
-      <div className="h-[220px] w-full">
+      <div
+        className="w-full"
+        style={{ height: getHorizontalBarChartHeight(data.length) }}
+      >
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={data} layout="vertical" margin={{ left: 4, right: 28, top: 4, bottom: 4 }}>
             <CartesianGrid strokeDasharray="3 3" stroke={COLORS.border} horizontal={false} />
