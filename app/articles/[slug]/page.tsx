@@ -9,6 +9,7 @@ import OpusLeaderboardChart from "@/components/article/OpusLeaderboardChart";
 import X402RealityCheck from "@/components/article/X402RealityCheck";
 import ClaudeSharedChatsPrivacy from "@/components/article/ClaudeSharedChatsPrivacy";
 import Grok46Chart from "@/components/article/Grok46Chart";
+import Qwen27BChart from "@/components/article/Qwen27BChart";
 import { AUTHOR, ORGANIZATION_ID, ORGANIZATION_LOGO, SITE_URL, authorJsonLd } from "@/lib/site";
 import type { Metadata } from "next";
 
@@ -76,7 +77,14 @@ export default async function ArticlePage({ params }: Props) {
                   component: <Grok46Chart />,
                   placement: "right-rail" as const,
                 }
-            : null;
+              : issue.slug === "qwen-3-8-27b-opus-4-6-vision-benchmarks"
+                ? {
+                    anchor:
+                      "The [computer vision](/glossary/computer-vision) table looks far more dramatic than the text one, and this is where the framing driving the Twitter hype actually comes from.",
+                    component: <Qwen27BChart />,
+                    placement: "right-rail" as const,
+                  }
+                : null;
   const visualizationAnchor = visualizationConfig?.anchor ?? "";
   const hasEmbeddedVisualization =
     visualizationConfig !== null &&
