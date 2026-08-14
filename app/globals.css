@@ -56,6 +56,13 @@ body {
   font-family: var(--font-source-serif), Georgia, serif;
 }
 
+/* Keep a visible gap between the centered article column and its wider chart rail. */
+@media (min-width: 1536px) {
+  .article-visualization-rail {
+    width: min(400px, calc(50vw - 400px));
+  }
+}
+
 /* Reading progress rail */
 .scroll-progress {
   --scroll-progress-x: -50%;
