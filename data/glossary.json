@@ -6722,6 +6722,7 @@
     "category": "LLM Models",
     "relatedTerms": [
       "glm-5",
+      "glm-5-3",
       "deepseek-v4",
       "minimax-m3",
       "open-weight-model",
@@ -6766,6 +6767,72 @@
       "long-horizon coding model",
       "GLM 5.2 vs MiniMax M3",
       "GLM 5.2 vs DeepSeek V4"
+    ]
+  },
+  {
+    "name": "GLM 5.3",
+    "slug": "glm-5-3",
+    "shortDef": "GLM 5.3 is Z.ai's August 2026 reasoning model for frontier coding, long-horizon agents, and cybersecurity, trained by scaling GLM 5.2 post-training.",
+    "fullDef": "GLM 5.3 is Z.ai's August 14, 2026 model for complex coding, long-horizon agents, and cybersecurity work. It uses exactly the same base model as [GLM 5.2](/glossary/glm-5-2); Z.ai says every improvement comes from one month of additional post-training with more environments, more diverse tasks, and more reinforcement-learning compute.\n\nFor a normal user, GLM 5.3 is a stronger successor for coding agents that must keep working through a large task instead of only generating a good first answer. For a technical user, it is a post-trained update to the GLM 5.2 Mixture-of-Experts foundation, retaining the million-token long-context architecture while substantially improving terminal work, repository engineering, automation, and vulnerability research.\n\n## Release status and specifications\n\n| Specification | GLM 5.3 |\n| --- | --- |\n| Developer | Z.ai, formerly Zhipu AI |\n| Release date | August 14, 2026 |\n| API model ID | `glm-5.3` |\n| Base model | Same base model as GLM 5.2 |\n| Architecture | Mixture-of-Experts with IndexShare sparse attention |\n| Context window | Up to 1M tokens; inherited from GLM 5.2 and used in launch evaluations |\n| Thinking | Always enabled |\n| Reasoning effort | `low`, `high`, or `max`; default is `max` |\n| Open-weight status at launch | Weights announced but not yet downloadable |\n| Planned weight release | Two weeks after launch, following safety evaluation and hardening |\n| Hosted availability | Z.ai API, GLM Coding Plan, ZCode, and compatible coding agents |\n\nBecause the base model is unchanged, GLM 5.3 inherits GLM 5.2's long-context architecture rather than introducing a new pretraining run. The predecessor's official configuration uses 78 layers, 256 routed experts, eight selected experts per token, IndexShare attention, and a 1,048,576-position limit. Z.ai has not published a separate GLM 5.3 checkpoint or final weight license at launch, so it is more precise to call the model **planned open-weight** until the files and license actually appear.\n\n## What changed from GLM 5.2\n\nZ.ai scaled post-training rather than model size. The training environments were expanded toward realistic units of professional work: debugging distributed training infrastructure, navigating internal documentation and codebases, running experiments, measuring improvements, and carrying a task to completion. Some environments represent several days of work for an experienced engineer.\n\nThe stack combines three systems developed for GLM 5.2:\n\n- **IndexShare** reduces long-context attention cost by sharing an indexer across groups of sparse-attention layers.\n- **SAO**, or Single-Rollout Asynchronous Optimization, supports reinforcement learning on long and uneven agent trajectories, including context compaction.\n- **slime** coordinates asynchronous rollout generation and distributed training with Megatron and SGLang. Z.ai reports that new scheduling, caching, and workload-aware resource settings improved end-to-end long-horizon coding RL throughput by more than 2.3 times.\n\nZ.ai says its environment pipeline synthesizes tasks, runnable workspaces, verifiers, and reward checks. Solver trajectories are used to find reward shortcuts, while oracle, no-op, and unsolved-state tests help determine whether a verifier is trustworthy enough to supply a binary training reward. Human review is still part of the process.\n\n## Official benchmark comparison\n\nThe following launch results were published by Z.ai. They compare different models using Z.ai's stated harnesses and effort settings; several tests use Claude Code as the agent harness, and blank cells mean no score was reported. These are vendor-reported results, not a substitute for testing on a private repository or production toolchain.\n\n| Benchmark | GLM 5.3 | GLM 5.2 | Kimi K3 | DeepSeek V4 Pro 0813 | Opus 4.8 | Fable 5, fallback | GPT-5.6 Sol |\n| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |\n| Terminal Bench 2.1 | 88.2 | 81.0 | 88.3 | 87.9 | 85.0 | 88.0 | 88.8 |\n| Terminal Bench 3.0 | 28.3 | 4.6 | 17.4 | — | 21.1 | 33.7 | 34.6 |\n| DeepSWE v1.1 | 66.9 | 46.2 | 67.5 | 62.7 | 58.0 | 69.7 | 72.7 |\n| NL2Repo | 58.0 | 48.9 | 58.0 | 61.1 | 69.7 | — | — |\n| FrontierSWE | 78.1 | 67.5 | — | — | 66.5 | 88.2 | — |\n| PostTrainBench | 39.8 | 31.7 | 32.0 | — | 32.9 | 41.8 | 36.2 |\n| Toolathlon Verified | 73.0 | 59.9 | 76.5 | 74.1 | 76.2 | 74.7 | 74.9 |\n| AutomationBench 1.0.6 | 48.2 | 26.2 | 46.7 | 43.2 | 41.0 | 46.2 | 45.8 |\n| Agents' Last Exam, CLI | 28.5 | 23.8 | 27.6 | 25.7 | 25.7 | 23.8 | 28.6 |\n| HLE with tools | 62.5 | 54.7 | 59.8 | 60.0 | 57.9 | 63.9 | 64.5 |\n| GDPval-AA v2 | 1769 Elo | 1508 | 1682 | 1590 | 1588 | 1743 | 1730 |\n\nThe most important comparison is with GLM 5.2 because it isolates the effect of post-training. GLM 5.3 rises from 4.6 to 28.3 on Terminal Bench 3.0, from 46.2 to 66.9 on DeepSWE, from 26.2 to 48.2 on AutomationBench, and from 23.8 to 28.5 on Agents' Last Exam. Z.ai also reports a 50% improvement on its private Z.ai Code Bench.\n\nOn that private test, GLM 5.3 reaches 34.5% at Max effort while using roughly 75K output tokens per task, compared with GLM 5.2's 23.4% at about 96K. At High effort, it reaches 31.4% with around 50K output tokens, above Opus 4.8's 29.5% with 120K. Fable 5 remains higher at 39.5% under Max. Private benchmarks have lower contamination risk but are harder for outsiders to reproduce, so those numbers deserve more caution than public evaluations.\n\n## Cybersecurity capability\n\nGLM 5.3's unusual headline is its rapid improvement in vulnerability discovery and exploitation. Z.ai added vulnerability data and executable environments to post-training, then observed larger gains as tasks moved further from finding a flaw toward building an exploitation chain.\n\n| Cyber benchmark | GLM 5.3 | GLM 5.2 | Kimi K3 | Opus 4.8 | Fable 5, fallback | GPT-5.6 Sol |\n| --- | ---: | ---: | ---: | ---: | ---: | ---: |\n| CyberGym | 84.5% | 77.2% | 80.0% | 78.1% | 83.8% | 83.6% |\n| ExploitBench | 54.4% | 24.4% | 32.2% | 40.0% | 78.0% | 76.5% |\n| ExploitGym, tasks in 2h / 6h | 105 / 130 | 29 / 39 | 36 / 70 | 80 / 120 | 181 / 247 | 216 / 293 |\n\nGLM 5.3 leads this published comparison on CyberGym and more than doubles GLM 5.2 on ExploitBench, but the closed frontier remains far ahead on deeper exploitation. Z.ai says work with Chinese security teams identified 2,436 vulnerabilities across 269 real projects after expert review, screening, and deduplication; 1,097 were medium-to-high severity. Only 53 had been publicly disclosed at launch, with the rest under coordinated embargo. Those figures are consequential claims, but most findings cannot yet be independently inspected.\n\nThe cyber gains also explain why the weights were not released on day one. Z.ai says it is using the two-week delay for safety evaluation and hardening. Security teams should treat GLM 5.3 as dual-use: useful for authorized auditing and defensive research, but capable enough to require isolated environments, strict scopes, logging, and human review.\n\n## Thinking levels and migration\n\nGLM 5.3 requires thinking to remain enabled. Requests with `thinking.type: \"disabled\"` fail. The API accepts `reasoning_effort` values of `low`, `high`, and `max`, with Max as the default and Z.ai's recommendation for coding. Low is the migration path for applications that previously disabled thinking and need to minimize latency or token consumption.\n\nThis change can break an otherwise simple model-ID upgrade. Before moving from GLM 5.2, developers should change disabled thinking to enabled, explicitly set `reasoning_effort` to `low` if they want the lightest reasoning path, and only then switch the model to `glm-5.3`. Higher effort can improve difficult tasks but generally increases latency and billed output tokens.\n\n## Pricing and access\n\nAt launch, Z.ai's public per-token pricing table does **not** list GLM 5.3, so a dollar-per-million-token rate should not be inferred from GLM 5.2. The model is available to all GLM Coding Plan users under a new points-based quota system. Input, cached input, and output tokens consume points separately. Usage outside 14:00-18:00 UTC+8 on weekdays is charged at 50% of the standard point rate; weekends are also off-peak.\n\nZCode advertises a cache-hit rate above 98%, an estimated 30% increase in effective tokens from cache savings, and a temporary 1.5-times quota boost through August 31. Those are product-plan promotions, not equivalent to a stable API token price. Buyers should check Z.ai's live pricing documentation before budgeting.\n\n## When to use GLM 5.3\n\nGLM 5.3 is designed for coding agents, repository creation, long refactors, terminal work, ML infrastructure optimization, enterprise automation, tool-rich research, and authorized security auditing. It is particularly relevant when a task must run for hours, preserve state, test its own changes, and recover from failures.\n\nIt is a weaker fit for simple chat, classification, short summaries, or latency-sensitive workloads that do not benefit from mandatory reasoning. It is also not yet a self-hosting choice on launch day: the weights are scheduled, not available. Teams that require local deployment should keep using GLM 5.2 until the GLM 5.3 checkpoint, license, hashes, and serving guidance are published.\n\n## Bottom line\n\nGLM 5.3 is a post-training release rather than a larger base model. Its value is the jump in sustained coding, automation, and security work from the same GLM 5.2 foundation. The launch numbers put it among the strongest coding-focused models, but its deepest exploitation capability still trails leading closed systems, and its planned open-weight status should not be confused with weights that are available today.",
+    "category": "LLM Models",
+    "relatedTerms": [
+      "glm-5",
+      "glm-5-2",
+      "deepseek-v4-pro",
+      "kimi-k3",
+      "open-weight-model",
+      "large-language-model",
+      "mixture-of-experts",
+      "agentic-ai",
+      "agentic-workflows",
+      "context-window",
+      "benchmark",
+      "reinforcement-learning",
+      "inference",
+      "tool-calling"
+    ],
+    "lastUpdated": "2026-08-14",
+    "analogy": "GLM 5.3 is the same engineering team after an intensive month inside better simulators: no new workers were added, but the team learned to finish longer, harder jobs and handle security incidents.",
+    "references": [
+      {
+        "title": "GLM-5.3: Frontier Coding with Emergent Cyber Capabilities",
+        "url": "https://z.ai/blog/glm-5.3"
+      },
+      {
+        "title": "Z.ai API Pricing",
+        "url": "https://docs.z.ai/guides/overview/pricing"
+      },
+      {
+        "title": "GLM Coding Plan Overview",
+        "url": "https://docs.z.ai/devpack/overview"
+      },
+      {
+        "title": "IndexShare: Efficient Long-Context Processing",
+        "url": "https://arxiv.org/abs/2603.12201"
+      },
+      {
+        "title": "Single-Rollout Asynchronous Optimization for Agentic Reinforcement Learning",
+        "url": "https://arxiv.org/abs/2607.07508"
+      },
+      {
+        "title": "THUDM slime Post-Training Framework",
+        "url": "https://github.com/THUDM/slime"
+      }
+    ],
+    "seoDescription": "GLM 5.3 explained: Z.ai's new coding, agentic, and cyber model, with official benchmarks, 1M context, thinking levels, access, and weight status.",
+    "seoKeywords": [
+      "what is GLM 5.3",
+      "GLM 5.3 benchmarks",
+      "GLM 5.3 release date",
+      "GLM 5.3 API",
+      "GLM 5.3 pricing",
+      "GLM 5.3 context window",
+      "GLM 5.3 open weights",
+      "GLM 5.3 vs GLM 5.2",
+      "GLM 5.3 vs DeepSeek V4 Pro",
+      "GLM 5.3 vs Kimi K3",
+      "GLM 5.3 cybersecurity",
+      "Z.ai coding model"
     ]
   },
   {
