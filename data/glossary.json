@@ -2038,12 +2038,14 @@
   {
     "name": "DeepSeek V4",
     "slug": "deepseek-v4",
-    "shortDef": "DeepSeek V4 is DeepSeek's open-weight MoE model family with Pro and Flash variants, 1M-token context, DSA attention, and strong coding, reasoning, and agentic benchmarks.",
-    "fullDef": "DeepSeek V4 is DeepSeek's fourth-generation open-weight model family, released as a preview on April 24, 2026. It includes two main instruct variants: DeepSeek-V4-Pro, the largest and strongest model, and DeepSeek-V4-Flash, the smaller, faster, cheaper model for high-throughput use.\n\nDeepSeek frames V4 around one central idea: efficient million-token context. Both variants support a 1 million token context window, and the technical report describes a hybrid attention architecture combining Compressed Sparse Attention and Heavily Compressed Attention. DeepSeek says that in the 1M-token setting, V4-Pro uses only 27% of the single-token inference FLOPs and 10% of the KV cache required by DeepSeek V3.2.\n\n## DeepSeek V4 Variants\n\n| Variant | Total parameters | Active parameters | Context window | Best fit |\n| --- | --- | --- | --- | --- |\n| DeepSeek-V4-Pro | 1.6T | 49B | 1M tokens | Frontier-style reasoning, coding, agentic workflows, and knowledge-heavy tasks |\n| DeepSeek-V4-Flash | 284B | 13B | 1M tokens | Faster production inference, cheaper API use, and simpler agent tasks |\n\nBoth variants are Mixture-of-Experts models. That means the full model stores far more capacity than it activates on each token. V4-Pro is enormous in stored capacity, but it only activates 49B parameters per token. V4-Flash pushes the same idea further for cost-sensitive deployment, activating 13B parameters per token.\n\n## Architecture\n\nDeepSeek V4 uses three major architectural and optimization changes over prior DeepSeek models:\n\n- Hybrid attention: CSA plus HCA for cheaper long-context inference.\n- Manifold-Constrained Hyper-Connections: a residual connection upgrade intended to improve signal propagation and model stability.\n- Muon optimizer: used to improve training convergence and stability.\n\nThe models were pretrained on more than 32 trillion tokens and then post-trained through a pipeline that combines supervised fine-tuning, reinforcement learning, and on-policy distillation across domain-specific capabilities.\n\n## Benchmark Profile\n\nDeepSeek's own reported evaluation positions V4-Pro-Max, the maximum reasoning effort mode of V4-Pro, as one of the strongest open-weight models available in spring 2026. Published highlights include:\n\n- Codeforces: 3206\n- LiveCodeBench: 93.5\n- IMOAnswerBench: 89.8\n- SWE Verified: 80.6\n- Terminal Bench 2.0: 67.9\n- Toolathlon: 51.8\n\nThe important point is not that DeepSeek V4 beats every closed frontier model. It does not. The important point is that an open-weight model family is now close enough on coding, reasoning, browsing, tool use, and long-context tasks that cost, deployment control, and data sovereignty become first-order model-selection factors.\n\n## Why It Matters\n\nDeepSeek V4 matters because it compresses the gap between open-weight and proprietary models while making 1M-token context a default part of the product. For teams building coding agents, document analysis systems, repository-scale assistants, and enterprise workflows, that changes the tradeoff. The question is no longer only which model is best. It is whether a slightly weaker but much more controllable and cheaper open-weight model is good enough.\n\nDeepSeek V4 also sits in the broader shift toward efficient sparse models. Like GLM-5, Qwen, and other frontier open-weight releases, it separates stored knowledge from active inference cost. The model is huge, but the per-token compute path is much smaller than the headline parameter count suggests.",
+    "shortDef": "DeepSeek V4 is DeepSeek's open-weight MoE model family, now released as V4 Flash 0731 and V4 Pro 0813 with 1M-token context and three reasoning modes.",
+    "fullDef": "DeepSeek V4 is DeepSeek's fourth-generation open-weight language-model family. The family first appeared in preview on April 24, 2026, but its two production-line variants have since received named releases: [DeepSeek V4 Flash](/glossary/deepseek-v4-flash) 0731 entered public beta on July 31, and [DeepSeek V4 Pro](/glossary/deepseek-v4-pro) 0813 launched across DeepSeek's app, website, and API on August 13. Calling the whole family a preview is therefore no longer accurate.\n\nBoth models are Mixture-of-Experts (MoE) systems with a 1 million token context window and up to 384K output tokens through DeepSeek's API. They support non-thinking and thinking operation, JSON output, tool calls, the Responses API, an Anthropic-compatible API, and beta prefix and fill-in-the-middle completion. Their open weights are released under the MIT License.\n\n## DeepSeek V4 models\n\n| Model | Official build | Release status | Total / active parameters | Context | Best fit |\n| --- | --- | --- | --- | --- | --- |\n| DeepSeek V4 Flash | DeepSeek-V4-Flash-0731 | Official API release in public beta, July 31, 2026 | 284B / 13B | 1M | Lower-cost, high-throughput agents and routine coding |\n| DeepSeek V4 Pro | DeepSeek-V4-Pro-0813 | General release on app, web, and API, August 13, 2026 | 1.6T / 49B | 1M | Hard reasoning, coding, knowledge, and complex agent workflows |\n\nThe active-parameter number is the better clue to per-token compute than the headline total. Flash stores 284B parameters but routes each token through about 13B; Pro stores 1.6T and activates about 49B. Pro is the higher-capability option, while Flash is designed to make the V4 architecture practical at much higher request volumes.\n\n## Architecture and training\n\nDeepSeek V4 combines Compressed Sparse Attention (CSA) and Heavily Compressed Attention (HCA) for efficient long-context processing. DeepSeek reports that at a 1M-token context, V4 Pro requires 27% of DeepSeek V3.2's single-token inference FLOPs and 10% of its KV cache. The family also uses Manifold-Constrained Hyper-Connections (mHC), intended to stabilize signal propagation, and the Muon optimizer.\n\nDeepSeek says the models were pretrained on more than 32 trillion tokens. Post-training combines supervised fine-tuning, GRPO-based reinforcement learning, specialist training, and on-policy distillation into unified instruct models. Both releases offer Non-think, Think High, and Think Max modes, allowing developers to trade latency and token use for stronger reasoning.\n\n## Official benchmark comparison\n\nThe following selected results come from DeepSeek's model card. They compare the released instruct models under the vendor's own evaluation settings; they are not independent tests.\n\n| Benchmark | V4 Flash High | V4 Flash Max | V4 Pro High | V4 Pro Max |\n| --- | ---: | ---: | ---: | ---: |\n| MMLU-Pro | 86.4 | 86.2 | 87.1 | 87.5 |\n| GPQA Diamond | 87.4 | 88.1 | 89.1 | 90.1 |\n| LiveCodeBench | 88.4 | 91.6 | 89.8 | 93.5 |\n| Codeforces rating | 2816 | 3052 | 2919 | 3206 |\n| MRCR 1M | 76.9 | 78.7 | 83.3 | 83.5 |\n| Terminal Bench 2.0 | 56.6 | 56.9 | 63.3 | 67.9 |\n| SWE Verified | 78.6 | 79.0 | 79.4 | 80.6 |\n| BrowseComp | 53.5 | 73.2 | 80.4 | 83.4 |\n| Toolathlon | 43.5 | 47.8 | 49.0 | 51.8 |\n\nThe table shows the practical split. Flash Max can approach Pro on several reasoning and coding tests, but Pro retains a larger advantage on knowledge-heavy work, 1M-context retrieval, browsing, and difficult agentic tasks. Benchmark scores also depend on reasoning budgets, prompts, scaffolding, and tool harnesses, so buyers should reproduce representative workloads before choosing a tier.\n\n## API pricing and availability\n\nAs of August 14, 2026, DeepSeek lists Flash at $0.0028 per million cache-hit input tokens, $0.14 per million cache-miss input tokens, and $0.28 per million output tokens. Pro costs $0.003625, $0.435, and $0.87 respectively. DeepSeek has announced new peak and off-peak pricing effective August 16, so production budgets should use the live pricing page rather than treating these launch rates as permanent.\n\nThe API model IDs remain `deepseek-v4-flash` and `deepseek-v4-pro`. Developers who need stable, reproducible self-hosted artifacts can use the released Flash and Pro weights, while API users receive the dated 0731 and 0813 builds behind those names.\n\n## Which DeepSeek V4 model should you use?\n\nUse Flash when cost, latency, or throughput dominates and the task can tolerate a modest capability tradeoff. Use Pro for difficult software engineering, competitive programming, research, long-context synthesis, browsing, and multi-step agents where a failed trajectory costs more than the model call. For either model, test High before Max: Max can improve hard-task results but usually increases latency and output-token consumption.\n\n## Bottom line\n\nDeepSeek V4 is no longer best described as an April preview. It is a released two-tier family: Flash 0731 for efficient production inference and Pro 0813 for DeepSeek's strongest open-weight reasoning and agentic performance.",
     "category": "LLM Models",
     "relatedTerms": [
       "deepseek-v3",
       "deepseek-r1",
+      "deepseek-v4-flash",
+      "deepseek-v4-pro",
       "large-language-model",
       "mixture-of-experts",
       "context-window",
@@ -2055,12 +2057,20 @@
       "agentic-ai",
       "glm-5"
     ],
-    "lastUpdated": "2026-05-15",
+    "lastUpdated": "2026-08-14",
     "analogy": "Think of it like a massive research library with a smart retrieval desk: the whole building is available, but each query only lights up the shelves it needs.",
     "references": [
       {
-        "title": "DeepSeek V4 Preview Release - DeepSeek API Docs",
-        "url": "https://api-docs.deepseek.com/news/news260424"
+        "title": "DeepSeek V4 Pro Official Release - DeepSeek API Docs",
+        "url": "https://api-docs.deepseek.com/zh-cn/news/news260813/"
+      },
+      {
+        "title": "DeepSeek API Change Log - V4 Flash Official Release",
+        "url": "https://api-docs.deepseek.com/updates/"
+      },
+      {
+        "title": "DeepSeek API Models and Pricing",
+        "url": "https://api-docs.deepseek.com/quick_start/pricing"
       },
       {
         "title": "DeepSeek-V4-Pro on Hugging Face",
@@ -2075,16 +2085,125 @@
         "url": "https://developer.nvidia.com/blog/build-with-deepseek-v4-using-nvidia-blackwell-and-gpu-accelerated-endpoints/"
       }
     ],
-    "seoDescription": "DeepSeek V4 is an open-weight MoE model family with Pro and Flash variants, 1M-token context, DSA attention, and strong coding and reasoning benchmarks.",
+    "seoDescription": "DeepSeek V4 is an open-weight MoE family with released Flash 0731 and Pro 0813 models, 1M context, API pricing, reasoning modes, and benchmarks.",
     "seoKeywords": [
       "what is DeepSeek V4",
       "DeepSeek V4 explained",
       "DeepSeek V4 Pro",
       "DeepSeek V4 Flash",
+      "DeepSeek V4 Pro 0813",
+      "DeepSeek V4 Flash 0731",
+      "DeepSeek V4 pricing",
+      "DeepSeek V4 benchmarks",
       "DeepSeek V4 vs DeepSeek V3",
       "1M context open weight model",
       "DeepSeek Sparse Attention",
       "open weight coding model"
+    ]
+  },
+  {
+    "name": "DeepSeek V4 Flash",
+    "slug": "deepseek-v4-flash",
+    "shortDef": "DeepSeek V4 Flash is DeepSeek's 284B-parameter, 13B-active open-weight MoE model for fast, lower-cost agents, coding, and 1M-token workloads.",
+    "fullDef": "DeepSeek V4 Flash is the smaller, faster, and less expensive member of the [DeepSeek V4](/glossary/deepseek-v4) family. The official DeepSeek-V4-Flash-0731 API release entered public beta on July 31, 2026, replacing the earlier preview build. It has 284 billion total parameters, activates 13 billion per token through its Mixture-of-Experts routing, supports a 1 million token context window, and can produce up to 384K output tokens through DeepSeek's API.\n\nFor a normal user, Flash is the V4 model to choose when speed and price matter more than squeezing out the last few points of capability. For a developer, it is the high-throughput production tier: an open-weight, MIT-licensed model with tool calling, JSON output, OpenAI-compatible Responses API support, an Anthropic-compatible endpoint, and both thinking and non-thinking operation.\n\n## Key specifications\n\n| Specification | DeepSeek V4 Flash |\n| --- | --- |\n| Official API build | DeepSeek-V4-Flash-0731 |\n| API model ID | `deepseek-v4-flash` |\n| Release status | Official release in public beta |\n| Total / active parameters | 284B / 13B |\n| Architecture | Mixture-of-Experts with CSA + HCA hybrid attention |\n| Context / maximum output | 1M / 384K tokens |\n| Reasoning modes | Non-think, Think High, Think Max |\n| API features | JSON, tools, Responses API, Anthropic API, prefix completion, FIM |\n| Weight precision | FP4 experts plus mostly FP8 remaining parameters |\n| License | MIT |\n\nOpen weights do not mean lightweight deployment. A 284B-parameter checkpoint still requires serious multi-GPU infrastructure, quantization, or a hosted inference provider. The 13B active figure describes sparse compute per token; it is not the amount of memory needed to store the whole model.\n\n## Official benchmark table\n\nThese are DeepSeek's reported instruct-model results. Flash Max uses a larger reasoning budget than High, so it should not be read as a free accuracy upgrade.\n\n| Benchmark | Flash Non-think | Flash High | Flash Max | Pro Max reference |\n| --- | ---: | ---: | ---: | ---: |\n| MMLU-Pro | 83.0 | 86.4 | 86.2 | 87.5 |\n| GPQA Diamond | 71.2 | 87.4 | 88.1 | 90.1 |\n| LiveCodeBench | 55.2 | 88.4 | 91.6 | 93.5 |\n| Codeforces rating | — | 2816 | 3052 | 3206 |\n| IMOAnswerBench | 41.9 | 85.1 | 88.4 | 89.8 |\n| MRCR 1M | 37.5 | 76.9 | 78.7 | 83.5 |\n| Terminal Bench 2.0 | 49.1 | 56.6 | 56.9 | 67.9 |\n| SWE Verified | 73.7 | 78.6 | 79.0 | 80.6 |\n| BrowseComp | — | 53.5 | 73.2 | 83.4 |\n| Toolathlon | 40.7 | 43.5 | 47.8 | 51.8 |\n\nThe strongest Flash result is not always Max: MMLU-Pro is marginally higher in High. This is a useful warning against assuming more test-time compute improves every task. DeepSeek's results also use its own prompts and evaluation harnesses; independent testing may differ, especially for agent benchmarks that depend heavily on tools and scaffolding.\n\n## Flash versus Pro\n\nFlash and Pro share the same 1M context, 384K maximum output, API feature set, and three reasoning modes. The main differences are capacity, cost, and difficult-task reliability. Flash activates 13B parameters versus Pro's 49B, and its launch API rates are roughly one-third of Pro's cache-miss input and output prices.\n\nFlash Max comes close to Pro Max on GPQA Diamond, LiveCodeBench, and IMOAnswerBench, making it a credible default for coding and reasoning workloads. Pro's advantage is clearer on factual knowledge, long-context retrieval, terminal work, browsing, and complex tool use. A sensible routing system can send routine requests to Flash and escalate only hard or failed tasks to Pro.\n\n## API price\n\nAs of August 14, 2026, the listed Flash rates per million tokens are $0.0028 for cache-hit input, $0.14 for cache-miss input, and $0.28 for output. DeepSeek has scheduled a new time-of-day system for August 16: off-peak rates of $0.007, $0.22, and $0.66, and peak rates of $0.014, $0.44, and $1.32 respectively. Because that change was announced but not yet effective when this entry was updated, check DeepSeek's live pricing page before estimating production cost.\n\n## When to use DeepSeek V4 Flash\n\nFlash fits customer support, extraction, summarization, code generation, repository search, document analysis, tool-using assistants, and agent systems where many calls must fit inside a fixed budget. It is also the practical V4 model for experiments that need open weights but cannot justify Pro's 1.6T-parameter storage footprint.\n\nChoose Pro instead when the job depends on obscure factual knowledge, sustained browser research, difficult terminal execution, competitive programming, or the highest possible success rate on a long multi-step trajectory. For sensitive workloads, open weights make self-hosting possible, but teams still need to audit the model, serving stack, prompts, tool permissions, and output handling.\n\n## Bottom line\n\nDeepSeek V4 Flash is no longer the April preview alias. Flash 0731 is the official public-beta build and the economical V4 default: smaller than Pro, much cheaper to call, and still competitive on coding and reasoning when given a higher thinking budget.",
+    "category": "LLM Models",
+    "relatedTerms": [
+      "deepseek-v4",
+      "deepseek-v4-pro",
+      "large-language-model",
+      "mixture-of-experts",
+      "context-window",
+      "inference",
+      "benchmark",
+      "open-weight-model",
+      "reasoning",
+      "agentic-ai",
+      "api"
+    ],
+    "lastUpdated": "2026-08-14",
+    "analogy": "Flash is the express lane in the V4 family: it uses fewer active experts per request, so most jobs move faster and cost less, while hard cases can move to Pro.",
+    "references": [
+      {
+        "title": "DeepSeek API Change Log - V4 Flash Official Release",
+        "url": "https://api-docs.deepseek.com/updates/"
+      },
+      {
+        "title": "DeepSeek-V4-Flash Official Model Card",
+        "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash"
+      },
+      {
+        "title": "DeepSeek API Models and Pricing",
+        "url": "https://api-docs.deepseek.com/quick_start/pricing"
+      },
+      {
+        "title": "DeepSeek V4 Technical Report",
+        "url": "https://arxiv.org/abs/2606.19348"
+      }
+    ],
+    "seoDescription": "DeepSeek V4 Flash 0731 explained: official public-beta status, 284B/13B MoE design, 1M context, API price, features, benchmarks, and Pro comparison.",
+    "seoKeywords": [
+      "what is DeepSeek V4 Flash",
+      "DeepSeek V4 Flash 0731",
+      "DeepSeek V4 Flash benchmarks",
+      "DeepSeek V4 Flash pricing",
+      "DeepSeek V4 Flash vs Pro",
+      "deepseek-v4-flash API",
+      "284B MoE model",
+      "13B active parameters",
+      "1M context open weight model"
+    ]
+  },
+  {
+    "name": "DeepSeek V4 Pro",
+    "slug": "deepseek-v4-pro",
+    "shortDef": "DeepSeek V4 Pro is DeepSeek's released 1.6T-parameter, 49B-active open-weight flagship for advanced reasoning, coding, agents, and 1M-token context.",
+    "fullDef": "DeepSeek V4 Pro is the flagship model in the [DeepSeek V4](/glossary/deepseek-v4) family. DeepSeek released the official DeepSeek-V4-Pro-0813 build on August 13, 2026, updating its app, website, and API simultaneously. It replaces the April preview while keeping the API model name `deepseek-v4-pro`.\n\nPro is a 1.6 trillion parameter Mixture-of-Experts model that activates about 49 billion parameters for each token. It supports a 1 million token context window, up to 384K output tokens through the API, three reasoning-effort modes, tool use, structured JSON, OpenAI-compatible Responses, and an Anthropic-compatible endpoint. DeepSeek also publishes the model weights under the MIT License.\n\n## Key specifications\n\n| Specification | DeepSeek V4 Pro |\n| --- | --- |\n| Official API build | DeepSeek-V4-Pro-0813 |\n| API model ID | `deepseek-v4-pro` |\n| Release status | General release on app, web, and API |\n| Total / active parameters | 1.6T / 49B |\n| Architecture | Mixture-of-Experts with CSA + HCA hybrid attention |\n| Context / maximum output | 1M / 384K tokens |\n| Reasoning modes | Non-think, Think High, Think Max |\n| API features | JSON, tools, Responses API, Anthropic API, prefix completion, FIM |\n| Weight precision | FP4 experts plus mostly FP8 remaining parameters |\n| License | MIT |\n\nThe 49B active count helps explain inference compute, but self-hosters still have to store and distribute the 1.6T-parameter checkpoint. In other words, Pro is open-weight, not small or inexpensive to operate locally. Most individuals and smaller teams will use the hosted API or a specialized inference provider.\n\n## Official benchmark comparison\n\nDeepSeek reports the following Pro Max scores against selected frontier models. The table is vendor-reported and configurations are not perfectly uniform: models use their respective high or maximum reasoning modes, and some cells were not reported.\n\n| Benchmark | DeepSeek V4 Pro Max | Opus 4.6 Max | GPT-5.4 xHigh | Gemini 3.1 Pro High |\n| --- | ---: | ---: | ---: | ---: |\n| MMLU-Pro | 87.5 | 89.1 | 87.5 | 91.0 |\n| GPQA Diamond | 90.1 | 91.3 | 93.0 | 94.3 |\n| LiveCodeBench | 93.5 | 88.8 | — | 91.7 |\n| Codeforces rating | 3206 | — | 3168 | 3052 |\n| IMOAnswerBench | 89.8 | 75.3 | 91.4 | 81.0 |\n| MRCR 1M | 83.5 | 92.9 | — | 76.3 |\n| Terminal Bench 2.0 | 67.9 | 65.4 | 75.1 | 68.5 |\n| SWE Verified | 80.6 | 80.8 | — | 80.6 |\n| BrowseComp | 83.4 | 83.7 | 82.7 | 85.9 |\n| Toolathlon | 51.8 | 47.2 | 54.6 | 48.8 |\n\nThe results show a specialist rather than a universal winner. Pro Max leads this comparison on LiveCodeBench and Codeforces and is strong on math, software engineering, browsing, and tool orchestration. The closed models remain ahead on several science, knowledge, terminal, and long-context tests. Scores should be treated as directional evidence until replicated with the same prompts, budgets, tools, and evaluation harness.\n\n## How reasoning modes change performance\n\nPro offers Non-think for lower latency, Think High for difficult production tasks, and Think Max for the largest available reasoning budget. DeepSeek's own results show large gaps between modes: Pro rises from 56.8 on LiveCodeBench in Non-think to 89.8 in High and 93.5 in Max; Terminal Bench 2.0 rises from 59.1 to 63.3 and 67.9.\n\nMore thinking is not automatically the economical choice. Max may consume more output tokens and increase latency, and easy tasks often do not benefit enough to justify it. A production system should route ordinary work to Non-think or High and reserve Max for complex tasks, retries, or cases where correctness has unusually high value.\n\n## Pro versus Flash\n\n[DeepSeek V4 Flash](/glossary/deepseek-v4-flash) shares Pro's context window, maximum output, core architecture, API features, and reasoning controls while activating only 13B parameters. Flash is cheaper and better suited to high-volume work. Pro's larger capacity delivers the clearest advantage on factual knowledge, difficult long-context retrieval, browser research, terminal execution, and complicated multi-tool agents.\n\nFlash Max is surprisingly close on some reasoning benchmarks, so Pro should not be selected merely because it is larger. Use workload-level evaluation: if Flash meets the required accuracy, its lower cost and likely higher throughput make it the better production default.\n\n## API price\n\nAs of August 14, 2026, DeepSeek lists Pro at $0.003625 per million cache-hit input tokens, $0.435 per million cache-miss input tokens, and $0.87 per million output tokens. New rates take effect on August 16: $0.022, $0.66, and $1.98 off-peak, and $0.044, $1.32, and $3.96 during peak hours. DeepSeek defines peak periods as 01:00-04:00 and 06:00-10:00 UTC; verify the live pricing page because rates can change.\n\n## When to use DeepSeek V4 Pro\n\nPro is designed for hard coding, competitive programming, research synthesis, large-repository analysis, long documents, browsing, terminal agents, and workflows where one failed multi-step run costs more than a higher model bill. Open weights can also suit organizations that require deployment control or data residency and have the infrastructure to serve a frontier-scale MoE model.\n\nFlash or a smaller model is usually better for simple chat, classification, extraction, short summaries, and large volumes of routine requests. Pro's benchmark advantage does not remove ordinary model risks: it can hallucinate, follow malicious content, make unsafe tool calls, or lose reliability across very long trajectories. Production agents still need permissions, sandboxing, validation, monitoring, and human escalation.\n\n## Bottom line\n\nDeepSeek V4 Pro is no longer a preview. Pro 0813 is DeepSeek's released flagship: a very large, open-weight reasoning and agent model with standout coding results, a million-token context window, and a price and infrastructure footprint aimed at the hardest workloads.",
+    "category": "LLM Models",
+    "relatedTerms": [
+      "deepseek-v4",
+      "deepseek-v4-flash",
+      "large-language-model",
+      "mixture-of-experts",
+      "context-window",
+      "inference",
+      "benchmark",
+      "open-weight-model",
+      "reasoning",
+      "agentic-ai",
+      "reinforcement-learning",
+      "api"
+    ],
+    "lastUpdated": "2026-08-14",
+    "analogy": "Pro is the heavy-duty lane in the V4 family: more expert capacity is activated for each token, costing more but improving the odds on difficult, multi-stage work.",
+    "references": [
+      {
+        "title": "DeepSeek V4 Pro Official Release - DeepSeek API Docs",
+        "url": "https://api-docs.deepseek.com/zh-cn/news/news260813/"
+      },
+      {
+        "title": "DeepSeek-V4-Pro Official Model Card",
+        "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+      },
+      {
+        "title": "DeepSeek API Models and Pricing",
+        "url": "https://api-docs.deepseek.com/quick_start/pricing"
+      },
+      {
+        "title": "DeepSeek V4 Technical Report",
+        "url": "https://arxiv.org/abs/2606.19348"
+      }
+    ],
+    "seoDescription": "DeepSeek V4 Pro 0813 explained: official release status, 1.6T/49B MoE design, 1M context, API pricing, reasoning modes, and benchmark comparisons.",
+    "seoKeywords": [
+      "what is DeepSeek V4 Pro",
+      "DeepSeek V4 Pro 0813",
+      "DeepSeek V4 Pro benchmarks",
+      "DeepSeek V4 Pro pricing",
+      "DeepSeek V4 Pro vs Flash",
+      "deepseek-v4-pro API",
+      "1.6T MoE model",
+      "49B active parameters",
+      "1M context open weight model"
     ]
   },
   {
