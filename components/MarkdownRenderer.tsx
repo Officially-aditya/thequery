@@ -138,6 +138,12 @@ function buildComponents(glossaryTerms: GlossaryLink[]): Components {
   };
 }
 
+function escapeCurrencyAmounts(markdown: string): string {
+  // remark-math treats an unescaped `$` as a math delimiter. Escape currency
+  // symbols before numbers so prices such as `$2` remain ordinary text.
+  return markdown.replace(/(?<!\\)\$(?=\d)/g, "\\$");
+}
+
 export default function MarkdownRenderer({
   content,
   glossaryTerms = [],
@@ -152,6 +158,7 @@ export default function MarkdownRenderer({
   const rehypePlugins = disableMath
     ? [rehypeRaw, rehypeHighlight]
     : [rehypeRaw, rehypeKatex, rehypeHighlight];
+  const renderedContent = escapeCurrencyAmounts(content);
 
   return (
     <div className="prose-custom">
@@ -160,7 +167,7 @@ export default function MarkdownRenderer({
         rehypePlugins={rehypePlugins}
         components={components}
       >
-        {content}
+        {renderedContent}
       </ReactMarkdown>
     </div>
   );
