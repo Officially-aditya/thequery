@@ -2003,6 +2003,65 @@
     "analogy": "Google's latest flagship - like a new model year car that benchmarks better on every spec but still drives on the same roads."
   },
   {
+    "name": "Gemini 3.7 Flash",
+    "slug": "gemini-3-7-flash",
+    "shortDef": "Gemini 3.7 Flash is Google's GA multimodal model for fast coding and agents, with a 1M-token context window, 64K output, and adjustable thinking.",
+    "fullDef": "Gemini 3.7 Flash is Google's generally available, production-ready Flash model for coding, multimodal reasoning, and multi-step agents. Released on August 13, 2026, it is based on Gemini 3.6 Flash but adds algorithmic improvements to the model's core reasoning foundation. Google describes it as its most intelligent workhorse model for coding and agents.\n\nFor a normal user, Gemini 3.7 Flash is the fast Gemini option for writing, analyzing documents and media, creating software, and completing tasks across tools. For a developer, it is a stable API model with a 1,048,576-token input limit, a 65,536-token output limit, configurable thinking effort, structured output, function calling, code execution, search grounding, URL context, file search, and preview computer use.\n\n## Key specifications\n\n| Specification | Gemini 3.7 Flash |\n| --- | --- |\n| Release status | Generally available (GA) |\n| Release date | August 13, 2026 |\n| API model ID | `gemini-3.7-flash` |\n| Inputs | Text, images, video, audio, and PDF |\n| Output | Text |\n| Input / output limits | 1,048,576 / 65,536 tokens |\n| Thinking levels | Low, medium, and high; medium is default |\n| Built-in capabilities | Caching, code execution, file search, function calling, Search and Maps grounding, structured output, URL context |\n| Computer use | Supported in preview |\n| Inference options | Standard, Batch, Flex, and Priority |\n| Knowledge cutoff | March 2026, with some domains limited to January 2025 |\n\nGemini 3.7 Flash is a proprietary hosted model, not an open-weight release. Google does not publish its parameter count, training dataset composition, or model weights. Its multimodal inputs are used for understanding; the model returns text and does not generate images or audio through this model endpoint.\n\n## Official benchmark comparison\n\nThe following selected results are from Google's August 2026 model card. They mix public, private, and third-party evaluations and use Google's stated harnesses. They are vendor-reported launch results, so production teams should reproduce the tasks and tool setup that matter to them.\n\n| Benchmark | Gemini 3.7 Flash | Gemini 3.6 Flash | Claude Sonnet 5 | GPT-5.6 Terra | Muse Spark 1.2 |\n| --- | ---: | ---: | ---: | ---: | ---: |\n| Artificial Analysis Intelligence Index | 56 | 52 | 55 | 57 | 57 |\n| FrontierCode 1.1 | 43.6% | 34.4% | 42.7% | 41.3% | — |\n| DeepSWE v1.1 | 65.3% | 48.6% | 53.8% | 69.6% | 54.9% |\n| Code Arena | 1588 Elo | 1538 | 1541 | 1523 | 1535 |\n| Terminal-bench 2.1 | 85.8% | 78.0% | 80.4% | 87.4% | 82.9% |\n| Terminal-bench 3.0 | 14.9% | 5.4% | 14.6% | 20.8% | — |\n| AutomationBench, private set | 30.4% | 17.0% | 10.7% | 23.6% | — |\n| GDP.pdf | 34.0% | 22.0% | 28.0% | 24.7% | 16.0% |\n| GDM-MRCR v2, 128K average | 97.0% | 91.8% | 81.5% | 93.5% | — |\n| OSWorld 2.0 | 47.9% | 33.8% | — | 50.2% | — |\n| HLE-Verified | 53.6% | 51.2% | 31.0% | 51.1% | — |\n| LABBench2 | 82.1% | 76.1% | 80.1% | 81.2% | — |\n\nThe clearest improvement is over Gemini 3.6 Flash: 3.7 gains 16.7 points on DeepSWE, 7.8 points on Terminal-bench 2.1, 9.5 points on Terminal-bench 3.0, and 13.4 points on AutomationBench. It also leads the comparison on FrontierCode, Code Arena, AutomationBench, GDP.pdf, GDM-MRCR, HLE-Verified, and LABBench2. It does not win everything: GPT-5.6 Terra remains higher on the composite Intelligence Index, DeepSWE, both terminal benchmarks, and OSWorld.\n\nThis matters because \"Flash\" no longer means only a cheap model for simple classification or summarization. Gemini 3.7 Flash is positioned for real software engineering and agent execution. Even so, benchmark success does not guarantee reliable autonomy: long agent loops can still fail because of bad tool calls, ambiguous state, prompt injection, or compounding errors.\n\n## Thinking levels\n\nThe API exposes low, medium, and high thinking. Medium is the default and Google's recommended balance for complex coding and agents. Low reduces time-to-answer for chat, incident response, drafting, and fast analysis. High allows more reasoning and tool use for hard math, complex code, and difficult agent tasks, but consumes more tokens and raises both latency and cost. The `minimal` level is not supported.\n\nUnlike older Gemini configurations, Gemini 3.7 Flash does not accept the deprecated `temperature`, `top_p`, or `top_k` sampling parameters. Developers migrating from older models should replace `thinking_budget` with `thinking_level`, remove prefilled model turns, preserve thought signatures where required, and update multi-turn logic for the Interactions API.\n\n## API pricing\n\nThrough December 31, 2026, Google lists introductory Standard pricing of $0.75 per million input tokens and $3.75 per million output tokens, including thinking tokens. Context-cache reads cost $0.075 per million tokens, plus $0.50 per million cached tokens per hour for storage. On January 1, 2027, the scheduled rates double to $1.50 input, $7.50 output, $0.15 cache reads, and $1.00 hourly storage.\n\nBatch and Flex requests cost $0.375 input and $1.875 output during the introductory period, while Priority inference costs $1.35 and $6.75. Paid customers receive 5,000 shared Gemini 3.x Search-grounding requests per month before a $14-per-1,000-request charge. Pricing and quotas can change, so estimates should use Google's live pricing page.\n\n## Availability and tools\n\nGemini 3.7 Flash is available through Google AI Studio, the Gemini API, Gemini Enterprise, the Gemini Enterprise Agent Platform, Google Antigravity, and Gemini App's Spark experience. It is also the default underlying model for Google's Antigravity managed agent.\n\nIts tool surface is broader than a basic chat-completions model. Applications can combine function calling with Google Search or Maps grounding, execute code, search files, inspect URLs, return schema-constrained responses, and use the model's preview computer-control capability. These tools can improve factuality or enable action, but they also add cost, latency, and security risk. Agents should receive narrowly scoped permissions and validate any action that changes external systems.\n\n## When to use Gemini 3.7 Flash\n\nUse Gemini 3.7 Flash for coding agents, web development from design references, codebase audits, document and PDF analysis, long-video understanding, multimodal extraction, enterprise automation, and interactive applications that need strong reasoning without flagship-model latency. Its million-token window also fits large repositories and long records, although a large advertised window does not guarantee perfect recall throughout the prompt.\n\nA smaller or cheaper model remains a better choice for straightforward classification, translation, or high-volume transformation where 3.7's reasoning is unnecessary. A more capable flagship may be preferable for the most difficult research, planning, or autonomous terminal work. Google also lists familiar foundation-model limitations: hallucinations, jailbreak risk, occasional slowness, and timeouts.\n\n## Bottom line\n\nGemini 3.7 Flash is Google's production workhorse for the agent era: a fast, natively multimodal model with a million-token context window and benchmark performance that frequently reaches or exceeds larger frontier models, while keeping a lower introductory API price.",
+    "category": "LLM Models",
+    "relatedTerms": [
+      "large-language-model",
+      "reasoning",
+      "ai-agent",
+      "agentic-ai",
+      "context-window",
+      "computer-vision",
+      "tool-calling",
+      "grounding",
+      "kv-cache",
+      "benchmark",
+      "api",
+      "gemini-3-1-pro",
+      "muse-spark"
+    ],
+    "lastUpdated": "2026-08-14",
+    "analogy": "Gemini 3.7 Flash is a fast project engineer with a huge desk: it can spread out a million tokens of code and media, use tools, and think longer when the job gets hard.",
+    "references": [
+      {
+        "title": "Google AI - What's New in Gemini 3.7 Flash",
+        "url": "https://ai.google.dev/gemini-api/docs/latest-model"
+      },
+      {
+        "title": "Google AI - Gemini 3.7 Flash Model Specifications",
+        "url": "https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash"
+      },
+      {
+        "title": "Google DeepMind - Gemini 3.7 Flash Model Card",
+        "url": "https://deepmind.google/models/model-cards/gemini-3-7-flash/"
+      },
+      {
+        "title": "Google AI - Gemini API Pricing",
+        "url": "https://ai.google.dev/gemini-api/docs/pricing"
+      },
+      {
+        "title": "Google DeepMind - Gemini 3.7 Flash Evaluation Methodology",
+        "url": "https://deepmind.google/models/evals-methodology/gemini-3-7-flash/"
+      }
+    ],
+    "seoDescription": "Gemini 3.7 Flash explained: GA status, 1M context, multimodal inputs, thinking levels, API pricing, tools, official benchmarks, and model comparisons.",
+    "seoKeywords": [
+      "what is Gemini 3.7 Flash",
+      "Gemini 3.7 Flash benchmarks",
+      "Gemini 3.7 Flash pricing",
+      "Gemini 3.7 Flash API",
+      "Gemini 3.7 Flash context window",
+      "Gemini 3.7 Flash vs 3.6 Flash",
+      "Gemini 3.7 Flash vs Claude Sonnet 5",
+      "Gemini 3.7 Flash vs GPT-5.6 Terra",
+      "gemini-3.7-flash model ID",
+      "Google multimodal coding model"
+    ]
+  },
+  {
     "name": "DeepSeek R1",
     "slug": "deepseek-r1",
     "shortDef": "Open-weight reasoning model released in January 2025, achieving 97.3% on MATH-500 and proving frontier AI doesn't require massive budgets.",
