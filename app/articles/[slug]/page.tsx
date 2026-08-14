@@ -8,6 +8,7 @@ import GeminiLeaderboardChart from "@/components/article/GeminiLeaderboardChart"
 import OpusLeaderboardChart from "@/components/article/OpusLeaderboardChart";
 import X402RealityCheck from "@/components/article/X402RealityCheck";
 import ClaudeSharedChatsPrivacy from "@/components/article/ClaudeSharedChatsPrivacy";
+import Grok46Chart from "@/components/article/Grok46Chart";
 import { AUTHOR, ORGANIZATION_ID, ORGANIZATION_LOGO, SITE_URL, authorJsonLd } from "@/lib/site";
 import type { Metadata } from "next";
 
@@ -68,6 +69,13 @@ export default async function ArticlePage({ params }: Props) {
                 component: <ClaudeSharedChatsPrivacy />,
                 placement: "right-rail" as const,
               }
+            : issue.slug === "grok-4-6-index-cost-efficiency-benchmarks"
+              ? {
+                  anchor:
+                    "A composite score works the way a report card GPA does.",
+                  component: <Grok46Chart />,
+                  placement: "right-rail" as const,
+                }
             : null;
   const visualizationAnchor = visualizationConfig?.anchor ?? "";
   const hasEmbeddedVisualization =
