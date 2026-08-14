@@ -5,16 +5,18 @@ export default function Footer() {
     <footer className="border-t border-border mt-16">
       <div className="max-w-[960px] mx-auto px-4 py-10 text-sm text-text-muted">
         <div className="grid grid-cols-2 gap-8 sm:gap-16">
-          <nav aria-label="Explore TheQuery" className="flex flex-col items-start gap-3">
-            <p className="font-serif text-base font-semibold text-text-primary">Explore</p>
-            <Link href="/books" className="hover:text-text-secondary transition-colors">Books</Link>
-            <Link href="/guides" className="hover:text-text-secondary transition-colors">Guides</Link>
-            <Link href="/glossary" className="hover:text-text-secondary transition-colors">Glossary</Link>
-            <Link href="/articles" className="hover:text-text-secondary transition-colors">Articles</Link>
-          </nav>
+          <div className="flex flex-col items-start gap-8">
+            <p className="font-serif text-3xl font-semibold tracking-tight text-text-primary">TheQuery</p>
+            <nav aria-label="Explore TheQuery" className="flex flex-col items-start gap-3">
+              <p className="font-serif text-base font-semibold text-text-primary">Explore</p>
+              <Link href="/books" className="hover:text-text-secondary transition-colors">Books</Link>
+              <Link href="/guides" className="hover:text-text-secondary transition-colors">Guides</Link>
+              <Link href="/glossary" className="hover:text-text-secondary transition-colors">Glossary</Link>
+              <Link href="/articles" className="hover:text-text-secondary transition-colors">Articles</Link>
+            </nav>
+          </div>
 
-          <nav aria-label="About TheQuery" className="justify-self-end flex flex-col items-start gap-3">
-            <p className="font-serif text-base font-semibold text-text-primary">TheQuery</p>
+          <nav aria-label="About TheQuery" className="justify-self-end flex flex-col items-start gap-3 pt-12">
             <Link href="/about" className="hover:text-text-secondary transition-colors">About</Link>
             <Link href="/privacy" className="hover:text-text-secondary transition-colors">Privacy</Link>
             <a href="mailto:addy@thequery.in" className="hover:text-text-secondary transition-colors">Contact</a>
