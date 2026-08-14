@@ -140,18 +140,14 @@ export default async function ArticlePage({ params }: Props) {
       <ReadingProgress />
       <div
         data-reading-frame
-        className={`${hasRightRailVisualization ? "max-w-[1280px]" : "max-w-[720px]"} mx-auto px-4 py-12`}
+        className={`${hasRightRailVisualization ? "max-w-[1440px]" : "max-w-[720px]"} mx-auto px-4 py-12`}
       >
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <div
-          className={
-            hasRightRailVisualization
-              ? "mx-auto max-w-[720px] xl:mx-0 xl:max-w-[680px]"
-              : undefined
-          }
+          className="mx-auto max-w-[720px]"
         >
           <Link href="/articles" className="text-sm text-text-muted hover:text-text-secondary transition-colors mb-6 inline-block">
             &larr; All Articles
@@ -168,21 +164,21 @@ export default async function ArticlePage({ params }: Props) {
         </div>
 
         {hasRightRailVisualization ? (
-          <div className="mx-auto max-w-[720px] xl:grid xl:max-w-none xl:grid-cols-[minmax(0,680px)_minmax(0,520px)] xl:gap-x-12">
-            <div className="xl:col-start-1 xl:row-start-1">
+          <div className="relative mx-auto max-w-[720px] 2xl:max-w-[1440px]">
+            <div className="mx-auto max-w-[720px]">
               <MarkdownRenderer
                 content={contentBeforeVisualization}
                 glossaryTerms={renderedGlossaryTerms}
               />
             </div>
             <aside
-              className="xl:col-start-2 xl:row-start-2"
+              className="2xl:absolute 2xl:left-[calc(50%+400px)] 2xl:top-0 2xl:w-[320px]"
               aria-label="Article data visualization"
             >
               {visualizationConfig?.component}
             </aside>
             {contentAfterVisualization ? (
-              <div className="xl:col-start-1 xl:row-start-2">
+              <div className="mx-auto max-w-[720px]">
                 <MarkdownRenderer
                   content={contentAfterVisualization}
                   glossaryTerms={renderedGlossaryTerms}
