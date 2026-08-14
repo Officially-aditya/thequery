@@ -1,6 +1,6 @@
 [
 {
-  "title": "Qwen3.8-27B Beats Claude Opus 4.6 Max on Vision. Two of Those Wins Come From Giving Itself a Calculator.",
+  "title": "Qwen 3.8 27b is a revolution in open weight models",
   "slug": "qwen-3-8-27b-opus-4-6-vision-benchmarks",
   "date": "2026-08-14",
   "summary": "Qwen3.8-27B beats Claude Opus 4.6 Max on several vision benchmarks, but two of its biggest wins come from code interpreter access Opus did not get.",
