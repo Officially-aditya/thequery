@@ -3,7 +3,14 @@ import { getAllGuides, getGuideBySlug } from "@/lib/guides";
 import { getAllTerms } from "@/lib/glossary";
 import { notFound } from "next/navigation";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
-import { AUTHOR, ORGANIZATION_ID, ORGANIZATION_LOGO, SITE_URL, authorJsonLd } from "@/lib/site";
+import {
+  AUTHOR,
+  ORGANIZATION_ID,
+  ORGANIZATION_LOGO,
+  SITE_URL,
+  authorJsonLd,
+  createOpenGraphMetadata,
+} from "@/lib/site";
 import type { Metadata } from "next";
 
 interface Props {
@@ -21,7 +28,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: guide.title,
     description: guide.summary,
-    openGraph: { title: guide.title, description: guide.summary, images: ["/opengraph-image"] },
+    openGraph: createOpenGraphMetadata({
+      title: guide.title,
+      description: guide.summary,
+      url: `${SITE_URL}/guides/${guide.slug}`,
+      type: "article",
+    }),
   };
 }
 

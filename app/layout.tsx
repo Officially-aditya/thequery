@@ -3,7 +3,14 @@ import { Lora, Source_Serif_4, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { AUTHOR, ORGANIZATION_ID, SITE_NAME, organizationJsonLd } from "@/lib/site";
+import {
+  AUTHOR,
+  ORGANIZATION_ID,
+  SITE_NAME,
+  SITE_URL,
+  createOpenGraphMetadata,
+  organizationJsonLd,
+} from "@/lib/site";
 import "./globals.css";
 
 const lora = Lora({
@@ -37,11 +44,11 @@ export const metadata: Metadata = {
   creator: AUTHOR.name,
   publisher: SITE_NAME,
   description: "TheQuery is where developers go to understand AI, not just use it. Glossary, books, and articles covering AI from first principles.",
-  openGraph: {
-    siteName: "TheQuery",
-    type: "website",
-    images: ["/opengraph-image"],
-  },
+  openGraph: createOpenGraphMetadata({
+    title: "TheQuery - AI Knowledge from First Principles",
+    description: "TheQuery is where developers go to understand AI, not just use it. Glossary, books, and articles covering AI from first principles.",
+    url: SITE_URL,
+  }),
   twitter: {
     card: "summary_large_image",
     title: "TheQuery - AI Knowledge from First Principles",

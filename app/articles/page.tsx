@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getAllIssues } from "@/lib/articles";
 import { notFound } from "next/navigation";
+import { createOpenGraphMetadata } from "@/lib/site";
 import type { Metadata } from "next";
 
 const SITE_URL = "https://www.thequery.in";
@@ -31,12 +32,11 @@ export async function generateMetadata({ searchParams }: ArticlesPageProps): Pro
     title: "Articles",
     description: "A curated weekly summary of the most important AI developments, research, and news.",
     alternates: { canonical },
-    openGraph: {
+    openGraph: createOpenGraphMetadata({
       title: "Articles - TheQuery",
       description: "A weekly roundup of what actually matters in AI - no hype, just signal.",
       url: canonical,
-      images: ["/opengraph-image"],
-    },
+    }),
   };
 }
 

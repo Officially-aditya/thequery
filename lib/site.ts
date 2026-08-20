@@ -1,6 +1,29 @@
 export const SITE_URL = "https://www.thequery.in";
 export const SITE_NAME = "TheQuery";
 
+type SocialOpenGraphType = "website" | "article" | "book";
+
+export function createOpenGraphMetadata({
+  title,
+  description,
+  url,
+  type = "website",
+}: {
+  title: string;
+  description: string;
+  url: string;
+  type?: SocialOpenGraphType;
+}) {
+  return {
+    title,
+    description,
+    url,
+    siteName: SITE_NAME,
+    type,
+    images: ["/opengraph-image"],
+  };
+}
+
 export const AUTHOR = {
   name: "Addy",
   url: `${SITE_URL}/about`,
@@ -9,7 +32,7 @@ export const AUTHOR = {
 };
 
 export const ORGANIZATION_ID = `${SITE_URL}/#organization`;
-export const ORGANIZATION_LOGO = `${SITE_URL}/icon.svg`;
+export const ORGANIZATION_LOGO = `${SITE_URL}/logo.png`;
 
 export const organizationJsonLd = {
   "@type": "Organization",

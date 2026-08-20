@@ -2,21 +2,31 @@ import Link from "next/link";
 import { getTodaysWord } from "@/lib/ai-word-of-the-day";
 import { getAllTerms } from "@/lib/glossary";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
+import { createOpenGraphMetadata, SITE_URL } from "@/lib/site";
 import type { Metadata } from "next";
 
 export const revalidate = 3600;
 
 export async function generateMetadata(): Promise<Metadata> {
   const wotd = getTodaysWord();
-  if (!wotd) return { title: "AI Word of the Day" };
+  if (!wotd) {
+    return {
+      title: "AI Word of the Day",
+      openGraph: createOpenGraphMetadata({
+        title: "AI Word of the Day",
+        description: "A new AI term explained every day.",
+        url: `${SITE_URL}/ai-word-of-the-day`,
+      }),
+    };
+  }
   return {
     title: `${wotd.term.name} — AI Word of the Day`,
     description: wotd.term.shortDef,
-    openGraph: {
+    openGraph: createOpenGraphMetadata({
       title: `${wotd.term.name} — AI Word of the Day`,
       description: wotd.term.shortDef,
-      images: ["/opengraph-image"],
-    },
+      url: `${SITE_URL}/ai-word-of-the-day`,
+    }),
   };
 }
 

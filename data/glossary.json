@@ -1794,7 +1794,7 @@
     "relatedTerms": [
       "machine-learning",
       "feature-engineering",
-      "training-data",
+      "supervised-learning",
       "overfitting",
       "epoch"
     ],
@@ -2310,7 +2310,7 @@
     "category": "Systems, Tools & Safety",
     "relatedTerms": [
       "inference",
-      "model-compression",
+      "quantization",
       "neural-network"
     ],
     "seoDescription": "Edge AI runs machine learning models directly on local devices instead of the cloud. Learn why latency, privacy, and reliability drive the shift to on-device AI inference.",
@@ -2524,7 +2524,6 @@
     "relatedTerms": [
       "deep-learning",
       "gradient-descent",
-      "differential-privacy",
       "supervised-learning"
     ],
     "references": [
@@ -4013,7 +4012,6 @@
       "hugging-face",
       "deepseek-v4",
       "glm-5-2",
-      "gemma",
       "agentic-ai",
       "fine-tuning",
       "benchmark"
@@ -4895,8 +4893,8 @@
       "large-language-model",
       "reinforcement-learning",
       "gpt-5",
-      "opus-4-6",
-      "gemini-3-1"
+      "claude-opus-4-6",
+      "gemini-3-1-pro"
     ],
     "references": [
       {

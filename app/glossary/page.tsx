@@ -1,15 +1,18 @@
 import { getAllTerms } from "@/lib/glossary";
 import GlossarySearch from "@/components/GlossarySearch";
+import { createOpenGraphMetadata, SITE_URL } from "@/lib/site";
 import type { Metadata } from "next";
+
+const GLOSSARY_COUNT = getAllTerms().length;
 
 export const metadata: Metadata = {
   title: "AI Glossary",
   description: "Clear, concise definitions of key AI and machine learning terms. Search and browse by category.",
-  openGraph: {
+  openGraph: createOpenGraphMetadata({
     title: "AI Glossary - TheQuery",
-    description: "100+ AI and ML terms explained clearly - from backpropagation to knowledge graphs.",
-    images: ["/opengraph-image"],
-  },
+    description: `${GLOSSARY_COUNT}+ AI and ML terms explained clearly - from backpropagation to knowledge graphs.`,
+    url: `${SITE_URL}/glossary`,
+  }),
 };
 
 export default function GlossaryPage() {

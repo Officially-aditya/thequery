@@ -1,16 +1,21 @@
 import type { Metadata } from "next";
-import { AUTHOR, ORGANIZATION_ID, SITE_URL, authorJsonLd } from "@/lib/site";
+import {
+  AUTHOR,
+  SITE_URL,
+  authorJsonLd,
+  createOpenGraphMetadata,
+} from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
   description:
     "Learn about TheQuery - an independent AI education platform built for developers who want to understand AI from first principles.",
-  openGraph: {
+  openGraph: createOpenGraphMetadata({
     title: "About - TheQuery",
     description:
       "Learn about TheQuery - an independent AI education platform built for developers who want to understand AI from first principles.",
-    images: ["/opengraph-image"],
-  },
+    url: `${SITE_URL}/about`,
+  }),
 };
 
 export default function AboutPage() {
@@ -27,13 +32,6 @@ export default function AboutPage() {
           "Retrieval-augmented generation",
           "AI agents",
         ],
-      },
-      {
-        "@type": "Organization",
-        "@id": ORGANIZATION_ID,
-        name: "TheQuery",
-        url: SITE_URL,
-        founder: { "@id": `${SITE_URL}/about#addy` },
       },
     ],
   };

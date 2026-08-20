@@ -1,15 +1,19 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import WordOfTheDay from "@/components/WordOfTheDay";
+import { getAllTerms } from "@/lib/glossary";
+import { createOpenGraphMetadata, SITE_URL } from "@/lib/site";
+
+const GLOSSARY_COUNT = getAllTerms().length;
 
 export const metadata: Metadata = {
   title: "TheQuery - AI Knowledge from First Principles",
   description: "TheQuery is where developers go to understand AI, not just use it. Glossary, books, and articles covering AI from first principles.",
-  openGraph: {
+  openGraph: createOpenGraphMetadata({
     title: "TheQuery - AI Knowledge from First Principles",
     description: "TheQuery is where developers go to understand AI, not just use it. Glossary, books, and articles covering AI from first principles.",
-    images: ["/opengraph-image"],
-  },
+    url: SITE_URL,
+  }),
 };
 
 const sections = [
@@ -25,7 +29,7 @@ const sections = [
   },
   {
     title: "Glossary",
-    description: "100+ AI and ML terms explained clearly - from backpropagation to knowledge graphs, always up to date.",
+    description: `${GLOSSARY_COUNT}+ AI and ML terms explained clearly - from backpropagation to knowledge graphs, always up to date.`,
     href: "/glossary",
   },
   {
@@ -47,14 +51,6 @@ export default function Home() {
         description: "AI knowledge from first principles",
         publisher: { "@id": "https://www.thequery.in/#organization" },
         inLanguage: "en",
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://www.thequery.in/#organization",
-        name: "TheQuery",
-        url: "https://www.thequery.in",
-        description:
-          "TheQuery is where developers go to understand AI, not just use it. Glossary, books, and articles covering AI from first principles.",
       },
     ],
   };
@@ -82,7 +78,7 @@ export default function Home() {
         </p>
         <p>
           The library includes two free technical books covering AI fundamentals and retrieval-augmented
-          generation, 233+ glossary terms with in-depth definitions, analytical articles tracking
+          generation, {GLOSSARY_COUNT}+ glossary terms with in-depth definitions, analytical articles tracking
           developments across the AI field, and study guides for practitioners building real systems.
           All content is free, with no signup required.
         </p>

@@ -1,7 +1,13 @@
 import Link from "next/link";
 import { getAllBooks, getBookMeta } from "@/lib/books";
 import { notFound } from "next/navigation";
-import { ORGANIZATION_ID, ORGANIZATION_LOGO, SITE_URL, authorJsonLd } from "@/lib/site";
+import {
+  ORGANIZATION_ID,
+  ORGANIZATION_LOGO,
+  SITE_URL,
+  authorJsonLd,
+  createOpenGraphMetadata,
+} from "@/lib/site";
 import type { Metadata } from "next";
 
 interface Props {
@@ -19,7 +25,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: book.title,
     description: book.description,
-    openGraph: { title: book.title, description: book.description, images: ["/opengraph-image"] },
+    openGraph: createOpenGraphMetadata({
+      title: book.title,
+      description: book.description,
+      url: `${SITE_URL}/books/${book.slug}`,
+      type: "book",
+    }),
   };
 }
 

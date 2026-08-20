@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="112" height="112" viewBox="0 0 112 112" role="img" aria-labelledby="title desc">
+  <title id="title">TheQuery logo</title>
+  <desc id="desc">A terminal prompt symbol on a navy square.</desc>
+  <rect width="112" height="112" rx="18" fill="#002147"/>
+  <text x="56" y="77" text-anchor="middle" font-family="monospace" font-weight="700" font-size="48" fill="#f8f8f2">&gt;_</text>
+</svg>

@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
+import { createOpenGraphMetadata, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "Privacy policy for TheQuery - how we handle your data.",
-  openGraph: {
+  openGraph: createOpenGraphMetadata({
     title: "Privacy Policy - TheQuery",
     description: "Privacy policy for TheQuery - how we handle your data.",
-    images: ["/opengraph-image"],
-  },
+    url: `${SITE_URL}/privacy`,
+  }),
 };
 
 export default function PrivacyPage() {

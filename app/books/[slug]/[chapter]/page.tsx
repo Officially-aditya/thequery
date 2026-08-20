@@ -4,7 +4,14 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import ReadingProgress from "@/components/ReadingProgress";
 import ChapterView from "@/components/ChapterView";
-import { AUTHOR, ORGANIZATION_ID, ORGANIZATION_LOGO, SITE_URL, authorJsonLd } from "@/lib/site";
+import {
+  AUTHOR,
+  ORGANIZATION_ID,
+  ORGANIZATION_LOGO,
+  SITE_URL,
+  authorJsonLd,
+  createOpenGraphMetadata,
+} from "@/lib/site";
 import type { Metadata } from "next";
 
 interface Props {
@@ -29,7 +36,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${data.meta.title} - ${data.book.title}`,
     description: `Read "${data.meta.title}" from ${data.book.title} on TheQuery.`,
-    openGraph: { title: `${data.meta.title} - ${data.book.title}`, images: ["/opengraph-image"] },
+    openGraph: createOpenGraphMetadata({
+      title: `${data.meta.title} - ${data.book.title}`,
+      description: `Read "${data.meta.title}" from ${data.book.title} on TheQuery.`,
+      url: `${SITE_URL}/books/${data.book.slug}/${data.meta.slug}`,
+      type: "article",
+    }),
   };
 }
 

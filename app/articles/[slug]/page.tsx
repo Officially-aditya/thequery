@@ -10,7 +10,14 @@ import X402RealityCheck from "@/components/article/X402RealityCheck";
 import ClaudeSharedChatsPrivacy from "@/components/article/ClaudeSharedChatsPrivacy";
 import Grok46Chart from "@/components/article/Grok46Chart";
 import Qwen27BChart from "@/components/article/Qwen27BChart";
-import { AUTHOR, ORGANIZATION_ID, ORGANIZATION_LOGO, SITE_URL, authorJsonLd } from "@/lib/site";
+import {
+  AUTHOR,
+  ORGANIZATION_ID,
+  ORGANIZATION_LOGO,
+  SITE_URL,
+  authorJsonLd,
+  createOpenGraphMetadata,
+} from "@/lib/site";
 import type { Metadata } from "next";
 
 interface Props {
@@ -28,7 +35,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: issue.title,
     description: issue.summary,
-    openGraph: { title: issue.title, description: issue.summary, images: ["/opengraph-image"] },
+    openGraph: createOpenGraphMetadata({
+      title: issue.title,
+      description: issue.summary,
+      url: `${SITE_URL}/articles/${issue.slug}`,
+      type: "article",
+    }),
   };
 }
 

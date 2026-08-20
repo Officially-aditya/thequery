@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getAllTerms, getTermBySlug } from "@/lib/glossary";
 import { notFound } from "next/navigation";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
+import { createOpenGraphMetadata, SITE_URL } from "@/lib/site";
 import type { Metadata } from "next";
 
 interface Props {
@@ -21,7 +22,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${term.name} - AI Glossary`,
     description,
     keywords: term.seoKeywords,
-    openGraph: { title: `${term.name} - AI Glossary`, description, images: ["/opengraph-image"] },
+    openGraph: createOpenGraphMetadata({
+      title: `${term.name} - AI Glossary`,
+      description,
+      url: `${SITE_URL}/glossary/${term.slug}`,
+      type: "article",
+    }),
   };
 }
 

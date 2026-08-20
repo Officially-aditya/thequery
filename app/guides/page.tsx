@@ -1,15 +1,16 @@
 import Link from "next/link";
 import { getAllGuides } from "@/lib/guides";
+import { createOpenGraphMetadata, SITE_URL } from "@/lib/site";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Guides",
   description: "Evergreen study guides on AI concepts - written to build understanding, not just familiarity.",
-  openGraph: {
+  openGraph: createOpenGraphMetadata({
     title: "Guides - TheQuery",
     description: "Evergreen study guides on AI concepts - written to build understanding, not just familiarity.",
-    images: ["/opengraph-image"],
-  },
+    url: `${SITE_URL}/guides`,
+  }),
 };
 
 export default function GuidesPage() {

@@ -1,15 +1,16 @@
 import Link from "next/link";
 import { getAllBooks } from "@/lib/books";
+import { createOpenGraphMetadata, SITE_URL } from "@/lib/site";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Books",
   description: "In-depth AI and machine learning books, written from first principles. Read online for free.",
-  openGraph: {
+  openGraph: createOpenGraphMetadata({
     title: "Books - TheQuery",
     description: "In-depth AI and machine learning books, written from first principles. Read online for free.",
-    images: ["/opengraph-image"],
-  },
+    url: `${SITE_URL}/books`,
+  }),
 };
 
 export default function BooksPage() {
