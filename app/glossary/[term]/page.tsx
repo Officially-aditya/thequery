@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getAllTerms, getTermBySlug } from "@/lib/glossary";
 import { notFound } from "next/navigation";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
+import CoverImage from "@/components/content/CoverImage";
 import { createOpenGraphMetadata, SITE_URL } from "@/lib/site";
 import type { Metadata } from "next";
 
@@ -25,6 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       url: `${SITE_URL}/glossary/${term.slug}`,
       type: "article",
+      image: term.coverImageUrl,
     }),
   };
 }
@@ -88,6 +90,7 @@ export default async function TermPage({ params }: Props) {
       <p className="text-lg text-text-secondary mb-6 leading-relaxed">
         {term.shortDef}
       </p>
+      <CoverImage src={term.coverImageUrl} alt={term.coverImageAlt} title={term.name} />
 
       {term.analogy && (
         <div className="mb-6 pl-4 border-l-2 border-accent/40">

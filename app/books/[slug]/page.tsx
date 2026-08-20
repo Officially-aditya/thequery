@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getBookMeta } from "@/lib/books";
 import { notFound } from "next/navigation";
+import CoverImage from "@/components/content/CoverImage";
 import {
   ORGANIZATION_ID,
   ORGANIZATION_LOGO,
@@ -28,6 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: book.description,
       url: `${SITE_URL}/books/${book.slug}`,
       type: "book",
+      image: book.coverImageUrl,
     }),
   };
 }
@@ -84,6 +86,7 @@ export default async function BookPage({ params }: Props) {
       <h1 className="font-serif text-3xl font-bold text-text-primary mb-2">
         {book.title}
       </h1>
+      <CoverImage src={book.coverImageUrl} alt={book.coverImageAlt} title={book.title} />
       <p className="text-sm text-text-muted mb-2">
         By <Link href="/about" className="text-accent hover:text-accent-hover transition-colors">{book.author}</Link>
         {book.lastModified ? (

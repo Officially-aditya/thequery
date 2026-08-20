@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import ContentBlocksRenderer from "@/components/content/ContentBlocksRenderer";
 import type { ContentItem } from "@/lib/content-types";
 import { apiRequest, newContent, publicHref, toEditableContent, type EditableContent } from "./admin-client";
+import CoverImageFields from "./CoverImageFields";
 import EditorialBlocksEditor from "./EditorialBlocksEditor";
 import SourcesEditor from "./SourcesEditor";
 
@@ -135,6 +136,7 @@ export default function EditorialCollection({ kind, noun, description }: { kind:
               {editing.id ? <p className="sm:col-span-2 text-xs text-text-muted">The slug is fixed after creation so existing links stay valid.</p> : null}
             </section>
 
+            <CoverImageFields title={editing.title} coverImageUrl={editing.coverImageUrl} coverImageAlt={editing.coverImageAlt} onChange={update} />
             <EditorialBlocksEditor blocks={editing.blocks} onChange={(blocks) => update({ blocks })} />
             <SourcesEditor sources={editing.sources} onChange={(sources) => update({ sources })} />
 

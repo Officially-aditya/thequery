@@ -8,11 +8,13 @@ export function createOpenGraphMetadata({
   description,
   url,
   type = "website",
+  image,
 }: {
   title: string;
   description: string;
   url: string;
   type?: SocialOpenGraphType;
+  image?: string | null;
 }) {
   return {
     title,
@@ -20,7 +22,7 @@ export function createOpenGraphMetadata({
     url,
     siteName: SITE_NAME,
     type,
-    images: ["/opengraph-image"],
+    images: image ? [image] : ["/opengraph-image"],
   };
 }
 

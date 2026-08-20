@@ -46,6 +46,8 @@ export interface ContentItem<TMetadata extends Record<string, unknown> = Record<
   blocks: ContentBlock[];
   sources: Source[];
   metadata: TMetadata;
+  coverImageUrl: string | null;
+  coverImageAlt: string | null;
   status: ContentStatus;
   publishedAt: string | null;
   sortOrder: number;

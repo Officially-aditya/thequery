@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import ContentBlocksRenderer from "@/components/content/ContentBlocksRenderer";
 import type { ContentItem } from "@/lib/content-types";
 import { apiRequest, markdownBlock, newContent, toEditableContent, type EditableContent } from "./admin-client";
+import CoverImageFields from "./CoverImageFields";
 import SourcesEditor from "./SourcesEditor";
 
 const fieldClass = "w-full rounded-md border border-border bg-bg-primary px-3 py-2 text-sm text-text-primary outline-none focus:border-accent";
@@ -135,6 +136,7 @@ export default function GlossaryManager() {
               <label className="sm:col-span-2 text-sm font-medium text-text-secondary">Related term slugs (comma-separated)<input className={`${fieldClass} mt-1`} value={metadataList(editing.metadata, "relatedTerms").join(", ")} onChange={(event) => updateMetadata({ relatedTerms: event.target.value.split(",").map((term) => term.trim()).filter(Boolean) })} /></label>
             </section>
 
+            <CoverImageFields title={editing.title} coverImageUrl={editing.coverImageUrl} coverImageAlt={editing.coverImageAlt} onChange={update} />
             <section className="grid gap-4 rounded-xl border border-border p-4 sm:grid-cols-2">
               <h2 className="sm:col-span-2 font-serif text-lg font-semibold text-text-primary">Search metadata</h2>
               <label className="sm:col-span-2 text-sm font-medium text-text-secondary">SEO description<input className={`${fieldClass} mt-1`} value={metadataText(editing.metadata, "seoDescription")} onChange={(event) => updateMetadata({ seoDescription: event.target.value })} maxLength={160} /></label>

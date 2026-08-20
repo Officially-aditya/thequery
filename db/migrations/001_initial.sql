@@ -34,6 +34,8 @@ CREATE TABLE IF NOT EXISTS content_items (
   blocks JSONB NOT NULL DEFAULT '[]'::jsonb,
   sources JSONB NOT NULL DEFAULT '[]'::jsonb,
   metadata JSONB NOT NULL DEFAULT '{}'::jsonb,
+  cover_image_url TEXT,
+  cover_image_alt TEXT,
   status TEXT NOT NULL DEFAULT 'draft' CHECK (status IN ('draft', 'published')),
   published_at DATE,
   sort_order INTEGER NOT NULL DEFAULT 0,

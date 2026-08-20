@@ -11,6 +11,7 @@ import ClaudeSharedChatsPrivacy from "@/components/article/ClaudeSharedChatsPriv
 import Grok46Chart from "@/components/article/Grok46Chart";
 import Qwen27BChart from "@/components/article/Qwen27BChart";
 import ContentBlocksRenderer, { SourcesList } from "@/components/content/ContentBlocksRenderer";
+import CoverImage from "@/components/content/CoverImage";
 import {
   AUTHOR,
   ORGANIZATION_ID,
@@ -39,6 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: issue.summary,
       url: `${SITE_URL}/articles/${issue.slug}`,
       type: "article",
+      image: issue.coverImageUrl,
     }),
   };
 }
@@ -181,6 +183,7 @@ export default async function ArticlePage({ params }: Props) {
             {" "}&middot; {new Date(issue.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
             {" "}&middot; <Link href="/about#editorial-standards" className="hover:text-text-secondary transition-colors">Editorial standards</Link>
           </p>
+          <CoverImage src={issue.coverImageUrl} alt={issue.coverImageAlt} title={issue.title} />
         </div>
 
         {hasStructuredBlocks ? (

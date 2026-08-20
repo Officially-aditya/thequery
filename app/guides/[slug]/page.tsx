@@ -3,6 +3,7 @@ import { getGuideBySlug } from "@/lib/guides";
 import { getAllTerms } from "@/lib/glossary";
 import { notFound } from "next/navigation";
 import ContentBlocksRenderer from "@/components/content/ContentBlocksRenderer";
+import CoverImage from "@/components/content/CoverImage";
 import {
   AUTHOR,
   ORGANIZATION_ID,
@@ -31,6 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: guide.summary,
       url: `${SITE_URL}/guides/${guide.slug}`,
       type: "article",
+      image: guide.coverImageUrl,
     }),
   };
 }
@@ -91,6 +93,7 @@ export default async function GuidePage({ params }: Props) {
         {" "}&middot; {new Date(guide.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
         {" "}&middot; <Link href="/about#editorial-standards" className="hover:text-text-secondary transition-colors">Editorial standards</Link>
       </p>
+      <CoverImage src={guide.coverImageUrl} alt={guide.coverImageAlt} title={guide.title} />
 
       <ContentBlocksRenderer
         blocks={guide.blocks}

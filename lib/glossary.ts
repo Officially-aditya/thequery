@@ -10,6 +10,8 @@ export interface GlossaryTerm {
   fullDef: string;
   category: string;
   relatedTerms: string[];
+  coverImageUrl?: string;
+  coverImageAlt?: string;
   analogy?: string;
   references?: Source[];
   seoDescription?: string;
@@ -30,6 +32,8 @@ function asTerm(item: Awaited<ReturnType<typeof getContentItem>> extends infer T
     fullDef: item.body,
     category: typeof metadata.category === "string" ? metadata.category : "Foundations",
     relatedTerms: textList(metadata.relatedTerms),
+    ...(item.coverImageUrl ? { coverImageUrl: item.coverImageUrl } : {}),
+    ...(item.coverImageAlt ? { coverImageAlt: item.coverImageAlt } : {}),
     ...(typeof metadata.analogy === "string" ? { analogy: metadata.analogy } : {}),
     ...(item.sources.length ? { references: item.sources } : {}),
     ...(typeof metadata.seoDescription === "string" ? { seoDescription: metadata.seoDescription } : {}),

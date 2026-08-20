@@ -6,6 +6,8 @@ import type { ContentBlock, Source } from "./content-types";
 export interface ChapterMeta {
   slug: string;
   title: string;
+  coverImageUrl?: string;
+  coverImageAlt?: string;
   lastModified?: string;
 }
 
@@ -14,6 +16,8 @@ export interface BookMeta {
   slug: string;
   description: string;
   author: string;
+  coverImageUrl?: string;
+  coverImageAlt?: string;
   lastModified?: string;
   chapters: ChapterMeta[];
 }
@@ -22,6 +26,8 @@ function chapterMeta(item: Awaited<ReturnType<typeof getContentItem>> extends in
   return {
     slug: item.slug,
     title: item.title,
+    ...(item.coverImageUrl ? { coverImageUrl: item.coverImageUrl } : {}),
+    ...(item.coverImageAlt ? { coverImageAlt: item.coverImageAlt } : {}),
     ...(typeof item.metadata.lastModified === "string" ? { lastModified: item.metadata.lastModified } : {}),
   };
 }
@@ -33,6 +39,8 @@ async function asBook(item: Awaited<ReturnType<typeof getContentItem>> extends i
     slug: item.slug,
     description: item.summary,
     author: typeof item.metadata.author === "string" ? item.metadata.author : "TheQuery",
+    ...(item.coverImageUrl ? { coverImageUrl: item.coverImageUrl } : {}),
+    ...(item.coverImageAlt ? { coverImageAlt: item.coverImageAlt } : {}),
     ...(typeof item.metadata.lastModified === "string" ? { lastModified: item.metadata.lastModified } : {}),
     chapters: chapters.map(chapterMeta),
   };

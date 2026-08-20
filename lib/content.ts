@@ -23,6 +23,8 @@ interface ContentRow {
   blocks: unknown;
   sources: unknown;
   metadata: unknown;
+  cover_image_url: string | null;
+  cover_image_alt: string | null;
   status: ContentStatus;
   published_at: string | null;
   sort_order: number;
@@ -41,6 +43,8 @@ export interface UpsertContentInput {
   blocks?: ContentBlock[];
   sources?: Source[];
   metadata?: Record<string, unknown>;
+  coverImageUrl?: string | null;
+  coverImageAlt?: string | null;
   status?: ContentStatus;
   publishedAt?: string | null;
   sortOrder?: number;
@@ -81,6 +85,8 @@ function toContentItem(row: ContentRow): ContentItem {
     blocks: normalizeBlocks(typeof row.blocks === "string" ? JSON.parse(row.blocks) : row.blocks),
     sources: normalizeSources(typeof row.sources === "string" ? JSON.parse(row.sources) : row.sources),
     metadata: toObject(row.metadata),
+    coverImageUrl: row.cover_image_url ?? null,
+    coverImageAlt: row.cover_image_alt ?? null,
     status: row.status,
     publishedAt: row.published_at,
     sortOrder: row.sort_order,
@@ -140,13 +146,14 @@ export async function upsertContent(input: UpsertContentInput): Promise<ContentI
   const rows = await sql`
     INSERT INTO content_items (
       id, kind, slug, parent_slug, path, title, summary, body, blocks, sources, metadata,
-      status, published_at, sort_order
+      cover_image_url, cover_image_alt, status, published_at, sort_order
     ) VALUES (
       ${input.id ?? randomUUID()}, ${input.kind}, ${input.slug}, ${parentSlug}, ${path},
       ${input.title}, ${input.summary ?? ""}, ${input.body ?? ""},
       ${JSON.stringify(input.blocks ?? [])}::jsonb,
       ${JSON.stringify(input.sources ?? [])}::jsonb,
       ${JSON.stringify(input.metadata ?? {})}::jsonb,
+      ${input.coverImageUrl ?? null}, ${input.coverImageAlt ?? null},
       ${input.status ?? "published"}, ${input.publishedAt ?? null}, ${input.sortOrder ?? 0}
     )
     ON CONFLICT (kind, slug, parent_slug) DO UPDATE SET
@@ -156,6 +163,8 @@ export async function upsertContent(input: UpsertContentInput): Promise<ContentI
       blocks = EXCLUDED.blocks,
       sources = EXCLUDED.sources,
       metadata = EXCLUDED.metadata,
+      cover_image_url = EXCLUDED.cover_image_url,
+      cover_image_alt = EXCLUDED.cover_image_alt,
       status = EXCLUDED.status,
       published_at = EXCLUDED.published_at,
       sort_order = EXCLUDED.sort_order,

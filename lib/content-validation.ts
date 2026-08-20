@@ -1,4 +1,4 @@
-import { markdownBlock, normalizeBlocks, normalizeSources, slugify } from "./content-utils";
+import { markdownBlock, normalizeBlocks, normalizeSources, slugify } from "./content-utils.ts";
 import type { ContentKind, ContentStatus, Source } from "./content-types";
 import type { UpsertContentInput } from "./content";
 
@@ -22,6 +22,17 @@ function textList(value: unknown): string[] {
 
 function validDate(value: string): string | null {
   return /^\d{4}-\d{2}-\d{2}$/.test(value) ? value : null;
+}
+
+function validCoverImageUrl(value: string): boolean {
+  if (!value) return true;
+  if (value.startsWith("/") && !value.startsWith("//")) return true;
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:" || url.protocol === "http:";
+  } catch {
+    return false;
+  }
 }
 
 function metadataFor(kind: ContentKind, raw: Record<string, unknown>): Record<string, unknown> {
@@ -71,11 +82,16 @@ export function parseContentInput(kind: ContentKind, value: unknown): ParsedCont
     .map((block) => block.content)
     .join("\n\n") || suppliedBody;
   const sources: Source[] = normalizeSources(input.sources);
+  const coverImageUrl = text(input.coverImageUrl);
+  const coverImageAlt = text(input.coverImageAlt);
   const errors: string[] = [];
 
   if (!title) errors.push("A title is required.");
   if (!slug) errors.push("A URL slug is required.");
   if (kind === "chapter" && !parentSlug) errors.push("Choose the book this chapter belongs to.");
+  if (!validCoverImageUrl(coverImageUrl)) {
+    errors.push("Cover image URL must be an http(s) URL or a site-relative path.");
+  }
   if (status === "published" && ["article", "guide", "glossary", "chapter"].includes(kind) && normalizedBlocks.length === 0) {
     errors.push("Published content needs at least one content block.");
   }
@@ -96,6 +112,8 @@ export function parseContentInput(kind: ContentKind, value: unknown): ParsedCont
       blocks: normalizedBlocks,
       sources,
       metadata: metadataFor(kind, object(input.metadata)),
+      coverImageUrl: coverImageUrl || null,
+      coverImageAlt: coverImageUrl && coverImageAlt ? coverImageAlt : null,
       status,
       publishedAt,
       sortOrder: Number.isFinite(sortOrderValue) ? Math.trunc(sortOrderValue) : 0,

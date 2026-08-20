@@ -33,9 +33,9 @@ async function upsertContent(sql, item) {
   await sql.query(
     `INSERT INTO content_items (
       id, kind, slug, parent_slug, path, title, summary, body, blocks, sources, metadata,
-      status, published_at, sort_order
+      cover_image_url, cover_image_alt, status, published_at, sort_order
     ) VALUES (
-      $1, $2, $3, $4, $5, $6, $7, $8, $9::jsonb, $10::jsonb, $11::jsonb, $12, $13, $14
+      $1, $2, $3, $4, $5, $6, $7, $8, $9::jsonb, $10::jsonb, $11::jsonb, $12, $13, $14, $15, $16
     ) ON CONFLICT (kind, slug, parent_slug) DO UPDATE SET
       title = EXCLUDED.title,
       summary = EXCLUDED.summary,
@@ -43,6 +43,11 @@ async function upsertContent(sql, item) {
       blocks = EXCLUDED.blocks,
       sources = EXCLUDED.sources,
       metadata = EXCLUDED.metadata,
+      cover_image_url = COALESCE(EXCLUDED.cover_image_url, content_items.cover_image_url),
+      cover_image_alt = CASE
+        WHEN EXCLUDED.cover_image_url IS NULL THEN content_items.cover_image_alt
+        ELSE EXCLUDED.cover_image_alt
+      END,
       status = EXCLUDED.status,
       published_at = EXCLUDED.published_at,
       sort_order = EXCLUDED.sort_order,
@@ -60,6 +65,8 @@ async function upsertContent(sql, item) {
       JSON.stringify(item.blocks ?? []),
       JSON.stringify(item.sources ?? []),
       JSON.stringify(item.metadata ?? {}),
+      item.coverImageUrl ?? null,
+      item.coverImageAlt ?? null,
       "published",
       item.publishedAt ?? null,
       item.sortOrder ?? 0,

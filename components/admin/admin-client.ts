@@ -10,6 +10,8 @@ export interface EditableContent {
   blocks: ContentBlock[];
   sources: Source[];
   metadata: Record<string, unknown>;
+  coverImageUrl: string;
+  coverImageAlt: string;
   status: ContentStatus;
   publishedAt: string;
   sortOrder: number;
@@ -52,6 +54,8 @@ export function newContent(metadata: Record<string, unknown> = {}): EditableCont
     blocks: [markdownBlock()],
     sources: [],
     metadata,
+    coverImageUrl: "",
+    coverImageAlt: "",
     status: "draft",
     publishedAt: today(),
     sortOrder: 0,
@@ -69,6 +73,8 @@ export function toEditableContent(item: ContentItem): EditableContent {
     blocks: item.blocks,
     sources: item.sources,
     metadata: item.metadata,
+    coverImageUrl: item.coverImageUrl ?? "",
+    coverImageAlt: item.coverImageAlt ?? "",
     status: item.status,
     publishedAt: item.publishedAt ?? "",
     sortOrder: item.sortOrder,

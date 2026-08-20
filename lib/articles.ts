@@ -11,6 +11,8 @@ export interface Article {
   content: string;
   blocks: ContentBlock[];
   sources: Source[];
+  coverImageUrl?: string;
+  coverImageAlt?: string;
   manualGlossaryLinks?: boolean;
 }
 
@@ -23,6 +25,8 @@ function asArticle(item: Awaited<ReturnType<typeof getContentItem>> extends infe
     content: item.body,
     blocks: item.blocks,
     sources: item.sources,
+    ...(item.coverImageUrl ? { coverImageUrl: item.coverImageUrl } : {}),
+    ...(item.coverImageAlt ? { coverImageAlt: item.coverImageAlt } : {}),
     manualGlossaryLinks: item.metadata.manualGlossaryLinks === true,
   };
 }

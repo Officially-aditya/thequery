@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import ReadingProgress from "@/components/ReadingProgress";
 import ChapterView from "@/components/ChapterView";
+import CoverImage from "@/components/content/CoverImage";
 import {
   AUTHOR,
   ORGANIZATION_ID,
@@ -32,6 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: `Read "${data.meta.title}" from ${data.book.title} on TheQuery.`,
       url: `${SITE_URL}/books/${data.book.slug}/${data.meta.slug}`,
       type: "article",
+      image: data.meta.coverImageUrl,
     }),
   };
 }
@@ -102,6 +104,7 @@ export default async function ChapterPage({ params }: Props) {
             <> &middot; Updated {new Date(data.meta.lastModified).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</>
           ) : null}
         </p>
+        <CoverImage src={data.meta.coverImageUrl} alt={data.meta.coverImageAlt} title={data.meta.title} />
         <ChapterView
           bookSlug={slug}
           bookTitle={data.book.title}

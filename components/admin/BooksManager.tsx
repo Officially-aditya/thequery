@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import ContentBlocksRenderer from "@/components/content/ContentBlocksRenderer";
 import type { ContentItem } from "@/lib/content-types";
 import { apiRequest, markdownBlock, newContent, toEditableContent, today, type EditableContent } from "./admin-client";
+import CoverImageFields from "./CoverImageFields";
 
 const fieldClass = "w-full rounded-md border border-border bg-bg-primary px-3 py-2 text-sm text-text-primary outline-none focus:border-accent";
 
@@ -191,6 +192,7 @@ export default function BooksManager() {
               {editingBook.id ? <p className="self-end text-xs text-text-muted">The slug is locked to protect reader links.</p> : null}
             </section>
 
+            <CoverImageFields title={editingBook.title} coverImageUrl={editingBook.coverImageUrl} coverImageAlt={editingBook.coverImageAlt} onChange={updateBook} />
             {editingBook.id ? (
               <section className="grid gap-5 rounded-xl border border-border p-4 lg:grid-cols-[240px_minmax(0,1fr)]">
                 <aside className="border-b border-border pb-4 lg:border-b-0 lg:border-r lg:pr-4">
@@ -201,6 +203,7 @@ export default function BooksManager() {
                   {!editingChapter ? <p className="py-8 text-sm text-text-muted">Select a chapter or create a new one.</p> : <div className="space-y-4">
                     <div className="flex flex-wrap justify-between gap-3"><h3 className="font-serif text-lg font-semibold text-text-primary">{editingChapter.id ? "Edit chapter" : "New chapter"}</h3><div className="flex gap-2"><button onClick={saveChapter} disabled={savingChapter} className="rounded-md bg-accent px-3 py-2 text-sm font-medium text-white hover:bg-accent-hover disabled:opacity-60">{savingChapter ? "Saving…" : "Save chapter"}</button></div></div>
                     <div className="grid gap-3 sm:grid-cols-2"><label className="text-sm font-medium text-text-secondary">Title<input className={`${fieldClass} mt-1`} value={editingChapter.title} onChange={(event) => updateChapter({ title: event.target.value })} /></label><label className="text-sm font-medium text-text-secondary">URL slug<input className={`${fieldClass} mt-1`} value={editingChapter.slug} disabled={Boolean(editingChapter.id)} onChange={(event) => updateChapter({ slug: event.target.value })} /></label><label className="text-sm font-medium text-text-secondary">Last modified<input className={`${fieldClass} mt-1`} type="date" value={metadataText(editingChapter.metadata, "lastModified")} onChange={(event) => updateChapterMetadata({ lastModified: event.target.value })} /></label><label className="text-sm font-medium text-text-secondary">Position<input className={`${fieldClass} mt-1`} type="number" min="0" value={editingChapter.sortOrder} onChange={(event) => updateChapter({ sortOrder: Number(event.target.value) })} /></label><label className="text-sm font-medium text-text-secondary">Status<select className={`${fieldClass} mt-1`} value={editingChapter.status} onChange={(event) => updateChapter({ status: event.target.value === "draft" ? "draft" : "published" })}><option value="draft">Draft</option><option value="published">Published</option></select></label></div>
+                    <CoverImageFields title={editingChapter.title} coverImageUrl={editingChapter.coverImageUrl} coverImageAlt={editingChapter.coverImageAlt} onChange={updateChapter} />
                     <label className="block text-sm font-medium text-text-secondary">Chapter content (Markdown)<textarea className={`${fieldClass} mt-1 min-h-96 font-mono text-xs leading-6`} value={editingChapter.body} onChange={(event) => updateChapter({ body: event.target.value, blocks: [markdownBlock(event.target.value)] })} spellCheck={false} /></label>
                     <details className="rounded-lg border border-border bg-bg-secondary p-3"><summary className="cursor-pointer text-sm font-medium text-text-primary">Preview chapter</summary><div className="mt-4 rounded-md bg-bg-primary p-3"><ContentBlocksRenderer blocks={editingChapter.blocks} /></div></details>
                     <div className="flex items-center justify-between"><button onClick={() => setEditingChapter(null)} className="text-sm text-text-secondary hover:text-accent">Close chapter</button>{editingChapter.id ? <button onClick={deleteChapter} disabled={savingChapter} className="text-sm text-red-600 hover:text-red-700">Delete chapter</button> : null}</div>

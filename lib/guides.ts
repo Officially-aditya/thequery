@@ -11,6 +11,8 @@ export interface Guide {
   content: string;
   blocks: ContentBlock[];
   sources: Source[];
+  coverImageUrl?: string;
+  coverImageAlt?: string;
 }
 
 function asGuide(item: Awaited<ReturnType<typeof getContentItem>> extends infer T ? Exclude<T, null> : never): Guide {
@@ -22,6 +24,8 @@ function asGuide(item: Awaited<ReturnType<typeof getContentItem>> extends infer 
     content: item.body,
     blocks: item.blocks,
     sources: item.sources,
+    ...(item.coverImageUrl ? { coverImageUrl: item.coverImageUrl } : {}),
+    ...(item.coverImageAlt ? { coverImageAlt: item.coverImageAlt } : {}),
   };
 }
 
