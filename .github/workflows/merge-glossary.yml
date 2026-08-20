@@ -1,0 +1,102 @@
+name: Consolidate glossary sources
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  consolidate:
+    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Consolidate glossary entries
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          base_path = Path('data/glossary.json')
+          base = json.loads(base_path.read_text())
+
+          additions = []
+          for name in ['data/glossary-deep-dives.json', 'data/glossary-additions.json']:
+              p = Path(name)
+              if p.exists():
+                  additions.extend(json.loads(p.read_text()))
+
+          by_slug = {term['slug']: term for term in additions}
+          merged = [by_slug.get(term['slug'], term) for term in base]
+          existing = {term['slug'] for term in base}
+          merged.extend(term for term in additions if term['slug'] not in existing)
+          base_path.write_text(json.dumps(merged, indent=2, ensure_ascii=False) + '\n')
+
+          for name in ['data/glossary-deep-dives.json', 'data/glossary-additions.json']:
+              p = Path(name)
+              if p.exists():
+                  p.unlink()
+          PY
+
+      - name: Restore simple glossary loader
+        run: |
+          cat > lib/glossary.ts <<'EOF'
+          import fs from "fs";
+          import path from "path";
+
+          const dataPath = path.join(process.cwd(), "data", "glossary.json");
+
+          export interface GlossaryTerm {
+            name: string;
+            slug: string;
+            shortDef: string;
+            fullDef: string;
+            category: string;
+            relatedTerms: string[];
+            analogy?: string;
+            references?: { title: string; url: string }[];
+            seoDescription?: string;
+            seoKeywords?: string[];
+            lastUpdated: string;
+          }
+
+          export function getAllTerms(): GlossaryTerm[] {
+            const raw = fs.readFileSync(dataPath, "utf-8");
+            return JSON.parse(raw);
+          }
+
+          export function getTermBySlug(slug: string): GlossaryTerm | null {
+            const terms = getAllTerms();
+            return terms.find((t) => t.slug === slug) ?? null;
+          }
+
+          export function getTermsByCategory(): Record<string, GlossaryTerm[]> {
+            const terms = getAllTerms();
+            const grouped: Record<string, GlossaryTerm[]> = {};
+            for (const term of terms) {
+              if (!grouped[term.category]) grouped[term.category] = [];
+              grouped[term.category].push(term);
+            }
+            return grouped;
+          }
+
+          export function saveAllTerms(terms: GlossaryTerm[]): void {
+            fs.writeFileSync(dataPath, JSON.stringify(terms, null, 2), "utf-8");
+          }
+          EOF
+
+      - name: Remove this one-shot workflow
+        run: rm -f .github/workflows/merge-glossary.yml
+
+      - name: Commit consolidated glossary
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/glossary.json lib/glossary.ts data/glossary-deep-dives.json data/glossary-additions.json .github/workflows/merge-glossary.yml
+          git diff --cached --quiet && exit 0
+          git commit -m "chore: consolidate glossary entries [skip ci]"
+          git push
