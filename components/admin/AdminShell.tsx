@@ -13,21 +13,40 @@ const navigation = [
   { href: "/admin/books", label: "Books" },
 ];
 
-export default function AdminShell({ children, title, actions }: { children: React.ReactNode; title: string; actions?: React.ReactNode }) {
+interface AdminShellProps {
+  children: React.ReactNode;
+  title: string;
+  actions?: React.ReactNode;
+  initialEmail?: string;
+}
+
+export default function AdminShell({ children, title, actions, initialEmail }: AdminShellProps) {
   const pathname = usePathname();
   const router = useRouter();
-  const [email, setEmail] = useState("");
-  const [checking, setChecking] = useState(true);
+  const [email, setEmail] = useState(initialEmail ?? "");
+  const [checking, setChecking] = useState(initialEmail === undefined);
 
   useEffect(() => {
+    if (initialEmail !== undefined) return;
+
+    let cancelled = false;
     apiRequest<{ authenticated: boolean; email: string | null }>("/api/admin/auth")
       .then((session) => {
+        if (cancelled) return;
         if (!session.authenticated) router.replace("/admin");
         else setEmail(session.email ?? "");
       })
-      .catch(() => router.replace("/admin"))
-      .finally(() => setChecking(false));
-  }, [router]);
+      .catch(() => {
+        if (!cancelled) router.replace("/admin");
+      })
+      .finally(() => {
+        if (!cancelled) setChecking(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [initialEmail, router]);
 
   async function signOut() {
     await apiRequest("/api/admin/auth", { method: "DELETE" }).catch(() => undefined);

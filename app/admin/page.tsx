@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import AdminShell from "@/components/admin/AdminShell";
-import { apiRequest } from "@/components/admin/admin-client";
+import { ApiError, apiRequest } from "@/components/admin/admin-client";
 import type { ContentKind } from "@/lib/content-types";
 
 type DashboardData = {
@@ -26,18 +26,23 @@ export default function AdminPage() {
   const [error, setError] = useState("");
   const [dashboard, setDashboard] = useState<DashboardData | null>(null);
 
-  useEffect(() => {
-    apiRequest<{ authenticated: boolean }>("/api/admin/auth")
-      .then((session) => setAuthenticated(session.authenticated))
-      .catch(() => setAuthenticated(false));
+  const loadDashboard = useCallback(async () => {
+    try {
+      const data = await apiRequest<DashboardData>("/api/admin/dashboard");
+      setDashboard(data);
+      setAuthenticated(true);
+    } catch (requestError) {
+      setDashboard(null);
+      setAuthenticated(false);
+      if (!(requestError instanceof ApiError && requestError.status === 401)) {
+        setError(requestError instanceof Error ? requestError.message : "Unable to load dashboard.");
+      }
+    }
   }, []);
 
   useEffect(() => {
-    if (!authenticated) return;
-    apiRequest<DashboardData>("/api/admin/dashboard")
-      .then(setDashboard)
-      .catch((requestError) => setError(requestError instanceof Error ? requestError.message : "Unable to load dashboard."));
-  }, [authenticated]);
+    void loadDashboard();
+  }, [loadDashboard]);
 
   async function signIn(event: React.FormEvent) {
     event.preventDefault();
@@ -46,7 +51,8 @@ export default function AdminPage() {
     try {
       await apiRequest("/api/admin/auth", { method: "POST", body: JSON.stringify({ email, password }) });
       setPassword("");
-      setAuthenticated(true);
+      setAuthenticated(null);
+      await loadDashboard();
     } catch {
       setError("The email or password was not recognized.");
     } finally {
@@ -77,7 +83,7 @@ export default function AdminPage() {
   }
 
   return (
-    <AdminShell title="Editorial overview" actions={<Link href="/admin/articles" className="rounded-md bg-accent px-4 py-2 text-sm font-medium text-white hover:bg-accent-hover">Create content</Link>}>
+    <AdminShell initialEmail={dashboard?.email} title="Editorial overview" actions={<Link href="/admin/articles" className="rounded-md bg-accent px-4 py-2 text-sm font-medium text-white hover:bg-accent-hover">Create content</Link>}>
       <div className="rounded-xl border border-border bg-bg-secondary p-5">
         <p className="text-sm text-text-secondary">Signed in as <span className="font-medium text-text-primary">{dashboard?.email ?? "…"}</span>. Everything below is served from Neon; public changes are revalidated as soon as you save.</p>
       </div>

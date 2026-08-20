@@ -15,6 +15,6 @@ The public site and `/admin` are backed by Neon Postgres. Copy `.env.example` to
 npm run db:setup
 ```
 
-This applies the idempotent schema migration, imports the existing articles, guides, glossary terms, books, and chapters, and stores a salted password hash for the configured admin account. The plaintext credentials stay in environment variables and are never committed.
+This applies the idempotent schema migration, imports the existing articles, guides, glossary terms, books, and chapters, and stores a salted password hash for the configured admin account. The plaintext credentials stay in environment variables and are never committed. If you rotate `ADMIN_USER` or `ADMIN_PASSWORD`, run `npm run db:seed` once to update that database record.
 
 At `/admin`, the editorial workspace provides dedicated content editors for articles, guides, glossary entries, books, and chapters. Articles and guides use ordered Markdown, comparison-table, and chart blocks; sources are managed separately and rendered at the end of the public page.
