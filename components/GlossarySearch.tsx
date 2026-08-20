@@ -24,6 +24,9 @@ const CATEGORIES = [
   "Platforms & Tools",
   "Computer Vision",
   "MLOps",
+  "Distributed Systems",
+  "Infrastructure",
+  "Security",
 ];
 
 const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
