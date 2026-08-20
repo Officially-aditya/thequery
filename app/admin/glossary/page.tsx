@@ -13,14 +13,21 @@ interface Term {
   lastUpdated: string;
 }
 
-const CATEGORIES = ["Fundamentals", "Deep Learning", "NLP", "Computer Vision", "Reinforcement Learning", "MLOps"];
+const CATEGORIES = [
+  "Foundations",
+  "Models & Architectures",
+  "Training & Inference",
+  "Language, Vision & Retrieval",
+  "Agents & Workflows",
+  "Systems, Tools & Safety",
+];
 
 const emptyTerm: Term = {
   name: "",
   slug: "",
   shortDef: "",
   fullDef: "",
-  category: "Fundamentals",
+  category: "Foundations",
   relatedTerms: [],
   lastUpdated: new Date().toISOString().split("T")[0],
 };
