@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useDeferredValue } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
 
 interface Term {
@@ -10,57 +10,58 @@ interface Term {
   category: string;
 }
 
-const CATEGORIES = [
-  "All",
-  "Fundamentals",
-  "Deep Learning",
-  "NLP",
-  "LLM Models",
-  "Agents",
-  "Information Retrieval",
-  "Knowledge Graphs",
-  "Optimization",
-  "Reinforcement Learning",
-  "Platforms & Tools",
-  "Computer Vision",
-  "MLOps",
-  "Distributed Systems",
-  "Infrastructure",
-  "Security",
-];
-
 const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+
+function normalize(value: string) {
+  return value
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
 
 export default function GlossarySearch({ terms }: { terms: Term[] }) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All");
   const [letter, setLetter] = useState<string | null>(null);
 
-  const deferredQuery = useDeferredValue(query);
+  const categories = useMemo(
+    () => ["All", ...Array.from(new Set(terms.map((term) => term.category))).sort((a, b) => a.localeCompare(b))],
+    [terms]
+  );
 
-  const filtered = terms.filter((t) => {
-    if (deferredQuery && !t.name.toLowerCase().includes(deferredQuery.toLowerCase())) return false;
-    if (category !== "All" && t.category !== category) return false;
-    if (letter && !t.name.toUpperCase().startsWith(letter)) return false;
-    return true;
-  });
+  const filtered = useMemo(() => {
+    const normalizedQuery = normalize(query);
+
+    return terms.filter((term) => {
+      const matchesQuery = !normalizedQuery || normalize(term.name).includes(normalizedQuery);
+      const matchesCategory = category === "All" || term.category === category;
+      const matchesLetter = !letter || term.name.trim().toUpperCase().startsWith(letter);
+
+      return matchesQuery && matchesCategory && matchesLetter;
+    });
+  }, [terms, query, category, letter]);
 
   return (
     <div>
-      {/* Search bar */}
       <input
-        type="text"
+        type="search"
         placeholder="Search terms..."
         value={query}
-        onChange={(e) => { setQuery(e.target.value); setLetter(null); }}
+        onChange={(e) => {
+          setQuery(e.target.value);
+          setLetter(null);
+        }}
         className="w-full px-4 py-2 mb-4 border border-border rounded-lg bg-bg-primary text-text-primary placeholder-text-muted focus:outline-none focus:border-accent text-sm"
+        aria-label="Search glossary terms"
       />
 
-      {/* Category filters */}
       <div className="flex flex-wrap gap-2 mb-4">
-        {CATEGORIES.map((cat) => (
+        {categories.map((cat) => (
           <button
             key={cat}
+            type="button"
             onClick={() => setCategory(cat)}
             className={`text-xs px-3 py-1 rounded-full border transition-colors ${
               category === cat
@@ -73,11 +74,11 @@ export default function GlossarySearch({ terms }: { terms: Term[] }) {
         ))}
       </div>
 
-      {/* Alphabet nav */}
       <div className="flex flex-wrap gap-1 mb-6">
         {ALPHABET.map((l) => (
           <button
             key={l}
+            type="button"
             onClick={() => setLetter(letter === l ? null : l)}
             className={`text-xs w-7 h-7 rounded flex items-center justify-center transition-colors ${
               letter === l
@@ -90,7 +91,6 @@ export default function GlossarySearch({ terms }: { terms: Term[] }) {
         ))}
       </div>
 
-      {/* Terms list */}
       <div className="grid gap-3 sm:grid-cols-2">
         {filtered.map((term) => (
           <Link
