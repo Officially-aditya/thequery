@@ -3,6 +3,7 @@ import path from "path";
 
 const dataPath = path.join(process.cwd(), "data", "glossary.json");
 const additionsPath = path.join(process.cwd(), "data", "glossary-additions.json");
+const deepDivesPath = path.join(process.cwd(), "data", "glossary-deep-dives.json");
 
 export interface GlossaryTerm {
   name: string;
@@ -18,24 +19,36 @@ export interface GlossaryTerm {
   lastUpdated: string;
 }
 
-function getAdditions(): GlossaryTerm[] {
-  if (!fs.existsSync(additionsPath)) return [];
-  const raw = fs.readFileSync(additionsPath, "utf-8");
+function readTerms(filePath: string): GlossaryTerm[] {
+  if (!fs.existsSync(filePath)) return [];
+  const raw = fs.readFileSync(filePath, "utf-8");
   return JSON.parse(raw);
 }
 
-export function getAllTerms(): GlossaryTerm[] {
-  const raw = fs.readFileSync(dataPath, "utf-8");
-  const terms: GlossaryTerm[] = JSON.parse(raw);
-  const additions = getAdditions();
-  const additionsBySlug = new Map(additions.map((term) => [term.slug, term]));
+function getAdditions(): GlossaryTerm[] {
+  return readTerms(additionsPath);
+}
 
-  // Keep the main glossary as the source of truth while allowing substantive
-  // additions to live separately. Additions override a duplicate slug so a
-  // term can be expanded without creating duplicate glossary pages.
-  const merged = terms.map((term) => additionsBySlug.get(term.slug) ?? term);
+function getDeepDives(): GlossaryTerm[] {
+  return readTerms(deepDivesPath);
+}
+
+export function getAllTerms(): GlossaryTerm[] {
+  const terms: GlossaryTerm[] = readTerms(dataPath);
+  const additions = getAdditions();
+  const deepDives = getDeepDives();
+
+  const overrides = new Map<string, GlossaryTerm>();
+  for (const term of additions) overrides.set(term.slug, term);
+  for (const term of deepDives) overrides.set(term.slug, term);
+
+  const merged = terms.map((term) => overrides.get(term.slug) ?? term);
   const existingSlugs = new Set(terms.map((term) => term.slug));
-  return [...merged, ...additions.filter((term) => !existingSlugs.has(term.slug))];
+  const added = additions.filter((term) => !existingSlugs.has(term.slug));
+  const existingAfterAdditions = new Set([...existingSlugs, ...added.map((term) => term.slug)]);
+  const deepDiveOnly = deepDives.filter((term) => !existingAfterAdditions.has(term.slug));
+
+  return [...merged, ...added, ...deepDiveOnly];
 }
 
 export function getTermBySlug(slug: string): GlossaryTerm | null {
@@ -54,7 +67,10 @@ export function getTermsByCategory(): Record<string, GlossaryTerm[]> {
 }
 
 export function saveAllTerms(terms: GlossaryTerm[]): void {
-  const additionSlugs = new Set(getAdditions().map((term) => term.slug));
-  const baseTerms = terms.filter((term) => !additionSlugs.has(term.slug));
+  const managedSlugs = new Set([
+    ...getAdditions().map((term) => term.slug),
+    ...getDeepDives().map((term) => term.slug),
+  ]);
+  const baseTerms = terms.filter((term) => !managedSlugs.has(term.slug));
   fs.writeFileSync(dataPath, JSON.stringify(baseTerms, null, 2), "utf-8");
 }
