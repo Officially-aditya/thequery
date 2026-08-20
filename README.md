@@ -7,3 +7,14 @@ Whether you're a curious beginner or a seasoned practitioner, TheQuery aims to m
 ---
 
 
+## Editorial database and admin
+
+The public site and `/admin` are backed by Neon Postgres. Copy `.env.example` to `.env`, add the Neon `DATABASE_URL`, and configure the single editorial account with `ADMIN_USER` and `ADMIN_PASSWORD`.
+
+```bash
+npm run db:setup
+```
+
+This applies the idempotent schema migration, imports the existing articles, guides, glossary terms, books, and chapters, and stores a salted password hash for the configured admin account. The plaintext credentials stay in environment variables and are never committed.
+
+At `/admin`, the editorial workspace provides dedicated content editors for articles, guides, glossary entries, books, and chapters. Articles and guides use ordered Markdown, comparison-table, and chart blocks; sources are managed separately and rendered at the end of the public page.

@@ -1,7 +1,7 @@
-import fs from "fs";
-import path from "path";
+import "server-only";
 
-const dataPath = path.join(process.cwd(), "data", "articles.json");
+import { getContentItem, getContentItems } from "./content";
+import type { ContentBlock, Source } from "./content-types";
 
 export interface Article {
   title: string;
@@ -9,20 +9,32 @@ export interface Article {
   date: string;
   summary: string;
   content: string;
+  blocks: ContentBlock[];
+  sources: Source[];
   manualGlossaryLinks?: boolean;
 }
 
-export function getAllIssues(): Article[] {
-  const raw = fs.readFileSync(dataPath, "utf-8");
-  const issues: Article[] = JSON.parse(raw);
-  return issues.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+function asArticle(item: Awaited<ReturnType<typeof getContentItem>> extends infer T ? Exclude<T, null> : never): Article {
+  return {
+    title: item.title,
+    slug: item.slug,
+    date: item.publishedAt ?? item.updatedAt.slice(0, 10),
+    summary: item.summary,
+    content: item.body,
+    blocks: item.blocks,
+    sources: item.sources,
+    manualGlossaryLinks: item.metadata.manualGlossaryLinks === true,
+  };
 }
 
-export function getIssueBySlug(slug: string): Article | null {
-  const issues = getAllIssues();
-  return issues.find((i) => i.slug === slug) ?? null;
+export async function getAllIssues(): Promise<Article[]> {
+  const items = await getContentItems("article");
+  return items
+    .map(asArticle)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
-export function saveAllIssues(issues: Article[]): void {
-  fs.writeFileSync(dataPath, JSON.stringify(issues, null, 2), "utf-8");
+export async function getIssueBySlug(slug: string): Promise<Article | null> {
+  const item = await getContentItem("article", slug);
+  return item ? asArticle(item) : null;
 }

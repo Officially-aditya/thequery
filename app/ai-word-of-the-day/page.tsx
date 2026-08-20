@@ -6,9 +6,10 @@ import { createOpenGraphMetadata, SITE_URL } from "@/lib/site";
 import type { Metadata } from "next";
 
 export const revalidate = 3600;
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const wotd = getTodaysWord();
+  const wotd = await getTodaysWord();
   if (!wotd) {
     return {
       title: "AI Word of the Day",
@@ -30,12 +31,12 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function WordOfTheDayPage() {
-  const wotd = getTodaysWord();
+export default async function WordOfTheDayPage() {
+  const wotd = await getTodaysWord();
   if (!wotd) return <div className="max-w-[960px] mx-auto px-4 py-12">No AI word of the day available.</div>;
 
   const { term, humor, examples } = wotd;
-  const allTerms = getAllTerms();
+  const allTerms = await getAllTerms();
   const related = term.relatedTerms
     .map((s) => allTerms.find((t) => t.slug === s))
     .filter(Boolean);

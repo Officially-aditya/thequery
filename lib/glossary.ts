@@ -1,7 +1,7 @@
-import fs from "fs";
-import path from "path";
+import "server-only";
 
-const dataPath = path.join(process.cwd(), "data", "glossary.json");
+import { getContentItem, getContentItems } from "./content";
+import type { Source } from "./content-types";
 
 export interface GlossaryTerm {
   name: string;
@@ -11,32 +11,47 @@ export interface GlossaryTerm {
   category: string;
   relatedTerms: string[];
   analogy?: string;
-  references?: { title: string; url: string }[];
+  references?: Source[];
   seoDescription?: string;
   seoKeywords?: string[];
   lastUpdated: string;
 }
 
-export function getAllTerms(): GlossaryTerm[] {
-  const raw = fs.readFileSync(dataPath, "utf-8");
-  return JSON.parse(raw);
+function textList(value: unknown): string[] {
+  return Array.isArray(value) ? value.filter((item): item is string => typeof item === "string") : [];
 }
 
-export function getTermBySlug(slug: string): GlossaryTerm | null {
-  const terms = getAllTerms();
-  return terms.find((t) => t.slug === slug) ?? null;
+function asTerm(item: Awaited<ReturnType<typeof getContentItem>> extends infer T ? Exclude<T, null> : never): GlossaryTerm {
+  const metadata = item.metadata;
+  return {
+    name: item.title,
+    slug: item.slug,
+    shortDef: item.summary,
+    fullDef: item.body,
+    category: typeof metadata.category === "string" ? metadata.category : "Foundations",
+    relatedTerms: textList(metadata.relatedTerms),
+    ...(typeof metadata.analogy === "string" ? { analogy: metadata.analogy } : {}),
+    ...(item.sources.length ? { references: item.sources } : {}),
+    ...(typeof metadata.seoDescription === "string" ? { seoDescription: metadata.seoDescription } : {}),
+    ...(textList(metadata.seoKeywords).length ? { seoKeywords: textList(metadata.seoKeywords) } : {}),
+    lastUpdated: item.publishedAt ?? item.updatedAt.slice(0, 10),
+  };
 }
 
-export function getTermsByCategory(): Record<string, GlossaryTerm[]> {
-  const terms = getAllTerms();
-  const grouped: Record<string, GlossaryTerm[]> = {};
-  for (const term of terms) {
-    if (!grouped[term.category]) grouped[term.category] = [];
-    grouped[term.category].push(term);
-  }
-  return grouped;
+export async function getAllTerms(): Promise<GlossaryTerm[]> {
+  const items = await getContentItems("glossary");
+  return items.map(asTerm).sort((a, b) => a.name.localeCompare(b.name));
 }
 
-export function saveAllTerms(terms: GlossaryTerm[]): void {
-  fs.writeFileSync(dataPath, JSON.stringify(terms, null, 2), "utf-8");
+export async function getTermBySlug(slug: string): Promise<GlossaryTerm | null> {
+  const item = await getContentItem("glossary", slug);
+  return item ? asTerm(item) : null;
+}
+
+export async function getTermsByCategory(): Promise<Record<string, GlossaryTerm[]>> {
+  const terms = await getAllTerms();
+  return terms.reduce<Record<string, GlossaryTerm[]>>((grouped, term) => {
+    (grouped[term.category] ??= []).push(term);
+    return grouped;
+  }, {});
 }

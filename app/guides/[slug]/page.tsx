@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { getAllGuides, getGuideBySlug } from "@/lib/guides";
+import { getGuideBySlug } from "@/lib/guides";
 import { getAllTerms } from "@/lib/glossary";
 import { notFound } from "next/navigation";
-import MarkdownRenderer from "@/components/MarkdownRenderer";
+import ContentBlocksRenderer from "@/components/content/ContentBlocksRenderer";
 import {
   AUTHOR,
   ORGANIZATION_ID,
@@ -17,13 +17,11 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateStaticParams() {
-  return getAllGuides().map((g) => ({ slug: g.slug }));
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const guide = getGuideBySlug(slug);
+  const guide = await getGuideBySlug(slug);
   if (!guide) return {};
   return {
     title: guide.title,
@@ -39,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function GuidePage({ params }: Props) {
   const { slug } = await params;
-  const guide = getGuideBySlug(slug);
+  const guide = await getGuideBySlug(slug);
   if (!guide) notFound();
 
   const jsonLd = {
@@ -94,7 +92,11 @@ export default async function GuidePage({ params }: Props) {
         {" "}&middot; <Link href="/about#editorial-standards" className="hover:text-text-secondary transition-colors">Editorial standards</Link>
       </p>
 
-      <MarkdownRenderer content={guide.content} glossaryTerms={getAllTerms().map((t) => ({ name: t.name, slug: t.slug }))} />
+      <ContentBlocksRenderer
+        blocks={guide.blocks}
+        sources={guide.sources}
+        glossaryTerms={(await getAllTerms()).map((term) => ({ name: term.name, slug: term.slug }))}
+      />
     </div>
   );
 }

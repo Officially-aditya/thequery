@@ -3,20 +3,20 @@ import GlossarySearch from "@/components/GlossarySearch";
 import { createOpenGraphMetadata, SITE_URL } from "@/lib/site";
 import type { Metadata } from "next";
 
-const GLOSSARY_COUNT = getAllTerms().length;
-
 export const metadata: Metadata = {
   title: "AI Glossary",
   description: "Clear, concise definitions of key AI and machine learning terms. Search and browse by category.",
   openGraph: createOpenGraphMetadata({
     title: "AI Glossary - TheQuery",
-    description: `${GLOSSARY_COUNT}+ AI and ML terms explained clearly - from backpropagation to knowledge graphs.`,
+    description: "AI and ML terms explained clearly - from backpropagation to knowledge graphs.",
     url: `${SITE_URL}/glossary`,
   }),
 };
 
-export default function GlossaryPage() {
-  const terms = getAllTerms().sort((a, b) => a.name.localeCompare(b.name));
+export const dynamic = "force-dynamic";
+
+export default async function GlossaryPage() {
+  const terms = (await getAllTerms()).sort((a, b) => a.name.localeCompare(b.name));
   const clientTerms = terms.map(({ name, slug, shortDef, category }) => ({
     name,
     slug,

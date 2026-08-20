@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getAllIssues, getIssueBySlug } from "@/lib/articles";
+import { getIssueBySlug } from "@/lib/articles";
 import { getAllTerms } from "@/lib/glossary";
 import { notFound } from "next/navigation";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
@@ -10,6 +10,7 @@ import X402RealityCheck from "@/components/article/X402RealityCheck";
 import ClaudeSharedChatsPrivacy from "@/components/article/ClaudeSharedChatsPrivacy";
 import Grok46Chart from "@/components/article/Grok46Chart";
 import Qwen27BChart from "@/components/article/Qwen27BChart";
+import ContentBlocksRenderer, { SourcesList } from "@/components/content/ContentBlocksRenderer";
 import {
   AUTHOR,
   ORGANIZATION_ID,
@@ -24,13 +25,11 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateStaticParams() {
-  return getAllIssues().map((i) => ({ slug: i.slug }));
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const issue = getIssueBySlug(slug);
+  const issue = await getIssueBySlug(slug);
   if (!issue) return {};
   return {
     title: issue.title,
@@ -46,10 +45,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ArticlePage({ params }: Props) {
   const { slug } = await params;
-  const issue = getIssueBySlug(slug);
+  const issue = await getIssueBySlug(slug);
   if (!issue) notFound();
 
-  const glossaryTerms = getAllTerms().map((term) => ({
+  const glossaryTerms = (await getAllTerms()).map((term) => ({
     name: term.name,
     slug: term.slug,
   }));
@@ -117,6 +116,7 @@ export default async function ArticlePage({ params }: Props) {
     hasEmbeddedVisualization || issue.manualGlossaryLinks ? [] : glossaryTerms;
   const hasRightRailVisualization =
     hasEmbeddedVisualization && visualizationConfig?.placement === "right-rail";
+  const hasStructuredBlocks = issue.blocks.some((block) => block.type !== "markdown");
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -183,7 +183,15 @@ export default async function ArticlePage({ params }: Props) {
           </p>
         </div>
 
-        {hasRightRailVisualization ? (
+        {hasStructuredBlocks ? (
+          <div className="mx-auto max-w-[720px]">
+            <ContentBlocksRenderer
+              blocks={issue.blocks}
+              sources={issue.sources}
+              glossaryTerms={issue.manualGlossaryLinks ? [] : glossaryTerms}
+            />
+          </div>
+        ) : hasRightRailVisualization ? (
           <div className="relative mx-auto max-w-[720px] 2xl:max-w-[1440px]">
             <div className="mx-auto max-w-[720px]">
               <MarkdownRenderer
@@ -221,6 +229,7 @@ export default async function ArticlePage({ params }: Props) {
             ) : null}
           </>
         )}
+        {!hasStructuredBlocks ? <SourcesList sources={issue.sources} /> : null}
       </div>
     </>
   );

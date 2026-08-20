@@ -1,4 +1,4 @@
-import { getAllBooks, getChapterContent, getAdjacentChapters, splitIntoSections } from "@/lib/books";
+import { getChapterContent, getAdjacentChapters, splitIntoSections } from "@/lib/books";
 import { getAllTerms } from "@/lib/glossary";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -18,20 +18,11 @@ interface Props {
   params: Promise<{ slug: string; chapter: string }>;
 }
 
-export async function generateStaticParams() {
-  const books = getAllBooks();
-  const params: { slug: string; chapter: string }[] = [];
-  for (const book of books) {
-    for (const ch of book.chapters) {
-      params.push({ slug: book.slug, chapter: ch.slug });
-    }
-  }
-  return params;
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, chapter } = await params;
-  const data = getChapterContent(slug, chapter);
+  const data = await getChapterContent(slug, chapter);
   if (!data) return {};
   return {
     title: `${data.meta.title} - ${data.book.title}`,
@@ -47,13 +38,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ChapterPage({ params }: Props) {
   const { slug, chapter } = await params;
-  const data = getChapterContent(slug, chapter);
+  const data = await getChapterContent(slug, chapter);
   if (!data) notFound();
 
-  const { prev, next } = getAdjacentChapters(slug, chapter);
+  const { prev, next } = await getAdjacentChapters(slug, chapter);
   const currentIdx = data.book.chapters.findIndex((c) => c.slug === chapter);
   const sections = splitIntoSections(data.content);
-  const glossaryTerms = getAllTerms().map(({ name, slug: s }) => ({ name, slug: s }));
+  const glossaryTerms = (await getAllTerms()).map(({ name, slug: s }) => ({ name, slug: s }));
 
   const jsonLd = {
     "@context": "https://schema.org",

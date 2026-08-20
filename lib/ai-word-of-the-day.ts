@@ -29,26 +29,26 @@ function getDayIndex(): number {
   return dayOfYear;
 }
 
-export function getTodaysWord(): WordOfTheDay | null {
+export async function getTodaysWord(): Promise<WordOfTheDay | null> {
   const entries = getAllWotdEntries();
   if (entries.length === 0) return null;
 
   const index = getDayIndex() % entries.length;
   const entry = entries[index];
 
-  const terms = getAllTerms();
+  const terms = await getAllTerms();
   const term = terms.find((t) => t.slug === entry.slug);
   if (!term) return null;
 
   return { term, humor: entry.humor, examples: entry.examples };
 }
 
-export function getWotdBySlug(slug: string): WordOfTheDay | null {
+export async function getWotdBySlug(slug: string): Promise<WordOfTheDay | null> {
   const entries = getAllWotdEntries();
   const entry = entries.find((e) => e.slug === slug);
   if (!entry) return null;
 
-  const terms = getAllTerms();
+  const terms = await getAllTerms();
   const term = terms.find((t) => t.slug === entry.slug);
   if (!term) return null;
 

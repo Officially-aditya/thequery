@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 
 const SITE_URL = "https://www.thequery.in";
 const PAGE_SIZE = 10;
+export const dynamic = "force-dynamic";
 
 type ArticlesPageProps = {
   searchParams: Promise<{ page?: string }>;
@@ -21,7 +22,7 @@ function getValidPage(pageParam: string | undefined, totalPages: number): number
 }
 
 export async function generateMetadata({ searchParams }: ArticlesPageProps): Promise<Metadata> {
-  const totalPages = Math.max(1, Math.ceil(getAllIssues().length / PAGE_SIZE));
+  const totalPages = Math.max(1, Math.ceil((await getAllIssues()).length / PAGE_SIZE));
   const { page: pageParam } = await searchParams;
   const currentPage = getValidPage(pageParam, totalPages);
   const canonical = currentPage === 1
@@ -41,7 +42,7 @@ export async function generateMetadata({ searchParams }: ArticlesPageProps): Pro
 }
 
 export default async function ArticlesPage({ searchParams }: ArticlesPageProps) {
-  const issues = getAllIssues();
+  const issues = await getAllIssues();
   const { page: pageParam } = await searchParams;
   const totalPages = Math.max(1, Math.ceil(issues.length / PAGE_SIZE));
   const currentPage = getValidPage(pageParam, totalPages);

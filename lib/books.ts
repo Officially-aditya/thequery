@@ -1,13 +1,11 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
+import "server-only";
 
-const booksDir = path.join(process.cwd(), "content", "books");
+import { getContentItem, getContentItems } from "./content";
+import type { ContentBlock, Source } from "./content-types";
 
 export interface ChapterMeta {
   slug: string;
   title: string;
-  file: string;
   lastModified?: string;
 }
 
@@ -20,38 +18,53 @@ export interface BookMeta {
   chapters: ChapterMeta[];
 }
 
-export function getAllBooks(): BookMeta[] {
-  const slugs = fs.readdirSync(booksDir).filter((f) => {
-    return fs.statSync(path.join(booksDir, f)).isDirectory();
-  });
-
-  return slugs.map((slug) => getBookMeta(slug)).filter(Boolean) as BookMeta[];
+function chapterMeta(item: Awaited<ReturnType<typeof getContentItem>> extends infer T ? Exclude<T, null> : never): ChapterMeta {
+  return {
+    slug: item.slug,
+    title: item.title,
+    ...(typeof item.metadata.lastModified === "string" ? { lastModified: item.metadata.lastModified } : {}),
+  };
 }
 
-export function getBookMeta(slug: string): BookMeta | null {
-  const metaPath = path.join(booksDir, slug, "meta.json");
-  if (!fs.existsSync(metaPath)) return null;
-  const raw = fs.readFileSync(metaPath, "utf-8");
-  return JSON.parse(raw);
+async function asBook(item: Awaited<ReturnType<typeof getContentItem>> extends infer T ? Exclude<T, null> : never): Promise<BookMeta> {
+  const chapters = await getContentItems("chapter", { parentSlug: item.slug });
+  return {
+    title: item.title,
+    slug: item.slug,
+    description: item.summary,
+    author: typeof item.metadata.author === "string" ? item.metadata.author : "TheQuery",
+    ...(typeof item.metadata.lastModified === "string" ? { lastModified: item.metadata.lastModified } : {}),
+    chapters: chapters.map(chapterMeta),
+  };
 }
 
-export function getChapterContent(
+export async function getAllBooks(): Promise<BookMeta[]> {
+  const books = await getContentItems("book");
+  return Promise.all(books.map(asBook));
+}
+
+export async function getBookMeta(slug: string): Promise<BookMeta | null> {
+  const book = await getContentItem("book", slug);
+  return book ? asBook(book) : null;
+}
+
+export async function getChapterContent(
   bookSlug: string,
-  chapterSlug: string
-): { content: string; meta: ChapterMeta; book: BookMeta } | null {
-  const book = getBookMeta(bookSlug);
-  if (!book) return null;
+  chapterSlug: string,
+): Promise<{ content: string; blocks: ContentBlock[]; sources: Source[]; meta: ChapterMeta; book: BookMeta } | null> {
+  const [book, chapter] = await Promise.all([
+    getBookMeta(bookSlug),
+    getContentItem("chapter", chapterSlug, bookSlug),
+  ]);
+  if (!book || !chapter) return null;
 
-  const chapter = book.chapters.find((c) => c.slug === chapterSlug);
-  if (!chapter) return null;
-
-  const filePath = path.join(booksDir, bookSlug, chapter.file);
-  if (!fs.existsSync(filePath)) return null;
-
-  const raw = fs.readFileSync(filePath, "utf-8");
-  const { content } = matter(raw);
-
-  return { content, meta: chapter, book };
+  return {
+    content: chapter.body,
+    blocks: chapter.blocks,
+    sources: chapter.sources,
+    meta: chapterMeta(chapter),
+    book,
+  };
 }
 
 export interface Heading {
@@ -105,13 +118,8 @@ export function splitIntoSections(markdown: string): Section[] {
   for (const line of lines) {
     const match = line.match(/^## (.+)$/);
     if (match) {
-      // Save previous section
       if (currentLines.length > 0) {
-        sections.push({
-          title: currentTitle,
-          id: currentId,
-          content: currentLines.join("\n").trim(),
-        });
+        sections.push({ title: currentTitle, id: currentId, content: currentLines.join("\n").trim() });
       }
       currentTitle = match[1].replace(/[*_`]/g, "").trim();
       currentId = currentTitle
@@ -126,43 +134,35 @@ export function splitIntoSections(markdown: string): Section[] {
     }
   }
 
-  // Push last section
   if (currentLines.length > 0) {
-    sections.push({
-      title: currentTitle,
-      id: currentId,
-      content: currentLines.join("\n").trim(),
-    });
+    sections.push({ title: currentTitle, id: currentId, content: currentLines.join("\n").trim() });
   }
 
-  // Merge small sections with the next one so short content doesn't look odd
-  const MIN_LENGTH = 800; // characters
   const merged: Section[] = [];
-  let i = 0;
-  while (i < sections.length) {
-    const current = { ...sections[i] };
-    // Keep merging forward while the accumulated content is small
-    while (i + 1 < sections.length && current.content.length < MIN_LENGTH) {
-      i++;
-      current.content += "\n\n" + sections[i].content;
+  let index = 0;
+  while (index < sections.length) {
+    const current = { ...sections[index] };
+    while (index + 1 < sections.length && current.content.length < 800) {
+      index += 1;
+      current.content += `\n\n${sections[index].content}`;
     }
     merged.push(current);
-    i++;
+    index += 1;
   }
 
   return merged;
 }
 
-export function getAdjacentChapters(
+export async function getAdjacentChapters(
   bookSlug: string,
-  chapterSlug: string
-): { prev: ChapterMeta | null; next: ChapterMeta | null } {
-  const book = getBookMeta(bookSlug);
+  chapterSlug: string,
+): Promise<{ prev: ChapterMeta | null; next: ChapterMeta | null }> {
+  const book = await getBookMeta(bookSlug);
   if (!book) return { prev: null, next: null };
 
-  const idx = book.chapters.findIndex((c) => c.slug === chapterSlug);
+  const index = book.chapters.findIndex((chapter) => chapter.slug === chapterSlug);
   return {
-    prev: idx > 0 ? book.chapters[idx - 1] : null,
-    next: idx < book.chapters.length - 1 ? book.chapters[idx + 1] : null,
+    prev: index > 0 ? book.chapters[index - 1] : null,
+    next: index >= 0 && index < book.chapters.length - 1 ? book.chapters[index + 1] : null,
   };
 }

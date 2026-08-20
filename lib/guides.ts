@@ -1,7 +1,7 @@
-import fs from "fs";
-import path from "path";
+import "server-only";
 
-const dataPath = path.join(process.cwd(), "data", "guides.json");
+import { getContentItem, getContentItems } from "./content";
+import type { ContentBlock, Source } from "./content-types";
 
 export interface Guide {
   title: string;
@@ -9,19 +9,30 @@ export interface Guide {
   date: string;
   summary: string;
   content: string;
+  blocks: ContentBlock[];
+  sources: Source[];
 }
 
-export function getAllGuides(): Guide[] {
-  const raw = fs.readFileSync(dataPath, "utf-8");
-  const guides: Guide[] = JSON.parse(raw);
-  return guides.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+function asGuide(item: Awaited<ReturnType<typeof getContentItem>> extends infer T ? Exclude<T, null> : never): Guide {
+  return {
+    title: item.title,
+    slug: item.slug,
+    date: item.publishedAt ?? item.updatedAt.slice(0, 10),
+    summary: item.summary,
+    content: item.body,
+    blocks: item.blocks,
+    sources: item.sources,
+  };
 }
 
-export function getGuideBySlug(slug: string): Guide | null {
-  const guides = getAllGuides();
-  return guides.find((g) => g.slug === slug) ?? null;
+export async function getAllGuides(): Promise<Guide[]> {
+  const items = await getContentItems("guide");
+  return items
+    .map(asGuide)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
-export function saveAllGuides(guides: Guide[]): void {
-  fs.writeFileSync(dataPath, JSON.stringify(guides, null, 2), "utf-8");
+export async function getGuideBySlug(slug: string): Promise<Guide | null> {
+  const item = await getContentItem("guide", slug);
+  return item ? asGuide(item) : null;
 }

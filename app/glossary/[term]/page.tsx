@@ -9,13 +9,11 @@ interface Props {
   params: Promise<{ term: string }>;
 }
 
-export async function generateStaticParams() {
-  return getAllTerms().map((t) => ({ term: t.slug }));
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { term: slug } = await params;
-  const term = getTermBySlug(slug);
+  const term = await getTermBySlug(slug);
   if (!term) return {};
   const description = term.seoDescription || term.shortDef;
   return {
@@ -33,10 +31,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function TermPage({ params }: Props) {
   const { term: slug } = await params;
-  const term = getTermBySlug(slug);
+  const term = await getTermBySlug(slug);
   if (!term) notFound();
 
-  const allTerms = getAllTerms();
+  const allTerms = await getAllTerms();
   const related = term.relatedTerms
     .map((s) => allTerms.find((t) => t.slug === s))
     .filter(Boolean);

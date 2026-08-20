@@ -13,8 +13,10 @@ export const metadata: Metadata = {
   }),
 };
 
-export default function BooksPage() {
-  const books = getAllBooks();
+export const dynamic = "force-dynamic";
+
+export default async function BooksPage() {
+  const books = await getAllBooks();
 
   return (
     <div className="max-w-[960px] mx-auto px-4 py-12">

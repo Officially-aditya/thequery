@@ -4,8 +4,6 @@ import WordOfTheDay from "@/components/WordOfTheDay";
 import { getAllTerms } from "@/lib/glossary";
 import { createOpenGraphMetadata, SITE_URL } from "@/lib/site";
 
-const GLOSSARY_COUNT = getAllTerms().length;
-
 export const metadata: Metadata = {
   title: "TheQuery - AI Knowledge from First Principles",
   description: "TheQuery is where developers go to understand AI, not just use it. Glossary, books, and articles covering AI from first principles.",
@@ -16,30 +14,32 @@ export const metadata: Metadata = {
   }),
 };
 
-const sections = [
-  {
-    title: "Books",
-    description: "Two free technical books on AI fundamentals and RAG systems - written from first principles, readable online or downloadable as PDF.",
-    href: "/books",
-  },
-  {
-    title: "Guides",
-    description: "Evergreen study guides on AI concepts - written to build understanding, not just familiarity.",
-    href: "/guides",
-  },
-  {
-    title: "Glossary",
-    description: `${GLOSSARY_COUNT}+ AI and ML terms explained clearly - from backpropagation to knowledge graphs, always up to date.`,
-    href: "/glossary",
-  },
-  {
-    title: "Articles",
-    description: "Detailed reports on what is happening in the field of AI, updated regularly.",
-    href: "/articles",
-  },
-];
+export const dynamic = "force-dynamic";
 
-export default function Home() {
+export default async function Home() {
+  const glossaryCount = (await getAllTerms()).length;
+  const sections = [
+    {
+      title: "Books",
+      description: "Two free technical books on AI fundamentals and RAG systems - written from first principles, readable online or downloadable as PDF.",
+      href: "/books",
+    },
+    {
+      title: "Guides",
+      description: "Evergreen study guides on AI concepts - written to build understanding, not just familiarity.",
+      href: "/guides",
+    },
+    {
+      title: "Glossary",
+      description: `${glossaryCount}+ AI and ML terms explained clearly - from backpropagation to knowledge graphs, always up to date.`,
+      href: "/glossary",
+    },
+    {
+      title: "Articles",
+      description: "Detailed reports on what is happening in the field of AI, updated regularly.",
+      href: "/articles",
+    },
+  ];
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -78,7 +78,7 @@ export default function Home() {
         </p>
         <p>
           The library includes two free technical books covering AI fundamentals and retrieval-augmented
-          generation, {GLOSSARY_COUNT}+ glossary terms with in-depth definitions, analytical articles tracking
+          generation, {glossaryCount}+ glossary terms with in-depth definitions, analytical articles tracking
           developments across the AI field, and study guides for practitioners building real systems.
           All content is free, with no signup required.
         </p>

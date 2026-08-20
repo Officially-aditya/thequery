@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getAllBooks, getBookMeta } from "@/lib/books";
+import { getBookMeta } from "@/lib/books";
 import { notFound } from "next/navigation";
 import {
   ORGANIZATION_ID,
@@ -14,13 +14,11 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateStaticParams() {
-  return getAllBooks().map((book) => ({ slug: book.slug }));
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const book = getBookMeta(slug);
+  const book = await getBookMeta(slug);
   if (!book) return {};
   return {
     title: book.title,
@@ -36,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BookPage({ params }: Props) {
   const { slug } = await params;
-  const book = getBookMeta(slug);
+  const book = await getBookMeta(slug);
   if (!book) notFound();
 
   const jsonLd = {

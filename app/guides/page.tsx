@@ -13,8 +13,10 @@ export const metadata: Metadata = {
   }),
 };
 
-export default function GuidesPage() {
-  const guides = getAllGuides();
+export const dynamic = "force-dynamic";
+
+export default async function GuidesPage() {
+  const guides = await getAllGuides();
 
   return (
     <div className="max-w-[960px] mx-auto px-4 py-12">

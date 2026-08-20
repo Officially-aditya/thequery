@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { getTodaysWord } from "@/lib/ai-word-of-the-day";
 
-export default function WordOfTheDay() {
-  const wotd = getTodaysWord();
+export default async function WordOfTheDay() {
+  const wotd = await getTodaysWord();
   if (!wotd) return null;
 
   return (
