@@ -3852,6 +3852,51 @@
     "analogy": "Imagine a confident tour guide who makes up historical facts when they do not know the answer, and you cannot tell the difference."
   },
   {
+    "name": "Hermes Agent",
+    "slug": "hermes-agent",
+    "shortDef": "An open-source, multi-provider AI agent from Nous Research that learns from user workflows through persistent memory, self-improving skills, scheduled automation, and messaging gateways.",
+    "fullDef": "Hermes Agent is an open-source AI agent and runtime from Nous Research. It combines a language model with a terminal, tools, persistent memory, a skills system, scheduled jobs, messaging gateways, and optional delegation to parallel sub-agents. The project is not a single model. Users can select providers such as Nous Portal, OpenRouter, OpenAI, Anthropic, xAI, or a local endpoint while keeping the same agent environment.\n\n## What Hermes actually is\n\nA normal chat session ends with its context. Hermes is designed to carry useful state forward. It can maintain a persona in SOUL.md, a user profile, long-term and daily memories, workspace instructions, and a searchable history of previous sessions. It can also turn a successful procedure into a reusable skill and improve that skill after later runs.\n\nThe phrase self-improving describes this workflow loop, not weight training. Hermes does not silently retrain the underlying model after every conversation. It records knowledge, preferences, procedures, and corrections in files and structured state that the agent can retrieve in future sessions. That distinction matters: the behavior can become more personalized without changing the provider's model weights.\n\n## Architecture and model choice\n\nHermes has two main entry points. The interactive CLI provides a terminal interface for conversation, tool output, interrupts, context compression, and model switching. The gateway lets users talk to the same agent through messaging platforms such as Telegram, Discord, Slack, WhatsApp, Signal, and email. A scheduled task can therefore run on a server and deliver its result to the channel where the user already works.\n\nThe runtime can use several execution back ends, including a local process, Docker, SSH, and supported persistent or serverless environments. It also supports MCP connections, cron scheduling, voice workflows, and isolated sub-agents for parallel work. This makes Hermes an [agent harness](/glossary/agent-harness) and gateway as much as a chat interface: the model supplies reasoning, while Hermes controls tools, state, permissions, and the execution loop.\n\nHermes also supports xAI Grok through a browser-based OAuth device-code flow for SuperGrok or X Premium accounts. Its official guide lists Grok 4.6 as the default model for that provider. In that setup, Hermes is the runtime and Grok is the model provider. Switching models changes the reasoning engine without requiring a new set of memories, skills, or messaging integrations.\n\n## Applications\n\nHermes is useful when a task repeats, takes more than one step, or benefits from remembering how a particular user or team works. Common applications include:\n\n- Daily briefings, recurring reports, backups, audits, and other scheduled automations\n- Research agents that search, read documents, summarize findings, and deliver a report through a messaging channel\n- Coding and operations work that needs a terminal, files, tests, remote hosts, or GitHub workflows\n- Team assistants that answer from persistent project context and route requests to specialized skills\n- Personal workflows that improve over time because the agent keeps preferences and successful procedures\n\nThe strongest use cases are not fully hands-off decisions. They are bounded workflows with clear inputs, reversible actions, and an obvious delivery channel. A daily report or a pull-request review is easier to validate than an agent with unrestricted authority over production systems.\n\n## Hermes and OpenClaw\n\nHermes and [OpenClaw](/glossary/openclaw) are related runtimes, not two names for the same product. Both support persistent personal agents, tools, memory, messaging, and multi-step work. The difference is in their implementation, defaults, and operational choices.\n\nHermes provides an explicit migration command, hermes claw migrate, that can import an OpenClaw persona, memories, skills, approval patterns, messaging settings, workspace instructions, and selected API keys. That makes Hermes a practical alternative for people who have already accumulated state in OpenClaw, while preserving the option to change model providers afterward. Migration should still be previewed and reviewed: importing credentials or permissions is a security decision, not just a file conversion.\n\n## Hermes and Grok Bot\n\n[Grok Bot](/articles/grok-bot-openclaw-hermes-agent-popularity) is a managed product that combines Grok with a hosted cloud computer, a desktop or mobile interface, and xAI and Cursor account controls. Hermes is an open runtime that users can operate on their own machine, a VPS, a container, or a supported cloud environment. Hermes can use Grok, but it does not become Grok Bot when it does. One is a vendor-managed experience; the other is a configurable control plane.\n\nThat difference changes the tradeoff. Grok Bot minimizes setup and infrastructure work. Hermes offers provider choice, portable state, and more control over where the runtime and credentials live. A hosted agent may be easier to start, while a self-managed agent requires more work to patch, isolate, monitor, and recover.\n\n## Safety and tradeoffs\n\nPersistent memory and terminal access make Hermes more useful, but they also make mistakes durable. A misconfigured skill can run repeatedly. A leaked API key can grant access to every scheduled job. A prompt injection in a document, webpage, or message can influence later steps if the agent treats untrusted text as instructions.\n\nUse command approvals, narrow toolsets, isolated environments, paired messaging accounts, backups, and explicit checkpoints for consequential actions. Review what gets written into memory and skills, because a remembered instruction can affect future tasks long after the original conversation is gone. Self-hosting improves control over data placement, but it does not automatically provide isolation or safe defaults.\n\n## Why Hermes matters\n\nHermes represents a shift from disposable prompts to software that develops a working relationship with its user. Its model-agnostic design separates the agent's accumulated memory and tools from any one provider, while its gateway and scheduler turn an assistant into something that can operate across a day or a week. The important capability is not that Hermes acts without humans. It is that humans can define a bounded workflow once, keep the useful state, and decide exactly where review remains necessary.",
+    "category": "Agents & Workflows",
+    "relatedTerms": [
+      "ai-agent",
+      "agentic-ai",
+      "agent-harness",
+      "agent-orchestration",
+      "ai-memory",
+      "openclaw",
+      "open-source",
+      "mcp",
+      "grok-4-6"
+    ],
+    "references": [
+      {
+        "title": "Hermes Agent - Official Repository",
+        "url": "https://github.com/hermes-agent-org/hermes"
+      },
+      {
+        "title": "Hermes Agent - Migrate from OpenClaw",
+        "url": "https://hermes-agent.nousresearch.com/docs/guides/migrate-from-openclaw"
+      },
+      {
+        "title": "Hermes Agent - xAI Grok OAuth",
+        "url": "https://hermes-agent.nousresearch.com/docs/guides/xai-grok-oauth"
+      }
+    ],
+    "seoDescription": "Hermes Agent is an open-source Nous Research runtime with memory, skills, model choice, messaging gateways, cron, and OpenClaw migration.",
+    "seoKeywords": [
+      "what is Hermes Agent",
+      "Hermes Agent Nous Research",
+      "Hermes Agent vs OpenClaw",
+      "Hermes Agent Grok",
+      "open-source AI agent",
+      "AI agent with persistent memory",
+      "self-improving AI agent",
+      "Hermes Agent migration"
+    ],
+    "lastUpdated": "2026-08-21",
+    "analogy": "A remote chief of staff with a terminal, a notebook, and a set of improving checklists: useful because it remembers how you work, but still needs clear permissions and review."
+  },
+  {
     "name": "Higgsfield",
     "slug": "higgsfield",
     "shortDef": "An AI video and image creation platform for generating cinematic clips, ads, product visuals, and social content using multiple leading video models in one workspace.",
