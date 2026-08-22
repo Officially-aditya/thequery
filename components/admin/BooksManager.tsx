@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import ContentBlocksRenderer from "@/components/content/ContentBlocksRenderer";
 import type { ContentItem } from "@/lib/content-types";
-import { apiRequest, markdownBlock, newContent, toEditableContent, today, type EditableContent } from "./admin-client";
+import { apiRequest, markdownBlock, newContent, toContentListItem, toEditableContent, today, type ContentListItem, type EditableContent } from "./admin-client";
 import CoverImageFields from "./CoverImageFields";
 
 const fieldClass = "w-full rounded-md border border-border bg-bg-primary px-3 py-2 text-sm text-text-primary outline-none focus:border-accent";
@@ -27,9 +27,9 @@ function newChapter(parentSlug: string, sortOrder: number): EditableContent {
 }
 
 export default function BooksManager() {
-  const [books, setBooks] = useState<ContentItem[]>([]);
+  const [books, setBooks] = useState<ContentListItem[]>([]);
   const [editingBook, setEditingBook] = useState<EditableContent | null>(null);
-  const [chapters, setChapters] = useState<ContentItem[]>([]);
+  const [chapters, setChapters] = useState<ContentListItem[]>([]);
   const [editingChapter, setEditingChapter] = useState<EditableContent | null>(null);
   const [loading, setLoading] = useState(true);
   const [loadingChapters, setLoadingChapters] = useState(false);
@@ -40,7 +40,7 @@ export default function BooksManager() {
 
   const loadBooks = useCallback(async () => {
     try {
-      setBooks(await apiRequest<ContentItem[]>("/api/admin/content/book"));
+      setBooks(await apiRequest<ContentListItem[]>("/api/admin/content/book?summary=1"));
     } catch (requestError) {
       setError(requestError instanceof Error ? requestError.message : "Unable to load books.");
     } finally {
@@ -50,18 +50,37 @@ export default function BooksManager() {
 
   useEffect(() => { void loadBooks(); }, [loadBooks]);
 
-  async function selectBook(book: ContentItem) {
-    setEditingBook(toEditableContent(book));
+  async function selectBook(book: ContentListItem) {
+    setEditingBook(null);
     setEditingChapter(null);
     setError("");
     setNotice("");
     setLoadingChapters(true);
     try {
-      setChapters(await apiRequest<ContentItem[]>(`/api/admin/content/chapter?parentSlug=${encodeURIComponent(book.slug)}`));
+      const [fullBook, nextChapters] = await Promise.all([
+        apiRequest<ContentItem>(`/api/admin/content/book?slug=${encodeURIComponent(book.slug)}`),
+        apiRequest<ContentListItem[]>(`/api/admin/content/chapter?parentSlug=${encodeURIComponent(book.slug)}&summary=1`),
+      ]);
+      setEditingBook(toEditableContent(fullBook));
+      setChapters(nextChapters);
     } catch (requestError) {
       setError(requestError instanceof Error ? requestError.message : "Unable to load chapters.");
     } finally {
       setLoadingChapters(false);
+    }
+  }
+
+  async function selectChapter(chapter: ContentListItem) {
+    if (!editingBook?.slug) return;
+    setEditingChapter(null);
+    setError("");
+    try {
+      const fullChapter = await apiRequest<ContentItem>(
+        `/api/admin/content/chapter?parentSlug=${encodeURIComponent(editingBook.slug)}&slug=${encodeURIComponent(chapter.slug)}`,
+      );
+      setEditingChapter(toEditableContent(fullChapter));
+    } catch (requestError) {
+      setError(requestError instanceof Error ? requestError.message : "Unable to load the chapter.");
     }
   }
 
@@ -90,7 +109,8 @@ export default function BooksManager() {
       const saved = await apiRequest<ContentItem>("/api/admin/content/book", { method: "POST", body: JSON.stringify(editingBook) });
       setBooks((current) => {
         const existing = current.findIndex((book) => book.id === saved.id);
-        const next = existing < 0 ? [...current, saved] : current.map((book) => book.id === saved.id ? saved : book);
+        const summary = toContentListItem(saved);
+        const next = existing < 0 ? [...current, summary] : current.map((book) => book.id === saved.id ? summary : book);
         return next.sort((a, b) => a.title.localeCompare(b.title));
       });
       setEditingBook(toEditableContent(saved));
@@ -131,7 +151,8 @@ export default function BooksManager() {
       });
       setChapters((current) => {
         const existing = current.findIndex((chapter) => chapter.id === saved.id);
-        const next = existing < 0 ? [...current, saved] : current.map((chapter) => chapter.id === saved.id ? saved : chapter);
+        const summary = toContentListItem(saved);
+        const next = existing < 0 ? [...current, summary] : current.map((chapter) => chapter.id === saved.id ? summary : chapter);
         return next.sort((a, b) => a.sortOrder - b.sortOrder);
       });
       setEditingChapter(toEditableContent(saved));
@@ -197,7 +218,7 @@ export default function BooksManager() {
               <section className="grid gap-5 rounded-xl border border-border p-4 lg:grid-cols-[240px_minmax(0,1fr)]">
                 <aside className="border-b border-border pb-4 lg:border-b-0 lg:border-r lg:pr-4">
                   <div className="flex items-center justify-between gap-2"><h2 className="font-serif text-lg font-semibold text-text-primary">Chapters</h2><button onClick={() => setEditingChapter(newChapter(editingBook.slug, chapters.length))} className="rounded-md border border-border px-3 py-1.5 text-xs font-medium text-text-secondary hover:border-accent hover:text-accent">Add chapter</button></div>
-                  <div className="mt-3 space-y-1">{loadingChapters ? <p className="text-sm text-text-muted">Loading…</p> : chapters.map((chapter) => <button key={chapter.id} onClick={() => setEditingChapter(toEditableContent(chapter))} className={`w-full rounded-md px-2 py-2 text-left ${editingChapter?.id === chapter.id ? "bg-bg-secondary" : "hover:bg-bg-secondary"}`}><span className="block truncate text-sm text-text-primary">{chapter.sortOrder + 1}. {chapter.title}</span><span className="text-xs text-text-muted">{chapter.status}</span></button>)}</div>
+                  <div className="mt-3 space-y-1">{loadingChapters ? <p className="text-sm text-text-muted">Loading…</p> : chapters.map((chapter) => <button key={chapter.id} onClick={() => void selectChapter(chapter)} className={`w-full rounded-md px-2 py-2 text-left ${editingChapter?.id === chapter.id ? "bg-bg-secondary" : "hover:bg-bg-secondary"}`}><span className="block truncate text-sm text-text-primary">{chapter.sortOrder + 1}. {chapter.title}</span><span className="text-xs text-text-muted">{chapter.status}</span></button>)}</div>
                 </aside>
                 <div className="min-w-0">
                   {!editingChapter ? <p className="py-8 text-sm text-text-muted">Select a chapter or create a new one.</p> : <div className="space-y-4">

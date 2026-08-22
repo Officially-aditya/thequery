@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import ContentBlocksRenderer from "@/components/content/ContentBlocksRenderer";
 import type { ContentItem } from "@/lib/content-types";
-import { apiRequest, newContent, publicHref, toEditableContent, type EditableContent } from "./admin-client";
+import { apiRequest, newContent, publicHref, toContentListItem, toEditableContent, type ContentListItem, type EditableContent } from "./admin-client";
 import CoverImageFields from "./CoverImageFields";
 import EditorialBlocksEditor from "./EditorialBlocksEditor";
 import SourcesEditor from "./SourcesEditor";
@@ -13,7 +13,7 @@ const fieldClass = "w-full rounded-md border border-border bg-bg-primary px-3 py
 type CollectionKind = "article" | "guide";
 
 export default function EditorialCollection({ kind, noun, description }: { kind: CollectionKind; noun: string; description: string }) {
-  const [items, setItems] = useState<ContentItem[]>([]);
+  const [items, setItems] = useState<ContentListItem[]>([]);
   const [editing, setEditing] = useState<EditableContent | null>(null);
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(true);
@@ -23,7 +23,7 @@ export default function EditorialCollection({ kind, noun, description }: { kind:
 
   const loadItems = useCallback(async () => {
     try {
-      setItems(await apiRequest<ContentItem[]>(`/api/admin/content/${kind}`));
+      setItems(await apiRequest<ContentListItem[]>(`/api/admin/content/${kind}?summary=1`));
     } catch (requestError) {
       setError(requestError instanceof Error ? requestError.message : "Unable to load content.");
     } finally {
@@ -32,6 +32,18 @@ export default function EditorialCollection({ kind, noun, description }: { kind:
   }, [kind]);
 
   useEffect(() => { void loadItems(); }, [loadItems]);
+
+  async function selectItem(item: ContentListItem) {
+    setEditing(null);
+    setNotice("");
+    setError("");
+    try {
+      const fullItem = await apiRequest<ContentItem>(`/api/admin/content/${kind}?slug=${encodeURIComponent(item.slug)}`);
+      setEditing(toEditableContent(fullItem));
+    } catch (requestError) {
+      setError(requestError instanceof Error ? requestError.message : "Unable to load content.");
+    }
+  }
 
   const visibleItems = useMemo(() => {
     const normalized = query.trim().toLowerCase();
@@ -61,7 +73,8 @@ export default function EditorialCollection({ kind, noun, description }: { kind:
       });
       setItems((current) => {
         const existing = current.findIndex((item) => item.id === saved.id);
-        const next = existing >= 0 ? current.map((item) => item.id === saved.id ? saved : item) : [saved, ...current];
+        const summary = toContentListItem(saved);
+        const next = existing >= 0 ? current.map((item) => item.id === saved.id ? summary : item) : [summary, ...current];
         return [...next].sort((a, b) => (b.publishedAt ?? "").localeCompare(a.publishedAt ?? ""));
       });
       setEditing(toEditableContent(saved));
@@ -98,7 +111,7 @@ export default function EditorialCollection({ kind, noun, description }: { kind:
           {loading ? <p className="px-3 py-6 text-sm text-text-muted">Loading…</p> : visibleItems.map((item) => (
             <button
               key={item.id}
-              onClick={() => { setEditing(toEditableContent(item)); setNotice(""); setError(""); }}
+              onClick={() => void selectItem(item)}
               className={`w-full rounded-lg px-3 py-2 text-left transition-colors ${editing?.id === item.id ? "bg-bg-primary shadow-sm" : "hover:bg-bg-primary/70"}`}
             >
               <span className="block truncate text-sm font-medium text-text-primary">{item.title}</span>

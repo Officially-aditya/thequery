@@ -6,7 +6,6 @@ import { createOpenGraphMetadata, SITE_URL } from "@/lib/site";
 import type { Metadata } from "next";
 
 export const revalidate = 3600;
-export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const wotd = await getTodaysWord();

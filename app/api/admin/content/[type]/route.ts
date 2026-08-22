@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath, revalidateTag } from "next/cache";
 import { isAuthenticated } from "@/lib/auth";
-import { deleteContentItem, getContentItems, upsertContent } from "@/lib/content";
+import { deleteContentItem, getContentItem, getContentItems, getContentSummaries, upsertContent } from "@/lib/content";
 import { isContentKind, parseContentInput } from "@/lib/content-validation";
 import type { ContentKind } from "@/lib/content-types";
 
@@ -54,7 +54,18 @@ export async function GET(req: NextRequest, context: RouteContext) {
   if (kind === "chapter" && !parentSlug) {
     return NextResponse.json({ error: "parentSlug is required for chapters" }, { status: 400 });
   }
-  return NextResponse.json(await getContentItems(kind, { parentSlug, includeDrafts: true }));
+  const slug = req.nextUrl.searchParams.get("slug");
+  if (slug) {
+    const item = await getContentItem(kind, slug, parentSlug, true);
+    return item ? NextResponse.json(item) : NextResponse.json({ error: "Content not found" }, { status: 404 });
+  }
+  if (req.nextUrl.searchParams.get("summary") === "1") {
+    return NextResponse.json(await getContentSummaries(kind, { parentSlug, includeDrafts: true }));
+  }
+  if (req.nextUrl.searchParams.get("full") === "1") {
+    return NextResponse.json(await getContentItems(kind, { parentSlug, includeDrafts: true }));
+  }
+  return NextResponse.json(await getContentSummaries(kind, { parentSlug, includeDrafts: true }));
 }
 
 export async function POST(req: NextRequest, context: RouteContext) {

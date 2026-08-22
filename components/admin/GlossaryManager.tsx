@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import ContentBlocksRenderer from "@/components/content/ContentBlocksRenderer";
 import type { ContentItem } from "@/lib/content-types";
-import { apiRequest, markdownBlock, newContent, toEditableContent, type EditableContent } from "./admin-client";
+import { apiRequest, markdownBlock, newContent, toContentListItem, toEditableContent, type ContentListItem, type EditableContent } from "./admin-client";
 import CoverImageFields from "./CoverImageFields";
 import SourcesEditor from "./SourcesEditor";
 
@@ -19,7 +19,7 @@ function metadataList(metadata: Record<string, unknown>, key: string): string[] 
 }
 
 export default function GlossaryManager() {
-  const [items, setItems] = useState<ContentItem[]>([]);
+  const [items, setItems] = useState<ContentListItem[]>([]);
   const [editing, setEditing] = useState<EditableContent | null>(null);
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(true);
@@ -29,7 +29,7 @@ export default function GlossaryManager() {
 
   const loadItems = useCallback(async () => {
     try {
-      setItems(await apiRequest<ContentItem[]>("/api/admin/content/glossary"));
+      setItems(await apiRequest<ContentListItem[]>("/api/admin/content/glossary?summary=1"));
     } catch (requestError) {
       setError(requestError instanceof Error ? requestError.message : "Unable to load the glossary.");
     } finally {
@@ -38,6 +38,18 @@ export default function GlossaryManager() {
   }, []);
 
   useEffect(() => { void loadItems(); }, [loadItems]);
+
+  async function selectItem(item: ContentListItem) {
+    setEditing(null);
+    setError("");
+    setNotice("");
+    try {
+      const fullItem = await apiRequest<ContentItem>(`/api/admin/content/glossary?slug=${encodeURIComponent(item.slug)}`);
+      setEditing(toEditableContent(fullItem));
+    } catch (requestError) {
+      setError(requestError instanceof Error ? requestError.message : "Unable to load the glossary entry.");
+    }
+  }
 
   const visibleItems = useMemo(() => {
     const normalized = query.trim().toLowerCase();
@@ -67,7 +79,8 @@ export default function GlossaryManager() {
       const saved = await apiRequest<ContentItem>("/api/admin/content/glossary", { method: "POST", body: JSON.stringify(editing) });
       setItems((current) => {
         const existing = current.findIndex((item) => item.id === saved.id);
-        const next = existing < 0 ? [...current, saved] : current.map((item) => item.id === saved.id ? saved : item);
+        const summary = toContentListItem(saved);
+        const next = existing < 0 ? [...current, summary] : current.map((item) => item.id === saved.id ? summary : item);
         return next.sort((a, b) => a.title.localeCompare(b.title));
       });
       setEditing(toEditableContent(saved));
@@ -102,7 +115,7 @@ export default function GlossaryManager() {
         <p className="mt-4 text-xs text-text-muted">{items.length} terms · {items.filter((item) => item.status === "draft").length} drafts</p>
         <div className="mt-3 space-y-1">
           {loading ? <p className="px-3 py-6 text-sm text-text-muted">Loading…</p> : visibleItems.map((item) => (
-            <button key={item.id} onClick={() => { setEditing(toEditableContent(item)); setError(""); setNotice(""); }} className={`w-full rounded-lg px-3 py-2 text-left ${editing?.id === item.id ? "bg-bg-primary shadow-sm" : "hover:bg-bg-primary/70"}`}>
+            <button key={item.id} onClick={() => void selectItem(item)} className={`w-full rounded-lg px-3 py-2 text-left ${editing?.id === item.id ? "bg-bg-primary shadow-sm" : "hover:bg-bg-primary/70"}`}>
               <span className="block truncate text-sm font-medium text-text-primary">{item.title}</span>
               <span className="block truncate pt-1 text-xs text-text-muted">{metadataText(item.metadata, "category") || "Foundations"}</span>
             </button>

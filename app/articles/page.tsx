@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 
 const SITE_URL = "https://www.thequery.in";
 const PAGE_SIZE = 10;
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 type ArticlesPageProps = {
   searchParams: Promise<{ page?: string }>;

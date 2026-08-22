@@ -29,3 +29,24 @@ test("public pages no longer load the full glossary for navigation", async () =>
   const sources = await Promise.all(files.map((file) => readFile(path.join(root, file), "utf8")));
   assert.ok(sources.every((source) => !source.includes("getAllTerms")));
 });
+
+test("public database-backed pages use ISR instead of forced dynamic rendering", async () => {
+  const files = [
+    "app/page.tsx",
+    "app/articles/page.tsx",
+    "app/articles/[slug]/page.tsx",
+    "app/guides/page.tsx",
+    "app/guides/[slug]/page.tsx",
+    "app/books/page.tsx",
+    "app/books/[slug]/page.tsx",
+    "app/books/[slug]/[chapter]/page.tsx",
+    "app/glossary/page.tsx",
+    "app/glossary/[term]/page.tsx",
+    "app/ai-word-of-the-day/page.tsx",
+    "app/sitemap.ts",
+  ];
+
+  const sources = await Promise.all(files.map((file) => readFile(path.join(root, file), "utf8")));
+  assert.ok(sources.every((source) => !source.includes('dynamic = "force-dynamic"')));
+  assert.ok(sources.every((source) => source.includes("revalidate")));
+});

@@ -6,7 +6,7 @@ import { getAllGuides } from "@/lib/guides";
 
 const BASE_URL = "https://www.thequery.in";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 900;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [allTerms, allIssues, allGuides, allBooks] = await Promise.all([

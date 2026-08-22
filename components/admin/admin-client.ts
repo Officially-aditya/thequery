@@ -17,6 +17,24 @@ export interface EditableContent {
   sortOrder: number;
 }
 
+export interface ContentListItem {
+  id: string;
+  kind: ContentItem["kind"];
+  slug: string;
+  parentSlug: string | null;
+  path: string;
+  title: string;
+  summary: string;
+  metadata: Record<string, unknown>;
+  coverImageUrl: string | null;
+  coverImageAlt: string | null;
+  status: ContentStatus;
+  publishedAt: string | null;
+  sortOrder: number;
+  createdAt: string;
+  updatedAt: string;
+}
+
 export class ApiError extends Error {
   constructor(message: string, public status: number, public details: string[] = []) {
     super(message);
@@ -78,6 +96,26 @@ export function toEditableContent(item: ContentItem): EditableContent {
     status: item.status,
     publishedAt: item.publishedAt ?? "",
     sortOrder: item.sortOrder,
+  };
+}
+
+export function toContentListItem(item: ContentItem): ContentListItem {
+  return {
+    id: item.id,
+    kind: item.kind,
+    slug: item.slug,
+    parentSlug: item.parentSlug,
+    path: item.path,
+    title: item.title,
+    summary: item.summary,
+    metadata: item.metadata,
+    coverImageUrl: item.coverImageUrl,
+    coverImageAlt: item.coverImageAlt,
+    status: item.status,
+    publishedAt: item.publishedAt,
+    sortOrder: item.sortOrder,
+    createdAt: item.createdAt,
+    updatedAt: item.updatedAt,
   };
 }
 
