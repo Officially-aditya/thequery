@@ -12,10 +12,10 @@ const { loadEnvConfig } = nextEnv;
 loadEnvConfig(projectRoot);
 
 function getSql() {
-  if (!process.env.DATABASE_URL) {
-    throw new Error("DATABASE_URL is required. Add your Neon connection string to .env.");
+  if (!process.env.NEW_DATABASE_URL) {
+    throw new Error("NEW_DATABASE_URL is required. Add your Neon connection string to .env.");
   }
-  return neon(process.env.DATABASE_URL);
+  return neon(process.env.NEW_DATABASE_URL);
 }
 
 function contentPath(kind, slug, parentSlug = "") {
