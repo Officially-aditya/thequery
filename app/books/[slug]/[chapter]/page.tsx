@@ -1,5 +1,5 @@
 import { getChapterContent, getAdjacentChapters, splitIntoSections } from "@/lib/books";
-import { getAllTerms } from "@/lib/glossary";
+import { getGlossaryIndex } from "@/lib/glossary";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import ReadingProgress from "@/components/ReadingProgress";
@@ -46,7 +46,7 @@ export default async function ChapterPage({ params }: Props) {
   const { prev, next } = await getAdjacentChapters(slug, chapter);
   const currentIdx = data.book.chapters.findIndex((c) => c.slug === chapter);
   const sections = splitIntoSections(data.content);
-  const glossaryTerms = (await getAllTerms()).map(({ name, slug: s }) => ({ name, slug: s }));
+  const glossaryTerms = await getGlossaryIndex();
 
   const jsonLd = {
     "@context": "https://schema.org",

@@ -1,6 +1,6 @@
 import "server-only";
 
-import { getContentItem, getContentItems } from "./content";
+import { getContentItem, getContentSummaries, type ContentSummary } from "./content";
 import type { ContentBlock, Source } from "./content-types";
 
 export interface Guide {
@@ -11,6 +11,15 @@ export interface Guide {
   content: string;
   blocks: ContentBlock[];
   sources: Source[];
+  coverImageUrl?: string;
+  coverImageAlt?: string;
+}
+
+export interface GuideSummary {
+  title: string;
+  slug: string;
+  date: string;
+  summary: string;
   coverImageUrl?: string;
   coverImageAlt?: string;
 }
@@ -29,10 +38,21 @@ function asGuide(item: Awaited<ReturnType<typeof getContentItem>> extends infer 
   };
 }
 
-export async function getAllGuides(): Promise<Guide[]> {
-  const items = await getContentItems("guide");
+function asGuideSummary(item: ContentSummary): GuideSummary {
+  return {
+    title: item.title,
+    slug: item.slug,
+    date: item.publishedAt ?? item.updatedAt.slice(0, 10),
+    summary: item.summary,
+    ...(item.coverImageUrl ? { coverImageUrl: item.coverImageUrl } : {}),
+    ...(item.coverImageAlt ? { coverImageAlt: item.coverImageAlt } : {}),
+  };
+}
+
+export async function getAllGuides(): Promise<GuideSummary[]> {
+  const items = await getContentSummaries("guide");
   return items
-    .map(asGuide)
+    .map(asGuideSummary)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 

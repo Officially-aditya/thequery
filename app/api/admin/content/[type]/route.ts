@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { isAuthenticated } from "@/lib/auth";
 import { deleteContentItem, getContentItems, upsertContent } from "@/lib/content";
 import { isContentKind, parseContentInput } from "@/lib/content-validation";
@@ -22,6 +22,7 @@ async function requireAdmin() {
 }
 
 function revalidateContent(kind: ContentKind, slug: string, parentSlug?: string | null) {
+  revalidateTag(`content:${kind}`, { expire: 0 });
   revalidatePath("/");
   revalidatePath("/sitemap.xml");
   if (kind === "article") {

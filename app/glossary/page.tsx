@@ -1,4 +1,4 @@
-import { getAllTerms } from "@/lib/glossary";
+import { getAllTermSummaries } from "@/lib/glossary";
 import GlossarySearch from "@/components/GlossarySearch";
 import { createOpenGraphMetadata, SITE_URL } from "@/lib/site";
 import type { Metadata } from "next";
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export const dynamic = "force-dynamic";
 
 export default async function GlossaryPage() {
-  const terms = (await getAllTerms()).sort((a, b) => a.name.localeCompare(b.name));
+  const terms = await getAllTermSummaries();
   const clientTerms = terms.map(({ name, slug, shortDef, category }) => ({
     name,
     slug,

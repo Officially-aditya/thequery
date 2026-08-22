@@ -1,6 +1,6 @@
 import "server-only";
 
-import { getContentItem, getContentItems } from "./content";
+import { getContentItem, getContentSummaries, type ContentSummary } from "./content";
 import type { ContentBlock, Source } from "./content-types";
 
 export interface ChapterMeta {
@@ -22,7 +22,7 @@ export interface BookMeta {
   chapters: ChapterMeta[];
 }
 
-function chapterMeta(item: Awaited<ReturnType<typeof getContentItem>> extends infer T ? Exclude<T, null> : never): ChapterMeta {
+function chapterMeta(item: ContentSummary): ChapterMeta {
   return {
     slug: item.slug,
     title: item.title,
@@ -32,8 +32,8 @@ function chapterMeta(item: Awaited<ReturnType<typeof getContentItem>> extends in
   };
 }
 
-async function asBook(item: Awaited<ReturnType<typeof getContentItem>> extends infer T ? Exclude<T, null> : never): Promise<BookMeta> {
-  const chapters = await getContentItems("chapter", { parentSlug: item.slug });
+async function asBook(item: ContentSummary): Promise<BookMeta> {
+  const chapters = await getContentSummaries("chapter", { parentSlug: item.slug });
   return {
     title: item.title,
     slug: item.slug,
@@ -47,7 +47,7 @@ async function asBook(item: Awaited<ReturnType<typeof getContentItem>> extends i
 }
 
 export async function getAllBooks(): Promise<BookMeta[]> {
-  const books = await getContentItems("book");
+  const books = await getContentSummaries("book");
   return Promise.all(books.map(asBook));
 }
 

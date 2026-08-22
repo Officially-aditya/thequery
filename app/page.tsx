@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import WordOfTheDay from "@/components/WordOfTheDay";
-import { getAllTerms } from "@/lib/glossary";
+import { getGlossaryCount } from "@/lib/glossary";
 import { createOpenGraphMetadata, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  const glossaryCount = (await getAllTerms()).length;
+  const glossaryCount = await getGlossaryCount();
   const sections = [
     {
       title: "Books",

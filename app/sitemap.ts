@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllBooks } from "@/lib/books";
-import { getAllTerms } from "@/lib/glossary";
+import { getAllTermSummaries } from "@/lib/glossary";
 import { getAllIssues } from "@/lib/articles";
 import { getAllGuides } from "@/lib/guides";
 
@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [allTerms, allIssues, allGuides, allBooks] = await Promise.all([
-    getAllTerms(),
+    getAllTermSummaries(),
     getAllIssues(),
     getAllGuides(),
     getAllBooks(),

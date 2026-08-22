@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { getAllTerms, type GlossaryTerm } from "./glossary";
+import { getTermBySlug, type GlossaryTerm } from "./glossary";
 
 const dataPath = path.join(process.cwd(), "data", "ai-word-of-the-day.json");
 
@@ -36,8 +36,7 @@ export async function getTodaysWord(): Promise<WordOfTheDay | null> {
   const index = getDayIndex() % entries.length;
   const entry = entries[index];
 
-  const terms = await getAllTerms();
-  const term = terms.find((t) => t.slug === entry.slug);
+  const term = await getTermBySlug(entry.slug);
   if (!term) return null;
 
   return { term, humor: entry.humor, examples: entry.examples };
@@ -48,8 +47,7 @@ export async function getWotdBySlug(slug: string): Promise<WordOfTheDay | null> 
   const entry = entries.find((e) => e.slug === slug);
   if (!entry) return null;
 
-  const terms = await getAllTerms();
-  const term = terms.find((t) => t.slug === entry.slug);
+  const term = await getTermBySlug(entry.slug);
   if (!term) return null;
 
   return { term, humor: entry.humor, examples: entry.examples };

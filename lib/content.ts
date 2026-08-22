@@ -1,5 +1,6 @@
 import "server-only";
 
+import { unstable_cache } from "next/cache";
 import { randomUUID } from "crypto";
 import { getSql } from "./db";
 import { normalizeBlocks, normalizeSources } from "./content-utils";
@@ -10,6 +11,8 @@ import type {
   Source,
   ContentBlock,
 } from "./content-types";
+
+const PUBLIC_CACHE_SECONDS = 300;
 
 interface ContentRow {
   id: string;
@@ -30,6 +33,48 @@ interface ContentRow {
   sort_order: number;
   created_at: string;
   updated_at: string;
+}
+
+type ContentSummaryRow = Pick<
+  ContentRow,
+  | "id"
+  | "kind"
+  | "slug"
+  | "parent_slug"
+  | "path"
+  | "title"
+  | "summary"
+  | "metadata"
+  | "cover_image_url"
+  | "cover_image_alt"
+  | "status"
+  | "published_at"
+  | "sort_order"
+  | "created_at"
+  | "updated_at"
+>;
+
+export interface ContentSummary {
+  id: string;
+  kind: ContentKind;
+  slug: string;
+  parentSlug: string | null;
+  path: string;
+  title: string;
+  summary: string;
+  metadata: Record<string, unknown>;
+  coverImageUrl: string | null;
+  coverImageAlt: string | null;
+  status: ContentStatus;
+  publishedAt: string | null;
+  sortOrder: number;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface ContentIndexItem {
+  slug: string;
+  title: string;
 }
 
 export interface UpsertContentInput {
@@ -95,13 +140,33 @@ function toContentItem(row: ContentRow): ContentItem {
   };
 }
 
-export async function getContentItems(
+function toContentSummary(row: ContentSummaryRow): ContentSummary {
+  return {
+    id: row.id,
+    kind: row.kind,
+    slug: row.slug,
+    parentSlug: row.parent_slug || null,
+    path: row.path,
+    title: row.title,
+    summary: row.summary,
+    metadata: toObject(row.metadata),
+    coverImageUrl: row.cover_image_url ?? null,
+    coverImageAlt: row.cover_image_alt ?? null,
+    status: row.status,
+    publishedAt: row.published_at,
+    sortOrder: row.sort_order,
+    createdAt: row.created_at,
+    updatedAt: row.updated_at,
+  };
+}
+
+async function queryContentItems(
   kind: ContentKind,
-  options: { parentSlug?: string | null; includeDrafts?: boolean } = {},
+  parentSlug: string,
+  includeDrafts: boolean,
 ): Promise<ContentItem[]> {
   const sql = getSql();
-  const parentSlug = options.parentSlug ?? "";
-  const rows = options.includeDrafts
+  const rows = includeDrafts
     ? await sql`
         SELECT * FROM content_items
         WHERE kind = ${kind} AND parent_slug = ${parentSlug}
@@ -116,27 +181,117 @@ export async function getContentItems(
   return (rows as ContentRow[]).map(toContentItem);
 }
 
+async function queryContentItem(
+  kind: ContentKind,
+  slug: string,
+  parentSlug: string,
+  includeDrafts: boolean,
+): Promise<ContentItem | null> {
+  const sql = getSql();
+  const rows = includeDrafts
+    ? await sql`
+        SELECT * FROM content_items
+        WHERE kind = ${kind} AND slug = ${slug} AND parent_slug = ${parentSlug}
+        LIMIT 1
+      `
+    : await sql`
+        SELECT * FROM content_items
+        WHERE kind = ${kind} AND slug = ${slug} AND parent_slug = ${parentSlug} AND status = 'published'
+        LIMIT 1
+      `;
+
+  const row = (rows as ContentRow[])[0];
+  return row ? toContentItem(row) : null;
+}
+
+async function queryContentSummaries(
+  kind: ContentKind,
+  parentSlug: string,
+  includeDrafts: boolean,
+): Promise<ContentSummary[]> {
+  const sql = getSql();
+  const rows = includeDrafts
+    ? await sql`
+        SELECT id, kind, slug, parent_slug, path, title, summary, metadata,
+          cover_image_url, cover_image_alt, status, published_at, sort_order,
+          created_at, updated_at
+        FROM content_items
+        WHERE kind = ${kind} AND parent_slug = ${parentSlug}
+        ORDER BY sort_order ASC, published_at DESC NULLS LAST, title ASC
+      `
+    : await sql`
+        SELECT id, kind, slug, parent_slug, path, title, summary, metadata,
+          cover_image_url, cover_image_alt, status, published_at, sort_order,
+          created_at, updated_at
+        FROM content_items
+        WHERE kind = ${kind} AND parent_slug = ${parentSlug} AND status = 'published'
+        ORDER BY sort_order ASC, published_at DESC NULLS LAST, title ASC
+      `;
+
+  return (rows as ContentSummaryRow[]).map(toContentSummary);
+}
+
+async function queryContentIndex(kind: ContentKind): Promise<ContentIndexItem[]> {
+  const sql = getSql();
+  const rows = await sql`
+    SELECT slug, title
+    FROM content_items
+    WHERE kind = ${kind} AND status = 'published'
+    ORDER BY title ASC
+  `;
+  return rows as ContentIndexItem[];
+}
+
+export async function getContentItems(
+  kind: ContentKind,
+  options: { parentSlug?: string | null; includeDrafts?: boolean } = {},
+): Promise<ContentItem[]> {
+  const parentSlug = options.parentSlug ?? "";
+  if (options.includeDrafts) return queryContentItems(kind, parentSlug, true);
+
+  return unstable_cache(
+    () => queryContentItems(kind, parentSlug, false),
+    ["content-items", kind, parentSlug],
+    { revalidate: PUBLIC_CACHE_SECONDS, tags: [`content:${kind}`] },
+  )();
+}
+
 export async function getContentItem(
   kind: ContentKind,
   slug: string,
   parentSlug?: string | null,
   includeDrafts = false,
 ): Promise<ContentItem | null> {
-  const sql = getSql();
-  const rows = includeDrafts
-    ? await sql`
-        SELECT * FROM content_items
-        WHERE kind = ${kind} AND slug = ${slug} AND parent_slug = ${parentSlug ?? ""}
-        LIMIT 1
-      `
-    : await sql`
-        SELECT * FROM content_items
-        WHERE kind = ${kind} AND slug = ${slug} AND parent_slug = ${parentSlug ?? ""} AND status = 'published'
-        LIMIT 1
-      `;
+  const resolvedParentSlug = parentSlug ?? "";
+  if (includeDrafts) return queryContentItem(kind, slug, resolvedParentSlug, true);
 
-  const row = (rows as ContentRow[])[0];
-  return row ? toContentItem(row) : null;
+  return unstable_cache(
+    () => queryContentItem(kind, slug, resolvedParentSlug, false),
+    ["content-item", kind, resolvedParentSlug, slug],
+    { revalidate: PUBLIC_CACHE_SECONDS, tags: [`content:${kind}`] },
+  )();
+}
+
+export async function getContentSummaries(
+  kind: ContentKind,
+  options: { parentSlug?: string | null; includeDrafts?: boolean } = {},
+): Promise<ContentSummary[]> {
+  const parentSlug = options.parentSlug ?? "";
+  if (options.includeDrafts) return queryContentSummaries(kind, parentSlug, true);
+
+  return unstable_cache(
+    () => queryContentSummaries(kind, parentSlug, false),
+    ["content-summaries", kind, parentSlug],
+    { revalidate: PUBLIC_CACHE_SECONDS, tags: [`content:${kind}`] },
+  )();
+}
+
+export async function getContentIndex(kind: ContentKind): Promise<ContentIndexItem[]> {
+  return unstable_cache(
+    () => queryContentIndex(kind),
+    ["content-index", kind],
+    { revalidate: PUBLIC_CACHE_SECONDS, tags: [`content:${kind}`] },
+  )();
 }
 
 export async function upsertContent(input: UpsertContentInput): Promise<ContentItem> {

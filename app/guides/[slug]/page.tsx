@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getGuideBySlug } from "@/lib/guides";
-import { getAllTerms } from "@/lib/glossary";
+import { getGlossaryIndex } from "@/lib/glossary";
 import { notFound } from "next/navigation";
 import ContentBlocksRenderer from "@/components/content/ContentBlocksRenderer";
 import CoverImage from "@/components/content/CoverImage";
@@ -98,7 +98,7 @@ export default async function GuidePage({ params }: Props) {
       <ContentBlocksRenderer
         blocks={guide.blocks}
         sources={guide.sources}
-        glossaryTerms={(await getAllTerms()).map((term) => ({ name: term.name, slug: term.slug }))}
+        glossaryTerms={await getGlossaryIndex()}
       />
     </div>
   );

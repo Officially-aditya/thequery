@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getTodaysWord } from "@/lib/ai-word-of-the-day";
-import { getAllTerms } from "@/lib/glossary";
+import { getGlossaryIndex } from "@/lib/glossary";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
 import { createOpenGraphMetadata, SITE_URL } from "@/lib/site";
 import type { Metadata } from "next";
@@ -36,7 +36,7 @@ export default async function WordOfTheDayPage() {
   if (!wotd) return <div className="max-w-[960px] mx-auto px-4 py-12">No AI word of the day available.</div>;
 
   const { term, humor, examples } = wotd;
-  const allTerms = await getAllTerms();
+  const allTerms = await getGlossaryIndex();
   const related = term.relatedTerms
     .map((s) => allTerms.find((t) => t.slug === s))
     .filter(Boolean);

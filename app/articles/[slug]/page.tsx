@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getIssueBySlug } from "@/lib/articles";
-import { getAllTerms } from "@/lib/glossary";
+import { getGlossaryIndex } from "@/lib/glossary";
 import { notFound } from "next/navigation";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
 import ReadingProgress from "@/components/ReadingProgress";
@@ -50,10 +50,7 @@ export default async function ArticlePage({ params }: Props) {
   const issue = await getIssueBySlug(slug);
   if (!issue) notFound();
 
-  const glossaryTerms = (await getAllTerms()).map((term) => ({
-    name: term.name,
-    slug: term.slug,
-  }));
+  const glossaryTerms = await getGlossaryIndex();
   const visualizationConfig =
     issue.slug === "x402-40-companies-agent-economy-demand-gap"
       ? {

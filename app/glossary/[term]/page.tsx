@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getAllTerms, getTermBySlug } from "@/lib/glossary";
+import { getGlossaryIndex, getTermBySlug } from "@/lib/glossary";
 import { notFound } from "next/navigation";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
 import CoverImage from "@/components/content/CoverImage";
@@ -36,7 +36,7 @@ export default async function TermPage({ params }: Props) {
   const term = await getTermBySlug(slug);
   if (!term) notFound();
 
-  const allTerms = await getAllTerms();
+  const allTerms = await getGlossaryIndex();
   const related = term.relatedTerms
     .map((s) => allTerms.find((t) => t.slug === s))
     .filter(Boolean);
