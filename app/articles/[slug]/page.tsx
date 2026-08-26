@@ -10,6 +10,7 @@ import X402RealityCheck from "@/components/article/X402RealityCheck";
 import ClaudeSharedChatsPrivacy from "@/components/article/ClaudeSharedChatsPrivacy";
 import Grok46Chart from "@/components/article/Grok46Chart";
 import Qwen27BChart from "@/components/article/Qwen27BChart";
+import ArticleImageRail from "@/components/article/ArticleImageRail";
 import ContentBlocksRenderer, { SourcesList } from "@/components/content/ContentBlocksRenderer";
 import CoverImage from "@/components/content/CoverImage";
 import {
@@ -94,7 +95,22 @@ export default async function ArticlePage({ params }: Props) {
                     component: <Qwen27BChart />,
                     placement: "right-rail" as const,
                   }
-                : null;
+                : issue.slug === "glm-5-3-flash-ox-alpha-free-model-benchmarks"
+                  ? {
+                      anchor:
+                        "On August 26, Z.ai ended the guessing: Ox Alpha was an early version of GLM-5.3-Flash.",
+                      component: (
+                        <ArticleImageRail
+                          src="/glm-53-flash-benchmarks.jpg"
+                          alt="Six benchmark panels comparing GLM-5.3-Flash with GLM-5.2, DeepSeek-V4-Vision-Exp, Claude Opus 4.8, GPT-5.6 Terra, and Gemini 3.7 Flash"
+                          width={1800}
+                          height={1122}
+                          caption="Coding and agentic benchmark scores published by Z.ai on August 26, 2026."
+                        />
+                      ),
+                      placement: "right-rail" as const,
+                    }
+                  : null;
   const visualizationAnchor = visualizationConfig?.anchor ?? "";
   const hasEmbeddedVisualization =
     visualizationConfig !== null &&
