@@ -21,7 +21,7 @@ export function SourcesList({ sources }: { sources: Source[] }) {
   if (sources.length === 0) return null;
 
   return (
-    <section className="mt-10 border-t border-border pt-6" aria-labelledby="sources-heading">
+    <section className="mx-auto mt-10 w-full max-w-[720px] border-t border-border pt-6" aria-labelledby="sources-heading">
       <h2 id="sources-heading" className="font-serif text-sm font-semibold text-text-muted mb-3">
         Sources
       </h2>
