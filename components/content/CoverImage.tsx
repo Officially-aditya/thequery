@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
+import ImageLightbox from "./ImageLightbox";
+
 interface CoverImageProps {
   src?: string | null;
   alt?: string | null;
@@ -21,13 +23,19 @@ export default function CoverImage({
 
   return (
     <figure className={className}>
-      <img
+      <ImageLightbox
         src={src}
         alt={alt || `${title || "Content"} cover image`}
-        className={imageClassName}
-        loading={loading}
-        decoding="async"
-      />
+        triggerClassName="block w-full cursor-zoom-in border-0 bg-transparent p-0 text-left"
+      >
+        <img
+          src={src}
+          alt={alt || `${title || "Content"} cover image`}
+          className={imageClassName}
+          loading={loading}
+          decoding="async"
+        />
+      </ImageLightbox>
     </figure>
   );
 }

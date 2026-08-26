@@ -15,6 +15,8 @@ test("GLM-5.3-Flash uses the reusable accessible article image rail", async () =
   assert.match(page, /glm-53-flash-benchmarks\.jpg/);
   assert.match(page, /placement: "right-rail"/);
   assert.match(rail, /<Image/);
+  assert.match(rail, /<ImageLightbox/);
   assert.match(rail, /<figcaption/);
-  assert.match(rail, /aria-label="Open the full-size benchmark chart"/);
+  assert.match(rail, /Click the image for the full-size chart/);
+  assert.doesNotMatch(rail, /target="_blank"/);
 });

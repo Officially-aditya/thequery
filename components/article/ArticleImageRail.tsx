@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ImageLightbox from "@/components/content/ImageLightbox";
 
 interface ArticleImageRailProps {
   src: string;
@@ -17,11 +18,10 @@ export default function ArticleImageRail({
 }: ArticleImageRailProps) {
   return (
     <figure className="my-10 overflow-hidden rounded-xl border border-border bg-white xl:my-0">
-      <a
-        href={src}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Open the full-size benchmark chart"
+      <ImageLightbox
+        src={src}
+        alt={alt}
+        triggerClassName="block w-full cursor-zoom-in border-0 bg-transparent p-0 text-left"
       >
         <Image
           src={src}
@@ -31,9 +31,9 @@ export default function ArticleImageRail({
           sizes="(min-width: 1536px) 400px, calc(100vw - 2rem)"
           className="h-auto w-full"
         />
-      </a>
+      </ImageLightbox>
       <figcaption className="border-t border-border bg-bg-secondary px-4 py-3 text-xs leading-relaxed text-text-muted">
-        {caption} Open the image for the full-size chart.
+        {caption} Click the image for the full-size chart.
       </figcaption>
     </figure>
   );

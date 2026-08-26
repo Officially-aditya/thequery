@@ -8,6 +8,7 @@ import rehypeHighlight from "rehype-highlight";
 import rehypeRaw from "rehype-raw";
 import type { Components } from "react-markdown";
 import React from "react";
+import ImageLightbox from "@/components/content/ImageLightbox";
 
 export interface GlossaryLink {
   name: string;
@@ -104,16 +105,21 @@ function buildComponents(glossaryTerms: GlossaryLink[]): Components {
     h1: ({ children }) => <HeadingWithId level={1}>{children}</HeadingWithId>,
     h2: ({ children }) => <HeadingWithId level={2}>{children}</HeadingWithId>,
     h3: ({ children }) => <HeadingWithId level={3}>{children}</HeadingWithId>,
-    img: ({ src, alt, ...props }) => (
-      // eslint-disable-next-line @next/next/no-img-element
-      <img
-        src={src}
-        alt={alt || ""}
-        loading="lazy"
-        style={{ maxWidth: "100%", height: "auto" }}
-        {...props}
-      />
-    ),
+    img: ({ src, alt, ...props }) => {
+      if (typeof src !== "string" || !src) return null;
+      return (
+        <ImageLightbox src={src} alt={alt || ""}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={src}
+            alt={alt || ""}
+            loading="lazy"
+            style={{ maxWidth: "100%", height: "auto" }}
+            {...props}
+          />
+        </ImageLightbox>
+      );
+    },
     // Auto-link glossary terms in paragraph text nodes
     p: ({ children }) => {
       if (glossaryTerms.length === 0) return <p>{children}</p>;
