@@ -21,7 +21,7 @@ export default function ArticleImageRail({
       <ImageLightbox
         src={src}
         alt={alt}
-        triggerClassName="block w-full cursor-zoom-in border-0 bg-transparent p-0 text-left"
+        triggerClassName="block w-full cursor-pointer border-0 bg-transparent p-0 text-left"
       >
         <Image
           src={src}

@@ -26,7 +26,7 @@ export default function CoverImage({
       <ImageLightbox
         src={src}
         alt={alt || `${title || "Content"} cover image`}
-        triggerClassName="block w-full cursor-zoom-in border-0 bg-transparent p-0 text-left"
+        triggerClassName="block w-full cursor-pointer border-0 bg-transparent p-0 text-left"
       >
         <img
           src={src}

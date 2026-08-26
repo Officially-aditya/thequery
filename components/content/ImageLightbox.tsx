@@ -14,7 +14,7 @@ export default function ImageLightbox({
   src,
   alt,
   children,
-  triggerClassName = "inline-block max-w-full cursor-zoom-in border-0 bg-transparent p-0 text-left",
+  triggerClassName = "inline-block max-w-full cursor-pointer border-0 bg-transparent p-0 text-left",
 }: ImageLightboxProps) {
   const [isOpen, setIsOpen] = useState(false);
 
