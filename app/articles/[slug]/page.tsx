@@ -20,6 +20,7 @@ import {
   SITE_URL,
   authorJsonLd,
   createOpenGraphMetadata,
+  createTwitterMetadata,
 } from "@/lib/site";
 import type { Metadata } from "next";
 
@@ -41,6 +42,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: issue.summary,
       url: `${SITE_URL}/articles/${issue.slug}`,
       type: "article",
+      image: issue.coverImageUrl,
+    }),
+    twitter: createTwitterMetadata({
+      title: issue.title,
+      description: issue.summary,
       image: issue.coverImageUrl,
     }),
   };

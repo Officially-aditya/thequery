@@ -26,6 +26,23 @@ export function createOpenGraphMetadata({
   };
 }
 
+export function createTwitterMetadata({
+  title,
+  description,
+  image,
+}: {
+  title: string;
+  description: string;
+  image?: string | null;
+}) {
+  return {
+    card: "summary_large_image" as const,
+    title,
+    description,
+    images: image ? [image] : ["/twitter-image"],
+  };
+}
+
 export const AUTHOR = {
   name: "Addy",
   url: `${SITE_URL}/about`,

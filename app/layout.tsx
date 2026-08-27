@@ -9,6 +9,7 @@ import {
   SITE_NAME,
   SITE_URL,
   createOpenGraphMetadata,
+  createTwitterMetadata,
   organizationJsonLd,
 } from "@/lib/site";
 import "./globals.css";
@@ -49,11 +50,10 @@ export const metadata: Metadata = {
     description: "TheQuery is where developers go to understand AI, not just use it. Glossary, books, and articles covering AI from first principles.",
     url: SITE_URL,
   }),
-  twitter: {
-    card: "summary_large_image",
+  twitter: createTwitterMetadata({
     title: "TheQuery - AI Knowledge from First Principles",
     description: "TheQuery is where developers go to understand AI, not just use it.",
-  },
+  }),
 };
 
 export default function RootLayout({
