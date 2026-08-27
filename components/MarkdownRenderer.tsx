@@ -105,6 +105,11 @@ function buildComponents(glossaryTerms: GlossaryLink[]): Components {
     h1: ({ children }) => <HeadingWithId level={1}>{children}</HeadingWithId>,
     h2: ({ children }) => <HeadingWithId level={2}>{children}</HeadingWithId>,
     h3: ({ children }) => <HeadingWithId level={3}>{children}</HeadingWithId>,
+    small: ({ children }) => (
+      <small className="mb-6 block text-xs leading-relaxed text-text-muted">
+        {children}
+      </small>
+    ),
     img: ({ src, alt, ...props }) => {
       if (typeof src !== "string" || !src) return null;
       return (

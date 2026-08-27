@@ -11,6 +11,7 @@ test("public content reads use narrow projections and cache tags", async () => {
   assert.match(source, /SELECT id, kind, slug, parent_slug, path, title, summary, metadata/);
   assert.match(source, /published_at DESC NULLS LAST, created_at DESC, title ASC/);
   assert.match(source, /\["content-summaries-v2", kind, parentSlug\]/);
+  assert.match(source, /\["content-item-v2", kind, resolvedParentSlug, slug\]/);
   assert.match(source, /\["content-index", kind\]/);
   assert.match(source, /tags: \[`content:\$\{kind\}`\]/);
 });

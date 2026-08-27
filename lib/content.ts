@@ -267,7 +267,7 @@ export async function getContentItem(
 
   return unstable_cache(
     () => queryContentItem(kind, slug, resolvedParentSlug, false),
-    ["content-item", kind, resolvedParentSlug, slug],
+    ["content-item-v2", kind, resolvedParentSlug, slug],
     { revalidate: PUBLIC_CACHE_SECONDS, tags: [`content:${kind}`] },
   )();
 }
