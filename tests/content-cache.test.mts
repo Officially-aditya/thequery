@@ -9,6 +9,7 @@ test("public content reads use narrow projections and cache tags", async () => {
   const source = await readFile(path.join(root, "lib/content.ts"), "utf8");
 
   assert.match(source, /SELECT id, kind, slug, parent_slug, path, title, summary, metadata/);
+  assert.match(source, /published_at DESC NULLS LAST, created_at DESC, title ASC/);
   assert.match(source, /\["content-summaries", kind, parentSlug\]/);
   assert.match(source, /\["content-index", kind\]/);
   assert.match(source, /tags: \[`content:\$\{kind\}`\]/);

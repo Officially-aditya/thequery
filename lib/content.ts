@@ -170,12 +170,12 @@ async function queryContentItems(
     ? await sql`
         SELECT * FROM content_items
         WHERE kind = ${kind} AND parent_slug = ${parentSlug}
-        ORDER BY sort_order ASC, published_at DESC NULLS LAST, title ASC
+        ORDER BY sort_order ASC, published_at DESC NULLS LAST, created_at DESC, title ASC
       `
     : await sql`
         SELECT * FROM content_items
         WHERE kind = ${kind} AND parent_slug = ${parentSlug} AND status = 'published'
-        ORDER BY sort_order ASC, published_at DESC NULLS LAST, title ASC
+        ORDER BY sort_order ASC, published_at DESC NULLS LAST, created_at DESC, title ASC
       `;
 
   return (rows as ContentRow[]).map(toContentItem);
@@ -217,7 +217,7 @@ async function queryContentSummaries(
           created_at, updated_at
         FROM content_items
         WHERE kind = ${kind} AND parent_slug = ${parentSlug}
-        ORDER BY sort_order ASC, published_at DESC NULLS LAST, title ASC
+        ORDER BY sort_order ASC, published_at DESC NULLS LAST, created_at DESC, title ASC
       `
     : await sql`
         SELECT id, kind, slug, parent_slug, path, title, summary, metadata,
@@ -225,7 +225,7 @@ async function queryContentSummaries(
           created_at, updated_at
         FROM content_items
         WHERE kind = ${kind} AND parent_slug = ${parentSlug} AND status = 'published'
-        ORDER BY sort_order ASC, published_at DESC NULLS LAST, title ASC
+        ORDER BY sort_order ASC, published_at DESC NULLS LAST, created_at DESC, title ASC
       `;
 
   return (rows as ContentSummaryRow[]).map(toContentSummary);
