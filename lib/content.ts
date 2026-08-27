@@ -281,7 +281,7 @@ export async function getContentSummaries(
 
   return unstable_cache(
     () => queryContentSummaries(kind, parentSlug, false),
-    ["content-summaries", kind, parentSlug],
+    ["content-summaries-v2", kind, parentSlug],
     { revalidate: PUBLIC_CACHE_SECONDS, tags: [`content:${kind}`] },
   )();
 }
