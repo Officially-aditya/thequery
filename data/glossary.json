@@ -462,17 +462,44 @@
   {
     "name": "API",
     "slug": "api",
-    "shortDef": "Application Programming Interface - a defined set of rules and protocols that allows different software systems to communicate with each other.",
-    "fullDef": "An API (Application Programming Interface) is a contract between two pieces of software that defines how they can interact. It specifies what requests a client can make, what data it needs to provide, and what responses it will receive. APIs allow developers to use functionality built by others without needing to understand or access the underlying implementation.\n\nIn AI, APIs are the primary way most developers interact with large language models. Services like OpenAI, Anthropic, and Google expose their models through REST APIs where developers send prompts as HTTP requests and receive model outputs as JSON responses. This abstraction means you can build applications powered by frontier models without running any ML infrastructure yourself. API pricing is typically based on token usage, with separate rates for input and output tokens.\n\nAPIs also play a central role in AI agent architectures. Tool calling allows models to invoke external APIs during a conversation, enabling them to fetch live data, interact with databases, send messages, or trigger actions in other systems. The quality of an API's design - its documentation, error handling, rate limiting, and versioning - directly affects how reliably AI-powered applications can be built on top of it. As AI moves from research demos to production systems, API design has become one of the most consequential decisions in the stack.",
+    "shortDef": "An Application Programming Interface (API) is a defined software contract for requesting data or behavior from another program, including its inputs, outputs, errors, and rules of use.",
+    "fullDef": "An API (Application Programming Interface) is a boundary between software components. It defines which operations a caller can request, what inputs those operations accept, what outputs and errors they return, and which rules govern access. The implementation behind the boundary can change without forcing callers to understand its internals, as long as the contract remains compatible.\n\n## The contract an API exposes\n\nA useful API contract answers more than what URL to call. It describes the operation or resource, request parameters and body, response shape, status codes, authentication requirements, rate limits, pagination rules, and compatibility expectations. Documentation is part of the interface because a technically valid endpoint is still difficult to use if callers cannot predict its behavior.\n\nThe boundary can be local or remote. A language runtime exposes library APIs inside one process. An operating system exposes APIs for files, processes, and devices. A web API exposes operations over a network, commonly using HTTP, JSON, or another serialization format. APIs are therefore broader than REST and do not require a particular transport.\n\n## How a web API request works\n\nA client constructs a request and sends it through a transport such as HTTP. The server authenticates and authorizes the caller, validates the request, dispatches it to application logic, and returns a response with status code, headers, and a body. The response may contain the requested data, a validation error, or an acknowledgement that work has been queued for later retrieval.\n\nThe client should treat the response contract as meaningful. A 401 signals missing or invalid authentication, a 403 signals that the caller is not permitted to perform the operation, a 404 means the target representation was not found, and a 429 commonly signals that a rate limit was exceeded. Precise errors let callers recover or explain the problem instead of guessing.\n\n## API styles\n\nREST is an architectural style that uses resource-oriented representations and HTTP semantics; it is not a separate wire protocol. RPC APIs expose named procedures, often with generated clients and strongly typed messages. GraphQL lets a client describe the shape of data it wants through a schema and query language. Event-driven APIs publish messages that consumers receive asynchronously. These styles can coexist in one system: a public REST API may call internal RPC services and publish events after a write.\n\n## Schemas and documentation\n\nFor HTTP APIs, an OpenAPI description can document paths, operations, parameters, request bodies, responses, reusable schemas, and security schemes. That description can drive reference documentation, client generation, request validation, mocks, and contract tests. It is useful only when it matches the deployed behavior, so teams should test the implementation against the published contract rather than treating the document as proof by itself.\n\n## APIs in AI systems\n\nAn AI API commonly accepts a model identifier, input or messages, generation settings, and optional tool or response-format definitions. The response may contain generated text, structured output, a request to call a tool, usage information, or a stream of partial events. Embedding, moderation, reranking, transcription, and image-generation services expose different API contracts even when they are offered by the same provider.\n\nAn AI API is a model boundary, not a guarantee of correctness. Applications still need to validate returned data, handle refusals and timeouts, constrain tool permissions, and preserve enough request metadata to debug a failure. If an API response can trigger an external action, the application should place authorization and confirmation checks between the response and the action.\n\n## Production API design\n\nReliable APIs make failure and change explicit. They use authentication and authorization, input validation, bounded payloads, sensible timeouts, stable error formats, observability, and documented versioning. Rate limits should identify the dimension being limited, such as a user, API key, tenant, endpoint, or model, and clients should honor server retry hints.\n\nRetries need an idempotency decision. Repeating a read or an explicitly idempotent write can be safe, but retrying a payment, reservation, or job submission may duplicate the side effect unless the API supports an idempotency key or another way to detect the original operation. Pagination, filtering, sorting, and asynchronous job status should also be designed as part of the contract rather than added as undocumented escape hatches.\n\n## API vs SDK\n\nAn API is the contract and boundary offered by a program. An SDK is a client library that makes that API easier to call by handling serialization, authentication helpers, retries, or type definitions. An SDK can improve ergonomics, but it does not remove the need to understand the API's limits, versioning, errors, and security model.\n\n## Example\n\nA document-search application might send a request to an embeddings API, receive vectors and usage metadata, store them in a vector database, and later call a generation API with retrieved context. An API gateway can authenticate the tenant, enforce quotas, attach a trace ID, and route the request. Each boundary should publish its input and output schema so a change in one service does not silently corrupt the next.\n\n## The core idea\n\nAn API is a promise about a software boundary. Good API design makes the promise observable and predictable: callers know what they may ask for, what they will receive, how failure is represented, and how the provider can evolve without surprising them.",
     "category": "Foundations",
     "relatedTerms": [
       "large-language-model",
       "tool-calling",
       "inference",
-      "ai-agent"
+      "ai-agent",
+      "api-gateways",
+      "streaming-sse"
     ],
-    "lastUpdated": "2026-02-26",
-    "analogy": "Consider a restaurant menu - it tells you what you can order and how to ask for it, without revealing what happens in the kitchen."
+    "references": [
+      {
+        "title": "MDN: API",
+        "url": "https://developer.mozilla.org/en-US/docs/Glossary/API"
+      },
+      {
+        "title": "OpenAPI Specification 3.2.0",
+        "url": "https://spec.openapis.org/oas/latest.html"
+      },
+      {
+        "title": "RFC 9110: HTTP Semantics",
+        "url": "https://www.rfc-editor.org/rfc/rfc9110.html"
+      }
+    ],
+    "seoDescription": "An API is a software contract for requests and responses, covering inputs, outputs, errors, authentication, versioning, and reliable system integration.",
+    "seoKeywords": [
+      "what is an API",
+      "API explained",
+      "application programming interface",
+      "API contract",
+      "API design",
+      "REST API vs RPC",
+      "AI API",
+      "API versioning"
+    ],
+    "lastUpdated": "2026-08-28",
+    "analogy": "An API is like a service window with a published menu: you place an allowed order in the required format, receive a defined result or error, and never need to enter the kitchen."
   },
   {
     "name": "API Gateways",
@@ -4834,18 +4861,51 @@
   {
     "name": "MCP",
     "slug": "mcp",
-    "shortDef": "Model Context Protocol - an open standard created by Anthropic that defines how AI assistants connect to external data sources, tools, and services through a unified interface.",
-    "fullDef": "MCP (Model Context Protocol) is an open standard announced by Anthropic in November 2024 that provides a standardized way for AI models to connect to external data sources, tools, and services. It defines a common protocol so that any AI assistant can interact with any compatible data system, eliminating the need for custom integrations between every model and every tool.\n\nMCP follows a client-server architecture. An AI application acts as an MCP client, while external services expose their capabilities through MCP servers. The protocol defines how tools, resources, and prompts are discovered, invoked, and how results are returned. This means a single MCP server built for a database, a code repository, or a business application can work with any AI assistant that speaks MCP, regardless of which model powers it.\n\nMCP achieved rapid industry adoption throughout 2025. OpenAI integrated it across its products including the ChatGPT desktop app in March 2025, and Google DeepMind confirmed support for Gemini models shortly after. The specification received major updates in November 2025, adding asynchronous operations, statelessness, and an official registry for discovering MCP servers. In December 2025, Anthropic donated MCP to the Agentic AI Foundation under the Linux Foundation, co-founded with Block and OpenAI, cementing it as a vendor-neutral industry standard rather than a proprietary protocol.",
+    "shortDef": "Model Context Protocol (MCP) is an open protocol that lets LLM applications discover and use external context and capabilities through a host-client-server architecture and JSON-RPC messages.",
+    "fullDef": "MCP (Model Context Protocol) is an open protocol for connecting LLM applications to external context and capabilities. It standardizes message formats and interaction patterns so a host can discover and use tools, resources, and prompts exposed by independent servers. The current 2026-07-28 specification uses JSON-RPC 2.0 messages, stateless self-contained requests, and per-request metadata and capabilities.\n\n## The host-client-server model\n\nThe host is the AI application that owns the conversation, model integration, user interface, and security policy. It creates and manages MCP clients. Each client communicates with exactly one server, keeping one server connection's messages and permissions separate from another's. A server provides focused capabilities and can run as a local process or as a remote service.\n\nThis separation is important. An MCP server should receive only the context needed for the operation. The host remains responsible for deciding what conversation data to share, which servers are enabled, and whether a requested action needs user approval. MCP is an interoperability layer, not permission to expose an entire application or filesystem.\n\n## Resources, prompts, and tools\n\nMCP organizes server capabilities into three primary primitives:\n\n- **Resources** provide context or data identified by a URI, such as a file, database schema, ticket, or document.\n- **Prompts** provide reusable messages or workflows that a user can select and supply with arguments.\n- **Tools** provide executable functions that a model can ask the host to invoke, such as searching a repository, querying a database, or creating a ticket.\n\nThe common interaction model gives each primitive a different control boundary: resources are application-driven, prompts are user-driven, and tools are model-invokable. Hosts can still add their own approval flows and interfaces. A tool that reads data is not automatically safe, and a tool that writes data should be treated as a privileged operation.\n\n## Discovery and request flow\n\nA host first decides which server to connect to and creates a client for it. The client discovers the server's capabilities, then lists available tools, resources, or prompts. When the model needs a capability, the client sends a JSON-RPC request such as tools/call, resources/read, or prompts/get with structured arguments. The server returns text, structured content, resource contents, an input-required result, or a protocol error.\n\nCapabilities prevent clients from assuming that every server supports every feature. A server that exposes tools must advertise tool support, and clients must respect the capabilities returned by the server. List operations can be paginated or cached, so a production client should handle cursors and freshness metadata instead of assuming that one response is complete forever.\n\n## Transports and versions\n\nMCP keeps protocol semantics separate from the transport. The standard local transport is stdio, where the client launches a subprocess and exchanges newline-delimited JSON-RPC messages. The standard remote transport is Streamable HTTP, where messages are sent to an MCP endpoint and replies arrive as JSON or a request-scoped Server-Sent Events stream.\n\nEarlier MCP revisions used an initialize handshake and connection-scoped sessions. The 2026-07-28 revision uses self-contained requests with protocol metadata carried per request. Clients and servers that support more than one revision need an explicit compatibility strategy; a client should not assume that examples written for an older revision work unchanged.\n\n## MCP is not an API replacement\n\nAn API exposes a contract for a program or service. MCP is an agent-facing protocol for discovering context and capabilities and representing their use in a model-aware workflow. An MCP server may call one or more ordinary APIs behind the scenes, while presenting a smaller, safer set of model-facing tools and resources. MCP therefore complements APIs rather than replacing them.\n\n## Security and trust boundaries\n\nMCP can reach files, databases, business systems, and arbitrary code, so the protocol expands the consequences of a bad tool description or an overpowered credential. Hosts should require explicit consent for sensitive data access and tool execution, use least-privilege credentials, validate arguments, enforce authorization at the server, isolate local processes, protect secrets, and log important actions. Tool descriptions and returned content should be treated as untrusted input unless the server and source are trusted.\n\nRemote deployments also need transport security, authentication, origin or host validation where applicable, rate limits, timeouts, and audit trails. MCP provides message conventions; it does not make an integration safe by itself.\n\n## Example\n\nAn IDE host can connect to a repository MCP server. The server exposes project documentation as resources, a code-search function as a tool, and a review checklist as a prompt. The host shows the user what is available, sends only the relevant repository context, asks for approval before a write operation, and returns the tool result to the model as structured context.\n\n## The core idea\n\nMCP standardizes how an AI application discovers, receives, and invokes external capabilities. Its value is the shared boundary between hosts, clients, and servers; its safety still depends on the host's consent, authorization, isolation, and validation decisions.",
     "category": "Agents & Workflows",
     "relatedTerms": [
       "tool-calling",
       "ai-agent",
       "api",
-      "anthropic",
-      "openai"
+      "a2a",
+      "streaming-sse"
     ],
-    "lastUpdated": "2026-02-26",
-    "analogy": "Imagine a universal adapter plug - it lets any AI agent connect to any tool using one standardized interface."
+    "references": [
+      {
+        "title": "MCP Specification 2026-07-28",
+        "url": "https://modelcontextprotocol.io/specification/2026-07-28"
+      },
+      {
+        "title": "MCP Architecture",
+        "url": "https://modelcontextprotocol.io/specification/2026-07-28/architecture"
+      },
+      {
+        "title": "MCP Transports",
+        "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/transports"
+      },
+      {
+        "title": "MCP Tools",
+        "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools"
+      },
+      {
+        "title": "MCP Resources",
+        "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/resources"
+      }
+    ],
+    "seoDescription": "MCP connects AI applications to external tools and data through JSON-RPC, host-client-server architecture, capability discovery, and consent-aware execution.",
+    "seoKeywords": [
+      "what is MCP",
+      "Model Context Protocol",
+      "MCP architecture",
+      "MCP client server",
+      "MCP tools resources prompts",
+      "MCP vs API",
+      "MCP security",
+      "MCP transport"
+    ],
+    "lastUpdated": "2026-08-28",
+    "analogy": "MCP is like a staffed control room: the host decides which doors are open, each client connects to one specialist server, and the model can request approved operations through a shared radio protocol."
   },
   {
     "name": "Merge Queue",
