@@ -10,6 +10,7 @@ import X402RealityCheck from "@/components/article/X402RealityCheck";
 import ClaudeSharedChatsPrivacy from "@/components/article/ClaudeSharedChatsPrivacy";
 import Grok46Chart from "@/components/article/Grok46Chart";
 import Qwen27BChart from "@/components/article/Qwen27BChart";
+import TerminalBench4Chart from "@/components/article/TerminalBench4Chart";
 import ArticleImageRail from "@/components/article/ArticleImageRail";
 import ContentBlocksRenderer, { SourcesList } from "@/components/content/ContentBlocksRenderer";
 import CoverImage from "@/components/content/CoverImage";
@@ -101,6 +102,13 @@ export default async function ArticlePage({ params }: Props) {
                     component: <Qwen27BChart />,
                     placement: "right-rail" as const,
                   }
+                : issue.slug === "terminal-bench-4-agent-not-model"
+                  ? {
+                      anchor:
+                        "Here is the current Terminal-Bench 4.0 leaderboard as published by the maintainers:",
+                      component: <TerminalBench4Chart />,
+                      placement: "right-rail" as const,
+                    }
                 : issue.slug === "glm-5-3-flash-ox-alpha-free-model-benchmarks"
                   ? {
                       anchor:
