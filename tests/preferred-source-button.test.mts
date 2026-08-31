@@ -20,8 +20,8 @@ test("preferred source badge is scoped to article pages above the global footer"
   assert.doesNotMatch(component, /make our AI coverage easier to find/);
   assert.match(component, /Add as a preferred/);
   assert.match(component, /source on Google/);
-  assert.match(component, /min-h-16/);
-  assert.match(component, /max-w-\[480px\]/);
+  assert.match(component, /min-h-14/);
+  assert.match(component, /max-w-\[360px\]/);
   assert.match(component, /viewBox="0 0 48 48"/);
   assert.doesNotMatch(footer, /PreferredSourceButton/);
   assert.match(articleIndex, /<PreferredSourceButton className="mt-12" \/>/);
