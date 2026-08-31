@@ -2,7 +2,6 @@ import Link from "next/link";
 import { getAllIssues } from "@/lib/articles";
 import { notFound } from "next/navigation";
 import { createOpenGraphMetadata } from "@/lib/site";
-import PreferredSourceButton from "@/components/PreferredSourceButton";
 import type { Metadata } from "next";
 
 const SITE_URL = "https://www.thequery.in";
@@ -129,7 +128,6 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
         </nav>
       )}
 
-      <PreferredSourceButton className="mt-12" />
     </div>
   );
 }

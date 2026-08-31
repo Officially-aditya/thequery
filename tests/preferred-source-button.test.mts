@@ -5,7 +5,7 @@ import test from "node:test";
 
 const root = path.resolve(import.meta.dirname, "..");
 
-test("preferred source badge is scoped to article pages above the global footer", async () => {
+test("preferred source badge is rendered only in the global footer", async () => {
   const [layout, component, footer, articleIndex, articlePage] = await Promise.all([
     readFile(path.join(root, "app/layout.tsx"), "utf8"),
     readFile(path.join(root, "components/PreferredSourceButton.tsx"), "utf8"),
@@ -20,10 +20,12 @@ test("preferred source badge is scoped to article pages above the global footer"
   assert.doesNotMatch(component, /make our AI coverage easier to find/);
   assert.match(component, /Add as a preferred/);
   assert.match(component, /source on Google/);
-  assert.match(component, /min-h-14/);
-  assert.match(component, /max-w-\[360px\]/);
+  assert.match(component, /min-h-12/);
+  assert.match(component, /max-w-\[320px\]/);
   assert.match(component, /viewBox="0 0 48 48"/);
-  assert.doesNotMatch(footer, /PreferredSourceButton/);
-  assert.match(articleIndex, /<PreferredSourceButton className="mt-12" \/>/);
-  assert.match(articlePage, /<PreferredSourceButton className="mt-12" \/>/);
+  assert.match(component, /dark:bg-bg-primary/);
+  assert.match(footer, /TheQuery<\/p>\s*<PreferredSourceButton className="mt-5" \/>/);
+  assert.doesNotMatch(footer, /<PreferredSourceButton \/>/);
+  assert.doesNotMatch(articleIndex, /PreferredSourceButton/);
+  assert.doesNotMatch(articlePage, /PreferredSourceButton/);
 });

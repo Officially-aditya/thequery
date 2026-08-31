@@ -1,4 +1,5 @@
 import Link from "next/link";
+import PreferredSourceButton from "./PreferredSourceButton";
 
 export default function Footer() {
   return (
@@ -7,6 +8,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-16">
           <div>
             <p className="font-serif text-3xl font-semibold tracking-tight text-text-primary">TheQuery</p>
+            <PreferredSourceButton className="mt-5" />
           </div>
 
           <nav aria-label="Explore TheQuery" className="flex flex-col items-start gap-3">

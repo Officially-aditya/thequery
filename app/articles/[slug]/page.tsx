@@ -14,7 +14,6 @@ import TerminalBench4Chart from "@/components/article/TerminalBench4Chart";
 import ArticleImageRail from "@/components/article/ArticleImageRail";
 import ContentBlocksRenderer, { SourcesList } from "@/components/content/ContentBlocksRenderer";
 import CoverImage from "@/components/content/CoverImage";
-import PreferredSourceButton from "@/components/PreferredSourceButton";
 import {
   AUTHOR,
   ORGANIZATION_ID,
@@ -261,7 +260,6 @@ export default async function ArticlePage({ params }: Props) {
           </>
         )}
         {!hasStructuredBlocks ? <SourcesList sources={issue.sources} /> : null}
-        <PreferredSourceButton className="mt-12" />
       </div>
     </>
   );
