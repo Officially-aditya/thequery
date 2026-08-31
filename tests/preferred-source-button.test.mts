@@ -18,7 +18,9 @@ test("preferred source CTA is scoped to article pages above the global footer", 
   assert.match(component, /https:\/\/www\.google\.com\/preferences\/source\?q=thequery\.in/);
   assert.match(component, /Prefer TheQuery in Google Search\?/);
   assert.match(component, /make our AI coverage easier to find/);
-  assert.match(component, /Add TheQuery as a Preferred Source/);
+  assert.match(component, /Add as a preferred/);
+  assert.match(component, /source on Google/);
+  assert.match(component, /viewBox="0 0 48 48"/);
   assert.doesNotMatch(footer, /PreferredSourceButton/);
   assert.match(articleIndex, /<PreferredSourceButton className="mt-12" \/>/);
   assert.match(articlePage, /<PreferredSourceButton className="mx-auto mt-12 max-w-\[720px\]" \/>/);
