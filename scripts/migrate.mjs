@@ -7,6 +7,7 @@ const migrations = [
   { id: "001_initial", file: new URL("../db/migrations/001_initial.sql", import.meta.url) },
   { id: "002_add_cover_images", file: new URL("../db/migrations/002_add_cover_images.sql", import.meta.url) },
   { id: "003_update_dense_retrieval", file: new URL("../db/migrations/003_update_dense_retrieval.sql", import.meta.url) },
+  { id: "004_update_cuda", file: new URL("../db/migrations/004_update_cuda.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
