@@ -14,7 +14,7 @@ export default function PreferredSourceButton({
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Add TheQuery as a preferred source on Google"
-      className={`flex min-h-10 w-full max-w-[280px] items-center justify-center gap-2 rounded-lg border border-[#777] bg-white px-3 py-0.5 text-left font-sans text-[11px] font-medium leading-tight text-black shadow-sm transition-colors hover:bg-[#f5f5f5] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent dark:bg-bg-primary dark:text-text-primary dark:hover:bg-bg-secondary sm:min-h-12 sm:text-xs ${className}`}
+      className={`flex min-h-10 w-full max-w-[240px] items-center justify-center gap-2 rounded-lg border border-[#777] bg-white px-3 py-0.5 text-left font-sans text-[11px] font-medium leading-tight text-black shadow-sm transition-colors hover:bg-[#f5f5f5] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent dark:bg-bg-primary dark:text-text-primary dark:hover:bg-bg-secondary sm:min-h-12 sm:text-xs ${className}`}
     >
       <svg
         aria-hidden="true"
