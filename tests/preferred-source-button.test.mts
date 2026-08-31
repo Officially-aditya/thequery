@@ -5,7 +5,7 @@ import test from "node:test";
 
 const root = path.resolve(import.meta.dirname, "..");
 
-test("preferred source CTA is scoped to article pages above the global footer", async () => {
+test("preferred source badge is scoped to article pages above the global footer", async () => {
   const [layout, component, footer, articleIndex, articlePage] = await Promise.all([
     readFile(path.join(root, "app/layout.tsx"), "utf8"),
     readFile(path.join(root, "components/PreferredSourceButton.tsx"), "utf8"),
@@ -16,12 +16,14 @@ test("preferred source CTA is scoped to article pages above the global footer", 
 
   assert.doesNotMatch(layout, /publisher\.js/);
   assert.match(component, /https:\/\/www\.google\.com\/preferences\/source\?q=thequery\.in/);
-  assert.match(component, /Prefer TheQuery in Google Search\?/);
-  assert.match(component, /make our AI coverage easier to find/);
+  assert.doesNotMatch(component, /Prefer TheQuery in Google Search\?/);
+  assert.doesNotMatch(component, /make our AI coverage easier to find/);
   assert.match(component, /Add as a preferred/);
   assert.match(component, /source on Google/);
+  assert.match(component, /min-h-16/);
+  assert.match(component, /max-w-\[480px\]/);
   assert.match(component, /viewBox="0 0 48 48"/);
   assert.doesNotMatch(footer, /PreferredSourceButton/);
   assert.match(articleIndex, /<PreferredSourceButton className="mt-12" \/>/);
-  assert.match(articlePage, /<PreferredSourceButton className="mx-auto mt-12 max-w-\[720px\]" \/>/);
+  assert.match(articlePage, /<PreferredSourceButton className="mt-12" \/>/);
 });

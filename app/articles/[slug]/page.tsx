@@ -261,7 +261,7 @@ export default async function ArticlePage({ params }: Props) {
           </>
         )}
         {!hasStructuredBlocks ? <SourcesList sources={issue.sources} /> : null}
-        <PreferredSourceButton className="mx-auto mt-12 max-w-[720px]" />
+        <PreferredSourceButton className="mt-12" />
       </div>
     </>
   );
