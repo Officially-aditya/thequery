@@ -75,7 +75,6 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
         />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-SXRT67W8V7" />
-        <script async src="https://news.google.com/swg/js/v1/publisher.js" />
         <script
           dangerouslySetInnerHTML={{
             __html: `

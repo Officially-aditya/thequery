@@ -212,7 +212,6 @@ export default async function ArticlePage({ params }: Props) {
             {" "}&middot; <Link href="/about#editorial-standards" className="hover:text-text-secondary transition-colors">Editorial standards</Link>
           </p>
           <CoverImage src={issue.coverImageUrl} alt={issue.coverImageAlt} title={issue.title} />
-          <PreferredSourceButton className="mt-8" />
         </div>
 
         {hasStructuredBlocks ? (
@@ -262,6 +261,7 @@ export default async function ArticlePage({ params }: Props) {
           </>
         )}
         {!hasStructuredBlocks ? <SourcesList sources={issue.sources} /> : null}
+        <PreferredSourceButton className="mx-auto mt-12 max-w-[720px]" />
       </div>
     </>
   );

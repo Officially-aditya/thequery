@@ -58,8 +58,6 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
         A curated summary of the most important AI developments each week.
       </p>
 
-      <PreferredSourceButton className="mb-10" />
-
       {issues.length === 0 ? (
         <p className="text-sm text-text-muted text-center py-12">No articles yet. Check back soon!</p>
       ) : (
@@ -130,6 +128,8 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
           )}
         </nav>
       )}
+
+      <PreferredSourceButton className="mt-12" />
     </div>
   );
 }
