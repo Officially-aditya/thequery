@@ -1,5 +1,5 @@
 const PREFERRED_SOURCE_URL =
-  "https://www.google.com/preferences/source?q=www.thequery.in";
+  "https://www.google.com/preferences/source?q=thequery.in";
 
 type PreferredSourceButtonProps = {
   className?: string;

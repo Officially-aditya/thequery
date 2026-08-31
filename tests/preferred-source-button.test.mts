@@ -15,7 +15,7 @@ test("preferred source CTA is scoped to article pages above the global footer", 
   ]);
 
   assert.doesNotMatch(layout, /publisher\.js/);
-  assert.match(component, /https:\/\/www\.google\.com\/preferences\/source\?q=www\.thequery\.in/);
+  assert.match(component, /https:\/\/www\.google\.com\/preferences\/source\?q=thequery\.in/);
   assert.match(component, /Prefer TheQuery in Google Search\?/);
   assert.match(component, /make our AI coverage easier to find/);
   assert.match(component, /Add TheQuery as a Preferred Source/);
