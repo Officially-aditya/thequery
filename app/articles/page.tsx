@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getAllIssues } from "@/lib/articles";
 import { notFound } from "next/navigation";
 import { createOpenGraphMetadata } from "@/lib/site";
+import PreferredSourceButton from "@/components/PreferredSourceButton";
 import type { Metadata } from "next";
 
 const SITE_URL = "https://www.thequery.in";
@@ -56,6 +57,8 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
       <p className="text-text-secondary mb-8">
         A curated summary of the most important AI developments each week.
       </p>
+
+      <PreferredSourceButton className="mb-10" />
 
       {issues.length === 0 ? (
         <p className="text-sm text-text-muted text-center py-12">No articles yet. Check back soon!</p>

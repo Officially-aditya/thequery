@@ -14,6 +14,7 @@ import TerminalBench4Chart from "@/components/article/TerminalBench4Chart";
 import ArticleImageRail from "@/components/article/ArticleImageRail";
 import ContentBlocksRenderer, { SourcesList } from "@/components/content/ContentBlocksRenderer";
 import CoverImage from "@/components/content/CoverImage";
+import PreferredSourceButton from "@/components/PreferredSourceButton";
 import {
   AUTHOR,
   ORGANIZATION_ID,
@@ -211,6 +212,7 @@ export default async function ArticlePage({ params }: Props) {
             {" "}&middot; <Link href="/about#editorial-standards" className="hover:text-text-secondary transition-colors">Editorial standards</Link>
           </p>
           <CoverImage src={issue.coverImageUrl} alt={issue.coverImageAlt} title={issue.title} />
+          <PreferredSourceButton className="mt-8" />
         </div>
 
         {hasStructuredBlocks ? (
