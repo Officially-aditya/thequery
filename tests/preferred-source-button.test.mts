@@ -20,8 +20,9 @@ test("preferred source badge is rendered only in the global footer", async () =>
   assert.doesNotMatch(component, /make our AI coverage easier to find/);
   assert.match(component, /Add as a preferred/);
   assert.match(component, /source on Google/);
-  assert.match(component, /min-h-12/);
-  assert.match(component, /max-w-\[320px\]/);
+  assert.match(component, /min-h-10/);
+  assert.match(component, /max-w-\[280px\]/);
+  assert.match(component, /width="24"/);
   assert.match(component, /viewBox="0 0 48 48"/);
   assert.match(component, /dark:bg-bg-primary/);
   assert.match(footer, /TheQuery<\/p>\s*<PreferredSourceButton className="mt-5" \/>/);

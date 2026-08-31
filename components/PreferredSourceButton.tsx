@@ -14,14 +14,14 @@ export default function PreferredSourceButton({
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Add TheQuery as a preferred source on Google"
-      className={`flex min-h-12 w-full max-w-[320px] items-center justify-center gap-2.5 rounded-xl border-2 border-[#777] bg-white px-4 py-1 text-left font-sans text-xs font-medium leading-tight text-black shadow-sm transition-colors hover:bg-[#f5f5f5] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent dark:bg-bg-primary dark:text-text-primary dark:hover:bg-bg-secondary sm:min-h-14 sm:text-sm ${className}`}
+      className={`flex min-h-10 w-full max-w-[280px] items-center justify-center gap-2 rounded-lg border border-[#777] bg-white px-3 py-0.5 text-left font-sans text-[11px] font-medium leading-tight text-black shadow-sm transition-colors hover:bg-[#f5f5f5] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent dark:bg-bg-primary dark:text-text-primary dark:hover:bg-bg-secondary sm:min-h-12 sm:text-xs ${className}`}
     >
       <svg
         aria-hidden="true"
         className="shrink-0"
         xmlns="http://www.w3.org/2000/svg"
-        width="28"
-        height="28"
+        width="24"
+        height="24"
         viewBox="0 0 48 48"
       >
         <path
