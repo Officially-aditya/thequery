@@ -109,6 +109,21 @@ export default async function ArticlePage({ params }: Props) {
                       component: <TerminalBench4Chart />,
                       placement: "right-rail" as const,
                     }
+                : issue.slug === "claude-fable-51-low-effort-benchmarks"
+                  ? {
+                      anchor:
+                        "The benchmark table Anthropic published is broader than the four cost curves, but it answers a different question.",
+                      component: (
+                        <ArticleImageRail
+                          src="/claude-fable-51-benchmarks.webp"
+                          alt="Anthropic benchmark table comparing Claude Fable 5.1 with Fable 5, Opus 5, and GPT-5.6 Sol"
+                          width={1152}
+                          height={1200}
+                          caption="Launch benchmark results published by Anthropic on September 1, 2026."
+                        />
+                      ),
+                      placement: "right-rail" as const,
+                    }
                 : issue.slug === "glm-5-3-flash-ox-alpha-free-model-benchmarks"
                   ? {
                       anchor:
