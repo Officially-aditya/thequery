@@ -9,6 +9,7 @@ const migrations = [
   { id: "003_update_dense_retrieval", file: new URL("../db/migrations/003_update_dense_retrieval.sql", import.meta.url) },
   { id: "004_update_cuda", file: new URL("../db/migrations/004_update_cuda.sql", import.meta.url) },
   { id: "005_update_benchmark", file: new URL("../db/migrations/005_update_benchmark.sql", import.meta.url) },
+  { id: "006_update_lstm_and_neural_network", file: new URL("../db/migrations/006_update_lstm_and_neural_network.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
