@@ -11,6 +11,7 @@ const migrations = [
   { id: "005_update_benchmark", file: new URL("../db/migrations/005_update_benchmark.sql", import.meta.url) },
   { id: "006_update_lstm_and_neural_network", file: new URL("../db/migrations/006_update_lstm_and_neural_network.sql", import.meta.url) },
   { id: "007_update_gpqa_diamond_and_openclaw", file: new URL("../db/migrations/007_update_gpqa_diamond_and_openclaw.sql", import.meta.url) },
+  { id: "008_add_claude_fable_51", file: new URL("../db/migrations/008_add_claude_fable_51.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
