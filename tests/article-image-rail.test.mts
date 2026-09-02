@@ -15,6 +15,8 @@ test("benchmark images use the reusable accessible article image rail", async ()
   assert.match(page, /glm-53-flash-benchmarks\.jpg/);
   assert.match(page, /claude-fable-51-low-effort-benchmarks/);
   assert.match(page, /claude-fable-51-benchmarks\.webp/);
+  assert.match(page, /gemini-38-flash-beats-terra-price-performance/);
+  assert.match(page, /gemini-38-flash-benchmark-table\.webp/);
   assert.match(page, /placement: "right-rail"/);
   assert.match(rail, /<Image/);
   assert.match(rail, /<ImageLightbox/);

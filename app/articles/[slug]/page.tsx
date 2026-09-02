@@ -74,6 +74,21 @@ export default async function ArticlePage({ params }: Props) {
             component: <GeminiLeaderboardChart />,
             placement: "right-rail" as const,
           }
+        : issue.slug === "gemini-38-flash-beats-terra-price-performance"
+          ? {
+              anchor:
+                "Google's benchmark table is unusually direct because it puts Gemini 3.8 Flash beside Gemini 3.7 Flash, Claude Opus 5, Claude Sonnet 5, GPT-5.6 Sol, and GPT-5.6 Terra.",
+              component: (
+                <ArticleImageRail
+                  src="/gemini-38-flash-benchmark-table.webp"
+                  alt="Google benchmark table comparing Gemini 3.8 Flash with Gemini 3.7 Flash, Claude, and GPT-5.6 models"
+                  width={2600}
+                  height={3186}
+                  caption="Gemini 3.8 Flash launch benchmarks published by Google on September 2, 2026."
+                />
+              ),
+              placement: "right-rail" as const,
+            }
         : issue.slug === "claude-opus-5-fable-5-benchmark-reaction"
           ? {
               anchor:
