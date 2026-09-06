@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import type { ChartBlock, ContentBlock } from "@/lib/content-types";
+import type { ChartBlock, ContentBlock, SpecTableBlock } from "@/lib/content-types";
 
 const fieldClass = "w-full rounded-md border border-border bg-bg-primary px-3 py-2 text-sm text-text-primary outline-none focus:border-accent";
 
@@ -47,6 +47,28 @@ function ChartDataEditor({ block, onChange }: { block: ChartBlock; onChange: (da
   );
 }
 
+function SpecTableEditor({ block, onChange }: { block: SpecTableBlock; onChange: (next: Partial<SpecTableBlock>) => void }) {
+  const [modelA = "", modelB = ""] = block.columns;
+  return (
+    <div className="grid gap-3">
+      <input className={fieldClass} value={block.title ?? ""} onChange={(event) => onChange({ title: event.target.value })} placeholder="Section title (optional)" />
+      <div className="grid gap-3 sm:grid-cols-2">
+        <label className="text-sm font-medium text-text-secondary">Model A
+          <input className={`${fieldClass} mt-1`} value={modelA} onChange={(event) => onChange({ columns: [event.target.value, modelB] })} placeholder="First model" />
+        </label>
+        <label className="text-sm font-medium text-text-secondary">Model B
+          <input className={`${fieldClass} mt-1`} value={modelB} onChange={(event) => onChange({ columns: [modelA, event.target.value] })} placeholder="Second model" />
+        </label>
+      </div>
+      <p className="text-xs text-text-muted">Model names appear once in the sticky header. Use <code>**bold**</code> on the winning value in each row.</p>
+      <label className="text-sm font-medium text-text-secondary">Rows (one row per line: label <code>|</code> Model A <code>|</code> Model B)
+        <textarea className={`${fieldClass} mt-1 min-h-32 font-mono text-xs`} value={block.rows.map((row) => [row[0] ?? "", row[1] ?? "", row[2] ?? ""].join(" | ")).join("\n")} onChange={(event) => onChange({ rows: event.target.value.split("\n").map((row) => { const cells = row.split("|").map((cell) => cell.trim()); return [cells[0] ?? "", cells[1] ?? "", cells[2] ?? ""]; }).filter((row) => row.some(Boolean)) })} placeholder="Input per 1M | $10 | $10" />
+      </label>
+      <input className={fieldClass} value={block.sourceNote ?? ""} onChange={(event) => onChange({ sourceNote: event.target.value })} placeholder="Source note (optional)" />
+    </div>
+  );
+}
+
 export default function EditorialBlocksEditor({ blocks, onChange }: { blocks: ContentBlock[]; onChange: (blocks: ContentBlock[]) => void }) {
   function update(index: number, nextBlock: ContentBlock) {
     onChange(blocks.map((block, blockIndex) => blockIndex === index ? nextBlock : block));
@@ -70,6 +92,7 @@ export default function EditorialBlocksEditor({ blocks, onChange }: { blocks: Co
         <div className="flex flex-wrap gap-2">
           <button type="button" onClick={() => onChange([...blocks, { id: blockId("markdown"), type: "markdown", content: "" }])} className="rounded-md border border-border px-3 py-1.5 text-xs font-medium text-text-secondary hover:border-accent hover:text-accent">Add text</button>
           <button type="button" onClick={() => onChange([...blocks, { id: blockId("table"), type: "comparison_table", title: "", columns: ["Option", "Details"], rows: [["", ""]] }])} className="rounded-md border border-border px-3 py-1.5 text-xs font-medium text-text-secondary hover:border-accent hover:text-accent">Add comparison table</button>
+          <button type="button" onClick={() => onChange([...blocks, { id: blockId("spec"), type: "spec_table", title: "", columns: ["Model A", "Model B"], rows: [["", "", ""]] }])} className="rounded-md border border-border px-3 py-1.5 text-xs font-medium text-text-secondary hover:border-accent hover:text-accent">Add spec table</button>
           <button type="button" onClick={() => onChange([...blocks, { id: blockId("chart"), type: "chart", title: "New chart", chartType: "bar", data: [{ label: "Example", value: 0 }] }])} className="rounded-md border border-border px-3 py-1.5 text-xs font-medium text-text-secondary hover:border-accent hover:text-accent">Add chart</button>
         </div>
       </div>
@@ -107,6 +130,13 @@ export default function EditorialBlocksEditor({ blocks, onChange }: { blocks: Co
               </label>
               <input className={fieldClass} value={block.sourceNote ?? ""} onChange={(event) => update(index, { ...block, sourceNote: event.target.value })} placeholder="Source note (optional)" />
             </div>
+          ) : null}
+
+          {block.type === "spec_table" ? (
+            <SpecTableEditor
+              block={block}
+              onChange={(next) => update(index, { ...block, ...next })}
+            />
           ) : null}
 
           {block.type === "chart" ? (

@@ -22,6 +22,15 @@ export interface ComparisonTableBlock {
   sourceNote?: string;
 }
 
+export interface SpecTableBlock {
+  id: string;
+  type: "spec_table";
+  title?: string;
+  columns: string[];
+  rows: string[][];
+  sourceNote?: string;
+}
+
 export interface ChartBlock {
   id: string;
   type: "chart";
@@ -32,7 +41,7 @@ export interface ChartBlock {
   sourceNote?: string;
 }
 
-export type ContentBlock = MarkdownBlock | ComparisonTableBlock | ChartBlock;
+export type ContentBlock = MarkdownBlock | ComparisonTableBlock | SpecTableBlock | ChartBlock;
 
 export interface ContentItem<TMetadata extends Record<string, unknown> = Record<string, unknown>> {
   id: string;

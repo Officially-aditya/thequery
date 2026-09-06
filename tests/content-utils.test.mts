@@ -34,3 +34,17 @@ test("normalizeBlocks keeps supported table and chart data while dropping invali
   assert.equal(blocks[1]?.type, "chart");
   assert.equal(slugify("RAG + Knowledge Graphs!"), "rag-knowledge-graphs");
 });
+
+test("normalizeBlocks keeps spec tables with exactly two models and label-value rows", () => {
+  const blocks = normalizeBlocks([
+    { id: "spec", type: "spec_table", title: "Pricing", columns: ["Model A", "Model B"], rows: [["Input", "$10", "**$0.25**"], ["", "", ""]] },
+    { id: "broken", type: "spec_table", columns: ["Only one"], rows: [["Input", "$10"]] },
+  ]);
+
+  assert.equal(blocks.length, 1);
+  assert.equal(blocks[0]?.type, "spec_table");
+  if (blocks[0]?.type === "spec_table") {
+    assert.deepEqual(blocks[0].columns, ["Model A", "Model B"]);
+    assert.deepEqual(blocks[0].rows, [["Input", "$10", "**$0.25**"]]);
+  }
+});

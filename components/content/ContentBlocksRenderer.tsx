@@ -12,8 +12,10 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import MarkdownRenderer, { type GlossaryLink } from "@/components/MarkdownRenderer";
-import type { ChartBlock, ComparisonTableBlock, ContentBlock, Source } from "@/lib/content-types";
+import type { ChartBlock, ComparisonTableBlock, ContentBlock, Source, SpecTableBlock } from "@/lib/content-types";
 
 const chartColors = ["#2563eb", "#0d9488", "#d97706", "#7c3aed", "#dc2626"];
 
@@ -75,6 +77,65 @@ function ComparisonTable({ block }: { block: ComparisonTableBlock }) {
   );
 }
 
+function SpecCell({ text }: { text: string }) {
+  if (!text.trim()) return null;
+  return (
+    <ReactMarkdown
+      remarkPlugins={[remarkGfm]}
+      components={{
+        p: ({ children }) => <>{children}</>,
+        strong: ({ children }) => <strong className="font-semibold text-text-primary">{children}</strong>,
+        em: ({ children }) => <em>{children}</em>,
+        code: ({ children }) => <code className="rounded bg-bg-secondary px-1 font-mono text-[0.85em]">{children}</code>,
+        a: ({ children }) => <>{children}</>,
+      }}
+    >
+      {text}
+    </ReactMarkdown>
+  );
+}
+
+export function SpecColumns() {
+  return (
+    <colgroup>
+      <col className="w-[40%]" />
+      <col className="w-[30%]" />
+      <col className="w-[30%]" />
+    </colgroup>
+  );
+}
+
+function SpecTable({ block }: { block: SpecTableBlock }) {
+  return (
+    <section className="my-8">
+      {block.title ? (
+        <h2 className="mb-3 mt-7 font-serif text-2xl font-semibold text-text-primary">{block.title}</h2>
+      ) : null}
+      <figure className="overflow-x-auto rounded-lg border border-border">
+        <table className="w-full table-fixed border-collapse text-sm">
+          <SpecColumns />
+          <tbody>
+            {block.rows.map((row, rowIndex) => (
+              <tr key={`${block.id}-${rowIndex}`} className="border-t border-border first:border-t-0">
+                <th scope="row" className="px-4 py-3 text-left align-top font-normal text-text-muted">
+                  {row[0] ?? ""}
+                </th>
+                <td className="px-4 py-3 text-right align-top text-text-secondary">
+                  <SpecCell text={row[1] ?? ""} />
+                </td>
+                <td className="px-4 py-3 text-right align-top text-text-secondary">
+                  <SpecCell text={row[2] ?? ""} />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        {block.sourceNote ? <figcaption className="border-t border-border px-4 py-3 text-xs text-text-muted">Source: {block.sourceNote}</figcaption> : null}
+      </figure>
+    </section>
+  );
+}
+
 function GenericChart({ block }: { block: ChartBlock }) {
   const firstRow = block.data[0] ?? {};
   const labelKey = Object.keys(firstRow).find((key) => key.toLowerCase() === "label") ?? Object.keys(firstRow)[0];
@@ -130,6 +191,7 @@ export default function ContentBlocksRenderer({
           return <MarkdownRenderer key={block.id} content={block.content} glossaryTerms={glossaryTerms} disableMath={disableMath} />;
         }
         if (block.type === "comparison_table") return <ComparisonTable key={block.id} block={block} />;
+        if (block.type === "spec_table") return <SpecTable key={block.id} block={block} />;
         return <GenericChart key={block.id} block={block} />;
       })}
       <SourcesList sources={sources} />

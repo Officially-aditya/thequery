@@ -1,4 +1,4 @@
-import type { ChartBlock, ComparisonTableBlock, ContentBlock, Source } from "./content-types";
+import type { ChartBlock, ComparisonTableBlock, ContentBlock, Source, SpecTableBlock } from "./content-types";
 
 const markdownLinkPattern = /^\s*[-*]\s+\[([^\]]+)]\(([^)\s]+)(?:\s+[^)]*)?\)(?:\s*[-—–:]\s*.*)?\s*$/;
 
@@ -88,6 +88,35 @@ export function normalizeBlocks(value: unknown): ContentBlock[] {
       if (caption) comparison.caption = caption;
       if (sourceNote) comparison.sourceNote = sourceNote;
       return [comparison];
+    }
+
+    if (block?.type === "spec_table") {
+      const columns = Array.isArray(block.columns)
+        ? block.columns.map(asText).filter(Boolean).slice(0, 2)
+        : [];
+      const rows = Array.isArray(block.rows)
+        ? block.rows.flatMap((row) => {
+            if (!Array.isArray(row)) return [];
+            const cells = [0, 1, 2].map((cellIndex) => {
+              const cell = row[cellIndex];
+              return cell == null ? "" : String(cell).trim();
+            });
+            return cells.some(Boolean) ? [cells] : [];
+          })
+        : [];
+
+      if (columns.length < 2 || rows.length === 0) return [];
+      const spec: SpecTableBlock = {
+        id,
+        type: "spec_table",
+        columns,
+        rows,
+      };
+      const title = asText(block.title);
+      const sourceNote = asText(block.sourceNote);
+      if (title) spec.title = title;
+      if (sourceNote) spec.sourceNote = sourceNote;
+      return [spec];
     }
 
     if (block?.type === "chart") {
