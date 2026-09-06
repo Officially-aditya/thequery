@@ -110,26 +110,24 @@ function SpecRows({ table, isFirstTable, modelA = "", modelB = "" }: { table: Sp
   return (
     <>
       {isFirstTable ? (
-        <tr className="h-12">
-          <th scope="col" className="sticky top-14 z-20 truncate bg-bg-secondary px-4 text-left font-serif text-base font-semibold text-text-primary">
+        <tr className="h-12 bg-bg-secondary">
+          <th scope="col" className="sticky top-14 z-10 truncate bg-bg-secondary px-4 text-left font-serif text-base font-semibold text-text-primary">
             {table.title ?? ""}
           </th>
-          <th scope="col" title={modelA} className="sticky top-14 z-20 truncate bg-bg-secondary px-4 text-right text-xs font-semibold text-text-primary sm:text-sm">
+          <th scope="col" title={modelA} className="sticky top-14 z-30 truncate bg-bg-secondary px-4 text-right text-xs font-semibold text-text-primary sm:text-sm">
             {modelA}
           </th>
-          <th scope="col" title={modelB} className="sticky top-14 z-20 truncate bg-bg-secondary px-4 text-right text-xs font-semibold text-text-primary sm:text-sm">
+          <th scope="col" title={modelB} className="sticky top-14 z-30 truncate bg-bg-secondary px-4 text-right text-xs font-semibold text-text-primary sm:text-sm">
             {modelB}
           </th>
         </tr>
       ) : table.title ? (
-        <tr>
-          <th
-            colSpan={3}
-            scope="colgroup"
-            className="sticky top-[104px] z-10 border-t border-border bg-bg-secondary px-4 py-2.5 text-left font-serif text-base font-semibold text-text-primary"
-          >
+        <tr className="h-12 border-t border-border bg-bg-secondary">
+          <th className="sticky top-14 z-20 truncate bg-bg-secondary px-4 text-left font-serif text-base font-semibold text-text-primary">
             {table.title}
           </th>
+          <td aria-hidden="true" className="bg-bg-secondary" />
+          <td aria-hidden="true" className="bg-bg-secondary" />
         </tr>
       ) : null}
       {table.rows.map((row, rowIndex) => (
@@ -156,11 +154,11 @@ function JoinedSpecTable({ tables }: { tables: SpecTableBlock[] }) {
       <figure className="rounded-lg border border-border">
         <table className="w-full table-fixed border-collapse text-sm">
           <SpecColumns />
-          {tables.map((table, tableIndex) => (
-            <tbody key={table.id}>
-              <SpecRows table={table} isFirstTable={tableIndex === 0} modelA={modelA} modelB={modelB} />
-            </tbody>
-          ))}
+          <tbody>
+            {tables.map((table, tableIndex) => (
+              <SpecRows key={table.id} table={table} isFirstTable={tableIndex === 0} modelA={modelA} modelB={modelB} />
+            ))}
+          </tbody>
         </table>
       </figure>
     </section>
