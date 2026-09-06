@@ -16,6 +16,7 @@ test("Astra, Fable, Gemini and Muse enrichment migrations are registered", async
     "022_refresh_enriched_comparisons",
     "023_backfill_agentic_benchmark_labels",
     "024_simplify_benchmark_display",
+    "025_enrich_muse_gemini_benchmarks",
   ]) assert.match(runner, new RegExp(id));
 });
 
@@ -124,4 +125,49 @@ test("benchmark display omits provenance-only qualifiers globally", async () => 
   assert.match(cleanup, /b\.evaluator/);
   assert.match(cleanup, /benchmark_a\.old_value/);
   assert.match(cleanup, /benchmark_b\.old_value/);
+});
+
+test("Muse and Gemini benchmark backfill covers the previously sparse models", async () => {
+  const migration = await source("db/migrations/025_enrich_muse_gemini_benchmarks.sql");
+
+  for (const slug of [
+    "gemini-3-1-flash-lite",
+    "gemini-3-5-flash-lite",
+    "gemini-3-8-flash",
+    "muse-spark",
+    "muse-spark-1-1",
+    "muse-spark-1-2",
+    "muse-spark-1-3",
+    "muse-glimmer",
+  ]) assert.ok(migration.includes(`\"model_slug\":\"${slug}\"`), `${slug} should have normalized benchmark evidence`);
+
+  for (const expected of [
+    "\"score_display\":\"89.4%\"",
+    "\"score_display\":\"19.1%\"",
+    "\"score_display\":\"69.2%\"",
+    "\"score_display\":\"90.3%\"",
+    "\"score_display\":\"75.4%\"",
+    "\"score_display\":\"88.8%\"",
+    "\"score_display\":\"75.5%\"",
+    "\"score_display\":\"65.9%\"",
+    "\"score_display\":\"51.2%\"",
+    "\"score_display\":\"76.0%\"",
+    "\"score_display\":\"94.7%\"",
+    "\"score_display\":\"83.5%\"",
+    "\"score_display\":\"22.0%\"",
+  ]) assert.ok(migration.includes(expected), `${expected} should be seeded`);
+
+  for (const evaluator of ["Google DeepMind", "Meta", "Artificial Analysis", "Scale AI", "Cursor", "Vals AI"]) {
+    assert.ok(migration.includes(`\"evaluator\":\"${evaluator}\"`), `${evaluator} provenance should remain normalized`);
+  }
+  assert.ok(migration.includes(`\"reasoning_effort\":\"xhigh\"`));
+  assert.ok(migration.includes(`\"reasoning_effort\":\"max\"`));
+  assert.ok(migration.includes(`\"reasoning_effort\":\"High\"`));
+
+  assert.match(migration, /b\.id NOT LIKE 'tq-20260906-benchfill-%'/);
+  assert.match(migration, /WHEN COALESCE\(row_entry\.row_value->>1, ''\) = '' THEN new_a\.value/);
+  assert.match(migration, /WHEN old_a\.value IS NOT NULL[\s\S]*?row_entry\.row_value->>1, ''\) = old_a\.value THEN new_a\.value/);
+  assert.match(migration, /WHEN COALESCE\(row_entry\.row_value->>2, ''\) = '' THEN new_b\.value/);
+  assert.match(migration, /WHEN old_b\.value IS NOT NULL[\s\S]*?row_entry\.row_value->>2, ''\) = old_b\.value THEN new_b\.value/);
+  assert.match(migration, /GROUP BY model_slug,benchmark_name,rendered/);
 });
