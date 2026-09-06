@@ -15,6 +15,7 @@ test("Astra, Fable, Gemini and Muse enrichment migrations are registered", async
     "021_enrich_muse_family",
     "022_refresh_enriched_comparisons",
     "023_backfill_agentic_benchmark_labels",
+    "024_simplify_benchmark_display",
   ]) assert.match(runner, new RegExp(id));
 });
 
@@ -104,4 +105,23 @@ test("comparison vocabulary exposes enriched benchmarks and refresh preserves ed
   assert.match(refresh, /COALESCE\(NULLIF\(er\.values_by_label->lower\(l\.label\)->>0, ''\), p\.model_a_data->>l\.label, ''\)/);
   assert.match(refresh, /COALESCE\(NULLIF\(er\.values_by_label->lower\(l\.label\)->>1, ''\), p\.model_b_data->>l\.label, ''\)/);
   assert.match(backfill, /model_benchmarks/);
+});
+
+test("benchmark display omits provenance-only qualifiers globally", async () => {
+  const [models, cleanup] = await Promise.all([
+    source("lib/models.ts"),
+    source("db/migrations/024_simplify_benchmark_display.sql"),
+  ]);
+
+  assert.match(models, /benchmark_version\.trim\(\)\.toLowerCase\(\) !== "public"/);
+  assert.doesNotMatch(models, /qualifiers\.push\(row\.harness\)/);
+  assert.doesNotMatch(models, /qualifiers\.push\(row\.evaluator\)/);
+  assert.match(models, /qualifiers\.push\("tools"\)/);
+  assert.match(models, /qualifiers\.push\(row\.reasoning_effort\)/);
+
+  assert.match(cleanup, /lower\(trim\(b\.benchmark_version\)\) <> 'public'/);
+  assert.match(cleanup, /b\.harness/);
+  assert.match(cleanup, /b\.evaluator/);
+  assert.match(cleanup, /benchmark_a\.old_value/);
+  assert.match(cleanup, /benchmark_b\.old_value/);
 });
