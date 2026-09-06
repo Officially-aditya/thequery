@@ -1,9 +1,11 @@
 import Link from "next/link";
-import { getComparisonBySlug } from "@/lib/comparisons";
+import { getAllComparisons, getComparisonBySlug } from "@/lib/comparisons";
 import { getGlossaryIndex } from "@/lib/glossary";
+import { getModels } from "@/lib/models";
 import { notFound } from "next/navigation";
 import ContentBlocksRenderer from "@/components/content/ContentBlocksRenderer";
 import CoverImage from "@/components/content/CoverImage";
+import ModelPicker, { type ExistingComparisonPair, type PublicModelOption } from "@/components/comparisons/ModelPicker";
 import {
   ORGANIZATION_ID,
   ORGANIZATION_LOGO,
@@ -40,6 +42,21 @@ export default async function ComparisonPage({ params }: Props) {
   const { slug } = await params;
   const comparison = await getComparisonBySlug(slug);
   if (!comparison) notFound();
+
+  const [models, comparisons, glossaryTerms] = await Promise.all([
+    getModels(),
+    getAllComparisons(),
+    getGlossaryIndex(),
+  ]);
+  const modelOptions: PublicModelOption[] = models.map(({ slug: modelSlug, name, developer, access }) => ({
+    slug: modelSlug,
+    name,
+    developer,
+    access,
+  }));
+  const comparisonPairs: ExistingComparisonPair[] = comparisons.flatMap((item) => item.modelA && item.modelB
+    ? [{ modelA: item.modelA, modelB: item.modelB, slug: item.slug }]
+    : []);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -89,10 +106,17 @@ export default async function ComparisonPage({ params }: Props) {
       </h1>
       <CoverImage src={comparison.coverImageUrl} alt={comparison.coverImageAlt} title={comparison.title} />
 
+      <ModelPicker
+        models={modelOptions}
+        comparisons={comparisonPairs}
+        initialModelA={comparison.modelA}
+        initialModelB={comparison.modelB}
+      />
+
       <ContentBlocksRenderer
         blocks={comparison.blocks}
         sources={comparison.sources}
-        glossaryTerms={await getGlossaryIndex()}
+        glossaryTerms={glossaryTerms}
       />
     </div>
   );
