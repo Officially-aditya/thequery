@@ -21,6 +21,11 @@ const migrations = [
   { id: "015_comprehensive_model_catalog", file: new URL("../db/migrations/015_comprehensive_model_catalog.sql", import.meta.url) },
   { id: "016_enrich_openai_gpt56_gpt55_gpt54_small", file: new URL("../db/migrations/016_enrich_openai_gpt56_gpt55_gpt54_small.sql", import.meta.url) },
   { id: "017_compact_token_counts", file: new URL("../db/migrations/017_compact_token_counts.sql", import.meta.url) },
+  { id: "018_enrich_astra_fable", file: new URL("../db/migrations/018_enrich_astra_fable.sql", import.meta.url) },
+  { id: "019_enrich_gemini_core", file: new URL("../db/migrations/019_enrich_gemini_core.sql", import.meta.url) },
+  { id: "020_enrich_gemini_specialized", file: new URL("../db/migrations/020_enrich_gemini_specialized.sql", import.meta.url) },
+  { id: "021_enrich_muse_family", file: new URL("../db/migrations/021_enrich_muse_family.sql", import.meta.url) },
+  { id: "022_refresh_enriched_comparisons", file: new URL("../db/migrations/022_refresh_enriched_comparisons.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
