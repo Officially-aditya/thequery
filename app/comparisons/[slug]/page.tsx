@@ -5,7 +5,6 @@ import { notFound } from "next/navigation";
 import ContentBlocksRenderer from "@/components/content/ContentBlocksRenderer";
 import CoverImage from "@/components/content/CoverImage";
 import {
-  AUTHOR,
   ORGANIZATION_ID,
   ORGANIZATION_LOGO,
   SITE_URL,
@@ -88,11 +87,6 @@ export default async function ComparisonPage({ params }: Props) {
       <h1 className="font-serif text-3xl font-bold text-text-primary mb-2">
         {comparison.title}
       </h1>
-      <p className="text-sm text-text-muted mb-8">
-        By <Link href={AUTHOR.url} className="text-accent hover:text-accent-hover transition-colors">{AUTHOR.name}</Link>
-        {" "}&middot; {new Date(comparison.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
-        {" "}&middot; <Link href="/about#editorial-standards" className="hover:text-text-secondary transition-colors">Editorial standards</Link>
-      </p>
       <CoverImage src={comparison.coverImageUrl} alt={comparison.coverImageAlt} title={comparison.title} />
 
       <ContentBlocksRenderer
