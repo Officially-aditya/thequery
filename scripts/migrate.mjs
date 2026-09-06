@@ -55,7 +55,7 @@ export async function migrate() {
   }
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.dirname, "../scripts/migrate.mjs") === process.argv[1]) {
+if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
   migrate().catch((error) => {
     console.error(error instanceof Error ? error.message : error);
     process.exitCode = 1;
