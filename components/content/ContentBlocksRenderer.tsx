@@ -107,31 +107,20 @@ export function SpecColumns() {
 }
 
 function SpecRows({ table, isFirstTable, modelA = "", modelB = "" }: { table: SpecTableBlock; isFirstTable: boolean; modelA?: string; modelB?: string }) {
+  const headerBorder = isFirstTable ? "" : "border-t border-border";
   return (
     <>
-      {isFirstTable ? (
-        <tr>
-          <th scope="col" className="sticky top-14 z-10 bg-bg-primary py-3 pr-2 text-left font-serif text-base font-semibold text-text-primary">
-            {table.title ?? ""}
-          </th>
-          <th scope="col" className="sticky top-14 z-10 bg-bg-primary px-4 py-3 text-right text-xs font-semibold text-text-primary sm:text-sm">
-            {modelA}
-          </th>
-          <th scope="col" className="sticky top-14 z-10 bg-bg-primary px-4 py-3 text-right text-xs font-semibold text-text-primary sm:text-sm">
-            {modelB}
-          </th>
-        </tr>
-      ) : table.title ? (
-        <tr>
-          <th
-            colSpan={3}
-            scope="colgroup"
-            className="sticky top-14 z-10 border-t border-border bg-bg-secondary px-4 py-2.5 text-left font-serif text-base font-semibold text-text-primary"
-          >
-            {table.title}
-          </th>
-        </tr>
-      ) : null}
+      <tr>
+        <th scope="col" className={`sticky top-14 z-10 bg-bg-secondary px-4 py-2.5 text-left font-serif text-base font-semibold text-text-primary ${headerBorder}`}>
+          {table.title ?? ""}
+        </th>
+        <th scope="col" className={`sticky top-14 z-10 bg-bg-secondary px-4 py-2.5 text-right text-xs font-semibold text-text-primary sm:text-sm ${headerBorder}`}>
+          {modelA}
+        </th>
+        <th scope="col" className={`sticky top-14 z-10 bg-bg-secondary px-4 py-2.5 text-right text-xs font-semibold text-text-primary sm:text-sm ${headerBorder}`}>
+          {modelB}
+        </th>
+      </tr>
       {table.rows.map((row, rowIndex) => (
         <tr key={`${table.id}-${rowIndex}`} className="border-t border-border">
           <th scope="row" className="break-words px-4 py-3 text-left align-top font-normal text-text-primary">
