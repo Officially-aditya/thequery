@@ -29,6 +29,18 @@ interface ModelRow {
   verified_at: string | Date;
 }
 
+interface BenchmarkRow {
+  model_slug: string;
+  benchmark_name: string;
+  benchmark_version: string | null;
+  score_display: string;
+  tools: boolean | null;
+  reasoning_effort: string | null;
+  harness: string | null;
+  evaluator: string | null;
+  source: string | null;
+}
+
 function isoDate(value: string | Date | null): string | null {
   if (!value) return null;
   if (value instanceof Date) return value.toISOString().slice(0, 10);
@@ -59,18 +71,63 @@ function sources(value: unknown): Source[] {
   });
 }
 
-function fromRow(row: ModelRow): ModelCatalogEntry {
+function benchmarkValue(row: BenchmarkRow): string {
+  const qualifiers: string[] = [];
+  if (row.benchmark_version && !row.benchmark_name.toLowerCase().includes(row.benchmark_version.toLowerCase())) {
+    qualifiers.push(row.benchmark_version);
+  }
+  if (row.tools === true) qualifiers.push("tools");
+  if (row.tools === false) qualifiers.push("no tools");
+  if (row.reasoning_effort) qualifiers.push(row.reasoning_effort);
+  if (row.harness) qualifiers.push(row.harness);
+  if (row.evaluator) qualifiers.push(row.evaluator);
+  return qualifiers.length > 0 ? `${row.score_display} (${qualifiers.join("; ")})` : row.score_display;
+}
+
+function withBenchmarks(base: Record<string, string>, rows: BenchmarkRow[]): Record<string, string> {
+  const next = { ...base };
+  const grouped = new Map<string, string[]>();
+  for (const row of rows) {
+    const values = grouped.get(row.benchmark_name) ?? [];
+    const rendered = benchmarkValue(row);
+    if (!values.includes(rendered)) values.push(rendered);
+    grouped.set(row.benchmark_name, values);
+  }
+  for (const [name, values] of grouped) {
+    if (!next[name] && values.length > 0) next[name] = values.join(" · ");
+  }
+  return next;
+}
+
+function withBenchmarkSources(base: Source[], rows: BenchmarkRow[]): Source[] {
+  const additions = rows.flatMap((row): Source[] => row.source
+    ? [{ title: `${row.benchmark_name} evaluation`, url: row.source }]
+    : []);
+  return Array.from(new Map([...base, ...additions].map((source) => [source.url, source])).values());
+}
+
+function fromRow(row: ModelRow, benchmarks: BenchmarkRow[] = []): ModelCatalogEntry {
   return {
     slug: row.slug,
     name: row.name,
     developer: row.developer,
     releaseDate: isoDate(row.release_date),
     access: row.access,
-    comparisonData: comparisonData(row.comparison_data),
-    sources: sources(row.sources),
+    comparisonData: withBenchmarks(comparisonData(row.comparison_data), benchmarks),
+    sources: withBenchmarkSources(sources(row.sources), benchmarks),
     notes: row.notes,
     verifiedAt: isoDateTime(row.verified_at),
   };
+}
+
+function groupBenchmarks(rows: BenchmarkRow[]): Map<string, BenchmarkRow[]> {
+  const grouped = new Map<string, BenchmarkRow[]>();
+  for (const row of rows) {
+    const current = grouped.get(row.model_slug) ?? [];
+    current.push(row);
+    grouped.set(row.model_slug, current);
+  }
+  return grouped;
 }
 
 export async function getModels(): Promise<ModelCatalogEntry[]> {
@@ -80,7 +137,13 @@ export async function getModels(): Promise<ModelCatalogEntry[]> {
      FROM models
      ORDER BY developer ASC, release_date DESC NULLS LAST, name ASC`,
   ) as ModelRow[];
-  return rows.map(fromRow);
+  const benchmarkRows = await sql.query(
+    `SELECT model_slug, benchmark_name, benchmark_version, score_display, tools, reasoning_effort, harness, evaluator, source
+     FROM model_benchmarks
+     ORDER BY model_slug ASC, benchmark_name ASC, evaluation_date ASC NULLS LAST, id ASC`,
+  ) as BenchmarkRow[];
+  const benchmarks = groupBenchmarks(benchmarkRows);
+  return rows.map((row) => fromRow(row, benchmarks.get(row.slug) ?? []));
 }
 
 export async function getModelBySlug(slug: string): Promise<ModelCatalogEntry | null> {
@@ -92,5 +155,13 @@ export async function getModelBySlug(slug: string): Promise<ModelCatalogEntry | 
      LIMIT 1`,
     [slug],
   ) as ModelRow[];
-  return rows[0] ? fromRow(rows[0]) : null;
+  if (!rows[0]) return null;
+  const benchmarkRows = await sql.query(
+    `SELECT model_slug, benchmark_name, benchmark_version, score_display, tools, reasoning_effort, harness, evaluator, source
+     FROM model_benchmarks
+     WHERE model_slug = $1
+     ORDER BY benchmark_name ASC, evaluation_date ASC NULLS LAST, id ASC`,
+    [slug],
+  ) as BenchmarkRow[];
+  return fromRow(rows[0], benchmarkRows);
 }
