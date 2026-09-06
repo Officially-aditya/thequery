@@ -14,6 +14,7 @@ test("Astra, Fable, Gemini and Muse enrichment migrations are registered", async
     "020_enrich_gemini_specialized",
     "021_enrich_muse_family",
     "022_refresh_enriched_comparisons",
+    "023_backfill_agentic_benchmark_labels",
   ]) assert.match(runner, new RegExp(id));
 });
 
@@ -73,10 +74,11 @@ test("Muse catalog preserves verified access distinctions", async () => {
 });
 
 test("comparison vocabulary exposes enriched benchmarks and refresh preserves edits", async () => {
-  const [generated, admin, refresh] = await Promise.all([
+  const [generated, admin, refresh, backfill] = await Promise.all([
     source("lib/model-comparison.ts"),
     source("components/admin/admin-client.ts"),
     source("db/migrations/022_refresh_enriched_comparisons.sql"),
+    source("db/migrations/023_backfill_agentic_benchmark_labels.sql"),
   ]);
   for (const label of [
     "FrontierCode 1.1 Main",
@@ -86,15 +88,20 @@ test("comparison vocabulary exposes enriched benchmarks and refresh preserves ed
     "MLE-Bench",
     "FrontierMath Tier 4 (v2)",
     "OSWorld-Verified",
+    "GDPval-AA",
+    "GDPval-AA v2",
     "AutomationBench",
     "Agents' Last Exam",
     "MCP Atlas",
+    "Toolathlon",
   ]) {
     assert.ok(generated.includes(label), `${label} should be shown on database comparisons`);
     assert.ok(admin.includes(label), `${label} should be available in new comparison templates`);
-    assert.ok(refresh.includes(label), `${label} should be materialized into existing comparisons`);
+    assert.ok(refresh.includes(label), `${label} should be materialized into fresh comparisons`);
+    assert.ok(backfill.includes(label), `${label} should be materialized into already-migrated comparisons`);
   }
   assert.match(refresh, /model_benchmarks/);
   assert.match(refresh, /COALESCE\(NULLIF\(er\.values_by_label->lower\(l\.label\)->>0, ''\), p\.model_a_data->>l\.label, ''\)/);
   assert.match(refresh, /COALESCE\(NULLIF\(er\.values_by_label->lower\(l\.label\)->>1, ''\), p\.model_b_data->>l\.label, ''\)/);
+  assert.match(backfill, /model_benchmarks/);
 });
