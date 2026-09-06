@@ -1,7 +1,7 @@
 import "server-only";
 
 import { getContentItem, getContentSummaries, contentDisplayDate, type ContentSummary } from "./content";
-import type { ContentBlock, Source } from "./content-types";
+import type { ContentBlock, Source, SpecTableBlock } from "./content-types";
 
 export interface Comparison {
   title: string;
@@ -24,6 +24,49 @@ export interface ComparisonSummary {
   coverImageAlt?: string;
 }
 
+function withFlagshipCapabilities(title: string, blocks: ContentBlock[]): ContentBlock[] {
+  const normalizedTitle = title.toLowerCase();
+  if (!normalizedTitle.includes("fable 5.1") || !normalizedTitle.includes("astra")) return blocks;
+
+  const alreadyHasCapabilities = blocks.some(
+    (block) => block.type === "spec_table" && ["capabilities & access", "capabilities and access"].includes((block.title ?? "").toLowerCase()),
+  );
+  if (alreadyHasCapabilities) return blocks;
+
+  const pricingIndex = blocks.findIndex(
+    (block) => block.type === "spec_table" && (block.title ?? "").toLowerCase() === "pricing",
+  );
+  if (pricingIndex < 0) return blocks;
+
+  const firstSpec = blocks.find((block): block is SpecTableBlock => block.type === "spec_table");
+  const columns = firstSpec?.columns.length === 2 ? firstSpec.columns : ["Claude Fable 5.1", "GPT-6 Astra"];
+  const capabilities: SpecTableBlock = {
+    id: "spec-capabilities-access-fable-astra",
+    type: "spec_table",
+    title: "Capabilities & access",
+    columns,
+    rows: [
+      ["Text input", "**Yes**", "**Yes**"],
+      ["Image / vision input", "**Yes**", "**Yes**"],
+      ["Audio input", "No native audio input", "No"],
+      ["Video input", "No", "No"],
+      ["Text output", "**Yes**", "**Yes**"],
+      ["Audio output", "No native audio output", "No"],
+      ["Tool / function calling", "**Yes**", "**Yes**"],
+      ["Computer use", "**Yes**", "**Yes**"],
+      ["API access", "Claude API; AWS Bedrock; Google Cloud; Microsoft Foundry", "OpenAI API; Microsoft Azure; AWS Bedrock"],
+      ["Product access", "Claude Pro, Max, Team, Enterprise; Claude Code", "ChatGPT Plus, Pro, Business, Enterprise"],
+      ["Weights / license", "Proprietary", "Proprietary"],
+    ],
+  };
+
+  return [
+    ...blocks.slice(0, pricingIndex + 1),
+    capabilities,
+    ...blocks.slice(pricingIndex + 1),
+  ];
+}
+
 function asComparison(item: Awaited<ReturnType<typeof getContentItem>> extends infer T ? Exclude<T, null> : never): Comparison {
   return {
     title: item.title,
@@ -31,7 +74,7 @@ function asComparison(item: Awaited<ReturnType<typeof getContentItem>> extends i
     date: contentDisplayDate(item.publishedAt, item.updatedAt),
     summary: item.summary,
     content: item.body,
-    blocks: item.blocks,
+    blocks: withFlagshipCapabilities(item.title, item.blocks),
     sources: item.sources,
     ...(item.coverImageUrl ? { coverImageUrl: item.coverImageUrl } : {}),
     ...(item.coverImageAlt ? { coverImageAlt: item.coverImageAlt } : {}),
