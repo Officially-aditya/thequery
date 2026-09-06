@@ -13,6 +13,7 @@ const migrations = [
   { id: "007_update_gpqa_diamond_and_openclaw", file: new URL("../db/migrations/007_update_gpqa_diamond_and_openclaw.sql", import.meta.url) },
   { id: "008_add_claude_fable_51", file: new URL("../db/migrations/008_add_claude_fable_51.sql", import.meta.url) },
   { id: "009_add_comparisons", file: new URL("../db/migrations/009_add_comparisons.sql", import.meta.url) },
+  { id: "010_comparison_template_capabilities", file: new URL("../db/migrations/010_comparison_template_capabilities.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
