@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run db:migrate && next build",
+    "build": "npm run db:migrate && npm run db:verify-models && next build",
     "start": "next start",
     "lint": "eslint",
     "test": "node --test tests/*.test.mjs tests/*.test.mts",
     "db:migrate": "node scripts/migrate.mjs",
+    "db:verify-models": "node scripts/verify-model-catalog.mjs",
     "db:copy-neon": "node scripts/copy-neon-project.mjs",
     "db:seed": "node scripts/seed-content.mjs",
     "db:setup": "node scripts/setup-db.mjs"
@@ -24,7 +25,7 @@
     "recharts": "^3.9.2",
     "rehype-highlight": "^7.0.2",
     "rehype-katex": "^7.0.1",
-    "rehype-raw": "^7.0.0",
+    "rehype-raw": "^7.0.2",
     "remark-gfm": "^4.0.1",
     "remark-math": "^6.0.0"
   },
