@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import ContentBlocksRenderer from "@/components/content/ContentBlocksRenderer";
 import type { ContentItem } from "@/lib/content-types";
 import { apiRequest, comparisonTemplateBlocks, newContent, publicHref, toContentListItem, toEditableContent, type ContentListItem, type EditableContent } from "./admin-client";
+import ComparisonModelPicker, { type ModelCatalogEntry } from "./ComparisonModelPicker";
 import CoverImageFields from "./CoverImageFields";
 import EditorialBlocksEditor from "./EditorialBlocksEditor";
 import SourcesEditor from "./SourcesEditor";
@@ -15,6 +16,8 @@ type CollectionKind = "article" | "guide" | "comparison";
 export default function EditorialCollection({ kind, noun, description }: { kind: CollectionKind; noun: string; description: string }) {
   const [items, setItems] = useState<ContentListItem[]>([]);
   const [editing, setEditing] = useState<EditableContent | null>(null);
+  const [models, setModels] = useState<ModelCatalogEntry[]>([]);
+  const [modelsLoading, setModelsLoading] = useState(kind === "comparison");
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -32,6 +35,19 @@ export default function EditorialCollection({ kind, noun, description }: { kind:
   }, [kind]);
 
   useEffect(() => { void loadItems(); }, [loadItems]);
+
+  useEffect(() => {
+    if (kind !== "comparison") {
+      setModels([]);
+      setModelsLoading(false);
+      return;
+    }
+    setModelsLoading(true);
+    apiRequest<ModelCatalogEntry[]>("/api/admin/models")
+      .then(setModels)
+      .catch((requestError) => setError(requestError instanceof Error ? requestError.message : "Unable to load model catalog."))
+      .finally(() => setModelsLoading(false));
+  }, [kind]);
 
   async function selectItem(item: ContentListItem) {
     setEditing(null);
@@ -149,6 +165,10 @@ export default function EditorialCollection({ kind, noun, description }: { kind:
               {kind === "article" ? <label className="sm:col-span-2 flex items-center gap-2 text-sm text-text-secondary"><input type="checkbox" checked={editing.metadata.manualGlossaryLinks === true} onChange={(event) => update({ metadata: { ...editing.metadata, manualGlossaryLinks: event.target.checked } })} />This article already contains its own glossary links</label> : null}
               {editing.id ? <p className="sm:col-span-2 text-xs text-text-muted">The slug is fixed after creation so existing links stay valid.</p> : null}
             </section>
+
+            {kind === "comparison" ? (
+              <ComparisonModelPicker editing={editing} models={models} loading={modelsLoading} onChange={update} />
+            ) : null}
 
             <CoverImageFields title={editing.title} coverImageUrl={editing.coverImageUrl} coverImageAlt={editing.coverImageAlt} onChange={update} />
             <EditorialBlocksEditor blocks={editing.blocks} onChange={(blocks) => update({ blocks })} />
