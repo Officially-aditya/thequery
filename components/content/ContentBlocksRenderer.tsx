@@ -106,15 +106,27 @@ export function SpecColumns() {
   );
 }
 
-function SpecRows({ table, isFirstTable }: { table: SpecTableBlock; isFirstTable: boolean }) {
+function SpecRows({ table, isFirstTable, modelA = "", modelB = "" }: { table: SpecTableBlock; isFirstTable: boolean; modelA?: string; modelB?: string }) {
   return (
     <>
-      {table.title ? (
+      {isFirstTable ? (
+        <tr>
+          <th scope="col" className="py-3 pr-2 text-left font-serif text-base font-semibold text-text-primary">
+            {table.title ?? ""}
+          </th>
+          <th scope="col" className="px-4 py-3 text-right text-xs font-semibold text-text-primary sm:text-sm">
+            {modelA}
+          </th>
+          <th scope="col" className="px-4 py-3 text-right text-xs font-semibold text-text-primary sm:text-sm">
+            {modelB}
+          </th>
+        </tr>
+      ) : table.title ? (
         <tr>
           <th
             colSpan={3}
             scope="colgroup"
-            className={`bg-bg-secondary px-4 py-2.5 text-left font-serif text-base font-semibold text-text-primary ${isFirstTable ? "border-t-0" : "border-t border-border"}`}
+            className="border-t border-border bg-bg-secondary px-4 py-2.5 text-left font-serif text-base font-semibold text-text-primary"
           >
             {table.title}
           </th>
@@ -141,36 +153,15 @@ function JoinedSpecTable({ tables }: { tables: SpecTableBlock[] }) {
   const [modelA = "", modelB = ""] = tables[0]?.columns ?? [];
   return (
     <section className="my-8">
-      <div className="sticky top-14 z-30 -mx-4 border-y border-border bg-bg-primary/95 px-4 backdrop-blur-md">
-        <table className="w-full table-fixed border-collapse">
-          <SpecColumns />
-          <thead>
-            <tr>
-              <th scope="col" className="py-2.5" aria-hidden="true" />
-              <th scope="col" className="px-4 py-2.5 text-right text-xs font-semibold text-text-primary sm:text-sm">
-                {modelA}
-              </th>
-              <th scope="col" className="px-4 py-2.5 text-right text-xs font-semibold text-text-primary sm:text-sm">
-                {modelB}
-              </th>
-            </tr>
-          </thead>
-        </table>
-      </div>
-      <figure className="mt-4 overflow-x-auto rounded-lg border border-border">
+      <figure className="overflow-x-auto rounded-lg border border-border">
         <table className="w-full table-fixed border-collapse text-sm">
           <SpecColumns />
           {tables.map((table, tableIndex) => (
             <tbody key={table.id}>
-              <SpecRows table={table} isFirstTable={tableIndex === 0} />
+              <SpecRows table={table} isFirstTable={tableIndex === 0} modelA={modelA} modelB={modelB} />
             </tbody>
           ))}
         </table>
-        {tables.some((table) => table.sourceNote) ? (
-          <figcaption className="border-t border-border px-4 py-3 text-xs text-text-muted">
-            {tables.map((table) => table.sourceNote).filter(Boolean).join(" ")}
-          </figcaption>
-        ) : null}
       </figure>
     </section>
   );
