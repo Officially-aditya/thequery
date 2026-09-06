@@ -18,12 +18,19 @@ test("new comparisons use the standard spec template", async () => {
   const specifications = client.indexOf('title: "Specifications"');
   const pricing = client.indexOf('title: "Pricing"');
   const capabilities = client.indexOf('title: "Capabilities & access"');
-  const benchmarks = client.indexOf('title: "Benchmarks"');
+  const coding = client.indexOf('title: "Coding"');
+  const math = client.indexOf('title: "Math & reasoning"');
+  const knowledge = client.indexOf('title: "Knowledge"');
+  const agentic = client.indexOf('title: "Agentic & computer use"');
 
   assert.ok(specifications >= 0);
   assert.ok(pricing > specifications);
   assert.ok(capabilities > pricing);
-  assert.ok(benchmarks > capabilities);
+  assert.ok(coding > capabilities);
+  assert.ok(math > coding);
+  assert.ok(knowledge > math);
+  assert.ok(agentic > knowledge);
+  assert.doesNotMatch(client, /title: "Benchmarks"/);
 
   for (const row of [
     "Text input",
@@ -37,6 +44,10 @@ test("new comparisons use the standard spec template", async () => {
     "API access",
     "Product access",
     "Weights / license",
+    "SWE-bench Verified",
+    "AIME",
+    "GPQA Diamond",
+    "OSWorld",
   ]) {
     assert.match(client, new RegExp(row.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
   }
