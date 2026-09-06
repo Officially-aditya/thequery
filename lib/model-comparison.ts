@@ -48,17 +48,22 @@ const sections: Array<{ title: string; labels: string[] }> = [
     labels: [
       "SWE-bench Verified",
       "SWE-bench Pro",
+      "FrontierCode 1.1 Main",
+      "FrontierCode 1.1 Extended",
       "DeepSWE v1.1",
       "Terminal-Bench 2.1",
+      "Terminal-Bench 3.0",
       "Terminal-Bench 4.0",
+      "Terminal-Bench Science 0.1",
       "Terminal-Bench",
+      "MLE-Bench",
       "LiveCodeBench",
       "CursorBench",
     ],
   },
   {
     title: "Math & reasoning",
-    labels: ["AIME", "HMMT", "ARC-AGI", "FrontierMath"],
+    labels: ["AIME", "HMMT", "ARC-AGI", "FrontierMath", "FrontierMath Tier 4 (v2)"],
   },
   {
     title: "Knowledge",
@@ -66,7 +71,17 @@ const sections: Array<{ title: string; labels: string[] }> = [
   },
   {
     title: "Agentic & computer use",
-    labels: ["OSWorld", "OSWorld 2.0", "BrowseComp", "GDPval-AA v2", "MCP / tool-use benchmark"],
+    labels: [
+      "OSWorld",
+      "OSWorld-Verified",
+      "OSWorld 2.0",
+      "BrowseComp",
+      "GDPval-AA v2",
+      "AutomationBench",
+      "Agents' Last Exam",
+      "MCP Atlas",
+      "MCP / tool-use benchmark",
+    ],
   },
 ];
 
