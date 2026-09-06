@@ -91,12 +91,12 @@ test("model reads preserve benchmark conditions and make them available to compa
   const models = await source("lib/models.ts");
 
   assert.match(models, /FROM model_benchmarks/);
-  assert.match(models, /benchmarkVersion/);
-  assert.match(models, /reasoningEffort/);
-  assert.match(models, /evidence\.tools === true/);
-  assert.match(models, /evidence\.harness/);
-  assert.match(models, /evidence\.evaluator/);
-  assert.match(models, /enrichComparisonData/);
+  assert.match(models, /benchmark_version/);
+  assert.match(models, /reasoning_effort/);
+  assert.match(models, /row\.tools === true/);
+  assert.match(models, /row\.harness/);
+  assert.match(models, /row\.evaluator/);
+  assert.match(models, /withBenchmarks/);
   assert.match(models, /values\.join\(" · "\)/);
-  assert.match(models, /enrichSources/);
+  assert.match(models, /withBenchmarkSources/);
 });
