@@ -14,6 +14,7 @@ const migrations = [
   { id: "008_add_claude_fable_51", file: new URL("../db/migrations/008_add_claude_fable_51.sql", import.meta.url) },
   { id: "009_add_comparisons", file: new URL("../db/migrations/009_add_comparisons.sql", import.meta.url) },
   { id: "010_comparison_template_capabilities", file: new URL("../db/migrations/010_comparison_template_capabilities.sql", import.meta.url) },
+  { id: "011_model_catalog", file: new URL("../db/migrations/011_model_catalog.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
@@ -54,7 +55,7 @@ export async function migrate() {
   }
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+if (process.argv[1] && fileURLToPath(import.meta.dirname, "../scripts/migrate.mjs") === process.argv[1]) {
   migrate().catch((error) => {
     console.error(error instanceof Error ? error.message : error);
     process.exitCode = 1;
