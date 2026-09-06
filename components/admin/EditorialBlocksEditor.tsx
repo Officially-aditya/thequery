@@ -60,7 +60,7 @@ function SpecTableEditor({ block, onChange }: { block: SpecTableBlock; onChange:
           <input className={`${fieldClass} mt-1`} value={modelB} onChange={(event) => onChange({ columns: [modelA, event.target.value] })} placeholder="Second model" />
         </label>
       </div>
-      <p className="text-xs text-text-muted">Consecutive spec tables join into one table. The first table carries the model names; later ones add section heads. Use <code>**bold**</code> on the winning value in each row.</p>
+      <p className="text-xs text-text-muted">Consecutive spec tables join into one table with sticky section heads. The first table carries the model names. Use <code>**bold**</code> on the winning value in each row.</p>
       <label className="text-sm font-medium text-text-secondary">Rows (one row per line: label <code>|</code> Model A <code>|</code> Model B)
         <textarea className={`${fieldClass} mt-1 min-h-32 font-mono text-xs`} value={block.rows.map((row) => [row[0] ?? "", row[1] ?? "", row[2] ?? ""].join(" | ")).join("\n")} onChange={(event) => onChange({ rows: event.target.value.split("\n").map((row) => { const cells = row.split("|").map((cell) => cell.trim()); return [cells[0] ?? "", cells[1] ?? "", cells[2] ?? ""]; }).filter((row) => row.some(Boolean)) })} placeholder="Input per 1M | $10 | $10" />
       </label>

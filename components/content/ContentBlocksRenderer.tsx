@@ -111,13 +111,13 @@ function SpecRows({ table, isFirstTable, modelA = "", modelB = "" }: { table: Sp
     <>
       {isFirstTable ? (
         <tr>
-          <th scope="col" className="py-3 pr-2 text-left font-serif text-base font-semibold text-text-primary">
+          <th scope="col" className="sticky top-14 z-10 bg-bg-primary py-3 pr-2 text-left font-serif text-base font-semibold text-text-primary">
             {table.title ?? ""}
           </th>
-          <th scope="col" className="px-4 py-3 text-right text-xs font-semibold text-text-primary sm:text-sm">
+          <th scope="col" className="sticky top-14 z-10 bg-bg-primary px-4 py-3 text-right text-xs font-semibold text-text-primary sm:text-sm">
             {modelA}
           </th>
-          <th scope="col" className="px-4 py-3 text-right text-xs font-semibold text-text-primary sm:text-sm">
+          <th scope="col" className="sticky top-14 z-10 bg-bg-primary px-4 py-3 text-right text-xs font-semibold text-text-primary sm:text-sm">
             {modelB}
           </th>
         </tr>
@@ -126,7 +126,7 @@ function SpecRows({ table, isFirstTable, modelA = "", modelB = "" }: { table: Sp
           <th
             colSpan={3}
             scope="colgroup"
-            className="border-t border-border bg-bg-secondary px-4 py-2.5 text-left font-serif text-base font-semibold text-text-primary"
+            className="sticky top-14 z-10 border-t border-border bg-bg-secondary px-4 py-2.5 text-left font-serif text-base font-semibold text-text-primary"
           >
             {table.title}
           </th>
@@ -134,13 +134,13 @@ function SpecRows({ table, isFirstTable, modelA = "", modelB = "" }: { table: Sp
       ) : null}
       {table.rows.map((row, rowIndex) => (
         <tr key={`${table.id}-${rowIndex}`} className="border-t border-border">
-          <th scope="row" className="px-4 py-3 text-left align-top font-normal text-text-primary">
+          <th scope="row" className="break-words px-4 py-3 text-left align-top font-normal text-text-primary">
             {row[0] ?? ""}
           </th>
-          <td className="px-4 py-3 text-right align-top text-text-secondary">
+          <td className="break-words px-4 py-3 text-right align-top text-text-secondary">
             <SpecCell text={row[1] ?? ""} />
           </td>
-          <td className="px-4 py-3 text-right align-top text-text-secondary">
+          <td className="break-words px-4 py-3 text-right align-top text-text-secondary">
             <SpecCell text={row[2] ?? ""} />
           </td>
         </tr>
@@ -153,7 +153,7 @@ function JoinedSpecTable({ tables }: { tables: SpecTableBlock[] }) {
   const [modelA = "", modelB = ""] = tables[0]?.columns ?? [];
   return (
     <section className="my-8">
-      <figure className="overflow-x-auto rounded-lg border border-border">
+      <figure className="rounded-lg border border-border">
         <table className="w-full table-fixed border-collapse text-sm">
           <SpecColumns />
           {tables.map((table, tableIndex) => (
