@@ -1,5 +1,7 @@
 import Link from "next/link";
+import ModelPicker, { type ExistingComparisonPair, type PublicModelOption } from "@/components/comparisons/ModelPicker";
 import { getAllComparisons } from "@/lib/comparisons";
+import { getModels } from "@/lib/models";
 import { createOpenGraphMetadata, SITE_URL } from "@/lib/site";
 import type { Metadata } from "next";
 
@@ -16,7 +18,16 @@ export const metadata: Metadata = {
 export const revalidate = 300;
 
 export default async function ComparisonsPage() {
-  const comparisons = await getAllComparisons();
+  const [comparisons, models] = await Promise.all([getAllComparisons(), getModels()]);
+  const modelOptions: PublicModelOption[] = models.map(({ slug, name, developer, access }) => ({
+    slug,
+    name,
+    developer,
+    access,
+  }));
+  const comparisonPairs: ExistingComparisonPair[] = comparisons.flatMap((comparison) => comparison.modelA && comparison.modelB
+    ? [{ modelA: comparison.modelA, modelB: comparison.modelB, slug: comparison.slug }]
+    : []);
 
   return (
     <div className="max-w-[960px] mx-auto px-4 py-12">
@@ -24,6 +35,8 @@ export default async function ComparisonsPage() {
       <p className="text-text-secondary mb-8">
         Side-by-side comparisons of AI models, tools, and approaches - evidence over hype.
       </p>
+
+      <ModelPicker models={modelOptions} comparisons={comparisonPairs} />
 
       {comparisons.length === 0 ? (
         <p className="text-sm text-text-muted text-center py-12">No comparisons yet. Check back soon!</p>
