@@ -14,6 +14,7 @@ import {
 } from "recharts";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import type { ReactNode } from "react";
 import MarkdownRenderer, { type GlossaryLink } from "@/components/MarkdownRenderer";
 import type { ChartBlock, ComparisonTableBlock, ContentBlock, Source, SpecTableBlock } from "@/lib/content-types";
 
@@ -105,8 +106,39 @@ export function SpecColumns() {
   );
 }
 
-function SpecTable({ block }: { block: SpecTableBlock }) {
-  const [modelA = "", modelB = ""] = block.columns;
+function SpecRows({ table, isFirstTable }: { table: SpecTableBlock; isFirstTable: boolean }) {
+  return (
+    <>
+      {table.title ? (
+        <tr>
+          <th
+            colSpan={3}
+            scope="colgroup"
+            className={`bg-bg-secondary px-4 py-2.5 text-left font-serif text-base font-semibold text-text-primary ${isFirstTable ? "border-t-0" : "border-t border-border"}`}
+          >
+            {table.title}
+          </th>
+        </tr>
+      ) : null}
+      {table.rows.map((row, rowIndex) => (
+        <tr key={`${table.id}-${rowIndex}`} className="border-t border-border">
+          <th scope="row" className="px-4 py-3 text-left align-top font-normal text-text-primary">
+            {row[0] ?? ""}
+          </th>
+          <td className="px-4 py-3 text-right align-top text-text-secondary">
+            <SpecCell text={row[1] ?? ""} />
+          </td>
+          <td className="px-4 py-3 text-right align-top text-text-secondary">
+            <SpecCell text={row[2] ?? ""} />
+          </td>
+        </tr>
+      ))}
+    </>
+  );
+}
+
+function JoinedSpecTable({ tables }: { tables: SpecTableBlock[] }) {
+  const [modelA = "", modelB = ""] = tables[0]?.columns ?? [];
   return (
     <section className="my-8">
       <div className="sticky top-14 z-30 -mx-4 border-y border-border bg-bg-primary/95 px-4 backdrop-blur-md">
@@ -114,9 +146,7 @@ function SpecTable({ block }: { block: SpecTableBlock }) {
           <SpecColumns />
           <thead>
             <tr>
-              <th scope="col" className="py-2.5 pr-2 text-left font-serif text-lg font-semibold text-text-primary">
-                {block.title ?? ""}
-              </th>
+              <th scope="col" className="py-2.5" aria-hidden="true" />
               <th scope="col" className="px-4 py-2.5 text-right text-xs font-semibold text-text-primary sm:text-sm">
                 {modelA}
               </th>
@@ -130,23 +160,17 @@ function SpecTable({ block }: { block: SpecTableBlock }) {
       <figure className="mt-4 overflow-x-auto rounded-lg border border-border">
         <table className="w-full table-fixed border-collapse text-sm">
           <SpecColumns />
-          <tbody>
-            {block.rows.map((row, rowIndex) => (
-              <tr key={`${block.id}-${rowIndex}`} className="border-t border-border first:border-t-0">
-                <th scope="row" className="px-4 py-3 text-left align-top font-normal text-text-primary">
-                  {row[0] ?? ""}
-                </th>
-                <td className="px-4 py-3 text-right align-top text-text-secondary">
-                  <SpecCell text={row[1] ?? ""} />
-                </td>
-                <td className="px-4 py-3 text-right align-top text-text-secondary">
-                  <SpecCell text={row[2] ?? ""} />
-                </td>
-              </tr>
-            ))}
-          </tbody>
+          {tables.map((table, tableIndex) => (
+            <tbody key={table.id}>
+              <SpecRows table={table} isFirstTable={tableIndex === 0} />
+            </tbody>
+          ))}
         </table>
-        {block.sourceNote ? <figcaption className="border-t border-border px-4 py-3 text-xs text-text-muted">Source: {block.sourceNote}</figcaption> : null}
+        {tables.some((table) => table.sourceNote) ? (
+          <figcaption className="border-t border-border px-4 py-3 text-xs text-text-muted">
+            {tables.map((table) => table.sourceNote).filter(Boolean).join(" ")}
+          </figcaption>
+        ) : null}
       </figure>
     </section>
   );
@@ -200,16 +224,35 @@ export default function ContentBlocksRenderer({
   glossaryTerms?: GlossaryLink[];
   disableMath?: boolean;
 }) {
+  const nodes: ReactNode[] = [];
+  let cursor = 0;
+  while (cursor < blocks.length) {
+    const block = blocks[cursor];
+    if (!block) break;
+    if (block.type === "spec_table") {
+      const group: SpecTableBlock[] = [];
+      while (cursor < blocks.length) {
+        const next = blocks[cursor];
+        if (!next || next.type !== "spec_table") break;
+        group.push(next);
+        cursor += 1;
+      }
+      nodes.push(<JoinedSpecTable key={group.map((item) => item.id).join("+")} tables={group} />);
+      continue;
+    }
+    if (block.type === "markdown") {
+      nodes.push(<MarkdownRenderer key={block.id} content={block.content} glossaryTerms={glossaryTerms} disableMath={disableMath} />);
+    } else if (block.type === "comparison_table") {
+      nodes.push(<ComparisonTable key={block.id} block={block} />);
+    } else {
+      nodes.push(<GenericChart key={block.id} block={block} />);
+    }
+    cursor += 1;
+  }
+
   return (
     <>
-      {blocks.map((block) => {
-        if (block.type === "markdown") {
-          return <MarkdownRenderer key={block.id} content={block.content} glossaryTerms={glossaryTerms} disableMath={disableMath} />;
-        }
-        if (block.type === "comparison_table") return <ComparisonTable key={block.id} block={block} />;
-        if (block.type === "spec_table") return <SpecTable key={block.id} block={block} />;
-        return <GenericChart key={block.id} block={block} />;
-      })}
+      {nodes}
       <SourcesList sources={sources} />
     </>
   );
