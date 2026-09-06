@@ -18,6 +18,7 @@ const migrations = [
   { id: "012_correct_model_catalog_verification", file: new URL("../db/migrations/012_correct_model_catalog_verification.sql", import.meta.url) },
   { id: "013_expand_model_catalog_modalities", file: new URL("../db/migrations/013_expand_model_catalog_modalities.sql", import.meta.url) },
   { id: "014_canonicalize_existing_comparisons", file: new URL("../db/migrations/014_canonicalize_existing_comparisons.sql", import.meta.url) },
+  { id: "015_comprehensive_model_catalog", file: new URL("../db/migrations/015_comprehensive_model_catalog.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
