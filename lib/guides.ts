@@ -1,6 +1,6 @@
 import "server-only";
 
-import { getContentItem, getContentSummaries, type ContentSummary } from "./content";
+import { getContentItem, getContentSummaries, contentDisplayDate, type ContentSummary } from "./content";
 import type { ContentBlock, Source } from "./content-types";
 
 export interface Guide {
@@ -28,7 +28,7 @@ function asGuide(item: Awaited<ReturnType<typeof getContentItem>> extends infer 
   return {
     title: item.title,
     slug: item.slug,
-    date: item.publishedAt ?? item.updatedAt.slice(0, 10),
+    date: contentDisplayDate(item.publishedAt, item.updatedAt),
     summary: item.summary,
     content: item.body,
     blocks: item.blocks,
@@ -42,7 +42,7 @@ function asGuideSummary(item: ContentSummary): GuideSummary {
   return {
     title: item.title,
     slug: item.slug,
-    date: item.publishedAt ?? item.updatedAt.slice(0, 10),
+    date: contentDisplayDate(item.publishedAt, item.updatedAt),
     summary: item.summary,
     ...(item.coverImageUrl ? { coverImageUrl: item.coverImageUrl } : {}),
     ...(item.coverImageAlt ? { coverImageAlt: item.coverImageAlt } : {}),

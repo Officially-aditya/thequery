@@ -11,9 +11,10 @@ type DashboardData = {
   counts: Record<ContentKind, number>;
 };
 
-const sections: Array<{ kind: "article" | "guide" | "glossary" | "book"; href: string; name: string; detail: string }> = [
+const sections: Array<{ kind: "article" | "guide" | "comparison" | "glossary" | "book"; href: string; name: string; detail: string }> = [
   { kind: "article", href: "/admin/articles", name: "Articles", detail: "News analysis, data stories, and structured sources." },
   { kind: "guide", href: "/admin/guides", name: "Guides", detail: "Evergreen explainers with tables, charts, and citations." },
+  { kind: "comparison", href: "/admin/comparisons", name: "Comparisons", detail: "Side-by-side model and tool comparisons with tables, charts, and citations." },
   { kind: "glossary", href: "/admin/glossary", name: "Glossary", detail: "Definitions, references, related concepts, and SEO." },
   { kind: "book", href: "/admin/books", name: "Books", detail: "Books and their ordered, reader-ready chapters." },
 ];
@@ -69,7 +70,7 @@ export default function AdminPage() {
         <div className="mt-5 rounded-2xl border border-border bg-bg-secondary p-6 sm:p-8">
           <p className="text-xs font-medium uppercase tracking-[0.16em] text-accent">Editorial desk</p>
           <h1 className="mt-2 font-serif text-3xl font-bold text-text-primary">Sign in to publish</h1>
-          <p className="mt-3 text-sm leading-relaxed text-text-secondary">Use the configured editorial account to manage articles, guides, glossary terms, books, charts, tables, and sources.</p>
+          <p className="mt-3 text-sm leading-relaxed text-text-secondary">Use the configured editorial account to manage articles, guides, comparisons, glossary terms, books, charts, tables, and sources.</p>
           <form onSubmit={signIn} className="mt-6 space-y-4">
             <label className="block text-sm font-medium text-text-secondary">Email<input className="mt-1 w-full rounded-md border border-border bg-bg-primary px-3 py-2 text-text-primary outline-none focus:border-accent" type="email" autoComplete="username" value={email} onChange={(event) => setEmail(event.target.value)} required /></label>
             <label className="block text-sm font-medium text-text-secondary">Password<input className="mt-1 w-full rounded-md border border-border bg-bg-primary px-3 py-2 text-text-primary outline-none focus:border-accent" type="password" autoComplete="current-password" value={password} onChange={(event) => setPassword(event.target.value)} required /></label>

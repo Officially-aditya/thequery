@@ -2,7 +2,7 @@ import { markdownBlock, normalizeBlocks, normalizeSources, slugify } from "./con
 import type { ContentKind, ContentStatus, Source } from "./content-types";
 import type { UpsertContentInput } from "./content";
 
-const contentKinds: ContentKind[] = ["article", "guide", "glossary", "book", "chapter"];
+const contentKinds: ContentKind[] = ["article", "guide", "glossary", "book", "chapter", "comparison"];
 
 function object(value: unknown): Record<string, unknown> {
   return value && typeof value === "object" && !Array.isArray(value)
@@ -92,7 +92,7 @@ export function parseContentInput(kind: ContentKind, value: unknown): ParsedCont
   if (!validCoverImageUrl(coverImageUrl)) {
     errors.push("Cover image URL must be an http(s) URL or a site-relative path.");
   }
-  if (status === "published" && ["article", "guide", "glossary", "chapter"].includes(kind) && normalizedBlocks.length === 0) {
+  if (status === "published" && ["article", "guide", "glossary", "chapter", "comparison"].includes(kind) && normalizedBlocks.length === 0) {
     errors.push("Published content needs at least one content block.");
   }
 

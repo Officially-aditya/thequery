@@ -27,6 +27,8 @@ const nextConfig: NextConfig = {
       { source: "/articles/claude-code-moat-disappeared", destination: "/articles/the-day-claude-codes-moat-disappeared", permanent: true },
       { source: "/articles/mcp-anthropic-standard-tools", destination: "/glossary/mcp", permanent: true },
       { source: "/articles/web3-iot-ai-operating-system", destination: "/articles/the-next-layer-how-ai-is-moving-from-your-screen-to-your-world", permanent: true },
+      { source: "/comparisions", destination: "/comparisons", permanent: true },
+      { source: "/comparisions/:slug", destination: "/comparisons/:slug", permanent: true },
     ];
   },
   async headers() {

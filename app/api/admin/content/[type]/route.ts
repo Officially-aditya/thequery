@@ -31,6 +31,9 @@ function revalidateContent(kind: ContentKind, slug: string, parentSlug?: string 
   } else if (kind === "guide") {
     revalidatePath("/guides");
     revalidatePath(`/guides/${slug}`);
+  } else if (kind === "comparison") {
+    revalidatePath("/comparisons");
+    revalidatePath(`/comparisons/${slug}`);
   } else if (kind === "glossary") {
     revalidatePath("/glossary");
     revalidatePath(`/glossary/${slug}`);

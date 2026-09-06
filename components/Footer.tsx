@@ -15,6 +15,7 @@ export default function Footer() {
             <p className="font-serif text-base font-semibold text-text-primary">Explore</p>
             <Link href="/books" className="hover:text-text-secondary transition-colors">Books</Link>
             <Link href="/guides" className="hover:text-text-secondary transition-colors">Guides</Link>
+            <Link href="/comparisons" className="hover:text-text-secondary transition-colors">Comparisons</Link>
             <Link href="/glossary" className="hover:text-text-secondary transition-colors">Glossary</Link>
             <Link href="/articles" className="hover:text-text-secondary transition-colors">Articles</Link>
           </nav>

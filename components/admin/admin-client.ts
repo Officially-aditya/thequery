@@ -119,7 +119,7 @@ export function toContentListItem(item: ContentItem): ContentListItem {
   };
 }
 
-export function publicHref(kind: "article" | "guide" | "glossary" | "book", slug: string): string {
+export function publicHref(kind: "article" | "guide" | "comparison" | "glossary" | "book", slug: string): string {
   const prefix = kind === "glossary" ? "/glossary" : `/${kind}s`;
   return `${prefix}/${slug}`;
 }

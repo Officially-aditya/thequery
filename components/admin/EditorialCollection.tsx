@@ -10,7 +10,7 @@ import SourcesEditor from "./SourcesEditor";
 
 const fieldClass = "w-full rounded-md border border-border bg-bg-primary px-3 py-2 text-sm text-text-primary outline-none focus:border-accent";
 
-type CollectionKind = "article" | "guide";
+type CollectionKind = "article" | "guide" | "comparison";
 
 export default function EditorialCollection({ kind, noun, description }: { kind: CollectionKind; noun: string; description: string }) {
   const [items, setItems] = useState<ContentListItem[]>([]);

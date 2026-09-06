@@ -30,6 +30,11 @@ export default async function Home() {
       href: "/guides",
     },
     {
+      title: "Comparisons",
+      description: "Side-by-side comparisons of AI models, tools, and approaches - evidence over hype.",
+      href: "/comparisons",
+    },
+    {
       title: "Glossary",
       description: `${glossaryCount}+ AI and ML terms explained clearly - from backpropagation to knowledge graphs, always up to date.`,
       href: "/glossary",

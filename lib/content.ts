@@ -29,10 +29,10 @@ interface ContentRow {
   cover_image_url: string | null;
   cover_image_alt: string | null;
   status: ContentStatus;
-  published_at: string | null;
+  published_at: string | Date | null;
   sort_order: number;
   created_at: string;
-  updated_at: string;
+  updated_at: string | Date;
 }
 
 type ContentSummaryRow = Pick<
@@ -117,6 +117,24 @@ function toObject(value: unknown): Record<string, unknown> {
     : {};
 }
 
+// The Neon driver returns DATE / TIMESTAMPTZ columns as Date objects, while
+// older rows and JSON seeds surface them as strings. Normalize both shapes to
+// a YYYY-MM-DD string so public pages never crash on `.slice()` when a row
+// has no publish date (e.g. drafts or backfilled records).
+function toDateOnly(value: unknown): string | null {
+  if (value instanceof Date) {
+    return Number.isNaN(value.getTime()) ? null : value.toISOString().slice(0, 10);
+  }
+  if (typeof value === "string" && value.trim()) {
+    return value.slice(0, 10);
+  }
+  return null;
+}
+
+export function contentDisplayDate(publishedAt: string | null, updatedAt: string): string {
+  return publishedAt ?? updatedAt.slice(0, 10) ?? new Date().toISOString().slice(0, 10);
+}
+
 function toContentItem(row: ContentRow): ContentItem {
   return {
     id: row.id,
@@ -133,10 +151,10 @@ function toContentItem(row: ContentRow): ContentItem {
     coverImageUrl: row.cover_image_url ?? null,
     coverImageAlt: row.cover_image_alt ?? null,
     status: row.status,
-    publishedAt: row.published_at,
+    publishedAt: toDateOnly(row.published_at),
     sortOrder: row.sort_order,
     createdAt: row.created_at,
-    updatedAt: row.updated_at,
+    updatedAt: toDateOnly(row.updated_at) ?? new Date().toISOString().slice(0, 10),
   };
 }
 
@@ -153,10 +171,10 @@ function toContentSummary(row: ContentSummaryRow): ContentSummary {
     coverImageUrl: row.cover_image_url ?? null,
     coverImageAlt: row.cover_image_alt ?? null,
     status: row.status,
-    publishedAt: row.published_at,
+    publishedAt: toDateOnly(row.published_at),
     sortOrder: row.sort_order,
     createdAt: row.created_at,
-    updatedAt: row.updated_at,
+    updatedAt: toDateOnly(row.updated_at) ?? new Date().toISOString().slice(0, 10),
   };
 }
 
@@ -362,6 +380,7 @@ export async function getContentCounts(): Promise<Record<ContentKind, number>> {
     glossary: 0,
     book: 0,
     chapter: 0,
+    comparison: 0,
   };
   for (const row of rows as Array<{ kind: ContentKind; count: number }>) {
     counts[row.kind] = Number(row.count);

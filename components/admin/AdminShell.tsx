@@ -9,6 +9,7 @@ const navigation = [
   { href: "/admin", label: "Overview" },
   { href: "/admin/articles", label: "Articles" },
   { href: "/admin/guides", label: "Guides" },
+  { href: "/admin/comparisons", label: "Comparisons" },
   { href: "/admin/glossary", label: "Glossary" },
   { href: "/admin/books", label: "Books" },
 ];

@@ -1,4 +1,4 @@
-export type ContentKind = "article" | "guide" | "glossary" | "book" | "chapter";
+export type ContentKind = "article" | "guide" | "glossary" | "book" | "chapter" | "comparison";
 export type ContentStatus = "draft" | "published";
 
 export interface Source {

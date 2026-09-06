@@ -3,7 +3,7 @@ import "server-only";
 import { getContentItem, getContentSummaries, contentDisplayDate, type ContentSummary } from "./content";
 import type { ContentBlock, Source } from "./content-types";
 
-export interface Article {
+export interface Comparison {
   title: string;
   slug: string;
   date: string;
@@ -13,10 +13,9 @@ export interface Article {
   sources: Source[];
   coverImageUrl?: string;
   coverImageAlt?: string;
-  manualGlossaryLinks?: boolean;
 }
 
-export interface ArticleSummary {
+export interface ComparisonSummary {
   title: string;
   slug: string;
   date: string;
@@ -25,7 +24,7 @@ export interface ArticleSummary {
   coverImageAlt?: string;
 }
 
-function asArticle(item: Awaited<ReturnType<typeof getContentItem>> extends infer T ? Exclude<T, null> : never): Article {
+function asComparison(item: Awaited<ReturnType<typeof getContentItem>> extends infer T ? Exclude<T, null> : never): Comparison {
   return {
     title: item.title,
     slug: item.slug,
@@ -36,11 +35,10 @@ function asArticle(item: Awaited<ReturnType<typeof getContentItem>> extends infe
     sources: item.sources,
     ...(item.coverImageUrl ? { coverImageUrl: item.coverImageUrl } : {}),
     ...(item.coverImageAlt ? { coverImageAlt: item.coverImageAlt } : {}),
-    manualGlossaryLinks: item.metadata.manualGlossaryLinks === true,
   };
 }
 
-function asArticleSummary(item: ContentSummary): ArticleSummary {
+function asComparisonSummary(item: ContentSummary): ComparisonSummary {
   return {
     title: item.title,
     slug: item.slug,
@@ -51,14 +49,14 @@ function asArticleSummary(item: ContentSummary): ArticleSummary {
   };
 }
 
-export async function getAllIssues(): Promise<ArticleSummary[]> {
-  const items = await getContentSummaries("article");
+export async function getAllComparisons(): Promise<ComparisonSummary[]> {
+  const items = await getContentSummaries("comparison");
   return items
-    .map(asArticleSummary)
+    .map(asComparisonSummary)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
-export async function getIssueBySlug(slug: string): Promise<Article | null> {
-  const item = await getContentItem("article", slug);
-  return item ? asArticle(item) : null;
+export async function getComparisonBySlug(slug: string): Promise<Comparison | null> {
+  const item = await getContentItem("comparison", slug);
+  return item ? asComparison(item) : null;
 }
