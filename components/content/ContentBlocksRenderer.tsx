@@ -16,9 +16,17 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import type { ReactNode } from "react";
 import MarkdownRenderer, { type GlossaryLink } from "@/components/MarkdownRenderer";
+import ModelHeaderSelect, { type ExistingComparisonPair, type PublicModelOption } from "@/components/comparisons/ModelPicker";
 import type { ChartBlock, ComparisonTableBlock, ContentBlock, Source, SpecTableBlock } from "@/lib/content-types";
 
 const chartColors = ["#2563eb", "#0d9488", "#d97706", "#7c3aed", "#dc2626"];
+
+export type ComparisonPickerData = {
+  models: PublicModelOption[];
+  comparisons: ExistingComparisonPair[];
+  modelA: string;
+  modelB: string;
+};
 
 export function SourcesList({ sources }: { sources: Source[] }) {
   if (sources.length === 0) return null;
@@ -106,7 +114,19 @@ export function SpecColumns() {
   );
 }
 
-function SpecRows({ table, isFirstTable, modelA = "", modelB = "" }: { table: SpecTableBlock; isFirstTable: boolean; modelA?: string; modelB?: string }) {
+function SpecRows({
+  table,
+  isFirstTable,
+  modelA = "",
+  modelB = "",
+  comparisonPicker,
+}: {
+  table: SpecTableBlock;
+  isFirstTable: boolean;
+  modelA?: string;
+  modelB?: string;
+  comparisonPicker?: ComparisonPickerData;
+}) {
   return (
     <>
       {isFirstTable ? (
@@ -114,11 +134,27 @@ function SpecRows({ table, isFirstTable, modelA = "", modelB = "" }: { table: Sp
           <th scope="col" className="sticky top-14 z-10 truncate bg-bg-secondary px-4 text-left font-serif text-base font-semibold text-text-primary">
             {table.title ?? ""}
           </th>
-          <th scope="col" title={modelA} className="sticky top-14 z-30 truncate bg-bg-secondary px-4 text-right text-xs font-semibold text-text-primary sm:text-sm">
-            {modelA}
+          <th scope="col" title={modelA} className="sticky top-14 z-30 bg-bg-secondary px-4 text-right text-xs font-semibold text-text-primary sm:text-sm">
+            {comparisonPicker ? (
+              <ModelHeaderSelect
+                side="a"
+                models={comparisonPicker.models}
+                comparisons={comparisonPicker.comparisons}
+                modelA={comparisonPicker.modelA}
+                modelB={comparisonPicker.modelB}
+              />
+            ) : modelA}
           </th>
-          <th scope="col" title={modelB} className="sticky top-14 z-30 truncate bg-bg-secondary px-4 text-right text-xs font-semibold text-text-primary sm:text-sm">
-            {modelB}
+          <th scope="col" title={modelB} className="sticky top-14 z-30 bg-bg-secondary px-4 text-right text-xs font-semibold text-text-primary sm:text-sm">
+            {comparisonPicker ? (
+              <ModelHeaderSelect
+                side="b"
+                models={comparisonPicker.models}
+                comparisons={comparisonPicker.comparisons}
+                modelA={comparisonPicker.modelA}
+                modelB={comparisonPicker.modelB}
+              />
+            ) : modelB}
           </th>
         </tr>
       ) : table.title ? (
@@ -147,7 +183,7 @@ function SpecRows({ table, isFirstTable, modelA = "", modelB = "" }: { table: Sp
   );
 }
 
-function JoinedSpecTable({ tables }: { tables: SpecTableBlock[] }) {
+function JoinedSpecTable({ tables, comparisonPicker }: { tables: SpecTableBlock[]; comparisonPicker?: ComparisonPickerData }) {
   const [modelA = "", modelB = ""] = tables[0]?.columns ?? [];
   return (
     <section className="my-8">
@@ -156,7 +192,14 @@ function JoinedSpecTable({ tables }: { tables: SpecTableBlock[] }) {
           <SpecColumns />
           <tbody>
             {tables.map((table, tableIndex) => (
-              <SpecRows key={table.id} table={table} isFirstTable={tableIndex === 0} modelA={modelA} modelB={modelB} />
+              <SpecRows
+                key={table.id}
+                table={table}
+                isFirstTable={tableIndex === 0}
+                modelA={modelA}
+                modelB={modelB}
+                comparisonPicker={comparisonPicker}
+              />
             ))}
           </tbody>
         </table>
@@ -207,11 +250,13 @@ export default function ContentBlocksRenderer({
   sources = [],
   glossaryTerms = [],
   disableMath = false,
+  comparisonPicker,
 }: {
   blocks: ContentBlock[];
   sources?: Source[];
   glossaryTerms?: GlossaryLink[];
   disableMath?: boolean;
+  comparisonPicker?: ComparisonPickerData;
 }) {
   const nodes: ReactNode[] = [];
   let cursor = 0;
@@ -226,7 +271,7 @@ export default function ContentBlocksRenderer({
         group.push(next);
         cursor += 1;
       }
-      nodes.push(<JoinedSpecTable key={group.map((item) => item.id).join("+")} tables={group} />);
+      nodes.push(<JoinedSpecTable key={group.map((item) => item.id).join("+")} tables={group} comparisonPicker={comparisonPicker} />);
       continue;
     }
     if (block.type === "markdown") {
