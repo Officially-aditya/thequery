@@ -16,6 +16,8 @@ test("model catalog migration is registered and seeds the verified 2026 catalog"
   ]);
 
   assert.match(runner, /011_model_catalog/);
+  assert.match(runner, /012_correct_model_catalog_verification/);
+  assert.match(runner, /013_expand_model_catalog_modalities/);
   assert.match(migration, /CREATE TABLE IF NOT EXISTS models/);
   assert.match(migration, /comparison_data JSONB NOT NULL/);
   assert.match(migration, /sources JSONB NOT NULL/);
@@ -62,6 +64,24 @@ test("model catalog migration is registered and seeds the verified 2026 catalog"
   ]) {
     assert.ok(models.some((model) => model.name === expected), `${expected} should be seeded`);
   }
+});
+
+test("follow-up verification migrations correct licenses and add later verified launches", async () => {
+  const [corrections, expansion, template] = await Promise.all([
+    source("db/migrations/012_correct_model_catalog_verification.sql"),
+    source("db/migrations/013_expand_model_catalog_modalities.sql"),
+    source("components/admin/admin-client.ts"),
+  ]);
+
+  assert.match(corrections, /DATE '2026-04-28'/);
+  assert.match(corrections, /Open weights — Modified MIT/);
+  assert.match(corrections, /GLM-5\.1 official weights/);
+  assert.match(corrections, /Open source weights — MIT/);
+  assert.match(expansion, /Gemini Omni 1\.1 Flash/);
+  assert.match(expansion, /Qwen3\.8-27B/);
+  assert.match(expansion, /Open source — Apache 2\.0/);
+  assert.match(template, /\["Image output", "", ""\]/);
+  assert.match(template, /\["Video output", "", ""\]/);
 });
 
 test("comparison editor loads catalog models and materializes them into spec blocks", async () => {
