@@ -63,13 +63,85 @@ export function markdownBlock(content = ""): ContentBlock {
   return { id: `markdown-${Date.now()}`, type: "markdown", content };
 }
 
-export function newContent(metadata: Record<string, unknown> = {}): EditableContent {
+export function comparisonTemplateBlocks(): ContentBlock[] {
+  const id = Date.now();
+  const columns = ["Model A", "Model B"];
+  return [
+    {
+      id: `spec-${id}-specifications`,
+      type: "spec_table",
+      title: "Specifications",
+      columns,
+      rows: [
+        ["Developer", "", ""],
+        ["Release date", "", ""],
+        ["API model ID", "", ""],
+        ["Context window", "", ""],
+        ["Max output", "", ""],
+        ["Knowledge cutoff", "", ""],
+        ["Reasoning / effort", "", ""],
+      ],
+    },
+    {
+      id: `spec-${id}-pricing`,
+      type: "spec_table",
+      title: "Pricing",
+      columns,
+      rows: [
+        ["Input / 1M tokens", "", ""],
+        ["Cached input / 1M", "", ""],
+        ["Cache write / 1M", "", ""],
+        ["Output / 1M tokens", "", ""],
+        ["Batch / flex discount", "", ""],
+        ["Long-context surcharge", "", ""],
+      ],
+    },
+    {
+      id: `spec-${id}-capabilities-access`,
+      type: "spec_table",
+      title: "Capabilities & access",
+      columns,
+      rows: [
+        ["Text input", "", ""],
+        ["Image / vision input", "", ""],
+        ["Audio input", "", ""],
+        ["Video input", "", ""],
+        ["Text output", "", ""],
+        ["Audio output", "", ""],
+        ["Tool / function calling", "", ""],
+        ["Computer use", "", ""],
+        ["API access", "", ""],
+        ["Product access", "", ""],
+        ["Weights / license", "", ""],
+      ],
+    },
+    {
+      id: `spec-${id}-benchmarks`,
+      type: "spec_table",
+      title: "Benchmarks",
+      columns,
+      rows: [
+        ["Overall / intelligence index", "", ""],
+        ["Coding", "", ""],
+        ["Reasoning", "", ""],
+        ["Agentic / computer use", "", ""],
+      ],
+    },
+    {
+      id: `markdown-${id}-verdict`,
+      type: "markdown",
+      content: "## Bottom line\n\n",
+    },
+  ];
+}
+
+export function newContent(metadata: Record<string, unknown> = {}, blocks?: ContentBlock[]): EditableContent {
   return {
     title: "",
     slug: "",
     summary: "",
     body: "",
-    blocks: [markdownBlock()],
+    blocks: blocks ?? [markdownBlock()],
     sources: [],
     metadata,
     coverImageUrl: "",
