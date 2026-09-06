@@ -56,11 +56,13 @@ WITH labels(section_order, section_title, label_order, label) AS (
     (7, 'Agentic & computer use', 2, 'OSWorld-Verified'),
     (7, 'Agentic & computer use', 3, 'OSWorld 2.0'),
     (7, 'Agentic & computer use', 4, 'BrowseComp'),
-    (7, 'Agentic & computer use', 5, 'GDPval-AA v2'),
-    (7, 'Agentic & computer use', 6, 'AutomationBench'),
-    (7, 'Agentic & computer use', 7, 'Agents'' Last Exam'),
-    (7, 'Agentic & computer use', 8, 'MCP Atlas'),
-    (7, 'Agentic & computer use', 9, 'MCP / tool-use benchmark')
+    (7, 'Agentic & computer use', 5, 'GDPval-AA'),
+    (7, 'Agentic & computer use', 6, 'GDPval-AA v2'),
+    (7, 'Agentic & computer use', 7, 'AutomationBench'),
+    (7, 'Agentic & computer use', 8, 'Agents'' Last Exam'),
+    (7, 'Agentic & computer use', 9, 'MCP Atlas'),
+    (7, 'Agentic & computer use', 10, 'Toolathlon'),
+    (7, 'Agentic & computer use', 11, 'MCP / tool-use benchmark')
 ),
 benchmark_rendered AS (
   SELECT
