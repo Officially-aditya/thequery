@@ -38,16 +38,23 @@ test("new comparisons use the standard spec template", async () => {
     "Audio input",
     "Video input",
     "Text output",
+    "Image output",
     "Audio output",
+    "Video output",
     "Tool / function calling",
     "Computer use",
     "API access",
     "Product access",
     "Weights / license",
     "SWE-bench Verified",
-    "AIME",
+    "DeepSWE v1.1",
+    "Terminal-Bench 2.1",
+    "Terminal-Bench 4.0",
+    "FrontierMath",
     "GPQA Diamond",
-    "OSWorld",
+    "HLE-Verified",
+    "OSWorld 2.0",
+    "GDPval-AA v2",
   ]) {
     assert.match(client, new RegExp(row.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
   }
@@ -74,4 +81,29 @@ test("the existing Fable Astra comparison gets capabilities immediately after pr
   assert.match(comparisons, /pricingIndex \+ 1/);
   assert.match(comparisons, /title: "Capabilities & access"/);
   assert.match(comparisons, /alreadyHasCapabilities/);
+});
+
+test("existing model comparisons are migrated to the same canonical layout", async () => {
+  const [runner, migration] = await Promise.all([
+    source("scripts/migrate.mjs"),
+    source("db/migrations/014_canonicalize_existing_comparisons.sql"),
+  ]);
+
+  assert.match(runner, /014_canonicalize_existing_comparisons/);
+  assert.match(migration, /split_part\(c\.title, ' vs ', 1\)/);
+  assert.match(migration, /split_part\(c\.title, ' vs ', 2\)/);
+  assert.match(migration, /m\.slug = c\.metadata->>'modelA'/);
+  assert.match(migration, /m\.slug = c\.metadata->>'modelB'/);
+  assert.match(migration, /NULLIF\(er\.values_by_label->lower\(l\.label\)->>0, ''\)/);
+  assert.match(migration, /p\.model_a_data->>l\.label/);
+  assert.match(migration, /'Capabilities & access'/);
+  assert.match(migration, /'Coding'/);
+  assert.match(migration, /'Math & reasoning'/);
+  assert.match(migration, /'Knowledge'/);
+  assert.match(migration, /'Agentic & computer use'/);
+  assert.match(migration, /'DeepSWE v1\.1'/);
+  assert.match(migration, /'Terminal-Bench 4\.0'/);
+  assert.match(migration, /'OSWorld 2\.0'/);
+  assert.match(migration, /'GDPval-AA v2'/);
+  assert.match(migration, /'markdown-canonical-bottom-line'/);
 });
