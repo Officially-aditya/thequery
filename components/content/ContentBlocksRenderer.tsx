@@ -133,7 +133,7 @@ function SpecTable({ block }: { block: SpecTableBlock }) {
           <tbody>
             {block.rows.map((row, rowIndex) => (
               <tr key={`${block.id}-${rowIndex}`} className="border-t border-border first:border-t-0">
-                <th scope="row" className="px-4 py-3 text-left align-top font-normal text-text-muted">
+                <th scope="row" className="px-4 py-3 text-left align-top font-normal text-text-primary">
                   {row[0] ?? ""}
                 </th>
                 <td className="px-4 py-3 text-right align-top text-text-secondary">
