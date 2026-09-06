@@ -27,6 +27,7 @@ const migrations = [
   { id: "021_enrich_muse_family", file: new URL("../db/migrations/021_enrich_muse_family.sql", import.meta.url) },
   { id: "022_refresh_enriched_comparisons", file: new URL("../db/migrations/022_refresh_enriched_comparisons.sql", import.meta.url) },
   { id: "023_backfill_agentic_benchmark_labels", file: new URL("../db/migrations/023_backfill_agentic_benchmark_labels.sql", import.meta.url) },
+  { id: "024_simplify_benchmark_display", file: new URL("../db/migrations/024_simplify_benchmark_display.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
