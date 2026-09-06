@@ -11,6 +11,8 @@ export interface Comparison {
   content: string;
   blocks: ContentBlock[];
   sources: Source[];
+  modelA?: string;
+  modelB?: string;
   coverImageUrl?: string;
   coverImageAlt?: string;
 }
@@ -20,8 +22,15 @@ export interface ComparisonSummary {
   slug: string;
   date: string;
   summary: string;
+  modelA?: string;
+  modelB?: string;
   coverImageUrl?: string;
   coverImageAlt?: string;
+}
+
+function metadataModelSlug(metadata: Record<string, unknown>, key: "modelA" | "modelB"): string | undefined {
+  const value = metadata[key];
+  return typeof value === "string" && value.trim() ? value.trim() : undefined;
 }
 
 function withFlagshipCapabilities(title: string, blocks: ContentBlock[]): ContentBlock[] {
@@ -68,6 +77,8 @@ function withFlagshipCapabilities(title: string, blocks: ContentBlock[]): Conten
 }
 
 function asComparison(item: Awaited<ReturnType<typeof getContentItem>> extends infer T ? Exclude<T, null> : never): Comparison {
+  const modelA = metadataModelSlug(item.metadata, "modelA");
+  const modelB = metadataModelSlug(item.metadata, "modelB");
   return {
     title: item.title,
     slug: item.slug,
@@ -76,17 +87,23 @@ function asComparison(item: Awaited<ReturnType<typeof getContentItem>> extends i
     content: item.body,
     blocks: withFlagshipCapabilities(item.title, item.blocks),
     sources: item.sources,
+    ...(modelA ? { modelA } : {}),
+    ...(modelB ? { modelB } : {}),
     ...(item.coverImageUrl ? { coverImageUrl: item.coverImageUrl } : {}),
     ...(item.coverImageAlt ? { coverImageAlt: item.coverImageAlt } : {}),
   };
 }
 
 function asComparisonSummary(item: ContentSummary): ComparisonSummary {
+  const modelA = metadataModelSlug(item.metadata, "modelA");
+  const modelB = metadataModelSlug(item.metadata, "modelB");
   return {
     title: item.title,
     slug: item.slug,
     date: contentDisplayDate(item.publishedAt, item.updatedAt),
     summary: item.summary,
+    ...(modelA ? { modelA } : {}),
+    ...(modelB ? { modelB } : {}),
     ...(item.coverImageUrl ? { coverImageUrl: item.coverImageUrl } : {}),
     ...(item.coverImageAlt ? { coverImageAlt: item.coverImageAlt } : {}),
   };
