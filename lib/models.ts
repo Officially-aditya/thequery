@@ -73,14 +73,16 @@ function sources(value: unknown): Source[] {
 
 function benchmarkValue(row: BenchmarkRow): string {
   const qualifiers: string[] = [];
-  if (row.benchmark_version && !row.benchmark_name.toLowerCase().includes(row.benchmark_version.toLowerCase())) {
+  if (
+    row.benchmark_version
+    && row.benchmark_version.trim().toLowerCase() !== "public"
+    && !row.benchmark_name.toLowerCase().includes(row.benchmark_version.toLowerCase())
+  ) {
     qualifiers.push(row.benchmark_version);
   }
   if (row.tools === true) qualifiers.push("tools");
   if (row.tools === false) qualifiers.push("no tools");
   if (row.reasoning_effort) qualifiers.push(row.reasoning_effort);
-  if (row.harness) qualifiers.push(row.harness);
-  if (row.evaluator) qualifiers.push(row.evaluator);
   return qualifiers.length > 0 ? `${row.score_display} (${qualifiers.join("; ")})` : row.score_display;
 }
 
