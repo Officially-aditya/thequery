@@ -125,8 +125,12 @@ export function comparisonTemplateBlocks(): ContentBlock[] {
       rows: [
         ["SWE-bench Verified", "", ""],
         ["SWE-bench Pro", "", ""],
+        ["DeepSWE v1.1", "", ""],
+        ["Terminal-Bench 2.1", "", ""],
+        ["Terminal-Bench 4.0", "", ""],
         ["Terminal-Bench", "", ""],
         ["LiveCodeBench", "", ""],
+        ["CursorBench", "", ""],
       ],
     },
     {
@@ -138,6 +142,7 @@ export function comparisonTemplateBlocks(): ContentBlock[] {
         ["AIME", "", ""],
         ["HMMT", "", ""],
         ["ARC-AGI", "", ""],
+        ["FrontierMath", "", ""],
       ],
     },
     {
@@ -148,6 +153,7 @@ export function comparisonTemplateBlocks(): ContentBlock[] {
       rows: [
         ["GPQA Diamond", "", ""],
         ["Humanity's Last Exam", "", ""],
+        ["HLE-Verified", "", ""],
         ["MMLU-Pro", "", ""],
       ],
     },
@@ -158,7 +164,9 @@ export function comparisonTemplateBlocks(): ContentBlock[] {
       columns,
       rows: [
         ["OSWorld", "", ""],
+        ["OSWorld 2.0", "", ""],
         ["BrowseComp", "", ""],
+        ["GDPval-AA v2", "", ""],
         ["MCP / tool-use benchmark", "", ""],
       ],
     },
