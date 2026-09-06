@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ContentBlocksRenderer from "@/components/content/ContentBlocksRenderer";
-import ModelPicker, { type ExistingComparisonPair, type PublicModelOption } from "@/components/comparisons/ModelPicker";
 import { getAllComparisons } from "@/lib/comparisons";
 import { getGlossaryIndex } from "@/lib/glossary";
 import { buildModelComparisonBlocks, modelComparisonSources } from "@/lib/model-comparison";
@@ -14,16 +13,6 @@ type Props = {
 };
 
 export const revalidate = 300;
-
-function modelOptions(models: Awaited<ReturnType<typeof getModels>>): PublicModelOption[] {
-  return models.map(({ slug, name, developer, access }) => ({ slug, name, developer, access }));
-}
-
-function comparisonPairs(comparisons: Awaited<ReturnType<typeof getAllComparisons>>): ExistingComparisonPair[] {
-  return comparisons.flatMap((comparison) => comparison.modelA && comparison.modelB
-    ? [{ modelA: comparison.modelA, modelB: comparison.modelB, slug: comparison.slug }]
-    : []);
-}
 
 export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
   const { modelA: modelASlug, modelB: modelBSlug } = await searchParams;
@@ -61,6 +50,10 @@ export default async function DatabaseComparisonPage({ searchParams }: Props) {
   const title = `${modelA.name} vs ${modelB.name}`;
   const blocks = buildModelComparisonBlocks(modelA, modelB);
   const sources = modelComparisonSources(modelA, modelB);
+  const modelOptions = models.map(({ slug, name, developer, access }) => ({ slug, name, developer, access }));
+  const comparisonPairs = comparisons.flatMap((comparison) => comparison.modelA && comparison.modelB
+    ? [{ modelA: comparison.modelA, modelB: comparison.modelB, slug: comparison.slug }]
+    : []);
 
   return (
     <div className="mx-auto max-w-[720px] px-4 py-12">
@@ -69,18 +62,18 @@ export default async function DatabaseComparisonPage({ searchParams }: Props) {
       </Link>
 
       <h1 className="mb-2 font-serif text-3xl font-bold text-text-primary">{title}</h1>
-      <p className="mb-6 text-sm leading-relaxed text-text-secondary">
-        Database comparison using TheQuery&apos;s verified model catalog and benchmark evidence.
-      </p>
 
-      <ModelPicker
-        models={modelOptions(models)}
-        comparisons={comparisonPairs(comparisons)}
-        initialModelA={modelA.slug}
-        initialModelB={modelB.slug}
+      <ContentBlocksRenderer
+        blocks={blocks}
+        sources={sources}
+        glossaryTerms={glossaryTerms}
+        comparisonPicker={{
+          models: modelOptions,
+          comparisons: comparisonPairs,
+          modelA: modelA.slug,
+          modelB: modelB.slug,
+        }}
       />
-
-      <ContentBlocksRenderer blocks={blocks} sources={sources} glossaryTerms={glossaryTerms} />
     </div>
   );
 }
