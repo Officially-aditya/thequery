@@ -86,6 +86,38 @@ function ComparisonTable({ block }: { block: ComparisonTableBlock }) {
   );
 }
 
+export function compactTokenCounts(text: string): string {
+  const binaryLabels = new Map<number, string>([
+    [1_048_576, "1M"],
+    [131_072, "128K"],
+    [65_536, "64K"],
+    [32_768, "32K"],
+    [16_384, "16K"],
+    [8_192, "8K"],
+    [4_096, "4K"],
+    [2_048, "2K"],
+    [1_024, "1K"],
+  ]);
+
+  return text.replace(
+    /\b(\d{1,3}(?:,\d{3})+)\s+((?:input|output)\s+)?tokens\b/gi,
+    (match, rawValue: string, qualifier: string | undefined) => {
+      const value = Number(rawValue.replaceAll(",", ""));
+      if (!Number.isFinite(value)) return match;
+
+      let compact = binaryLabels.get(value);
+      if (!compact && value >= 1_000_000) {
+        compact = `${Number((value / 1_000_000).toFixed(2))}M`;
+      } else if (!compact && value >= 1_000 && value % 1_000 === 0) {
+        compact = `${value / 1_000}K`;
+      }
+      if (!compact) return match;
+
+      return `${compact} ${qualifier ?? ""}tokens`;
+    },
+  );
+}
+
 function SpecCell({ text }: { text: string }) {
   if (!text.trim()) return null;
   return (
@@ -99,7 +131,7 @@ function SpecCell({ text }: { text: string }) {
         a: ({ children }) => <>{children}</>,
       }}
     >
-      {text}
+      {compactTokenCounts(text)}
     </ReactMarkdown>
   );
 }
