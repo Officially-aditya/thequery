@@ -106,27 +106,15 @@ export function SpecColumns() {
   );
 }
 
-function SpecRows({ table, isFirstTable, modelA = "", modelB = "" }: { table: SpecTableBlock; isFirstTable: boolean; modelA?: string; modelB?: string }) {
+function SpecRows({ table, isFirstTable }: { table: SpecTableBlock; isFirstTable: boolean }) {
   return (
     <>
-      {isFirstTable ? (
-        <tr>
-          <th scope="col" className="sticky top-14 z-10 bg-bg-secondary px-4 py-2.5 text-left font-serif text-base font-semibold text-text-primary">
-            {table.title ?? ""}
-          </th>
-          <th scope="col" className="sticky top-14 z-10 bg-bg-secondary px-4 py-2.5 text-right text-xs font-semibold text-text-primary sm:text-sm">
-            {modelA}
-          </th>
-          <th scope="col" className="sticky top-14 z-10 bg-bg-secondary px-4 py-2.5 text-right text-xs font-semibold text-text-primary sm:text-sm">
-            {modelB}
-          </th>
-        </tr>
-      ) : table.title ? (
+      {table.title ? (
         <tr>
           <th
             colSpan={3}
             scope="colgroup"
-            className="sticky top-14 z-10 border-t border-border bg-bg-secondary px-4 py-2.5 text-left font-serif text-base font-semibold text-text-primary"
+            className={`sticky top-[104px] z-10 bg-bg-secondary px-4 py-2.5 text-left font-serif text-base font-semibold text-text-primary ${isFirstTable ? "" : "border-t border-border"}`}
           >
             {table.title}
           </th>
@@ -156,9 +144,22 @@ function JoinedSpecTable({ tables }: { tables: SpecTableBlock[] }) {
       <figure className="rounded-lg border border-border">
         <table className="w-full table-fixed border-collapse text-sm">
           <SpecColumns />
+          {modelA && modelB ? (
+            <thead>
+              <tr className="h-12">
+                <th scope="col" aria-hidden="true" className="sticky top-14 z-20 bg-bg-primary" />
+                <th scope="col" title={modelA} className="sticky top-14 z-20 truncate bg-bg-primary px-4 text-right text-xs font-semibold text-text-primary sm:text-sm">
+                  {modelA}
+                </th>
+                <th scope="col" title={modelB} className="sticky top-14 z-20 truncate bg-bg-primary px-4 text-right text-xs font-semibold text-text-primary sm:text-sm">
+                  {modelB}
+                </th>
+              </tr>
+            </thead>
+          ) : null}
           {tables.map((table, tableIndex) => (
             <tbody key={table.id}>
-              <SpecRows table={table} isFirstTable={tableIndex === 0} modelA={modelA} modelB={modelB} />
+              <SpecRows table={table} isFirstTable={tableIndex === 0} />
             </tbody>
           ))}
         </table>
