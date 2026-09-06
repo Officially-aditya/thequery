@@ -56,9 +56,10 @@ test("new comparisons use the standard spec template", async () => {
 });
 
 test("the existing Fable Astra comparison gets capabilities immediately after pricing", async () => {
-  const [runner, migration] = await Promise.all([
+  const [runner, migration, comparisons] = await Promise.all([
     source("scripts/migrate.mjs"),
     source("db/migrations/010_comparison_template_capabilities.sql"),
+    source("lib/comparisons.ts"),
   ]);
 
   assert.match(runner, /010_comparison_template_capabilities/);
@@ -68,4 +69,9 @@ test("the existing Fable Astra comparison gets capabilities immediately after pr
   assert.match(migration, /comparison\.title ILIKE '%Astra%'/);
   assert.match(migration, /'Image \/ vision input'/);
   assert.match(migration, /'Weights \/ license'/);
+
+  assert.match(comparisons, /function withFlagshipCapabilities/);
+  assert.match(comparisons, /pricingIndex \+ 1/);
+  assert.match(comparisons, /title: "Capabilities & access"/);
+  assert.match(comparisons, /alreadyHasCapabilities/);
 });
