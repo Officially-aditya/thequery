@@ -96,7 +96,7 @@ function withBenchmarks(base: Record<string, string>, rows: BenchmarkRow[]): Rec
     grouped.set(row.benchmark_name, values);
   }
   for (const [name, values] of grouped) {
-    if (!next[name] && values.length > 0) next[name] = values.join(" · ");
+    if (values.length > 0) next[name] = values.join(" · ");
   }
   return next;
 }
