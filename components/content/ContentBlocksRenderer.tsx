@@ -106,12 +106,28 @@ export function SpecColumns() {
 }
 
 function SpecTable({ block }: { block: SpecTableBlock }) {
+  const [modelA = "", modelB = ""] = block.columns;
   return (
     <section className="my-8">
-      {block.title ? (
-        <h2 className="mb-3 mt-7 font-serif text-2xl font-semibold text-text-primary">{block.title}</h2>
-      ) : null}
-      <figure className="overflow-x-auto rounded-lg border border-border">
+      <div className="sticky top-14 z-30 -mx-4 border-y border-border bg-bg-primary/95 px-4 backdrop-blur-md">
+        <table className="w-full table-fixed border-collapse">
+          <SpecColumns />
+          <thead>
+            <tr>
+              <th scope="col" className="py-2.5 pr-2 text-left font-serif text-lg font-semibold text-text-primary">
+                {block.title ?? ""}
+              </th>
+              <th scope="col" className="px-4 py-2.5 text-right text-xs font-semibold text-text-primary sm:text-sm">
+                {modelA}
+              </th>
+              <th scope="col" className="px-4 py-2.5 text-right text-xs font-semibold text-text-primary sm:text-sm">
+                {modelB}
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <figure className="mt-4 overflow-x-auto rounded-lg border border-border">
         <table className="w-full table-fixed border-collapse text-sm">
           <SpecColumns />
           <tbody>
