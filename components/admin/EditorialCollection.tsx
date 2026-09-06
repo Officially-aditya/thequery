@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import ContentBlocksRenderer from "@/components/content/ContentBlocksRenderer";
 import type { ContentItem } from "@/lib/content-types";
-import { apiRequest, newContent, publicHref, toContentListItem, toEditableContent, type ContentListItem, type EditableContent } from "./admin-client";
+import { apiRequest, comparisonTemplateBlocks, newContent, publicHref, toContentListItem, toEditableContent, type ContentListItem, type EditableContent } from "./admin-client";
 import CoverImageFields from "./CoverImageFields";
 import EditorialBlocksEditor from "./EditorialBlocksEditor";
 import SourcesEditor from "./SourcesEditor";
@@ -54,7 +54,8 @@ export default function EditorialCollection({ kind, noun, description }: { kind:
   function beginNew() {
     setNotice("");
     setError("");
-    setEditing(newContent(kind === "article" ? { manualGlossaryLinks: false } : {}));
+    const metadata = kind === "article" ? { manualGlossaryLinks: false } : {};
+    setEditing(newContent(metadata, kind === "comparison" ? comparisonTemplateBlocks() : undefined));
   }
 
   function update(next: Partial<EditableContent>) {
