@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run db:migrate && node scripts/write-model-catalog-stats.mjs && next build",
+    "build": "npm run db:migrate && next build",
     "start": "next start",
     "lint": "eslint",
     "test": "node --test tests/*.test.mjs tests/*.test.mts",
