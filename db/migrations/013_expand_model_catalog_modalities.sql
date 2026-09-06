@@ -116,16 +116,18 @@ SET
           COALESCE(block->'rows', '[]'::jsonb)
           || CASE
                WHEN NOT EXISTS (
-                 SELECT 1 FROM jsonb_array_elements(COALESCE(block->'rows', '[]'::jsonb)) AS row
-                 WHERE row->>0 = 'Image output'
+                 SELECT 1
+                 FROM jsonb_array_elements(COALESCE(block->'rows', '[]'::jsonb)) AS capability_row(value)
+                 WHERE capability_row.value->>0 = 'Image output'
                )
                THEN jsonb_build_array(jsonb_build_array('Image output', '', ''))
                ELSE '[]'::jsonb
              END
           || CASE
                WHEN NOT EXISTS (
-                 SELECT 1 FROM jsonb_array_elements(COALESCE(block->'rows', '[]'::jsonb)) AS row
-                 WHERE row->>0 = 'Video output'
+                 SELECT 1
+                 FROM jsonb_array_elements(COALESCE(block->'rows', '[]'::jsonb)) AS capability_row(value)
+                 WHERE capability_row.value->>0 = 'Video output'
                )
                THEN jsonb_build_array(jsonb_build_array('Video output', '', ''))
                ELSE '[]'::jsonb
