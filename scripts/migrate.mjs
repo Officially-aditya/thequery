@@ -15,6 +15,7 @@ const migrations = [
   { id: "009_add_comparisons", file: new URL("../db/migrations/009_add_comparisons.sql", import.meta.url) },
   { id: "010_comparison_template_capabilities", file: new URL("../db/migrations/010_comparison_template_capabilities.sql", import.meta.url) },
   { id: "011_model_catalog", file: new URL("../db/migrations/011_model_catalog.sql", import.meta.url) },
+  { id: "012_correct_model_catalog_verification", file: new URL("../db/migrations/012_correct_model_catalog_verification.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
