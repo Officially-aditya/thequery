@@ -27,21 +27,30 @@ test("full model detail reads are bounded to requested slugs", async () => {
   assert.match(models, /export async function getModelBySlug[\s\S]*getModelsBySlugs\(\[slug\]\)/);
 });
 
-test("public comparison pages do not load the full model catalog", async () => {
-  const [generated, authored] = await Promise.all([
-    source("app/comparisons/compare/page.tsx"),
+test("canonical public comparison routing never loads the full model catalog", async () => {
+  const [detail, legacy] = await Promise.all([
     source("app/comparisons/[slug]/page.tsx"),
+    source("app/comparisons/compare/page.tsx"),
   ]);
 
-  assert.match(generated, /getModelsBySlugs\(\[modelASlug, modelBSlug\]\)/);
-  assert.match(generated, /getModelOptions\(\)/);
-  assert.match(generated, /getComparisonPairs\(\)/);
-  assert.doesNotMatch(generated, /getModels\(\)/);
+  assert.match(detail, /getModelsBySlugs\(\[modelASlug, modelBSlug\]\)/);
+  assert.match(detail, /getModelOptions\(\)/);
+  assert.match(detail, /getComparisonPairs\(\)/);
+  assert.doesNotMatch(detail, /getModels\(\)/);
 
-  assert.match(authored, /getModelOptions\(\)/);
-  assert.match(authored, /getComparisonPairs\(\)/);
-  assert.doesNotMatch(authored, /getModels\(\)/);
-  assert.doesNotMatch(authored, /getModelsBySlugs/);
+  assert.match(legacy, /getModelOptions\(\)/);
+  assert.match(legacy, /getComparisonPairs\(\)/);
+  assert.doesNotMatch(legacy, /getModels\(\)/);
+  assert.doesNotMatch(legacy, /getModelsBySlugs/);
+});
+
+test("dynamic metadata stays on the lightweight model option index", async () => {
+  const detail = await source("app/comparisons/[slug]/page.tsx");
+  const metadata = detail.match(/export async function generateMetadata[\s\S]*?\n\}/)?.[0] ?? "";
+
+  assert.match(metadata, /getModelOptions\(\)/);
+  assert.match(metadata, /resolveComparisonSlug/);
+  assert.doesNotMatch(metadata, /getModelsBySlugs/);
 });
 
 test("public client receives identity-only model options", async () => {
