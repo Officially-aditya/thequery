@@ -84,7 +84,7 @@ test("follow-up verification migrations correct licenses and add later verified 
   assert.match(template, /\["Video output", "", ""\]/);
 });
 
-test("comparison editor loads catalog models and materializes them into spec blocks", async () => {
+test("comparison editor loads a lightweight catalog and lazy model detail", async () => {
   const [collection, picker, route, data] = await Promise.all([
     source("components/admin/EditorialCollection.tsx"),
     source("components/admin/ComparisonModelPicker.tsx"),
@@ -96,13 +96,14 @@ test("comparison editor loads catalog models and materializes them into spec blo
   assert.match(collection, /<ComparisonModelPicker/);
   assert.match(picker, /Model \{side\.toUpperCase\(\)\}/);
   assert.match(picker, /Custom \/ manual/);
-  assert.match(picker, /modelA: nextModelASlug/);
-  assert.match(picker, /modelB: nextModelBSlug/);
-  assert.match(picker, /modelA\.comparisonData\[label\] \?\? ""/);
-  assert.match(picker, /modelB\.comparisonData\[label\] \?\? ""/);
-  assert.match(picker, /new Map\(\[\.\.\.current, \.\.\.additions\]/);
+  assert.match(picker, /\/api\/admin\/models\?slug=/);
+  assert.match(picker, /detailCache\.current/);
+  assert.match(picker, /selectedModel\.sources/);
+  assert.match(picker, /selectedModel\.comparisonData/);
   assert.match(route, /isAuthenticated/);
-  assert.match(route, /getModels/);
-  assert.match(data, /FROM models/);
-  assert.match(data, /ORDER BY developer ASC, release_date DESC/);
+  assert.match(route, /getModelOptions/);
+  assert.match(route, /getModelBySlug/);
+  assert.match(route, /private, no-store/);
+  assert.match(data, /SELECT slug, name, developer, access/);
+  assert.match(data, /WHERE slug = ANY\(\$1::text\[\]\)/);
 });
