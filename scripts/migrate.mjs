@@ -29,6 +29,7 @@ const migrations = [
   { id: "023_backfill_agentic_benchmark_labels", file: new URL("../db/migrations/023_backfill_agentic_benchmark_labels.sql", import.meta.url) },
   { id: "024_simplify_benchmark_display", file: new URL("../db/migrations/024_simplify_benchmark_display.sql", import.meta.url) },
   { id: "025_enrich_muse_gemini_benchmarks", file: new URL("../db/migrations/025_enrich_muse_gemini_benchmarks.sql", import.meta.url) },
+  { id: "026_seed_frontier_models", file: new URL("../db/migrations/026_seed_frontier_models.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
