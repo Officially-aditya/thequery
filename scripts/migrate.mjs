@@ -40,6 +40,7 @@ const migrations = [
   { id: "034_enrich_openai_remaining", file: new URL("../db/migrations/034_enrich_openai_remaining.sql", import.meta.url) },
   { id: "035_enrich_anthropic_mythos", file: new URL("../db/migrations/035_enrich_anthropic_mythos.sql", import.meta.url) },
   { id: "036_enrich_remaining_catalog", file: new URL("../db/migrations/036_enrich_remaining_catalog.sql", import.meta.url) },
+  { id: "037_deepen_muse_spark_comparisons", file: new URL("../db/migrations/037_deepen_muse_spark_comparisons.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
