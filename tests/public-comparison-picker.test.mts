@@ -28,28 +28,40 @@ test("comparison model picker is only the two database-backed spec-header dropdo
   assert.match(renderer, /side="b"/);
   assert.match(picker, /<select/);
   assert.match(picker, /optgroup/);
-  assert.match(picker, /\/comparisons\/compare\?/);
+  assert.match(picker, /canonicalComparisonSlug/);
+  assert.doesNotMatch(picker, /\/comparisons\/compare\?/);
   assert.match(picker, /comparisonByPair/);
   assert.doesNotMatch(picker, /access:/);
   assert.doesNotMatch(picker, /Compare models/);
   assert.doesNotMatch(picker, /<button/);
 });
 
-test("database-only pairs load only the two selected full models", async () => {
-  const [page, builder] = await Promise.all([
+test("database-only pairs render from the canonical comparison slug route", async () => {
+  const [page, legacy, builder, routing] = await Promise.all([
+    source("app/comparisons/[slug]/page.tsx"),
     source("app/comparisons/compare/page.tsx"),
     source("lib/model-comparison.ts"),
+    source("lib/model-comparison-route.ts"),
   ]);
 
+  assert.match(page, /resolveComparisonSlug/);
   assert.match(page, /getModelsBySlugs\(\[modelASlug, modelBSlug\]\)/);
-  assert.match(page, /getModelOptions\(\)/);
-  assert.match(page, /getComparisonPairs\(\)/);
-  assert.doesNotMatch(page, /getModels\(\)/);
+  assert.match(page, /canonicalComparisonSlug/);
+  assert.match(page, /alternates: \{ canonical: canonicalUrl \}/);
   assert.match(page, /buildModelComparisonBlocks/);
   assert.match(page, /modelComparisonSources/);
-  assert.match(page, /ContentBlocksRenderer/);
-  assert.match(page, /comparisonPicker=\{/);
-  assert.doesNotMatch(page, /<ModelPicker/);
+  assert.match(page, /permanentRedirect\(`\/comparisons\/\$\{canonicalSlug\}`\)/);
+  assert.doesNotMatch(page, /getModels\(\)/);
+
+  assert.match(legacy, /permanentRedirect/);
+  assert.match(legacy, /canonicalComparisonSlug/);
+  assert.doesNotMatch(legacy, /ContentBlocksRenderer/);
+  assert.doesNotMatch(legacy, /getModelsBySlugs/);
+
+  assert.match(routing, /normalized\.startsWith\("claude-"\)/);
+  assert.match(routing, /canonicalComparisonModels/);
+  assert.match(routing, /resolveComparisonSlug/);
+
   assert.match(builder, /title: "Specifications"/);
   assert.match(builder, /title: "Pricing"/);
   assert.match(builder, /title: "Capabilities & access"/);
