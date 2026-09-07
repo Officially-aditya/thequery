@@ -39,6 +39,7 @@ const migrations = [
   { id: "033_enrich_gemma4_family", file: new URL("../db/migrations/033_enrich_gemma4_family.sql", import.meta.url) },
   { id: "034_enrich_openai_remaining", file: new URL("../db/migrations/034_enrich_openai_remaining.sql", import.meta.url) },
   { id: "035_enrich_anthropic_mythos", file: new URL("../db/migrations/035_enrich_anthropic_mythos.sql", import.meta.url) },
+  { id: "036_enrich_remaining_catalog", file: new URL("../db/migrations/036_enrich_remaining_catalog.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
