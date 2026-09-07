@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { getGlossaryIndex, getTermBySlug } from "@/lib/glossary";
+import { getGlossaryIndex, getTermBySlug, type GlossaryTerm } from "@/lib/glossary";
+import { getModelOptions } from "@/lib/models";
 import { notFound } from "next/navigation";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
 import CoverImage from "@/components/content/CoverImage";
@@ -10,21 +11,48 @@ interface Props {
   params: Promise<{ term: string }>;
 }
 
+const MODEL_GLOSSARY_CATEGORY = "Models & Architectures";
+
 export const revalidate = 300;
+
+function normalizedModelName(value: string): string {
+  return value.trim().toLowerCase().replace(/\s+/g, " ");
+}
+
+async function isCanonicalModelTerm(term: GlossaryTerm): Promise<boolean> {
+  if (term.category !== MODEL_GLOSSARY_CATEGORY) return false;
+  const modelName = normalizedModelName(term.name);
+  const models = await getModelOptions();
+  return models.some((model) => normalizedModelName(model.name) === modelName);
+}
+
+function modelCardKeywords(term: GlossaryTerm): string[] {
+  return Array.from(new Set([
+    `${term.name} model card`,
+    `${term.name} specs`,
+    `${term.name} benchmarks`,
+    `${term.name} pricing`,
+    ...(term.seoKeywords ?? []),
+  ]));
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { term: slug } = await params;
   const term = await getTermBySlug(slug);
   if (!term) return {};
+  const isModelCard = await isCanonicalModelTerm(term);
+  const title = isModelCard ? `${term.name} Model Card` : `${term.name} - AI Glossary`;
   const description = term.seoDescription || term.shortDef;
+  const canonicalUrl = `${SITE_URL}/glossary/${term.slug}`;
   return {
-    title: `${term.name} - AI Glossary`,
+    title,
     description,
-    keywords: term.seoKeywords,
+    keywords: isModelCard ? modelCardKeywords(term) : term.seoKeywords,
+    alternates: { canonical: canonicalUrl },
     openGraph: createOpenGraphMetadata({
-      title: `${term.name} - AI Glossary`,
+      title,
       description,
-      url: `${SITE_URL}/glossary/${term.slug}`,
+      url: canonicalUrl,
       type: "article",
       image: term.coverImageUrl,
     }),
@@ -36,7 +64,11 @@ export default async function TermPage({ params }: Props) {
   const term = await getTermBySlug(slug);
   if (!term) notFound();
 
-  const allTerms = await getGlossaryIndex();
+  const [allTerms, isModelCard] = await Promise.all([
+    getGlossaryIndex(),
+    isCanonicalModelTerm(term),
+  ]);
+  const pageTitle = isModelCard ? `${term.name} Model Card` : term.name;
   const related = term.relatedTerms
     .map((s) => allTerms.find((t) => t.slug === s))
     .filter(Boolean);
@@ -56,12 +88,22 @@ export default async function TermPage({ params }: Props) {
           url: "https://www.thequery.in/glossary",
         },
       },
+      ...(isModelCard ? [{
+        "@type": "TechArticle",
+        headline: pageTitle,
+        description: term.shortDef,
+        url: `https://www.thequery.in/glossary/${term.slug}`,
+        about: {
+          "@type": "Thing",
+          name: term.name,
+        },
+      }] : []),
       {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Home", item: "https://www.thequery.in" },
           { "@type": "ListItem", position: 2, name: "Glossary", item: "https://www.thequery.in/glossary" },
-          { "@type": "ListItem", position: 3, name: term.name },
+          { "@type": "ListItem", position: 3, name: pageTitle },
         ],
       },
     ],
@@ -80,7 +122,7 @@ export default async function TermPage({ params }: Props) {
 
       <div className="flex items-start justify-between mb-4">
         <h1 className="font-serif text-3xl font-bold text-text-primary">
-          {term.name}
+          {pageTitle}
         </h1>
         <span className="text-xs px-3 py-1 rounded-full bg-tag-bg text-tag-text mt-2">
           {term.category}
@@ -90,7 +132,7 @@ export default async function TermPage({ params }: Props) {
       <p className="text-lg text-text-secondary mb-6 leading-relaxed">
         {term.shortDef}
       </p>
-      <CoverImage src={term.coverImageUrl} alt={term.coverImageAlt} title={term.name} />
+      <CoverImage src={term.coverImageUrl} alt={term.coverImageAlt} title={pageTitle} />
 
       {term.analogy && (
         <div className="mb-6 pl-4 border-l-2 border-accent/40">
