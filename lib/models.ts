@@ -1,16 +1,20 @@
 import "server-only";
 
+import { unstable_cache } from "next/cache";
 import { getSql } from "./db";
 import type { Source } from "./content-types";
 
 export type ModelAccess = "proprietary" | "restricted" | "open_weights" | "open_source";
 
-export interface ModelCatalogEntry {
+export interface ModelCatalogOption {
   slug: string;
   name: string;
   developer: string;
-  releaseDate: string | null;
   access: ModelAccess;
+}
+
+export interface ModelCatalogEntry extends ModelCatalogOption {
+  releaseDate: string | null;
   comparisonData: Record<string, string>;
   sources: Source[];
   notes: string | null;
@@ -40,6 +44,8 @@ interface BenchmarkRow {
   evaluator: string | null;
   source: string | null;
 }
+
+const MODEL_OPTION_CACHE_SECONDS = 300;
 
 function isoDate(value: string | Date | null): string | null {
   if (!value) return null;
@@ -132,38 +138,59 @@ function groupBenchmarks(rows: BenchmarkRow[]): Map<string, BenchmarkRow[]> {
   return grouped;
 }
 
-export async function getModels(): Promise<ModelCatalogEntry[]> {
+async function queryModelOptions(): Promise<ModelCatalogOption[]> {
+  const sql = getSql();
+  return await sql.query(
+    `SELECT slug, name, developer, access
+     FROM models
+     ORDER BY developer ASC, release_date DESC NULLS LAST, name ASC`,
+  ) as ModelCatalogOption[];
+}
+
+export async function getModelOptions(): Promise<ModelCatalogOption[]> {
+  return unstable_cache(
+    queryModelOptions,
+    ["model-catalog-options-v1"],
+    { revalidate: MODEL_OPTION_CACHE_SECONDS },
+  )();
+}
+
+export async function getModelsBySlugs(slugs: string[]): Promise<ModelCatalogEntry[]> {
+  const uniqueSlugs = Array.from(new Set(slugs.map((slug) => slug.trim()).filter(Boolean)));
+  if (uniqueSlugs.length === 0) return [];
+
   const sql = getSql();
   const rows = await sql.query(
     `SELECT slug, name, developer, release_date, access, comparison_data, sources, notes, verified_at
      FROM models
-     ORDER BY developer ASC, release_date DESC NULLS LAST, name ASC`,
+     WHERE slug = ANY($1::text[])`,
+    [uniqueSlugs],
   ) as ModelRow[];
+  if (rows.length === 0) return [];
+
   const benchmarkRows = await sql.query(
     `SELECT model_slug, benchmark_name, benchmark_version, score_display, tools, reasoning_effort, harness, evaluator, source
      FROM model_benchmarks
+     WHERE model_slug = ANY($1::text[])
      ORDER BY model_slug ASC, benchmark_name ASC, evaluation_date ASC NULLS LAST, id ASC`,
+    [uniqueSlugs],
   ) as BenchmarkRow[];
   const benchmarks = groupBenchmarks(benchmarkRows);
-  return rows.map((row) => fromRow(row, benchmarks.get(row.slug) ?? []));
+  const bySlug = new Map(rows.map((row) => [row.slug, fromRow(row, benchmarks.get(row.slug) ?? [])]));
+  return uniqueSlugs.flatMap((slug) => {
+    const model = bySlug.get(slug);
+    return model ? [model] : [];
+  });
+}
+
+// Compatibility helper for maintenance/admin code that intentionally needs the entire detailed catalog.
+// Public comparison rendering and dropdowns must use getModelOptions/getModelsBySlugs instead.
+export async function getModels(): Promise<ModelCatalogEntry[]> {
+  const options = await getModelOptions();
+  return getModelsBySlugs(options.map((model) => model.slug));
 }
 
 export async function getModelBySlug(slug: string): Promise<ModelCatalogEntry | null> {
-  const sql = getSql();
-  const rows = await sql.query(
-    `SELECT slug, name, developer, release_date, access, comparison_data, sources, notes, verified_at
-     FROM models
-     WHERE slug = $1
-     LIMIT 1`,
-    [slug],
-  ) as ModelRow[];
-  if (!rows[0]) return null;
-  const benchmarkRows = await sql.query(
-    `SELECT model_slug, benchmark_name, benchmark_version, score_display, tools, reasoning_effort, harness, evaluator, source
-     FROM model_benchmarks
-     WHERE model_slug = $1
-     ORDER BY benchmark_name ASC, evaluation_date ASC NULLS LAST, id ASC`,
-    [slug],
-  ) as BenchmarkRow[];
-  return fromRow(rows[0], benchmarkRows);
+  const [model] = await getModelsBySlugs([slug]);
+  return model ?? null;
 }
