@@ -19,7 +19,9 @@ test("comparison model picker is only the two database-backed spec-header dropdo
 
   assert.doesNotMatch(index, /<ModelPicker/);
   assert.doesNotMatch(index, /Compare models/);
-  assert.match(detail, /getModels\(\)/);
+  assert.match(detail, /getModelOptions\(\)/);
+  assert.match(detail, /getComparisonPairs\(\)/);
+  assert.doesNotMatch(detail, /getModels\(\)/);
   assert.match(detail, /comparisonPicker=\{/);
   assert.match(renderer, /<ModelHeaderSelect/);
   assert.match(renderer, /side="a"/);
@@ -28,16 +30,21 @@ test("comparison model picker is only the two database-backed spec-header dropdo
   assert.match(picker, /optgroup/);
   assert.match(picker, /\/comparisons\/compare\?/);
   assert.match(picker, /comparisonByPair/);
+  assert.doesNotMatch(picker, /access:/);
   assert.doesNotMatch(picker, /Compare models/);
   assert.doesNotMatch(picker, /<button/);
 });
 
-test("database-only pairs render with the canonical comparison sections and inline picker", async () => {
+test("database-only pairs load only the two selected full models", async () => {
   const [page, builder] = await Promise.all([
     source("app/comparisons/compare/page.tsx"),
     source("lib/model-comparison.ts"),
   ]);
 
+  assert.match(page, /getModelsBySlugs\(\[modelASlug, modelBSlug\]\)/);
+  assert.match(page, /getModelOptions\(\)/);
+  assert.match(page, /getComparisonPairs\(\)/);
+  assert.doesNotMatch(page, /getModels\(\)/);
   assert.match(page, /buildModelComparisonBlocks/);
   assert.match(page, /modelComparisonSources/);
   assert.match(page, /ContentBlocksRenderer/);
