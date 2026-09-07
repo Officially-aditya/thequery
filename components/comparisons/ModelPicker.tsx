@@ -7,7 +7,6 @@ export type PublicModelOption = {
   slug: string;
   name: string;
   developer: string;
-  access: "proprietary" | "restricted" | "open_weights" | "open_source";
 };
 
 export type ExistingComparisonPair = {
