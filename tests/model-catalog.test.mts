@@ -97,9 +97,10 @@ test("comparison editor loads a lightweight catalog and lazy model detail", asyn
   assert.match(picker, /Model \{side\.toUpperCase\(\)\}/);
   assert.match(picker, /Custom \/ manual/);
   assert.match(picker, /\/api\/admin\/models\?slug=/);
-  assert.match(picker, /detailCache\.current/);
-  assert.match(picker, /selectedModel\.sources/);
-  assert.match(picker, /selectedModel\.comparisonData/);
+  assert.match(picker, /modelDetailRequests/);
+  assert.match(picker, /fetch\(`/);
+  assert.match(picker, /detail\.sources/);
+  assert.match(picker, /detail\.comparisonData/);
   assert.match(route, /isAuthenticated/);
   assert.match(route, /getModelOptions/);
   assert.match(route, /getModelBySlug/);
