@@ -71,15 +71,12 @@ test("admin loads model details lazily and does not persistently cache them", as
   assert.doesNotMatch(picker, /comparisonData: Record<string, string>[\s\S]*export interface ModelCatalogEntry/);
 });
 
-test("authored-comparison routing uses a metadata-only pair index", async () => {
+test("authored-comparison routing reuses the existing cached summary index", async () => {
   const comparisons = await source("lib/comparisons.ts");
-  const pairQuery = comparisons.match(/async function queryComparisonPairs[\s\S]*?return rows\.flatMap/)?.[0] ?? "";
+  const pairHelper = comparisons.match(/export async function getComparisonPairs[\s\S]*?\n\}/)?.[0] ?? "";
 
-  assert.match(pairQuery, /SELECT slug, metadata/);
-  assert.doesNotMatch(pairQuery, /title/);
-  assert.doesNotMatch(pairQuery, /summary/);
-  assert.doesNotMatch(pairQuery, /blocks/);
-  assert.doesNotMatch(pairQuery, /sources/);
-  assert.match(comparisons, /\["comparison-pairs-v1"\]/);
-  assert.match(comparisons, /revalidate: 300/);
+  assert.match(pairHelper, /getContentSummaries\("comparison"\)/);
+  assert.match(pairHelper, /metadataModelSlug/);
+  assert.doesNotMatch(pairHelper, /getSql/);
+  assert.doesNotMatch(pairHelper, /SELECT /);
 });
