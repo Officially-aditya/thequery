@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getAllComparisons, getComparisonBySlug, getComparisonPairs } from "@/lib/comparisons";
+import { getComparisonBySlug, getComparisonPairs } from "@/lib/comparisons";
 import { getGlossaryIndex } from "@/lib/glossary";
 import { canonicalComparisonSlug, resolveComparisonSlug } from "@/lib/model-comparison-route";
 import { buildModelComparisonBlocks, modelComparisonSources } from "@/lib/model-comparison";
@@ -50,9 +50,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!resolved) return {};
 
   const [modelASlug, modelBSlug] = resolved;
-  const selectedModels = await getModelsBySlugs([modelASlug, modelBSlug]);
-  const modelA = selectedModels.find((model) => model.slug === modelASlug);
-  const modelB = selectedModels.find((model) => model.slug === modelBSlug);
+  const modelA = modelCatalog.find((model) => model.slug === modelASlug);
+  const modelB = modelCatalog.find((model) => model.slug === modelBSlug);
   if (!modelA || !modelB) return {};
 
   const canonicalSlug = canonicalComparisonSlug(modelA.slug, modelB.slug);
