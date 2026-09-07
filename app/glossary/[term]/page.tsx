@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { getGlossaryIndex, getTermBySlug, type GlossaryTerm } from "@/lib/glossary";
-import { getModelOptions } from "@/lib/models";
 import { notFound } from "next/navigation";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
 import CoverImage from "@/components/content/CoverImage";
@@ -12,18 +11,33 @@ interface Props {
 }
 
 const MODEL_GLOSSARY_CATEGORY = "Models & Architectures";
+const MODEL_CARD_SIGNAL_MINIMUM = 2;
+const MODEL_CARD_SIGNALS = [
+  /\b(?:released|launched|introduced|announced)\b/i,
+  /\bcontext window\b/i,
+  /\b(?:input|output) tokens?\b/i,
+  /\b(?:priced at|pricing|per million tokens?|cache reads?|cache writes?)\b/i,
+  /\bbenchmarks?\b/i,
+  /\bapi\b/i,
+  /\b(?:open[- ]weights?|downloadable weights?|model weights?)\b/i,
+  /\b(?:knowledge cutoff|max output|reasoning effort|tool calling)\b/i,
+];
 
 export const revalidate = 300;
 
-function normalizedModelName(value: string): string {
-  return value.trim().toLowerCase().replace(/\s+/g, " ");
-}
-
-async function isCanonicalModelTerm(term: GlossaryTerm): Promise<boolean> {
+function isModelCardTerm(term: GlossaryTerm): boolean {
   if (term.category !== MODEL_GLOSSARY_CATEGORY) return false;
-  const modelName = normalizedModelName(term.name);
-  const models = await getModelOptions();
-  return models.some((model) => normalizedModelName(model.name) === modelName);
+  const searchable = [
+    term.name,
+    term.shortDef,
+    term.fullDef,
+    ...(term.seoKeywords ?? []),
+  ].join(" ");
+  const signalCount = MODEL_CARD_SIGNALS.reduce(
+    (count, signal) => count + (signal.test(searchable) ? 1 : 0),
+    0,
+  );
+  return signalCount >= MODEL_CARD_SIGNAL_MINIMUM;
 }
 
 function modelCardKeywords(term: GlossaryTerm): string[] {
@@ -40,7 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { term: slug } = await params;
   const term = await getTermBySlug(slug);
   if (!term) return {};
-  const isModelCard = await isCanonicalModelTerm(term);
+  const isModelCard = isModelCardTerm(term);
   const title = isModelCard ? `${term.name} Model Card` : `${term.name} - AI Glossary`;
   const description = term.seoDescription || term.shortDef;
   const canonicalUrl = `${SITE_URL}/glossary/${term.slug}`;
@@ -64,10 +78,8 @@ export default async function TermPage({ params }: Props) {
   const term = await getTermBySlug(slug);
   if (!term) notFound();
 
-  const [allTerms, isModelCard] = await Promise.all([
-    getGlossaryIndex(),
-    isCanonicalModelTerm(term),
-  ]);
+  const allTerms = await getGlossaryIndex();
+  const isModelCard = isModelCardTerm(term);
   const pageTitle = isModelCard ? `${term.name} Model Card` : term.name;
   const related = term.relatedTerms
     .map((s) => allTerms.find((t) => t.slug === s))
