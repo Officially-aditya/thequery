@@ -99,7 +99,6 @@ const sections: ComparisonSection[] = [
       "OSWorld 2.0",
       "BrowseComp",
       "DeepSearchQA",
-      "JobBench",
       "GDPval-AA",
       "GDPval-AA v2",
       "AutomationBench",
