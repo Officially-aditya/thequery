@@ -31,6 +31,7 @@ const migrations = [
   { id: "025_enrich_muse_gemini_benchmarks", file: new URL("../db/migrations/025_enrich_muse_gemini_benchmarks.sql", import.meta.url) },
   { id: "026_seed_frontier_models", file: new URL("../db/migrations/026_seed_frontier_models.sql", import.meta.url) },
   { id: "027_enrich_anthropic_frontier", file: new URL("../db/migrations/027_enrich_anthropic_frontier.sql", import.meta.url) },
+  { id: "028_enrich_fable_glm_kimi_grok", file: new URL("../db/migrations/028_enrich_fable_glm_kimi_grok.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
