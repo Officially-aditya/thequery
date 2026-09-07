@@ -114,19 +114,10 @@ function sectionBlock(
 }
 
 export function buildModelComparisonBlocks(modelA: ModelCatalogEntry, modelB: ModelCatalogEntry): ContentBlock[] {
-  const specBlocks = sections.flatMap((section, index) => {
+  return sections.flatMap((section, index) => {
     const block = sectionBlock(section.title, section.labels, modelA, modelB, index);
     return block ? [block] : [];
   });
-
-  return [
-    ...specBlocks,
-    {
-      id: "database-comparison-bottom-line",
-      type: "markdown",
-      content: "## Bottom line\n\nThis comparison is generated from TheQuery's verified model catalog. Empty or undisclosed fields are omitted, and benchmark conditions are preserved when the source reports them.",
-    },
-  ];
 }
 
 export function modelComparisonSources(modelA: ModelCatalogEntry, modelB: ModelCatalogEntry): Source[] {
