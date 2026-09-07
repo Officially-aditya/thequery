@@ -1,9 +1,7 @@
 import "server-only";
 
-import { unstable_cache } from "next/cache";
 import { getContentItem, getContentSummaries, contentDisplayDate, type ContentSummary } from "./content";
 import type { ContentBlock, Source, SpecTableBlock } from "./content-types";
-import { getSql } from "./db";
 
 export interface Comparison {
   title: string;
@@ -34,19 +32,6 @@ export interface ComparisonPair {
   modelA: string;
   modelB: string;
   slug: string;
-}
-
-function metadataRecord(value: unknown): Record<string, unknown> {
-  if (typeof value === "string") {
-    try {
-      return metadataRecord(JSON.parse(value));
-    } catch {
-      return {};
-    }
-  }
-  return value && typeof value === "object" && !Array.isArray(value)
-    ? value as Record<string, unknown>
-    : {};
 }
 
 function metadataModelSlug(metadata: Record<string, unknown>, key: "modelA" | "modelB"): string | undefined {
@@ -130,28 +115,13 @@ function asComparisonSummary(item: ContentSummary): ComparisonSummary {
   };
 }
 
-async function queryComparisonPairs(): Promise<ComparisonPair[]> {
-  const sql = getSql();
-  const rows = await sql.query(
-    `SELECT slug, metadata
-     FROM content_items
-     WHERE kind = 'comparison' AND status = 'published'`,
-  ) as Array<{ slug: string; metadata: unknown }>;
-
-  return rows.flatMap((row) => {
-    const metadata = metadataRecord(row.metadata);
-    const modelA = metadataModelSlug(metadata, "modelA");
-    const modelB = metadataModelSlug(metadata, "modelB");
-    return modelA && modelB ? [{ modelA, modelB, slug: row.slug }] : [];
-  });
-}
-
 export async function getComparisonPairs(): Promise<ComparisonPair[]> {
-  return unstable_cache(
-    queryComparisonPairs,
-    ["comparison-pairs-v1"],
-    { revalidate: 300, tags: ["content:comparison"] },
-  )();
+  const items = await getContentSummaries("comparison");
+  return items.flatMap((item) => {
+    const modelA = metadataModelSlug(item.metadata, "modelA");
+    const modelB = metadataModelSlug(item.metadata, "modelB");
+    return modelA && modelB ? [{ modelA, modelB, slug: item.slug }] : [];
+  });
 }
 
 export async function getAllComparisons(): Promise<ComparisonSummary[]> {
