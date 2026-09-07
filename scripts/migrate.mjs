@@ -35,6 +35,8 @@ const migrations = [
   { id: "029_enrich_qwen36_qwen38", file: new URL("../db/migrations/029_enrich_qwen36_qwen38.sql", import.meta.url) },
   { id: "030_enrich_mistral_small_medium", file: new URL("../db/migrations/030_enrich_mistral_small_medium.sql", import.meta.url) },
   { id: "031_enrich_zai_glm_catalog", file: new URL("../db/migrations/031_enrich_zai_glm_catalog.sql", import.meta.url) },
+  { id: "032_enrich_qwen_remaining", file: new URL("../db/migrations/032_enrich_qwen_remaining.sql", import.meta.url) },
+  { id: "033_enrich_gemma4_family", file: new URL("../db/migrations/033_enrich_gemma4_family.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
