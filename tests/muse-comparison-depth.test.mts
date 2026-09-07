@@ -62,6 +62,7 @@ test("generated comparisons render normalized benchmarks dynamically by category
   assert.match(comparison, /for \(const benchmark of \[\.\.\.modelA\.benchmarks, \.\.\.modelB\.benchmarks\]\)/);
   assert.match(comparison, /benchmarkSection\[benchmark\.category\]/);
   assert.match(comparison, /dynamic\.get\(section\.title\)/);
+  assert.match(comparison, /professional: "Professional"/);
 });
 
 test("new comparison behavior fields and key Muse benchmarks are visible sections", async () => {
@@ -73,7 +74,6 @@ test("new comparison behavior fields and key Muse benchmarks are visible section
   assert.match(comparison, /"SWE-Atlas Codebase QnA"/);
   assert.match(comparison, /"MRCR v2 512K–1M"/);
   assert.match(comparison, /"DeepSearchQA"/);
-  assert.match(comparison, /"JobBench"/);
 });
 
 test("Muse authored comparisons still preserve non-empty editorial cells", async () => {
