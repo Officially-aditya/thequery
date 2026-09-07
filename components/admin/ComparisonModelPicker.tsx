@@ -1,16 +1,21 @@
 "use client";
 
+import { useRef, useState } from "react";
 import type { ContentBlock, Source } from "@/lib/content-types";
-import type { EditableContent } from "./admin-client";
+import { apiRequest, type EditableContent } from "./admin-client";
 
 export type ModelAccess = "proprietary" | "restricted" | "open_weights" | "open_source";
 
+// Keep the initial editor payload intentionally small. Full comparison data is fetched per selected slug.
 export interface ModelCatalogEntry {
   slug: string;
   name: string;
   developer: string;
-  releaseDate: string | null;
   access: ModelAccess;
+}
+
+interface ModelCatalogDetail extends ModelCatalogEntry {
+  releaseDate: string | null;
   comparisonData: Record<string, string>;
   sources: Source[];
   notes: string | null;
@@ -31,25 +36,23 @@ function uniqueSources(current: Source[], additions: Source[]): Source[] {
 
 function fillSpecBlocks(
   blocks: ContentBlock[],
-  modelA: ModelCatalogEntry | undefined,
-  modelB: ModelCatalogEntry | undefined,
-  replaceA: boolean,
-  replaceB: boolean,
+  model: ModelCatalogDetail | undefined,
+  changedSide: "a" | "b",
 ): ContentBlock[] {
+  if (!model) return blocks;
+  const columnIndex = changedSide === "a" ? 0 : 1;
+  const valueIndex = changedSide === "a" ? 1 : 2;
+
   return blocks.map((block) => {
     if (block.type !== "spec_table") return block;
 
-    const columns = [
-      replaceA && modelA ? modelA.name : block.columns[0] ?? "Model A",
-      replaceB && modelB ? modelB.name : block.columns[1] ?? "Model B",
-    ];
+    const columns = [...block.columns];
+    columns[columnIndex] = model.name;
     const rows = block.rows.map((row) => {
-      const label = row[0] ?? "";
-      return [
-        label,
-        replaceA && modelA ? modelA.comparisonData[label] ?? "" : row[1] ?? "",
-        replaceB && modelB ? modelB.comparisonData[label] ?? "" : row[2] ?? "",
-      ];
+      const next = [...row];
+      const label = next[0] ?? "";
+      next[valueIndex] = model.comparisonData[label] ?? "";
+      return next;
     });
 
     return { ...block, columns, rows };
@@ -59,28 +62,21 @@ function fillSpecBlocks(
 export function applyComparisonModels(
   editing: EditableContent,
   models: ModelCatalogEntry[],
+  selectedModel: ModelCatalogDetail | undefined,
   nextModelASlug: string,
   nextModelBSlug: string,
   changedSide: "a" | "b",
 ): Partial<EditableContent> {
   const modelA = models.find((model) => model.slug === nextModelASlug);
   const modelB = models.find((model) => model.slug === nextModelBSlug);
-  const replaceA = changedSide === "a" && Boolean(modelA);
-  const replaceB = changedSide === "b" && Boolean(modelB);
-
-  const additions = [
-    ...(replaceA && modelA ? modelA.sources : []),
-    ...(replaceB && modelB ? modelB.sources : []),
-  ];
-
   const title = !editing.title.trim() && modelA && modelB
     ? `${modelA.name} vs ${modelB.name}`
     : editing.title;
 
   return {
     title,
-    blocks: fillSpecBlocks(editing.blocks, modelA, modelB, replaceA, replaceB),
-    sources: uniqueSources(editing.sources, additions),
+    blocks: fillSpecBlocks(editing.blocks, selectedModel, changedSide),
+    sources: selectedModel ? uniqueSources(editing.sources, selectedModel.sources) : editing.sources,
     metadata: {
       ...editing.metadata,
       modelA: nextModelASlug,
@@ -108,12 +104,34 @@ export default function ComparisonModelPicker({
 }) {
   const selectedA = metadataSlug(editing.metadata, "modelA");
   const selectedB = metadataSlug(editing.metadata, "modelB");
-  const groups = Array.from(new Set(models.map((model) => model.developer)));
+  const groups = Array.from(new Set(models.map((model) => model.developer));
+  const detailCache = useRef(new Map<string, ModelCatalogDetail>());
+  const [detailLoading, setDetailLoading] = useState(false);
+  const [detailError, setDetailError] = useState("");
 
-  function select(side: "a" | "b", slug: string) {
+  async function select(side: "a" | "b", slug: string) {
     const nextA = side === "a" ? slug : selectedA;
     const nextB = side === "b" ? slug : selectedB;
-    onChange(applyComparisonModels(editing, models, nextA, nextB, side));
+    setDetailError("");
+
+    if (!slug) {
+      onChange(applyComparisonModels(editing, models, undefined, nextA, nextB, side));
+      return;
+    }
+
+    setDetailLoading(true);
+    try {
+      let detail = detailCache.current.get(slug);
+      if (!detail) {
+        detail = await apiRequest<ModelCatalogDetail>(`/api/admin/models?slug=${encodeURIComponent(slug)}`);
+        detailCache.current.set(slug, detail);
+      }
+      onChange(applyComparisonModels(editing, models, detail, nextA, nextB, side));
+    } catch (requestError) {
+      setDetailError(requestError instanceof Error ? requestError.message : "Unable to load model details.");
+    } finally {
+      setDetailLoading(false);
+    }
   }
 
   return (
@@ -121,7 +139,7 @@ export default function ComparisonModelPicker({
       <div className="mb-3">
         <h2 className="font-serif text-base font-semibold text-text-primary">Comparison models</h2>
         <p className="mt-1 text-xs leading-relaxed text-text-muted">
-          Choose verified catalog models to populate matching specification, pricing, capability, and benchmark rows. The copied values remain editable in the blocks below.
+          Choose verified catalog models to populate matching specification, pricing, capability, and benchmark rows. Full model data is fetched only for the model you select.
         </p>
       </div>
       <div className="grid gap-3 sm:grid-cols-2">
@@ -133,8 +151,8 @@ export default function ComparisonModelPicker({
               <select
                 className={`${fieldClass} mt-1`}
                 value={value}
-                onChange={(event) => select(side, event.target.value)}
-                disabled={loading}
+                onChange={(event) => void select(side, event.target.value)}
+                disabled={loading || detailLoading}
               >
                 <option value="">{loading ? "Loading model catalog…" : "Custom / manual"}</option>
                 {groups.map((developer) => (
@@ -151,6 +169,8 @@ export default function ComparisonModelPicker({
           );
         })}
       </div>
+      {detailLoading ? <p className="mt-3 text-xs text-text-muted">Loading selected model details…</p> : null}
+      {detailError ? <p className="mt-3 text-xs text-red-600">{detailError}</p> : null}
       <p className="mt-3 text-xs text-text-muted">
         Catalog values are snapshots from cited vendor sources. Missing values stay blank; selecting a model never invents unsupported specs or benchmark scores.
       </p>
