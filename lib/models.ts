@@ -5,6 +5,7 @@ import { getSql } from "./db";
 import type { Source } from "./content-types";
 
 export type ModelAccess = "proprietary" | "restricted" | "open_weights" | "open_source";
+export type ModelBenchmarkCategory = "coding" | "math_reasoning" | "knowledge" | "agentic_computer_use" | "multimodal" | "professional" | "other";
 
 export interface ModelCatalogOption {
   slug: string;
@@ -13,9 +14,16 @@ export interface ModelCatalogOption {
   access: ModelAccess;
 }
 
+export interface ModelBenchmarkDisplay {
+  category: ModelBenchmarkCategory;
+  name: string;
+  value: string;
+}
+
 export interface ModelCatalogEntry extends ModelCatalogOption {
   releaseDate: string | null;
   comparisonData: Record<string, string>;
+  benchmarks: ModelBenchmarkDisplay[];
   sources: Source[];
   notes: string | null;
   verifiedAt: string;
@@ -35,6 +43,7 @@ interface ModelRow {
 
 interface BenchmarkRow {
   model_slug: string;
+  category: ModelBenchmarkCategory;
   benchmark_name: string;
   benchmark_version: string | null;
   score_display: string;
@@ -107,6 +116,16 @@ function withBenchmarks(base: Record<string, string>, rows: BenchmarkRow[]): Rec
   return next;
 }
 
+function benchmarkDisplays(rows: BenchmarkRow[]): ModelBenchmarkDisplay[] {
+  const seen = new Set<string>();
+  return rows.flatMap((row) => {
+    const key = `${row.category}::${row.benchmark_name}`;
+    if (seen.has(key)) return [];
+    seen.add(key);
+    return [{ category: row.category, name: row.benchmark_name, value: benchmarkValue(row) }];
+  });
+}
+
 function withBenchmarkSources(base: Source[], rows: BenchmarkRow[]): Source[] {
   const additions = rows.flatMap((row): Source[] => row.source
     ? [{ title: `${row.benchmark_name} evaluation`, url: row.source }]
@@ -122,6 +141,7 @@ function fromRow(row: ModelRow, benchmarks: BenchmarkRow[] = []): ModelCatalogEn
     releaseDate: isoDate(row.release_date),
     access: row.access,
     comparisonData: withBenchmarks(comparisonData(row.comparison_data), benchmarks),
+    benchmarks: benchmarkDisplays(benchmarks),
     sources: withBenchmarkSources(sources(row.sources), benchmarks),
     notes: row.notes,
     verifiedAt: isoDateTime(row.verified_at),
@@ -169,7 +189,7 @@ export async function getModelsBySlugs(slugs: string[]): Promise<ModelCatalogEnt
   if (rows.length === 0) return [];
 
   const benchmarkRows = await sql.query(
-    `SELECT model_slug, benchmark_name, benchmark_version, score_display, tools, reasoning_effort, harness, evaluator, source
+    `SELECT model_slug, category, benchmark_name, benchmark_version, score_display, tools, reasoning_effort, harness, evaluator, source
      FROM model_benchmarks
      WHERE model_slug = ANY($1::text[])
      ORDER BY model_slug ASC, benchmark_name ASC, evaluation_date ASC NULLS LAST, id ASC`,
