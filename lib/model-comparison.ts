@@ -51,6 +51,7 @@ const sections: Array<{ title: string; labels: string[] }> = [
       "FrontierCode 1.1 Main",
       "FrontierCode 1.1 Extended",
       "DeepSWE v1.1",
+      "Terminal-Bench 2.0",
       "Terminal-Bench 2.1",
       "Terminal-Bench 3.0",
       "Terminal-Bench 4.0",
