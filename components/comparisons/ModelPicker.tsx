@@ -2,6 +2,7 @@
 
 import { useMemo } from "react";
 import { useRouter } from "next/navigation";
+import { canonicalComparisonSlug } from "@/lib/model-comparison-route";
 
 export type PublicModelOption = {
   slug: string;
@@ -56,8 +57,7 @@ export default function ModelHeaderSelect({
       return;
     }
 
-    const query = new URLSearchParams({ modelA: nextA, modelB: nextB });
-    router.push(`/comparisons/compare?${query.toString()}`);
+    router.push(`/comparisons/${canonicalComparisonSlug(nextA, nextB)}`);
   }
 
   return (
