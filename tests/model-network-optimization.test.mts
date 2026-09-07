@@ -56,7 +56,7 @@ test("public client receives identity-only model options", async () => {
   assert.doesNotMatch(optionType, /sources/);
 });
 
-test("admin loads model details lazily and does not persistently cache them", async () => {
+test("admin loads model details lazily and only caches selected models in-session", async () => {
   const [route, picker] = await Promise.all([
     source("app/api/admin/models/route.ts"),
     source("components/admin/ComparisonModelPicker.tsx"),
@@ -67,7 +67,10 @@ test("admin loads model details lazily and does not persistently cache them", as
   assert.match(route, /private, max-age=300/);
   assert.match(route, /private, no-store/);
   assert.match(picker, /\/api\/admin\/models\?slug=/);
-  assert.match(picker, /useRef\(new Map<string, ModelCatalogDetail>\(\)\)/);
+  assert.match(picker, /modelDetailRequests = new Map<string, Promise<ModelCatalogDetail>>/);
+  assert.match(picker, /fetch\(`/);
+  assert.match(picker, /cache: "no-store"/);
+  assert.doesNotMatch(picker, /apiRequest/);
   assert.doesNotMatch(picker, /comparisonData: Record<string, string>[\s\S]*export interface ModelCatalogEntry/);
 });
 
