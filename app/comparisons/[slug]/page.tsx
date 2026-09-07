@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { getAllComparisons, getComparisonBySlug } from "@/lib/comparisons";
+import { getComparisonBySlug, getComparisonPairs } from "@/lib/comparisons";
 import { getGlossaryIndex } from "@/lib/glossary";
-import { getModels } from "@/lib/models";
+import { getModelOptions } from "@/lib/models";
 import { notFound } from "next/navigation";
 import ContentBlocksRenderer from "@/components/content/ContentBlocksRenderer";
 import CoverImage from "@/components/content/CoverImage";
@@ -42,20 +42,16 @@ export default async function ComparisonPage({ params }: Props) {
   const comparison = await getComparisonBySlug(slug);
   if (!comparison) notFound();
 
-  const [models, comparisons, glossaryTerms] = await Promise.all([
-    getModels(),
-    getAllComparisons(),
+  const [modelCatalog, comparisonPairs, glossaryTerms] = await Promise.all([
+    getModelOptions(),
+    getComparisonPairs(),
     getGlossaryIndex(),
   ]);
-  const modelOptions = models.map(({ slug: modelSlug, name, developer, access }) => ({
+  const modelOptions = modelCatalog.map(({ slug: modelSlug, name, developer }) => ({
     slug: modelSlug,
     name,
     developer,
-    access,
   }));
-  const comparisonPairs = comparisons.flatMap((item) => item.modelA && item.modelB
-    ? [{ modelA: item.modelA, modelB: item.modelB, slug: item.slug }]
-    : []);
 
   const jsonLd = {
     "@context": "https://schema.org",
