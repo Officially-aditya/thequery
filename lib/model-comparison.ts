@@ -1,7 +1,12 @@
 import type { ContentBlock, Source, SpecTableBlock } from "./content-types";
-import type { ModelCatalogEntry } from "./models";
+import type { ModelBenchmarkCategory, ModelCatalogEntry } from "./models";
 
-const sections: Array<{ title: string; labels: string[] }> = [
+interface ComparisonSection {
+  title: string;
+  labels: string[];
+}
+
+const sections: ComparisonSection[] = [
   {
     title: "Specifications",
     labels: [
@@ -32,6 +37,7 @@ const sections: Array<{ title: string; labels: string[] }> = [
       "Image / vision input",
       "Audio input",
       "Video input",
+      "File / document input",
       "Text output",
       "Image output",
       "Audio output",
@@ -44,6 +50,17 @@ const sections: Array<{ title: string; labels: string[] }> = [
     ],
   },
   {
+    title: "Model behavior",
+    labels: [
+      "Primary focus",
+      "Long-horizon work",
+      "Agent orchestration",
+      "User collaboration",
+      "Efficiency / generation change",
+      "Safety / approvals",
+    ],
+  },
+  {
     title: "Coding",
     labels: [
       "SWE-bench Verified",
@@ -52,6 +69,7 @@ const sections: Array<{ title: string; labels: string[] }> = [
       "FrontierCode 1.1 Main",
       "FrontierCode 1.1 Extended",
       "DeepSWE v1.1",
+      "SWE-Atlas Codebase QnA",
       "NL2Repo",
       "VIBE-Pro",
       "Terminal-Bench 2.0",
@@ -67,7 +85,7 @@ const sections: Array<{ title: string; labels: string[] }> = [
   },
   {
     title: "Math & reasoning",
-    labels: ["AIME", "HMMT", "ARC-AGI", "FrontierMath", "FrontierMath Tier 4 (v2)"],
+    labels: ["AIME", "HMMT", "ARC-AGI", "FrontierMath", "FrontierMath Tier 4 (v2)", "MRCR v2 256K–512K", "MRCR v2 512K–1M"],
   },
   {
     title: "Knowledge",
@@ -80,9 +98,12 @@ const sections: Array<{ title: string; labels: string[] }> = [
       "OSWorld-Verified",
       "OSWorld 2.0",
       "BrowseComp",
+      "DeepSearchQA",
+      "JobBench",
       "GDPval-AA",
       "GDPval-AA v2",
       "AutomationBench",
+      "Agentic IF Index",
       "Agents' Last Exam",
       "ApexBench",
       "Arena Search",
@@ -93,6 +114,16 @@ const sections: Array<{ title: string; labels: string[] }> = [
     ],
   },
 ];
+
+const benchmarkSection: Record<ModelBenchmarkCategory, string> = {
+  coding: "Coding",
+  math_reasoning: "Math & reasoning",
+  knowledge: "Knowledge",
+  agentic_computer_use: "Agentic & computer use",
+  multimodal: "Multimodal",
+  professional: "Professional",
+  other: "Other benchmarks",
+};
 
 function sectionBlock(
   title: string,
@@ -120,8 +151,34 @@ function sectionBlock(
   };
 }
 
+function comparisonSections(modelA: ModelCatalogEntry, modelB: ModelCatalogEntry): ComparisonSection[] {
+  const dynamic = new Map<string, string[]>();
+  const predefined = new Set(sections.flatMap((section) => section.labels));
+
+  for (const benchmark of [...modelA.benchmarks, ...modelB.benchmarks]) {
+    if (predefined.has(benchmark.name)) continue;
+    const title = benchmarkSection[benchmark.category];
+    const labels = dynamic.get(title) ?? [];
+    if (!labels.includes(benchmark.name)) labels.push(benchmark.name);
+    dynamic.set(title, labels);
+  }
+
+  const merged = sections.map((section) => ({
+    ...section,
+    labels: [...section.labels, ...(dynamic.get(section.title) ?? [])],
+  }));
+  const knownTitles = new Set(merged.map((section) => section.title));
+
+  for (const title of ["Multimodal", "Professional", "Other benchmarks"]) {
+    const labels = dynamic.get(title);
+    if (labels?.length && !knownTitles.has(title)) merged.push({ title, labels });
+  }
+
+  return merged;
+}
+
 export function buildModelComparisonBlocks(modelA: ModelCatalogEntry, modelB: ModelCatalogEntry): ContentBlock[] {
-  return sections.flatMap((section, index) => {
+  return comparisonSections(modelA, modelB).flatMap((section, index) => {
     const block = sectionBlock(section.title, section.labels, modelA, modelB, index);
     return block ? [block] : [];
   });
