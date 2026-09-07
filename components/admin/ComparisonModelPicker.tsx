@@ -1,12 +1,12 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import type { ContentBlock, Source } from "@/lib/content-types";
-import { apiRequest, type EditableContent } from "./admin-client";
+import type { EditableContent } from "./admin-client";
 
 export type ModelAccess = "proprietary" | "restricted" | "open_weights" | "open_source";
 
-// Keep the initial editor payload intentionally small. Full comparison data is fetched per selected slug.
+// The initial editor request only needs these fields for the dropdown.
 export interface ModelCatalogEntry {
   slug: string;
   name: string;
@@ -22,6 +22,7 @@ interface ModelCatalogDetail extends ModelCatalogEntry {
   verifiedAt: string;
 }
 
+const modelDetailRequests = new Map<string, Promise<ModelCatalogDetail>>();
 const fieldClass = "w-full rounded-md border border-border bg-bg-primary px-3 py-2 text-sm text-text-primary outline-none focus:border-accent";
 
 function metadataSlug(metadata: Record<string, unknown>, key: "modelA" | "modelB"): string {
@@ -34,12 +35,36 @@ function uniqueSources(current: Source[], additions: Source[]): Source[] {
   );
 }
 
+async function loadModelDetail(slug: string): Promise<ModelCatalogDetail> {
+  let request = modelDetailRequests.get(slug);
+  if (!request) {
+    request = (async () => {
+      const response = await fetch(`/api/admin/models?slug=${encodeURIComponent(slug)}`, { cache: "no-store" });
+      const payload: unknown = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        const record = payload && typeof payload === "object" && !Array.isArray(payload)
+          ? payload as Record<string, unknown>
+          : {};
+        throw new Error(typeof record.error === "string" ? record.error : "Unable to load model details.");
+      }
+      return payload as ModelCatalogDetail;
+    })();
+    modelDetailRequests.set(slug, request);
+  }
+
+  try {
+    return await request;
+  } catch (error) {
+    modelDetailRequests.delete(slug);
+    throw error;
+  }
+}
+
 function fillSpecBlocks(
   blocks: ContentBlock[],
-  model: ModelCatalogDetail | undefined,
+  model: ModelCatalogDetail,
   changedSide: "a" | "b",
 ): ContentBlock[] {
-  if (!model) return blocks;
   const columnIndex = changedSide === "a" ? 0 : 1;
   const valueIndex = changedSide === "a" ? 1 : 2;
 
@@ -59,13 +84,13 @@ function fillSpecBlocks(
   });
 }
 
-export function applyComparisonModels(
+function selectionUpdate(
   editing: EditableContent,
   models: ModelCatalogEntry[],
-  selectedModel: ModelCatalogDetail | undefined,
   nextModelASlug: string,
   nextModelBSlug: string,
   changedSide: "a" | "b",
+  detail?: ModelCatalogDetail,
 ): Partial<EditableContent> {
   const modelA = models.find((model) => model.slug === nextModelASlug);
   const modelB = models.find((model) => model.slug === nextModelBSlug);
@@ -75,8 +100,8 @@ export function applyComparisonModels(
 
   return {
     title,
-    blocks: fillSpecBlocks(editing.blocks, selectedModel, changedSide),
-    sources: selectedModel ? uniqueSources(editing.sources, selectedModel.sources) : editing.sources,
+    blocks: detail ? fillSpecBlocks(editing.blocks, detail, changedSide) : editing.blocks,
+    sources: detail ? uniqueSources(editing.sources, detail.sources) : editing.sources,
     metadata: {
       ...editing.metadata,
       modelA: nextModelASlug,
@@ -104,8 +129,7 @@ export default function ComparisonModelPicker({
 }) {
   const selectedA = metadataSlug(editing.metadata, "modelA");
   const selectedB = metadataSlug(editing.metadata, "modelB");
-  const groups = Array.from(new Set(models.map((model) => model.developer));
-  const detailCache = useRef(new Map<string, ModelCatalogDetail>());
+  const groups = Array.from(new Set(models.map((model) => model.developer)));
   const [detailLoading, setDetailLoading] = useState(false);
   const [detailError, setDetailError] = useState("");
 
@@ -115,18 +139,14 @@ export default function ComparisonModelPicker({
     setDetailError("");
 
     if (!slug) {
-      onChange(applyComparisonModels(editing, models, undefined, nextA, nextB, side));
+      onChange(selectionUpdate(editing, models, nextA, nextB, side));
       return;
     }
 
     setDetailLoading(true);
     try {
-      let detail = detailCache.current.get(slug);
-      if (!detail) {
-        detail = await apiRequest<ModelCatalogDetail>(`/api/admin/models?slug=${encodeURIComponent(slug)}`);
-        detailCache.current.set(slug, detail);
-      }
-      onChange(applyComparisonModels(editing, models, detail, nextA, nextB, side));
+      const detail = await loadModelDetail(slug);
+      onChange(selectionUpdate(editing, models, nextA, nextB, side, detail));
     } catch (requestError) {
       setDetailError(requestError instanceof Error ? requestError.message : "Unable to load model details.");
     } finally {
