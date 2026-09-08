@@ -19,6 +19,7 @@ export default async function ResearchPage() {
       <h2 className="font-serif text-xl font-semibold text-text-primary">AI model catalog</h2>
       <p>Explore model specifications and reported benchmark results in our <Link href="/comparisons" className="text-accent underline">model comparisons</Link>. Scores come from the sources identified alongside the data. They are not independent experiments conducted by TheQuery.</p>
       <p><a href="/research/data/models.json" className="text-accent underline">Download model data (JSON)</a> · <a href="/research/data/benchmarks.csv" className="text-accent underline">Download benchmark observations (CSV)</a></p>
+      <p><a href="https://github.com/Officially-aditya/thequery-ai-data" className="text-accent underline">Versioned snapshots and citation metadata on GitHub</a></p>
       <p>The downloads preserve evaluator, source, benchmark version, harness, tools, reasoning effort, and evaluation date where recorded. Missing values mean unknown, not zero or disabled.</p>
     </section>
     <section id="methodology" className="space-y-3">
