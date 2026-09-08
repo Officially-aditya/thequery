@@ -59,3 +59,16 @@ test("API and MCP entries cover their core implementation details", () => {
     assert.equal(entry.lastUpdated, "2026-08-28");
   }
 });
+
+test("KNN glossary entry covers KNN regression", () => {
+  const matches = glossary.filter(({ slug }) => slug === "knn");
+  assert.equal(matches.length, 1);
+  const [entry] = matches;
+  assert.match(entry.fullDef, /## KNN regression/);
+  assert.match(entry.fullDef, /Unlike linear regression/);
+  assert.match(entry.fullDef, /KNeighborsRegressor|median of those same neighbors predicts 85/);
+  assert.ok(entry.seoKeywords.includes("KNN regression"));
+  assert.ok(entry.seoDescription.length >= 140);
+  assert.ok(entry.seoDescription.length <= 160);
+  assert.equal(entry.lastUpdated, "2026-09-08");
+});

@@ -42,6 +42,8 @@ const migrations = [
   { id: "036_enrich_remaining_catalog", file: new URL("../db/migrations/036_enrich_remaining_catalog.sql", import.meta.url) },
   { id: "037_deepen_muse_spark_comparisons", file: new URL("../db/migrations/037_deepen_muse_spark_comparisons.sql", import.meta.url) },
   { id: "010_update_knn_and_ann", file: new URL("../db/migrations/010_update_knn_and_ann.sql", import.meta.url) },
+  { id: "038_expand_knn_regression", file: new URL("../db/migrations/038_expand_knn_regression.sql", import.meta.url) },
+  { id: "039_update_subword_and_ann_cnn", file: new URL("../db/migrations/039_update_subword_and_ann_cnn.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
