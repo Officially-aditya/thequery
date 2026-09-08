@@ -23,6 +23,8 @@ export default function Footer() {
           <nav aria-label="Privacy and contact" className="justify-self-end flex flex-col items-start gap-3">
             <p className="font-serif text-base font-semibold text-text-primary">Privacy &amp; Contact</p>
             <Link href="/about" className="hover:text-text-secondary transition-colors">About</Link>
+            <Link href="/research" className="hover:text-text-secondary transition-colors">Research &amp; Data</Link>
+            <Link href="/press" className="hover:text-text-secondary transition-colors">For Journalists</Link>
             <Link href="/privacy" className="hover:text-text-secondary transition-colors">Privacy</Link>
             <a href="mailto:addy@thequery.in" className="hover:text-text-secondary transition-colors">Contact</a>
           </nav>

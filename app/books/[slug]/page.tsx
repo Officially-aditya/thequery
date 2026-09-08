@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BookCitation from "@/components/BookCitation";
 import { getBookMeta } from "@/lib/books";
 import { notFound } from "next/navigation";
 import CoverImage from "@/components/content/CoverImage";
@@ -39,6 +40,12 @@ export default async function BookPage({ params }: Props) {
   const book = await getBookMeta(slug);
   if (!book) notFound();
 
+  const bookUrl = `${SITE_URL}/books/${book.slug}`;
+  const edition = book.lastModified?.slice(0, 10);
+  const citation = `${book.author}. ${book.title}. TheQuery.${edition ? ` Updated ${edition}.` : ""} ${bookUrl}`;
+  const bibEscape = (value: string) => value.replace(/[\\{}%&#_$]/g, (char) => `\\${char}`);
+  const bibtex = `@book{thequery-${book.slug},\n  author = {${bibEscape(book.author)}},\n  title = {${bibEscape(book.title)}},\n  publisher = {TheQuery},\n  url = {${bookUrl}}${edition ? `,\n  note = {Online edition updated ${edition}}` : ""}\n}`;
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -60,7 +67,6 @@ export default async function BookPage({ params }: Props) {
           },
         },
         isAccessibleForFree: true,
-        numberOfPages: book.chapters.length,
       },
       {
         "@type": "BreadcrumbList",
@@ -96,6 +102,8 @@ export default async function BookPage({ params }: Props) {
       <p className="text-text-secondary mb-4 leading-relaxed">
         {book.description}
       </p>
+      <p className="mb-4 font-medium text-accent">Free to read. No account required.</p>
+      {["ai-from-first-principles", "rag-kg-master-course"].includes(book.slug) ? <p className="mb-4 text-sm"><a className="text-accent underline" href={`/books/downloads/${book.slug}.epub`} download>Download EPUB</a><span className="text-text-muted"> · Offline snapshot: September 9, 2026</span></p> : null}
       <p className="text-sm text-text-muted mb-8">
         This educational book follows TheQuery&apos;s <Link href="/about#editorial-standards" className="text-accent hover:text-accent-hover transition-colors">editorial standards</Link>. Report a factual correction at <a href="mailto:addy@thequery.in" className="text-accent hover:text-accent-hover transition-colors">addy@thequery.in</a>.
       </p>
@@ -119,6 +127,14 @@ export default async function BookPage({ params }: Props) {
           ))}
         </ul>
       </div>
+      <BookCitation citation={citation} bibtex={bibtex} />
+      <section className="mt-8 space-y-3 text-sm text-text-secondary">
+        <h2 className="font-serif text-xl font-semibold text-text-primary">Edition and reuse</h2>
+        <p>{edition ? `Online edition updated ${edition}.` : "Continuously maintained online edition."} Cite the page URL and include your access date when referring to a changing online edition.</p>
+        <p>Reading is free. Copyright remains with the author; contact <a className="text-accent underline" href="mailto:addy@thequery.in">addy@thequery.in</a> for republication or translation permission.</p>
+        <p>September 9, 2026: added citation and BibTeX tools to this landing page. This is a presentation update, not a new content edition.</p>
+        <Link className="text-accent underline" href="/research">More resources for researchers and educators</Link>
+      </section>
     </div>
   );
 }
