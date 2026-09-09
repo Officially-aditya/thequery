@@ -14,7 +14,9 @@ export const metadata: Metadata = {
   }),
 };
 
-export const revalidate = 300;
+// Public editorial content only changes through the admin, which explicitly
+// invalidates affected paths/tags. Avoid periodic ISR work on crawler traffic.
+export const revalidate = false;
 
 export default async function Home() {
   const glossaryCount = await getGlossaryCount();
