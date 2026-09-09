@@ -54,8 +54,6 @@ interface BenchmarkRow {
   source: string | null;
 }
 
-const MODEL_OPTION_CACHE_SECONDS = 300;
-
 function isoDate(value: string | Date | null): string | null {
   if (!value) return null;
   if (value instanceof Date) return value.toISOString().slice(0, 10);
@@ -171,7 +169,6 @@ export async function getModelOptions(): Promise<ModelCatalogOption[]> {
   return unstable_cache(
     queryModelOptions,
     ["model-catalog-options-v1"],
-    { revalidate: MODEL_OPTION_CACHE_SECONDS },
   )();
 }
 
@@ -203,8 +200,6 @@ export async function getModelsBySlugs(slugs: string[]): Promise<ModelCatalogEnt
   });
 }
 
-// Compatibility helper for maintenance/admin code that intentionally needs the entire detailed catalog.
-// Public comparison rendering and dropdowns must use getModelOptions/getModelsBySlugs instead.
 export async function getModels(): Promise<ModelCatalogEntry[]> {
   const options = await getModelOptions();
   return getModelsBySlugs(options.map((model) => model.slug));
