@@ -7,7 +7,7 @@ import { getAllComparisons } from "@/lib/comparisons";
 
 const BASE_URL = "https://www.thequery.in";
 
-export const revalidate = 900;
+export const revalidate = false;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [allTerms, allIssues, allGuides, allComparisons, allBooks] = await Promise.all([
@@ -18,7 +18,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     getAllBooks(),
   ]);
 
-  // Compute latest dates per section for deterministic index page lastmod
   const latestTermDate = allTerms.reduce((max, t) => {
     const d = new Date(t.lastUpdated);
     return d > max ? d : max;
@@ -57,7 +56,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE_URL}/privacy`, lastModified: siteLastModified },
   ];
 
-  // Books and chapters
   for (const book of allBooks) {
     const bookLastModified = book.lastModified
       ? new Date(book.lastModified)
@@ -77,7 +75,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   }
 
-  // Glossary terms
   for (const term of allTerms) {
     entries.push({
       url: `${BASE_URL}/glossary/${term.slug}`,
@@ -85,7 +82,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   }
 
-  // Guides
   for (const guide of allGuides) {
     entries.push({
       url: `${BASE_URL}/guides/${guide.slug}`,
@@ -93,7 +89,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   }
 
-  // Comparisons
   for (const comparison of allComparisons) {
     entries.push({
       url: `${BASE_URL}/comparisons/${comparison.slug}`,
@@ -101,7 +96,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   }
 
-  // Articles
   for (const issue of allIssues) {
     entries.push({
       url: `${BASE_URL}/articles/${issue.slug}`,
