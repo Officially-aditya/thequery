@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   }),
 };
 
-export const revalidate = 300;
+export const revalidate = false;
 
 export default async function BooksPage() {
   const books = await getAllBooks();
