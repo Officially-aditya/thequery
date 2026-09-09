@@ -14,9 +14,10 @@ export const metadata: Metadata = {
   }),
 };
 
-// Public editorial content only changes through the admin, which explicitly
-// invalidates affected paths/tags. Avoid periodic ISR work on crawler traffic.
-export const revalidate = false;
+// The homepage includes Word of the Day, so it is the only public content
+// surface that needs periodic regeneration. Once per day keeps it fresh
+// without putting crawler traffic on a five-minute ISR loop.
+export const revalidate = 86400;
 
 export default async function Home() {
   const glossaryCount = await getGlossaryCount();
