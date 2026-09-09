@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getIssueBySlug } from "@/lib/articles";
+import { getAllIssues, getIssueBySlug } from "@/lib/articles";
 import { getGlossaryIndex } from "@/lib/glossary";
 import { notFound } from "next/navigation";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
@@ -29,7 +29,11 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
-export const revalidate = 300;
+export const revalidate = false;
+
+export async function generateStaticParams() {
+  return (await getAllIssues()).map(({ slug }) => ({ slug }));
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
@@ -168,9 +172,6 @@ export default async function ArticlePage({ params }: Props) {
   const contentAfterVisualization = hasEmbeddedVisualization
     ? issue.content.slice(visualizationIndex).trimStart()
     : "";
-  // This article already has explicit glossary backlinks. Using the stateful
-  // auto-linker across two MarkdownRenderer instances can produce different
-  // server and client trees, so keep the split render deterministic.
   const renderedGlossaryTerms =
     hasEmbeddedVisualization || issue.manualGlossaryLinks ? [] : glossaryTerms;
   const hasRightRailVisualization =
