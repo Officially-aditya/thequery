@@ -12,8 +12,6 @@ import type {
   ContentBlock,
 } from "./content-types";
 
-const PUBLIC_CACHE_SECONDS = 300;
-
 interface ContentRow {
   id: string;
   kind: ContentKind;
@@ -117,10 +115,6 @@ function toObject(value: unknown): Record<string, unknown> {
     : {};
 }
 
-// The Neon driver returns DATE / TIMESTAMPTZ columns as Date objects, while
-// older rows and JSON seeds surface them as strings. Normalize both shapes to
-// a YYYY-MM-DD string so public pages never crash on `.slice()` when a row
-// has no publish date (e.g. drafts or backfilled records).
 function toDateOnly(value: unknown): string | null {
   if (value instanceof Date) {
     return Number.isNaN(value.getTime()) ? null : value.toISOString().slice(0, 10);
@@ -270,7 +264,7 @@ export async function getContentItems(
   return unstable_cache(
     () => queryContentItems(kind, parentSlug, false),
     ["content-items", kind, parentSlug],
-    { revalidate: PUBLIC_CACHE_SECONDS, tags: [`content:${kind}`] },
+    { tags: [`content:${kind}`] },
   )();
 }
 
@@ -286,7 +280,7 @@ export async function getContentItem(
   return unstable_cache(
     () => queryContentItem(kind, slug, resolvedParentSlug, false),
     ["content-item-v2", kind, resolvedParentSlug, slug],
-    { revalidate: PUBLIC_CACHE_SECONDS, tags: [`content:${kind}`] },
+    { tags: [`content:${kind}`] },
   )();
 }
 
@@ -300,7 +294,7 @@ export async function getContentSummaries(
   return unstable_cache(
     () => queryContentSummaries(kind, parentSlug, false),
     ["content-summaries-v2", kind, parentSlug],
-    { revalidate: PUBLIC_CACHE_SECONDS, tags: [`content:${kind}`] },
+    { tags: [`content:${kind}`] },
   )();
 }
 
@@ -308,7 +302,7 @@ export async function getContentIndex(kind: ContentKind): Promise<ContentIndexIt
   return unstable_cache(
     () => queryContentIndex(kind),
     ["content-index", kind],
-    { revalidate: PUBLIC_CACHE_SECONDS, tags: [`content:${kind}`] },
+    { tags: [`content:${kind}`] },
   )();
 }
 
