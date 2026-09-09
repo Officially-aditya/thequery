@@ -15,6 +15,11 @@ export interface GlossaryLink {
   slug: string;
 }
 
+interface GlossaryMatcher {
+  regex: RegExp | null;
+  byName: Map<string, GlossaryLink>;
+}
+
 function slugify(text: string): string {
   return text
     .toLowerCase()
@@ -42,18 +47,27 @@ function extractText(node: React.ReactNode): string {
   return "";
 }
 
+function createGlossaryMatcher(terms: GlossaryLink[]): GlossaryMatcher {
+  if (terms.length === 0) return { regex: null, byName: new Map() };
+
+  const sorted = [...terms].sort((a, b) => b.name.length - a.name.length);
+  const byName = new Map(sorted.map((term) => [term.name.toLowerCase(), term]));
+  const escaped = sorted.map((term) => term.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+  return {
+    regex: new RegExp(`\\b(${escaped.join("|")})\\b`, "gi"),
+    byName,
+  };
+}
+
 function linkifyText(
   text: string,
-  terms: GlossaryLink[],
+  matcher: GlossaryMatcher,
   linkedTerms: Set<string>,
 ): React.ReactNode[] {
-  if (terms.length === 0) return [text];
+  const { regex, byName } = matcher;
+  if (!regex) return [text];
 
-  // Build regex matching all term names, longest first to avoid partial matches
-  const sorted = [...terms].sort((a, b) => b.name.length - a.name.length);
-  const escaped = sorted.map((t) => t.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
-  const regex = new RegExp(`\\b(${escaped.join("|")})\\b`, "gi");
-
+  regex.lastIndex = 0;
   const parts: React.ReactNode[] = [];
   let lastIndex = 0;
   let match: RegExpExecArray | null;
@@ -61,20 +75,11 @@ function linkifyText(
   while ((match = regex.exec(text)) !== null) {
     const matchedText = match[0];
     const termKey = matchedText.toLowerCase();
+    const term = byName.get(termKey);
+    if (!term || linkedTerms.has(termKey)) continue;
 
-    // Find the matching term
-    const term = sorted.find((t) => t.name.toLowerCase() === termKey);
-    if (!term || linkedTerms.has(termKey)) {
-      continue;
-    }
     linkedTerms.add(termKey);
-
-    // Add text before match
-    if (match.index > lastIndex) {
-      parts.push(text.slice(lastIndex, match.index));
-    }
-
-    // Add linked term
+    if (match.index > lastIndex) parts.push(text.slice(lastIndex, match.index));
     parts.push(
       <a
         key={`gl-${match.index}`}
@@ -88,18 +93,15 @@ function linkifyText(
     lastIndex = match.index + matchedText.length;
   }
 
-  // Add remaining text
-  if (lastIndex < text.length) {
-    parts.push(text.slice(lastIndex));
-  }
-
+  if (lastIndex < text.length) parts.push(text.slice(lastIndex));
   return parts.length > 0 ? parts : [text];
 }
 
 function buildComponents(glossaryTerms: GlossaryLink[]): Components {
-  // Keep this set for the lifetime of one MarkdownRenderer render so a glossary
-  // term is auto-linked only at its first appearance in the full document.
   const linkedTerms = new Set<string>();
+  // Sorting, escaping, regex construction, and name indexing used to happen
+  // for every paragraph/list text node. Compile once for the whole render.
+  const glossaryMatcher = createGlossaryMatcher(glossaryTerms);
 
   return {
     h1: ({ children }) => <HeadingWithId level={1}>{children}</HeadingWithId>,
@@ -125,12 +127,11 @@ function buildComponents(glossaryTerms: GlossaryLink[]): Components {
         </ImageLightbox>
       );
     },
-    // Auto-link glossary terms in paragraph text nodes
     p: ({ children }) => {
       if (glossaryTerms.length === 0) return <p>{children}</p>;
       const processed = React.Children.map(children, (child) => {
         if (typeof child === "string") {
-          return <>{linkifyText(child, glossaryTerms, linkedTerms)}</>;
+          return <>{linkifyText(child, glossaryMatcher, linkedTerms)}</>;
         }
         return child;
       });
@@ -140,7 +141,7 @@ function buildComponents(glossaryTerms: GlossaryLink[]): Components {
       if (glossaryTerms.length === 0) return <li>{children}</li>;
       const processed = React.Children.map(children, (child) => {
         if (typeof child === "string") {
-          return <>{linkifyText(child, glossaryTerms, linkedTerms)}</>;
+          return <>{linkifyText(child, glossaryMatcher, linkedTerms)}</>;
         }
         return child;
       });
@@ -150,8 +151,6 @@ function buildComponents(glossaryTerms: GlossaryLink[]): Components {
 }
 
 function escapeCurrencyAmounts(markdown: string): string {
-  // remark-math treats an unescaped `$` as a math delimiter. Escape currency
-  // symbols before numbers so prices such as `$2` remain ordinary text.
   return markdown.replace(/(?<!\\)\$(?=\d)/g, "\\$");
 }
 
