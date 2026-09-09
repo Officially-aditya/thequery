@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { getAllBooks } from "@/lib/books";
 import { SITE_URL } from "@/lib/site";
 
-export const revalidate = 300;
+export const revalidate = false;
 export const metadata: Metadata = {
   title: "Research and data",
   description: "TheQuery's AI learning resources, model data, methodology, and citation guidance.",
