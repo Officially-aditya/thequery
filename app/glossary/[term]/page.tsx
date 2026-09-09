@@ -23,7 +23,11 @@ const MODEL_CARD_SIGNALS = [
   /\b(?:knowledge cutoff|max output|reasoning effort|tool calling)\b/i,
 ];
 
-export const revalidate = 300;
+export const revalidate = false;
+
+export async function generateStaticParams() {
+  return (await getGlossaryIndex()).map(({ slug }) => ({ term: slug }));
+}
 
 function isModelCardTerm(term: GlossaryTerm): boolean {
   if (term.category !== MODEL_GLOSSARY_CATEGORY) return false;
