@@ -25,6 +25,7 @@ function revalidateContent(kind: ContentKind, slug: string, parentSlug?: string 
   revalidateTag(`content:${kind}`, { expire: 0 });
   revalidatePath("/");
   revalidatePath("/sitemap.xml");
+
   if (kind === "article") {
     revalidatePath("/articles");
     revalidatePath(`/articles/${slug}`);
@@ -34,16 +35,30 @@ function revalidateContent(kind: ContentKind, slug: string, parentSlug?: string 
   } else if (kind === "comparison") {
     revalidatePath("/comparisons");
     revalidatePath(`/comparisons/${slug}`);
+    // Every comparison page renders the shared authored-pair picker.
+    revalidatePath("/comparisons/[slug]", "page");
   } else if (kind === "glossary") {
     revalidatePath("/glossary");
     revalidatePath(`/glossary/${slug}`);
     revalidatePath("/ai-word-of-the-day");
+    // Glossary auto-linking is embedded into these generated page families.
+    revalidatePath("/articles/[slug]", "page");
+    revalidatePath("/guides/[slug]", "page");
+    revalidatePath("/books/[slug]/[chapter]", "page");
+    revalidatePath("/comparisons/[slug]", "page");
   } else if (kind === "book") {
     revalidatePath("/books");
     revalidatePath(`/books/${slug}`);
+    revalidatePath("/research");
+    // Chapter pages include their parent book title/author/metadata.
+    revalidatePath("/books/[slug]/[chapter]", "page");
   } else if (parentSlug) {
+    // Chapter changes affect the book index count, parent table of contents,
+    // the chapter itself, research book listings, and the sitemap.
+    revalidatePath("/books");
     revalidatePath(`/books/${parentSlug}`);
     revalidatePath(`/books/${parentSlug}/${slug}`);
+    revalidatePath("/research");
   }
 }
 

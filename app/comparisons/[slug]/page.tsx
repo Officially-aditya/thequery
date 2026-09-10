@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getComparisonBySlug, getComparisonPairs } from "@/lib/comparisons";
+import { getAllComparisons, getComparisonBySlug, getComparisonPairs } from "@/lib/comparisons";
 import { getGlossaryIndex } from "@/lib/glossary";
 import { canonicalComparisonSlug, resolveComparisonSlug } from "@/lib/model-comparison-route";
 import { buildModelComparisonBlocks, modelComparisonSources } from "@/lib/model-comparison";
@@ -20,7 +20,11 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
-export const revalidate = 300;
+export const revalidate = false;
+
+export async function generateStaticParams() {
+  return (await getAllComparisons()).map(({ slug }) => ({ slug }));
+}
 
 function pairKey(modelA: string, modelB: string): string {
   return [modelA, modelB].sort().join("::");

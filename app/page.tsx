@@ -14,7 +14,10 @@ export const metadata: Metadata = {
   }),
 };
 
-export const revalidate = 300;
+// The homepage includes Word of the Day, so it is the only public content
+// surface that needs periodic regeneration. Once per day keeps it fresh
+// without putting crawler traffic on a five-minute ISR loop.
+export const revalidate = 86400;
 
 export default async function Home() {
   const glossaryCount = await getGlossaryCount();

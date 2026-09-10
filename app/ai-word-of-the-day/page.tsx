@@ -5,7 +5,7 @@ import MarkdownRenderer from "@/components/MarkdownRenderer";
 import { createOpenGraphMetadata, SITE_URL } from "@/lib/site";
 import type { Metadata } from "next";
 
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 export async function generateMetadata(): Promise<Metadata> {
   const wotd = await getTodaysWord();

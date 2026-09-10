@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getGuideBySlug } from "@/lib/guides";
+import { getAllGuides, getGuideBySlug } from "@/lib/guides";
 import { getGlossaryIndex } from "@/lib/glossary";
 import { notFound } from "next/navigation";
 import ContentBlocksRenderer from "@/components/content/ContentBlocksRenderer";
@@ -18,7 +18,11 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
-export const revalidate = 300;
+export const revalidate = false;
+
+export async function generateStaticParams() {
+  return (await getAllGuides()).map(({ slug }) => ({ slug }));
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;

@@ -1,4 +1,4 @@
-import { getChapterContent, getAdjacentChapters, splitIntoSections } from "@/lib/books";
+import { getAllBooks, getChapterContent, getAdjacentChapters, splitIntoSections } from "@/lib/books";
 import { getGlossaryIndex } from "@/lib/glossary";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -19,7 +19,12 @@ interface Props {
   params: Promise<{ slug: string; chapter: string }>;
 }
 
-export const revalidate = 300;
+export const revalidate = false;
+
+export async function generateStaticParams() {
+  const books = await getAllBooks();
+  return books.flatMap((book) => book.chapters.map((chapter) => ({ slug: book.slug, chapter: chapter.slug })));
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, chapter } = await params;
