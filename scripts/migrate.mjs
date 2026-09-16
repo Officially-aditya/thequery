@@ -47,6 +47,8 @@ const migrations = [
   { id: "040_deepseek_v41_flash", file: new URL("../db/migrations/040_deepseek_v41_flash.sql", import.meta.url) },
   { id: "041_fix_deepseek_comparison_meta", file: new URL("../db/migrations/041_fix_deepseek_comparison_meta.sql", import.meta.url) },
   { id: "042_publish_codex_provider_guide", file: new URL("../db/migrations/042_publish_codex_provider_guide.sql", import.meta.url) },
+  { id: "043_codex_guide_note_callout", file: new URL("../db/migrations/043_codex_guide_note_callout.sql", import.meta.url) },
+  { id: "044_codex_guide_rebuild_blocks", file: new URL("../db/migrations/044_codex_guide_rebuild_blocks.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
