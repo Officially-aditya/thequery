@@ -2023,7 +2023,8 @@
       "open-source",
       "reasoning",
       "agentic-ai",
-      "glm-5"
+      "glm-5",
+      "deepseek-v4-1-flash"
     ],
     "lastUpdated": "2026-08-14",
     "analogy": "Think of it like a massive research library with a smart retrieval desk: the whole building is available, but each query only lights up the shelves it needs.",
@@ -2070,6 +2071,61 @@
     ]
   },
   {
+    "name": "DeepSeek V4.1 Flash",
+    "slug": "deepseek-v4-1-flash",
+    "shortDef": "DeepSeek V4.1 Flash is DeepSeek's 552B-parameter multimodal MoE model with an 8B-active prefill and 16B-active decode, released September 10, 2026 as the API model deepseek-flash.",
+    "fullDef": "DeepSeek V4.1 Flash is DeepSeek's 552B-parameter multimodal Mixture-of-Experts model and the smallest member of its new Causal Encoder-Decoder architecture family. DeepSeek released it on September 10, 2026, as the API model `deepseek-flash`, replacing the retired [DeepSeek V4 Flash](/glossary/deepseek-v4-flash) and V4 Flash Vision Exp builds while keeping a 1 million token [context window](/glossary/context-window) and up to 384K output tokens.\n\nFor a normal user, V4.1 Flash is now the only Flash endpoint on the DeepSeek API: legacy names such as `deepseek-v4-flash` still work, but their requests are served by V4.1-Flash and billed at V4.1-Flash rates. For a developer, it is an open-weight, MIT-licensed model with native image understanding, tool calling, JSON output, OpenAI-compatible Responses API support, an Anthropic-compatible endpoint, and a continuously controllable reasoning-effort setting from 1 to 100.\n\n## Key specifications\n\n| Specification | DeepSeek V4.1 Flash |\n| --- | --- |\n| Model version | DeepSeek-V4.1-Flash |\n| API model ID | `deepseek-flash` |\n| Release date | September 10, 2026 |\n| Backbone parameters | 552B (MoE) |\n| Active parameters | 8B per token at prefill / 16B at decode |\n| Architecture | Causal Encoder-Decoder with CSA2 sparse attention |\n| Context / maximum output | 1M / 384K tokens |\n| Reasoning effort | Non-thinking + thinking (default); continuous 1-100 |\n| Inputs | Text and images (native vision encoder) |\n| API features | JSON, tools, Responses API, Anthropic API, prefix completion, FIM (non-thinking only) |\n| KV cache | 890 bytes per token, about 1/4 of V4-Flash |\n| Concurrency limit | 2500 |\n| License | MIT |\n\nThe 552B backbone includes a 196B-parameter Engram conditional-memory component that is sparsely accessed through token-based lookup, so the active-parameter figure is the better clue to per-token compute. Open weights do not mean lightweight deployment: the full checkpoint still requires serious multi-GPU infrastructure or a hosted inference provider.\n\n## Architecture\n\nThe signature change is the **Causal Encoder-Decoder (CED)**: a 40-layer Transformer organized as a 20-layer causal encoder followed by a 20-layer decoder. The decoder's global KV cache is projected from the final encoder hidden states rather than derived from each decoder layer's own hidden states. That is what lets the model activate only 8B parameters per token during prefill and 16B during decode, which matters most for input-heavy agentic workloads where documents and repositories dominate the prompt.\n\nThe model uses one shared expert and 384 routed experts per MoE layer, activating 6 routed experts per token. Attention uses **CSA2**, which assigns each layer one of three static modes - Full, Reindex, or Reuse - to share main KV and indexer keys across layers. A Hierarchical Sparse Indexer bounds deeper indexer cost independently of context length, and **SWA Bounded Replay** reconstructs missing sliding-window KV states by replaying only the most recent tokens instead of persisting them to SSD.\n\nAdditional components include Single-Pass mHC for residual-stream mixing, Engram conditional memory, and DSpark [speculative decoding](/glossary/speculative-decoding) with confidence-scheduled verification. A DeepSeek-ViT vision encoder and a two-layer MLP projector convert images into visual embeddings that are processed jointly with text from the start of pre-training, which is why image understanding is native rather than bolted on.\n\nThe model was trained from scratch on a 45T-token multimodal corpus, with sparse attention trained at 64K sequence length and context extended to 1M at 34T tokens. Post-training follows the standard SFT to RL to on-policy distillation paradigm; the substantive changes lie in large-scale automated synthesis of agent tasks and environments.\n\n## KV cache economics\n\nCache-hit charges often dominate agent costs because long sessions repeatedly reread a growing prefix. V4.1-Flash's KV cache needs about 1/4 the HBM and 1/8 the SSD storage of the previous generation: roughly 890 bytes per token against about 4x that for [DeepSeek V4 Flash](/glossary/deepseek-v4-flash). DeepSeek attributes the reduction to FP4 main KV caching, CSA2 layer sharing, and SWA Bounded Replay.\n\nFor production planning, the practical consequence is that self-hosted deployments fit the same context window on much less memory, and API users pay materially less for cached input.\n\n## Official benchmark comparison\n\nThese are DeepSeek's reported instruct-model results at maximum reasoning effort (reasoning_effort=100). Agentic benchmarks use DeepSeek Harness minimal mode, mini-SWE for DeepSWE v1.1, and the Claude Code harness for SEC-Bench Pro, so cross-vendor rows should be read as vendor-reported snapshots rather than identical configurations.\n\n| Benchmark | V4.1-Flash | V4-Flash | V4-Pro | Opus 5.0 |\n| --- | ---: | ---: | ---: | ---: |\n| GPQA Diamond | 90.9 | 89.9 | 92.4 | 93.4 |\n| HLE, text-only, no tools | 36.8 | 37.8 | 42.7 | 56.3 |\n| Codeforces rating | **3471** | 3289 | 3348 | - |\n| MathArena Apex | **65.6** | 58.6 | 65.3 | - |\n| Terminal-Bench 2.1 | **90.6** | 82.7 | 87.9 | 89.1 |\n| Terminal-Bench 3.0 | 30.0 | 7.6 | 11.8 | **43.3** |\n| Terminal-Bench 4.0 | 31.2 | 7.0 | 12.4 | **51.8** |\n| DeepSWE v1.1 | **74.2** | 54.4 | 62.7 | 74.0 |\n| AutomationBench | **54.8** | 37.7 | 43.2 | 50.3 |\n| Agent's Last Exam | **31.8** | 25.2 | 25.7 | 28.6 |\n\nThe useful pattern is not a sweep. V4.1-Flash beats both [DeepSeek V4](/glossary/deepseek-v4) predecessors and Opus 5.0 on Terminal-Bench 2.1, DeepSWE v1.1, Codeforces, and AutomationBench, but stays well behind Opus 5.0 on the harder Terminal-Bench 3.0/4.0 releases, and text-only HLE slips slightly below V4-Flash. The base model also beats V4-Pro-Base on MMLU-Pro (74.1 vs 73.5) while activating a fraction of the parameters.\n\n## Pricing\n\nV4.1-Flash pricing took effect at 04:00 UTC on September 10, 2026. Off-peak rates are 50% of peak rates; peak hours are 01:00-04:00 and 06:00-10:00 UTC, Monday through Friday.\n\n| Token type | Off-peak | Peak |\n| --- | ---: | ---: |\n| 1M input, cache hit | $0.003 | $0.006 |\n| 1M input, cache miss | $0.15 | $0.30 |\n| 1M output | $0.60 | $1.20 |\n\nThat is roughly half the final V4-Flash cache-miss rates ($0.22 input, $0.66 output off-peak) with cache-hit reads down to a third of a cent. The concurrency limit is 2500, against 500 for DeepSeek V4 Pro.\n\n## V4.1 Flash versus V4 Flash\n\nV4.1-Flash replaces V4-Flash outright rather than supplementing it. V4-Flash and V4-Flash-Vision-Exp were retired on September 10, 2026; their API names temporarily route to V4.1-Flash at V4.1-Flash rates. The same-scorecard benchmark table shows V4.1-Flash ahead on nearly every agentic benchmark, with the largest gaps on DeepSWE v1.1 (74.2 vs 54.4) and Terminal-Bench 3.0/4.0, where V4-Flash effectively failed the newer task releases.\n\nVision also changes status: V4-Flash was text-only and served images through a separate experimental model, while V4.1-Flash accepts images natively through one endpoint.\n\nDeepSeek has also said all `deepseek-v4-pro` requests route to V4.1-Flash at V4.1-Flash rates starting 04:00 UTC on September 14, 2026, until V4.1-Pro launches. V4.1-Flash therefore functions as the default DeepSeek endpoint for both Flash and Pro API names.\n\n## When to use DeepSeek V4.1 Flash\n\nV4.1-Flash fits high-volume agent workloads, repository-scale coding, extraction, summarization, document and image understanding in one endpoint, and any workload that benefits from the 2500-concurrency limit and off-peak scheduling. The 8B-active prefill makes input-heavy requests - large prompts, long [context windows](/glossary/context-window) - disproportionately cheaper than on models that activate parameters symmetrically.\n\nIt is not the right tool for the hardest terminal and exploit-development tasks, where Opus 5.0 retains a clear lead on DeepSeek's own table, and text-only HLE suggests no factual-knowledge advantage over its predecessor. Self-hosting is possible under the MIT license, but the 552B backbone keeps local deployment in multi-GPU territory.\n\n## Bottom line\n\nDeepSeek V4.1 Flash is not an incremental Flash update. It is a new Causal Encoder-Decoder architecture that cuts active parameters, KV cache, and API prices at once, adds native vision, and takes over both retired Flash builds and, temporarily, V4-Pro API traffic. The vendor-reported table shows real same-scorecard wins on agent benchmarks, with the usual caveats about harness-dependent results.",
+    "category": "Models & Architectures",
+    "relatedTerms": [
+      "deepseek-v4",
+      "deepseek-v4-flash",
+      "deepseek-v4-pro",
+      "large-language-model",
+      "mixture-of-experts",
+      "context-window",
+      "speculative-decoding",
+      "kv-cache",
+      "inference",
+      "benchmark",
+      "open-weight-model",
+      "reasoning",
+      "api"
+    ],
+    "lastUpdated": "2026-09-10",
+    "analogy": "V4.1 Flash is a new building on the same street: the old Flash office closed, its address now forwards there, and the rent is half while the staff reading your files cost a quarter of the previous team.",
+    "references": [
+      {
+        "title": "DeepSeek-V4.1-Flash: Smarter, Faster, More Efficient",
+        "url": "https://api-docs.deepseek.com/news/news260910"
+      },
+      {
+        "title": "DeepSeek-V4.1-Flash Model Card and Weights",
+        "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash"
+      },
+      {
+        "title": "DeepSeek API Models and Pricing",
+        "url": "https://api-docs.deepseek.com/quick_start/pricing"
+      },
+      {
+        "title": "DeepSeek API Docs - Your First API Call",
+        "url": "https://api-docs.deepseek.com/"
+      }
+    ],
+    "seoDescription": "DeepSeek V4.1 Flash explained: 552B MoE with 8B/16B CED architecture, 1M context, native vision, September 2026 pricing, benchmarks, and V4-Flash retirement.",
+    "seoKeywords": [
+      "what is DeepSeek V4.1 Flash",
+      "DeepSeek V4.1 Flash",
+      "DeepSeek V4.1 Flash benchmarks",
+      "DeepSeek V4.1 Flash pricing",
+      "DeepSeek V4.1 Flash vs V4 Flash",
+      "deepseek-flash API",
+      "DeepSeek V4 Flash retired",
+      "Causal Encoder-Decoder architecture",
+      "890 bytes per token KV cache",
+      "552B MoE model"
+    ]
+  },
+  {
     "name": "DeepSeek V4 Flash",
     "slug": "deepseek-v4-flash",
     "shortDef": "DeepSeek V4 Flash is DeepSeek's 284B-parameter, 13B-active open-weight MoE model for fast, lower-cost agents, coding, and 1M-token workloads.",
@@ -2086,7 +2142,8 @@
       "open-weight-model",
       "reasoning",
       "agentic-ai",
-      "api"
+      "api",
+      "deepseek-v4-1-flash"
     ],
     "lastUpdated": "2026-08-14",
     "analogy": "Flash is the express lane in the V4 family: it uses fewer active experts per request, so most jobs move faster and cost less, while hard cases can move to Pro.",
@@ -2139,7 +2196,8 @@
       "reasoning",
       "agentic-ai",
       "reinforcement-learning",
-      "api"
+      "api",
+      "deepseek-v4-1-flash"
     ],
     "lastUpdated": "2026-08-14",
     "analogy": "Pro is the heavy-duty lane in the V4 family: more expert capacity is activated for each token, costing more but improving the odds on difficult, multi-stage work.",
