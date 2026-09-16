@@ -50,6 +50,7 @@ const migrations = [
   { id: "043_codex_guide_note_callout", file: new URL("../db/migrations/043_codex_guide_note_callout.sql", import.meta.url) },
   { id: "044_codex_guide_rebuild_blocks", file: new URL("../db/migrations/044_codex_guide_rebuild_blocks.sql", import.meta.url) },
   { id: "045_revert_codex_note_callout", file: new URL("../db/migrations/045_revert_codex_note_callout.sql", import.meta.url) },
+  { id: "046_codex_guide_callout_split", file: new URL("../db/migrations/046_codex_guide_callout_split.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
