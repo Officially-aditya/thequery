@@ -67,6 +67,10 @@ const migrations = [
   { id: "060_publish_gpt6_sol_luna_glossary", file: new URL("../db/migrations/060_publish_gpt6_sol_luna_glossary.sql", import.meta.url) },
   { id: "061_update_gpt6_sol_glossary_comparison", file: new URL("../db/migrations/061_update_gpt6_sol_glossary_comparison.sql", import.meta.url) },
   { id: "062_update_gpt6_luna_glossary_comparison", file: new URL("../db/migrations/062_update_gpt6_luna_glossary_comparison.sql", import.meta.url) },
+  { id: "063_fill_gpt6_sol_glossary_gaps", file: new URL("../db/migrations/063_fill_gpt6_sol_glossary_gaps.sql", import.meta.url) },
+  { id: "064_remove_gpt6_sol_max_labels", file: new URL("../db/migrations/064_remove_gpt6_sol_max_labels.sql", import.meta.url) },
+  { id: "065_remove_gpt6_luna_max_labels", file: new URL("../db/migrations/065_remove_gpt6_luna_max_labels.sql", import.meta.url) },
+  { id: "066_fill_gpt6_luna_glossary_gaps", file: new URL("../db/migrations/066_fill_gpt6_luna_glossary_gaps.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
