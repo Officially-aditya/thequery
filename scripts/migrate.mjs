@@ -57,6 +57,7 @@ const migrations = [
   { id: "050_fix_jev_article_meta", file: new URL("../db/migrations/050_fix_jev_article_meta.sql", import.meta.url) },
   { id: "051_add_claude_opus_5_5", file: new URL("../db/migrations/051_add_claude_opus_5_5.sql", import.meta.url) },
   { id: "052_add_opus_5_5_comparison", file: new URL("../db/migrations/052_add_opus_5_5_comparison.sql", import.meta.url) },
+  { id: "053_publish_opus_55_article", file: new URL("../db/migrations/053_publish_opus_55_article.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
