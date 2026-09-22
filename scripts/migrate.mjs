@@ -53,6 +53,7 @@ const migrations = [
   { id: "046_codex_guide_callout_split", file: new URL("../db/migrations/046_codex_guide_callout_split.sql", import.meta.url) },
   { id: "047_add_grok_4_7", file: new URL("../db/migrations/047_add_grok_4_7.sql", import.meta.url) },
   { id: "048_add_grok_4_7_comparison", file: new URL("../db/migrations/048_add_grok_4_7_comparison.sql", import.meta.url) },
+  { id: "049_publish_jev_article", file: new URL("../db/migrations/049_publish_jev_article.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
