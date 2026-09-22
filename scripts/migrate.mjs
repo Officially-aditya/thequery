@@ -60,6 +60,10 @@ const migrations = [
   { id: "053_publish_opus_55_article", file: new URL("../db/migrations/053_publish_opus_55_article.sql", import.meta.url) },
   { id: "054_add_gpt6_sol_luna_comparison", file: new URL("../db/migrations/054_add_gpt6_sol_luna_comparison.sql", import.meta.url) },
   { id: "055_publish_gpt6_sol_luna_article", file: new URL("../db/migrations/055_publish_gpt6_sol_luna_article.sql", import.meta.url) },
+  { id: "056_update_gpt6_sol_comparison_official", file: new URL("../db/migrations/056_update_gpt6_sol_comparison_official.sql", import.meta.url) },
+  { id: "057_update_gpt6_sol_comparison_clean_table", file: new URL("../db/migrations/057_update_gpt6_sol_comparison_clean_table.sql", import.meta.url) },
+  { id: "058_update_gpt6_sol_comparison_two_column", file: new URL("../db/migrations/058_update_gpt6_sol_comparison_two_column.sql", import.meta.url) },
+  { id: "059_update_gpt6_sol_comparison_official_specs", file: new URL("../db/migrations/059_update_gpt6_sol_comparison_official_specs.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
