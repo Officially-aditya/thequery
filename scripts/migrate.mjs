@@ -73,6 +73,7 @@ const migrations = [
   { id: "066_fill_gpt6_luna_glossary_gaps", file: new URL("../db/migrations/066_fill_gpt6_luna_glossary_gaps.sql", import.meta.url) },
   { id: "067_enrich_gpt6_sol_luna_catalog_dedupe", file: new URL("../db/migrations/067_enrich_gpt6_sol_luna_catalog_dedupe.sql", import.meta.url) },
   { id: "068_canonicalize_agents_last_exam", file: new URL("../db/migrations/068_canonicalize_agents_last_exam.sql", import.meta.url) },
+  { id: "069_add_secbenchpro_benchlm", file: new URL("../db/migrations/069_add_secbenchpro_benchlm.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
