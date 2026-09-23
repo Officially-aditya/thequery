@@ -14,7 +14,9 @@ test("final catalog benchmark labels are exposed in generated and authored compa
 
   for (const label of [
     "Multi-SWE-Bench",
-    "NL2Repo",
+    "NL2Repo-Bench",
+    "CyberGym",
+    "SEC-Bench Pro",
     "VIBE-Pro",
     "ApexBench",
     "Arena Search",
