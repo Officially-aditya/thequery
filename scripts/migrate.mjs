@@ -71,6 +71,7 @@ const migrations = [
   { id: "064_remove_gpt6_sol_max_labels", file: new URL("../db/migrations/064_remove_gpt6_sol_max_labels.sql", import.meta.url) },
   { id: "065_remove_gpt6_luna_max_labels", file: new URL("../db/migrations/065_remove_gpt6_luna_max_labels.sql", import.meta.url) },
   { id: "066_fill_gpt6_luna_glossary_gaps", file: new URL("../db/migrations/066_fill_gpt6_luna_glossary_gaps.sql", import.meta.url) },
+  { id: "067_enrich_gpt6_sol_luna_catalog_dedupe", file: new URL("../db/migrations/067_enrich_gpt6_sol_luna_catalog_dedupe.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
