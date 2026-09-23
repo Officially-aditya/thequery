@@ -77,6 +77,7 @@ const migrations = [
   { id: "070_canonicalize_coding_benchmark_names", file: new URL("../db/migrations/070_canonicalize_coding_benchmark_names.sql", import.meta.url) },
   { id: "071_remove_gpt6_sol_opus55_scorecard", file: new URL("../db/migrations/071_remove_gpt6_sol_opus55_scorecard.sql", import.meta.url) },
   { id: "072_rename_gpt6_astra_glossary", file: new URL("../db/migrations/072_rename_gpt6_astra_glossary.sql", import.meta.url) },
+  { id: "073_add_glm_5_3_flash", file: new URL("../db/migrations/073_add_glm_5_3_flash.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
