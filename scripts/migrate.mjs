@@ -75,6 +75,7 @@ const migrations = [
   { id: "068_canonicalize_agents_last_exam", file: new URL("../db/migrations/068_canonicalize_agents_last_exam.sql", import.meta.url) },
   { id: "069_add_secbenchpro_benchlm", file: new URL("../db/migrations/069_add_secbenchpro_benchlm.sql", import.meta.url) },
   { id: "070_canonicalize_coding_benchmark_names", file: new URL("../db/migrations/070_canonicalize_coding_benchmark_names.sql", import.meta.url) },
+  { id: "071_remove_gpt6_sol_opus55_scorecard", file: new URL("../db/migrations/071_remove_gpt6_sol_opus55_scorecard.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
