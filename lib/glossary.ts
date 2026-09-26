@@ -5,7 +5,6 @@ import {
   getContentItem,
   getContentItems,
   getContentSummaries,
-  contentDisplayDate,
   type ContentSummary,
 } from "./content";
 import type { Source } from "./content-types";
@@ -45,6 +44,10 @@ function textList(value: unknown): string[] {
   return Array.isArray(value) ? value.filter((item): item is string => typeof item === "string") : [];
 }
 
+function lastUpdatedDate(publishedAt: string | null, updatedAt: string): string {
+  return updatedAt || publishedAt || new Date().toISOString().slice(0, 10);
+}
+
 function asTerm(item: Awaited<ReturnType<typeof getContentItem>> extends infer T ? Exclude<T, null> : never): GlossaryTerm {
   const metadata = item.metadata;
   return {
@@ -60,7 +63,7 @@ function asTerm(item: Awaited<ReturnType<typeof getContentItem>> extends infer T
     ...(item.sources.length ? { references: item.sources } : {}),
     ...(typeof metadata.seoDescription === "string" ? { seoDescription: metadata.seoDescription } : {}),
     ...(textList(metadata.seoKeywords).length ? { seoKeywords: textList(metadata.seoKeywords) } : {}),
-    lastUpdated: contentDisplayDate(item.publishedAt, item.updatedAt),
+    lastUpdated: lastUpdatedDate(item.publishedAt, item.updatedAt),
   };
 }
 
@@ -72,7 +75,7 @@ function asTermSummary(item: ContentSummary): GlossaryTermSummary {
     category: typeof item.metadata.category === "string" ? item.metadata.category : "Foundations",
     ...(item.coverImageUrl ? { coverImageUrl: item.coverImageUrl } : {}),
     ...(item.coverImageAlt ? { coverImageAlt: item.coverImageAlt } : {}),
-    lastUpdated: contentDisplayDate(item.publishedAt, item.updatedAt),
+    lastUpdated: lastUpdatedDate(item.publishedAt, item.updatedAt),
   };
 }
 
