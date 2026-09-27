@@ -1800,7 +1800,7 @@
     ]
   },
   {
-    "slug": "adaboost",
+    "slug": "boosting",
     "humor": "The original 'fail forward' algorithm. It looks at what it got wrong, panics slightly harder about those samples, and tries again. Rinse and repeat until the committee votes correctly.",
     "examples": [
       "We used AdaBoost with decision stumps as base learners for the binary spam classifier — the simplicity of each weak learner kept inference under 2ms per request.",
@@ -1808,7 +1808,7 @@
     ]
   },
   {
-    "slug": "xgboost",
+    "slug": "boosting",
     "humor": "The Kaggle cheat code. For years, the winning formula was: step one, try XGBoost; step two, there is no step two.",
     "examples": [
       "Our XGBoost model handles 47 tabular features for churn prediction and consistently outperforms the deep learning baseline on this structured dataset.",
@@ -1816,7 +1816,7 @@
     ]
   },
   {
-    "slug": "lightgbm",
+    "slug": "boosting",
     "humor": "XGBoost looked at its training time and said 'that is fine.' LightGBM looked at the same training time and said 'absolutely not.' Microsoft energy.",
     "examples": [
       "LightGBM's leaf-wise growth strategy let us train on 50 million rows in under 10 minutes — the same dataset took XGBoost over an hour with comparable accuracy.",

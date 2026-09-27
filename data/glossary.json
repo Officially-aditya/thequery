@@ -53,35 +53,6 @@
     "analogy": "Like a bouncer at a club - it decides which signals are strong enough to pass through and which get turned away."
   },
   {
-    "name": "AdaBoost (Boosting)",
-    "slug": "adaboost",
-    "shortDef": "The original boosting algorithm that trains a sequence of weak classifiers, reweighting misclassified examples after each round so subsequent models focus on the hardest cases.",
-    "fullDef": "AdaBoost - short for Adaptive Boosting - was introduced by Freund and Schapire in 1997 and became the first boosting algorithm to see widespread practical adoption. It works by training a sequence of weak learners (typically decision stumps - trees with a single split) on weighted versions of the training data.\n\nAfter each round, AdaBoost increases the weight of misclassified examples and decreases the weight of correctly classified ones. The next weak learner is trained on this reweighted dataset, forcing it to focus on the examples the ensemble currently gets wrong. Each weak learner also receives a coefficient proportional to its accuracy - better classifiers get more say in the final vote.\n\nThe final prediction is a weighted majority vote of all weak learners. Despite its simplicity, AdaBoost achieves strong performance on many classification tasks and was one of the first algorithms to demonstrate that combining many weak models could match or exceed a single complex one. Its main limitations are sensitivity to noisy data and outliers (since misclassified outliers receive exponentially increasing weight) and its restriction to exponential loss, which later algorithms like gradient boosting generalized.",
-    "category": "Foundations",
-    "relatedTerms": [
-      "boosting",
-      "decision-tree",
-      "xgboost",
-      "lightgbm",
-      "random-forest"
-    ],
-    "seoDescription": "AdaBoost (Adaptive Boosting) is the original boosting algorithm that reweights misclassified examples each round. Learn how AdaBoost works, its strengths, limitations, and difference from XGBoost.",
-    "seoKeywords": [
-      "what is AdaBoost",
-      "what is AdaBoost in ai",
-      "AdaBoost explained",
-      "AdaBoost algorithm",
-      "AdaBoost machine learning",
-      "adaptive boosting",
-      "AdaBoost vs XGBoost",
-      "how AdaBoost works",
-      "AdaBoost weak learners",
-      "AdaBoost classification"
-    ],
-    "lastUpdated": "2026-03-09",
-    "analogy": "Imagine a teacher who gives extra homework on the questions students got wrong - each round of practice targets the weak spots."
-  },
-  {
     "name": "Adam Optimizer",
     "slug": "adam-optimizer",
     "shortDef": "An adaptive learning rate optimization algorithm that maintains per-parameter learning rates based on first and second moment estimates of gradients.",
@@ -872,18 +843,27 @@
   {
     "name": "Boosting (Ensemble Methods)",
     "slug": "boosting",
-    "shortDef": "A family of ensemble learning techniques that combine many weak learners sequentially, where each new model focuses on correcting the mistakes of the previous ones.",
-    "fullDef": "Boosting is an ensemble strategy that builds models one at a time, with each new model trained to fix the errors left by the ensemble so far. Unlike bagging (used in random forests), which trains models independently in parallel, boosting is inherently sequential - the order matters because each model learns from the failures of its predecessors.\n\nThe core insight is that many weak learners - models only slightly better than random guessing - can be combined into a single strong learner. Each iteration focuses the learning on the hardest examples: the data points that previous models got wrong receive higher weight, forcing the next model to pay more attention to them. The final prediction is a weighted combination of all the individual models.\n\nBoosting has produced some of the most successful algorithms in applied machine learning. AdaBoost (1997) was the first widely adopted boosting algorithm and remains a useful teaching example. Gradient Boosted Decision Trees generalized the approach by framing boosting as gradient descent in function space. XGBoost (2016) added regularization and engineering optimizations that made it the dominant algorithm in Kaggle competitions for years. LightGBM (2017) introduced leaf-wise tree growth and histogram-based splitting for dramatically faster training on large datasets. CatBoost (2018) added native handling of categorical features.\n\nBoosting methods consistently outperform other approaches on tabular data and remain the go-to choice for structured data problems in production - fraud detection, credit scoring, recommendation ranking, and ad click prediction all rely heavily on boosted trees.",
+    "shortDef": "A family of ensemble methods that adds weak learners one at a time, each one fitting the errors of the ensemble so far - the family behind AdaBoost, XGBoost, LightGBM, and CatBoost.",
+    "fullDef": "Boosting is an ensemble strategy that builds models one at a time, with each new model trained to fix the errors left by the ensemble so far. Unlike bagging (used in [random forests](/glossary/random-forest)), which trains models independently in parallel, boosting is inherently sequential - the order matters because each model learns from the failures of its predecessors.\n\nThe core insight is that many weak learners - models only slightly better than random guessing - can be combined into a single strong learner. Each iteration focuses learning on the hardest examples: the data points that previous models got wrong receive higher weight, forcing the next model to pay more attention to them. The final prediction is a weighted combination of everything built along the way.\n\nOn tabular data this remains the strongest default for most production problems. Three implementations carry nearly all of the weight today - XGBoost, LightGBM, and CatBoost - and AdaBoost, the 1997 original, still explains the idea better than any of them.\n\n## How a boosting round works\n\nWrite the current ensemble as a sum of weak learners, `F(x) = sum over m of eta * f_m(x)`, where each `f_m` is a tree or stump and `eta` is the learning rate, the shrinkage applied to every new learner's contribution.\n\nEach round does three things. Fit a base learner to the current errors - AdaBoost reweights misclassified rows, gradient boosting fits the negative gradient of the loss. Weight that learner by how much it actually reduces the loss. Add it to the ensemble, damped by `eta`, and move on.\n\nTwo consequences follow from the shrinkage. A lower learning rate means each tree changes the model less, so you need more rounds, which is why the learning rate and the round count are always tuned together and why 500 rounds at `eta` 0.03 is a different model from 50 rounds at `eta` 0.3. And because the ensemble only ever moves in the direction that reduces loss, boosting is a form of [gradient descent](/glossary/gradient-descent) in function space, which is exactly how gradient boosting generalized the idea.\n\n## AdaBoost: the original\n\nFreund and Schapire introduced AdaBoost in 1997, and it remains the cleanest statement of what boosting is. Each round, misclassified examples get their weight multiplied up, correctly classified ones get multiplied down, and the next stump trains on the reweighted data. Every learner also receives a vote proportional to its error rate, and the prediction is the weighted majority vote. In practice the base learners are [decision stumps](/glossary/decision-tree) - a single split - which is what makes the reweighting visible rather than buried inside a deep tree.\n\nThe theoretical guarantee is worth knowing because it explains the design. The training error of the ensemble is bounded by roughly `half of the exponential of minus gamma times M`, so error falls exponentially in the number of rounds as long as every learner does better than random. It was the first clean result to show that a weak-learner assumption plus enough rounds yields a strong learner, and it reset how ensembles were thought about.\n\nWhat AdaBoost cannot do is survive messy data. Misclassified outliers receive exponentially increasing weight, so mislabeled rows get amplified rather than smoothed, and the ensemble chases them. The AdaBoost.M1 loss is exponential only, so multiclass variants (SAMME, SAMME.R) exist as patches, and gradient boosting later replaced that restricted loss with any differentiable objective. Practical verdict: AdaBoost is a teaching tool and a reasonable baseline on clean, small, binary problems. It is not what you deploy.\n\n## Gradient boosting: the general form\n\nFriedman's 2001 greedy function approximation reframed boosting as stagewise additive modeling over any [loss function](/glossary/loss-function), and it is the direct ancestor of everything that follows. Instead of reweighting rows, you compute the negative gradient of the loss with respect to the current prediction - the residual under squared error, the `p - y` direction under log loss - and fit a tree to that. The tree is a local correction, not a replacement.\n\nTwo refinements matter. Second-order (Newton) boosting uses both the first and second derivatives of the loss to score candidate splits, which is more accurate per round and is what XGBoost does. And regularization moved into the objective itself, so leaf weights are penalized as part of the loss rather than only shrunk after the fact.\n\n## XGBoost: regularization plus engineering\n\nXGBoost (2016, Tianqi Chen and Carlos Guestrin) is the implementation that turned boosted trees into a production default, and its contribution is a dense stack of engineering wins on top of gradient boosting:\n\n- An explicit regularized objective - the loss plus a complexity penalty on tree shape plus L1 and L2 penalties on leaf weights.\n- Second-order split evaluation, scoring candidates with the Hessian as well as the gradient.\n- Sparsity-aware split finding, so missing values get a learned default direction per node instead of being imputed.\n- Quantile-based sketching instead of sorting, which cut the cost of finding split points on wide data.\n- Cache-aware and distributed tree construction, so the data is loaded once and reused across rounds.\n\nThe defaults are deliberately conservative and are a usable starting point on their own: `eta` 0.3, `max_depth` 6, `min_child_weight` 1, `gamma` 0, `subsample` 1, `colsample_bytree` 1, `reg_lambda` 1, `reg_alpha` 0. XGBoost 3.0 (March 2025) unified the CPU and GPU feature sets, made NaN the default missing value, and requires CUDA 12 or later for GPU work.\n\nXGBoost's practical reputation comes from its growth policy. It grows trees level-wise and ships an L2 penalty by default, which makes it more robust out of the box than LightGBM on small or noisy data. That is why it remains a safe first model even when LightGBM would score higher after tuning.\n\n## LightGBM: the same idea, a different growth policy\n\nLightGBM (2017, Microsoft Research) attacks training time. The idea that catches most people first is leaf-wise growth: instead of finishing a depth level before moving on, it splits whichever leaf gives the largest gain, producing deeper, asymmetric trees that reduce loss faster per round. The cost is [overfitting](/glossary/overfitting) risk on small data, and the control is `num_leaves` rather than `max_depth`, because leaf count is what actually bounds tree size in this scheme.\n\nThe bigger win is that LightGBM stops looking at raw values. Every feature is binned into a histogram once, and each subsequent split compares bin boundaries instead of data points, so split finding is roughly O(bins) rather than O(n) and each row costs one byte of bin index rather than a float. On top of that come Gradient-based One-Side Sampling (keep every large-gradient row, subsample the small-gradient rows, and upweight the sample to correct the bias) and Exclusive Feature Bundling (pack mutually exclusive sparse features into one bundle). That is why the paper reports training up to 20 times faster than conventional GBDT with comparable accuracy. LightGBM also handles categoricals natively, using target statistics smoothed by the target prior instead of one-hot encoding.\n\nThe combination wins on large row counts, high-dimensional sparse data, and tables with many categorical columns. On small tables the leaf-wise aggressiveness is a liability. The project reached 4.7 in July 2026 and now lives under the lightgbm-org GitHub organization, with ROCm and multi-GPU support added along the way.\n\n## CatBoost and the rest of the family\n\nCatBoost (2018) attacked the problem the others were ignoring: categorical features. One-hot encoding a high-cardinality column throws away the fact that its values are unordered, and naive target encoding leaks because it is fitted on all the data. CatBoost uses ordered target statistics computed only from preceding rows, plus oblivious (symmetric) trees that split on every feature at the same time. It also offers ordered boosting, which reduces prediction-shift bias on small datasets.\n\nAlso worth knowing: scikit-learn's `HistGradientBoostingClassifier` and `HistGradientBoostingRegressor` are a first-class gradient boosting implementation with the same histogram idea and no third-party dependency. XGBoost and LightGBM both ship DART (dropout-style boosting) and a `goss` sampling mode. And in AutoML systems such as AutoGluon, LightGBM has become the more common default choice rather than XGBoost.\n\n## The four side by side\n\n| Algorithm | Released | Trains | Growth | Watch out for |\n| --- | --- | --- | --- | --- |\n| AdaBoost | 1997 | stumps on reweighted rows | level-wise | noise and outliers, exponential loss only |\n| XGBoost | 2016 | regularized GBDT | level-wise | more tuning needed to beat LightGBM |\n| LightGBM | 2017 | GBDT on binned features | leaf-wise | overfits small tables unless `num_leaves` is capped |\n| CatBoost | 2018 | ordered GBDT | symmetric, oblivious | slower per iteration, best-in-class categoricals |\n\n## Boosting versus bagging\n\n| | Bagging (random forest) | Boosting |\n| --- | --- | --- |\n| Base learners | deep trees, low bias, high variance | shallow trees, high bias, low variance |\n| Training | independent, parallel | sequential, each fits the last one's errors |\n| Diversity comes from | random row and feature subsets | reweighting or residual fitting |\n| Main levers | tree count, minimum samples per leaf | learning rate, depth, rounds, regularization |\n| Adding capacity | almost always helps | can hurt, past the point of diminishing returns |\n| Tuning tolerance | high | lower, defaults matter more |\n| Typical role | strong baseline, cheap | best score, more tuning |\n\n## What actually moves the score\n\nIn the order that usually pays off:\n\n- **Rounds and learning rate together, with early stopping** on a held-out split. `eta` between 0.05 and 0.1 with early stopping is a common good default, while a hard 1,000-round cap at `eta` 0.3 is usually worse.\n- **Tree capacity.** XGBoost `max_depth` between 4 and 8, LightGBM `num_leaves` between 15 and 63 with `min_data_in_leaf` raised when the table is small.\n- **Row and column subsampling.** `subsample` 0.8 and `colsample_bytree` 0.8 buy regularization and decorrelation, and they roughly halve GPU training time.\n- **Regularization.** `reg_lambda` for overall shrinkage, `reg_alpha` only if you genuinely want sparse leaf weights, and `gamma` or `min_gain_to_split` to stop worthless splits.\n- **Class imbalance.** `scale_pos_weight` or sample weights for a skewed target, paired with the metric you actually care about - PR-AUC rather than accuracy when positives are under one percent of rows.\n- **Categorical handling.** The native LightGBM or CatBoost path beats one-hot encoding, and beats target encoding fitted on the full dataset.\n\n## Failure modes worth naming\n\n- **Label noise.** Boosting amplifies it, because mislabeled rows are exactly the ones that keep getting upweighted. Clean the labels or switch to a robust loss before blaming the model.\n- **Leaky splits.** Random cross-validation on time-dependent data inflates the estimate badly. Use a chronological split, and confirm every aggregate feature was computed without future information.\n- **Leakage through target encoding.** A category statistic fitted on the full dataset is a leak even when the trees themselves are honest.\n- **Capacity without early stopping.** Deep trees plus too many rounds produces a beautiful training log and a worse production model.\n- **Distribution shift.** The ensemble learned weights calibrated to the training distribution, and they quietly stop applying once the world moves.\n\n## Reading a boosted model\n\nImportance by gain is easy to compute and easy to misread. High-gain features can be redundant, and correlated features split importance between themselves almost arbitrarily. Split count measures how often a feature was used, not how much it mattered.\n\nSHAP values are the honest version. They decompose a single prediction into per-feature contributions, and TreeSHAP is fast enough to run across a whole validation set. Monotonic constraints are available in all three major libraries and are worth setting whenever domain knowledge says a feature cannot push a prediction down.\n\n## Where boosting sits in 2026\n\nTabular foundation models took the top of the standard small-to-medium i.i.d. benchmarks over the last couple of years, and a single forward pass of a TabPFN-class model now beats tuned and ensembled tree baselines there. It is worth being precise about where that does and does not apply, because the same benchmark work shows a consistent pattern: boosted trees still win or tie on categorical-heavy tables, on large binary problems, and on grouped or temporal splits, and even the strongest foundation models fall behind tuned conventional models once a table has many rows, many features, or text columns.\n\nBoosting also keeps advantages that never show up in an accuracy table. First-class monotonic constraints, cheap CPU-only inference, fast retraining when data moves, and a tuning surface you can reason about instead of hoping a pre-trained prior covers your case. So boosted trees are no longer the automatic winner on every table, and they are still the pragmatic default - especially where the data is messy, categories dominate, deployment is CPU-bound, or someone has to explain a decision.\n\n## How to choose in one minute\n\n- **Any tabular baseline at all:** XGBoost or LightGBM at defaults with early stopping, and keep a plain linear model and a random forest as reference points.\n- **Millions of rows, wide or sparse, or mostly categorical:** LightGBM, or CatBoost when the categoricals are high-cardinality and the training budget is comfortable.\n- **Small, noisy, or high-stakes:** XGBoost with lower depth and stronger regularization, and treat the validation split as sacred.\n- **Learning the mechanism, or a tiny clean binary problem:** AdaBoost, for how clearly the mechanism shows up in the weights.",
     "category": "Foundations",
     "relatedTerms": [
       "decision-tree",
       "random-forest",
-      "adaboost",
-      "xgboost",
-      "lightgbm",
-      "machine-learning"
+      "machine-learning",
+      "supervised-learning",
+      "overfitting",
+      "underfitting",
+      "bias-variance-tradeoff",
+      "hyperparameter",
+      "loss-function",
+      "gradient-descent",
+      "feature-engineering",
+      "knn",
+      "svm",
+      "foundation-model",
+      "neural-network"
     ],
-    "seoDescription": "Boosting is an ensemble learning technique that combines weak learners sequentially to build a strong model. Learn how boosting works, its types (AdaBoost, XGBoost, LightGBM), and why it dominates tabular data.",
+    "seoDescription": "Boosting combines weak learners sequentially so each one fixes the previous model's errors. Covers AdaBoost, gradient boosting, XGBoost, LightGBM, and CatBoost, how they differ, and how to tune them.",
     "seoKeywords": [
       "what is boosting",
       "what is boosting in ai",
@@ -892,12 +872,66 @@
       "boosting ensemble methods",
       "boosting vs bagging",
       "gradient boosting",
-      "boosting algorithm types",
-      "how boosting works",
-      "boosting in deep learning"
+      "what is AdaBoost",
+      "AdaBoost explained",
+      "AdaBoost weak learners",
+      "what is XGBoost",
+      "XGBoost explained",
+      "what is LightGBM",
+      "LightGBM explained",
+      "XGBoost vs LightGBM",
+      "LightGBM vs XGBoost",
+      "XGBoost hyperparameter tuning",
+      "CatBoost vs LightGBM",
+      "boosting for tabular data",
+      "gradient boosting parameters",
+      "early stopping XGBoost",
+      "SHAP values tree models"
     ],
-    "lastUpdated": "2026-03-09",
-    "analogy": "Imagine a relay team where each runner studies where the previous runner stumbled and trains specifically for those sections of the track."
+    "lastUpdated": "2026-09-27",
+    "analogy": "Imagine a relay team where each runner studies where the previous runner stumbled and trains specifically for those sections of the track.",
+    "references": [
+      {
+        "title": "Freund and Schapire: A Decision-Theoretic Generalization of Boosting",
+        "url": "https://www.jmlr.org/papers/volume18/15-145.html"
+      },
+      {
+        "title": "Friedman: Greedy Function Approximation - A Gradient Boosting Machine",
+        "url": "https://jmlr.org/papers/volume1/friedman00a.html"
+      },
+      {
+        "title": "Chen and Guestrin: XGBoost - A Scalable Tree Boosting System (KDD 2016)",
+        "url": "https://dl.acm.org/doi/10.1145/2939672.2939785"
+      },
+      {
+        "title": "XGBoost parameter documentation",
+        "url": "https://xgboost.readthedocs.io/en/stable/parameter.html"
+      },
+      {
+        "title": "Ke et al: LightGBM - A Highly Efficient Gradient Boosting Decision Tree (NeurIPS 2017)",
+        "url": "https://papers.nips.cc/paper/6907-lightgbm-a-highly-efficient-gradient-boosting-decision-tree"
+      },
+      {
+        "title": "LightGBM parameter documentation",
+        "url": "https://lightgbm.readthedocs.io/en/latest/Parameters.html"
+      },
+      {
+        "title": "LightGBM 4.7.0 release notes",
+        "url": "https://github.com/lightgbm-org/LightGBM/releases/tag/v4.7.0"
+      },
+      {
+        "title": "Prokhorenkova et al: CatBoost - unbiased boosting with categorical features (NeurIPS 2018)",
+        "url": "https://proceedings.neurips.cc/paper/14464-catboost-generalized-predictive-categorical-features"
+      },
+      {
+        "title": "scikit-learn: ensemble learning methods and boosting guide",
+        "url": "https://scikit-learn.org/stable/modules/ensemble.html"
+      },
+      {
+        "title": "A new performance standard - tabular foundation models against tuned gradient-boosted trees",
+        "url": "https://arxiv.org/abs/2605.13986"
+      }
+    ]
   },
   {
     "name": "Byte Pair Encoding",
@@ -4796,35 +4830,6 @@
     "analogy": "Imagine looking up a word in the dictionary to find its base form - 'ran' becomes 'run', 'better' becomes 'good.'"
   },
   {
-    "name": "LightGBM (Boosting)",
-    "slug": "lightgbm",
-    "shortDef": "A gradient boosting framework by Microsoft that uses leaf-wise tree growth and histogram-based splitting for significantly faster training on large datasets while maintaining competitive accuracy.",
-    "fullDef": "LightGBM - Light Gradient Boosting Machine - was released by Microsoft Research in 2017 as a faster alternative to XGBoost. Its two main innovations are leaf-wise (best-first) tree growth and histogram-based feature bucketing, both of which reduce training time dramatically on large datasets.\n\nTraditional gradient boosting grows trees level-wise - completing each depth level before moving to the next. LightGBM grows leaf-wise instead, always splitting the leaf with the highest loss reduction. This produces deeper, more asymmetric trees that converge faster with fewer total leaves. The risk is overfitting on small datasets, which is managed through a max-depth parameter.\n\nHistogram-based splitting bins continuous features into discrete buckets before training, reducing the number of split candidates the algorithm needs to evaluate. This trades a small amount of precision for a large speedup and lower memory usage. On datasets with millions of rows, LightGBM can be 10 to 20x faster than XGBoost while producing models of comparable accuracy.\n\nLightGBM also supports Gradient-based One-Side Sampling (GOSS), which keeps all instances with large gradients but randomly samples from those with small gradients, and Exclusive Feature Bundling (EFB), which bundles mutually exclusive sparse features to reduce dimensionality. These techniques make LightGBM particularly effective on high-dimensional, large-scale tabular data - the kind found in advertising, recommendation systems, and financial modeling.",
-    "category": "Foundations",
-    "relatedTerms": [
-      "boosting",
-      "decision-tree",
-      "xgboost",
-      "adaboost",
-      "random-forest"
-    ],
-    "seoDescription": "LightGBM is Microsoft's fast gradient boosting framework using leaf-wise growth and histogram splitting. Learn how LightGBM works, why it's faster than XGBoost, and when to use it.",
-    "seoKeywords": [
-      "what is LightGBM",
-      "what is LightGBM in ai",
-      "LightGBM explained",
-      "LightGBM machine learning",
-      "LightGBM vs XGBoost",
-      "LightGBM algorithm",
-      "how LightGBM works",
-      "LightGBM leaf-wise",
-      "LightGBM Microsoft",
-      "LightGBM large datasets"
-    ],
-    "lastUpdated": "2026-03-09",
-    "analogy": "Imagine XGBoost's faster younger sibling - it takes shortcuts that sound risky but almost always get to the same destination quicker."
-  },
-  {
     "name": "Llama 3.1",
     "slug": "llama-3-1",
     "shortDef": "Meta's open-weight large language model family released in July 2024, available in 8B, 70B, and 405B parameter sizes with a 128k token context window.",
@@ -8151,35 +8156,6 @@
     ],
     "lastUpdated": "2026-02-23",
     "analogy": "xAI is building both the driver and the racetrack: Grok is the visible product, while Colossus supplies the training ground underneath it."
-  },
-  {
-    "name": "XGBoost (Boosting)",
-    "slug": "xgboost",
-    "shortDef": "A high-performance gradient boosting library that builds accurate tabular models by adding regularized decision trees to correct an ensemble’s remaining errors.",
-    "fullDef": "XGBoost, short for eXtreme Gradient Boosting, is an implementation of gradient-boosted decision trees released by Tianqi Chen in 2016. It builds an additive model one tree at a time. Each new tree concentrates on the errors, or more precisely the negative gradient of the loss, left by the current ensemble.\n\nIts advantage comes from a dense stack of practical improvements: L1 and L2 regularization, second-order optimization, sparsity-aware handling of missing values, quantile-based split finding, and parallel tree construction. Together they make the method fast, accurate, and resistant to overfitting on structured data.\n\nXGBoost remains a strong first model for fraud detection, credit risk, ranking, pricing, and other tabular problems. It often beats more elaborate neural systems when the data is mostly columns and rows. The tradeoff is tuning effort: tree depth, learning rate, subsampling, regularization, and the number of boosting rounds all shape the final model.",
-    "category": "Foundations",
-    "relatedTerms": [
-      "boosting",
-      "decision-tree",
-      "lightgbm",
-      "adaboost",
-      "random-forest"
-    ],
-    "seoDescription": "XGBoost is a regularized gradient boosting library for fast, accurate tabular machine learning. See how its trees, loss functions, and tuning choices work.",
-    "seoKeywords": [
-      "what is XGBoost",
-      "what is XGBoost in ai",
-      "XGBoost explained",
-      "XGBoost machine learning",
-      "XGBoost algorithm",
-      "XGBoost vs LightGBM",
-      "XGBoost gradient boosting",
-      "how XGBoost works",
-      "XGBoost tabular data",
-      "XGBoost hyperparameter tuning"
-    ],
-    "lastUpdated": "2026-03-09",
-    "analogy": "It is an ensemble that edits its own draft: each tree reads the previous model’s mistakes and writes a targeted correction."
   },
   {
     "name": "Yi-Lightning",
