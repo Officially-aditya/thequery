@@ -84,6 +84,8 @@ const migrations = [
   { id: "077_muse_spark_13_cover_image", file: new URL("../db/migrations/077_muse_spark_13_cover_image.sql", import.meta.url) },
   { id: "078_remove_muse_spark_13_cover_image", file: new URL("../db/migrations/078_remove_muse_spark_13_cover_image.sql", import.meta.url) },
   { id: "079_fill_muse_spark_13_glossary_12_benchmarks", file: new URL("../db/migrations/079_fill_muse_spark_13_glossary_12_benchmarks.sql", import.meta.url) },
+  { id: "080_remove_muse_spark_13_analogy_line", file: new URL("../db/migrations/080_remove_muse_spark_13_analogy_line.sql", import.meta.url) },
+  { id: "081_update_muse_spark_13_aa_score_48", file: new URL("../db/migrations/081_update_muse_spark_13_aa_score_48.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
