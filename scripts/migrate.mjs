@@ -81,6 +81,7 @@ const migrations = [
   { id: "074_expand_artificial_analysis_glossary", file: new URL("../db/migrations/074_expand_artificial_analysis_glossary.sql", import.meta.url) },
   { id: "075_add_gemini_3_8_flash", file: new URL("../db/migrations/075_add_gemini_3_8_flash.sql", import.meta.url) },
   { id: "076_merge_boosting_variants", file: new URL("../db/migrations/076_merge_boosting_variants.sql", import.meta.url) },
+  { id: "077_muse_spark_13_cover_image", file: new URL("../db/migrations/077_muse_spark_13_cover_image.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
