@@ -71,7 +71,6 @@ export interface ArticleMetadata extends Record<string, unknown> {
 export interface GlossaryMetadata extends Record<string, unknown> {
   category: string;
   relatedTerms: string[];
-  analogy?: string;
   seoDescription?: string;
   seoKeywords?: string[];
 }

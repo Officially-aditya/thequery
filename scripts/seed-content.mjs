@@ -152,7 +152,6 @@ export async function seedContent() {
       metadata: {
         category: term.category,
         relatedTerms: term.relatedTerms ?? [],
-        analogy: term.analogy,
         seoDescription: term.seoDescription,
         seoKeywords: term.seoKeywords ?? [],
       },

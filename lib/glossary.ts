@@ -18,7 +18,6 @@ export interface GlossaryTerm {
   relatedTerms: string[];
   coverImageUrl?: string;
   coverImageAlt?: string;
-  analogy?: string;
   references?: Source[];
   seoDescription?: string;
   seoKeywords?: string[];
@@ -59,7 +58,6 @@ function asTerm(item: Awaited<ReturnType<typeof getContentItem>> extends infer T
     relatedTerms: textList(metadata.relatedTerms),
     ...(item.coverImageUrl ? { coverImageUrl: item.coverImageUrl } : {}),
     ...(item.coverImageAlt ? { coverImageAlt: item.coverImageAlt } : {}),
-    ...(typeof metadata.analogy === "string" ? { analogy: metadata.analogy } : {}),
     ...(item.sources.length ? { references: item.sources } : {}),
     ...(typeof metadata.seoDescription === "string" ? { seoDescription: metadata.seoDescription } : {}),
     ...(textList(metadata.seoKeywords).length ? { seoKeywords: textList(metadata.seoKeywords) } : {}),

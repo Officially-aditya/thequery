@@ -150,12 +150,6 @@ export default async function TermPage({ params }: Props) {
       </p>
       <CoverImage src={term.coverImageUrl} alt={term.coverImageAlt} title={pageTitle} />
 
-      {term.analogy && (
-        <div className="mb-6 pl-4 border-l-2 border-accent/40">
-          <p className="text-sm text-text-secondary italic">{term.analogy}</p>
-        </div>
-      )}
-
       <div className="mb-8">
         <MarkdownRenderer content={term.fullDef} disableMath />
       </div>

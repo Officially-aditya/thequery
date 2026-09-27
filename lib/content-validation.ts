@@ -43,7 +43,6 @@ function metadataFor(kind: ContentKind, raw: Record<string, unknown>): Record<st
     return {
       category: text(raw.category) || "Foundations",
       relatedTerms: textList(raw.relatedTerms),
-      ...(text(raw.analogy) ? { analogy: text(raw.analogy) } : {}),
       ...(text(raw.seoDescription) ? { seoDescription: text(raw.seoDescription) } : {}),
       ...(textList(raw.seoKeywords).length ? { seoKeywords: textList(raw.seoKeywords) } : {}),
     };
