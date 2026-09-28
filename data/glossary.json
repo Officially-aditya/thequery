@@ -139,31 +139,6 @@
     "analogy": "The automatic transmission of optimizers - it adjusts the learning rate for each parameter so you do not have to tune it manually."
   },
   {
-    "name": "Adapter Layers",
-    "slug": "adapter-layers",
-    "shortDef": "A PEFT method that inserts small trainable neural modules into a frozen pretrained model, allowing task-specific adaptation without updating the full network.",
-    "fullDef": "Adapter layers are one of the earliest and most influential Parameter-Efficient Fine-Tuning (PEFT) methods. Instead of changing the full weights of a large pretrained model, adapters insert small trainable modules between or inside existing layers while keeping the original model frozen.\n\nIn transformer models, adapter layers are usually added after attention or feed-forward blocks. They often use a bottleneck structure: project the hidden state down to a smaller dimension, apply a nonlinearity, then project back up. Because only these small inserted layers are trained, the number of trainable parameters is far lower than in full fine-tuning.\n\n**Advantages**\n\nAdapter layers are modular and easy to swap. You can keep one base model and load different adapters for sentiment analysis, legal drafting, medical Q&A, or code generation. They also work well when you need many task-specific variants of the same model because each adapter checkpoint is much smaller than a full model copy.\n\n**Disadvantages**\n\nAdapters add new layers to the network, which can increase inference latency and architectural complexity compared with methods that do not add extra computation at every forward pass. They can also be more cumbersome to integrate than LoRA in ecosystems where LoRA has become the default tooling standard.\n\n**Example**\n\nA company might keep one 7B base model for internal document work, then attach one adapter for finance summarization and another for customer support classification. The base model stays fixed; the adapters specialize it for each task.",
-    "category": "Training & Inference",
-    "relatedTerms": [
-      "peft",
-      "fine-tuning",
-      "lora",
-      "transformer",
-      "foundation-model"
-    ],
-    "seoDescription": "Adapter layers are a PEFT method that inserts small trainable modules into a frozen model, making task-specific tuning cheaper than full fine-tuning.",
-    "seoKeywords": [
-      "what are adapter layers",
-      "adapter tuning",
-      "adapter layers PEFT",
-      "adapter layers vs LoRA",
-      "transformer adapters",
-      "parameter efficient fine tuning adapters"
-    ],
-    "lastUpdated": "2026-04-02",
-    "analogy": "Like snapping interchangeable attachments onto the same power tool. The motor stays the same, but each attachment makes it suitable for a different job."
-  },
-  {
     "name": "ADK",
     "slug": "adk",
     "shortDef": "Google’s Agent Development Kit, a framework for building, orchestrating, evaluating, and deploying tool-using and multi-agent systems.",
@@ -4393,30 +4368,6 @@
     "analogy": "The knobs and dials on the outside of the machine that you set before pressing start - the machine cannot adjust them itself."
   },
   {
-    "name": "IA3",
-    "slug": "ia3",
-    "shortDef": "Infused Adapter by Inhibiting and Amplifying Inner Activations, a PEFT method that learns small scaling vectors to modulate a frozen model's internal activations.",
-    "fullDef": "IA3 stands for Infused Adapter by Inhibiting and Amplifying Inner Activations. It is a Parameter-Efficient Fine-Tuning (PEFT) method that adapts a frozen model by learning small vectors that scale internal activations, rather than inserting full new layers or training low-rank matrix updates.\n\nIn transformer models, IA3 typically learns multiplicative rescaling factors for selected attention and feed-forward components. Instead of changing the full weight matrices, it changes how strongly certain channels are amplified or suppressed during computation. This keeps the number of trainable parameters extremely small.\n\n**Advantages**\n\nIA3 is very lightweight, often even smaller than LoRA in trainable parameter count. Because it works through scaling rather than full inserted modules, it can be efficient to store and conceptually simple once implemented. It is attractive when you want stronger adaptation than prompt tuning but still want to keep the update footprint minimal.\n\n**Disadvantages**\n\nIA3 is less widely supported in tooling than LoRA, which makes it less common in practical open-model workflows. It can also be harder to explain intuitively to newcomers, and in some settings the extra simplicity of scaling-only updates may limit expressiveness compared with richer methods like LoRA or adapter layers.\n\n**Example**\n\nA research team might use IA3 to adapt one foundation model for biomedical question answering and another for software issue classification, storing only tiny learned scaling vectors for each domain-specific variant.",
-    "category": "Training & Inference",
-    "relatedTerms": [
-      "peft",
-      "lora",
-      "adapter-layers",
-      "fine-tuning",
-      "transformer"
-    ],
-    "seoDescription": "IA3 is a PEFT method that adapts a frozen transformer by learning tiny scaling vectors that amplify or inhibit internal activations.",
-    "seoKeywords": [
-      "what is IA3",
-      "IA3 PEFT",
-      "IA3 vs LoRA",
-      "infused adapter by inhibiting and amplifying inner activations",
-      "IA3 transformer"
-    ],
-    "lastUpdated": "2026-04-02",
-    "analogy": "Like adjusting the gain knobs on a mixing board instead of replacing the instruments. You change which signals are emphasized without rebuilding the whole system."
-  },
-  {
     "name": "IAM / Secrets",
     "slug": "iam-secrets",
     "category": "Systems, Tools & Safety",
@@ -5101,32 +5052,6 @@
     ],
     "lastUpdated": "2026-03-17",
     "analogy": "Like a person taking notes during a long lecture with a highlighter and an eraser - actively deciding what to keep, what to cross out, and what to write down fresh, rather than trying to remember everything verbatim."
-  },
-  {
-    "name": "LoRA",
-    "slug": "lora",
-    "shortDef": "Low-Rank Adaptation, a PEFT method that fine-tunes large models by learning small low-rank update matrices instead of modifying the full weight matrices.",
-    "fullDef": "LoRA stands for Low-Rank Adaptation. It is one of the most widely used Parameter-Efficient Fine-Tuning (PEFT) techniques for adapting large pretrained models. Instead of updating a model's full weight matrices during fine-tuning, LoRA freezes the original weights and learns two much smaller matrices whose product approximates the desired update.\n\nThe core idea is that many useful task-specific changes to a model can be represented as a low-rank update rather than a full dense rewrite. If a weight matrix W would normally be updated by some large matrix Delta W, LoRA constrains that update to the form A x B where A and B are much smaller than W. This dramatically reduces the number of trainable parameters while preserving much of the benefit of full fine-tuning.\n\nLoRA is especially common in transformer models, where it is typically applied to attention and sometimes feed-forward projection matrices. Because the base model remains frozen, training requires less memory, and the learned LoRA weights can be saved as a compact adapter checkpoint rather than a full copy of the model.\n\nOne reason LoRA became so popular is operational simplicity. You can keep one base model and load different LoRA adapters for different tasks, styles, or domains. At inference time, the LoRA weights can either be applied dynamically or merged into the base weights ahead of deployment, depending on the serving setup.\n\nLoRA is also the foundation for variants such as QLoRA, which combines low-rank adaptation with quantized base weights to make fine-tuning even more memory efficient. In practice, when people say they \"fine-tuned\" an open model on consumer hardware, they often mean they trained a LoRA rather than updating the full model.\n\nA useful rule of thumb: PEFT is the umbrella category, and LoRA is the best-known tool under that umbrella.",
-    "category": "Training & Inference",
-    "relatedTerms": [
-      "peft",
-      "fine-tuning",
-      "quantization",
-      "transformer",
-      "foundation-model"
-    ],
-    "seoDescription": "LoRA, or Low-Rank Adaptation, is a PEFT method that fine-tunes large models by learning small low-rank weight updates instead of changing every parameter.",
-    "seoKeywords": [
-      "what is LoRA",
-      "LoRA AI explained",
-      "low rank adaptation",
-      "LoRA vs fine tuning",
-      "LoRA vs PEFT",
-      "QLoRA",
-      "LoRA transformer"
-    ],
-    "lastUpdated": "2026-03-31",
-    "analogy": "Like adding a lightweight lens in front of a camera instead of rebuilding the whole camera body. The base system stays the same, but the output changes in a targeted way."
   },
   {
     "name": "Loss Function",
@@ -6454,28 +6379,74 @@
   {
     "name": "PEFT",
     "slug": "peft",
-    "shortDef": "Parameter-Efficient Fine-Tuning, a family of methods that adapts large pretrained models by training only a small subset of new or selected parameters instead of updating the full model.",
-    "fullDef": "PEFT stands for Parameter-Efficient Fine-Tuning. It is a category of techniques for adapting a pretrained model to a new task while training only a tiny fraction of the model's parameters. Instead of updating every weight in a large language model or foundation model, PEFT methods freeze most of the base model and learn small task-specific additions or modifications.\n\nThe motivation is practical. Full fine-tuning of large models is expensive in GPU memory, storage, and training time. It also creates a separate full model checkpoint for every task, which is wasteful when the base model remains mostly the same. PEFT methods reduce that cost by keeping the original model fixed and storing only the lightweight adaptation layers or vectors needed for the new behavior.\n\nCommon PEFT methods include LoRA (Low-Rank Adaptation), adapter layers, prefix tuning, prompt tuning, and IA3. These approaches make different architectural tradeoffs, but they share the same goal: preserve most of the pretrained model while learning a much smaller set of task-specific parameters.\n\n**PEFT vs LoRA**\n\nThe simplest distinction is: PEFT is the umbrella category, and LoRA is one specific method inside that category. Saying \"I used PEFT\" is like saying \"I used a compression method\"; saying \"I used LoRA\" is naming the exact technique. Not every PEFT method is LoRA, but every LoRA setup is a form of PEFT.\n\nPeople often blur the two because LoRA became the default PEFT method for many open-model workflows. But adapter tuning, prompt tuning, prefix tuning, and IA3 are also PEFT methods, even though they work differently under the hood.\n\n**PEFT vs Full Fine-Tuning vs Prompting/RAG**\n\n| Approach | What changes | Best for | Main tradeoff |\n| --- | --- | --- | --- |\n| Prompting | The instructions sent to the model at runtime. | Fast behavior changes, experiments, and tasks the base model already understands. | No durable model adaptation; performance can be fragile across prompts. |\n| RAG | The context retrieved and supplied to the model. | Adding fresh or private knowledge without retraining the model. | Depends on retrieval quality and does not deeply change model behavior. |\n| PEFT | Small trainable adapters, vectors, or low-rank updates attached to a mostly frozen model. | Domain adaptation, style tuning, task specialization, and maintaining many lightweight variants. | Usually less flexible than full fine-tuning and adds adapter management complexity. |\n| Full fine-tuning | Most or all model weights. | Deep behavioral changes, high-stakes specialization, or cases where PEFT underperforms. | Expensive to train, store, validate, and serve. |\n\nPEFT is one of the main reasons smaller teams can customize large models at all. It lowers hardware requirements, shortens experimentation cycles, and makes it easier to maintain many specialized variants of the same base model. In the open-source model ecosystem, PEFT checkpoints are often small enough to distribute independently from the original model weights.\n\n**When Not to Use PEFT**\n\nPEFT is not always the right tool. If the model only needs access to new facts, documents, or product data, retrieval-augmented generation is often safer and easier than training an adapter. PEFT changes behavior; RAG supplies information.\n\nPEFT can also be the wrong choice when the desired change is very deep. If the base model is fundamentally bad at the target task, uses the wrong language or modality, or needs a major change in reasoning style, full fine-tuning or a different base model may work better. A small adapter cannot reliably compensate for a weak foundation.\n\nOperationally, PEFT adds its own complexity. Teams have to track which adapter belongs to which base model version, validate adapter compatibility after model upgrades, decide whether to merge adapters for inference, and manage multi-adapter serving if many tasks share one base model. Those costs are much smaller than full fine-tuning, but they are not zero.\n\nA useful mental model is that full fine-tuning rewrites the whole book, while PEFT adds an annotated layer on top of it. The base knowledge stays in place; the adaptation tells the model how to behave differently for a narrower job.",
+    "shortDef": "Parameter-efficient fine-tuning for large models - LoRA, adapter layers, prefix tuning, prompt tuning, and IA3 - training small adapters instead of the full network.",
+    "fullDef": "PEFT stands for Parameter-Efficient Fine-Tuning. It is a category of techniques for adapting a pretrained model to a new task while training only a tiny fraction of the model's parameters. Instead of updating every weight in a large language model or foundation model, PEFT methods freeze most of the base model and learn small task-specific additions or modifications.\n\nThe motivation is practical. Full fine-tuning of large models is expensive in GPU memory, storage, and training time. It also creates a separate full model checkpoint for every task, which is wasteful when the base model remains mostly the same. PEFT methods reduce that cost by keeping the original model fixed and storing only the lightweight adaptation layers or vectors needed for the new behavior.\n\nFive methods carry nearly all of modern practice - LoRA (Low-Rank Adaptation), adapter layers, prefix tuning, prompt tuning, and IA3. These approaches make different architectural tradeoffs, but they share the same goal: preserve most of the pretrained model while learning a much smaller set of task-specific parameters. This page covers the full family in one place: what each method trains, where it lives in the network, where it wins, and where it breaks.\n\n## LoRA: the default\n\nLoRA stands for Low-Rank Adaptation. It is the most widely used PEFT technique for adapting large pretrained models. Instead of updating a model's full weight matrices during [fine-tuning](/glossary/fine-tuning), LoRA freezes the original weights and learns two much smaller matrices whose product approximates the desired update.\n\nThe core idea is that many useful task-specific changes can be represented as a low-rank update rather than a full dense rewrite. If a weight matrix W would normally be updated by some large matrix Delta W, LoRA constrains that update to the form A x B where A and B are much smaller than W. This dramatically reduces the number of trainable parameters while preserving much of the benefit of full fine-tuning.\n\nLoRA is especially common in [transformer](/glossary/transformer) models, where it is typically applied to attention and sometimes feed-forward projection matrices. Because the base model remains frozen, training requires less memory, and the learned LoRA weights can be saved as a compact adapter checkpoint rather than a full copy of the model.\n\nOne reason LoRA became so popular is operational simplicity. You can keep one base model and load different LoRA adapters for different tasks, styles, or domains. At inference time, the LoRA weights can either be applied dynamically or merged into the base weights ahead of deployment, depending on the serving setup.\n\nLoRA is also the foundation for variants such as QLoRA, which combines low-rank adaptation with quantized base weights ([quantization](/glossary/quantization)) to make fine-tuning even more memory efficient. In practice, when people say they \"fine-tuned\" an open model on consumer hardware, they often mean they trained a LoRA rather than updating the full model.\n\n## Adapter layers: the modular original\n\nAdapter layers are one of the earliest and most influential PEFT methods. Instead of changing the full weights of a large pretrained model, adapters insert small trainable modules between or inside existing layers while keeping the original model frozen.\n\nIn transformer models, adapter layers are usually added after attention or feed-forward blocks. They often use a bottleneck structure: project the hidden state down to a smaller dimension, apply a nonlinearity, then project back up. Because only these small inserted layers are trained, the number of trainable parameters is far lower than in full fine-tuning.\n\nAdapter layers are modular and easy to swap. You can keep one base model and load different adapters for sentiment analysis, legal drafting, medical Q&A, or code generation. They work well when you need many task-specific variants of the same model because each adapter checkpoint is much smaller than a full model copy. A company might keep one 7B base model for internal document work, then attach one adapter for finance summarization and another for customer support classification.\n\nAdapters add new layers to the network, which can increase inference latency and architectural complexity compared with methods that add no extra computation at every forward pass. They can also be more cumbersome to integrate than LoRA in ecosystems where LoRA has become the default tooling standard.\n\n## Prefix tuning: steering attention from inside\n\nPrefix tuning adapts a frozen model by learning a set of trainable vectors, called prefixes, that are injected into the model's [attention](/glossary/attention-mechanism) mechanism. These prefixes are not ordinary text tokens. They are learned continuous representations that influence the model's behavior during generation.\n\nIn transformer language models, the learned prefix is typically attached to the key and value states used by attention. This gives the model a task-specific setup before it processes the actual user input, steering outputs without modifying the main pretrained weights. A team building a report generator might train one prefix for concise executive summaries and another for long-form analytical explanations, using the same base model under both modes.\n\nPrefix tuning can be extremely parameter-efficient because the learned prefix is small relative to the full model. It keeps the base model fully frozen, which simplifies checkpoint management. But because it steers attention through learned prefixes rather than directly modifying model weights, it may be less expressive than LoRA for harder tasks, and it can be less intuitive to debug since the control signal lives in internal hidden states rather than in obvious weight updates or inserted layers.\n\n## Prompt tuning: the lightest touch\n\nPrompt tuning is a PEFT technique in which a frozen model is adapted by learning a small set of trainable embeddings that function like a soft prompt. These embeddings are prepended to the input at the embedding level rather than written as literal human-readable text.\n\nThe idea is the continuous cousin of [prompt engineering](/glossary/prompt-engineering): instead of hand-writing instructions such as \"summarize this text in bullet points,\" the system learns a continuous prompt representation that the model responds to more reliably. Because only the prompt embeddings are trained, the number of trainable parameters is tiny. A company might learn one virtual prompt that makes a base model answer as a terse support bot and another that makes it respond as a formal legal assistant, without modifying the underlying weights.\n\nPrompt tuning is one of the lightest-weight adaptation methods available. It is cheap to store, easy to swap, and attractive when you need very small task-specific checkpoints or when a large, already-capable model needs only a small nudge. But it is often less expressive than LoRA or adapter layers for harder tasks requiring deeper behavioral changes, and it can be fragile: performance may depend heavily on model scale, prompt length, and training setup, and on smaller models it may underperform more direct adaptation methods.\n\n## IA3: rescaling instead of adding\n\nIA3 stands for Infused Adapter by Inhibiting and Amplifying Inner Activations. It is a PEFT method that adapts a frozen model by learning small vectors that scale internal activations, rather than inserting full new layers or training low-rank matrix updates.\n\nIn transformer models, IA3 typically learns multiplicative rescaling factors for selected attention and feed-forward components. Instead of changing the full weight matrices, it changes how strongly certain channels are amplified or suppressed during computation. This keeps the number of trainable parameters extremely small, often even smaller than LoRA. A research team might use IA3 to adapt one [foundation model](/glossary/foundation-model) for biomedical question answering and another for software issue classification, storing only tiny learned scaling vectors for each variant.\n\nIA3 is attractive when you want stronger adaptation than prompt tuning but still want a minimal update footprint, and it is cheap to store. But it is less widely supported in tooling than LoRA, harder to explain intuitively to newcomers, and in some settings scaling-only updates may limit expressiveness compared with richer methods like LoRA or adapter layers.\n\n## The five side by side\n\n| Method | What it trains | Where it lives | Watch out for |\n| --- | --- | --- | --- |\n| LoRA | two small low-rank matrices per target projection | attention and feed-forward weights, mergeable at inference | rank too low underfits, rank too high wastes the savings |\n| Adapter layers | bottleneck modules inserted between layers | after attention or feed-forward blocks | extra latency on every forward pass, heavier integration than LoRA |\n| Prefix tuning | learned prefix vectors for attention keys and values | inside attention states | less expressive than LoRA, hard to debug in hidden states |\n| Prompt tuning | learned soft-prompt embeddings | input embedding level | fragile on small models, sensitive to scale, length, and setup |\n| IA3 | learned rescaling vectors | attention and feed-forward activations | thin tooling, scaling-only updates can underfit deep changes |\n\n## PEFT vs LoRA\n\nThe simplest distinction is: PEFT is the umbrella category, and LoRA is one specific method inside that category. Saying \"I used PEFT\" is like saying \"I used a compression method\"; saying \"I used LoRA\" is naming the exact technique. Not every PEFT method is LoRA, but every LoRA setup is a form of PEFT.\n\nPeople often blur the two because LoRA became the default PEFT method for many open-model workflows. But adapter tuning, prompt tuning, prefix tuning, and IA3 are also PEFT methods, even though they work differently under the hood.\n\n## PEFT vs Full Fine-Tuning vs Prompting/RAG\n\n| Approach | What changes | Best for | Main tradeoff |\n| --- | --- | --- | --- |\n| Prompting | The instructions sent to the model at runtime. | Fast behavior changes, experiments, and tasks the base model already understands. | No durable model adaptation, performance can be fragile across prompts. |\n| RAG | The context retrieved and supplied to the model. | Adding fresh or private knowledge without retraining the model. | Depends on retrieval quality and does not deeply change model behavior. |\n| PEFT | Small trainable adapters, vectors, or low-rank updates attached to a mostly frozen model. | Domain adaptation, style tuning, task specialization, and maintaining many lightweight variants. | Usually less flexible than full fine-tuning and adds adapter management complexity. |\n| Full fine-tuning | Most or all model weights. | Deep behavioral changes, high-stakes specialization, or cases where PEFT underperforms. | Expensive to train, store, validate, and serve. |\n\nPEFT is one of the main reasons smaller teams can customize large models at all. It lowers hardware requirements, shortens experimentation cycles, and makes it easier to maintain many specialized variants of the same base model. In the open-source model ecosystem, PEFT checkpoints are often small enough to distribute independently from the original model weights.\n\n## How to choose in one minute\n\n- **General adaptation default:** LoRA. Best tooling, mergeable at inference, and the safest first try for style, domain, or task tuning.\n- **Many swappable task variants on one frozen base:** adapter layers, or LoRA if the stack already serves LoRA adapters. Adapters win on modularity, LoRA wins on ecosystem.\n- **Steering generation with minimal checkpoints:** prefix tuning for attention-level control, prompt tuning for the lightest embedding-level nudge on large models.\n- **Smallest update footprint beyond prompting:** IA3, when scaling vectors are enough and the team can live outside LoRA tooling.\n- **Only new facts or documents, no behavior change:** [retrieval-augmented generation](/glossary/retrieval-augmented-generation), not PEFT.\n- **Deep capability change or a weak base model:** full [fine-tuning](/glossary/fine-tuning) or a different base model. No adapter compensates for a wrong foundation.\n\n## Failure modes worth naming\n\n- **Adapter-base mismatch.** Adapters are version-locked to their base checkpoint. Upgrading the base model without revalidating every adapter silently breaks behavior. Track the pair, not the adapter alone.\n- **Rank and capacity mis-set.** LoRA rank too low underfits the task, while rank too high plus too many targets re-creates full fine-tuning costs without its flexibility. Start small and scale up only on validation signal.\n- **Prompt and prefix fragility.** Short soft prompts on small models fail discontinuously with tiny setup changes. If results swing across seeds or lengths, the method is underpowered for the task. Move to LoRA or adapters.\n- **Latency surprise.** Adapter layers add compute to every token. Benchmark serving with adapters attached, and prefer mergeable LoRA or vector-only methods when latency budgets are tight.\n- **RAG confusion.** Training an adapter to memorize facts that retrieval could supply is slower, less editable, and harder to cite. PEFT changes behavior, retrieval supplies information.\n\n## When Not to Use PEFT\n\nPEFT is not always the right tool. If the model only needs access to new facts, documents, or product data, retrieval-augmented generation is often safer and easier than training an adapter. PEFT changes behavior; RAG supplies information.\n\nPEFT can also be the wrong choice when the desired change is very deep. If the base model is fundamentally bad at the target task, uses the wrong language or modality, or needs a major change in reasoning style, full fine-tuning or a different base model may work better. A small adapter cannot reliably compensate for a weak foundation.\n\nOperationally, PEFT adds its own complexity. Teams have to track which adapter belongs to which base model version, validate adapter compatibility after model upgrades, decide whether to merge adapters for inference, and manage multi-adapter serving if many tasks share one base model. Those costs are much smaller than full fine-tuning, but they are not zero.\n\nA useful mental model is that full fine-tuning rewrites the whole book, while PEFT adds an annotated layer on top of it. The base knowledge stays in place; the adaptation tells the model how to behave differently for a narrower job.",
     "category": "Training & Inference",
     "relatedTerms": [
       "fine-tuning",
       "transfer-learning",
-      "lora",
+      "transformer",
+      "foundation-model",
       "large-language-model",
-      "foundation-model"
+      "quantization",
+      "attention-mechanism",
+      "prompt-engineering",
+      "retrieval-augmented-generation",
+      "overfitting",
+      "hyperparameter",
+      "loss-function"
     ],
-    "seoDescription": "PEFT stands for Parameter-Efficient Fine-Tuning: methods like LoRA and adapters that customize large models by training only a small fraction of parameters.",
+    "seoDescription": "Parameter-efficient fine-tuning explained: LoRA, adapters, prefix, prompt tuning, and IA3 compared with trade-offs and a one-minute chooser.",
     "seoKeywords": [
-      "what is PEFT",
+      "what is peft",
+      "peft explained",
       "parameter efficient fine tuning",
-      "PEFT explained",
-      "PEFT vs fine tuning",
-      "LoRA and PEFT",
-      "adapter tuning",
-      "prompt tuning"
+      "peft vs fine tuning",
+      "what is lora",
+      "lora explained",
+      "lora vs peft",
+      "qlora explained",
+      "adapter layers vs lora",
+      "what is prefix tuning",
+      "prefix tuning vs prompt tuning",
+      "what is prompt tuning",
+      "soft prompt tuning",
+      "what is ia3",
+      "ia3 vs lora",
+      "which peft method to use"
     ],
-    "lastUpdated": "2026-05-16",
-    "analogy": "A removable upgrade kit for a large model: the base system stays intact, while small trainable add-ons teach it a narrower behavior without rebuilding the whole thing."
+    "lastUpdated": "2026-09-28",
+    "analogy": "A removable upgrade kit for a large model: the base system stays intact, while small trainable add-ons teach it a narrower behavior without rebuilding the whole thing.",
+    "references": [
+      {
+        "title": "Hu et al: LoRA - Low-Rank Adaptation of Large Language Models (2021)",
+        "url": "https://arxiv.org/abs/2106.09685"
+      },
+      {
+        "title": "Houlsby et al: Parameter-Efficient Transfer Learning for NLP (2019)",
+        "url": "https://arxiv.org/abs/1902.00751"
+      },
+      {
+        "title": "Li and Liang: Prefix-Tuning - Optimizing Continuous Prompts for Generation (2021)",
+        "url": "https://arxiv.org/abs/2101.00190"
+      },
+      {
+        "title": "Lester et al: The Power of Scale for Parameter-Efficient Prompt Tuning (2021)",
+        "url": "https://arxiv.org/abs/2104.08691"
+      },
+      {
+        "title": "Liu et al: Few-Shot Parameter-Efficient Fine-Tuning is Better and Cheaper than In-Context Learning (2022)",
+        "url": "https://arxiv.org/abs/2205.05638"
+      },
+      {
+        "title": "Dettmers et al: QLoRA - Efficient Finetuning of Quantized LLMs (2023)",
+        "url": "https://arxiv.org/abs/2305.14314"
+      },
+      {
+        "title": "HuggingFace PEFT documentation",
+        "url": "https://huggingface.co/docs/peft"
+      }
+    ]
   },
   {
     "name": "Perceptron",
@@ -6580,30 +6551,6 @@
     "analogy": "Like numbering the pages of a shuffled manuscript so the reader knows what order they go in."
   },
   {
-    "name": "Prefix Tuning",
-    "slug": "prefix-tuning",
-    "shortDef": "A PEFT method that learns small trainable prefix vectors prepended to a model's internal attention states, steering generation without updating the full model.",
-    "fullDef": "Prefix tuning is a Parameter-Efficient Fine-Tuning (PEFT) method that adapts a frozen model by learning a set of trainable vectors, called prefixes, that are injected into the model's attention mechanism. These prefixes are not ordinary text tokens. They are learned continuous representations that influence the model's behavior during generation.\n\nIn transformer language models, the learned prefix is typically attached to the key and value states used by attention. This gives the model a task-specific \"setup\" before it processes the actual user input, steering outputs without modifying the main pretrained weights.\n\n**Advantages**\n\nPrefix tuning can be extremely parameter-efficient because the learned prefix is small relative to the full model. It is especially attractive when you want to steer generation behavior while keeping the base model fully frozen. It also avoids changing the core model weights, which can simplify checkpoint management.\n\n**Disadvantages**\n\nBecause the method works by steering attention through learned prefixes rather than directly modifying model weights, it may be less expressive than methods like LoRA for some tasks. It can also be less intuitive to debug, since the learned control signal lives in internal hidden states rather than in obvious weight updates or inserted layers.\n\n**Example**\n\nA team building a report generator might train one prefix for concise executive summaries and another for long-form analytical explanations, using the same base model under both modes.",
-    "category": "Training & Inference",
-    "relatedTerms": [
-      "peft",
-      "prompt-tuning",
-      "attention-mechanism",
-      "transformer",
-      "fine-tuning"
-    ],
-    "seoDescription": "Prefix tuning is a PEFT method that learns trainable prefix vectors to steer a frozen transformer's attention without changing the full model.",
-    "seoKeywords": [
-      "what is prefix tuning",
-      "prefix tuning PEFT",
-      "prefix tuning vs prompt tuning",
-      "prefix tuning vs LoRA",
-      "transformer prefix tuning"
-    ],
-    "lastUpdated": "2026-04-02",
-    "analogy": "Like whispering a learned stage direction into an actor's earpiece before every scene instead of retraining the actor from scratch."
-  },
-  {
     "name": "Prompt Engineering",
     "slug": "prompt-engineering",
     "shortDef": "The practice of carefully crafting input text to elicit desired behavior from large language models, including techniques like few-shot examples, chain-of-thought reasoning, and system instructions.",
@@ -6642,30 +6589,6 @@
     "seoDescription": "Prompt injection is when untrusted text hijacks an AI model or agent. Learn direct and indirect attacks, risks, and practical defenses.",
     "lastUpdated": "2026-08-13",
     "analogy": "Think of it as slipping a forged note into someone's inbox that says 'ignore all previous instructions' - and it works."
-  },
-  {
-    "name": "Prompt Tuning",
-    "slug": "prompt-tuning",
-    "shortDef": "A PEFT method that learns a small set of trainable virtual prompt embeddings to steer a frozen model toward a task or behavior.",
-    "fullDef": "Prompt tuning is a Parameter-Efficient Fine-Tuning (PEFT) technique in which a frozen model is adapted by learning a small set of trainable embeddings that function like a soft prompt. These embeddings are prepended to the input at the embedding level rather than written as literal human-readable text.\n\nThe idea is similar to prompting, but instead of hand-writing instructions such as \"Summarize this text in bullet points,\" the system learns a continuous prompt representation that the model responds to more reliably. Because only the prompt embeddings are trained, the number of trainable parameters is tiny.\n\n**Advantages**\n\nPrompt tuning is one of the lightest-weight adaptation methods available. It is cheap to store, easy to swap, and attractive when you need very small task-specific checkpoints. It can work well for simple steering tasks or for large models that are already highly capable and only need a small nudge.\n\n**Disadvantages**\n\nPrompt tuning is often less expressive than LoRA or adapter layers, especially for harder tasks requiring deeper behavioral changes. It can also be fragile: performance may depend heavily on model scale, prompt length, and training setup. In smaller or weaker models, prompt tuning may underperform more direct adaptation methods.\n\n**Example**\n\nA company might learn one virtual prompt that makes a base model answer as a terse support bot and another that makes it respond as a formal legal assistant, without modifying the underlying model weights.",
-    "category": "Training & Inference",
-    "relatedTerms": [
-      "peft",
-      "prefix-tuning",
-      "prompt-engineering",
-      "fine-tuning",
-      "large-language-model"
-    ],
-    "seoDescription": "Prompt tuning is a PEFT method that learns soft prompt embeddings to steer a frozen model with very few trainable parameters.",
-    "seoKeywords": [
-      "what is prompt tuning",
-      "prompt tuning PEFT",
-      "soft prompt tuning",
-      "prompt tuning vs prefix tuning",
-      "prompt tuning vs LoRA"
-    ],
-    "lastUpdated": "2026-04-02",
-    "analogy": "Like handing the same speaker a hidden cue card before they begin talking. The person stays the same, but the opening cue changes the direction of the response."
   },
   {
     "name": "PyTorch",
