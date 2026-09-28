@@ -3,7 +3,7 @@
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
-import rehypeMathjaxChtml from "rehype-mathjax/chtml";
+import rehypeKatex from "rehype-katex";
 import rehypeHighlight from "rehype-highlight";
 import rehypeRaw from "rehype-raw";
 import type { Components } from "react-markdown";
@@ -217,22 +217,11 @@ export default function MarkdownRenderer({
 }) {
   const components = buildComponents(glossaryTerms);
   const remarkPlugins = [remarkGfm, remarkMath];
-  // MathJax CHTML (same engine as GateOverflow): renders $...$ inline and
-  // $$...$$ display at compile time, no client-side typesetting needed.
-  // Fonts load from the MathJax CDN; CSS is emitted inline by MathJax.
-  const rehypePlugins: Pluggable[] = [
-    rehypeRaw,
-    [
-      rehypeMathjaxChtml,
-      {
-        chtml: {
-          fontURL:
-            "https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2",
-        },
-      },
-    ],
-    rehypeHighlight,
-  ];
+  // KaTeX renders $...$ inline and $$...$$ display at compile time.
+  // Same remark-math + rehype-katex stack as ContentBlocksRenderer;
+  // avoids mathjax-full's runtime package.json lookup which breaks
+  // Turbopack SSR prerendering (.next/server/package.json MODULE_NOT_FOUND).
+  const rehypePlugins: Pluggable[] = [rehypeRaw, rehypeKatex, rehypeHighlight];
   const renderedContent = normalizeLatexDelimiters(escapeCurrencyAmounts(content));
 
   return (
