@@ -17,7 +17,10 @@ test("glossary model pages target model-card intent without depending on the com
   assert.match(page, /benchmarks/);
   assert.match(page, /api/);
   assert.match(page, /open\[- \]weights/);
-  assert.match(page, /signalCount >= MODEL_CARD_SIGNAL_MINIMUM/);
+  assert.match(page, /MODEL_CARD_STRONG_SIGNALS/);
+  assert.match(page, /MODEL_CARD_VERSION_CUE/);
+  assert.match(page, /signalCount < MODEL_CARD_SIGNAL_MINIMUM/);
+  assert.match(page, /hasStrongSignal/);
   assert.doesNotMatch(page, /getModelOptions/);
   assert.doesNotMatch(page, /normalizedModelName/);
   assert.match(page, /`\$\{term\.name\} Model Card`/);

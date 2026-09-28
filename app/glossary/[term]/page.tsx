@@ -22,6 +22,14 @@ const MODEL_CARD_SIGNALS = [
   /\b(?:open[- ]weights?|downloadable weights?|model weights?)\b/i,
   /\b(?:knowledge cutoff|max output|reasoning effort|tool calling)\b/i,
 ];
+const MODEL_CARD_STRONG_SIGNALS = [
+  /\bcontext window\b/i,
+  /\b(?:input|output) tokens?\b/i,
+  /\b(?:priced at|pricing|per million tokens?|cache reads?|cache writes?)\b/i,
+  /\b(?:open[- ]weights?|downloadable weights?|model weights?)\b/i,
+  /\b(?:knowledge cutoff|max output|reasoning effort|tool calling)\b/i,
+];
+const MODEL_CARD_VERSION_CUE = /\d/;
 
 export const revalidate = false;
 
@@ -41,7 +49,12 @@ function isModelCardTerm(term: GlossaryTerm): boolean {
     (count, signal) => count + (signal.test(searchable) ? 1 : 0),
     0,
   );
-  return signalCount >= MODEL_CARD_SIGNAL_MINIMUM;
+  if (signalCount < MODEL_CARD_SIGNAL_MINIMUM) return false;
+  const hasStrongSignal = MODEL_CARD_STRONG_SIGNALS.some((signal) =>
+    signal.test(searchable),
+  );
+  if (hasStrongSignal) return true;
+  return MODEL_CARD_VERSION_CUE.test(term.name);
 }
 
 function modelCardKeywords(term: GlossaryTerm): string[] {

@@ -150,8 +150,43 @@ function buildComponents(glossaryTerms: GlossaryLink[]): Components {
   };
 }
 
+function isMathLikeInner(inner: string): boolean {
+  const trimmed = inner.trim();
+  if (!inner || inner.length > 500 || inner.includes("$") || inner.includes("\n\n")) return false;
+  // Thousands separators and currency context words mean money, not math.
+  if (/\d,\d/.test(inner)) return false;
+  if (/\b(min|hrs?|input|output|tokens?|price|pricing|list|promo|cached?|peak|audio|video|text|image|month|year|per\b|bill|million)\b/i.test(inner)) return false;
+  // A lone variable ($a$) or bare number ($0.01$) with an explicit closing
+  // delimiter is author-intended math; currency never closes the pair.
+  if (/^[a-zA-Z]$/.test(trimmed)) return true;
+  if (/^\d+(\.\d+)?$/.test(trimmed)) return true;
+  // Digits/operators only (e.g. the "2/" in "$2/$6") is a currency fragment.
+  if (/^[\d\s.,/$+\-*]+$/.test(trimmed)) return false;
+  if (/\\|\^|_|\*|=/.test(inner)) return true;
+  if (/\b(sqrt|tanh|sigmoid|phi|sigma|exp|sum|frac|log|logits|tau|softmax|gelu|silu|swish|relu|beta|Phi)\b/.test(inner)) return true;
+  // Slash with letters after it (2/pi, logits / tau, 1/sqrt) is math;
+  // a bare trailing slash (2/) or digits-only is currency ($2/$6).
+  if (/\/\s*[a-zA-Z\\(]/.test(inner)) return true;
+  return false;
+}
+
 function escapeCurrencyAmounts(markdown: string): string {
-  return markdown.replace(/(?<!\\)\$(?=\d)/g, "\\$");
+  // Protect fenced code, inline code, display math, and \(...\) / \[...\]
+  // so $ amounts inside them are never touched.
+  const protectedPattern = /(```[\s\S]*?```|`[^`\n]*?`|\$\$[\s\S]*?\$\$|\\\([\s\S]*?\\\)|\\\[[\s\S]*?\\\])/g;
+  const segments = markdown.split(protectedPattern);
+  for (let i = 0; i < segments.length; i += 1) {
+    const segment = segments[i];
+    if (segment === undefined || segment === "") continue;
+    // Odd indices are the protected matches.
+    if (i % 2 === 1) continue;
+    segments[i] = segment.replace(/\$[^$\n]*?\$/g, (match) => {
+      const inner = match.slice(1, -1);
+      if (isMathLikeInner(inner)) return match;
+      return match.replace(/\$/g, "\\$");
+    }).replace(/(?<!\\)\$(?=\d)/g, "\\$");
+  }
+  return segments.join("");
 }
 
 function normalizeLatexDelimiters(markdown: string): string {
