@@ -1,6 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // mathjax-full does a runtime `require("../../package.json")` for its
+  // version string (js/components/version.js). When bundled, __dirname
+  // resolves under .next/server and the lookup crashes prerendering with
+  // MODULE_NOT_FOUND. Keeping it external preserves the node_modules path.
+  serverExternalPackages: ["mathjax-full", "rehype-mathjax"],
   async redirects() {
     return [
       // Preserve equity from article and glossary URLs that were renamed or
