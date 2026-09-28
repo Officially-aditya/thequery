@@ -260,10 +260,10 @@ body {
 .prose-custom hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
 .prose-custom img { max-width: 100%; border-radius: 0.5rem; }
 
-/* MathJax math rendering (GateOverflow-style: $…$ inline, $$…$$ display).
-   MathJax CHTML emits its own inline CSS; these rules only handle page
+/* KaTeX math rendering ($…$ inline, $…$ display).
+   KaTeX ships its own CSS (imported in layout); these rules only handle page
    layout: display math centered with breathing room, inline math on baseline. */
-.prose-custom mjx-container[jax="CHTML"][display="true"] {
+.prose-custom .katex-display {
   display: block;
   text-align: center;
   margin: 1.25rem 0;
@@ -273,14 +273,11 @@ body {
   color: var(--text-primary);
   font-size: 1.1em;
 }
-.prose-custom mjx-container[jax="CHTML"]:not([display="true"]) {
-  display: inline-block;
-  vertical-align: baseline;
+.prose-custom .katex {
   color: var(--text-primary);
   font-size: 1.02em;
-  margin: 0 0.1em;
 }
-/* Fallback for pre-MathJax .math-display nodes */
+/* Fallback for legacy .math-display nodes */
 .prose-custom .math-display {
   overflow-x: auto;
   overflow-y: hidden;

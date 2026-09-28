@@ -15,7 +15,7 @@ import {
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
-import rehypeMathjaxChtml from "rehype-mathjax/chtml";
+import rehypeKatex from "rehype-katex";
 import type { ReactNode } from "react";
 import MarkdownRenderer, { type GlossaryLink } from "@/components/MarkdownRenderer";
 import ModelHeaderSelect, { type ExistingComparisonPair, type PublicModelOption } from "@/components/comparisons/ModelPicker";
@@ -125,17 +125,7 @@ function SpecCell({ text }: { text: string }) {
   return (
     <ReactMarkdown
       remarkPlugins={[remarkGfm, remarkMath]}
-      rehypePlugins={[
-        [
-          rehypeMathjaxChtml,
-          {
-            chtml: {
-              fontURL:
-                "https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2",
-            },
-          },
-        ],
-      ]}
+      rehypePlugins={[rehypeKatex]}
       components={{
         p: ({ children }) => <>{children}</>,
         strong: ({ children }) => <strong className="font-semibold text-text-primary">{children}</strong>,
