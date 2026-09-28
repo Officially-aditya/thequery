@@ -3,10 +3,11 @@
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
-import rehypeKatex from "rehype-katex";
+import rehypeMathjaxChtml from "rehype-mathjax/chtml";
 import rehypeHighlight from "rehype-highlight";
 import rehypeRaw from "rehype-raw";
 import type { Components } from "react-markdown";
+import type { Pluggable } from "unified";
 import React from "react";
 import ImageLightbox from "@/components/content/ImageLightbox";
 
@@ -172,7 +173,9 @@ function isMathLikeInner(inner: string): boolean {
 
 function escapeCurrencyAmounts(markdown: string): string {
   // Protect fenced code, inline code, display math, and \(...\) / \[...\]
-  // so $ amounts inside them are never touched.
+  // so $ amounts inside them are never touched. MathJax (like GateOverflow)
+  // uses $...$ inline and $$...$$ display, so single-$ math starting with a
+  // digit ($0.5 \cdot x ...$) must survive while currency ($30,000) stays escaped.
   const protectedPattern = /(```[\s\S]*?```|`[^`\n]*?`|\$\$[\s\S]*?\$\$|\\\([\s\S]*?\\\)|\\\[[\s\S]*?\\\])/g;
   const segments = markdown.split(protectedPattern);
   for (let i = 0; i < segments.length; i += 1) {
@@ -180,11 +183,21 @@ function escapeCurrencyAmounts(markdown: string): string {
     if (segment === undefined || segment === "") continue;
     // Odd indices are the protected matches.
     if (i % 2 === 1) continue;
-    segments[i] = segment.replace(/\$[^$\n]*?\$/g, (match) => {
-      const inner = match.slice(1, -1);
-      if (isMathLikeInner(inner)) return match;
-      return match.replace(/\$/g, "\\$");
-    }).replace(/(?<!\\)\$(?=\d)/g, "\\$");
+    // Split out $...$ candidates so math-like spans (even those starting
+    // with a digit) are never currency-escaped, while plain-text $ before
+    // a digit ($30,000, $200) still is.
+    const parts = segment.split(/(\$[^$\n]*?\$)/g);
+    for (let j = 0; j < parts.length; j += 1) {
+      const part = parts[j];
+      if (part === undefined) continue;
+      if (j % 2 === 1) {
+        const inner = part.slice(1, -1);
+        parts[j] = isMathLikeInner(inner) ? part : part.replace(/\$/g, "\\$");
+      } else {
+        parts[j] = part.replace(/(?<!\\)\$(?=\d)/g, "\\$");
+      }
+    }
+    segments[i] = parts.join("");
   }
   return segments.join("");
 }
@@ -204,7 +217,22 @@ export default function MarkdownRenderer({
 }) {
   const components = buildComponents(glossaryTerms);
   const remarkPlugins = [remarkGfm, remarkMath];
-  const rehypePlugins = [rehypeRaw, rehypeKatex, rehypeHighlight];
+  // MathJax CHTML (same engine as GateOverflow): renders $...$ inline and
+  // $$...$$ display at compile time, no client-side typesetting needed.
+  // Fonts load from the MathJax CDN; CSS is emitted inline by MathJax.
+  const rehypePlugins: Pluggable[] = [
+    rehypeRaw,
+    [
+      rehypeMathjaxChtml,
+      {
+        chtml: {
+          fontURL:
+            "https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2",
+        },
+      },
+    ],
+    rehypeHighlight,
+  ];
   const renderedContent = normalizeLatexDelimiters(escapeCurrencyAmounts(content));
 
   return (

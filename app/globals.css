@@ -260,27 +260,33 @@ body {
 .prose-custom hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
 .prose-custom img { max-width: 100%; border-radius: 0.5rem; }
 
-/* KaTeX math rendering (inline $…$ and display $$…$$) */
-.prose-custom .math-display,
-.prose-custom .katex-display {
+/* MathJax math rendering (GateOverflow-style: $…$ inline, $$…$$ display).
+   MathJax CHTML emits its own inline CSS; these rules only handle page
+   layout: display math centered with breathing room, inline math on baseline. */
+.prose-custom mjx-container[jax="CHTML"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1.25rem 0;
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 0.75rem 1rem;
-  margin: 1rem 0;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-radius: 0.5rem;
-  text-align: center;
-}
-.prose-custom .katex-display > .katex {
-  white-space: nowrap;
-}
-.prose-custom .katex {
+  padding: 0.25rem 0;
   color: var(--text-primary);
-  font-size: 1.05em;
-}
-.prose-custom .katex-display .katex {
   font-size: 1.1em;
+}
+.prose-custom mjx-container[jax="CHTML"]:not([display="true"]) {
+  display: inline-block;
+  vertical-align: baseline;
+  color: var(--text-primary);
+  font-size: 1.02em;
+  margin: 0 0.1em;
+}
+/* Fallback for pre-MathJax .math-display nodes */
+.prose-custom .math-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.25rem 0;
+  margin: 1.25rem 0;
+  text-align: center;
 }
 
 /* highlight.js theme integration */
