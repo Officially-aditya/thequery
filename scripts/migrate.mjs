@@ -87,6 +87,7 @@ const migrations = [
   { id: "080_remove_muse_spark_13_analogy_line", file: new URL("../db/migrations/080_remove_muse_spark_13_analogy_line.sql", import.meta.url) },
   { id: "081_update_muse_spark_13_aa_score_48", file: new URL("../db/migrations/081_update_muse_spark_13_aa_score_48.sql", import.meta.url) },
   { id: "082_remove_glossary_analogies", file: new URL("../db/migrations/082_remove_glossary_analogies.sql", import.meta.url) },
+  { id: "083_merge_activation_variants", file: new URL("../db/migrations/083_merge_activation_variants.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;

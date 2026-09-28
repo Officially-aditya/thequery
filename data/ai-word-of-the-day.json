@@ -240,7 +240,7 @@
     ]
   },
   {
-    "slug": "sigmoid",
+    "slug": "activation-function",
     "humor": "Squishes everything between 0 and 1. Had its moment of glory until everyone realized gradients vanish at the extremes. The participation trophy of activation functions.",
     "examples": [
       "The output neuron uses a sigmoid activation to produce a probability for binary classification — spam or not spam.",
@@ -248,7 +248,7 @@
     ]
   },
   {
-    "slug": "relu",
+    "slug": "activation-function",
     "humor": "If the number is positive, keep it. If negative, zero. The fact that this near-trivial function revolutionized deep learning says a lot about the field.",
     "examples": [
       "All hidden layers use ReLU activations, which eliminated the vanishing gradient problem we had with sigmoid.",

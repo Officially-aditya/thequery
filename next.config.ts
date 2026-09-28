@@ -13,6 +13,8 @@ const nextConfig: NextConfig = {
       { source: "/glossary/adaboost", destination: "/glossary/boosting", permanent: true },
       { source: "/glossary/xgboost", destination: "/glossary/boosting", permanent: true },
       { source: "/glossary/lightgbm", destination: "/glossary/boosting", permanent: true },
+      { source: "/glossary/relu", destination: "/glossary/activation-function", permanent: true },
+      { source: "/glossary/sigmoid", destination: "/glossary/activation-function", permanent: true },
       { source: "/articles/minimax-m3-glm52-deepseek-v4-chinese-labs-competing", destination: "/articles/real-ai-race-minimax-m3-glm-52-deepseek-v4", permanent: true },
       { source: "/articles/grok-45-opus-class-claim-cursor-acquisition", destination: "/articles/grok-4-5-opus-adjacent-cursor-acquisition", permanent: true },
       { source: "/articles/claude-mythos-apple-m5-security-exploit", destination: "/articles/claude-mythos-apple-m5-security-mie", permanent: true },
