@@ -13,6 +13,7 @@ import {
   organizationJsonLd,
 } from "@/lib/site";
 import "./globals.css";
+import "katex/dist/katex.min.css";
 
 const lora = Lora({
   variable: "--font-lora",

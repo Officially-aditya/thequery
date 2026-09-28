@@ -14,6 +14,8 @@ import {
 } from "recharts";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 import type { ReactNode } from "react";
 import MarkdownRenderer, { type GlossaryLink } from "@/components/MarkdownRenderer";
 import ModelHeaderSelect, { type ExistingComparisonPair, type PublicModelOption } from "@/components/comparisons/ModelPicker";
@@ -122,7 +124,8 @@ function SpecCell({ text }: { text: string }) {
   if (!text.trim()) return null;
   return (
     <ReactMarkdown
-      remarkPlugins={[remarkGfm]}
+      remarkPlugins={[remarkGfm, remarkMath]}
+      rehypePlugins={[rehypeKatex]}
       components={{
         p: ({ children }) => <>{children}</>,
         strong: ({ children }) => <strong className="font-semibold text-text-primary">{children}</strong>,
@@ -281,13 +284,11 @@ export default function ContentBlocksRenderer({
   blocks,
   sources = [],
   glossaryTerms = [],
-  disableMath = false,
   comparisonPicker,
 }: {
   blocks: ContentBlock[];
   sources?: Source[];
   glossaryTerms?: GlossaryLink[];
-  disableMath?: boolean;
   comparisonPicker?: ComparisonPickerData;
 }) {
   const nodes: ReactNode[] = [];
@@ -307,7 +308,7 @@ export default function ContentBlocksRenderer({
       continue;
     }
     if (block.type === "markdown") {
-      nodes.push(<MarkdownRenderer key={block.id} content={block.content} glossaryTerms={glossaryTerms} disableMath={disableMath} />);
+      nodes.push(<MarkdownRenderer key={block.id} content={block.content} glossaryTerms={glossaryTerms} />);
     } else if (block.type === "comparison_table") {
       nodes.push(<ComparisonTable key={block.id} block={block} />);
     } else {

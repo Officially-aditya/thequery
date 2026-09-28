@@ -151,7 +151,7 @@ export default async function TermPage({ params }: Props) {
       <CoverImage src={term.coverImageUrl} alt={term.coverImageAlt} title={pageTitle} />
 
       <div className="mb-8">
-        <MarkdownRenderer content={term.fullDef} disableMath />
+        <MarkdownRenderer content={term.fullDef} />
       </div>
 
       {term.references && term.references.length > 0 && (

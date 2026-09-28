@@ -64,7 +64,7 @@ export default async function WordOfTheDayPage() {
       </p>
 
       <div className="mb-8">
-        <MarkdownRenderer content={term.fullDef} disableMath />
+        <MarkdownRenderer content={term.fullDef} />
       </div>
 
       {related.length > 0 && (

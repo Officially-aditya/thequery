@@ -156,7 +156,7 @@ export default function GlossaryManager() {
             </section>
 
             <SourcesEditor label="References" sources={editing.sources} onChange={(sources) => update({ sources })} />
-            <details className="rounded-xl border border-border bg-bg-secondary p-4"><summary className="cursor-pointer font-serif text-base font-semibold text-text-primary">Live definition preview</summary><div className="mt-5 rounded-lg bg-bg-primary p-4"><ContentBlocksRenderer blocks={[markdownBlock(editing.body)]} sources={editing.sources} disableMath /></div></details>
+            <details className="rounded-xl border border-border bg-bg-secondary p-4"><summary className="cursor-pointer font-serif text-base font-semibold text-text-primary">Live definition preview</summary><div className="mt-5 rounded-lg bg-bg-primary p-4"><ContentBlocksRenderer blocks={[markdownBlock(editing.body)]} sources={editing.sources} /></div></details>
             <div className="flex items-center justify-between border-t border-border pt-5"><button onClick={() => setEditing(null)} className="text-sm text-text-secondary hover:text-accent">Close editor</button>{editing.id ? <button onClick={remove} disabled={saving} className="text-sm text-red-600 hover:text-red-700">Delete term</button> : null}</div>
           </div>
         )}

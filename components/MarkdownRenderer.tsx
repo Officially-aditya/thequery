@@ -154,21 +154,23 @@ function escapeCurrencyAmounts(markdown: string): string {
   return markdown.replace(/(?<!\\)\$(?=\d)/g, "\\$");
 }
 
+function normalizeLatexDelimiters(markdown: string): string {
+  return markdown
+    .replace(/\\\[([\s\S]*?)\\\]/g, (_, inner) => `$$${inner}$$`)
+    .replace(/\\\(([\s\S]*?)\\\)/g, (_, inner) => `$${inner}$`);
+}
+
 export default function MarkdownRenderer({
   content,
   glossaryTerms = [],
-  disableMath = false,
 }: {
   content: string;
   glossaryTerms?: GlossaryLink[];
-  disableMath?: boolean;
 }) {
   const components = buildComponents(glossaryTerms);
-  const remarkPlugins = disableMath ? [remarkGfm] : [remarkGfm, remarkMath];
-  const rehypePlugins = disableMath
-    ? [rehypeRaw, rehypeHighlight]
-    : [rehypeRaw, rehypeKatex, rehypeHighlight];
-  const renderedContent = escapeCurrencyAmounts(content);
+  const remarkPlugins = [remarkGfm, remarkMath];
+  const rehypePlugins = [rehypeRaw, rehypeKatex, rehypeHighlight];
+  const renderedContent = normalizeLatexDelimiters(escapeCurrencyAmounts(content));
 
   return (
     <div className="prose-custom">
