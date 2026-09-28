@@ -5319,19 +5319,6 @@
     "analogy": "MCP is like a staffed control room: the host decides which doors are open, each client connects to one specialist server, and the model can request approved operations through a shared radio protocol."
   },
   {
-    "name": "Merge Queue",
-    "slug": "merge-queue",
-    "shortDef": "A system that batches and sequences pull requests so they can be tested and merged safely at higher throughput.",
-    "fullDef": "A merge queue is an automation layer used by code hosting platforms to manage many pull requests targeting the same branch. Instead of merging each pull request immediately, the queue groups, orders, and validates them so teams can keep CI stable while maintaining higher merge velocity.\n\nMerge queues are especially useful in busy repositories where many changes land in parallel. They reduce the chance that one pull request will pass tests alone but fail after another pull request merges ahead of it. The tradeoff is extra complexity in how temporary refs, merge bases, and batched validation are computed.",
-    "category": "Systems, Tools & Safety",
-    "relatedTerms": [
-      "squash-merge",
-      "vibe-coding"
-    ],
-    "lastUpdated": "2026-04-30",
-    "analogy": "Think of it like an airport takeoff queue: instead of every plane racing for the runway at once, departures are sequenced and checked so traffic can move faster without colliding."
-  },
-  {
     "name": "Message Queues",
     "slug": "message-queues",
     "category": "Systems, Tools & Safety",
@@ -7445,18 +7432,6 @@
     ],
     "lastUpdated": "2026-03-05",
     "analogy": "Picture a junior associate drafting a memo and a partner reviewing it - faster than the partner writing from scratch, since most drafts are acceptable."
-  },
-  {
-    "name": "Squash Merge",
-    "slug": "squash-merge",
-    "shortDef": "A Git workflow that combines all commits from a branch into a single commit when merging it into another branch.",
-    "fullDef": "A squash merge is a merge strategy that condenses the entire commit history of a feature branch into one new commit on the target branch. Teams often use it to keep the main branch history cleaner and easier to scan, especially when the feature branch contains many small intermediate commits.\n\nThe tradeoff is that the individual commit structure from the branch is lost in the main branch history. That can make later debugging, archaeology, or partial reverts less precise, even though the final code change itself is preserved.",
-    "category": "Systems, Tools & Safety",
-    "relatedTerms": [
-      "vibe-coding"
-    ],
-    "lastUpdated": "2026-04-30",
-    "analogy": "Think of it like turning a long drafting history into one final published version: cleaner to read, but less detailed about how you got there."
   },
   {
     "name": "Stemming",

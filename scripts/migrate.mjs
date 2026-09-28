@@ -90,6 +90,7 @@ const migrations = [
   { id: "083_merge_activation_variants", file: new URL("../db/migrations/083_merge_activation_variants.sql", import.meta.url) },
   { id: "084_fix_activation_math", file: new URL("../db/migrations/084_fix_activation_math.sql", import.meta.url) },
   { id: "085_expand_learning_rate_hub", file: new URL("../db/migrations/085_expand_learning_rate_hub.sql", import.meta.url) },
+  { id: "086_remove_git_workflow_glossary", file: new URL("../db/migrations/086_remove_git_workflow_glossary.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
