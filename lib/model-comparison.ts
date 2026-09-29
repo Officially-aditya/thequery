@@ -50,17 +50,6 @@ const sections: ComparisonSection[] = [
     ],
   },
   {
-    title: "Model behavior",
-    labels: [
-      "Primary focus",
-      "Long-horizon work",
-      "Agent orchestration",
-      "User collaboration",
-      "Efficiency / generation change",
-      "Safety / approvals",
-    ],
-  },
-  {
     title: "Coding",
     labels: [
       "SWE-bench Verified",
@@ -83,6 +72,17 @@ const sections: ComparisonSection[] = [
       "MLE-Bench",
       "LiveCodeBench",
       "CursorBench",
+    ],
+  },
+  {
+    title: "Model behavior",
+    labels: [
+      "Primary focus",
+      "Long-horizon work",
+      "Agent orchestration",
+      "User collaboration",
+      "Efficiency / generation change",
+      "Safety / approvals",
     ],
   },
   {
