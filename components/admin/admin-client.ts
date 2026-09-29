@@ -196,6 +196,7 @@ export function comparisonTemplateBlocks(): ContentBlock[] {
         ["OSWorld", "", ""],
         ["OSWorld-Verified", "", ""],
         ["OSWorld 2.0", "", ""],
+        ["OSWorld 2.1", "", ""],
         ["BrowseComp", "", ""],
         ["DeepSearchQA", "", ""],
         ["GDPval-AA", "", ""],
