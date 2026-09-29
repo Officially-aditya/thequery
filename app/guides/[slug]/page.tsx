@@ -95,7 +95,6 @@ export default async function GuidePage({ params }: Props) {
       <p className="text-sm text-text-muted mb-8">
         By <Link href={AUTHOR.url} className="text-accent hover:text-accent-hover transition-colors">{AUTHOR.name}</Link>
         {" "}&middot; {new Date(guide.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
-        {" "}&middot; <Link href="/about#editorial-standards" className="hover:text-text-secondary transition-colors">Editorial standards</Link>
       </p>
       <CoverImage src={guide.coverImageUrl} alt={guide.coverImageAlt} title={guide.title} />
 

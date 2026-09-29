@@ -64,6 +64,9 @@ export default function AboutPage() {
           glossary definitions, analytical field reports, and study guides - is
           researched, written, and reviewed by Addy.
         </p>
+        <p>
+          See our <a href="#editorial-standards" className="text-accent hover:text-accent-hover transition-colors">editorial standards</a>.
+        </p>
 
         <h2 id="editorial-standards" className="font-serif text-xl font-semibold text-text-primary pt-4">
           Editorial Approach
