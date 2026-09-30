@@ -64,7 +64,7 @@ test("MiMo V2.6 series entry carries the release facts", async () => {
   assert.match(migration, /## Bottom line/);
   assert.match(migration, /1,568 samples per update/);
   assert.match(migration, /Introducing MiMo-V2\.6 series/);
-  assert.match(migration, /MiMo-V2\.6-Pro-RL model card and technical report/);
+  assert.match(migration, /MiMo-V2\.6-Pro on Artificial Analysis/);
 });
 
 test("MiMo V2.6 Pro entry carries the architecture and pricing facts", async () => {
@@ -120,8 +120,8 @@ test("MiMo V2.6 entries have no inline title or duplicated reference sections", 
     assert.ok(!entry.fullDef.includes("## Related Terms"));
     assert.ok(!entry.fullDef.includes("https://www.thequery.in/glossary/"));
   }
-  assert.equal(series.references.length, 7);
-  assert.equal(pro.references.length, 6);
+  assert.equal(series.references.length, 3);
+  assert.equal(pro.references.length, 3);
 });
 
 test("MiMo V2.6 entries keep their tables and SEO fields", () => {

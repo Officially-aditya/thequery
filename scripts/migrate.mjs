@@ -98,6 +98,8 @@ const migrations = [
   { id: "091_add_gpt_6_1_sol_vs_gpt_6_sol_comparison", file: new URL("../db/migrations/091_add_gpt_6_1_sol_vs_gpt_6_sol_comparison.sql", import.meta.url) },
   { id: "092_expand_hermes_agent_glossary", file: new URL("../db/migrations/092_expand_hermes_agent_glossary.sql", import.meta.url) },
   { id: "093_add_mimo_v2_6", file: new URL("../db/migrations/093_add_mimo_v2_6.sql", import.meta.url) },
+  { id: "094_add_mimo_v2_6_model_catalog", file: new URL("../db/migrations/094_add_mimo_v2_6_model_catalog.sql", import.meta.url) },
+  { id: "095_add_mimo_v2_6_pro_vs_flash_comparison", file: new URL("../db/migrations/095_add_mimo_v2_6_pro_vs_flash_comparison.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;

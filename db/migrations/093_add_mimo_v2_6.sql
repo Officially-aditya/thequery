@@ -41,7 +41,7 @@
 
 WITH mimo_v2_6_entry AS (
   SELECT $body$
-MiMo V2.6 is Xiaomi's September 2026 model series: two natively omnimodal [large language models](/glossary/large-language-model) plus a faster serving variant of the flagship, released together with the weights, the technical report, the reinforcement learning code, and the training environments behind them. [MiMo V2.6 Pro](/glossary/mimo-v2-6-pro) is the capability flagship at 1.02 trillion total parameters, MiMo V2.6 Flash is the 309-billion model aimed at the cost end, and MiMo V2.6-Pro-UltraSpeed serves the Pro weights at up to 20 times the standard output speed for ten times the price.
+MiMo V2.6 is Xiaomi's September 2026 model series: two [large language models](/glossary/large-language-model) built on the same multimodal architecture, plus a faster serving variant of the flagship, released together with the weights, the technical report, the reinforcement learning code, and the training environments behind them. [MiMo V2.6 Pro](/glossary/mimo-v2-6-pro) is the capability flagship at 1.02 trillion total parameters, MiMo V2.6 Flash is the 309-billion model aimed at the cost end, and MiMo V2.6 Pro UltraSpeed serves the Pro weights at up to 20 times the standard output speed for ten times the price. The two models are not equally multimodal in practice. Xiaomi markets the series as omnimodal, but Artificial Analysis's specification table lists Pro as accepting text, image, speech and video input while listing Flash as accepting text and image only.
 
 Two dates are in circulation. Xiaomi's announcement post is dated September 22, 2026, and Artificial Analysis records the release as September 21, 2026. The weights ship as `XiaomiMiMo/MiMo-V2.6-Pro-RL` and `XiaomiMiMo/MiMo-V2.6-Flash-RL` on Hugging Face under the MIT License, with the RL datasets and environments released under Apache-2.0. Publishing the training stack alongside the weights is the unusual part. Most labs release one or the other, and the best-resourced labs release neither.
 
@@ -94,7 +94,7 @@ Xiaomi's own curves are published per step, and they are not monotonic. Pro's De
 
 The cyber rows are the ones to read twice, and they are covered on the [Pro page](/glossary/mimo-v2-6-pro) because the series framing understates them.
 
-Artificial Analysis, running independently, scores MiMo V2.6 Pro at 46 on Intelligence Index v4.3.2, the highest open-weights result, ahead of GLM-5.3 at 45 and Kimi K3 at 44. Xiaomi cites 46.32; the gap to 46 is rounding on the same measurement.
+Artificial Analysis, running independently, scores MiMo V2.6 Pro at 46 on Intelligence Index v4.3.2, the highest open-weights result, ahead of GLM-5.3 at 45 and Kimi K3 at 44. Xiaomi cites 46.32; the gap to 46 is rounding on the same measurement. It scores Flash at 38, at $0.13 and $0.06 of index cost per task respectively. Both figures come with a speed warning that matters for cost modelling: Pro generates 41.1 tokens per second with a 4.24-second time to first token, and while Flash is faster at 55 tokens per second, it is the more verbose of the two, spending 240M output tokens on its index run against Pro's 140M and a 140M median for the comparison set. That runs against Xiaomi's own description of Flash as the token-efficient end of the series.
 
 ## Pricing
 
@@ -139,9 +139,6 @@ SELECT
     jsonb_build_object('title', 'Introducing MiMo-V2.6 series', 'url', 'https://mimo.xiaomi.com/mimo-v2-6'),
     jsonb_build_object('title', 'MiMo-V2.6-Pro model page', 'url', 'https://mimo.mi.com/models/en-US/mimo-v2.6-pro'),
     jsonb_build_object('title', 'MiMo-V2.6-Flash model page', 'url', 'https://mimo.mi.com/models/en-US/mimo-v2.6-flash'),
-    jsonb_build_object('title', 'MiMo-V2.6 open-source release notes', 'url', 'https://mimo.mi.com/docs/en-US/news/latest/v2-6'),
-    jsonb_build_object('title', 'MiMo-V2.6-Pro-RL model card and technical report', 'url', 'https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL'),
-    jsonb_build_object('title', 'MiMo-V2.6-Flash-RL model card and technical report', 'url', 'https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL'),
     jsonb_build_object('title', 'MiMo-V2.6-Pro on Artificial Analysis', 'url', 'https://artificialanalysis.ai/models/mimo-v2-6-pro')
   ),
   jsonb_build_object(
@@ -175,7 +172,7 @@ ON CONFLICT (kind, slug, parent_slug) DO UPDATE SET
 
 WITH mimo_v2_6_pro_entry AS (
   SELECT $body$
-MiMo V2.6 Pro is Xiaomi's flagship [large language model](/glossary/large-language-model), released on September 22, 2026 as the most capable model the company has shipped and the highest-scoring open-weights model on Artificial Analysis's Intelligence Index. It is a sparse [mixture of experts](/glossary/mixture-of-experts) with 1.02 trillion total parameters and 42 billion active, natively omnimodal across text, image, video, and audio, and MIT licensed on Hugging Face as `XiaomiMiMo/MiMo-V2.6-Pro-RL`. It is part of the [MiMo V2.6 series](/glossary/mimo-v2-6).
+MiMo V2.6 Pro is Xiaomi's flagship [large language model](/glossary/large-language-model), released on September 22, 2026 as the most capable model the company has shipped and the highest-scoring open-weights model on Artificial Analysis's Intelligence Index. It is a sparse [mixture of experts](/glossary/mixture-of-experts) with 1.02 trillion total parameters and 42 billion active, natively omnimodal across text, image, video, and audio, which Artificial Analysis lists as text, image, speech and video input, and MIT licensed on Hugging Face as `XiaomiMiMo/MiMo-V2.6-Pro-RL`. It is part of the [MiMo V2.6 series](/glossary/mimo-v2-6).
 
 The interesting part of the specification is what did not change. V2.5-Pro also ran 42 billion active parameters and cost the same $0.0036/$0.435/$0.87 per million tokens. Pro is about 2 percent larger in total parameters at an identical active compute cost and an identical price. Whatever Xiaomi achieved here came out of training rather than out of more compute per token.
 
@@ -246,7 +243,7 @@ Where Pro leads the set: AutomationBench v1.0.6 at 53.1, ahead of Claude Opus 5 
 
 Where it trails, in one case badly. Terminal-Bench 4.0 is 34.9 against Astra's 59.6, a 25-point gap on the benchmark that tracks general agentic capability most closely. ProgramBench is 26.5 against Opus 5's 37.0. ExploitGym is 17.8 against Astra's 42.4, and ExploitBench is 47.9 against Astra's 100.0. Xiaomi's own overview chart leads with DeepSWE v1.1, and Pro's 71.9 there places it behind DeepSeek V4.1 Flash and behind both Anthropic and OpenAI flagships.
 
-Artificial Analysis, running independently, scores Pro at 46 on Intelligence Index v4.3.2, first among open-weights models ahead of GLM-5.3 at 45 and Kimi K3 at 44. Two observations from that same page matter for cost modelling. The model is slow, and it is verbose, generating 140M tokens across its index run, well above the median of the comparison set. On a per-token basis Pro is cheap, but a verbose model bills more per completed task than its unit price suggests.
+Artificial Analysis, running independently, scores Pro at 46 on Intelligence Index v4.3.2, first among open-weights models ahead of GLM-5.3 at 45 and Kimi K3 at 44. Two observations from that same page matter for cost modelling. The model is slow, and it is verbose, generating 140M tokens across its index run, well above the median of the comparison set. Artificial Analysis measures it at 41.1 output tokens per second and 4.24 seconds to first token, both at the poor end of its open-weights size class, and puts the cost of one index task at $0.13. On a per-token basis Pro is cheap, but a verbose model bills more per completed task than its unit price suggests.
 
 ## The cyber numbers
 
@@ -302,10 +299,7 @@ SELECT
   jsonb_build_array(
     jsonb_build_object('title', 'MiMo-V2.6-Pro model page', 'url', 'https://mimo.mi.com/models/en-US/mimo-v2.6-pro'),
     jsonb_build_object('title', 'Introducing MiMo-V2.6 series', 'url', 'https://mimo.xiaomi.com/mimo-v2-6'),
-    jsonb_build_object('title', 'MiMo-V2.6-Pro-RL model card and technical report', 'url', 'https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL'),
-    jsonb_build_object('title', 'MiMo_V2_6_technical_report.pdf', 'url', 'https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL/blob/main/MiMo_V2_6_technical_report.pdf'),
-    jsonb_build_object('title', 'MiMo-V2.6-Pro on Artificial Analysis', 'url', 'https://artificialanalysis.ai/models/mimo-v2-6-pro'),
-    jsonb_build_object('title', 'MiMo-V2.6-RL-oss training environments and datasets', 'url', 'https://huggingface.co/datasets/XiaomiMiMo/MiMo-V2.6-RL-oss')
+    jsonb_build_object('title', 'MiMo-V2.6-Pro on Artificial Analysis', 'url', 'https://artificialanalysis.ai/models/mimo-v2-6-pro')
   ),
   jsonb_build_object(
     'category', 'Models & Architectures',
