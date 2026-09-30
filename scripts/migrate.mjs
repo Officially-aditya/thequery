@@ -94,6 +94,7 @@ const migrations = [
   { id: "087_merge_peft_variants", file: new URL("../db/migrations/087_merge_peft_variants.sql", import.meta.url) },
   { id: "088_add_claude_sonnet_5_5_comparison", file: new URL("../db/migrations/088_add_claude_sonnet_5_5_comparison.sql", import.meta.url) },
   { id: "089_add_cost_per_task_chart", file: new URL("../db/migrations/089_add_cost_per_task_chart.sql", import.meta.url) },
+  { id: "090_add_gpt_6_1_sol", file: new URL("../db/migrations/090_add_gpt_6_1_sol.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
