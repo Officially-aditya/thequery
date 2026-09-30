@@ -96,6 +96,7 @@ const migrations = [
   { id: "089_add_cost_per_task_chart", file: new URL("../db/migrations/089_add_cost_per_task_chart.sql", import.meta.url) },
   { id: "090_add_gpt_6_1_sol", file: new URL("../db/migrations/090_add_gpt_6_1_sol.sql", import.meta.url) },
   { id: "091_add_gpt_6_1_sol_vs_gpt_6_sol_comparison", file: new URL("../db/migrations/091_add_gpt_6_1_sol_vs_gpt_6_sol_comparison.sql", import.meta.url) },
+  { id: "092_expand_hermes_agent_glossary", file: new URL("../db/migrations/092_expand_hermes_agent_glossary.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
