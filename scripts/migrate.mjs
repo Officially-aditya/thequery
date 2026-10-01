@@ -100,6 +100,9 @@ const migrations = [
   { id: "093_add_mimo_v2_6", file: new URL("../db/migrations/093_add_mimo_v2_6.sql", import.meta.url) },
   { id: "094_add_mimo_v2_6_model_catalog", file: new URL("../db/migrations/094_add_mimo_v2_6_model_catalog.sql", import.meta.url) },
   { id: "095_add_mimo_v2_6_pro_vs_flash_comparison", file: new URL("../db/migrations/095_add_mimo_v2_6_pro_vs_flash_comparison.sql", import.meta.url) },
+  { id: "096_add_gemini_4_argon", file: new URL("../db/migrations/096_add_gemini_4_argon.sql", import.meta.url) },
+  { id: "097_dedupe_gemini_4_argon_seo_keywords", file: new URL("../db/migrations/097_dedupe_gemini_4_argon_seo_keywords.sql", import.meta.url) },
+  { id: "098_trim_gemini_4_argon_related_terms", file: new URL("../db/migrations/098_trim_gemini_4_argon_related_terms.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
