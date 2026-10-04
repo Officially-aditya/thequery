@@ -22,6 +22,11 @@ export default async function ResearchPage() {
       <p><a href="https://github.com/Officially-aditya/thequery-ai-data" className="text-accent underline">Versioned snapshots and citation metadata on GitHub</a></p>
       <p>The downloads preserve evaluator, source, benchmark version, harness, tools, reasoning effort, and evaluation date where recorded. Missing values mean unknown, not zero or disabled.</p>
     </section>
+    <section className="space-y-3">
+      <h2 className="font-serif text-xl font-semibold text-text-primary">Original catalog analysis</h2>
+      <p><Link href="/research/benchmark-comparability" className="text-accent underline">AI Benchmark Scores Change. The Model Often Doesn&apos;t.</Link></p>
+      <p>Published October 4, 2026. An audit of 837 reported observations, with three primary-source checks showing how tools, evaluation harnesses, and graders affect the meaning of a score. Includes versioned data and a reproducible audit. These are compiled results, not benchmarks independently run by TheQuery.</p>
+    </section>
     <section id="methodology" className="space-y-3">
       <h2 className="font-serif text-xl font-semibold text-text-primary">Methodology and limitations</h2>
       <p>The catalog compiles published model specifications and evaluation claims. Multiple observations can exist for one model and benchmark. A shared benchmark name does not establish comparable conditions: check the version, harness, tool access, evaluator, and reasoning budget before comparing scores.</p>

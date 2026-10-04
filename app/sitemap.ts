@@ -52,6 +52,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE_URL}/ai-word-of-the-day`, lastModified: siteLastModified },
     { url: `${BASE_URL}/about`, lastModified: siteLastModified },
     { url: `${BASE_URL}/research`, lastModified: siteLastModified },
+    { url: `${BASE_URL}/research/benchmark-comparability`, lastModified: new Date("2026-10-04") },
     { url: `${BASE_URL}/press` },
     { url: `${BASE_URL}/privacy`, lastModified: siteLastModified },
   ];
