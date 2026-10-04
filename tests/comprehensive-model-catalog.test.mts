@@ -44,6 +44,7 @@ test("migration 015 reconciles the comprehensive 2026 comparison catalog", async
     model_slug: string;
     category: string;
     benchmark_name: string;
+    benchmark_version: string | null;
     score_display: string;
     source: string | null;
   }>(migration, "benchmarks");
@@ -80,9 +81,9 @@ test("migration 015 reconciles the comprehensive 2026 comparison catalog", async
   }
 
   assert.ok(benchmarks.some((benchmark) => benchmark.benchmark_name === "SWE-bench Pro"));
-  assert.ok(benchmarks.some((benchmark) => benchmark.benchmark_name === "Terminal-Bench 4.0"));
+  assert.ok(benchmarks.some((benchmark) => benchmark.benchmark_name === "Terminal-Bench" && benchmark.benchmark_version === "2.0"));
   assert.ok(benchmarks.some((benchmark) => benchmark.benchmark_name === "Humanity's Last Exam"));
-  assert.ok(benchmarks.some((benchmark) => benchmark.benchmark_name === "OSWorld 2.0"));
+  assert.ok(benchmarks.some((benchmark) => benchmark.benchmark_name === "OSWorld" && benchmark.benchmark_version?.startsWith("2.0")));
   assert.ok(benchmarks.some((benchmark) => benchmark.benchmark_name === "BrowseComp"));
   assert.ok(benchmarks.every((benchmark) => benchmark.score_display.trim().length > 0));
 });
@@ -94,8 +95,8 @@ test("model reads preserve benchmark conditions and make them available to compa
   assert.match(models, /benchmark_version/);
   assert.match(models, /reasoning_effort/);
   assert.match(models, /row\.tools === true/);
-  assert.match(models, /row\.harness/);
-  assert.match(models, /row\.evaluator/);
+  assert.match(models, /harness: string \| null/);
+  assert.match(models, /evaluator: string \| null/);
   assert.match(models, /withBenchmarks/);
   assert.match(models, /values\.join\(" · "\)/);
   assert.match(models, /withBenchmarkSources/);

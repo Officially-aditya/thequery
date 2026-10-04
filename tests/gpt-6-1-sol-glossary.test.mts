@@ -7,7 +7,17 @@ const root = path.resolve(import.meta.dirname, "..");
 
 const migrationPath = path.join(root, "db/migrations/090_add_gpt_6_1_sol.sql");
 
-const glossary = JSON.parse(await readFile(path.join(root, "data/glossary.json"), "utf8"));
+const glossary = JSON.parse(await readFile(path.join(root, "data/glossary.json"), "utf8")) as Array<{
+  name: string;
+  slug: string;
+  category: string;
+  lastUpdated: string;
+  fullDef: string;
+  references: Array<{ title: string; url: string }>;
+  seoDescription: string;
+  seoKeywords: string[];
+  relatedTerms: string[];
+}>;
 
 test("GPT-6.1 Sol migration is registered and builds the glossary row", async () => {
   const [runner, migration] = await Promise.all([

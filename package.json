@@ -11,6 +11,7 @@
     "db:migrate": "node scripts/migrate.mjs",
     "db:copy-neon": "node scripts/copy-neon-project.mjs",
     "db:seed": "node scripts/seed-content.mjs",
+    "glossary:links": "node scripts/generate-glossary-links.mjs",
     "db:setup": "node scripts/setup-db.mjs"
   },
   "dependencies": {

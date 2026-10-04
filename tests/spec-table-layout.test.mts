@@ -14,12 +14,12 @@ test("joined spec tables keep one row group so model names stay pinned across se
 
   assert.match(
     renderer,
-    /<tbody>\s*\{tables\.map\(\(table, tableIndex\) => \(\s*<SpecRows key=\{table\.id\}/s,
+    /<tbody>\s*\{tables\.map\(\(table, tableIndex\) => \(\s*<SpecRows\s+key=\{table\.id\}/,
   );
   assert.doesNotMatch(renderer, /tables\.map[\s\S]*?<tbody key=\{table\.id\}>/);
   assert.match(renderer, /title=\{modelA\} className="sticky top-14 z-30/);
   assert.match(renderer, /title=\{modelB\} className="sticky top-14 z-30/);
-  assert.match(renderer, /\{table\.title\}\s*<\/th>\s*<td aria-hidden="true"/s);
+  assert.match(renderer, /\{table\.title\}\s*<\/th>\s*<td aria-hidden="true"/);
 });
 
 test("all editorial surfaces use the shared content renderer", async () => {

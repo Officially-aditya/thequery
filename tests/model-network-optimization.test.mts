@@ -15,7 +15,8 @@ test("model option reads never select heavyweight catalog columns", async () => 
   assert.doesNotMatch(optionQuery, /sources/);
   assert.doesNotMatch(optionQuery, /notes/);
   assert.doesNotMatch(optionQuery, /model_benchmarks/);
-  assert.match(models, /MODEL_OPTION_CACHE_SECONDS = 300/);
+  assert.doesNotMatch(models, /MODEL_OPTION_CACHE_SECONDS/);
+  assert.doesNotMatch(models, /revalidate:\s*300/);
 });
 
 test("full model detail reads are bounded to requested slugs", async () => {

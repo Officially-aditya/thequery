@@ -1,0 +1,2318 @@
+{
+  "sources": {
+    "terms": 337,
+    "chapters": 27,
+    "guides": 6
+  },
+  "coverage": {
+    "termsWithLinks": 130,
+    "totalLinks": 292,
+    "unlinkedTerms": 207
+  },
+  "terms": {
+    "a2a": [
+      {
+        "kind": "guide",
+        "href": "/guides/you-want-to-build-an-ai-agent-here-is-where-to-actually-start",
+        "label": "How to Build an AI Agent: Start Here",
+        "context": null,
+        "mentions": 1
+      }
+    ],
+    "adk": [
+      {
+        "kind": "guide",
+        "href": "/guides/you-want-to-build-an-ai-agent-here-is-where-to-actually-start",
+        "label": "How to Build an AI Agent: Start Here",
+        "context": null,
+        "mentions": 8
+      }
+    ],
+    "agi": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/what-ai-actually-is",
+        "label": "Chapter 0 - What AI Actually Is (And Isn't)",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/how-to-check-ai-benchmark-claims",
+        "label": "How to Audit AI Benchmark Claims: A Practical Guide",
+        "context": null,
+        "mentions": 1
+      }
+    ],
+    "ai-agent": [
+      {
+        "kind": "guide",
+        "href": "/guides/you-want-to-build-an-ai-agent-here-is-where-to-actually-start",
+        "label": "How to Build an AI Agent: Start Here",
+        "context": null,
+        "mentions": 3
+      }
+    ],
+    "api": [
+      {
+        "kind": "guide",
+        "href": "/guides/you-want-to-build-an-ai-agent-here-is-where-to-actually-start",
+        "label": "How to Build an AI Agent: Start Here",
+        "context": null,
+        "mentions": 16
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/how-to-use-other-models-in-codex",
+        "label": "How to Use Other Models in Codex: A Provider Setup Guide",
+        "context": null,
+        "mentions": 15
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/modern-ai-systems",
+        "label": "Chapter 6 - Modern AI Systems: RAG, Agents, and Glue Code",
+        "context": "AI: From First Principles",
+        "mentions": 8
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/practical-skills",
+        "label": "Chapter 8 - Practical Engineering Skills",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 2
+      }
+    ],
+    "activation-function": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/neural-networks",
+        "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
+        "context": "AI: From First Principles",
+        "mentions": 3
+      }
+    ],
+    "adam-optimizer": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/neural-networks",
+        "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      }
+    ],
+    "agentic-ai": [
+      {
+        "kind": "guide",
+        "href": "/guides/you-want-to-build-an-ai-agent-here-is-where-to-actually-start",
+        "label": "How to Build an AI Agent: Start Here",
+        "context": null,
+        "mentions": 1
+      }
+    ],
+    "algorithm": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/classical-machine-learning",
+        "label": "Chapter 3 - Classical Machine Learning: Thinking in Features",
+        "context": "AI: From First Principles",
+        "mentions": 4
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/theoretical-foundations",
+        "label": "Chapter 4 - Theoretical Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 3
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/math-you-cant-escape",
+        "label": "Chapter 2 - Math You Can't Escape (But Can Tame)",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/neural-networks",
+        "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      }
+    ],
+    "anthropic": [
+      {
+        "kind": "guide",
+        "href": "/guides/you-want-to-build-an-ai-agent-here-is-where-to-actually-start",
+        "label": "How to Build an AI Agent: Start Here",
+        "context": null,
+        "mentions": 4
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/resources",
+        "label": "Chapter 12 - Resources & Next Steps",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "artificial-analysis": [
+      {
+        "kind": "guide",
+        "href": "/guides/how-to-check-ai-benchmark-claims",
+        "label": "How to Audit AI Benchmark Claims: A Practical Guide",
+        "context": null,
+        "mentions": 1
+      }
+    ],
+    "attention-mechanism": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/transformers-and-llms",
+        "label": "Chapter 5 - Transformers & LLMs: Attention Changed Everything",
+        "context": "AI: From First Principles",
+        "mentions": 2
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/beginner-foundations",
+        "label": "Chapter 3 - Beginner Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/theoretical-foundations",
+        "label": "Chapter 4 - Theoretical Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "bert": [
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/beginner-foundations",
+        "label": "Chapter 3 - Beginner Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 2
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/theoretical-foundations",
+        "label": "Chapter 4 - Theoretical Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 2
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/transformers-and-llms",
+        "label": "Chapter 5 - Transformers & LLMs: Attention Changed Everything",
+        "context": "AI: From First Principles",
+        "mentions": 2
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/building-ai-that-survives",
+        "label": "Chapter 7 - Building AI That Survives Reality",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      }
+    ],
+    "bm25": [
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/beginner-foundations",
+        "label": "Chapter 3 - Beginner Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 3
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/theoretical-foundations",
+        "label": "Chapter 4 - Theoretical Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 3
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/rag-engineering",
+        "label": "Chapter 5 - RAG Engineering",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/rag-fails-in-production",
+        "label": "RAG Works in Theory. Here's Why It Fails in Production.",
+        "context": null,
+        "mentions": 1
+      }
+    ],
+    "backpropagation": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/neural-networks",
+        "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
+        "context": "AI: From First Principles",
+        "mentions": 6
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/math-you-cant-escape",
+        "label": "Chapter 2 - Math You Can't Escape (But Can Tame)",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/transformers-and-llms",
+        "label": "Chapter 5 - Transformers & LLMs: Attention Changed Everything",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      }
+    ],
+    "batch-normalization": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/neural-networks",
+        "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
+        "context": "AI: From First Principles",
+        "mentions": 4
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/transformers-and-llms",
+        "label": "Chapter 5 - Transformers & LLMs: Attention Changed Everything",
+        "context": "AI: From First Principles",
+        "mentions": 3
+      }
+    ],
+    "benchmark": [
+      {
+        "kind": "guide",
+        "href": "/guides/how-to-check-ai-benchmark-claims",
+        "label": "How to Audit AI Benchmark Claims: A Practical Guide",
+        "context": null,
+        "mentions": 21
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/qwen-3-8-27b-install-run",
+        "label": "Qwen3.8-27B: How to Actually Install and Run It",
+        "context": null,
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/resources",
+        "label": "Chapter 12 - Resources & Next Steps",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "bi-encoder": [
+      {
+        "kind": "guide",
+        "href": "/guides/rag-fails-in-production",
+        "label": "RAG Works in Theory. Here's Why It Fails in Production.",
+        "context": null,
+        "mentions": 1
+      }
+    ],
+    "bias-variance-tradeoff": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/classical-machine-learning",
+        "label": "Chapter 3 - Classical Machine Learning: Thinking in Features",
+        "context": "AI: From First Principles",
+        "mentions": 2
+      }
+    ],
+    "binary": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/neural-networks",
+        "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
+        "context": "AI: From First Principles",
+        "mentions": 2
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/math-you-cant-escape",
+        "label": "Chapter 2 - Math You Can't Escape (But Can Tame)",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/classical-machine-learning",
+        "label": "Chapter 3 - Classical Machine Learning: Thinking in Features",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/theoretical-foundations",
+        "label": "Chapter 4 - Theoretical Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "cuda": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/python-and-data",
+        "label": "Chapter 1 - Python & Data: The Unsexy Foundation",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      }
+    ],
+    "chatgpt": [
+      {
+        "kind": "guide",
+        "href": "/guides/you-want-to-build-an-ai-agent-here-is-where-to-actually-start",
+        "label": "How to Build an AI Agent: Start Here",
+        "context": null,
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/course-overview",
+        "label": "Chapter 1 - Course Overview",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "chatbot": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/transformers-and-llms",
+        "label": "Chapter 5 - Transformers & LLMs: Attention Changed Everything",
+        "context": "AI: From First Principles",
+        "mentions": 2
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/you-want-to-build-an-ai-agent-here-is-where-to-actually-start",
+        "label": "How to Build an AI Agent: Start Here",
+        "context": null,
+        "mentions": 2
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/rag-engineering",
+        "label": "Chapter 5 - RAG Engineering",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/hands-on-projects",
+        "label": "Chapter 9 - Hands-On Projects",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "chunking": [
+      {
+        "kind": "guide",
+        "href": "/guides/rag-fails-in-production",
+        "label": "RAG Works in Theory. Here's Why It Fails in Production.",
+        "context": null,
+        "mentions": 6
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/rag-engineering",
+        "label": "Chapter 5 - RAG Engineering",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 5
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/beginner-foundations",
+        "label": "Chapter 3 - Beginner Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/capstone-project",
+        "label": "Chapter 10 - Capstone Project",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 2
+      }
+    ],
+    "citation": [
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/kg-engineering",
+        "label": "Chapter 6 - Knowledge Graph Engineering",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/capstone-project",
+        "label": "Chapter 10 - Capstone Project",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/hands-on-projects",
+        "label": "Chapter 9 - Hands-On Projects",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "claude-code": [
+      {
+        "kind": "guide",
+        "href": "/guides/how-to-check-ai-benchmark-claims",
+        "label": "How to Audit AI Benchmark Claims: A Practical Guide",
+        "context": null,
+        "mentions": 2
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/you-want-to-build-an-ai-agent-here-is-where-to-actually-start",
+        "label": "How to Build an AI Agent: Start Here",
+        "context": null,
+        "mentions": 1
+      }
+    ],
+    "claude-opus-5": [
+      {
+        "kind": "guide",
+        "href": "/guides/how-to-check-ai-benchmark-claims",
+        "label": "How to Audit AI Benchmark Claims: A Practical Guide",
+        "context": null,
+        "mentions": 2
+      }
+    ],
+    "claude-sonnet-4-6": [
+      {
+        "kind": "guide",
+        "href": "/guides/you-want-to-build-an-ai-agent-here-is-where-to-actually-start",
+        "label": "How to Build an AI Agent: Start Here",
+        "context": null,
+        "mentions": 1
+      }
+    ],
+    "clustering": [
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/theoretical-foundations",
+        "label": "Chapter 4 - Theoretical Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 3
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/key-terminology",
+        "label": "Chapter 2 - Key Terminology",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "codex": [
+      {
+        "kind": "guide",
+        "href": "/guides/how-to-use-other-models-in-codex",
+        "label": "How to Use Other Models in Codex: A Provider Setup Guide",
+        "context": null,
+        "mentions": 27
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/how-to-check-ai-benchmark-claims",
+        "label": "How to Audit AI Benchmark Claims: A Practical Guide",
+        "context": null,
+        "mentions": 1
+      }
+    ],
+    "context-fusion": [
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/hybrid-rag-kg",
+        "label": "Chapter 7 - Hybrid RAG + KG Systems",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/course-overview",
+        "label": "Chapter 1 - Course Overview",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/capstone-project",
+        "label": "Chapter 10 - Capstone Project",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/hands-on-projects",
+        "label": "Chapter 9 - Hands-On Projects",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "context-rot": [
+      {
+        "kind": "guide",
+        "href": "/guides/rag-fails-in-production",
+        "label": "RAG Works in Theory. Here's Why It Fails in Production.",
+        "context": null,
+        "mentions": 1
+      }
+    ],
+    "context-window": [
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/beginner-foundations",
+        "label": "Chapter 3 - Beginner Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 4
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/rag-fails-in-production",
+        "label": "RAG Works in Theory. Here's Why It Fails in Production.",
+        "context": null,
+        "mentions": 2
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/you-want-to-build-an-ai-agent-here-is-where-to-actually-start",
+        "label": "How to Build an AI Agent: Start Here",
+        "context": null,
+        "mentions": 1
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/qwen-3-8-27b-install-run",
+        "label": "Qwen3.8-27B: How to Actually Install and Run It",
+        "context": null,
+        "mentions": 1
+      }
+    ],
+    "cosine-similarity": [
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/theoretical-foundations",
+        "label": "Chapter 4 - Theoretical Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 3
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/rag-engineering",
+        "label": "Chapter 5 - RAG Engineering",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/modern-ai-systems",
+        "label": "Chapter 6 - Modern AI Systems: RAG, Agents, and Glue Code",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/key-terminology",
+        "label": "Chapter 2 - Key Terminology",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 2
+      }
+    ],
+    "cross-encoder": [
+      {
+        "kind": "guide",
+        "href": "/guides/rag-fails-in-production",
+        "label": "RAG Works in Theory. Here's Why It Fails in Production.",
+        "context": null,
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/hands-on-projects",
+        "label": "Chapter 9 - Hands-On Projects",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 2
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/key-terminology",
+        "label": "Chapter 2 - Key Terminology",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "cross-entropy": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/math-you-cant-escape",
+        "label": "Chapter 2 - Math You Can't Escape (But Can Tame)",
+        "context": "AI: From First Principles",
+        "mentions": 14
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/neural-networks",
+        "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
+        "context": "AI: From First Principles",
+        "mentions": 7
+      }
+    ],
+    "cursor": [
+      {
+        "kind": "guide",
+        "href": "/guides/how-to-check-ai-benchmark-claims",
+        "label": "How to Audit AI Benchmark Claims: A Practical Guide",
+        "context": null,
+        "mentions": 1
+      }
+    ],
+    "cypher": [
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/kg-engineering",
+        "label": "Chapter 6 - Knowledge Graph Engineering",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/hands-on-projects",
+        "label": "Chapter 9 - Hands-On Projects",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 3
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/capstone-project",
+        "label": "Chapter 10 - Capstone Project",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 2
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/assessments",
+        "label": "Chapter 11 - Assessments & Quizzes",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "data-augmentation": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/neural-networks",
+        "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      }
+    ],
+    "data-labeling": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/building-ai-that-survives",
+        "label": "Chapter 7 - Building AI That Survives Reality",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      }
+    ],
+    "decision-tree": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/what-ai-actually-is",
+        "label": "Chapter 0 - What AI Actually Is (And Isn't)",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      }
+    ],
+    "deep-learning": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/neural-networks",
+        "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
+        "context": "AI: From First Principles",
+        "mentions": 6
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/classical-machine-learning",
+        "label": "Chapter 3 - Classical Machine Learning: Thinking in Features",
+        "context": "AI: From First Principles",
+        "mentions": 5
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/math-you-cant-escape",
+        "label": "Chapter 2 - Math You Can't Escape (But Can Tame)",
+        "context": "AI: From First Principles",
+        "mentions": 2
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/building-ai-that-survives",
+        "label": "Chapter 7 - Building AI That Survives Reality",
+        "context": "AI: From First Principles",
+        "mentions": 2
+      }
+    ],
+    "deepseek-v4": [
+      {
+        "kind": "guide",
+        "href": "/guides/you-want-to-build-an-ai-agent-here-is-where-to-actually-start",
+        "label": "How to Build an AI Agent: Start Here",
+        "context": null,
+        "mentions": 2
+      }
+    ],
+    "dense-retrieval": [
+      {
+        "kind": "guide",
+        "href": "/guides/rag-fails-in-production",
+        "label": "RAG Works in Theory. Here's Why It Fails in Production.",
+        "context": null,
+        "mentions": 2
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/theoretical-foundations",
+        "label": "Chapter 4 - Theoretical Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/assessments",
+        "label": "Chapter 11 - Assessments & Quizzes",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "dropout": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/classical-machine-learning",
+        "label": "Chapter 3 - Classical Machine Learning: Thinking in Features",
+        "context": "AI: From First Principles",
+        "mentions": 11
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/neural-networks",
+        "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
+        "context": "AI: From First Principles",
+        "mentions": 3
+      }
+    ],
+    "embedding": [
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/rag-engineering",
+        "label": "Chapter 5 - RAG Engineering",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 9
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/rag-fails-in-production",
+        "label": "RAG Works in Theory. Here's Why It Fails in Production.",
+        "context": null,
+        "mentions": 9
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/theoretical-foundations",
+        "label": "Chapter 4 - Theoretical Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 5
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/transformers-and-llms",
+        "label": "Chapter 5 - Transformers & LLMs: Attention Changed Everything",
+        "context": "AI: From First Principles",
+        "mentions": 2
+      }
+    ],
+    "entity-linking": [
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/kg-engineering",
+        "label": "Chapter 6 - Knowledge Graph Engineering",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/capstone-project",
+        "label": "Chapter 10 - Capstone Project",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/assessments",
+        "label": "Chapter 11 - Assessments & Quizzes",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/hands-on-projects",
+        "label": "Chapter 9 - Hands-On Projects",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "epoch": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/neural-networks",
+        "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
+        "context": "AI: From First Principles",
+        "mentions": 4
+      }
+    ],
+    "faiss": [
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/theoretical-foundations",
+        "label": "Chapter 4 - Theoretical Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/key-terminology",
+        "label": "Chapter 2 - Key Terminology",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "feature-engineering": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/classical-machine-learning",
+        "label": "Chapter 3 - Classical Machine Learning: Thinking in Features",
+        "context": "AI: From First Principles",
+        "mentions": 2
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/neural-networks",
+        "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
+        "context": "AI: From First Principles",
+        "mentions": 2
+      }
+    ],
+    "feed-forward-network": [
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/key-terminology",
+        "label": "Chapter 2 - Key Terminology",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "fine-tuning": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/modern-ai-systems",
+        "label": "Chapter 6 - Modern AI Systems: RAG, Agents, and Glue Code",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/course-overview",
+        "label": "Chapter 1 - Course Overview",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/assessments",
+        "label": "Chapter 11 - Assessments & Quizzes",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/resources",
+        "label": "Chapter 12 - Resources & Next Steps",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "gpt-5-4": [
+      {
+        "kind": "guide",
+        "href": "/guides/you-want-to-build-an-ai-agent-here-is-where-to-actually-start",
+        "label": "How to Build an AI Agent: Start Here",
+        "context": null,
+        "mentions": 1
+      }
+    ],
+    "gpt-5-6": [
+      {
+        "kind": "guide",
+        "href": "/guides/how-to-check-ai-benchmark-claims",
+        "label": "How to Audit AI Benchmark Claims: A Practical Guide",
+        "context": null,
+        "mentions": 1
+      }
+    ],
+    "gpu": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/neural-networks",
+        "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
+        "context": "AI: From First Principles",
+        "mentions": 2
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/theoretical-foundations",
+        "label": "Chapter 4 - Theoretical Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 2
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/modern-ai-systems",
+        "label": "Chapter 6 - Modern AI Systems: RAG, Agents, and Glue Code",
+        "context": "AI: From First Principles",
+        "mentions": 2
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/qwen-3-8-27b-install-run",
+        "label": "Qwen3.8-27B: How to Actually Install and Run It",
+        "context": null,
+        "mentions": 2
+      }
+    ],
+    "gemini": [
+      {
+        "kind": "guide",
+        "href": "/guides/you-want-to-build-an-ai-agent-here-is-where-to-actually-start",
+        "label": "How to Build an AI Agent: Start Here",
+        "context": null,
+        "mentions": 1
+      }
+    ],
+    "gradient-clipping": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/math-you-cant-escape",
+        "label": "Chapter 2 - Math You Can't Escape (But Can Tame)",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/neural-networks",
+        "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      }
+    ],
+    "gradient-descent": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/neural-networks",
+        "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
+        "context": "AI: From First Principles",
+        "mentions": 14
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/math-you-cant-escape",
+        "label": "Chapter 2 - Math You Can't Escape (But Can Tame)",
+        "context": "AI: From First Principles",
+        "mentions": 3
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/classical-machine-learning",
+        "label": "Chapter 3 - Classical Machine Learning: Thinking in Features",
+        "context": "AI: From First Principles",
+        "mentions": 2
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/what-ai-actually-is",
+        "label": "Chapter 0 - What AI Actually Is (And Isn't)",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      }
+    ],
+    "graph-traversal": [
+      {
+        "kind": "guide",
+        "href": "/guides/rag-fails-in-production",
+        "label": "RAG Works in Theory. Here's Why It Fails in Production.",
+        "context": null,
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/key-terminology",
+        "label": "Chapter 2 - Key Terminology",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 2
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/hands-on-projects",
+        "label": "Chapter 9 - Hands-On Projects",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "graphrag": [
+      {
+        "kind": "guide",
+        "href": "/guides/rag-fails-in-production",
+        "label": "RAG Works in Theory. Here's Why It Fails in Production.",
+        "context": null,
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/course-overview",
+        "label": "Chapter 1 - Course Overview",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/resources",
+        "label": "Chapter 12 - Resources & Next Steps",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/hands-on-projects",
+        "label": "Chapter 9 - Hands-On Projects",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "grounding": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/transformers-and-llms",
+        "label": "Chapter 5 - Transformers & LLMs: Attention Changed Everything",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/you-want-to-build-an-ai-agent-here-is-where-to-actually-start",
+        "label": "How to Build an AI Agent: Start Here",
+        "context": null,
+        "mentions": 1
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/rag-fails-in-production",
+        "label": "RAG Works in Theory. Here's Why It Fails in Production.",
+        "context": null,
+        "mentions": 1
+      }
+    ],
+    "guardrails": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/classical-machine-learning",
+        "label": "Chapter 3 - Classical Machine Learning: Thinking in Features",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/transformers-and-llms",
+        "label": "Chapter 5 - Transformers & LLMs: Attention Changed Everything",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/modern-ai-systems",
+        "label": "Chapter 6 - Modern AI Systems: RAG, Agents, and Glue Code",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      }
+    ],
+    "hallucination": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/transformers-and-llms",
+        "label": "Chapter 5 - Transformers & LLMs: Attention Changed Everything",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/rag-fails-in-production",
+        "label": "RAG Works in Theory. Here's Why It Fails in Production.",
+        "context": null,
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/assessments",
+        "label": "Chapter 11 - Assessments & Quizzes",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 2
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/course-overview",
+        "label": "Chapter 1 - Course Overview",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "hugging-face": [
+      {
+        "kind": "guide",
+        "href": "/guides/qwen-3-8-27b-install-run",
+        "label": "Qwen3.8-27B: How to Actually Install and Run It",
+        "context": null,
+        "mentions": 2
+      }
+    ],
+    "hyperparameter": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/neural-networks",
+        "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      }
+    ],
+    "inference": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/building-ai-that-survives",
+        "label": "Chapter 7 - Building AI That Survives Reality",
+        "context": "AI: From First Principles",
+        "mentions": 3
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/neural-networks",
+        "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
+        "context": "AI: From First Principles",
+        "mentions": 2
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/math-you-cant-escape",
+        "label": "Chapter 2 - Math You Can't Escape (But Can Tame)",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/beginner-foundations",
+        "label": "Chapter 3 - Beginner Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "kl-divergence": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/math-you-cant-escape",
+        "label": "Chapter 2 - Math You Can't Escape (But Can Tame)",
+        "context": "AI: From First Principles",
+        "mentions": 4
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/neural-networks",
+        "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/building-ai-that-survives",
+        "label": "Chapter 7 - Building AI That Survives Reality",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      }
+    ],
+    "kv-cache": [
+      {
+        "kind": "guide",
+        "href": "/guides/qwen-3-8-27b-install-run",
+        "label": "Qwen3.8-27B: How to Actually Install and Run It",
+        "context": null,
+        "mentions": 4
+      }
+    ],
+    "kimi-k3": [
+      {
+        "kind": "guide",
+        "href": "/guides/how-to-check-ai-benchmark-claims",
+        "label": "How to Audit AI Benchmark Claims: A Practical Guide",
+        "context": null,
+        "mentions": 1
+      }
+    ],
+    "knowledge-graph": [
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/theoretical-foundations",
+        "label": "Chapter 4 - Theoretical Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 2
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/rag-fails-in-production",
+        "label": "RAG Works in Theory. Here's Why It Fails in Production.",
+        "context": null,
+        "mentions": 2
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/key-terminology",
+        "label": "Chapter 2 - Key Terminology",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 8
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/hands-on-projects",
+        "label": "Chapter 9 - Hands-On Projects",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 3
+      }
+    ],
+    "lmarena": [
+      {
+        "kind": "guide",
+        "href": "/guides/how-to-check-ai-benchmark-claims",
+        "label": "How to Audit AI Benchmark Claims: A Practical Guide",
+        "context": null,
+        "mentions": 2
+      }
+    ],
+    "langchain": [
+      {
+        "kind": "guide",
+        "href": "/guides/you-want-to-build-an-ai-agent-here-is-where-to-actually-start",
+        "label": "How to Build an AI Agent: Start Here",
+        "context": null,
+        "mentions": 9
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/resources",
+        "label": "Chapter 12 - Resources & Next Steps",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "language-modeling": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/transformers-and-llms",
+        "label": "Chapter 5 - Transformers & LLMs: Attention Changed Everything",
+        "context": "AI: From First Principles",
+        "mentions": 2
+      }
+    ],
+    "large-language-model": [
+      {
+        "kind": "guide",
+        "href": "/guides/you-want-to-build-an-ai-agent-here-is-where-to-actually-start",
+        "label": "How to Build an AI Agent: Start Here",
+        "context": null,
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/key-terminology",
+        "label": "Chapter 2 - Key Terminology",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "layer-normalization": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/transformers-and-llms",
+        "label": "Chapter 5 - Transformers & LLMs: Attention Changed Everything",
+        "context": "AI: From First Principles",
+        "mentions": 3
+      }
+    ],
+    "learning-rate": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/neural-networks",
+        "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
+        "context": "AI: From First Principles",
+        "mentions": 18
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/math-you-cant-escape",
+        "label": "Chapter 2 - Math You Can't Escape (But Can Tame)",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/transformers-and-llms",
+        "label": "Chapter 5 - Transformers & LLMs: Attention Changed Everything",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/99-percent-accuracy-then-production",
+        "label": "Your Model Hit 99% Accuracy. Then You Shipped It.",
+        "context": null,
+        "mentions": 1
+      }
+    ],
+    "loss-function": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/neural-networks",
+        "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
+        "context": "AI: From First Principles",
+        "mentions": 3
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/math-you-cant-escape",
+        "label": "Chapter 2 - Math You Can't Escape (But Can Tame)",
+        "context": "AI: From First Principles",
+        "mentions": 2
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/what-ai-actually-is",
+        "label": "Chapter 0 - What AI Actually Is (And Isn't)",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      }
+    ],
+    "mcp": [
+      {
+        "kind": "guide",
+        "href": "/guides/you-want-to-build-an-ai-agent-here-is-where-to-actually-start",
+        "label": "How to Build an AI Agent: Start Here",
+        "context": null,
+        "mentions": 15
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/how-to-use-other-models-in-codex",
+        "label": "How to Use Other Models in Codex: A Provider Setup Guide",
+        "context": null,
+        "mentions": 2
+      }
+    ],
+    "machine-learning": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/classical-machine-learning",
+        "label": "Chapter 3 - Classical Machine Learning: Thinking in Features",
+        "context": "AI: From First Principles",
+        "mentions": 5
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/theoretical-foundations",
+        "label": "Chapter 4 - Theoretical Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 3
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/what-ai-actually-is",
+        "label": "Chapter 0 - What AI Actually Is (And Isn't)",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/neural-networks",
+        "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      }
+    ],
+    "maximum-a-posteriori": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/classical-machine-learning",
+        "label": "Chapter 3 - Classical Machine Learning: Thinking in Features",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      }
+    ],
+    "mixture-of-experts": [
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/beginner-foundations",
+        "label": "Chapter 3 - Beginner Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "multi-head-attention": [
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/theoretical-foundations",
+        "label": "Chapter 4 - Theoretical Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "multi-hop-reasoning": [
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/hybrid-rag-kg",
+        "label": "Chapter 7 - Hybrid RAG + KG Systems",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/course-overview",
+        "label": "Chapter 1 - Course Overview",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/assessments",
+        "label": "Chapter 11 - Assessments & Quizzes",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "named-entity-recognition": [
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/key-terminology",
+        "label": "Chapter 2 - Key Terminology",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/hands-on-projects",
+        "label": "Chapter 9 - Hands-On Projects",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "natural-language-processing": [
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/key-terminology",
+        "label": "Chapter 2 - Key Terminology",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "neo4j": [
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/kg-engineering",
+        "label": "Chapter 6 - Knowledge Graph Engineering",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 2
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/hands-on-projects",
+        "label": "Chapter 9 - Hands-On Projects",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 5
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/capstone-project",
+        "label": "Chapter 10 - Capstone Project",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 2
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/assessments",
+        "label": "Chapter 11 - Assessments & Quizzes",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 2
+      }
+    ],
+    "neural-network": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/neural-networks",
+        "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
+        "context": "AI: From First Principles",
+        "mentions": 6
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/math-you-cant-escape",
+        "label": "Chapter 2 - Math You Can't Escape (But Can Tame)",
+        "context": "AI: From First Principles",
+        "mentions": 3
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/what-ai-actually-is",
+        "label": "Chapter 0 - What AI Actually Is (And Isn't)",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/beginner-foundations",
+        "label": "Chapter 3 - Beginner Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "ollama": [
+      {
+        "kind": "guide",
+        "href": "/guides/qwen-3-8-27b-install-run",
+        "label": "Qwen3.8-27B: How to Actually Install and Run It",
+        "context": null,
+        "mentions": 14
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/how-to-use-other-models-in-codex",
+        "label": "How to Use Other Models in Codex: A Provider Setup Guide",
+        "context": null,
+        "mentions": 5
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/you-want-to-build-an-ai-agent-here-is-where-to-actually-start",
+        "label": "How to Build an AI Agent: Start Here",
+        "context": null,
+        "mentions": 4
+      }
+    ],
+    "openai": [
+      {
+        "kind": "guide",
+        "href": "/guides/qwen-3-8-27b-install-run",
+        "label": "Qwen3.8-27B: How to Actually Install and Run It",
+        "context": null,
+        "mentions": 5
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/how-to-use-other-models-in-codex",
+        "label": "How to Use Other Models in Codex: A Provider Setup Guide",
+        "context": null,
+        "mentions": 4
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/you-want-to-build-an-ai-agent-here-is-where-to-actually-start",
+        "label": "How to Build an AI Agent: Start Here",
+        "context": null,
+        "mentions": 2
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/theoretical-foundations",
+        "label": "Chapter 4 - Theoretical Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "overfitting": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/classical-machine-learning",
+        "label": "Chapter 3 - Classical Machine Learning: Thinking in Features",
+        "context": "AI: From First Principles",
+        "mentions": 10
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/neural-networks",
+        "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
+        "context": "AI: From First Principles",
+        "mentions": 5
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/theoretical-foundations",
+        "label": "Chapter 4 - Theoretical Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/transformers-and-llms",
+        "label": "Chapter 5 - Transformers & LLMs: Attention Changed Everything",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      }
+    ],
+    "pattern-matching": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/what-ai-actually-is",
+        "label": "Chapter 0 - What AI Actually Is (And Isn't)",
+        "context": "AI: From First Principles",
+        "mentions": 2
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/final-thoughts",
+        "label": "Final Thoughts",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      }
+    ],
+    "positional-encoding": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/transformers-and-llms",
+        "label": "Chapter 5 - Transformers & LLMs: Attention Changed Everything",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      }
+    ],
+    "prompt-engineering": [
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/assessments",
+        "label": "Chapter 11 - Assessments & Quizzes",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "pytorch": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/neural-networks",
+        "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
+        "context": "AI: From First Principles",
+        "mentions": 4
+      }
+    ],
+    "quantization": [
+      {
+        "kind": "guide",
+        "href": "/guides/qwen-3-8-27b-install-run",
+        "label": "Qwen3.8-27B: How to Actually Install and Run It",
+        "context": null,
+        "mentions": 8
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/you-want-to-build-an-ai-agent-here-is-where-to-actually-start",
+        "label": "How to Build an AI Agent: Start Here",
+        "context": null,
+        "mentions": 2
+      }
+    ],
+    "query-routing": [
+      {
+        "kind": "guide",
+        "href": "/guides/rag-fails-in-production",
+        "label": "RAG Works in Theory. Here's Why It Fails in Production.",
+        "context": null,
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/capstone-project",
+        "label": "Chapter 10 - Capstone Project",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 2
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/course-overview",
+        "label": "Chapter 1 - Course Overview",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/assessments",
+        "label": "Chapter 11 - Assessments & Quizzes",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "qwen-3-8-max": [
+      {
+        "kind": "guide",
+        "href": "/guides/how-to-check-ai-benchmark-claims",
+        "label": "How to Audit AI Benchmark Claims: A Practical Guide",
+        "context": null,
+        "mentions": 1
+      }
+    ],
+    "ram": [
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/theoretical-foundations",
+        "label": "Chapter 4 - Theoretical Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/you-want-to-build-an-ai-agent-here-is-where-to-actually-start",
+        "label": "How to Build an AI Agent: Start Here",
+        "context": null,
+        "mentions": 1
+      }
+    ],
+    "rdf": [
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/key-terminology",
+        "label": "Chapter 2 - Key Terminology",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 2
+      }
+    ],
+    "rlhf": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/transformers-and-llms",
+        "label": "Chapter 5 - Transformers & LLMs: Attention Changed Everything",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      }
+    ],
+    "reasoning": [
+      {
+        "kind": "guide",
+        "href": "/guides/qwen-3-8-27b-install-run",
+        "label": "Qwen3.8-27B: How to Actually Install and Run It",
+        "context": null,
+        "mentions": 5
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/what-ai-actually-is",
+        "label": "Chapter 0 - What AI Actually Is (And Isn't)",
+        "context": "AI: From First Principles",
+        "mentions": 4
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/you-want-to-build-an-ai-agent-here-is-where-to-actually-start",
+        "label": "How to Build an AI Agent: Start Here",
+        "context": null,
+        "mentions": 2
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/rag-engineering",
+        "label": "Chapter 5 - RAG Engineering",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "recurrent-neural-network": [
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/key-terminology",
+        "label": "Chapter 2 - Key Terminology",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "regularization": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/classical-machine-learning",
+        "label": "Chapter 3 - Classical Machine Learning: Thinking in Features",
+        "context": "AI: From First Principles",
+        "mentions": 16
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/neural-networks",
+        "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
+        "context": "AI: From First Principles",
+        "mentions": 10
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/key-terminology",
+        "label": "Chapter 2 - Key Terminology",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "reinforcement-learning": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/neural-networks",
+        "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/transformers-and-llms",
+        "label": "Chapter 5 - Transformers & LLMs: Attention Changed Everything",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/resources",
+        "label": "Chapter 12 - Resources & Next Steps",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "reranking": [
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/rag-engineering",
+        "label": "Chapter 5 - RAG Engineering",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 3
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/rag-fails-in-production",
+        "label": "RAG Works in Theory. Here's Why It Fails in Production.",
+        "context": null,
+        "mentions": 2
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/assessments",
+        "label": "Chapter 11 - Assessments & Quizzes",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 4
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/hands-on-projects",
+        "label": "Chapter 9 - Hands-On Projects",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 4
+      }
+    ],
+    "residual-connection": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/neural-networks",
+        "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      }
+    ],
+    "retrieval-pipeline": [
+      {
+        "kind": "guide",
+        "href": "/guides/rag-fails-in-production",
+        "label": "RAG Works in Theory. Here's Why It Fails in Production.",
+        "context": null,
+        "mentions": 2
+      }
+    ],
+    "retrieval-augmented-generation": [
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/theoretical-foundations",
+        "label": "Chapter 4 - Theoretical Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/rag-fails-in-production",
+        "label": "RAG Works in Theory. Here's Why It Fails in Production.",
+        "context": null,
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/appendix",
+        "label": "Appendix - Quick Reference",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/course-overview",
+        "label": "Chapter 1 - Course Overview",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "svm": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/classical-machine-learning",
+        "label": "Chapter 3 - Classical Machine Learning: Thinking in Features",
+        "context": "AI: From First Principles",
+        "mentions": 2
+      }
+    ],
+    "self-attention": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/transformers-and-llms",
+        "label": "Chapter 5 - Transformers & LLMs: Attention Changed Everything",
+        "context": "AI: From First Principles",
+        "mentions": 2
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/beginner-foundations",
+        "label": "Chapter 3 - Beginner Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/key-terminology",
+        "label": "Chapter 2 - Key Terminology",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "semantic-search": [
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/beginner-foundations",
+        "label": "Chapter 3 - Beginner Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 2
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/kg-engineering",
+        "label": "Chapter 6 - Knowledge Graph Engineering",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 2
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/rag-fails-in-production",
+        "label": "RAG Works in Theory. Here's Why It Fails in Production.",
+        "context": null,
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/course-overview",
+        "label": "Chapter 1 - Course Overview",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 3
+      }
+    ],
+    "softmax": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/transformers-and-llms",
+        "label": "Chapter 5 - Transformers & LLMs: Attention Changed Everything",
+        "context": "AI: From First Principles",
+        "mentions": 16
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/neural-networks",
+        "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
+        "context": "AI: From First Principles",
+        "mentions": 4
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/theoretical-foundations",
+        "label": "Chapter 4 - Theoretical Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 4
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/math-you-cant-escape",
+        "label": "Chapter 2 - Math You Can't Escape (But Can Tame)",
+        "context": "AI: From First Principles",
+        "mentions": 2
+      }
+    ],
+    "sparse-retrieval": [
+      {
+        "kind": "guide",
+        "href": "/guides/rag-fails-in-production",
+        "label": "RAG Works in Theory. Here's Why It Fails in Production.",
+        "context": null,
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/key-terminology",
+        "label": "Chapter 2 - Key Terminology",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "supervised-learning": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/python-and-data",
+        "label": "Chapter 1 - Python & Data: The Unsexy Foundation",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      }
+    ],
+    "system-prompt": [
+      {
+        "kind": "guide",
+        "href": "/guides/rag-fails-in-production",
+        "label": "RAG Works in Theory. Here's Why It Fails in Production.",
+        "context": null,
+        "mentions": 1
+      }
+    ],
+    "tf-idf": [
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/theoretical-foundations",
+        "label": "Chapter 4 - Theoretical Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 3
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/key-terminology",
+        "label": "Chapter 2 - Key Terminology",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 2
+      }
+    ],
+    "temperature": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/transformers-and-llms",
+        "label": "Chapter 5 - Transformers & LLMs: Attention Changed Everything",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      }
+    ],
+    "tensorflow": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/neural-networks",
+        "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      }
+    ],
+    "text-to-cypher": [
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/hands-on-projects",
+        "label": "Chapter 9 - Hands-On Projects",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 2
+      }
+    ],
+    "throughput": [
+      {
+        "kind": "guide",
+        "href": "/guides/qwen-3-8-27b-install-run",
+        "label": "Qwen3.8-27B: How to Actually Install and Run It",
+        "context": null,
+        "mentions": 1
+      }
+    ],
+    "token": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/transformers-and-llms",
+        "label": "Chapter 5 - Transformers & LLMs: Attention Changed Everything",
+        "context": "AI: From First Principles",
+        "mentions": 20
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/beginner-foundations",
+        "label": "Chapter 3 - Beginner Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 3
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/rag-engineering",
+        "label": "Chapter 5 - RAG Engineering",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 3
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/you-want-to-build-an-ai-agent-here-is-where-to-actually-start",
+        "label": "How to Build an AI Agent: Start Here",
+        "context": null,
+        "mentions": 2
+      }
+    ],
+    "tokenization": [
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/key-terminology",
+        "label": "Chapter 2 - Key Terminology",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "tool-calling": [
+      {
+        "kind": "guide",
+        "href": "/guides/you-want-to-build-an-ai-agent-here-is-where-to-actually-start",
+        "label": "How to Build an AI Agent: Start Here",
+        "context": null,
+        "mentions": 2
+      }
+    ],
+    "transformer": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/transformers-and-llms",
+        "label": "Chapter 5 - Transformers & LLMs: Attention Changed Everything",
+        "context": "AI: From First Principles",
+        "mentions": 5
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/beginner-foundations",
+        "label": "Chapter 3 - Beginner Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/key-terminology",
+        "label": "Chapter 2 - Key Terminology",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 3
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/hands-on-projects",
+        "label": "Chapter 9 - Hands-On Projects",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "triple": [
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/hands-on-projects",
+        "label": "Chapter 9 - Hands-On Projects",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "underfitting": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/classical-machine-learning",
+        "label": "Chapter 3 - Classical Machine Learning: Thinking in Features",
+        "context": "AI: From First Principles",
+        "mentions": 2
+      }
+    ],
+    "vanishing-gradients": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/neural-networks",
+        "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
+        "context": "AI: From First Principles",
+        "mentions": 2
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/beginner-foundations",
+        "label": "Chapter 3 - Beginner Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/transformers-and-llms",
+        "label": "Chapter 5 - Transformers & LLMs: Attention Changed Everything",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      }
+    ],
+    "vector-database": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/modern-ai-systems",
+        "label": "Chapter 6 - Modern AI Systems: RAG, Agents, and Glue Code",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/rag-fails-in-production",
+        "label": "RAG Works in Theory. Here's Why It Fails in Production.",
+        "context": null,
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/course-overview",
+        "label": "Chapter 1 - Course Overview",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      }
+    ],
+    "weight-initialization": [
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/neural-networks",
+        "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
+        "context": "AI: From First Principles",
+        "mentions": 2
+      }
+    ],
+    "n8n": [
+      {
+        "kind": "guide",
+        "href": "/guides/you-want-to-build-an-ai-agent-here-is-where-to-actually-start",
+        "label": "How to Build an AI Agent: Start Here",
+        "context": null,
+        "mentions": 11
+      }
+    ]
+  }
+}

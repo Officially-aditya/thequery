@@ -8,6 +8,7 @@ import {
   type ContentSummary,
 } from "./content";
 import type { Source } from "./content-types";
+import { getLearnMoreLinks, type GlossaryLearnMoreLink } from "./glossary-links";
 
 export interface GlossaryTerm {
   name: string;
@@ -16,6 +17,7 @@ export interface GlossaryTerm {
   fullDef: string;
   category: string;
   relatedTerms: string[];
+  learnMore: GlossaryLearnMoreLink[];
   coverImageUrl?: string;
   coverImageAlt?: string;
   references?: Source[];
@@ -47,7 +49,7 @@ function lastUpdatedDate(publishedAt: string | null, updatedAt: string): string 
   return updatedAt || publishedAt || new Date().toISOString().slice(0, 10);
 }
 
-function asTerm(item: Awaited<ReturnType<typeof getContentItem>> extends infer T ? Exclude<T, null> : never): GlossaryTerm {
+async function asTerm(item: Awaited<ReturnType<typeof getContentItem>> extends infer T ? Exclude<T, null> : never): Promise<GlossaryTerm> {
   const metadata = item.metadata;
   return {
     name: item.title,
@@ -56,6 +58,7 @@ function asTerm(item: Awaited<ReturnType<typeof getContentItem>> extends infer T
     fullDef: item.body,
     category: typeof metadata.category === "string" ? metadata.category : "Foundations",
     relatedTerms: textList(metadata.relatedTerms),
+    learnMore: await getLearnMoreLinks(item.slug),
     ...(item.coverImageUrl ? { coverImageUrl: item.coverImageUrl } : {}),
     ...(item.coverImageAlt ? { coverImageAlt: item.coverImageAlt } : {}),
     ...(item.sources.length ? { references: item.sources } : {}),
@@ -79,7 +82,7 @@ function asTermSummary(item: ContentSummary): GlossaryTermSummary {
 
 export async function getAllTerms(): Promise<GlossaryTerm[]> {
   const items = await getContentItems("glossary");
-  return items.map(asTerm).sort((a, b) => a.name.localeCompare(b.name));
+  return (await Promise.all(items.map(asTerm))).sort((a, b) => a.name.localeCompare(b.name));
 }
 
 export async function getAllTermSummaries(): Promise<GlossaryTermSummary[]> {

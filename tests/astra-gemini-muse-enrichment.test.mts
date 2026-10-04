@@ -99,8 +99,8 @@ test("comparison vocabulary exposes enriched benchmarks and refresh preserves ed
   ]) {
     assert.ok(generated.includes(label), `${label} should be shown on database comparisons`);
     assert.ok(admin.includes(label), `${label} should be available in new comparison templates`);
-    assert.ok(refresh.includes(label), `${label} should be materialized into fresh comparisons`);
-    assert.ok(backfill.includes(label), `${label} should be materialized into already-migrated comparisons`);
+    assert.ok(refresh.includes(label.replaceAll("'", "''")), `${label} should be materialized into fresh comparisons`);
+    assert.ok(backfill.includes(label.replaceAll("'", "''")), `${label} should be materialized into already-migrated comparisons`);
   }
   assert.match(refresh, /model_benchmarks/);
   assert.match(refresh, /COALESCE\(NULLIF\(er\.values_by_label->lower\(l\.label\)->>0, ''\), p\.model_a_data->>l\.label, ''\)/);

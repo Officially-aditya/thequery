@@ -9,7 +9,17 @@ const migrationPath = path.join(root, "db/migrations/093_add_mimo_v2_6.sql");
 
 const glossary = JSON.parse(
   await readFile(path.join(root, "data/glossary.json"), "utf8"),
-);
+) as Array<{
+  name: string;
+  slug: string;
+  category: string;
+  lastUpdated: string;
+  fullDef: string;
+  references: Array<{ title: string; url: string }>;
+  seoDescription: string;
+  seoKeywords: string[];
+  relatedTerms: string[];
+}>;
 
 const series = glossary.find(({ slug }) => slug === "mimo-v2-6");
 const pro = glossary.find(({ slug }) => slug === "mimo-v2-6-pro");
@@ -113,6 +123,8 @@ test("MiMo V2.6 entries keep the source caveats in the bodies", () => {
 });
 
 test("MiMo V2.6 entries have no inline title or duplicated reference sections", () => {
+  assert.ok(series);
+  assert.ok(pro);
   for (const entry of [series, pro]) {
     assert.ok(entry);
     assert.ok(!/^# /.test(entry.fullDef));

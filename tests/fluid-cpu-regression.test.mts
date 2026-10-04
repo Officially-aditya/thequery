@@ -27,9 +27,9 @@ test("model option cache no longer wakes up every five minutes", async () => {
 });
 
 test("glossary matching compiles once and uses constant-time term lookup", async () => {
-  const markdown = await source("components/MarkdownRenderer.tsx");
+  const markdown = await source("lib/glossary-linking.mjs");
   assert.match(markdown, /function createGlossaryMatcher/);
-  assert.match(markdown, /const glossaryMatcher = createGlossaryMatcher\(glossaryTerms\)/);
+  assert.match(markdown, /createGlossaryMatcher\(terms\)/);
   assert.match(markdown, /byName\.get\(termKey\)/);
   assert.doesNotMatch(markdown, /sorted\.find/);
 });

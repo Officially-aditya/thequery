@@ -100,7 +100,8 @@ test("comparison editor loads a lightweight catalog and lazy model detail", asyn
   assert.match(picker, /modelDetailRequests/);
   assert.match(picker, /fetch\(`/);
   assert.match(picker, /detail\.sources/);
-  assert.match(picker, /detail\.comparisonData/);
+  assert.match(picker, /model\.comparisonData\[label\]/);
+  assert.match(picker, /blocks: detail \? fillSpecBlocks\(editing\.blocks, detail, changedSide\)/);
   assert.match(route, /isAuthenticated/);
   assert.match(route, /getModelOptions/);
   assert.match(route, /getModelBySlug/);

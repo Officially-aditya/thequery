@@ -4,7 +4,7 @@ import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
 import Logo from "./Logo";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const navLinks = [
   { href: "/books", label: "Books" },
@@ -17,9 +17,11 @@ export default function Header() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  useEffect(() => {
+  const [menuPathname, setMenuPathname] = useState(pathname);
+  if (menuPathname !== pathname) {
+    setMenuPathname(pathname);
     setMenuOpen(false);
-  }, [pathname]);
+  }
 
   return (
     <header className="sticky top-0 z-50 bg-bg-primary/80 backdrop-blur-md border-b border-border">

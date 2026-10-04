@@ -25,6 +25,10 @@ function revalidateContent(kind: ContentKind, slug: string, parentSlug?: string 
   revalidateTag(`content:${kind}`, { expire: 0 });
   revalidatePath("/");
   revalidatePath("/sitemap.xml");
+  // Learn-more links depend on published glossary, book, chapter, and guide content.
+  if (kind === "glossary" || kind === "book" || kind === "chapter" || kind === "guide") {
+    revalidatePath("/glossary/[term]", "page");
+  }
 
   if (kind === "article") {
     revalidatePath("/articles");

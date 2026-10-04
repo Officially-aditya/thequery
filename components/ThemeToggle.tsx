@@ -1,28 +1,31 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
+
+function subscribe(onChange: () => void) {
+  const observer = new MutationObserver(onChange);
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+  return () => observer.disconnect();
+}
+
+function themeSnapshot() {
+  return document.documentElement.classList.contains("dark");
+}
+
+function serverSnapshot() {
+  return null;
+}
 
 export default function ThemeToggle() {
-  const [dark, setDark] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    const stored = localStorage.getItem("theme");
-    if (stored === "dark" || (!stored && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-      setDark(true);
-      document.documentElement.classList.add("dark");
-    }
-  }, []);
+  const dark = useSyncExternalStore<boolean | null>(subscribe, themeSnapshot, serverSnapshot);
 
   const toggle = () => {
     const next = !dark;
-    setDark(next);
     document.documentElement.classList.toggle("dark", next);
     localStorage.setItem("theme", next ? "dark" : "light");
   };
 
-  if (!mounted) return <button className="w-9 h-9" aria-label="Toggle theme" />;
+  if (dark === null) return <button className="w-9 h-9" aria-label="Toggle theme" />;
 
   return (
     <button

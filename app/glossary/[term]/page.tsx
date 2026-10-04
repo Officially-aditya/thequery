@@ -167,6 +167,27 @@ export default async function TermPage({ params }: Props) {
         <MarkdownRenderer content={term.fullDef} />
       </div>
 
+      {term.learnMore.length > 0 && (
+        <div className="border-t border-border pt-6 mb-6">
+          <h2 className="font-serif text-sm font-semibold text-text-muted mb-3">Read Next</h2>
+          <ul className="space-y-2">
+            {term.learnMore.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="text-sm text-accent hover:text-accent-hover transition-colors"
+                >
+                  {link.label}
+                </Link>
+                {link.context && (
+                  <span className="text-text-muted"> &mdash; {link.context}</span>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
       {term.references && term.references.length > 0 && (
         <div className="border-t border-border pt-6 mb-6">
           <h2 className="font-serif text-sm font-semibold text-text-muted mb-3">References &amp; Resources</h2>
