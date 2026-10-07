@@ -104,6 +104,7 @@ const migrations = [
   { id: "097_dedupe_gemini_4_argon_seo_keywords", file: new URL("../db/migrations/097_dedupe_gemini_4_argon_seo_keywords.sql", import.meta.url) },
   { id: "098_trim_gemini_4_argon_related_terms", file: new URL("../db/migrations/098_trim_gemini_4_argon_related_terms.sql", import.meta.url) },
   { id: "099_rewrite_bi_encoder_glossary", file: new URL("../db/migrations/099_rewrite_bi_encoder_glossary.sql", import.meta.url) },
+  { id: "100_publish_claude_haiku_5_5", file: new URL("../db/migrations/100_publish_claude_haiku_5_5.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
