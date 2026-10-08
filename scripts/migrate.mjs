@@ -107,6 +107,7 @@ const migrations = [
   { id: "100_publish_claude_haiku_5_5", file: new URL("../db/migrations/100_publish_claude_haiku_5_5.sql", import.meta.url) },
   { id: "101_fix_claude_haiku_5_5_update_date", file: new URL("../db/migrations/101_fix_claude_haiku_5_5_update_date.sql", import.meta.url) },
   { id: "102_add_claude_haiku_5_5_model_catalog", file: new URL("../db/migrations/102_add_claude_haiku_5_5_model_catalog.sql", import.meta.url) },
+  { id: "103_update_luna_sol_terminal_bench_4", file: new URL("../db/migrations/103_update_luna_sol_terminal_bench_4.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
