@@ -52,12 +52,19 @@ test("benchmark evidence retains evaluator differences and score scales", () => 
   assert.ok(scores.every(row => row.model_slug === "mistral-large-4" && row.reasoning_effort === null));
 });
 
-test("the glossary metadata and content match the published migration", async () => {
+test("the glossary metadata and content match the published migrations", async () => {
+  const consolidation = await readFile(new URL("../db/migrations/106_consolidate_mistral_large_4_terminal_bench.sql", import.meta.url), "utf8");
+  const updatedBody = glossary.body
+    .replace(consolidation.split("$rows_before$")[1], consolidation.split("$rows_after$")[1])
+    .replace(consolidation.split("$note_before$")[1], consolidation.split("$note_after$")[1]);
   const entries = JSON.parse(await readFile(new URL("../data/glossary.json", import.meta.url), "utf8"));
   const matches = entries.filter((entry: { slug: string }) => entry.slug === "mistral-large-4");
   assert.equal(matches.length, 1);
   const [entry] = matches;
-  assert.equal(entry.fullDef, glossary.body);
+  assert.equal(entry.fullDef, updatedBody);
+  assert.equal(entry.fullDef.match(/^\| Terminal-Bench 4\.0 \|/gm).length, 1);
+  assert.ok(entry.fullDef.includes("28.3%\\*"));
+  assert.ok(entry.fullDef.includes("Mistral reports 28.3%, Artificial Analysis reports 26.8%, and Vals reports 22.73%"));
   assert.deepEqual(entry.references, glossary.sources);
   assert.equal(entry.seoDescription.length, 144);
   assert.equal(entry.lastUpdated, "2026-10-08");

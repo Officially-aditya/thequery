@@ -110,6 +110,7 @@ const migrations = [
   { id: "103_update_luna_sol_terminal_bench_4", file: new URL("../db/migrations/103_update_luna_sol_terminal_bench_4.sql", import.meta.url) },
   { id: "104_expand_luna_sol_benchmark_evidence", file: new URL("../db/migrations/104_expand_luna_sol_benchmark_evidence.sql", import.meta.url) },
   { id: "105_add_mistral_large_4", file: new URL("../db/migrations/105_add_mistral_large_4.sql", import.meta.url) },
+  { id: "106_consolidate_mistral_large_4_terminal_bench", file: new URL("../db/migrations/106_consolidate_mistral_large_4_terminal_bench.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
