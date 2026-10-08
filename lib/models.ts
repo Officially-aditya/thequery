@@ -3,6 +3,7 @@ import "server-only";
 import { unstable_cache } from "next/cache";
 import { getSql } from "./db";
 import type { Source } from "./content-types";
+import { benchmarkValue, highestReasoningEffort, selectBestBenchmarks, type BenchmarkRow } from "./model-benchmarks";
 
 export type ModelAccess = "proprietary" | "restricted" | "open_weights" | "open_source";
 export type ModelBenchmarkCategory = "coding" | "math_reasoning" | "knowledge" | "agentic_computer_use" | "multimodal" | "professional" | "other";
@@ -41,19 +42,6 @@ interface ModelRow {
   verified_at: string | Date;
 }
 
-interface BenchmarkRow {
-  model_slug: string;
-  category: ModelBenchmarkCategory;
-  benchmark_name: string;
-  benchmark_version: string | null;
-  score_display: string;
-  tools: boolean | null;
-  reasoning_effort: string | null;
-  harness: string | null;
-  evaluator: string | null;
-  source: string | null;
-}
-
 function isoDate(value: string | Date | null): string | null {
   if (!value) return null;
   if (value instanceof Date) return value.toISOString().slice(0, 10);
@@ -84,44 +72,16 @@ function sources(value: unknown): Source[] {
   });
 }
 
-function benchmarkValue(row: BenchmarkRow): string {
-  const qualifiers: string[] = [];
-  if (
-    row.benchmark_version
-    && row.benchmark_version.trim().toLowerCase() !== "public"
-    && !row.benchmark_name.toLowerCase().includes(row.benchmark_version.toLowerCase())
-  ) {
-    qualifiers.push(row.benchmark_version);
-  }
-  if (row.tools === true) qualifiers.push("tools");
-  if (row.tools === false) qualifiers.push("no tools");
-  if (row.reasoning_effort) qualifiers.push(row.reasoning_effort);
-  return qualifiers.length > 0 ? `${row.score_display} (${qualifiers.join("; ")})` : row.score_display;
-}
-
-function withBenchmarks(base: Record<string, string>, rows: BenchmarkRow[]): Record<string, string> {
+function withBenchmarks(base: Record<string, string>, rows: BenchmarkRow[], highestEffort: string | null): Record<string, string> {
   const next = { ...base };
-  const grouped = new Map<string, string[]>();
   for (const row of rows) {
-    const values = grouped.get(row.benchmark_name) ?? [];
-    const rendered = benchmarkValue(row);
-    if (!values.includes(rendered)) values.push(rendered);
-    grouped.set(row.benchmark_name, values);
-  }
-  for (const [name, values] of grouped) {
-    if (values.length > 0) next[name] = values.join(" · ");
+    next[row.benchmark_name] = benchmarkValue(row, highestEffort);
   }
   return next;
 }
 
-function benchmarkDisplays(rows: BenchmarkRow[]): ModelBenchmarkDisplay[] {
-  const seen = new Set<string>();
-  return rows.flatMap((row) => {
-    const key = `${row.category}::${row.benchmark_name}`;
-    if (seen.has(key)) return [];
-    seen.add(key);
-    return [{ category: row.category, name: row.benchmark_name, value: benchmarkValue(row) }];
-  });
+function benchmarkDisplays(rows: BenchmarkRow[], highestEffort: string | null): ModelBenchmarkDisplay[] {
+  return rows.map((row) => ({ category: row.category, name: row.benchmark_name, value: benchmarkValue(row, highestEffort) }));
 }
 
 function withBenchmarkSources(base: Source[], rows: BenchmarkRow[]): Source[] {
@@ -132,14 +92,16 @@ function withBenchmarkSources(base: Source[], rows: BenchmarkRow[]): Source[] {
 }
 
 function fromRow(row: ModelRow, benchmarks: BenchmarkRow[] = []): ModelCatalogEntry {
+  const best = selectBestBenchmarks(benchmarks);
+  const highestEffort = highestReasoningEffort(benchmarks);
   return {
     slug: row.slug,
     name: row.name,
     developer: row.developer,
     releaseDate: isoDate(row.release_date),
     access: row.access,
-    comparisonData: withBenchmarks(comparisonData(row.comparison_data), benchmarks),
-    benchmarks: benchmarkDisplays(benchmarks),
+    comparisonData: withBenchmarks(comparisonData(row.comparison_data), best, highestEffort),
+    benchmarks: benchmarkDisplays(best, highestEffort),
     sources: withBenchmarkSources(sources(row.sources), benchmarks),
     notes: row.notes,
     verifiedAt: isoDateTime(row.verified_at),
@@ -186,7 +148,7 @@ export async function getModelsBySlugs(slugs: string[]): Promise<ModelCatalogEnt
   if (rows.length === 0) return [];
 
   const benchmarkRows = await sql.query(
-    `SELECT model_slug, category, benchmark_name, benchmark_version, score_display, tools, reasoning_effort, harness, evaluator, source
+    `SELECT model_slug, category, benchmark_name, benchmark_version, score_numeric, score_display, tools, reasoning_effort, harness, evaluator, source
      FROM model_benchmarks
      WHERE model_slug = ANY($1::text[])
      ORDER BY model_slug ASC, benchmark_name ASC, evaluation_date ASC NULLS LAST, id ASC`,
