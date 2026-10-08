@@ -110,7 +110,7 @@ test("comparison vocabulary exposes enriched benchmarks and refresh preserves ed
 
 test("benchmark display omits provenance-only qualifiers globally", async () => {
   const [models, cleanup] = await Promise.all([
-    source("lib/models.ts"),
+    source("lib/model-benchmarks.ts"),
     source("db/migrations/024_simplify_benchmark_display.sql"),
   ]);
 

@@ -89,15 +89,18 @@ test("migration 015 reconciles the comprehensive 2026 comparison catalog", async
 });
 
 test("model reads preserve benchmark conditions and make them available to comparison autofill", async () => {
-  const models = await source("lib/models.ts");
+  const [models, display] = await Promise.all([
+    source("lib/models.ts"),
+    source("lib/model-benchmarks.ts"),
+  ]);
 
   assert.match(models, /FROM model_benchmarks/);
   assert.match(models, /benchmark_version/);
   assert.match(models, /reasoning_effort/);
-  assert.match(models, /row\.tools === true/);
-  assert.match(models, /harness: string \| null/);
-  assert.match(models, /evaluator: string \| null/);
+  assert.match(display, /row\.tools === true/);
+  assert.match(display, /harness: string \| null/);
+  assert.match(display, /evaluator: string \| null/);
   assert.match(models, /withBenchmarks/);
-  assert.match(models, /values\.join\(" · "\)/);
+  assert.match(models, /selectBestBenchmarks\(benchmarks\)/);
   assert.match(models, /withBenchmarkSources/);
 });
