@@ -54,16 +54,18 @@ test("benchmark evidence retains evaluator differences and score scales", () => 
 
 test("the glossary metadata and content match the published migrations", async () => {
   const consolidation = await readFile(new URL("../db/migrations/106_consolidate_mistral_large_4_terminal_bench.sql", import.meta.url), "utf8");
+  const comparison = await readFile(new URL("../db/migrations/107_compare_mistral_large_4_peers.sql", import.meta.url), "utf8");
   const updatedBody = glossary.body
     .replace(consolidation.split("$rows_before$")[1], consolidation.split("$rows_after$")[1])
-    .replace(consolidation.split("$note_before$")[1], consolidation.split("$note_after$")[1]);
+    .replace(consolidation.split("$note_before$")[1], consolidation.split("$note_after$")[1])
+    .replace(comparison.split("$section_before$")[1], comparison.split("$section_after$")[1]);
   const entries = JSON.parse(await readFile(new URL("../data/glossary.json", import.meta.url), "utf8"));
   const matches = entries.filter((entry: { slug: string }) => entry.slug === "mistral-large-4");
   assert.equal(matches.length, 1);
   const [entry] = matches;
   assert.equal(entry.fullDef, updatedBody);
   assert.equal(entry.fullDef.match(/^\| Terminal-Bench 4\.0 \|/gm).length, 1);
-  assert.ok(entry.fullDef.includes("28.3%\\*"));
+  assert.ok(entry.fullDef.includes("26.8%\\*"));
   assert.ok(entry.fullDef.includes("Mistral reports 28.3%, Artificial Analysis reports 26.8%, and Vals reports 22.73%"));
   assert.deepEqual(entry.references, glossary.sources);
   assert.equal(entry.seoDescription.length, 144);
@@ -73,4 +75,20 @@ test("the glossary metadata and content match the published migrations", async (
   assert.ok(!entry.fullDef.includes("https://www.thequery.in/glossary/"));
   assert.equal(migration.split(/;\s*(?:\r?\n|$)/).map(statement => statement.trim()).filter(Boolean).length, 3);
   assert.equal(new Set(scores.map(row => row.id)).size, scores.length);
+});
+
+test("the glossary compares peer models with consistent evaluator data and readable qualifiers", async () => {
+  const comparison = await readFile(new URL("../db/migrations/107_compare_mistral_large_4_peers.sql", import.meta.url), "utf8");
+  const section = comparison.split("$section_after$")[1];
+  assert.match(section, /GLM-5\.3-Flash/);
+  assert.match(section, /DeepSeek V4\.1 Flash/);
+  assert.match(section, /GPT-6 Luna/);
+  assert.match(section, /Artificial Analysis results throughout/);
+  assert.ok(section.includes("| Terminal-Bench 4.0 | 26.8%\\* | **32.8%** | 26.8% | 12.6% |"));
+  assert.ok(section.includes("| AA index-task cost (USD, lower) | 1.13 | 0.25 | 0.27 | **0.07** |"));
+  assert.ok(section.includes("Not reported | 77.0% | **79.7%** (xhigh)"));
+  assert.ok(section.includes("46.4%** | 44.2% (xhigh)"));
+  assert.match(section, /Mistral reports 28\.3%, Artificial Analysis reports 26\.8%, and Vals reports 22\.73%/);
+  assert.equal(section.match(/^\| /gm)?.length, 19);
+  assert.equal(comparison.split(/;\s*(?:\r?\n|$)/).map(s => s.trim()).filter(Boolean).length, 1);
 });
