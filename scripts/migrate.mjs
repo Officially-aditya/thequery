@@ -115,6 +115,7 @@ const migrations = [
   { id: "108_add_decisions_api_glossary", file: new URL("../db/migrations/108_add_decisions_api_glossary.sql", import.meta.url) },
   { id: "108_publish_decisions_api_use_cases", file: new URL("../db/migrations/108_publish_decisions_api_use_cases.sql", import.meta.url) },
   { id: "109_define_decisions_api_category", file: new URL("../db/migrations/109_define_decisions_api_category.sql", import.meta.url) },
+  { id: "110_expand_decisions_api_providers", file: new URL("../db/migrations/110_expand_decisions_api_providers.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
