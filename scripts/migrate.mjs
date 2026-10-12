@@ -117,6 +117,7 @@ const migrations = [
   { id: "109_define_decisions_api_category", file: new URL("../db/migrations/109_define_decisions_api_category.sql", import.meta.url) },
   { id: "110_expand_decisions_api_providers", file: new URL("../db/migrations/110_expand_decisions_api_providers.sql", import.meta.url) },
   { id: "111_publish_muse_wonder", file: new URL("../db/migrations/111_publish_muse_wonder.sql", import.meta.url) },
+  { id: "112_correct_ai_agent_example_and_source", file: new URL("../db/migrations/112_correct_ai_agent_example_and_source.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
