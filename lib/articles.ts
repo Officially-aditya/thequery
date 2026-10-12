@@ -7,6 +7,7 @@ export interface Article {
   title: string;
   slug: string;
   date: string;
+  lastModified?: string;
   summary: string;
   content: string;
   blocks: ContentBlock[];
@@ -20,6 +21,7 @@ export interface ArticleSummary {
   title: string;
   slug: string;
   date: string;
+  lastModified?: string;
   summary: string;
   coverImageUrl?: string;
   coverImageAlt?: string;
@@ -30,6 +32,7 @@ function asArticle(item: Awaited<ReturnType<typeof getContentItem>> extends infe
     title: item.title,
     slug: item.slug,
     date: contentDisplayDate(item.publishedAt, item.updatedAt),
+    lastModified: item.updatedAt,
     summary: item.summary,
     content: item.body,
     blocks: item.blocks,
@@ -45,6 +48,7 @@ function asArticleSummary(item: ContentSummary): ArticleSummary {
     title: item.title,
     slug: item.slug,
     date: contentDisplayDate(item.publishedAt, item.updatedAt),
+    lastModified: item.updatedAt,
     summary: item.summary,
     ...(item.coverImageUrl ? { coverImageUrl: item.coverImageUrl } : {}),
     ...(item.coverImageAlt ? { coverImageAlt: item.coverImageAlt } : {}),

@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import type { ChapterMeta, Section } from "@/lib/books";
 
@@ -9,8 +7,6 @@ interface Props {
   chapters: ChapterMeta[];
   currentChapter: string;
   sections: Section[];
-  currentSection: number;
-  onSectionChange: (idx: number) => void;
 }
 
 export default function ChapterSidebar({
@@ -19,8 +15,6 @@ export default function ChapterSidebar({
   chapters,
   currentChapter,
   sections,
-  currentSection,
-  onSectionChange,
 }: Props) {
   return (
     <aside className="lg:w-60 shrink-0">
@@ -33,8 +27,8 @@ export default function ChapterSidebar({
         </Link>
 
         {/* Chapter list */}
-        <nav className="space-y-0.5 mb-5">
-          {chapters.map((ch, idx) => (
+        <nav aria-label="Chapters" className="space-y-0.5 mb-5">
+          {chapters.map((ch) => (
             <Link
               key={ch.slug}
               href={`/books/${bookSlug}/${ch.slug}`}
@@ -55,23 +49,16 @@ export default function ChapterSidebar({
             <p className="text-[10px] uppercase tracking-wider text-text-muted font-semibold mb-2 px-2">
               On this page
             </p>
-            <nav className="space-y-0.5">
+            <nav aria-label="On this page" className="space-y-0.5">
               {sections.map((section, idx) => (
-                <button
-                  key={section.id || idx}
-                  onClick={() => {
-                    onSectionChange(idx);
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  }}
-                  className={`block w-full text-left text-xs py-1 px-2 rounded transition-colors truncate ${
-                    currentSection === idx
-                      ? "text-accent font-medium bg-bg-secondary"
-                      : "text-text-muted hover:text-text-secondary"
-                  }`}
+                <a
+                  key={idx}
+                  href={`#section-${idx + 1}`}
+                  className="block w-full text-left text-xs py-1 px-2 rounded transition-colors truncate text-text-muted hover:text-accent"
                   title={section.title || `Section ${idx + 1}`}
                 >
                   {idx + 1}. {section.title || `Introduction`}
-                </button>
+                </a>
               ))}
             </nav>
           </div>

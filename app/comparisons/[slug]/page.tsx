@@ -99,7 +99,7 @@ export default async function ComparisonPage({ params }: Props) {
           headline: comparison.title,
           description: comparison.summary,
           datePublished: comparison.date,
-          dateModified: comparison.date,
+          dateModified: comparison.lastModified ?? comparison.date,
           url: `${SITE_URL}/comparisons/${comparison.slug}`,
           author: { ...authorJsonLd },
           publisher: {
@@ -137,6 +137,9 @@ export default async function ComparisonPage({ params }: Props) {
         <h1 className="font-serif text-3xl font-bold text-text-primary mb-2">
           {comparison.title}
         </h1>
+        <p className="text-sm text-text-muted mb-8">
+          Updated {new Date(comparison.lastModified ?? comparison.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+        </p>
         <CoverImage src={comparison.coverImageUrl} alt={comparison.coverImageAlt} title={comparison.title} />
 
         <ContentBlocksRenderer

@@ -7,6 +7,7 @@ export interface Guide {
   title: string;
   slug: string;
   date: string;
+  lastModified?: string;
   summary: string;
   content: string;
   blocks: ContentBlock[];
@@ -19,6 +20,7 @@ export interface GuideSummary {
   title: string;
   slug: string;
   date: string;
+  lastModified?: string;
   summary: string;
   coverImageUrl?: string;
   coverImageAlt?: string;
@@ -29,6 +31,7 @@ function asGuide(item: Awaited<ReturnType<typeof getContentItem>> extends infer 
     title: item.title,
     slug: item.slug,
     date: contentDisplayDate(item.publishedAt, item.updatedAt),
+    lastModified: item.updatedAt,
     summary: item.summary,
     content: item.body,
     blocks: item.blocks,
@@ -43,6 +46,7 @@ function asGuideSummary(item: ContentSummary): GuideSummary {
     title: item.title,
     slug: item.slug,
     date: contentDisplayDate(item.publishedAt, item.updatedAt),
+    lastModified: item.updatedAt,
     summary: item.summary,
     ...(item.coverImageUrl ? { coverImageUrl: item.coverImageUrl } : {}),
     ...(item.coverImageAlt ? { coverImageAlt: item.coverImageAlt } : {}),

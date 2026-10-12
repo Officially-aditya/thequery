@@ -7,6 +7,7 @@ export interface Comparison {
   title: string;
   slug: string;
   date: string;
+  lastModified?: string;
   summary: string;
   content: string;
   blocks: ContentBlock[];
@@ -21,6 +22,7 @@ export interface ComparisonSummary {
   title: string;
   slug: string;
   date: string;
+  lastModified?: string;
   summary: string;
   modelA?: string;
   modelB?: string;
@@ -89,6 +91,7 @@ function asComparison(item: Awaited<ReturnType<typeof getContentItem>> extends i
     title: item.title,
     slug: item.slug,
     date: contentDisplayDate(item.publishedAt, item.updatedAt),
+    lastModified: item.updatedAt,
     summary: item.summary,
     content: item.body,
     blocks: withFlagshipCapabilities(item.title, item.blocks),
@@ -107,6 +110,7 @@ function asComparisonSummary(item: ContentSummary): ComparisonSummary {
     title: item.title,
     slug: item.slug,
     date: contentDisplayDate(item.publishedAt, item.updatedAt),
+    lastModified: item.updatedAt,
     summary: item.summary,
     ...(modelA ? { modelA } : {}),
     ...(modelB ? { modelB } : {}),

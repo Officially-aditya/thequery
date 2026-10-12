@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import ChapterSidebar from "./ChapterSidebar";
 import SectionReader from "./SectionReader";
 import type { ChapterMeta, Section } from "@/lib/books";
@@ -29,8 +26,6 @@ export default function ChapterView({
   nextChapter,
   glossaryTerms = [],
 }: Props) {
-  const [currentSection, setCurrentSection] = useState(0);
-
   return (
     <div className="flex flex-col lg:flex-row gap-8">
       <ChapterSidebar
@@ -39,8 +34,6 @@ export default function ChapterView({
         chapters={chapters}
         currentChapter={currentChapter}
         sections={sections}
-        currentSection={currentSection}
-        onSectionChange={setCurrentSection}
       />
 
       <article className="flex-1 min-w-0">
@@ -49,8 +42,6 @@ export default function ChapterView({
         </p>
         <SectionReader
           sections={sections}
-          currentSection={currentSection}
-          onSectionChange={setCurrentSection}
           nav={{ prevChapter, nextChapter, bookSlug }}
           glossaryTerms={glossaryTerms}
         />

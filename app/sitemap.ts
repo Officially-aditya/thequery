@@ -24,17 +24,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }, new Date(0));
 
   const latestArticleDate = allIssues.reduce((max, i) => {
-    const d = new Date(i.date);
+    const d = new Date(i.lastModified ?? i.date);
     return d > max ? d : max;
   }, new Date(0));
 
   const latestGuideDate = allGuides.reduce((max, g) => {
-    const d = new Date(g.date);
+    const d = new Date(g.lastModified ?? g.date);
     return d > max ? d : max;
   }, new Date(0));
 
   const latestComparisonDate = allComparisons.reduce((max, c) => {
-    const d = new Date(c.date);
+    const d = new Date(c.lastModified ?? c.date);
     return d > max ? d : max;
   }, new Date(0));
 
@@ -50,11 +50,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE_URL}/guides`, lastModified: latestGuideDate },
     { url: `${BASE_URL}/comparisons`, lastModified: latestComparisonDate },
     { url: `${BASE_URL}/ai-word-of-the-day`, lastModified: siteLastModified },
-    { url: `${BASE_URL}/about`, lastModified: siteLastModified },
-    { url: `${BASE_URL}/research`, lastModified: siteLastModified },
+    { url: `${BASE_URL}/about` },
+    { url: `${BASE_URL}/research` },
     { url: `${BASE_URL}/research/benchmark-comparability`, lastModified: new Date("2026-10-04") },
     { url: `${BASE_URL}/press` },
-    { url: `${BASE_URL}/privacy`, lastModified: siteLastModified },
+    { url: `${BASE_URL}/privacy` },
   ];
 
   for (const book of allBooks) {
@@ -86,21 +86,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   for (const guide of allGuides) {
     entries.push({
       url: `${BASE_URL}/guides/${guide.slug}`,
-      lastModified: new Date(guide.date),
+      lastModified: new Date(guide.lastModified ?? guide.date),
     });
   }
 
   for (const comparison of allComparisons) {
     entries.push({
       url: `${BASE_URL}/comparisons/${comparison.slug}`,
-      lastModified: new Date(comparison.date),
+      lastModified: new Date(comparison.lastModified ?? comparison.date),
     });
   }
 
   for (const issue of allIssues) {
     entries.push({
       url: `${BASE_URL}/articles/${issue.slug}`,
-      lastModified: new Date(issue.date),
+      lastModified: new Date(issue.lastModified ?? issue.date),
     });
   }
 

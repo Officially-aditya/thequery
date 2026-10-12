@@ -54,7 +54,7 @@ export default async function GuidePage({ params }: Props) {
         headline: guide.title,
         description: guide.summary,
         datePublished: guide.date,
-        dateModified: guide.date,
+        dateModified: guide.lastModified ?? guide.date,
         url: `${SITE_URL}/guides/${guide.slug}`,
         author: { ...authorJsonLd },
         publisher: {
@@ -95,6 +95,9 @@ export default async function GuidePage({ params }: Props) {
       <p className="text-sm text-text-muted mb-8">
         By <Link href={AUTHOR.url} className="text-accent hover:text-accent-hover transition-colors">{AUTHOR.name}</Link>
         {" "}&middot; {new Date(guide.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+        {guide.lastModified && guide.lastModified !== guide.date && (
+          <> &middot; Updated {new Date(guide.lastModified).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</>
+        )}
       </p>
       <CoverImage src={guide.coverImageUrl} alt={guide.coverImageAlt} title={guide.title} />
 

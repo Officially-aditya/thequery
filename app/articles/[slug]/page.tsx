@@ -186,7 +186,7 @@ export default async function ArticlePage({ params }: Props) {
         headline: issue.title,
         description: issue.summary,
         datePublished: issue.date,
-        dateModified: issue.date,
+        dateModified: issue.lastModified ?? issue.date,
         url: `${SITE_URL}/articles/${issue.slug}`,
         author: { ...authorJsonLd },
         publisher: {
@@ -239,6 +239,9 @@ export default async function ArticlePage({ params }: Props) {
           <p className="text-sm text-text-muted mb-8">
             By <Link href={AUTHOR.url} className="text-accent hover:text-accent-hover transition-colors">{AUTHOR.name}</Link>
             {" "}&middot; {new Date(issue.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+            {issue.lastModified && issue.lastModified !== issue.date && (
+              <> &middot; Updated {new Date(issue.lastModified).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</>
+            )}
           </p>
           <CoverImage src={issue.coverImageUrl} alt={issue.coverImageAlt} title={issue.title} />
         </div>

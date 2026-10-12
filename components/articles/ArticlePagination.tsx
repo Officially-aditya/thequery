@@ -1,17 +1,10 @@
-"use client";
-
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 import type { ArticleSummary } from "@/lib/articles";
 
-const PAGE_SIZE = 10;
+export const PAGE_SIZE = 10;
 
-export default function ArticlePagination({ issues }: { issues: ArticleSummary[] }) {
-  const searchParams = useSearchParams();
+export default function ArticlePagination({ issues, currentPage }: { issues: ArticleSummary[]; currentPage: number }) {
   const totalPages = Math.max(1, Math.ceil(issues.length / PAGE_SIZE));
-  const rawPage = searchParams.get("page");
-  const parsedPage = rawPage && /^[1-9]\d*$/.test(rawPage) ? Number(rawPage) : 1;
-  const currentPage = Number.isSafeInteger(parsedPage) && parsedPage <= totalPages ? parsedPage : 1;
   const pageIssues = issues.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
   const pageHref = (page: number) => (page === 1 ? "/articles" : `/articles?page=${page}`);
 
