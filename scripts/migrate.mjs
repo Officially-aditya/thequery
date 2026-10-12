@@ -112,6 +112,7 @@ const migrations = [
   { id: "105_add_mistral_large_4", file: new URL("../db/migrations/105_add_mistral_large_4.sql", import.meta.url) },
   { id: "106_consolidate_mistral_large_4_terminal_bench", file: new URL("../db/migrations/106_consolidate_mistral_large_4_terminal_bench.sql", import.meta.url) },
   { id: "107_compare_mistral_large_4_peers", file: new URL("../db/migrations/107_compare_mistral_large_4_peers.sql", import.meta.url) },
+  { id: "108_publish_decisions_api_use_cases", file: new URL("../db/migrations/108_publish_decisions_api_use_cases.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
