@@ -261,9 +261,13 @@ export async function getContentItems(
   const parentSlug = options.parentSlug ?? "";
   if (options.includeDrafts) return queryContentItems(kind, parentSlug, true);
 
+  // Migration 113 updates glossary rows outside the admin's tag invalidation.
+  const cacheKey = ["content-items", kind, parentSlug];
+  if (kind === "glossary") cacheKey.push("core-glossary-examples-113");
+
   return unstable_cache(
     () => queryContentItems(kind, parentSlug, false),
-    ["content-items", kind, parentSlug],
+    cacheKey,
     { tags: [`content:${kind}`] },
   )();
 }
@@ -277,9 +281,12 @@ export async function getContentItem(
   const resolvedParentSlug = parentSlug ?? "";
   if (includeDrafts) return queryContentItem(kind, slug, resolvedParentSlug, true);
 
+  const cacheKey = ["content-item-v2", kind, resolvedParentSlug, slug];
+  if (kind === "glossary") cacheKey.push("core-glossary-examples-113");
+
   return unstable_cache(
     () => queryContentItem(kind, slug, resolvedParentSlug, false),
-    ["content-item-v2", kind, resolvedParentSlug, slug],
+    cacheKey,
     { tags: [`content:${kind}`] },
   )();
 }
@@ -291,9 +298,12 @@ export async function getContentSummaries(
   const parentSlug = options.parentSlug ?? "";
   if (options.includeDrafts) return queryContentSummaries(kind, parentSlug, true);
 
+  const cacheKey = ["content-summaries-v2", kind, parentSlug];
+  if (kind === "glossary") cacheKey.push("core-glossary-examples-113");
+
   return unstable_cache(
     () => queryContentSummaries(kind, parentSlug, false),
-    ["content-summaries-v2", kind, parentSlug],
+    cacheKey,
     { tags: [`content:${kind}`] },
   )();
 }
