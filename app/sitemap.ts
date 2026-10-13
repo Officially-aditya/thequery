@@ -9,13 +9,26 @@ const BASE_URL = "https://www.thequery.in";
 
 export const revalidate = false;
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+export async function generateSitemaps() {
+  return [
+    { id: "pages" },
+    { id: "books" },
+    { id: "guides" },
+    { id: "comparisons" },
+    { id: "articles" },
+    { id: "glossary" },
+  ];
+}
+
+export default async function sitemap(props?: { id?: Promise<string> | string }): Promise<MetadataRoute.Sitemap> {
+  const targetId = props?.id ? (await props.id)?.toString() : undefined;
+
   const [allTerms, allIssues, allGuides, allComparisons, allBooks] = await Promise.all([
-    getAllTermSummaries(),
-    getAllIssues(),
-    getAllGuides(),
-    getAllComparisons(),
-    getAllBooks(),
+    !targetId || targetId === "glossary" || targetId === "pages" ? getAllTermSummaries() : Promise.resolve([]),
+    !targetId || targetId === "articles" || targetId === "pages" ? getAllIssues() : Promise.resolve([]),
+    !targetId || targetId === "guides" || targetId === "pages" ? getAllGuides() : Promise.resolve([]),
+    !targetId || targetId === "comparisons" || targetId === "pages" ? getAllComparisons() : Promise.resolve([]),
+    !targetId || targetId === "books" || targetId === "pages" ? getAllBooks() : Promise.resolve([]),
   ]);
 
   const latestTermDate = allTerms.reduce((max, t) => {
@@ -42,7 +55,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     Math.max(latestTermDate.getTime(), latestArticleDate.getTime(), latestGuideDate.getTime(), latestComparisonDate.getTime())
   );
 
-  const entries: MetadataRoute.Sitemap = [
+  const pageEntries: MetadataRoute.Sitemap = [
     // Featured learning links and the research section were added on this date.
     { url: BASE_URL, lastModified: new Date(Math.max(siteLastModified.getTime(), new Date("2026-10-13").getTime())) },
     { url: `${BASE_URL}/books`, lastModified: siteLastModified },
@@ -58,6 +71,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE_URL}/privacy` },
   ];
 
+  const bookEntries: MetadataRoute.Sitemap = [];
   for (const book of allBooks) {
     const bookLastModified = book.lastModified
       ? new Date(book.lastModified)
@@ -65,45 +79,51 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           const date = chapter.lastModified ? new Date(chapter.lastModified) : max;
           return date > max ? date : max;
         }, new Date(0));
-    entries.push({
+    bookEntries.push({
       url: `${BASE_URL}/books/${book.slug}`,
       lastModified: bookLastModified.getTime() ? bookLastModified : siteLastModified,
     });
     for (const ch of book.chapters) {
-      entries.push({
+      bookEntries.push({
         url: `${BASE_URL}/books/${book.slug}/${ch.slug}`,
         lastModified: ch.lastModified ? new Date(ch.lastModified) : bookLastModified,
       });
     }
   }
 
-  for (const term of allTerms) {
-    entries.push({
-      url: `${BASE_URL}/glossary/${term.slug}`,
-      lastModified: new Date(term.lastUpdated),
-    });
-  }
+  const guideEntries: MetadataRoute.Sitemap = allGuides.map((guide) => ({
+    url: `${BASE_URL}/guides/${guide.slug}`,
+    lastModified: new Date(guide.lastModified ?? guide.date),
+  }));
 
-  for (const guide of allGuides) {
-    entries.push({
-      url: `${BASE_URL}/guides/${guide.slug}`,
-      lastModified: new Date(guide.lastModified ?? guide.date),
-    });
-  }
+  const comparisonEntries: MetadataRoute.Sitemap = allComparisons.map((comparison) => ({
+    url: `${BASE_URL}/comparisons/${comparison.slug}`,
+    lastModified: new Date(comparison.lastModified ?? comparison.date),
+  }));
 
-  for (const comparison of allComparisons) {
-    entries.push({
-      url: `${BASE_URL}/comparisons/${comparison.slug}`,
-      lastModified: new Date(comparison.lastModified ?? comparison.date),
-    });
-  }
+  const articleEntries: MetadataRoute.Sitemap = allIssues.map((issue) => ({
+    url: `${BASE_URL}/articles/${issue.slug}`,
+    lastModified: new Date(issue.lastModified ?? issue.date),
+  }));
 
-  for (const issue of allIssues) {
-    entries.push({
-      url: `${BASE_URL}/articles/${issue.slug}`,
-      lastModified: new Date(issue.lastModified ?? issue.date),
-    });
-  }
+  const glossaryEntries: MetadataRoute.Sitemap = allTerms.map((term) => ({
+    url: `${BASE_URL}/glossary/${term.slug}`,
+    lastModified: new Date(term.lastUpdated),
+  }));
 
-  return entries;
+  if (targetId === "pages") return pageEntries;
+  if (targetId === "books") return bookEntries;
+  if (targetId === "guides") return guideEntries;
+  if (targetId === "comparisons") return comparisonEntries;
+  if (targetId === "articles") return articleEntries;
+  if (targetId === "glossary") return glossaryEntries;
+
+  return [
+    ...pageEntries,
+    ...bookEntries,
+    ...glossaryEntries,
+    ...guideEntries,
+    ...comparisonEntries,
+    ...articleEntries,
+  ];
 }

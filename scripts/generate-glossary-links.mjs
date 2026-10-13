@@ -12,7 +12,7 @@ export async function generateGlossaryLinks() {
   const rows = await sql`
     SELECT kind, slug, parent_slug AS "parentSlug", title, body, blocks
     FROM content_items
-    WHERE status = 'published' AND kind IN ('glossary', 'book', 'chapter', 'guide')
+    WHERE status = 'published' AND kind IN ('glossary', 'book', 'chapter', 'guide', 'article', 'comparison')
     ORDER BY title ASC
   `;
   return buildGlossaryLinks({
@@ -20,6 +20,14 @@ export async function generateGlossaryLinks() {
     books: rows.filter((row) => row.kind === "book"),
     chapters: rows.filter((row) => row.kind === "chapter"),
     guides: rows.filter((row) => row.kind === "guide").map((row) => ({
+      ...row,
+      blocks: normalizeBlocks(typeof row.blocks === "string" ? JSON.parse(row.blocks) : row.blocks),
+    })),
+    articles: rows.filter((row) => row.kind === "article").map((row) => ({
+      ...row,
+      blocks: normalizeBlocks(typeof row.blocks === "string" ? JSON.parse(row.blocks) : row.blocks),
+    })),
+    comparisons: rows.filter((row) => row.kind === "comparison").map((row) => ({
       ...row,
       blocks: normalizeBlocks(typeof row.blocks === "string" ? JSON.parse(row.blocks) : row.blocks),
     })),

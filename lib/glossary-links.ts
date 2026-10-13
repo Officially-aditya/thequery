@@ -5,7 +5,7 @@ import { getContentIndex, getContentItems, getContentSummaries } from "./content
 import { buildGlossaryLinks } from "./glossary-link-map.mjs";
 
 export interface GlossaryLearnMoreLink {
-  kind: "chapter" | "guide";
+  kind: "chapter" | "guide" | "article" | "comparison";
   href: string;
   label: string;
   context: string | null;
@@ -14,10 +14,12 @@ export interface GlossaryLearnMoreLink {
 
 const getLinkMap = unstable_cache(
   async () => {
-    const [index, books, guides] = await Promise.all([
+    const [index, books, guides, articles, comparisons] = await Promise.all([
       getContentIndex("glossary"),
       getContentSummaries("book"),
       getContentItems("guide"),
+      getContentItems("article"),
+      getContentItems("comparison"),
     ]);
     const chapters = (await Promise.all(
       books.map((book) => getContentItems("chapter", { parentSlug: book.slug })),
@@ -27,10 +29,12 @@ const getLinkMap = unstable_cache(
       books,
       chapters,
       guides,
+      articles,
+      comparisons,
     }).terms;
   },
-  ["glossary-learn-more-v1"],
-  { tags: ["content:glossary", "content:book", "content:chapter", "content:guide"] },
+  ["glossary-learn-more-v2"],
+  { tags: ["content:glossary", "content:book", "content:chapter", "content:guide", "content:article", "content:comparison"] },
 );
 
 export async function getLearnMoreLinks(termSlug: string): Promise<GlossaryLearnMoreLink[]> {

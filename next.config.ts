@@ -44,6 +44,15 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        source: "/(.*)\\.(ico|png|svg|jpg|jpeg|webp|woff|woff2)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
         source: "/(.*)",
         headers: [
           { key: "X-Frame-Options", value: "SAMEORIGIN" },
