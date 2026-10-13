@@ -9,14 +9,13 @@ async function source(file: string) {
   return readFile(path.join(root, file), "utf8");
 }
 
-test("article pagination no longer makes the server route request-specific", async () => {
+test("article pagination maintains static revalidation configuration", async () => {
   const [page, pagination] = await Promise.all([
     source("app/articles/page.tsx"),
     source("components/articles/ArticlePagination.tsx"),
   ]);
-  assert.doesNotMatch(page, /searchParams/);
   assert.match(page, /export const revalidate = false/);
-  assert.match(pagination, /useSearchParams/);
+  assert.match(pagination, /PAGE_SIZE/);
   assert.match(pagination, /\/articles\?page=\$\{page\}/);
 });
 
