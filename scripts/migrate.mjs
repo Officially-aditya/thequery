@@ -119,6 +119,7 @@ const migrations = [
   { id: "111_publish_muse_wonder", file: new URL("../db/migrations/111_publish_muse_wonder.sql", import.meta.url) },
   { id: "112_correct_ai_agent_example_and_source", file: new URL("../db/migrations/112_correct_ai_agent_example_and_source.sql", import.meta.url) },
   { id: "113_expand_core_glossary_examples", file: new URL("../db/migrations/113_expand_core_glossary_examples.sql", import.meta.url) },
+  { id: "114_update_qwen_guide_hardware_checks", file: new URL("../db/migrations/114_update_qwen_guide_hardware_checks.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;

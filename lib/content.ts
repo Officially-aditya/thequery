@@ -264,6 +264,7 @@ export async function getContentItems(
   // Migration 113 updates glossary rows outside the admin's tag invalidation.
   const cacheKey = ["content-items", kind, parentSlug];
   if (kind === "glossary") cacheKey.push("core-glossary-examples-113");
+  if (kind === "guide") cacheKey.push("qwen-hardware-checks-114");
 
   return unstable_cache(
     () => queryContentItems(kind, parentSlug, false),
@@ -283,6 +284,7 @@ export async function getContentItem(
 
   const cacheKey = ["content-item-v2", kind, resolvedParentSlug, slug];
   if (kind === "glossary") cacheKey.push("core-glossary-examples-113");
+  if (kind === "guide" && slug === "qwen-3-8-27b-install-run") cacheKey.push("qwen-hardware-checks-114");
 
   return unstable_cache(
     () => queryContentItem(kind, slug, resolvedParentSlug, false),
@@ -300,6 +302,7 @@ export async function getContentSummaries(
 
   const cacheKey = ["content-summaries-v2", kind, parentSlug];
   if (kind === "glossary") cacheKey.push("core-glossary-examples-113");
+  if (kind === "guide") cacheKey.push("qwen-hardware-checks-114");
 
   return unstable_cache(
     () => queryContentSummaries(kind, parentSlug, false),
