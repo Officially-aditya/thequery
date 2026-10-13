@@ -26,11 +26,19 @@ export default async function Home() {
       title: "Books",
       description: "Two free technical books on AI fundamentals and RAG systems - written from first principles, readable online or downloadable as PDF.",
       href: "/books",
+      featuredLinks: [
+        { href: "/books/ai-from-first-principles/neural-networks", label: "Neural networks and backpropagation" },
+        { href: "/books/rag-kg-master-course/theoretical-foundations", label: "Foundations of RAG and knowledge graphs" },
+      ],
     },
     {
       title: "Guides",
       description: "Evergreen study guides on AI concepts - written to build understanding, not just familiarity.",
       href: "/guides",
+      featuredLinks: [
+        { href: "/guides/you-want-to-build-an-ai-agent-here-is-where-to-actually-start", label: "Build an AI agent" },
+        { href: "/guides/qwen-3-8-27b-install-run", label: "Run Qwen3.8-27B locally" },
+      ],
     },
     {
       title: "Comparisons",
@@ -41,11 +49,27 @@ export default async function Home() {
       title: "Glossary",
       description: `${glossaryCount}+ AI and ML terms explained clearly - from backpropagation to knowledge graphs, always up to date.`,
       href: "/glossary",
+      featuredLinks: [
+        { href: "/glossary/machine-learning", label: "Machine learning" },
+        { href: "/glossary/neural-network", label: "Neural networks" },
+        { href: "/glossary/backpropagation", label: "Backpropagation" },
+        { href: "/glossary/retrieval-augmented-generation", label: "Retrieval-augmented generation" },
+        { href: "/glossary/ai-agent", label: "AI agents" },
+        { href: "/glossary/mcp", label: "Model Context Protocol" },
+      ],
     },
     {
       title: "Articles",
       description: "Detailed reports on what is happening in the field of AI, updated regularly.",
       href: "/articles",
+    },
+    {
+      title: "Research and data",
+      description: "Model data, source provenance, and evaluation methodology to help you check benchmark claims and cite the underlying evidence.",
+      href: "/research",
+      featuredLinks: [
+        { href: "/research/benchmark-comparability", label: "Read the benchmark comparability audit" },
+      ],
     },
   ];
   const jsonLd = {
@@ -105,11 +129,22 @@ export default async function Home() {
             <p className="text-text-secondary leading-relaxed mb-4">
               {section.description}
             </p>
+            {section.featuredLinks && (
+              <ul aria-label={`Featured ${section.title.toLowerCase()}`} className="flex flex-wrap gap-x-5 gap-y-2 text-sm mb-4">
+                {section.featuredLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} className="text-accent hover:text-accent-hover underline underline-offset-4 transition-colors">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
             <Link
               href={section.href}
               className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:text-accent-hover transition-colors"
             >
-              Explore
+              Explore {section.title.toLowerCase()}
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </Link>
           </div>

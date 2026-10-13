@@ -43,7 +43,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   );
 
   const entries: MetadataRoute.Sitemap = [
-    { url: BASE_URL, lastModified: siteLastModified },
+    // Featured learning links and the research section were added on this date.
+    { url: BASE_URL, lastModified: new Date(Math.max(siteLastModified.getTime(), new Date("2026-10-13").getTime())) },
     { url: `${BASE_URL}/books`, lastModified: siteLastModified },
     { url: `${BASE_URL}/glossary`, lastModified: latestTermDate },
     { url: `${BASE_URL}/articles`, lastModified: latestArticleDate },
