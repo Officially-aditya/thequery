@@ -10,7 +10,7 @@ export async function generateGlossaryLinks() {
   if (!process.env.NEW_DATABASE_URL) throw new Error("NEW_DATABASE_URL is required.");
   const sql = neon(process.env.NEW_DATABASE_URL);
   const rows = await sql`
-    SELECT kind, slug, parent_slug AS "parentSlug", title, body, blocks
+    SELECT kind, slug, parent_slug AS "parentSlug", title, body, blocks, metadata
     FROM content_items
     WHERE status = 'published' AND kind IN ('glossary', 'book', 'chapter', 'guide', 'article', 'comparison')
     ORDER BY title ASC
@@ -25,6 +25,7 @@ export async function generateGlossaryLinks() {
     })),
     articles: rows.filter((row) => row.kind === "article").map((row) => ({
       ...row,
+      metadata: typeof row.metadata === "string" ? JSON.parse(row.metadata) : row.metadata,
       blocks: normalizeBlocks(typeof row.blocks === "string" ? JSON.parse(row.blocks) : row.blocks),
     })),
     comparisons: rows.filter((row) => row.kind === "comparison").map((row) => ({

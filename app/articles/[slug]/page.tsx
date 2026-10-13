@@ -3,6 +3,7 @@ import { getAllIssues, getIssueBySlug } from "@/lib/articles";
 import { getGlossaryIndex } from "@/lib/glossary";
 import { notFound } from "next/navigation";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
+import { articleVisualizationAnchors } from "@/lib/article-visualization-anchors.mjs";
 import ReadingProgress from "@/components/ReadingProgress";
 import GeminiLeaderboardChart from "@/components/article/GeminiLeaderboardChart";
 import OpusLeaderboardChart from "@/components/article/OpusLeaderboardChart";
@@ -66,22 +67,16 @@ export default async function ArticlePage({ params }: Props) {
   const visualizationConfig =
     issue.slug === "x402-40-companies-agent-economy-demand-gap"
       ? {
-          anchor:
-            "The payment rail is becoming real. The market on top of it is not.",
           component: <X402RealityCheck />,
           placement: "right-rail" as const,
         }
       : issue.slug === "gemini-36-flash-google-outside-top-ten"
         ? {
-            anchor:
-              "The launch improves the economics of Gemini. It does not move Google's intelligence ceiling.",
             component: <GeminiLeaderboardChart />,
             placement: "right-rail" as const,
           }
         : issue.slug === "gemini-38-flash-beats-terra-price-performance"
           ? {
-              anchor:
-                "Google's benchmark table is unusually direct because it puts Gemini 3.8 Flash beside Gemini 3.7 Flash, Claude Opus 5, Claude Sonnet 5, GPT-5.6 Sol, and GPT-5.6 Terra.",
               component: (
                 <ArticleImageRail
                   src="/gemini-38-flash-benchmark-table.webp"
@@ -95,43 +90,31 @@ export default async function ArticlePage({ params }: Props) {
             }
         : issue.slug === "claude-opus-5-fable-5-benchmark-reaction"
           ? {
-              anchor:
-                "The benchmarks were never the bottleneck. The timing was.",
               component: <OpusLeaderboardChart />,
               placement: "right-rail" as const,
             }
           : issue.slug === "claude-shared-chats-google-indexed-privacy"
             ? {
-                anchor:
-                  "What users already bring to a chat has changed faster than the interface has.",
                 component: <ClaudeSharedChatsPrivacy />,
                 placement: "right-rail" as const,
               }
             : issue.slug === "grok-4-6-index-cost-efficiency-benchmarks"
               ? {
-                  anchor:
-                    "A composite score works the way a report card GPA does.",
                   component: <Grok46Chart />,
                   placement: "right-rail" as const,
                 }
               : issue.slug === "qwen-3-8-27b-opus-4-6-vision-benchmarks"
                 ? {
-                    anchor:
-                      "The [computer vision](/glossary/computer-vision) table looks far more dramatic than the text one, and this is where the framing driving the Twitter hype actually comes from.",
                     component: <Qwen27BChart />,
                     placement: "right-rail" as const,
                   }
                 : issue.slug === "terminal-bench-4-agent-not-model"
                   ? {
-                      anchor:
-                        "Here is the current Terminal-Bench 4.0 leaderboard as published by the maintainers:",
                       component: <TerminalBench4Chart />,
                       placement: "right-rail" as const,
                     }
                 : issue.slug === "claude-fable-51-low-effort-benchmarks"
                   ? {
-                      anchor:
-                        "The benchmark table Anthropic published is broader than the four cost curves, but it answers a different question.",
                       component: (
                         <ArticleImageRail
                           src="/claude-fable-51-benchmarks.webp"
@@ -145,8 +128,6 @@ export default async function ArticlePage({ params }: Props) {
                     }
                 : issue.slug === "glm-5-3-flash-ox-alpha-free-model-benchmarks"
                   ? {
-                      anchor:
-                        "On August 26, Z.ai ended the guessing: Ox Alpha was an early version of GLM-5.3-Flash.",
                       component: (
                         <ArticleImageRail
                           src="/glm-53-flash-benchmarks.jpg"
@@ -159,7 +140,7 @@ export default async function ArticlePage({ params }: Props) {
                       placement: "right-rail" as const,
                     }
                   : null;
-  const visualizationAnchor = visualizationConfig?.anchor ?? "";
+  const visualizationAnchor = articleVisualizationAnchors[issue.slug] ?? "";
   const hasEmbeddedVisualization =
     visualizationConfig !== null &&
     issue.content.includes(visualizationAnchor);

@@ -28,7 +28,7 @@ function chapterMeta(item: ContentSummary): ChapterMeta {
     title: item.title,
     ...(item.coverImageUrl ? { coverImageUrl: item.coverImageUrl } : {}),
     ...(item.coverImageAlt ? { coverImageAlt: item.coverImageAlt } : {}),
-    ...(typeof item.metadata.lastModified === "string" ? { lastModified: item.metadata.lastModified } : {}),
+    lastModified: item.updatedAt,
   };
 }
 
@@ -41,7 +41,7 @@ async function asBook(item: ContentSummary): Promise<BookMeta> {
     author: typeof item.metadata.author === "string" ? item.metadata.author : "TheQuery",
     ...(item.coverImageUrl ? { coverImageUrl: item.coverImageUrl } : {}),
     ...(item.coverImageAlt ? { coverImageAlt: item.coverImageAlt } : {}),
-    ...(typeof item.metadata.lastModified === "string" ? { lastModified: item.metadata.lastModified } : {}),
+    lastModified: chapters.reduce((latest, chapter) => chapter.updatedAt > latest ? chapter.updatedAt : latest, item.updatedAt),
     chapters: chapters.map(chapterMeta),
   };
 }

@@ -5,6 +5,7 @@ import test from "node:test";
 import { renderToStaticMarkup } from "react-dom/server";
 import Markdown from "react-markdown";
 import { buildGlossaryLinks } from "../lib/glossary-link-map.mjs";
+import { articleVisualizationAnchors } from "../lib/article-visualization-anchors.mjs";
 import { getGlossaryMentions, prepareGlossaryMarkdown, remarkPlugins, rehypePlugins, rehypeGlossaryLinks } from "../lib/glossary-linking.mjs";
 
 const root = path.resolve(import.meta.dirname, "..");
@@ -22,11 +23,11 @@ const guide = (slug: string, content: string) => ({
 const build = (chapters: ReturnType<typeof chapter>[] = [], guides: ReturnType<typeof guide>[] = [], glossary = terms) =>
   buildGlossaryLinks({ terms: glossary, books, chapters, guides });
 
-function render(content: string) {
+function render(content: string, autoLink = true) {
   return renderToStaticMarkup(Markdown({
     children: prepareGlossaryMarkdown(content),
     remarkPlugins,
-    rehypePlugins: [...rehypePlugins, [rehypeGlossaryLinks, { terms }]],
+    rehypePlugins: [...rehypePlugins, [rehypeGlossaryLinks, { terms: autoLink ? terms : [] }]],
   }));
 }
 
@@ -133,4 +134,66 @@ test("the term page renders internal learn-more links only when links exist", as
   const page = await readFile(path.join(root, "app/glossary/[term]/page.tsx"), "utf8");
   assert.match(page, /term\.learnMore\.length > 0/);
   assert.match(page, /<Link\s+href=\{link\.href\}/);
+});
+
+test("manual articles retain explicit glossary links and exclude plain mentions", () => {
+  const body = "Transformer. [A useful concept](/glossary/chunking#example).";
+  const links = buildGlossaryLinks({
+    terms, books, chapters: [], guides: [],
+    articles: [{ slug: "manual", title: "Manual", body, metadata: { manualGlossaryLinks: true } }],
+  });
+  assert.equal(links.terms.transformer, undefined);
+  assert.equal(links.terms.chunking[0].href, "/articles/manual");
+  const html = render(body, false);
+  assert.match(html, /href="\/glossary\/chunking#example"/);
+  assert.doesNotMatch(html, /href="\/glossary\/transformer"/);
+});
+
+test("embedded article visualizations suppress auto-links only when their anchor is present", () => {
+  for (const [slug, anchor] of Object.entries(articleVisualizationAnchors)) {
+    const buildArticle = (body: string) => buildGlossaryLinks({
+      terms, books, chapters: [], guides: [],
+      articles: [{ slug, title: slug, body }],
+    });
+    const links = buildArticle(anchor + "\n\nTransformer. [Chunking](/glossary/chunking).");
+    assert.equal(links.terms.transformer, undefined, slug);
+    assert.ok(links.terms.chunking.some((entry) => entry.href === "/articles/" + slug), slug);
+    assert.ok(buildArticle("Transformer.").terms.transformer, slug);
+  }
+});
+
+test("articles and comparisons scan the markdown that their pages actually render", () => {
+  const links = buildGlossaryLinks({
+    terms, books, chapters: [], guides: [],
+    articles: [
+      { slug: "body", title: "Body", body: "Graph.", blocks: [{ type: "markdown", content: "Transformer." }] },
+      {
+        slug: "gemini-38-flash-beats-terra-price-performance", title: "Blocks",
+        body: articleVisualizationAnchors["gemini-38-flash-beats-terra-price-performance"] + "\n\nTransformer.",
+        blocks: [{ type: "markdown", content: "Chunking." }, { type: "chart" }],
+      },
+    ],
+    comparisons: [{ slug: "comparison", title: "Comparison", body: "Transformer.", blocks: [{ type: "markdown", content: "Knowledge Graph." }] }],
+  });
+  assert.equal(links.terms.transformer, undefined);
+  assert.equal(links.terms.graph[0].href, "/articles/body");
+  assert.equal(links.terms.chunking[0].href, "/articles/gemini-38-flash-beats-terra-price-performance");
+  assert.equal(links.terms["knowledge-graph"][0].href, "/comparisons/comparison");
+});
+
+test("explicit glossary links use parsed destinations rather than their labels", () => {
+  const body = [
+    "[Different label][definition]",
+    "",
+    "[definition]: /glossary/chunking",
+    '<p><a href="https://www.thequery.in/glossary/graph/?source=article">Definition</a></p>',
+    "`[Transformer](/glossary/transformer)`",
+    "[Transformer](https://example.com/glossary/transformer)",
+    "[Missing](/glossary/missing)",
+  ].join("\n\n");
+  const mentions = getGlossaryMentions(body, terms, { autoLink: false, includeExplicitLinks: true });
+  assert.deepEqual([...mentions], [["chunking", 1], ["graph", 1]]);
+  const html = render(body, false);
+  assert.match(html, /href="\/glossary\/chunking"/);
+  assert.match(html, /href="https:\/\/www\.thequery\.in\/glossary\/graph\/\?source=article"/);
 });

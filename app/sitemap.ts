@@ -38,14 +38,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     return d > max ? d : max;
   }, new Date(0));
 
+  const latestBookDate = allBooks.reduce((max, book) => {
+    const date = new Date(book.lastModified ?? 0);
+    return date > max ? date : max;
+  }, new Date(0));
+
   const siteLastModified = new Date(
-    Math.max(latestTermDate.getTime(), latestArticleDate.getTime(), latestGuideDate.getTime(), latestComparisonDate.getTime())
+    Math.max(latestTermDate.getTime(), latestArticleDate.getTime(), latestGuideDate.getTime(), latestComparisonDate.getTime(), latestBookDate.getTime())
   );
 
   const entries: MetadataRoute.Sitemap = [
     // Featured learning links and the research section were added on this date.
     { url: BASE_URL, lastModified: new Date(Math.max(siteLastModified.getTime(), new Date("2026-10-13").getTime())) },
-    { url: `${BASE_URL}/books`, lastModified: siteLastModified },
+    { url: `${BASE_URL}/books`, lastModified: latestBookDate },
     { url: `${BASE_URL}/glossary`, lastModified: latestTermDate },
     { url: `${BASE_URL}/articles`, lastModified: latestArticleDate },
     { url: `${BASE_URL}/guides`, lastModified: latestGuideDate },

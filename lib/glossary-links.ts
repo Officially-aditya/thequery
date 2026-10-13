@@ -33,7 +33,7 @@ const getLinkMap = unstable_cache(
       comparisons,
     }).terms;
   },
-  ["glossary-learn-more-v2"],
+  ["glossary-learn-more-v3"],
   { tags: ["content:glossary", "content:book", "content:chapter", "content:guide", "content:article", "content:comparison"] },
 );
 

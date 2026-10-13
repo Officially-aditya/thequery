@@ -20,6 +20,8 @@ function loadModule(file: string, mocks: Record<string, unknown> = {}) {
   runInNewContext(outputText, {
     module: loaded,
     exports: loaded.exports,
+    Response: globalThis.Response,
+    Request: globalThis.Request,
     require: (id: string) => Object.hasOwn(mocks, id) ? mocks[id] : require(id),
   }, { filename });
   return loaded.exports;
@@ -123,4 +125,52 @@ test("sitemap collection and detail dates use updates without inventing static p
     assert.ok(entry);
     assert.equal(entry.lastModified, undefined);
   }
+});
+
+test("book and chapter dates follow database edits in metadata and both sitemap formats", async () => {
+  const book = {
+    slug: "course", title: "Course", summary: "Course summary",
+    metadata: { lastModified: "2026-02-01" }, updatedAt: "2026-10-10",
+  };
+  const chapters = [
+    { slug: "first", title: "First", body: "Content", blocks: [], sources: [], metadata: { lastModified: "2026-02-02" }, updatedAt: "2026-10-12" },
+    { slug: "second", title: "Second", body: "Content", blocks: [], sources: [], metadata: {}, updatedAt: "2026-10-11" },
+  ];
+  const books = loadModule("lib/books.ts", {
+    "server-only": {},
+    "./content": {
+      getContentItem: async (kind: string, slug: string) => kind === "book" ? book : chapters.find((chapter) => chapter.slug === slug),
+      getContentSummaries: async (kind: string) => kind === "book" ? [book] : chapters,
+    },
+  }) as typeof import("../lib/books.ts");
+  assert.equal((await books.getBookMeta("course"))?.lastModified, "2026-10-12");
+  assert.equal((await books.getChapterContent("course", "first"))?.meta.lastModified, "2026-10-12");
+  assert.equal((await books.getChapterContent("course", "second"))?.meta.lastModified, "2026-10-11");
+  const sitemap = loadModule("app/sitemap.ts", {
+    "@/lib/books": books,
+    "@/lib/glossary": { getAllTermSummaries: async () => [] },
+    "@/lib/articles": { getAllIssues: async () => [] },
+    "@/lib/guides": { getAllGuides: async () => [] },
+    "@/lib/comparisons": { getAllComparisons: async () => [] },
+  }) as typeof import("../app/sitemap.ts");
+  const entries = await sitemap.default();
+  const base = "https://www.thequery.in";
+  for (const [pathname, date] of [
+    ["/books", "2026-10-12"], ["/books/course", "2026-10-12"],
+    ["/books/course/first", "2026-10-12"], ["/books/course/second", "2026-10-11"],
+  ]) {
+    assert.equal(new Date(entries.find((entry) => entry.url === base + pathname)?.lastModified ?? 0).toISOString().slice(0, 10), date);
+  }
+  const route = loadModule("app/sitemap/[id]/route.ts", {
+    "../../sitemap.ts": sitemap.default,
+  }) as typeof import("../app/sitemap/[id]/route.ts");
+  const response = await route.GET(new Request(base + "/sitemap/books.xml"), { params: Promise.resolve({ id: "books.xml" }) });
+  const xml = await response.text();
+  assert.match(xml, /<loc>https:\/\/www\.thequery\.in\/books\/course\/first<\/loc>\s*<lastmod>2026-10-12T00:00:00\.000Z<\/lastmod>/);
+
+  book.updatedAt = "2026-10-13";
+  assert.equal((await books.getBookMeta("course"))?.lastModified, "2026-10-13");
+  assert.equal((await books.getChapterContent("course", "second"))?.meta.lastModified, "2026-10-11");
+  chapters.length = 0;
+  assert.equal((await books.getBookMeta("course"))?.lastModified, "2026-10-13");
 });

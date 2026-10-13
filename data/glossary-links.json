@@ -7,9 +7,9 @@
     "comparisons": 9
   },
   "coverage": {
-    "termsWithLinks": 224,
-    "totalLinks": 620,
-    "unlinkedTerms": 117
+    "termsWithLinks": 234,
+    "totalLinks": 655,
+    "unlinkedTerms": 107
   },
   "terms": {
     "a2a": [
@@ -36,58 +36,67 @@
         "href": "/articles/openai-spud-anthropic-mythos-ipo-noise",
         "label": "Is Bigger Still Better, or Just IPO Noise?",
         "context": "Article",
-        "mentions": 6
+        "mentions": 3
       },
       {
-        "kind": "article",
-        "href": "/articles/prime-agent-persistent-open-source-coding-agent",
-        "label": "Prime Agent Is Free, Open Source, and Remembers What Every Other Coding Agent Forgets",
-        "context": "Article",
-        "mentions": 4
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/what-ai-actually-is",
+        "label": "Chapter 0 - What AI Actually Is (And Isn't)",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/how-to-check-ai-benchmark-claims",
+        "label": "How to Audit AI Benchmark Claims: A Practical Guide",
+        "context": null,
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/deepseek-v4-is-almost-at-the-frontier-the-price-is-not",
         "label": "DeepSeek V4 Is Almost at the Frontier. The Price Is Not.",
         "context": "Article",
-        "mentions": 2
-      },
-      {
-        "kind": "article",
-        "href": "/articles/why-you-should-look-at-cost-per-successful-task-instead-of-price-per-token",
-        "label": "Why You Should Look at Cost Per Successful Task Instead Of Price Per Token",
-        "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "ai-agent": [
-      {
-        "kind": "article",
-        "href": "/articles/picobot-the-ai-agent-that-fits-in-your-pocket",
-        "label": "Picobot: The AI Agent That Fits in Your Pocket",
-        "context": "Article",
-        "mentions": 6
-      },
       {
         "kind": "guide",
         "href": "/guides/you-want-to-build-an-ai-agent-here-is-where-to-actually-start",
         "label": "How to Build an AI Agent: Start Here",
         "context": null,
+        "mentions": 4
+      },
+      {
+        "kind": "article",
+        "href": "/articles/picobot-the-ai-agent-that-fits-in-your-pocket",
+        "label": "Picobot: The AI Agent That Fits in Your Pocket",
+        "context": "Article",
         "mentions": 3
+      },
+      {
+        "kind": "article",
+        "href": "/articles/google-workspace-cli-gws-agent-tool",
+        "label": "Google Made Your Entire Workspace an AI Agent Tool. Read This Before Using It in Production.",
+        "context": "Article",
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/the-next-layer-how-ai-is-moving-from-your-screen-to-your-world",
         "label": "The Next Layer: How AI Is Moving From Your Screen to Your World",
         "context": "Article",
-        "mentions": 10
-      },
+        "mentions": 6
+      }
+    ],
+    "ai-code-review": [
       {
         "kind": "article",
-        "href": "/articles/gemini-spark-end-of-session-persistent-ai",
-        "label": "Gemini Spark and the End of the Session: How AI Is Shifting From Passive to Persistent",
+        "href": "/articles/claude-code-review-vs-coderabbit",
+        "label": "Claude Code Review vs CodeRabbit: Two Philosophies of AI Code Review",
         "context": "Article",
-        "mentions": 4
+        "mentions": 2
       }
     ],
     "ai-memory": [
@@ -96,7 +105,28 @@
         "href": "/articles/google-turboquant-cuts-ai-memory-6x",
         "label": "Google's TurboQuant Cuts AI Memory 6x",
         "context": "Article",
-        "mentions": 4
+        "mentions": 2
+      },
+      {
+        "kind": "article",
+        "href": "/articles/claude-memory-import-privacy",
+        "label": "Claude Just Launched Memory Import. The Privacy Details Are the Story.",
+        "context": "Article",
+        "mentions": 3
+      },
+      {
+        "kind": "article",
+        "href": "/articles/the-next-layer-how-ai-is-moving-from-your-screen-to-your-world",
+        "label": "The Next Layer: How AI Is Moving From Your Screen to Your World",
+        "context": "Article",
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/grok-bot-openclaw-hermes-agent-popularity",
+        "label": "Why Grok Bot Is Taking Off. It Isn't Just a Chatbot.",
+        "context": "Article",
+        "mentions": 1
       }
     ],
     "aime": [
@@ -105,14 +135,14 @@
         "href": "/articles/gemini-3-1-pro-scored-13-out-of-16",
         "label": "Gemini 3.1 Pro Scored 13 Out of 16. Here Is What That Actually Means.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/google-gemma-4-open-source-ai-apache",
         "label": "Open Source AI Is No Longer a Side Project",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "api": [
@@ -121,7 +151,7 @@
         "href": "/articles/decisions-api-use-cases-self-graded-scores",
         "label": "Decisions API Use Cases Are Real. Scores Are Self-Graded.",
         "context": "Article",
-        "mentions": 10
+        "mentions": 5
       },
       {
         "kind": "guide",
@@ -131,18 +161,18 @@
         "mentions": 16
       },
       {
-        "kind": "article",
-        "href": "/articles/google-workspace-cli-gws-agent-tool",
-        "label": "Google Made Your Entire Workspace an AI Agent Tool. Read This Before Using It in Production.",
-        "context": "Article",
-        "mentions": 16
-      },
-      {
         "kind": "guide",
         "href": "/guides/how-to-use-other-models-in-codex",
         "label": "How to Use Other Models in Codex: A Provider Setup Guide",
         "context": null,
         "mentions": 15
+      },
+      {
+        "kind": "article",
+        "href": "/articles/google-workspace-cli-gws-agent-tool",
+        "label": "Google Made Your Entire Workspace an AI Agent Tool. Read This Before Using It in Production.",
+        "context": "Article",
+        "mentions": 9
       }
     ],
     "activation-function": [
@@ -166,17 +196,31 @@
     "agent-harness": [
       {
         "kind": "article",
-        "href": "/articles/kimi-k3-largest-open-weight-model-claude-opus-gpt-55",
-        "label": "Kimi K3 Is the Largest Open-Weight Model Ever Announced. It Also Beats Claude Opus 4.8 and GPT-5.5.",
+        "href": "/articles/muse-spark-dirt-cheap",
+        "label": "Muse Spark 1.3 Is Dirt Cheap with a catch",
         "context": "Article",
         "mentions": 2
       },
       {
         "kind": "article",
-        "href": "/articles/agentic-harness-open-source-scapegoat",
-        "label": "The agentic harness is open source's new battleground",
+        "href": "/articles/terminal-bench-4-agent-not-model",
+        "label": "Terminal-Bench 4 Is Measuring the Agent, Not the Model",
         "context": "Article",
         "mentions": 2
+      },
+      {
+        "kind": "article",
+        "href": "/articles/claude-fable-51-low-effort-benchmarks",
+        "label": "Claude Fable 5.1 Beats Fable 5, Even at Low Effort",
+        "context": "Article",
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/claude-opus-48-dynamic-workflows-fast-mode-missing-benchmark",
+        "label": "Claude Opus 4.8 Released: Dynamic Workflows, Cheaper Fast Mode, and a Missing Benchmark",
+        "context": "Article",
+        "mentions": 1
       }
     ],
     "agent-orchestration": [
@@ -185,7 +229,14 @@
         "href": "/articles/openai-codex-vs-claude-code-who-is-winning",
         "label": "Codex vs Claude Code: Who's Winning?",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/paperclip-agent-memory-problem",
+        "label": "Paperclip Remembered the Company. Now Someone Needs to Remember the Agent.",
+        "context": "Article",
+        "mentions": 1
       }
     ],
     "agentic-ai": [
@@ -194,14 +245,14 @@
         "href": "/articles/github-agentic-ai-certification-identity",
         "label": "GitHub Agentic AI Certification Is Here. Certification Or Identity?",
         "context": "Article",
-        "mentions": 14
+        "mentions": 8
       },
       {
         "kind": "article",
-        "href": "/articles/jack-dorsey-block-layoffs",
-        "label": "Jack Dorsey Just Fired 4,000 People and Wall Street Cheered. Here Is the Memo Every Developer Should Read.",
+        "href": "/articles/pony-alpha-openrouter-glm-5",
+        "label": "A Model With No Name Appeared on OpenRouter. Developers Loved It. It Lasted Five Days.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 3
       },
       {
         "kind": "guide",
@@ -209,29 +260,43 @@
         "label": "How to Build an AI Agent: Start Here",
         "context": null,
         "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/alibaba-qwen-3-5-scaling-era",
+        "label": "Alibaba's 9B Model Just Beat Its Own 30B. The Scaling Era Is Ending.",
+        "context": "Article",
+        "mentions": 1
       }
     ],
     "agentic-workflows": [
       {
         "kind": "article",
-        "href": "/articles/gemini-omni-gemini-3-5-flash-google-io-2026",
-        "label": "Gemini Omni and Gemini 3.5 Flash Are Real. So Is the Thing Google Refused to Ship.",
+        "href": "/articles/grok-bot-openclaw-hermes-agent-popularity",
+        "label": "Why Grok Bot Is Taking Off. It Isn't Just a Chatbot.",
         "context": "Article",
         "mentions": 2
       },
       {
         "kind": "article",
-        "href": "/articles/microsoft-killed-ai-sidekick-copilot-story",
-        "label": "Microsoft Killed Its AI Sidekick. Game Or Strategy.",
+        "href": "/articles/claude-opus-5-fable-5-benchmark-reaction",
+        "label": "Claude Opus 5 Just Edged Out Fable 5 on the Benchmarks. Almost Nobody Noticed.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       },
       {
         "kind": "article",
-        "href": "/articles/minimax-m3-open-weight-frontier-coding-weights-not-out",
-        "label": "MiniMax M3 Is the First Open-Weight Model With Frontier Coding, 1M Context, and Multimodality. The Weights Aren't Out Yet.",
+        "href": "/articles/claude-scheduled-tasks-cloud-chatgpt-gemini",
+        "label": "Claude Scheduled Tasks Finally Run in the Cloud",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/gemini-36-flash-google-outside-top-ten",
+        "label": "Gemini 3.6 Flash Is Out. Google Still Doesn't Have a Model in the Top Ten.",
+        "context": "Article",
+        "mentions": 1
       }
     ],
     "algorithm": [
@@ -243,13 +308,6 @@
         "mentions": 4
       },
       {
-        "kind": "article",
-        "href": "/articles/google-turboquant-cuts-ai-memory-6x",
-        "label": "Google's TurboQuant Cuts AI Memory 6x",
-        "context": "Article",
-        "mentions": 4
-      },
-      {
         "kind": "chapter",
         "href": "/books/rag-kg-master-course/theoretical-foundations",
         "label": "Chapter 4 - Theoretical Foundations",
@@ -258,10 +316,17 @@
       },
       {
         "kind": "article",
-        "href": "/articles/gemini-spark-end-of-session-persistent-ai",
-        "label": "Gemini Spark and the End of the Session: How AI Is Shifting From Passive to Persistent",
+        "href": "/articles/google-turboquant-cuts-ai-memory-6x",
+        "label": "Google's TurboQuant Cuts AI Memory 6x",
         "context": "Article",
         "mentions": 2
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/math-you-cant-escape",
+        "label": "Chapter 2 - Math You Can't Escape (But Can Tame)",
+        "context": "AI: From First Principles",
+        "mentions": 1
       }
     ],
     "anthropic": [
@@ -270,75 +335,91 @@
         "href": "/articles/anthropic-project-glasswing-mythos-cybersecurity",
         "label": "Anthropic Gave Its Dangerous Model to Defenders",
         "context": "Article",
-        "mentions": 56
+        "mentions": 29
       },
       {
         "kind": "article",
         "href": "/articles/anthropic-sep-security-report",
         "label": "Anthropic: Alibaba Cloned Claude 151M Times. Six More Did.",
         "context": "Article",
-        "mentions": 56
+        "mentions": 28
       },
       {
         "kind": "article",
         "href": "/articles/openclaw-had-210000-github-stars",
         "label": "OpenClaw Had 210,000 GitHub Stars. Then Anthropic Shipped One Feature.",
         "context": "Article",
-        "mentions": 20
+        "mentions": 10
       },
       {
         "kind": "article",
-        "href": "/articles/open-secure-ai-alliance-anthropic-absent",
-        "label": "Open Secure AI Alliance Launches With 37 Companies. Anthropic Is Not One of Them.",
+        "href": "/articles/openai-symphony-vs-claude-code-swarm",
+        "label": "OpenAI and Anthropic Are Solving the Same Problem From Opposite Directions",
         "context": "Article",
-        "mentions": 14
+        "mentions": 4
       }
     ],
     "artificial-analysis": [
       {
         "kind": "article",
-        "href": "/articles/gemini-36-flash-google-outside-top-ten",
-        "label": "Gemini 3.6 Flash Is Out. Google Still Doesn't Have a Model in the Top Ten.",
+        "href": "/articles/kimi-k3-largest-open-weight-model-claude-opus-gpt-55",
+        "label": "Kimi K3 Is the Largest Open-Weight Model Ever Announced. It Also Beats Claude Opus 4.8 and GPT-5.5.",
         "context": "Article",
-        "mentions": 12
-      },
-      {
-        "kind": "article",
-        "href": "/articles/claude-opus-5-fable-5-benchmark-reaction",
-        "label": "Claude Opus 5 Just Edged Out Fable 5 on the Benchmarks. Almost Nobody Noticed.",
-        "context": "Article",
-        "mentions": 10
+        "mentions": 6
       },
       {
         "kind": "article",
         "href": "/articles/claude-sonnet-5-5-price",
         "label": "Claude Sonnet 5.5 Matches Sol's Price. Beats It on Paper.",
         "context": "Article",
-        "mentions": 10
+        "mentions": 5
       },
       {
         "kind": "article",
-        "href": "/articles/kimi-k3-largest-open-weight-model-claude-opus-gpt-55",
-        "label": "Kimi K3 Is the Largest Open-Weight Model Ever Announced. It Also Beats Claude Opus 4.8 and GPT-5.5.",
+        "href": "/articles/why-you-should-look-at-cost-per-successful-task-instead-of-price-per-token",
+        "label": "Why You Should Look at Cost Per Successful Task Instead Of Price Per Token",
         "context": "Article",
-        "mentions": 10
+        "mentions": 4
+      },
+      {
+        "kind": "article",
+        "href": "/articles/gemini-3-1-pro-scored-13-out-of-16",
+        "label": "Gemini 3.1 Pro Scored 13 Out of 16. Here Is What That Actually Means.",
+        "context": "Article",
+        "mentions": 3
+      }
+    ],
+    "artificial-intelligence": [
+      {
+        "kind": "article",
+        "href": "/articles/ai-skills-developers-survival",
+        "label": "AI Skills Are the New Requirement for Developers",
+        "context": "Article",
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/defenders-better-tools-everyone-else-ai-cybersecurity",
+        "label": "DayBreak is the Avengers Initiative for Cybersecurity. The Problem Is, AI Arms it Both Sides.",
+        "context": "Article",
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/microsoft-killed-ai-sidekick-copilot-story",
+        "label": "Microsoft Killed Its AI Sidekick. Game Or Strategy.",
+        "context": "Article",
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/openai-deployment-company-execution-not-hype",
+        "label": "OpenAI's Deployment Company Is About Execution, Not Hype",
+        "context": "Article",
+        "mentions": 1
       }
     ],
     "attention-mechanism": [
-      {
-        "kind": "article",
-        "href": "/articles/minimax-m3-open-weight-frontier-coding-weights-not-out",
-        "label": "MiniMax M3 Is the First Open-Weight Model With Frontier Coding, 1M Context, and Multimodality. The Weights Aren't Out Yet.",
-        "context": "Article",
-        "mentions": 4
-      },
-      {
-        "kind": "article",
-        "href": "/articles/transformer-9-year-ceiling-subquadratic-subq",
-        "label": "Subquadratic Says It Broke the Transformer Ceiling",
-        "context": "Article",
-        "mentions": 4
-      },
       {
         "kind": "chapter",
         "href": "/books/ai-from-first-principles/transformers-and-llms",
@@ -347,11 +428,25 @@
         "mentions": 2
       },
       {
-        "kind": "chapter",
-        "href": "/books/rag-kg-master-course/beginner-foundations",
-        "label": "Chapter 3 - Beginner Foundations",
-        "context": "RAG + Knowledge Graph Master Course",
-        "mentions": 1
+        "kind": "article",
+        "href": "/articles/minimax-m3-open-weight-frontier-coding-weights-not-out",
+        "label": "MiniMax M3 Is the First Open-Weight Model With Frontier Coding, 1M Context, and Multimodality. The Weights Aren't Out Yet.",
+        "context": "Article",
+        "mentions": 2
+      },
+      {
+        "kind": "article",
+        "href": "/articles/transformer-9-year-ceiling-subquadratic-subq",
+        "label": "Subquadratic Says It Broke the Transformer Ceiling",
+        "context": "Article",
+        "mentions": 2
+      },
+      {
+        "kind": "article",
+        "href": "/articles/nemotron-3-super-sparse-moe-efficiency",
+        "label": "The Model That Thinks With 12B Parameters but Knows Everything a 120B Model Knows.",
+        "context": "Article",
+        "mentions": 2
       }
     ],
     "autonomous-ai": [
@@ -360,7 +455,7 @@
         "href": "/articles/openclaw-had-210000-github-stars",
         "label": "OpenClaw Had 210,000 GitHub Stars. Then Anthropic Shipped One Feature.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "bert": [
@@ -464,20 +559,6 @@
     ],
     "benchmark": [
       {
-        "kind": "article",
-        "href": "/articles/deepswe-benchmark-claude-loophole-gpt-55-coding-leader",
-        "label": "DeepSWE Benchmark Exposes Claude Opus 4.7 Loophole and Crowns GPT-5.5 as Real Coding Leader",
-        "context": "Article",
-        "mentions": 36
-      },
-      {
-        "kind": "article",
-        "href": "/articles/claude-opus-48-dynamic-workflows-fast-mode-missing-benchmark",
-        "label": "Claude Opus 4.8 Released: Dynamic Workflows, Cheaper Fast Mode, and a Missing Benchmark",
-        "context": "Article",
-        "mentions": 28
-      },
-      {
         "kind": "guide",
         "href": "/guides/how-to-check-ai-benchmark-claims",
         "label": "How to Audit AI Benchmark Claims: A Practical Guide",
@@ -486,10 +567,24 @@
       },
       {
         "kind": "article",
-        "href": "/articles/qwen-3-8-max-benchmark-chart-kimi-k3-claude-opus-5",
-        "label": "Qwen 3.8 Max's Own Benchmark Chart Leaves Out Kimi K3 and Claude Opus 5. It Still Doesn't Clearly Win.",
+        "href": "/articles/deepswe-benchmark-claude-loophole-gpt-55-coding-leader",
+        "label": "DeepSWE Benchmark Exposes Claude Opus 4.7 Loophole and Crowns GPT-5.5 as Real Coding Leader",
         "context": "Article",
-        "mentions": 2
+        "mentions": 18
+      },
+      {
+        "kind": "article",
+        "href": "/articles/claude-opus-48-dynamic-workflows-fast-mode-missing-benchmark",
+        "label": "Claude Opus 4.8 Released: Dynamic Workflows, Cheaper Fast Mode, and a Missing Benchmark",
+        "context": "Article",
+        "mentions": 14
+      },
+      {
+        "kind": "article",
+        "href": "/articles/claude-fable-5-mythos-model-you-can-use-catch",
+        "label": "Claude Fable 5 Is the Mythos Model You Can Actually Use. But there's a Catch.",
+        "context": "Article",
+        "mentions": 17
       }
     ],
     "bi-encoder": [
@@ -519,25 +614,25 @@
         "mentions": 2
       },
       {
-        "kind": "article",
-        "href": "/articles/google-io-2026-dependency-trap-three-moves",
-        "label": "Google IO 2026 Built a Dependency Trap in Three Moves. Developers Noticed by Thursday.",
-        "context": "Article",
-        "mentions": 2
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/math-you-cant-escape",
+        "label": "Chapter 2 - Math You Can't Escape (But Can Tame)",
+        "context": "AI: From First Principles",
+        "mentions": 1
       },
       {
-        "kind": "article",
-        "href": "/articles/india-virginia-tax-inference-infrastructure",
-        "label": "Indian AI Founders Are Paying a 190ms Tax on Every Inference Call. That Is Finally Changing.",
-        "context": "Article",
-        "mentions": 2
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/classical-machine-learning",
+        "label": "Chapter 3 - Classical Machine Learning: Thinking in Features",
+        "context": "AI: From First Principles",
+        "mentions": 1
       },
       {
-        "kind": "article",
-        "href": "/articles/picobot-the-ai-agent-that-fits-in-your-pocket",
-        "label": "Picobot: The AI Agent That Fits in Your Pocket",
-        "context": "Article",
-        "mentions": 2
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/theoretical-foundations",
+        "label": "Chapter 4 - Theoretical Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
       }
     ],
     "c2pa": [
@@ -546,7 +641,14 @@
         "href": "/articles/google-synthid-expansion-openai-watermarking-2026",
         "label": "Google SynthID Expansion: OpenAI Joins, 100 Billion Watermarks, and Why the Gap Still Exists",
         "context": "Article",
-        "mentions": 18
+        "mentions": 9
+      },
+      {
+        "kind": "article",
+        "href": "/articles/claude-ai-text-watermark-china-law",
+        "label": "Claude AI Watermarks Text. China Made It Law First.",
+        "context": "Article",
+        "mentions": 1
       }
     ],
     "cuda": [
@@ -555,7 +657,7 @@
         "href": "/articles/nvidia-rtx-spark-cloud-first-ai-era",
         "label": "NVIDIA RTX Spark Is Not a Chip. It's the End of the Cloud-First AI Era.",
         "context": "Article",
-        "mentions": 4
+        "mentions": 3
       },
       {
         "kind": "guide",
@@ -572,11 +674,11 @@
         "mentions": 2
       },
       {
-        "kind": "article",
-        "href": "/articles/nvidia-hugging-face-acquisition-open-models",
-        "label": "NVIDIA Is Buying Hugging Face. The Hub Is the Prize.",
-        "context": "Article",
-        "mentions": 2
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/python-and-data",
+        "label": "Chapter 1 - Python & Data: The Unsexy Foundation",
+        "context": "AI: From First Principles",
+        "mentions": 1
       }
     ],
     "chain-of-thought": [
@@ -585,7 +687,7 @@
         "href": "/articles/anthropic-sep-security-report",
         "label": "Anthropic: Alibaba Cloned Claude 151M Times. Six More Did.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "chatgpt": [
@@ -594,58 +696,58 @@
         "href": "/articles/chatgpt-ads-openai-ipo-filing",
         "label": "ChatGPT Ads Rollout Is Here",
         "context": "Article",
-        "mentions": 16
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/chatgpt-agents-compromised-german-wiki-named-dsewiki",
         "label": "ChatGPT Agents Compromised German Wiki Named DseWiki",
         "context": "Article",
-        "mentions": 2
-      },
-      {
-        "kind": "article",
-        "href": "/articles/claude-scheduled-tasks-cloud-chatgpt-gemini",
-        "label": "Claude Scheduled Tasks Finally Run in the Cloud",
-        "context": "Article",
-        "mentions": 18
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/codex-mobile-claude-openclaw-remote-control",
         "label": "Codex Mobile Is Here. Claude Had It First. OpenClaw Had It Before Either of Them.",
         "context": "Article",
-        "mentions": 14
-      }
-    ],
-    "chatbot": [
-      {
-        "kind": "article",
-        "href": "/articles/jev-zero-hallucination-fine-print-disagrees",
-        "label": "Jev Claims Zero Hallucination. The Fine Print Disagrees.",
-        "context": "Article",
-        "mentions": 10
+        "mentions": 8
       },
       {
         "kind": "article",
         "href": "/articles/the-next-layer-how-ai-is-moving-from-your-screen-to-your-world",
         "label": "The Next Layer: How AI Is Moving From Your Screen to Your World",
         "context": "Article",
-        "mentions": 10
+        "mentions": 7
+      }
+    ],
+    "chatbot": [
+      {
+        "kind": "article",
+        "href": "/articles/grok-bot-openclaw-hermes-agent-popularity",
+        "label": "Why Grok Bot Is Taking Off. It Isn't Just a Chatbot.",
+        "context": "Article",
+        "mentions": 1
       },
       {
         "kind": "article",
-        "href": "/articles/claude-ai-text-watermark-china-law",
-        "label": "Claude AI Watermarks Text. China Made It Law First.",
+        "href": "/articles/jev-zero-hallucination-fine-print-disagrees",
+        "label": "Jev Claims Zero Hallucination. The Fine Print Disagrees.",
         "context": "Article",
-        "mentions": 4
+        "mentions": 5
       },
       {
         "kind": "article",
-        "href": "/articles/gemini-spark-end-of-session-persistent-ai",
-        "label": "Gemini Spark and the End of the Session: How AI Is Shifting From Passive to Persistent",
+        "href": "/articles/the-next-layer-how-ai-is-moving-from-your-screen-to-your-world",
+        "label": "The Next Layer: How AI Is Moving From Your Screen to Your World",
         "context": "Article",
-        "mentions": 4
+        "mentions": 5
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/transformers-and-llms",
+        "label": "Chapter 5 - Transformers & LLMs: Attention Changed Everything",
+        "context": "AI: From First Principles",
+        "mentions": 2
       }
     ],
     "chunking": [
@@ -665,15 +767,15 @@
       },
       {
         "kind": "article",
-        "href": "/articles/vector-database-market-pageindex",
-        "label": "The $2.2 Billion Vector Database Market Has a Problem. This Open Source Repo Might Be It.",
+        "href": "/articles/microsoft-vibevoice-open-voice-ai-distribution-gap",
+        "label": "Microsoft Shipped the Best Open Voice AI in August. Nobody Noticed Until May.",
         "context": "Article",
-        "mentions": 4
+        "mentions": 2
       },
       {
         "kind": "article",
-        "href": "/articles/microsoft-vibevoice-open-voice-ai-distribution-gap",
-        "label": "Microsoft Shipped the Best Open Voice AI in August. Nobody Noticed Until May.",
+        "href": "/articles/vector-database-market-pageindex",
+        "label": "The $2.2 Billion Vector Database Market Has a Problem. This Open Source Repo Might Be It.",
         "context": "Article",
         "mentions": 2
       }
@@ -684,7 +786,7 @@
         "href": "/articles/google-io-2026-dependency-trap-three-moves",
         "label": "Google IO 2026 Built a Dependency Trap in Three Moves. Developers Noticed by Thursday.",
         "context": "Article",
-        "mentions": 4
+        "mentions": 2
       },
       {
         "kind": "chapter",
@@ -711,52 +813,61 @@
     "claude-code": [
       {
         "kind": "article",
-        "href": "/articles/claude-code-security-the-argument-for-human-in-the-loop-just-got-harder",
-        "label": "Claude Code Security: The Argument for Human-in-the-Loop Just Got Harder",
-        "context": "Article",
-        "mentions": 14
-      },
-      {
-        "kind": "article",
         "href": "/articles/openai-codex-vs-claude-code-who-is-winning",
         "label": "Codex vs Claude Code: Who's Winning?",
         "context": "Article",
-        "mentions": 12
+        "mentions": 8
       },
       {
         "kind": "article",
         "href": "/articles/the-day-claude-codes-moat-disappeared",
         "label": "The Day Claude Code's Moat Disappeared",
         "context": "Article",
-        "mentions": 12
+        "mentions": 8
+      },
+      {
+        "kind": "article",
+        "href": "/articles/claude-code-security-the-argument-for-human-in-the-loop-just-got-harder",
+        "label": "Claude Code Security: The Argument for Human-in-the-Loop Just Got Harder",
+        "context": "Article",
+        "mentions": 7
       },
       {
         "kind": "article",
         "href": "/articles/codex-mobile-claude-openclaw-remote-control",
         "label": "Codex Mobile Is Here. Claude Had It First. OpenClaw Had It Before Either of Them.",
         "context": "Article",
-        "mentions": 32
+        "mentions": 17
+      }
+    ],
+    "claude-code-review": [
+      {
+        "kind": "article",
+        "href": "/articles/claude-code-review-vs-coderabbit",
+        "label": "Claude Code Review vs CodeRabbit: Two Philosophies of AI Code Review",
+        "context": "Article",
+        "mentions": 6
       }
     ],
     "claude-fable-5": [
       {
         "kind": "article",
-        "href": "/articles/claude-opus-5-fable-5-benchmark-reaction",
-        "label": "Claude Opus 5 Just Edged Out Fable 5 on the Benchmarks. Almost Nobody Noticed.",
+        "href": "/articles/claude-fable-5-mythos-model-you-can-use-catch",
+        "label": "Claude Fable 5 Is the Mythos Model You Can Actually Use. But there's a Catch.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/claude-fable-51-low-effort-benchmarks",
+        "label": "Claude Fable 5.1 Beats Fable 5, Even at Low Effort",
+        "context": "Article",
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/gpt-5-6-public-launch-government-review",
         "label": "GPT-5.6 Is Now Publicly Available. The Government Review That Delayed It Resolved Faster Than Fable 5's Did.",
-        "context": "Article",
-        "mentions": 2
-      },
-      {
-        "kind": "article",
-        "href": "/articles/gpt-6-sol-luna-cutting-cost-intelligence",
-        "label": "GPT-6 Sol and Luna Are Here. OpenAI Is Cutting the Cost of Intelligence.",
         "context": "Article",
         "mentions": 2
       },
@@ -771,24 +882,17 @@
     "claude-fable-51": [
       {
         "kind": "article",
-        "href": "/articles/claude-fable-51-low-effort-benchmarks",
-        "label": "Claude Fable 5.1 Beats Fable 5, Even at Low Effort",
-        "context": "Article",
-        "mentions": 6
-      },
-      {
-        "kind": "article",
         "href": "/articles/claude-opus-5-5-new-pricing-opus-lineup",
         "label": "Claude Opus 5.5 Launches With a New Pricing for Opus Lineup",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/jev-zero-hallucination-fine-print-disagrees",
         "label": "Jev Claims Zero Hallucination. The Fine Print Disagrees.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "claude-haiku-4-5": [
@@ -797,21 +901,21 @@
         "href": "/articles/claude-fable-5-mythos-model-you-can-use-catch",
         "label": "Claude Fable 5 Is the Mythos Model You Can Actually Use. But there's a Catch.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/deepswe-benchmark-claude-loophole-gpt-55-coding-leader",
         "label": "DeepSWE Benchmark Exposes Claude Opus 4.7 Loophole and Crowns GPT-5.5 as Real Coding Leader",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/minimax-m3-open-weight-frontier-coding-weights-not-out",
         "label": "MiniMax M3 Is the First Open-Weight Model With Frontier Coding, 1M Context, and Multimodality. The Weights Aren't Out Yet.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "claude-opus-4-5": [
@@ -820,21 +924,51 @@
         "href": "/articles/a-55gb-file-just-beat-a-25-million-token-model-on-three-benchmarks",
         "label": "A 55GB Open Model Just Beat Claude Opus on Three Benchmarks",
         "context": "Article",
-        "mentions": 4
+        "mentions": 2
       },
       {
         "kind": "article",
         "href": "/articles/ai-coding-memorization-swe-bench-pro",
         "label": "AI Can Write Your Code. It Just Cannot Understand It.",
         "context": "Article",
-        "mentions": 4
+        "mentions": 2
       },
       {
         "kind": "article",
         "href": "/articles/gemini-omni-gemini-3-5-flash-google-io-2026",
         "label": "Gemini Omni and Gemini 3.5 Flash Are Real. So Is the Thing Google Refused to Ship.",
         "context": "Article",
+        "mentions": 2
+      },
+      {
+        "kind": "article",
+        "href": "/articles/transformer-9-year-ceiling-subquadratic-subq",
+        "label": "Subquadratic Says It Broke the Transformer Ceiling",
+        "context": "Article",
+        "mentions": 1
+      }
+    ],
+    "claude-opus-4-6": [
+      {
+        "kind": "article",
+        "href": "/articles/deepseek-v4-is-almost-at-the-frontier-the-price-is-not",
+        "label": "DeepSeek V4 Is Almost at the Frontier. The Price Is Not.",
+        "context": "Article",
+        "mentions": 7
+      },
+      {
+        "kind": "article",
+        "href": "/articles/gemini-3-1-pro-scored-13-out-of-16",
+        "label": "Gemini 3.1 Pro Scored 13 Out of 16. Here Is What That Actually Means.",
+        "context": "Article",
         "mentions": 4
+      },
+      {
+        "kind": "article",
+        "href": "/articles/qwen-37-max-closed-source-alibaba-playbook",
+        "label": "Qwen 3.7 Max Is Closed Source: Alibaba Just Copied the Playbook It Was Beating",
+        "context": "Article",
+        "mentions": 3
       },
       {
         "kind": "article",
@@ -844,64 +978,34 @@
         "mentions": 2
       }
     ],
-    "claude-opus-4-6": [
-      {
-        "kind": "article",
-        "href": "/articles/deepseek-v4-is-almost-at-the-frontier-the-price-is-not",
-        "label": "DeepSeek V4 Is Almost at the Frontier. The Price Is Not.",
-        "context": "Article",
-        "mentions": 14
-      },
-      {
-        "kind": "article",
-        "href": "/articles/gemini-3-1-pro-scored-13-out-of-16",
-        "label": "Gemini 3.1 Pro Scored 13 Out of 16. Here Is What That Actually Means.",
-        "context": "Article",
-        "mentions": 8
-      },
-      {
-        "kind": "article",
-        "href": "/articles/qwen-37-max-closed-source-alibaba-playbook",
-        "label": "Qwen 3.7 Max Is Closed Source: Alibaba Just Copied the Playbook It Was Beating",
-        "context": "Article",
-        "mentions": 6
-      },
-      {
-        "kind": "article",
-        "href": "/articles/transformer-9-year-ceiling-subquadratic-subq",
-        "label": "Subquadratic Says It Broke the Transformer Ceiling",
-        "context": "Article",
-        "mentions": 4
-      }
-    ],
     "claude-opus-4-7": [
       {
         "kind": "article",
         "href": "/articles/deepswe-benchmark-claude-loophole-gpt-55-coding-leader",
         "label": "DeepSWE Benchmark Exposes Claude Opus 4.7 Loophole and Crowns GPT-5.5 as Real Coding Leader",
         "context": "Article",
-        "mentions": 10
+        "mentions": 6
       },
       {
         "kind": "article",
         "href": "/articles/claude-opus-4-7-proved-the-race-has-no-finish-line",
         "label": "Claude Opus 4.7 Proved the Race Has No Finish Line",
         "context": "Article",
-        "mentions": 6
+        "mentions": 3
       },
       {
         "kind": "article",
         "href": "/articles/gpt-5-6-public-launch-government-review",
         "label": "GPT-5.6 Is Now Publicly Available. The Government Review That Delayed It Resolved Faster Than Fable 5's Did.",
         "context": "Article",
-        "mentions": 6
+        "mentions": 3
       },
       {
         "kind": "article",
-        "href": "/articles/qwen-37-max-closed-source-alibaba-playbook",
-        "label": "Qwen 3.7 Max Is Closed Source: Alibaba Just Copied the Playbook It Was Beating",
+        "href": "/articles/minimax-m3-open-weight-frontier-coding-weights-not-out",
+        "label": "MiniMax M3 Is the First Open-Weight Model With Frontier Coding, 1M Context, and Multimodality. The Weights Aren't Out Yet.",
         "context": "Article",
-        "mentions": 6
+        "mentions": 3
       }
     ],
     "claude-opus-4-8": [
@@ -914,54 +1018,47 @@
       },
       {
         "kind": "article",
-        "href": "/articles/glm-5-3-flash-ox-alpha-free-model-benchmarks",
-        "label": "GLM-5.3-Flash Was Ox Alpha. The Free Test Was the Point.",
+        "href": "/articles/kimi-k3-largest-open-weight-model-claude-opus-gpt-55",
+        "label": "Kimi K3 Is the Largest Open-Weight Model Ever Announced. It Also Beats Claude Opus 4.8 and GPT-5.5.",
         "context": "Article",
-        "mentions": 4
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/grok-4-5-opus-adjacent-cursor-acquisition",
+        "label": "Grok 4.5 Is Not \"Opus-Class.\" It Is Something More Interesting: Opus-Adjacent and Much Cheaper.",
+        "context": "Article",
+        "mentions": 2
       },
       {
         "kind": "article",
         "href": "/articles/real-ai-race-minimax-m3-glm-52-deepseek-v4",
         "label": "The Real AI Race Nobody Is Covering: MiniMax M3, GLM 5.2, and DeepSeek V4 Are Fighting Each Other",
         "context": "Article",
-        "mentions": 4
-      },
-      {
-        "kind": "article",
-        "href": "/articles/anthropic-sep-security-report",
-        "label": "Anthropic: Alibaba Cloned Claude 151M Times. Six More Did.",
-        "context": "Article",
         "mentions": 2
       }
     ],
     "claude-opus-5": [
-      {
-        "kind": "article",
-        "href": "/articles/claude-opus-5-fable-5-benchmark-reaction",
-        "label": "Claude Opus 5 Just Edged Out Fable 5 on the Benchmarks. Almost Nobody Noticed.",
-        "context": "Article",
-        "mentions": 4
-      },
-      {
-        "kind": "article",
-        "href": "/articles/qwen-3-8-max-benchmark-chart-kimi-k3-claude-opus-5",
-        "label": "Qwen 3.8 Max's Own Benchmark Chart Leaves Out Kimi K3 and Claude Opus 5. It Still Doesn't Clearly Win.",
-        "context": "Article",
-        "mentions": 4
-      },
-      {
-        "kind": "article",
-        "href": "/articles/gemini-38-flash-beats-terra-price-performance",
-        "label": "Gemini 3.8 Flash Beats Terra. The Price Is the Point.",
-        "context": "Article",
-        "mentions": 6
-      },
       {
         "kind": "guide",
         "href": "/guides/how-to-check-ai-benchmark-claims",
         "label": "How to Audit AI Benchmark Claims: A Practical Guide",
         "context": null,
         "mentions": 2
+      },
+      {
+        "kind": "article",
+        "href": "/articles/claude-ai-text-watermark-china-law",
+        "label": "Claude AI Watermarks Text. China Made It Law First.",
+        "context": "Article",
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/muse-spark-dirt-cheap",
+        "label": "Muse Spark 1.3 Is Dirt Cheap with a catch",
+        "context": "Article",
+        "mentions": 1
       }
     ],
     "claude-opus-5-5": [
@@ -970,14 +1067,14 @@
         "href": "/articles/claude-opus-5-5-new-pricing-opus-lineup",
         "label": "Claude Opus 5.5 Launches With a New Pricing for Opus Lineup",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/gpt-6-sol-luna-cutting-cost-intelligence",
         "label": "GPT-6 Sol and Luna Are Here. OpenAI Is Cutting the Cost of Intelligence.",
         "context": "Article",
-        "mentions": 6
+        "mentions": 3
       }
     ],
     "claude-sonnet-4-5": [
@@ -986,14 +1083,14 @@
         "href": "/articles/openai-spud-anthropic-mythos-ipo-noise",
         "label": "Is Bigger Still Better, or Just IPO Noise?",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/nemotron-3-super-sparse-moe-efficiency",
         "label": "The Model That Thinks With 12B Parameters but Knows Everything a 120B Model Knows.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "claude-sonnet-4-6": [
@@ -1002,13 +1099,20 @@
         "href": "/articles/gemini-3-1-pro-scored-13-out-of-16",
         "label": "Gemini 3.1 Pro Scored 13 Out of 16. Here Is What That Actually Means.",
         "context": "Article",
-        "mentions": 6
+        "mentions": 3
       },
       {
         "kind": "guide",
         "href": "/guides/you-want-to-build-an-ai-agent-here-is-where-to-actually-start",
         "label": "How to Build an AI Agent: Start Here",
         "context": null,
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/claude-sonnet-5-rumors-benchmarks-pricing",
+        "label": "Claude Sonnet 5 Finally Launched. The Rumors Were Wrong About Almost Everything Except That It Was Coming.",
+        "context": "Article",
         "mentions": 1
       }
     ],
@@ -1022,17 +1126,10 @@
       },
       {
         "kind": "article",
-        "href": "/articles/gemini-38-flash-beats-terra-price-performance",
-        "label": "Gemini 3.8 Flash Beats Terra. The Price Is the Point.",
-        "context": "Article",
-        "mentions": 2
-      },
-      {
-        "kind": "article",
         "href": "/articles/gpt-5-6-public-launch-government-review",
         "label": "GPT-5.6 Is Now Publicly Available. The Government Review That Delayed It Resolved Faster Than Fable 5's Did.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "clustering": [
@@ -1048,7 +1145,7 @@
         "href": "/articles/deepswe-benchmark-claude-loophole-gpt-55-coding-leader",
         "label": "DeepSWE Benchmark Exposes Claude Opus 4.7 Loophole and Crowns GPT-5.5 as Real Coding Leader",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       },
       {
         "kind": "chapter",
@@ -1064,31 +1161,17 @@
         "href": "/articles/claude-code-review-vs-coderabbit",
         "label": "Claude Code Review vs CodeRabbit: Two Philosophies of AI Code Review",
         "context": "Article",
-        "mentions": 2
+        "mentions": 6
       },
       {
         "kind": "article",
         "href": "/articles/claude-opus-4-7-proved-the-race-has-no-finish-line",
         "label": "Claude Opus 4.7 Proved the Race Has No Finish Line",
         "context": "Article",
-        "mentions": 4
+        "mentions": 2
       }
     ],
     "codex": [
-      {
-        "kind": "article",
-        "href": "/articles/codex-mobile-claude-openclaw-remote-control",
-        "label": "Codex Mobile Is Here. Claude Had It First. OpenClaw Had It Before Either of Them.",
-        "context": "Article",
-        "mentions": 38
-      },
-      {
-        "kind": "article",
-        "href": "/articles/openai-codex-vs-claude-code-who-is-winning",
-        "label": "Codex vs Claude Code: Who's Winning?",
-        "context": "Article",
-        "mentions": 28
-      },
       {
         "kind": "guide",
         "href": "/guides/how-to-use-other-models-in-codex",
@@ -1098,10 +1181,24 @@
       },
       {
         "kind": "article",
+        "href": "/articles/codex-mobile-claude-openclaw-remote-control",
+        "label": "Codex Mobile Is Here. Claude Had It First. OpenClaw Had It Before Either of Them.",
+        "context": "Article",
+        "mentions": 20
+      },
+      {
+        "kind": "article",
+        "href": "/articles/openai-codex-vs-claude-code-who-is-winning",
+        "label": "Codex vs Claude Code: Who's Winning?",
+        "context": "Article",
+        "mentions": 15
+      },
+      {
+        "kind": "article",
         "href": "/articles/gemini-3-1-pro-scored-13-out-of-16",
         "label": "Gemini 3.1 Pro Scored 13 Out of 16. Here Is What That Actually Means.",
         "context": "Article",
-        "mentions": 10
+        "mentions": 5
       }
     ],
     "cold-start": [
@@ -1110,7 +1207,16 @@
         "href": "/articles/picobot-the-ai-agent-that-fits-in-your-pocket",
         "label": "Picobot: The AI Agent That Fits in Your Pocket",
         "context": "Article",
-        "mentions": 4
+        "mentions": 2
+      }
+    ],
+    "computer-vision": [
+      {
+        "kind": "article",
+        "href": "/articles/qwen-3-8-27b-opus-4-6-vision-benchmarks",
+        "label": "Qwen 3.8 27b is a revolution in open weight models",
+        "context": "Article",
+        "mentions": 1
       }
     ],
     "context-fusion": [
@@ -1158,13 +1264,6 @@
         "href": "/articles/transformer-9-year-ceiling-subquadratic-subq",
         "label": "Subquadratic Says It Broke the Transformer Ceiling",
         "context": "Article",
-        "mentions": 16
-      },
-      {
-        "kind": "article",
-        "href": "/articles/deepseek-v4-is-almost-at-the-frontier-the-price-is-not",
-        "label": "DeepSeek V4 Is Almost at the Frontier. The Price Is Not.",
-        "context": "Article",
         "mentions": 8
       },
       {
@@ -1172,14 +1271,21 @@
         "href": "/articles/minimax-m3-open-weight-frontier-coding-weights-not-out",
         "label": "MiniMax M3 Is the First Open-Weight Model With Frontier Coding, 1M Context, and Multimodality. The Weights Aren't Out Yet.",
         "context": "Article",
-        "mentions": 8
+        "mentions": 5
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/beginner-foundations",
+        "label": "Chapter 3 - Beginner Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 4
       },
       {
         "kind": "article",
         "href": "/articles/defenders-better-tools-everyone-else-ai-cybersecurity",
         "label": "DayBreak is the Avengers Initiative for Cybersecurity. The Problem Is, AI Arms it Both Sides.",
         "context": "Article",
-        "mentions": 6
+        "mentions": 4
       }
     ],
     "cosine-similarity": [
@@ -1257,28 +1363,28 @@
         "href": "/articles/cursor-3-agents-window-bugbot-vibe-coding",
         "label": "Cursor 3 Bets on a Different Kind of Developer",
         "context": "Article",
-        "mentions": 54
+        "mentions": 27
       },
       {
         "kind": "article",
         "href": "/articles/github-outage-cursor-origin-rival",
         "label": "GitHub Broke Again. Cursor Launched Its Rival.",
         "context": "Article",
-        "mentions": 18
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/grok-4-5-opus-adjacent-cursor-acquisition",
         "label": "Grok 4.5 Is Not \"Opus-Class.\" It Is Something More Interesting: Opus-Adjacent and Much Cheaper.",
         "context": "Article",
-        "mentions": 46
+        "mentions": 24
       },
       {
         "kind": "article",
-        "href": "/articles/grok-bot-openclaw-hermes-agent-popularity",
-        "label": "Why Grok Bot Is Taking Off. It Isn't Just a Chatbot.",
+        "href": "/articles/chatgpt-agents-compromised-german-wiki-named-dsewiki",
+        "label": "ChatGPT Agents Compromised German Wiki Named DseWiki",
         "context": "Article",
-        "mentions": 10
+        "mentions": 3
       }
     ],
     "cypher": [
@@ -1317,7 +1423,7 @@
         "href": "/articles/claude-inline-visuals-charts-whiteboard",
         "label": "Claude Gets Inline Charts and Diagrams, Free",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "data-augmentation": [
@@ -1353,7 +1459,7 @@
         "href": "/articles/decisions-api-use-cases-self-graded-scores",
         "label": "Decisions API Use Cases Are Real. Scores Are Self-Graded.",
         "context": "Article",
-        "mentions": 10
+        "mentions": 5
       }
     ],
     "deep-learning": [
@@ -1392,6 +1498,22 @@
         "href": "/articles/a-55gb-file-just-beat-a-25-million-token-model-on-three-benchmarks",
         "label": "A 55GB Open Model Just Beat Claude Opus on Three Benchmarks",
         "context": "Article",
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/deepseek-v4-is-almost-at-the-frontier-the-price-is-not",
+        "label": "DeepSeek V4 Is Almost at the Frontier. The Price Is Not.",
+        "context": "Article",
+        "mentions": 1
+      }
+    ],
+    "deepseek-v3": [
+      {
+        "kind": "article",
+        "href": "/articles/nemotron-3-super-sparse-moe-efficiency",
+        "label": "The Model That Thinks With 12B Parameters but Knows Everything a 120B Model Knows.",
+        "context": "Article",
         "mentions": 2
       },
       {
@@ -1399,16 +1521,14 @@
         "href": "/articles/deepseek-v4-is-almost-at-the-frontier-the-price-is-not",
         "label": "DeepSeek V4 Is Almost at the Frontier. The Price Is Not.",
         "context": "Article",
-        "mentions": 2
-      }
-    ],
-    "deepseek-v3": [
+        "mentions": 1
+      },
       {
         "kind": "article",
-        "href": "/articles/deepseek-v4-is-almost-at-the-frontier-the-price-is-not",
-        "label": "DeepSeek V4 Is Almost at the Frontier. The Price Is Not.",
+        "href": "/articles/inkling-thinking-machines-open-weight-model-gemma",
+        "label": "Inkling Is the First Western Open-Weight Model at Scale",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "deepseek-v4": [
@@ -1417,28 +1537,28 @@
         "href": "/articles/real-ai-race-minimax-m3-glm-52-deepseek-v4",
         "label": "The Real AI Race Nobody Is Covering: MiniMax M3, GLM 5.2, and DeepSeek V4 Are Fighting Each Other",
         "context": "Article",
-        "mentions": 6
+        "mentions": 3
       },
       {
         "kind": "article",
         "href": "/articles/deepseek-v4-is-almost-at-the-frontier-the-price-is-not",
         "label": "DeepSeek V4 Is Almost at the Frontier. The Price Is Not.",
         "context": "Article",
-        "mentions": 4
+        "mentions": 2
       },
       {
         "kind": "article",
         "href": "/articles/qwen-37-max-closed-source-alibaba-playbook",
         "label": "Qwen 3.7 Max Is Closed Source: Alibaba Just Copied the Playbook It Was Beating",
         "context": "Article",
-        "mentions": 6
+        "mentions": 4
       },
       {
         "kind": "article",
-        "href": "/articles/gemini-omni-gemini-3-5-flash-google-io-2026",
-        "label": "Gemini Omni and Gemini 3.5 Flash Are Real. So Is the Thing Google Refused to Ship.",
+        "href": "/articles/minimax-m3-open-weight-frontier-coding-weights-not-out",
+        "label": "MiniMax M3 Is the First Open-Weight Model With Frontier Coding, 1M Context, and Multimodality. The Weights Aren't Out Yet.",
         "context": "Article",
-        "mentions": 4
+        "mentions": 3
       }
     ],
     "deepseek-v4-pro": [
@@ -1447,21 +1567,14 @@
         "href": "/articles/real-ai-race-minimax-m3-glm-52-deepseek-v4",
         "label": "The Real AI Race Nobody Is Covering: MiniMax M3, GLM 5.2, and DeepSeek V4 Are Fighting Each Other",
         "context": "Article",
-        "mentions": 10
-      },
-      {
-        "kind": "article",
-        "href": "/articles/grok-4-6-index-cost-efficiency-benchmarks",
-        "label": "Grok 4.6 Ties GPT-5.6 Sol. Where It Falls Short",
-        "context": "Article",
-        "mentions": 2
+        "mentions": 5
       },
       {
         "kind": "article",
         "href": "/articles/kimi-k3-largest-open-weight-model-claude-opus-gpt-55",
         "label": "Kimi K3 Is the Largest Open-Weight Model Ever Announced. It Also Beats Claude Opus 4.8 and GPT-5.5.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "dense-retrieval": [
@@ -1493,7 +1606,7 @@
         "href": "/articles/picobot-the-ai-agent-that-fits-in-your-pocket",
         "label": "Picobot: The AI Agent That Fits in Your Pocket",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "dropout": [
@@ -1518,28 +1631,28 @@
         "href": "/articles/the-next-layer-how-ai-is-moving-from-your-screen-to-your-world",
         "label": "The Next Layer: How AI Is Moving From Your Screen to Your World",
         "context": "Article",
-        "mentions": 8
+        "mentions": 5
       },
       {
         "kind": "article",
         "href": "/articles/openai-parameter-golf-edge-ai",
         "label": "OpenAI Bets on Tiny AI With Parameter Golf",
         "context": "Article",
-        "mentions": 6
+        "mentions": 3
       },
       {
         "kind": "article",
         "href": "/articles/google-functiongemma-on-device-ai",
         "label": "Google Released a 270M Parameter Model That Runs on Your Phone. The Architecture Shift It Signals Is Bigger Than the Model.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       },
       {
         "kind": "article",
-        "href": "/articles/picobot-the-ai-agent-that-fits-in-your-pocket",
-        "label": "Picobot: The AI Agent That Fits in Your Pocket",
+        "href": "/articles/paperclip-agent-memory-problem",
+        "label": "Paperclip Remembered the Company. Now Someone Needs to Remember the Agent.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "elevenlabs": [
@@ -1548,21 +1661,28 @@
         "href": "/articles/google-synthid-expansion-openai-watermarking-2026",
         "label": "Google SynthID Expansion: OpenAI Joins, 100 Billion Watermarks, and Why the Gap Still Exists",
         "context": "Article",
-        "mentions": 16
+        "mentions": 8
       },
       {
         "kind": "article",
         "href": "/articles/microsoft-vibevoice-open-voice-ai-distribution-gap",
         "label": "Microsoft Shipped the Best Open Voice AI in August. Nobody Noticed Until May.",
         "context": "Article",
-        "mentions": 6
+        "mentions": 4
       },
       {
         "kind": "article",
         "href": "/articles/razorpay-agent-studio-ai-payments-platform",
         "label": "Razorpay Agent Studio: AI Agents Inside Payments",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/this-week-voice-ai-stopped-being-a-demo",
+        "label": "Voice AI Stopped Being a Demo This Week",
+        "context": "Article",
+        "mentions": 1
       }
     ],
     "embedding": [
@@ -1588,11 +1708,11 @@
         "mentions": 5
       },
       {
-        "kind": "article",
-        "href": "/articles/vector-database-market-pageindex",
-        "label": "The $2.2 Billion Vector Database Market Has a Problem. This Open Source Repo Might Be It.",
-        "context": "Article",
-        "mentions": 4
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/transformers-and-llms",
+        "label": "Chapter 5 - Transformers & LLMs: Attention Changed Everything",
+        "context": "AI: From First Principles",
+        "mentions": 2
       }
     ],
     "entity-linking": [
@@ -1635,17 +1755,10 @@
       },
       {
         "kind": "article",
-        "href": "/articles/sarvam-code-three-agent-architecture",
-        "label": "Sarvam Code Launched With a New Three-Agent Architecture. Every Coding Agent Already Has One.",
-        "context": "Article",
-        "mentions": 2
-      },
-      {
-        "kind": "article",
         "href": "/articles/why-you-should-look-at-cost-per-successful-task-instead-of-price-per-token",
         "label": "Why You Should Look at Cost Per Successful Task Instead Of Price Per Token",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "faiss": [
@@ -1680,6 +1793,15 @@
         "mentions": 2
       }
     ],
+    "federated-learning": [
+      {
+        "kind": "article",
+        "href": "/articles/the-next-layer-how-ai-is-moving-from-your-screen-to-your-world",
+        "label": "The Next Layer: How AI Is Moving From Your Screen to Your World",
+        "context": "Article",
+        "mentions": 1
+      }
+    ],
     "feed-forward-network": [
       {
         "kind": "chapter",
@@ -1692,29 +1814,29 @@
     "fine-tuning": [
       {
         "kind": "article",
+        "href": "/articles/google-functiongemma-on-device-ai",
+        "label": "Google Released a 270M Parameter Model That Runs on Your Phone. The Architecture Shift It Signals Is Bigger Than the Model.",
+        "context": "Article",
+        "mentions": 5
+      },
+      {
+        "kind": "article",
         "href": "/articles/inkling-thinking-machines-open-weight-model-gemma",
         "label": "Inkling Is the First Western Open-Weight Model at Scale",
         "context": "Article",
-        "mentions": 4
+        "mentions": 3
       },
       {
         "kind": "article",
-        "href": "/articles/google-just-updated-nano-banana",
-        "label": "Google Just Updated Nano Banana. Your iPhone Felt It Too.",
+        "href": "/articles/ideogram-4-open-weight-image-generation-gap-hugging-face",
+        "label": "Ideogram 4 Open Weight Release: The Image Generation Gap Just Closed on Hugging Face",
         "context": "Article",
         "mentions": 2
       },
       {
         "kind": "article",
-        "href": "/articles/google-turboquant-cuts-ai-memory-6x",
-        "label": "Google's TurboQuant Cuts AI Memory 6x",
-        "context": "Article",
-        "mentions": 2
-      },
-      {
-        "kind": "article",
-        "href": "/articles/grok-4-6-index-cost-efficiency-benchmarks",
-        "label": "Grok 4.6 Ties GPT-5.6 Sol. Where It Falls Short",
+        "href": "/articles/kimi-k3-largest-open-weight-model-claude-opus-gpt-55",
+        "label": "Kimi K3 Is the Largest Open-Weight Model Ever Announced. It Also Beats Claude Opus 4.8 and GPT-5.5.",
         "context": "Article",
         "mentions": 2
       }
@@ -1722,31 +1844,31 @@
     "foundation-model": [
       {
         "kind": "article",
-        "href": "/articles/razorpay-vulcan-payments-ai-foundation-model",
-        "label": "Razorpay Vulcan Isn't a Frontier Model. That's the Point.",
-        "context": "Article",
-        "mentions": 10
-      },
-      {
-        "kind": "article",
         "href": "/articles/claude-killed-my-startup",
         "label": "Claude Killed My Startup. Now What Does That Mean for the Rest of Us?",
         "context": "Article",
-        "mentions": 6
+        "mentions": 3
       },
       {
         "kind": "article",
         "href": "/articles/google-just-updated-nano-banana",
         "label": "Google Just Updated Nano Banana. Your iPhone Felt It Too.",
         "context": "Article",
-        "mentions": 6
+        "mentions": 3
       },
       {
         "kind": "article",
         "href": "/articles/jack-dorsey-block-layoffs",
         "label": "Jack Dorsey Just Fired 4,000 People and Wall Street Cheered. Here Is the Memo Every Developer Should Read.",
         "context": "Article",
-        "mentions": 4
+        "mentions": 2
+      },
+      {
+        "kind": "article",
+        "href": "/articles/openclaw-had-210000-github-stars",
+        "label": "OpenClaw Had 210,000 GitHub Stars. Then Anthropic Shipped One Feature.",
+        "context": "Article",
+        "mentions": 2
       }
     ],
     "glm-5-2": [
@@ -1755,28 +1877,28 @@
         "href": "/articles/real-ai-race-minimax-m3-glm-52-deepseek-v4",
         "label": "The Real AI Race Nobody Is Covering: MiniMax M3, GLM 5.2, and DeepSeek V4 Are Fighting Each Other",
         "context": "Article",
-        "mentions": 28
+        "mentions": 14
       },
       {
         "kind": "article",
         "href": "/articles/inkling-thinking-machines-open-weight-model-gemma",
         "label": "Inkling Is the First Western Open-Weight Model at Scale",
         "context": "Article",
-        "mentions": 8
+        "mentions": 4
       },
       {
         "kind": "article",
         "href": "/articles/gemini-36-flash-google-outside-top-ten",
         "label": "Gemini 3.6 Flash Is Out. Google Still Doesn't Have a Model in the Top Ten.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/grok-4-5-opus-adjacent-cursor-acquisition",
         "label": "Grok 4.5 Is Not \"Opus-Class.\" It Is Something More Interesting: Opus-Adjacent and Much Cheaper.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "glm-5-3": [
@@ -1785,46 +1907,44 @@
         "href": "/articles/anthropic-sep-security-report",
         "label": "Anthropic: Alibaba Cloned Claude 151M Times. Six More Did.",
         "context": "Article",
-        "mentions": 2
-      }
-    ],
-    "glm-4-5": [
+        "mentions": 1
+      },
       {
         "kind": "article",
         "href": "/articles/glm-5-3-flash-ox-alpha-free-model-benchmarks",
         "label": "GLM-5.3-Flash Was Ox Alpha. The Free Test Was the Point.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "glm-5": [
       {
         "kind": "article",
-        "href": "/articles/glm-5-3-flash-ox-alpha-free-model-benchmarks",
-        "label": "GLM-5.3-Flash Was Ox Alpha. The Free Test Was the Point.",
-        "context": "Article",
-        "mentions": 16
-      },
-      {
-        "kind": "article",
-        "href": "/articles/terminal-bench-4-agent-not-model",
-        "label": "Terminal-Bench 4 Is Measuring the Agent, Not the Model",
-        "context": "Article",
-        "mentions": 14
-      },
-      {
-        "kind": "article",
         "href": "/articles/pony-alpha-openrouter-glm-5",
         "label": "A Model With No Name Appeared on OpenRouter. Developers Loved It. It Lasted Five Days.",
         "context": "Article",
-        "mentions": 6
+        "mentions": 3
       },
       {
         "kind": "article",
         "href": "/articles/real-ai-race-minimax-m3-glm-52-deepseek-v4",
         "label": "The Real AI Race Nobody Is Covering: MiniMax M3, GLM 5.2, and DeepSeek V4 Are Fighting Each Other",
         "context": "Article",
-        "mentions": 4
+        "mentions": 2
+      },
+      {
+        "kind": "article",
+        "href": "/articles/inkling-thinking-machines-open-weight-model-gemma",
+        "label": "Inkling Is the First Western Open-Weight Model at Scale",
+        "context": "Article",
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/kimi-k3-largest-open-weight-model-claude-opus-gpt-55",
+        "label": "Kimi K3 Is the Largest Open-Weight Model Ever Announced. It Also Beats Claude Opus 4.8 and GPT-5.5.",
+        "context": "Article",
+        "mentions": 1
       }
     ],
     "gpqa-diamond": [
@@ -1833,28 +1953,28 @@
         "href": "/articles/a-55gb-file-just-beat-a-25-million-token-model-on-three-benchmarks",
         "label": "A 55GB Open Model Just Beat Claude Opus on Three Benchmarks",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/claude-opus-4-7-proved-the-race-has-no-finish-line",
         "label": "Claude Opus 4.7 Proved the Race Has No Finish Line",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/claude-opus-48-dynamic-workflows-fast-mode-missing-benchmark",
         "label": "Claude Opus 4.8 Released: Dynamic Workflows, Cheaper Fast Mode, and a Missing Benchmark",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/gemini-3-1-pro-scored-13-out-of-16",
         "label": "Gemini 3.1 Pro Scored 13 Out of 16. Here Is What That Actually Means.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "gpt-image-2": [
@@ -1863,7 +1983,7 @@
         "href": "/articles/ideogram-4-open-weight-image-generation-gap-hugging-face",
         "label": "Ideogram 4 Open Weight Release: The Image Generation Gap Just Closed on Hugging Face",
         "context": "Article",
-        "mentions": 12
+        "mentions": 7
       }
     ],
     "gpt-4-1": [
@@ -1872,7 +1992,7 @@
         "href": "/articles/pony-alpha-openrouter-glm-5",
         "label": "A Model With No Name Appeared on OpenRouter. Developers Loved It. It Lasted Five Days.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "gpt-5": [
@@ -1881,28 +2001,28 @@
         "href": "/articles/ai-coding-memorization-swe-bench-pro",
         "label": "AI Can Write Your Code. It Just Cannot Understand It.",
         "context": "Article",
-        "mentions": 14
+        "mentions": 7
       },
       {
         "kind": "article",
         "href": "/articles/gemini-3-1-pro-scored-13-out-of-16",
         "label": "Gemini 3.1 Pro Scored 13 Out of 16. Here Is What That Actually Means.",
         "context": "Article",
-        "mentions": 8
+        "mentions": 4
       },
       {
         "kind": "article",
         "href": "/articles/alibaba-qwen-3-5-scaling-era",
         "label": "Alibaba's 9B Model Just Beat Its Own 30B. The Scaling Era Is Ending.",
         "context": "Article",
-        "mentions": 6
+        "mentions": 3
       },
       {
         "kind": "article",
         "href": "/articles/openai-codex-vs-claude-code-who-is-winning",
         "label": "Codex vs Claude Code: Who's Winning?",
         "context": "Article",
-        "mentions": 6
+        "mentions": 3
       }
     ],
     "gpt-5-2": [
@@ -1911,44 +2031,44 @@
         "href": "/articles/ai-coding-memorization-swe-bench-pro",
         "label": "AI Can Write Your Code. It Just Cannot Understand It.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/gemini-3-1-pro-scored-13-out-of-16",
         "label": "Gemini 3.1 Pro Scored 13 Out of 16. Here Is What That Actually Means.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "gpt-5-4": [
       {
         "kind": "article",
-        "href": "/articles/deepseek-v4-is-almost-at-the-frontier-the-price-is-not",
-        "label": "DeepSeek V4 Is Almost at the Frontier. The Price Is Not.",
-        "context": "Article",
-        "mentions": 6
-      },
-      {
-        "kind": "article",
         "href": "/articles/codex-mobile-claude-openclaw-remote-control",
         "label": "Codex Mobile Is Here. Claude Had It First. OpenClaw Had It Before Either of Them.",
         "context": "Article",
-        "mentions": 4
+        "mentions": 3
+      },
+      {
+        "kind": "article",
+        "href": "/articles/deepseek-v4-is-almost-at-the-frontier-the-price-is-not",
+        "label": "DeepSeek V4 Is Almost at the Frontier. The Price Is Not.",
+        "context": "Article",
+        "mentions": 3
       },
       {
         "kind": "article",
         "href": "/articles/deepswe-benchmark-claude-loophole-gpt-55-coding-leader",
         "label": "DeepSWE Benchmark Exposes Claude Opus 4.7 Loophole and Crowns GPT-5.5 as Real Coding Leader",
         "context": "Article",
-        "mentions": 4
+        "mentions": 3
       },
       {
         "kind": "article",
         "href": "/articles/minimax-m27-self-evolution-benchmark-competitive",
         "label": "MiniMax M2.7 Built Itself. The Race Shifted.",
         "context": "Article",
-        "mentions": 4
+        "mentions": 2
       }
     ],
     "gpt-5-5": [
@@ -1957,7 +2077,37 @@
         "href": "/articles/deepswe-benchmark-claude-loophole-gpt-55-coding-leader",
         "label": "DeepSWE Benchmark Exposes Claude Opus 4.7 Loophole and Crowns GPT-5.5 as Real Coding Leader",
         "context": "Article",
-        "mentions": 8
+        "mentions": 5
+      },
+      {
+        "kind": "article",
+        "href": "/articles/kimi-k3-largest-open-weight-model-claude-opus-gpt-55",
+        "label": "Kimi K3 Is the Largest Open-Weight Model Ever Announced. It Also Beats Claude Opus 4.8 and GPT-5.5.",
+        "context": "Article",
+        "mentions": 5
+      },
+      {
+        "kind": "article",
+        "href": "/articles/sakana-fugu-beats-gpt-55-model-orchestration",
+        "label": "Sakana Fugu Beats GPT-5.5 With Model Orchestration",
+        "context": "Article",
+        "mentions": 3
+      },
+      {
+        "kind": "article",
+        "href": "/articles/claude-fable-5-mythos-model-you-can-use-catch",
+        "label": "Claude Fable 5 Is the Mythos Model You Can Actually Use. But there's a Catch.",
+        "context": "Article",
+        "mentions": 10
+      }
+    ],
+    "gpt-5-6": [
+      {
+        "kind": "article",
+        "href": "/articles/gpt-5-6-public-launch-government-review",
+        "label": "GPT-5.6 Is Now Publicly Available. The Government Review That Delayed It Resolved Faster Than Fable 5's Did.",
+        "context": "Article",
+        "mentions": 11
       },
       {
         "kind": "article",
@@ -1968,47 +2118,17 @@
       },
       {
         "kind": "article",
-        "href": "/articles/sakana-fugu-beats-gpt-55-model-orchestration",
-        "label": "Sakana Fugu Beats GPT-5.5 With Model Orchestration",
+        "href": "/articles/gpt-6-sol-luna-cutting-cost-intelligence",
+        "label": "GPT-6 Sol and Luna Are Here. OpenAI Is Cutting the Cost of Intelligence.",
         "context": "Article",
-        "mentions": 4
+        "mentions": 7
       },
       {
         "kind": "article",
-        "href": "/articles/claude-fable-5-mythos-model-you-can-use-catch",
-        "label": "Claude Fable 5 Is the Mythos Model You Can Actually Use. But there's a Catch.",
+        "href": "/articles/us-government-ai-model-approval-fix-software",
+        "label": "The US Government Is Now Approving AI Models Before They Ship. The Question Nobody Is Asking Is Why Not Fix the Software Instead.",
         "context": "Article",
-        "mentions": 18
-      }
-    ],
-    "gpt-5-6": [
-      {
-        "kind": "article",
-        "href": "/articles/gpt-5-6-public-launch-government-review",
-        "label": "GPT-5.6 Is Now Publicly Available. The Government Review That Delayed It Resolved Faster Than Fable 5's Did.",
-        "context": "Article",
-        "mentions": 20
-      },
-      {
-        "kind": "article",
-        "href": "/articles/grok-4-6-index-cost-efficiency-benchmarks",
-        "label": "Grok 4.6 Ties GPT-5.6 Sol. Where It Falls Short",
-        "context": "Article",
-        "mentions": 12
-      },
-      {
-        "kind": "article",
-        "href": "/articles/terminal-bench-4-agent-not-model",
-        "label": "Terminal-Bench 4 Is Measuring the Agent, Not the Model",
-        "context": "Article",
-        "mentions": 20
-      },
-      {
-        "kind": "article",
-        "href": "/articles/gemini-38-flash-beats-terra-price-performance",
-        "label": "Gemini 3.8 Flash Beats Terra. The Price Is the Point.",
-        "context": "Article",
-        "mentions": 18
+        "mentions": 7
       }
     ],
     "gpt-6-luna": [
@@ -2017,43 +2137,13 @@
         "href": "/articles/gpt-6-sol-luna-cutting-cost-intelligence",
         "label": "GPT-6 Sol and Luna Are Here. OpenAI Is Cutting the Cost of Intelligence.",
         "context": "Article",
-        "mentions": 6
+        "mentions": 3
       },
       {
         "kind": "article",
         "href": "/articles/claude-sonnet-5-5-price",
         "label": "Claude Sonnet 5.5 Matches Sol's Price. Beats It on Paper.",
         "context": "Article",
-        "mentions": 2
-      },
-      {
-        "kind": "article",
-        "href": "/articles/decisions-api-use-cases-self-graded-scores",
-        "label": "Decisions API Use Cases Are Real. Scores Are Self-Graded.",
-        "context": "Article",
-        "mentions": 2
-      }
-    ],
-    "gpt-6-sol": [
-      {
-        "kind": "comparison",
-        "href": "/comparisons/gpt-6-1-sol-vs-gpt-6-sol",
-        "label": "GPT-6.1 Sol vs GPT-6 Sol",
-        "context": "Comparison",
-        "mentions": 10
-      },
-      {
-        "kind": "article",
-        "href": "/articles/gpt-6-sol-luna-cutting-cost-intelligence",
-        "label": "GPT-6 Sol and Luna Are Here. OpenAI Is Cutting the Cost of Intelligence.",
-        "context": "Article",
-        "mentions": 10
-      },
-      {
-        "kind": "comparison",
-        "href": "/comparisons/gpt-6-sol-vs-opus-5-5",
-        "label": "GPT-6 Sol vs Claude Opus 5.5",
-        "context": "Comparison",
         "mentions": 1
       },
       {
@@ -2061,7 +2151,37 @@
         "href": "/articles/decisions-api-use-cases-self-graded-scores",
         "label": "Decisions API Use Cases Are Real. Scores Are Self-Graded.",
         "context": "Article",
-        "mentions": 4
+        "mentions": 1
+      }
+    ],
+    "gpt-6-sol": [
+      {
+        "kind": "article",
+        "href": "/articles/gpt-6-sol-luna-cutting-cost-intelligence",
+        "label": "GPT-6 Sol and Luna Are Here. OpenAI Is Cutting the Cost of Intelligence.",
+        "context": "Article",
+        "mentions": 5
+      },
+      {
+        "kind": "comparison",
+        "href": "/comparisons/gpt-6-1-sol-vs-gpt-6-sol",
+        "label": "GPT-6.1 Sol vs GPT-6 Sol",
+        "context": "Comparison",
+        "mentions": 3
+      },
+      {
+        "kind": "article",
+        "href": "/articles/decisions-api-use-cases-self-graded-scores",
+        "label": "Decisions API Use Cases Are Real. Scores Are Self-Graded.",
+        "context": "Article",
+        "mentions": 2
+      },
+      {
+        "kind": "article",
+        "href": "/articles/claude-sonnet-5-5-price",
+        "label": "Claude Sonnet 5.5 Matches Sol's Price. Beats It on Paper.",
+        "context": "Article",
+        "mentions": 1
       }
     ],
     "gpt-6-1-sol": [
@@ -2070,7 +2190,7 @@
         "href": "/comparisons/gpt-6-1-sol-vs-gpt-6-sol",
         "label": "GPT-6.1 Sol vs GPT-6 Sol",
         "context": "Comparison",
-        "mentions": 7
+        "mentions": 1
       }
     ],
     "gpt-oss-120b": [
@@ -2079,24 +2199,17 @@
         "href": "/articles/decisions-api-use-cases-self-graded-scores",
         "label": "Decisions API Use Cases Are Real. Scores Are Self-Graded.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/google-gemma-4-open-source-ai-apache",
         "label": "Open Source AI Is No Longer a Side Project",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "gpu": [
-      {
-        "kind": "article",
-        "href": "/articles/gimlet-labs-multi-silicon-inference-cloud",
-        "label": "Idle GPUs Are Costing the AI Industry Billions",
-        "context": "Article",
-        "mentions": 12
-      },
       {
         "kind": "guide",
         "href": "/guides/qwen-3-8-27b-install-run",
@@ -2106,17 +2219,24 @@
       },
       {
         "kind": "article",
-        "href": "/articles/google-unleashes-ai-agents-in-colab",
-        "label": "Google Unleashes AI Agents in Colab",
+        "href": "/articles/gimlet-labs-multi-silicon-inference-cloud",
+        "label": "Idle GPUs Are Costing the AI Industry Billions",
         "context": "Article",
-        "mentions": 8
+        "mentions": 7
       },
       {
         "kind": "article",
-        "href": "/articles/qwen-3-8-27b-opus-4-6-vision-benchmarks",
-        "label": "Qwen 3.8 27b is a revolution in open weight models",
+        "href": "/articles/india-virginia-tax-inference-infrastructure",
+        "label": "Indian AI Founders Are Paying a 190ms Tax on Every Inference Call. That Is Finally Changing.",
         "context": "Article",
         "mentions": 6
+      },
+      {
+        "kind": "article",
+        "href": "/articles/google-unleashes-ai-agents-in-colab",
+        "label": "Google Unleashes AI Agents in Colab",
+        "context": "Article",
+        "mentions": 5
       }
     ],
     "gemini": [
@@ -2125,28 +2245,28 @@
         "href": "/articles/gemini-omni-gemini-3-5-flash-google-io-2026",
         "label": "Gemini Omni and Gemini 3.5 Flash Are Real. So Is the Thing Google Refused to Ship.",
         "context": "Article",
-        "mentions": 50
-      },
-      {
-        "kind": "article",
-        "href": "/articles/gemini-36-flash-google-outside-top-ten",
-        "label": "Gemini 3.6 Flash Is Out. Google Still Doesn't Have a Model in the Top Ten.",
-        "context": "Article",
-        "mentions": 40
-      },
-      {
-        "kind": "article",
-        "href": "/articles/gemini-38-flash-beats-terra-price-performance",
-        "label": "Gemini 3.8 Flash Beats Terra. The Price Is the Point.",
-        "context": "Article",
-        "mentions": 34
+        "mentions": 25
       },
       {
         "kind": "article",
         "href": "/articles/gemini-3-1-pro-scored-13-out-of-16",
         "label": "Gemini 3.1 Pro Scored 13 Out of 16. Here Is What That Actually Means.",
         "context": "Article",
-        "mentions": 26
+        "mentions": 13
+      },
+      {
+        "kind": "article",
+        "href": "/articles/google-gemini-hacked-3-companies",
+        "label": "Google Gemini Hacked 3 Companies. Four Labs, Same Story.",
+        "context": "Article",
+        "mentions": 5
+      },
+      {
+        "kind": "article",
+        "href": "/articles/gemini-spark-end-of-session-persistent-ai",
+        "label": "Gemini Spark and the End of the Session: How AI Is Shifting From Passive to Persistent",
+        "context": "Article",
+        "mentions": 4
       }
     ],
     "gemini-3-1-pro": [
@@ -2155,28 +2275,28 @@
         "href": "/articles/gemini-3-1-pro-scored-13-out-of-16",
         "label": "Gemini 3.1 Pro Scored 13 Out of 16. Here Is What That Actually Means.",
         "context": "Article",
-        "mentions": 20
+        "mentions": 10
       },
       {
         "kind": "article",
         "href": "/articles/deepseek-v4-is-almost-at-the-frontier-the-price-is-not",
         "label": "DeepSeek V4 Is Almost at the Frontier. The Price Is Not.",
         "context": "Article",
-        "mentions": 10
-      },
-      {
-        "kind": "article",
-        "href": "/articles/gemini-omni-gemini-3-5-flash-google-io-2026",
-        "label": "Gemini Omni and Gemini 3.5 Flash Are Real. So Is the Thing Google Refused to Ship.",
-        "context": "Article",
-        "mentions": 6
+        "mentions": 5
       },
       {
         "kind": "article",
         "href": "/articles/claude-fable-5-mythos-model-you-can-use-catch",
         "label": "Claude Fable 5 Is the Mythos Model You Can Actually Use. But there's a Catch.",
         "context": "Article",
-        "mentions": 4
+        "mentions": 3
+      },
+      {
+        "kind": "article",
+        "href": "/articles/gemini-omni-gemini-3-5-flash-google-io-2026",
+        "label": "Gemini Omni and Gemini 3.5 Flash Are Real. So Is the Thing Google Refused to Ship.",
+        "context": "Article",
+        "mentions": 3
       }
     ],
     "gemini-3-7-flash": [
@@ -2185,17 +2305,10 @@
         "href": "/articles/gemini-38-flash-beats-terra-price-performance",
         "label": "Gemini 3.8 Flash Beats Terra. The Price Is the Point.",
         "context": "Article",
-        "mentions": 8
+        "mentions": 1
       }
     ],
     "gemini-3-8-flash": [
-      {
-        "kind": "article",
-        "href": "/articles/gemini-38-flash-beats-terra-price-performance",
-        "label": "Gemini 3.8 Flash Beats Terra. The Price Is the Point.",
-        "context": "Article",
-        "mentions": 28
-      },
       {
         "kind": "comparison",
         "href": "/comparisons/gemini-3-7-flash-vs-gemini-3-8-flash",
@@ -2210,21 +2323,21 @@
         "href": "/articles/gemini-spark-end-of-session-persistent-ai",
         "label": "Gemini Spark and the End of the Session: How AI Is Shifting From Passive to Persistent",
         "context": "Article",
-        "mentions": 6
+        "mentions": 3
       },
       {
         "kind": "article",
         "href": "/articles/google-io-2026-dependency-trap-three-moves",
         "label": "Google IO 2026 Built a Dependency Trap in Three Moves. Developers Noticed by Thursday.",
         "context": "Article",
-        "mentions": 14
+        "mentions": 7
       },
       {
         "kind": "article",
         "href": "/articles/nvidia-rtx-spark-cloud-first-ai-era",
         "label": "NVIDIA RTX Spark Is Not a Chip. It's the End of the Cloud-First AI Era.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "github-copilot": [
@@ -2233,21 +2346,37 @@
         "href": "/articles/microsoft-killed-ai-sidekick-copilot-story",
         "label": "Microsoft Killed Its AI Sidekick. Game Or Strategy.",
         "context": "Article",
-        "mentions": 4
+        "mentions": 3
       },
       {
         "kind": "article",
         "href": "/articles/ai-coding-memorization-swe-bench-pro",
         "label": "AI Can Write Your Code. It Just Cannot Understand It.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       },
       {
         "kind": "article",
-        "href": "/articles/prime-agent-persistent-open-source-coding-agent",
-        "label": "Prime Agent Is Free, Open Source, and Remembers What Every Other Coding Agent Forgets",
+        "href": "/articles/ai-skills-developers-survival",
+        "label": "AI Skills Are the New Requirement for Developers",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/claude-sonnet-5-rumors-benchmarks-pricing",
+        "label": "Claude Sonnet 5 Finally Launched. The Rumors Were Wrong About Almost Everything Except That It Was Coming.",
+        "context": "Article",
+        "mentions": 1
+      }
+    ],
+    "google-deepmind": [
+      {
+        "kind": "article",
+        "href": "/articles/sakana-fugu-beats-gpt-55-model-orchestration",
+        "label": "Sakana Fugu Beats GPT-5.5 With Model Orchestration",
+        "context": "Article",
+        "mentions": 1
       }
     ],
     "gradient-clipping": [
@@ -2355,7 +2484,7 @@
         "href": "/articles/pony-alpha-openrouter-glm-5",
         "label": "A Model With No Name Appeared on OpenRouter. Developers Loved It. It Lasted Five Days.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "grok-4-5": [
@@ -2364,58 +2493,21 @@
         "href": "/articles/grok-4-5-opus-adjacent-cursor-acquisition",
         "label": "Grok 4.5 Is Not \"Opus-Class.\" It Is Something More Interesting: Opus-Adjacent and Much Cheaper.",
         "context": "Article",
-        "mentions": 22
-      },
-      {
-        "kind": "article",
-        "href": "/articles/grok-4-6-index-cost-efficiency-benchmarks",
-        "label": "Grok 4.6 Ties GPT-5.6 Sol. Where It Falls Short",
-        "context": "Article",
-        "mentions": 8
+        "mentions": 12
       },
       {
         "kind": "article",
         "href": "/articles/gemini-36-flash-google-outside-top-ten",
         "label": "Gemini 3.6 Flash Is Out. Google Still Doesn't Have a Model in the Top Ten.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/inkling-thinking-machines-open-weight-model-gemma",
         "label": "Inkling Is the First Western Open-Weight Model at Scale",
         "context": "Article",
-        "mentions": 2
-      }
-    ],
-    "grok-4-6": [
-      {
-        "kind": "article",
-        "href": "/articles/grok-4-6-index-cost-efficiency-benchmarks",
-        "label": "Grok 4.6 Ties GPT-5.6 Sol. Where It Falls Short",
-        "context": "Article",
-        "mentions": 26
-      },
-      {
-        "kind": "comparison",
-        "href": "/comparisons/grok-4-6-vs-grok-4-7",
-        "label": "Grok 4.6 vs Grok 4.7",
-        "context": "Comparison",
-        "mentions": 2
-      },
-      {
-        "kind": "article",
-        "href": "/articles/terminal-bench-4-agent-not-model",
-        "label": "Terminal-Bench 4 Is Measuring the Agent, Not the Model",
-        "context": "Article",
-        "mentions": 4
-      },
-      {
-        "kind": "article",
-        "href": "/articles/razorpay-vulcan-payments-ai-foundation-model",
-        "label": "Razorpay Vulcan Isn't a Frontier Model. That's the Point.",
-        "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "grok-4-7": [
@@ -2424,17 +2516,10 @@
         "href": "/comparisons/grok-4-6-vs-grok-4-7",
         "label": "Grok 4.6 vs Grok 4.7",
         "context": "Comparison",
-        "mentions": 5
+        "mentions": 1
       }
     ],
     "grounding": [
-      {
-        "kind": "article",
-        "href": "/articles/google-just-updated-nano-banana",
-        "label": "Google Just Updated Nano Banana. Your iPhone Felt It Too.",
-        "context": "Article",
-        "mentions": 2
-      },
       {
         "kind": "chapter",
         "href": "/books/ai-from-first-principles/transformers-and-llms",
@@ -2455,6 +2540,13 @@
         "label": "RAG Works in Theory. Here's Why It Fails in Production.",
         "context": null,
         "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/google-just-updated-nano-banana",
+        "label": "Google Just Updated Nano Banana. Your iPhone Felt It Too.",
+        "context": "Article",
+        "mentions": 1
       }
     ],
     "guardrails": [
@@ -2463,28 +2555,28 @@
         "href": "/articles/codex-mobile-claude-openclaw-remote-control",
         "label": "Codex Mobile Is Here. Claude Had It First. OpenClaw Had It Before Either of Them.",
         "context": "Article",
-        "mentions": 20
+        "mentions": 10
       },
       {
         "kind": "article",
         "href": "/articles/openclaw-had-210000-github-stars",
         "label": "OpenClaw Had 210,000 GitHub Stars. Then Anthropic Shipped One Feature.",
         "context": "Article",
-        "mentions": 4
-      },
-      {
-        "kind": "article",
-        "href": "/articles/agent-as-a-service-saas-nemoclaw",
-        "label": "Agent as a Service Has Arrived. SaaS Did Not See It Coming.",
-        "context": "Article",
         "mentions": 2
       },
       {
-        "kind": "article",
-        "href": "/articles/chatgpt-agents-compromised-german-wiki-named-dsewiki",
-        "label": "ChatGPT Agents Compromised German Wiki Named DseWiki",
-        "context": "Article",
-        "mentions": 2
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/classical-machine-learning",
+        "label": "Chapter 3 - Classical Machine Learning: Thinking in Features",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/transformers-and-llms",
+        "label": "Chapter 5 - Transformers & LLMs: Attention Changed Everything",
+        "context": "AI: From First Principles",
+        "mentions": 1
       }
     ],
     "guardrails-ai": [
@@ -2493,7 +2585,7 @@
         "href": "/articles/npm-compromise-ai-not-safe-from-ai",
         "label": "The npm Compromise Proved AI Is Not Safe From AI",
         "context": "Article",
-        "mentions": 4
+        "mentions": 3
       }
     ],
     "hallucination": [
@@ -2502,14 +2594,21 @@
         "href": "/articles/jev-zero-hallucination-fine-print-disagrees",
         "label": "Jev Claims Zero Hallucination. The Fine Print Disagrees.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/qwen-37-max-closed-source-alibaba-playbook",
         "label": "Qwen 3.7 Max Is Closed Source: Alibaba Just Copied the Playbook It Was Beating",
         "context": "Article",
-        "mentions": 10
+        "mentions": 5
+      },
+      {
+        "kind": "article",
+        "href": "/articles/langextract-traceability-extraction",
+        "label": "Your LLM Does Not Know Where It Found That. LangExtract Does.",
+        "context": "Article",
+        "mentions": 2
       },
       {
         "kind": "chapter",
@@ -2517,59 +2616,36 @@
         "label": "Chapter 5 - Transformers & LLMs: Attention Changed Everything",
         "context": "AI: From First Principles",
         "mentions": 1
-      },
-      {
-        "kind": "guide",
-        "href": "/guides/rag-fails-in-production",
-        "label": "RAG Works in Theory. Here's Why It Fails in Production.",
-        "context": null,
-        "mentions": 1
-      }
-    ],
-    "hermes-agent": [
-      {
-        "kind": "article",
-        "href": "/articles/agentic-harness-open-source-scapegoat",
-        "label": "The agentic harness is open source's new battleground",
-        "context": "Article",
-        "mentions": 8
-      },
-      {
-        "kind": "article",
-        "href": "/articles/grok-bot-openclaw-hermes-agent-popularity",
-        "label": "Why Grok Bot Is Taking Off. It Isn't Just a Chatbot.",
-        "context": "Article",
-        "mentions": 8
       }
     ],
     "hugging-face": [
       {
         "kind": "article",
-        "href": "/articles/nvidia-hugging-face-acquisition-open-models",
-        "label": "NVIDIA Is Buying Hugging Face. The Hub Is the Prize.",
-        "context": "Article",
-        "mentions": 44
-      },
-      {
-        "kind": "article",
         "href": "/articles/ideogram-4-open-weight-image-generation-gap-hugging-face",
         "label": "Ideogram 4 Open Weight Release: The Image Generation Gap Just Closed on Hugging Face",
         "context": "Article",
-        "mentions": 10
+        "mentions": 6
       },
       {
         "kind": "article",
-        "href": "/articles/open-secure-ai-alliance-anthropic-absent",
-        "label": "Open Secure AI Alliance Launches With 37 Companies. Anthropic Is Not One of Them.",
+        "href": "/articles/nvidia-hugging-face-acquisition-open-models",
+        "label": "NVIDIA Is Buying Hugging Face. The Hub Is the Prize.",
         "context": "Article",
-        "mentions": 16
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/chatgpt-agents-compromised-german-wiki-named-dsewiki",
         "label": "ChatGPT Agents Compromised German Wiki Named DseWiki",
         "context": "Article",
-        "mentions": 14
+        "mentions": 7
+      },
+      {
+        "kind": "article",
+        "href": "/articles/google-gemini-hacked-3-companies",
+        "label": "Google Gemini Hacked 3 Companies. Four Labs, Same Story.",
+        "context": "Article",
+        "mentions": 4
       }
     ],
     "hyperparameter": [
@@ -2579,6 +2655,13 @@
         "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
         "context": "AI: From First Principles",
         "mentions": 1
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/99-percent-accuracy-then-production",
+        "label": "Your Model Hit 99% Accuracy. Then You Shipped It.",
+        "context": null,
+        "mentions": 1
       }
     ],
     "inference": [
@@ -2587,28 +2670,37 @@
         "href": "/articles/india-virginia-tax-inference-infrastructure",
         "label": "Indian AI Founders Are Paying a 190ms Tax on Every Inference Call. That Is Finally Changing.",
         "context": "Article",
-        "mentions": 6
+        "mentions": 14
       },
       {
         "kind": "article",
         "href": "/articles/gpt-6-sol-luna-cutting-cost-intelligence",
         "label": "GPT-6 Sol and Luna Are Here. OpenAI Is Cutting the Cost of Intelligence.",
         "context": "Article",
-        "mentions": 20
+        "mentions": 10
       },
       {
         "kind": "article",
         "href": "/articles/gimlet-labs-multi-silicon-inference-cloud",
         "label": "Idle GPUs Are Costing the AI Industry Billions",
         "context": "Article",
-        "mentions": 16
+        "mentions": 10
       },
       {
         "kind": "article",
         "href": "/articles/nvidia-rtx-spark-cloud-first-ai-era",
         "label": "NVIDIA RTX Spark Is Not a Chip. It's the End of the Cloud-First AI Era.",
         "context": "Article",
-        "mentions": 14
+        "mentions": 8
+      }
+    ],
+    "inference-time-compute": [
+      {
+        "kind": "article",
+        "href": "/articles/kimi-k3-largest-open-weight-model-claude-opus-gpt-55",
+        "label": "Kimi K3 Is the Largest Open-Weight Model Ever Announced. It Also Beats Claude Opus 4.8 and GPT-5.5.",
+        "context": "Article",
+        "mentions": 1
       }
     ],
     "inkling": [
@@ -2617,7 +2709,7 @@
         "href": "/articles/inkling-thinking-machines-open-weight-model-gemma",
         "label": "Inkling Is the First Western Open-Weight Model at Scale",
         "context": "Article",
-        "mentions": 48
+        "mentions": 24
       }
     ],
     "kl-divergence": [
@@ -2645,6 +2737,13 @@
     ],
     "kv-cache": [
       {
+        "kind": "article",
+        "href": "/articles/google-turboquant-cuts-ai-memory-6x",
+        "label": "Google's TurboQuant Cuts AI Memory 6x",
+        "context": "Article",
+        "mentions": 3
+      },
+      {
         "kind": "guide",
         "href": "/guides/qwen-3-8-27b-install-run",
         "label": "Qwen3.8-27B: How to Actually Install and Run It",
@@ -2656,21 +2755,14 @@
         "href": "/comparisons/deepseek-v4-flash-vs-deepseek-v4-1-flash",
         "label": "DeepSeek V4 Flash vs DeepSeek V4.1 Flash",
         "context": "Comparison",
-        "mentions": 2
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/deepseek-v4-is-almost-at-the-frontier-the-price-is-not",
         "label": "DeepSeek V4 Is Almost at the Frontier. The Price Is Not.",
         "context": "Article",
-        "mentions": 2
-      },
-      {
-        "kind": "article",
-        "href": "/articles/google-turboquant-cuts-ai-memory-6x",
-        "label": "Google's TurboQuant Cuts AI Memory 6x",
-        "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "kaggle": [
@@ -2679,7 +2771,7 @@
         "href": "/articles/google-gemma-4-open-source-ai-apache",
         "label": "Open Source AI Is No Longer a Side Project",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "kimi-k2": [
@@ -2688,58 +2780,58 @@
         "href": "/articles/the-cheap-model-is-winning",
         "label": "The Cheap Model Is Winning",
         "context": "Article",
-        "mentions": 8
+        "mentions": 4
       },
       {
         "kind": "article",
         "href": "/articles/kimi-k3-largest-open-weight-model-claude-opus-gpt-55",
         "label": "Kimi K3 Is the Largest Open-Weight Model Ever Announced. It Also Beats Claude Opus 4.8 and GPT-5.5.",
         "context": "Article",
-        "mentions": 4
+        "mentions": 2
       },
       {
         "kind": "article",
         "href": "/articles/claude-opus-4-7-proved-the-race-has-no-finish-line",
         "label": "Claude Opus 4.7 Proved the Race Has No Finish Line",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/minimax-m3-open-weight-frontier-coding-weights-not-out",
         "label": "MiniMax M3 Is the First Open-Weight Model With Frontier Coding, 1M Context, and Multimodality. The Weights Aren't Out Yet.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "kimi-k2-5": [
       {
         "kind": "article",
+        "href": "/articles/claude-fable-5-mythos-model-you-can-use-catch",
+        "label": "Claude Fable 5 Is the Mythos Model You Can Actually Use. But there's a Catch.",
+        "context": "Article",
+        "mentions": 1
+      },
+      {
+        "kind": "article",
         "href": "/articles/gemini-omni-gemini-3-5-flash-google-io-2026",
         "label": "Gemini Omni and Gemini 3.5 Flash Are Real. So Is the Thing Google Refused to Ship.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/inkling-thinking-machines-open-weight-model-gemma",
         "label": "Inkling Is the First Western Open-Weight Model at Scale",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/the-cheap-model-is-winning",
         "label": "The Cheap Model Is Winning",
         "context": "Article",
-        "mentions": 2
-      },
-      {
-        "kind": "article",
-        "href": "/articles/google-gemma-4-open-source-ai-apache",
-        "label": "Open Source AI Is No Longer a Side Project",
-        "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "kimi-k3": [
@@ -2748,28 +2840,21 @@
         "href": "/articles/kimi-k3-largest-open-weight-model-claude-opus-gpt-55",
         "label": "Kimi K3 Is the Largest Open-Weight Model Ever Announced. It Also Beats Claude Opus 4.8 and GPT-5.5.",
         "context": "Article",
-        "mentions": 6
+        "mentions": 3
       },
       {
-        "kind": "article",
-        "href": "/articles/qwen-3-8-max-benchmark-chart-kimi-k3-claude-opus-5",
-        "label": "Qwen 3.8 Max's Own Benchmark Chart Leaves Out Kimi K3 and Claude Opus 5. It Still Doesn't Clearly Win.",
-        "context": "Article",
-        "mentions": 4
+        "kind": "guide",
+        "href": "/guides/how-to-check-ai-benchmark-claims",
+        "label": "How to Audit AI Benchmark Claims: A Practical Guide",
+        "context": null,
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/gemini-36-flash-google-outside-top-ten",
         "label": "Gemini 3.6 Flash Is Out. Google Still Doesn't Have a Model in the Top Ten.",
         "context": "Article",
-        "mentions": 2
-      },
-      {
-        "kind": "article",
-        "href": "/articles/qwen-3-8-27b-opus-4-6-vision-benchmarks",
-        "label": "Qwen 3.8 27b is a revolution in open weight models",
-        "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "knowledge-graph": [
@@ -2808,7 +2893,7 @@
         "href": "/articles/the-model-you-benchmarked-is-not-the-model-you-deployed",
         "label": "The Model You Benchmarked Is Not The Model You Deployed",
         "context": "Article",
-        "mentions": 10
+        "mentions": 6
       },
       {
         "kind": "guide",
@@ -2822,7 +2907,7 @@
         "href": "/articles/gemini-3-1-pro-scored-13-out-of-16",
         "label": "Gemini 3.1 Pro Scored 13 Out of 16. Here Is What That Actually Means.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "langchain": [
@@ -2838,7 +2923,7 @@
         "href": "/articles/decisions-api-use-cases-self-graded-scores",
         "label": "Decisions API Use Cases Are Real. Scores Are Self-Graded.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       },
       {
         "kind": "chapter",
@@ -2860,22 +2945,15 @@
     "large-language-model": [
       {
         "kind": "article",
-        "href": "/articles/vector-database-market-pageindex",
-        "label": "The $2.2 Billion Vector Database Market Has a Problem. This Open Source Repo Might Be It.",
-        "context": "Article",
-        "mentions": 4
-      },
-      {
-        "kind": "article",
-        "href": "/articles/jev-zero-hallucination-fine-print-disagrees",
-        "label": "Jev Claims Zero Hallucination. The Fine Print Disagrees.",
+        "href": "/articles/india-virginia-tax-inference-infrastructure",
+        "label": "Indian AI Founders Are Paying a 190ms Tax on Every Inference Call. That Is Finally Changing.",
         "context": "Article",
         "mentions": 2
       },
       {
         "kind": "article",
-        "href": "/articles/transformer-9-year-ceiling-subquadratic-subq",
-        "label": "Subquadratic Says It Broke the Transformer Ceiling",
+        "href": "/articles/vector-database-market-pageindex",
+        "label": "The $2.2 Billion Vector Database Market Has a Problem. This Open Source Repo Might Be It.",
         "context": "Article",
         "mentions": 2
       },
@@ -2884,6 +2962,22 @@
         "href": "/guides/you-want-to-build-an-ai-agent-here-is-where-to-actually-start",
         "label": "How to Build an AI Agent: Start Here",
         "context": null,
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/claude-inline-visuals-charts-whiteboard",
+        "label": "Claude Gets Inline Charts and Diagrams, Free",
+        "context": "Article",
+        "mentions": 1
+      }
+    ],
+    "latent-space": [
+      {
+        "kind": "article",
+        "href": "/articles/nemotron-3-super-sparse-moe-efficiency",
+        "label": "The Model That Thinks With 12B Parameters but Knows Everything a 120B Model Knows.",
+        "context": "Article",
         "mentions": 1
       }
     ],
@@ -2932,14 +3026,28 @@
         "href": "/articles/taalas-hc1-hardwired-inference-chip",
         "label": "The Chip That Only Does One Thing. And Does It 28x Faster Than NVIDIA.",
         "context": "Article",
-        "mentions": 8
+        "mentions": 5
+      },
+      {
+        "kind": "article",
+        "href": "/articles/inkling-thinking-machines-open-weight-model-gemma",
+        "label": "Inkling Is the First Western Open-Weight Model at Scale",
+        "context": "Article",
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/transformer-9-year-ceiling-subquadratic-subq",
         "label": "Subquadratic Says It Broke the Transformer Ceiling",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/nemotron-3-super-sparse-moe-efficiency",
+        "label": "The Model That Thinks With 12B Parameters but Knows Everything a 120B Model Knows.",
+        "context": "Article",
+        "mentions": 1
       }
     ],
     "llama-4-maverick": [
@@ -2948,14 +3056,14 @@
         "href": "/articles/the-model-you-benchmarked-is-not-the-model-you-deployed",
         "label": "The Model You Benchmarked Is Not The Model You Deployed",
         "context": "Article",
-        "mentions": 6
+        "mentions": 3
       },
       {
         "kind": "article",
         "href": "/articles/a-55gb-file-just-beat-a-25-million-token-model-on-three-benchmarks",
         "label": "A 55GB Open Model Just Beat Claude Opus on Three Benchmarks",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "logits": [
@@ -2964,7 +3072,7 @@
         "href": "/articles/google-turboquant-cuts-ai-memory-6x",
         "label": "Google's TurboQuant Cuts AI Memory 6x",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "loss-function": [
@@ -2983,6 +3091,13 @@
         "mentions": 2
       },
       {
+        "kind": "guide",
+        "href": "/guides/99-percent-accuracy-then-production",
+        "label": "Your Model Hit 99% Accuracy. Then You Shipped It.",
+        "context": null,
+        "mentions": 2
+      },
+      {
         "kind": "chapter",
         "href": "/books/ai-from-first-principles/what-ai-actually-is",
         "label": "Chapter 0 - What AI Actually Is (And Isn't)",
@@ -2996,17 +3111,10 @@
         "href": "/articles/claude-sonnet-5-5-price",
         "label": "Claude Sonnet 5.5 Matches Sol's Price. Beats It on Paper.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "mcp": [
-      {
-        "kind": "article",
-        "href": "/articles/google-unleashes-ai-agents-in-colab",
-        "label": "Google Unleashes AI Agents in Colab",
-        "context": "Article",
-        "mentions": 24
-      },
       {
         "kind": "guide",
         "href": "/guides/you-want-to-build-an-ai-agent-here-is-where-to-actually-start",
@@ -3016,17 +3124,24 @@
       },
       {
         "kind": "article",
+        "href": "/articles/google-unleashes-ai-agents-in-colab",
+        "label": "Google Unleashes AI Agents in Colab",
+        "context": "Article",
+        "mentions": 12
+      },
+      {
+        "kind": "article",
         "href": "/articles/google-workspace-cli-gws-agent-tool",
         "label": "Google Made Your Entire Workspace an AI Agent Tool. Read This Before Using It in Production.",
         "context": "Article",
-        "mentions": 14
+        "mentions": 10
       },
       {
         "kind": "article",
         "href": "/articles/gemini-spark-end-of-session-persistent-ai",
         "label": "Gemini Spark and the End of the Session: How AI Is Shifting From Passive to Persistent",
         "context": "Article",
-        "mentions": 8
+        "mentions": 5
       }
     ],
     "mmmu-pro": [
@@ -3035,21 +3150,21 @@
         "href": "/articles/alibaba-qwen-3-5-scaling-era",
         "label": "Alibaba's 9B Model Just Beat Its Own 30B. The Scaling Era Is Ending.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/gemini-3-1-pro-scored-13-out-of-16",
         "label": "Gemini 3.1 Pro Scored 13 Out of 16. Here Is What That Actually Means.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/gemini-omni-gemini-3-5-flash-google-io-2026",
         "label": "Gemini Omni and Gemini 3.5 Flash Are Real. So Is the Thing Google Refused to Ship.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "machine-learning": [
@@ -3061,13 +3176,6 @@
         "mentions": 5
       },
       {
-        "kind": "article",
-        "href": "/articles/google-unleashes-ai-agents-in-colab",
-        "label": "Google Unleashes AI Agents in Colab",
-        "context": "Article",
-        "mentions": 6
-      },
-      {
         "kind": "chapter",
         "href": "/books/rag-kg-master-course/theoretical-foundations",
         "label": "Chapter 4 - Theoretical Foundations",
@@ -3076,10 +3184,17 @@
       },
       {
         "kind": "article",
-        "href": "/articles/microsoft-vibevoice-open-voice-ai-distribution-gap",
-        "label": "Microsoft Shipped the Best Open Voice AI in August. Nobody Noticed Until May.",
+        "href": "/articles/google-unleashes-ai-agents-in-colab",
+        "label": "Google Unleashes AI Agents in Colab",
         "context": "Article",
-        "mentions": 2
+        "mentions": 3
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/what-ai-actually-is",
+        "label": "Chapter 0 - What AI Actually Is (And Isn't)",
+        "context": "AI: From First Principles",
+        "mentions": 1
       }
     ],
     "maximum-a-posteriori": [
@@ -3097,7 +3212,7 @@
         "href": "/comparisons/mimo-v2-6-pro-vs-mimo-v2-6-flash",
         "label": "MiMo V2.6 Pro vs MiMo V2.6 Flash",
         "context": "Comparison",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "mimo-v2-6-pro": [
@@ -3106,7 +3221,7 @@
         "href": "/comparisons/mimo-v2-6-pro-vs-mimo-v2-6-flash",
         "label": "MiMo V2.6 Pro vs MiMo V2.6 Flash",
         "context": "Comparison",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "midjourney": [
@@ -3115,23 +3230,30 @@
         "href": "/articles/ideogram-4-open-weight-image-generation-gap-hugging-face",
         "label": "Ideogram 4 Open Weight Release: The Image Generation Gap Just Closed on Hugging Face",
         "context": "Article",
-        "mentions": 4
+        "mentions": 3
       },
       {
         "kind": "article",
         "href": "/articles/the-image-that-doesnt-look-like-ai-anymore",
         "label": "The Image That Doesn't Look Like AI Anymore",
         "context": "Article",
-        "mentions": 4
+        "mentions": 2
       }
     ],
     "minimax-m27": [
       {
         "kind": "article",
+        "href": "/articles/minimax-m27-self-evolution-benchmark-competitive",
+        "label": "MiniMax M2.7 Built Itself. The Race Shifted.",
+        "context": "Article",
+        "mentions": 1
+      },
+      {
+        "kind": "article",
         "href": "/articles/real-ai-race-minimax-m3-glm-52-deepseek-v4",
         "label": "The Real AI Race Nobody Is Covering: MiniMax M3, GLM 5.2, and DeepSeek V4 Are Fighting Each Other",
         "context": "Article",
-        "mentions": 4
+        "mentions": 2
       }
     ],
     "minimax-m3": [
@@ -3140,31 +3262,38 @@
         "href": "/articles/real-ai-race-minimax-m3-glm-52-deepseek-v4",
         "label": "The Real AI Race Nobody Is Covering: MiniMax M3, GLM 5.2, and DeepSeek V4 Are Fighting Each Other",
         "context": "Article",
-        "mentions": 12
+        "mentions": 6
       },
       {
         "kind": "article",
         "href": "/articles/minimax-m3-open-weight-frontier-coding-weights-not-out",
         "label": "MiniMax M3 Is the First Open-Weight Model With Frontier Coding, 1M Context, and Multimodality. The Weights Aren't Out Yet.",
         "context": "Article",
-        "mentions": 6
+        "mentions": 4
       },
       {
         "kind": "article",
         "href": "/articles/inkling-thinking-machines-open-weight-model-gemma",
         "label": "Inkling Is the First Western Open-Weight Model at Scale",
         "context": "Article",
-        "mentions": 6
+        "mentions": 3
       },
       {
         "kind": "article",
         "href": "/articles/grok-4-5-opus-adjacent-cursor-acquisition",
         "label": "Grok 4.5 Is Not \"Opus-Class.\" It Is Something More Interesting: Opus-Adjacent and Much Cheaper.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "mixture-of-experts": [
+      {
+        "kind": "article",
+        "href": "/articles/nemotron-3-super-sparse-moe-efficiency",
+        "label": "The Model That Thinks With 12B Parameters but Knows Everything a 120B Model Knows.",
+        "context": "Article",
+        "mentions": 2
+      },
       {
         "kind": "chapter",
         "href": "/books/rag-kg-master-course/beginner-foundations",
@@ -3174,10 +3303,49 @@
       },
       {
         "kind": "article",
-        "href": "/articles/google-gemma-4-open-source-ai-apache",
-        "label": "Open Source AI Is No Longer a Side Project",
+        "href": "/articles/a-55gb-file-just-beat-a-25-million-token-model-on-three-benchmarks",
+        "label": "A 55GB Open Model Just Beat Claude Opus on Three Benchmarks",
+        "context": "Article",
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/deepseek-v4-is-almost-at-the-frontier-the-price-is-not",
+        "label": "DeepSeek V4 Is Almost at the Frontier. The Price Is Not.",
+        "context": "Article",
+        "mentions": 1
+      }
+    ],
+    "mixture-of-experts-routing": [
+      {
+        "kind": "article",
+        "href": "/articles/nemotron-3-super-sparse-moe-efficiency",
+        "label": "The Model That Thinks With 12B Parameters but Knows Everything a 120B Model Knows.",
         "context": "Article",
         "mentions": 2
+      }
+    ],
+    "model-distillation": [
+      {
+        "kind": "article",
+        "href": "/articles/claude-fable-5-mythos-model-you-can-use-catch",
+        "label": "Claude Fable 5 Is the Mythos Model You Can Actually Use. But there's a Catch.",
+        "context": "Article",
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/claude-fable-51-low-effort-benchmarks",
+        "label": "Claude Fable 5.1 Beats Fable 5, Even at Low Effort",
+        "context": "Article",
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/open-secure-ai-alliance-anthropic-absent",
+        "label": "Open Secure AI Alliance Launches With 37 Companies. Anthropic Is Not One of Them.",
+        "context": "Article",
+        "mentions": 1
       }
     ],
     "moltbook": [
@@ -3186,7 +3354,7 @@
         "href": "/articles/codex-mobile-claude-openclaw-remote-control",
         "label": "Codex Mobile Is Here. Claude Had It First. OpenClaw Had It Before Either of Them.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "moltbot": [
@@ -3195,7 +3363,7 @@
         "href": "/articles/openclaw-had-210000-github-stars",
         "label": "OpenClaw Had 210,000 GitHub Stars. Then Anthropic Shipped One Feature.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "multi-head-attention": [
@@ -3209,17 +3377,17 @@
     ],
     "multi-hop-reasoning": [
       {
-        "kind": "article",
-        "href": "/articles/alibaba-qwen-3-5-scaling-era",
-        "label": "Alibaba's 9B Model Just Beat Its Own 30B. The Scaling Era Is Ending.",
-        "context": "Article",
-        "mentions": 2
-      },
-      {
         "kind": "chapter",
         "href": "/books/rag-kg-master-course/hybrid-rag-kg",
         "label": "Chapter 7 - Hybrid RAG + KG Systems",
         "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/alibaba-qwen-3-5-scaling-era",
+        "label": "Alibaba's 9B Model Just Beat Its Own 30B. The Scaling Era Is Ending.",
+        "context": "Article",
         "mentions": 1
       },
       {
@@ -3243,21 +3411,14 @@
         "href": "/articles/muse-spark-dirt-cheap",
         "label": "Muse Spark 1.3 Is Dirt Cheap with a catch",
         "context": "Article",
-        "mentions": 6
-      },
-      {
-        "kind": "article",
-        "href": "/articles/gemini-36-flash-google-outside-top-ten",
-        "label": "Gemini 3.6 Flash Is Out. Google Still Doesn't Have a Model in the Top Ten.",
-        "context": "Article",
-        "mentions": 4
+        "mentions": 3
       },
       {
         "kind": "article",
         "href": "/articles/google-gemini-hacked-3-companies",
         "label": "Google Gemini Hacked 3 Companies. Four Labs, Same Story.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "muse-spark-1-3": [
@@ -3266,7 +3427,7 @@
         "href": "/articles/muse-spark-dirt-cheap",
         "label": "Muse Spark 1.3 Is Dirt Cheap with a catch",
         "context": "Article",
-        "mentions": 20
+        "mentions": 10
       },
       {
         "kind": "comparison",
@@ -3279,31 +3440,40 @@
     "nvidia": [
       {
         "kind": "article",
-        "href": "/articles/nvidia-hugging-face-acquisition-open-models",
-        "label": "NVIDIA Is Buying Hugging Face. The Hub Is the Prize.",
-        "context": "Article",
-        "mentions": 74
-      },
-      {
-        "kind": "article",
         "href": "/articles/nvidia-rtx-spark-cloud-first-ai-era",
         "label": "NVIDIA RTX Spark Is Not a Chip. It's the End of the Cloud-First AI Era.",
         "context": "Article",
-        "mentions": 10
+        "mentions": 6
       },
       {
         "kind": "article",
         "href": "/articles/nvidia-kimodo-motion-generation-release",
         "label": "NVIDIA Kimodo Turns Text Into Motion",
         "context": "Article",
-        "mentions": 8
+        "mentions": 5
       },
       {
         "kind": "article",
         "href": "/articles/taalas-hc1-hardwired-inference-chip",
         "label": "The Chip That Only Does One Thing. And Does It 28x Faster Than NVIDIA.",
         "context": "Article",
-        "mentions": 6
+        "mentions": 4
+      },
+      {
+        "kind": "article",
+        "href": "/articles/nvidia-hugging-face-acquisition-open-models",
+        "label": "NVIDIA Is Buying Hugging Face. The Hub Is the Prize.",
+        "context": "Article",
+        "mentions": 1
+      }
+    ],
+    "openshell": [
+      {
+        "kind": "article",
+        "href": "/articles/nvidia-rtx-spark-cloud-first-ai-era",
+        "label": "NVIDIA RTX Spark Is Not a Chip. It's the End of the Cloud-First AI Era.",
+        "context": "Article",
+        "mentions": 1
       }
     ],
     "named-entity-recognition": [
@@ -3337,35 +3507,35 @@
         "href": "/articles/agent-as-a-service-saas-nemoclaw",
         "label": "Agent as a Service Has Arrived. SaaS Did Not See It Coming.",
         "context": "Article",
-        "mentions": 4
+        "mentions": 2
       },
       {
         "kind": "article",
         "href": "/articles/openai-spud-anthropic-mythos-ipo-noise",
         "label": "Is Bigger Still Better, or Just IPO Noise?",
         "context": "Article",
-        "mentions": 2
-      },
-      {
-        "kind": "article",
-        "href": "/articles/nvidia-hugging-face-acquisition-open-models",
-        "label": "NVIDIA Is Buying Hugging Face. The Hub Is the Prize.",
-        "context": "Article",
-        "mentions": 2
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/openai-parameter-golf-edge-ai",
         "label": "OpenAI Bets on Tiny AI With Parameter Golf",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/nemotron-3-super-sparse-moe-efficiency",
+        "label": "The Model That Thinks With 12B Parameters but Knows Everything a 120B Model Knows.",
+        "context": "Article",
+        "mentions": 1
       }
     ],
     "nemotron-3-super": [
       {
         "kind": "article",
-        "href": "/articles/nemotron-3-super-sparse-moe-efficiency",
-        "label": "The Model That Thinks With 12B Parameters but Knows Everything a 120B Model Knows.",
+        "href": "/articles/agent-as-a-service-saas-nemoclaw",
+        "label": "Agent as a Service Has Arrived. SaaS Did Not See It Coming.",
         "context": "Article",
         "mentions": 4
       },
@@ -3375,6 +3545,20 @@
         "label": "OpenAI Bets on Tiny AI With Parameter Golf",
         "context": "Article",
         "mentions": 2
+      },
+      {
+        "kind": "article",
+        "href": "/articles/nemotron-3-super-sparse-moe-efficiency",
+        "label": "The Model That Thinks With 12B Parameters but Knows Everything a 120B Model Knows.",
+        "context": "Article",
+        "mentions": 2
+      },
+      {
+        "kind": "article",
+        "href": "/articles/openai-spud-anthropic-mythos-ipo-noise",
+        "label": "Is Bigger Still Better, or Just IPO Noise?",
+        "context": "Article",
+        "mentions": 1
       }
     ],
     "neo4j": [
@@ -3423,27 +3607,18 @@
         "mentions": 3
       },
       {
-        "kind": "article",
-        "href": "/articles/gemini-omni-gemini-3-5-flash-google-io-2026",
-        "label": "Gemini Omni and Gemini 3.5 Flash Are Real. So Is the Thing Google Refused to Ship.",
-        "context": "Article",
-        "mentions": 2
-      },
-      {
         "kind": "chapter",
         "href": "/books/ai-from-first-principles/what-ai-actually-is",
         "label": "Chapter 0 - What AI Actually Is (And Isn't)",
         "context": "AI: From First Principles",
         "mentions": 1
-      }
-    ],
-    "observability": [
+      },
       {
-        "kind": "article",
-        "href": "/articles/x402-40-companies-agent-economy-demand-gap",
-        "label": "x402 Has 40 Companies Behind It Now. The Agent Economy It Promised Still Doesn't Exist.",
-        "context": "Article",
-        "mentions": 2
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/beginner-foundations",
+        "label": "Chapter 3 - Beginner Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
       }
     ],
     "ollama": [
@@ -3473,23 +3648,16 @@
         "href": "/articles/decisions-api-use-cases-self-graded-scores",
         "label": "Decisions API Use Cases Are Real. Scores Are Self-Graded.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "open-source": [
       {
         "kind": "article",
-        "href": "/articles/agentic-harness-open-source-scapegoat",
-        "label": "The agentic harness is open source's new battleground",
-        "context": "Article",
-        "mentions": 14
-      },
-      {
-        "kind": "article",
         "href": "/articles/vector-database-market-pageindex",
         "label": "The $2.2 Billion Vector Database Market Has a Problem. This Open Source Repo Might Be It.",
         "context": "Article",
-        "mentions": 4
+        "mentions": 2
       },
       {
         "kind": "article",
@@ -3500,10 +3668,47 @@
       },
       {
         "kind": "article",
+        "href": "/articles/sarvam-code-three-agent-architecture",
+        "label": "Sarvam Code Launched With a New Three-Agent Architecture. Every Coding Agent Already Has One.",
+        "context": "Article",
+        "mentions": 6
+      },
+      {
+        "kind": "article",
         "href": "/articles/jack-dorsey-block-layoffs",
         "label": "Jack Dorsey Just Fired 4,000 People and Wall Street Cheered. Here Is the Memo Every Developer Should Read.",
         "context": "Article",
-        "mentions": 6
+        "mentions": 3
+      }
+    ],
+    "open-weight-model": [
+      {
+        "kind": "article",
+        "href": "/articles/open-secure-ai-alliance-anthropic-absent",
+        "label": "Open Secure AI Alliance Launches With 37 Companies. Anthropic Is Not One of Them.",
+        "context": "Article",
+        "mentions": 2
+      },
+      {
+        "kind": "article",
+        "href": "/articles/claude-fable-5-mythos-model-you-can-use-catch",
+        "label": "Claude Fable 5 Is the Mythos Model You Can Actually Use. But there's a Catch.",
+        "context": "Article",
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/claude-mythos-apple-m5-security-mie",
+        "label": "Claude Mythos Cracked Apple M5 Security in Five Days. Apple Spent Five Years Building It.",
+        "context": "Article",
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/glm-5-3-flash-ox-alpha-free-model-benchmarks",
+        "label": "GLM-5.3-Flash Was Ox Alpha. The Free Test Was the Point.",
+        "context": "Article",
+        "mentions": 1
       }
     ],
     "openai": [
@@ -3512,28 +3717,28 @@
         "href": "/articles/gpt-6-sol-luna-cutting-cost-intelligence",
         "label": "GPT-6 Sol and Luna Are Here. OpenAI Is Cutting the Cost of Intelligence.",
         "context": "Article",
-        "mentions": 40
+        "mentions": 20
       },
       {
         "kind": "article",
         "href": "/articles/openai-parameter-golf-edge-ai",
         "label": "OpenAI Bets on Tiny AI With Parameter Golf",
         "context": "Article",
-        "mentions": 24
+        "mentions": 13
       },
       {
         "kind": "article",
         "href": "/articles/openai-deployment-company-execution-not-hype",
         "label": "OpenAI's Deployment Company Is About Execution, Not Hype",
         "context": "Article",
-        "mentions": 16
+        "mentions": 9
       },
       {
         "kind": "article",
         "href": "/articles/google-synthid-expansion-openai-watermarking-2026",
         "label": "Google SynthID Expansion: OpenAI Joins, 100 Billion Watermarks, and Why the Gap Still Exists",
         "context": "Article",
-        "mentions": 10
+        "mentions": 5
       }
     ],
     "openclaw": [
@@ -3542,72 +3747,44 @@
         "href": "/articles/codex-mobile-claude-openclaw-remote-control",
         "label": "Codex Mobile Is Here. Claude Had It First. OpenClaw Had It Before Either of Them.",
         "context": "Article",
-        "mentions": 72
+        "mentions": 37
       },
       {
         "kind": "article",
         "href": "/articles/openclaw-had-210000-github-stars",
         "label": "OpenClaw Had 210,000 GitHub Stars. Then Anthropic Shipped One Feature.",
         "context": "Article",
-        "mentions": 28
-      },
-      {
-        "kind": "article",
-        "href": "/articles/grok-bot-openclaw-hermes-agent-popularity",
-        "label": "Why Grok Bot Is Taking Off. It Isn't Just a Chatbot.",
-        "context": "Article",
-        "mentions": 32
+        "mentions": 15
       },
       {
         "kind": "article",
         "href": "/articles/agent-as-a-service-saas-nemoclaw",
         "label": "Agent as a Service Has Arrived. SaaS Did Not See It Coming.",
         "context": "Article",
-        "mentions": 8
+        "mentions": 4
+      },
+      {
+        "kind": "article",
+        "href": "/articles/picobot-the-ai-agent-that-fits-in-your-pocket",
+        "label": "Picobot: The AI Agent That Fits in Your Pocket",
+        "context": "Article",
+        "mentions": 3
       }
     ],
     "opencode": [
       {
         "kind": "article",
-        "href": "/articles/agentic-harness-open-source-scapegoat",
-        "label": "The agentic harness is open source's new battleground",
+        "href": "/articles/sakana-fugu-beats-gpt-55-model-orchestration",
+        "label": "Sakana Fugu Beats GPT-5.5 With Model Orchestration",
         "context": "Article",
-        "mentions": 30
-      },
-      {
-        "kind": "article",
-        "href": "/articles/sarvam-code-three-agent-architecture",
-        "label": "Sarvam Code Launched With a New Three-Agent Architecture. Every Coding Agent Already Has One.",
-        "context": "Article",
-        "mentions": 6
-      },
-      {
-        "kind": "article",
-        "href": "/articles/glm-5-3-flash-ox-alpha-free-model-benchmarks",
-        "label": "GLM-5.3-Flash Was Ox Alpha. The Free Test Was the Point.",
-        "context": "Article",
-        "mentions": 4
+        "mentions": 1
       }
     ],
     "orchestration-layer": [
       {
         "kind": "article",
-        "href": "/articles/bloomberg-terminal-perplexity-computer",
-        "label": "Bloomberg Terminal Costs $30,000 a Year. Someone Just Built One for $200 a Month Using Perplexity Computer. Are You Next?",
-        "context": "Article",
-        "mentions": 2
-      },
-      {
-        "kind": "article",
-        "href": "/articles/gimlet-labs-multi-silicon-inference-cloud",
-        "label": "Idle GPUs Are Costing the AI Industry Billions",
-        "context": "Article",
-        "mentions": 2
-      },
-      {
-        "kind": "article",
-        "href": "/articles/paperclip-agent-memory-problem",
-        "label": "Paperclip Remembered the Company. Now Someone Needs to Remember the Agent.",
+        "href": "/articles/openai-symphony-vs-claude-code-swarm",
+        "label": "OpenAI and Anthropic Are Solving the Same Problem From Opposite Directions",
         "context": "Article",
         "mentions": 2
       },
@@ -3617,6 +3794,20 @@
         "label": "Sakana Fugu Beats GPT-5.5 With Model Orchestration",
         "context": "Article",
         "mentions": 2
+      },
+      {
+        "kind": "article",
+        "href": "/articles/bloomberg-terminal-perplexity-computer",
+        "label": "Bloomberg Terminal Costs $30,000 a Year. Someone Just Built One for $200 a Month Using Perplexity Computer. Are You Next?",
+        "context": "Article",
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/gimlet-labs-multi-silicon-inference-cloud",
+        "label": "Idle GPUs Are Costing the AI Industry Billions",
+        "context": "Article",
+        "mentions": 1
       }
     ],
     "overfitting": [
@@ -3635,17 +3826,17 @@
         "mentions": 5
       },
       {
-        "kind": "article",
-        "href": "/articles/inkling-thinking-machines-open-weight-model-gemma",
-        "label": "Inkling Is the First Western Open-Weight Model at Scale",
-        "context": "Article",
-        "mentions": 2
-      },
-      {
         "kind": "chapter",
         "href": "/books/rag-kg-master-course/theoretical-foundations",
         "label": "Chapter 4 - Theoretical Foundations",
         "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/transformers-and-llms",
+        "label": "Chapter 5 - Transformers & LLMs: Attention Changed Everything",
+        "context": "AI: From First Principles",
         "mentions": 1
       }
     ],
@@ -3658,17 +3849,17 @@
         "mentions": 2
       },
       {
-        "kind": "article",
-        "href": "/articles/claude-code-security-the-argument-for-human-in-the-loop-just-got-harder",
-        "label": "Claude Code Security: The Argument for Human-in-the-Loop Just Got Harder",
-        "context": "Article",
-        "mentions": 2
-      },
-      {
         "kind": "chapter",
         "href": "/books/ai-from-first-principles/final-thoughts",
         "label": "Final Thoughts",
         "context": "AI: From First Principles",
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/claude-code-security-the-argument-for-human-in-the-loop-just-got-harder",
+        "label": "Claude Code Security: The Argument for Human-in-the-Loop Just Got Harder",
+        "context": "Article",
         "mentions": 1
       }
     ],
@@ -3678,21 +3869,14 @@
         "href": "/articles/bloomberg-terminal-perplexity-computer",
         "label": "Bloomberg Terminal Costs $30,000 a Year. Someone Just Built One for $200 a Month Using Perplexity Computer. Are You Next?",
         "context": "Article",
-        "mentions": 12
+        "mentions": 6
       },
       {
         "kind": "article",
         "href": "/articles/decisions-api-use-cases-self-graded-scores",
         "label": "Decisions API Use Cases Are Real. Scores Are Self-Graded.",
         "context": "Article",
-        "mentions": 16
-      },
-      {
-        "kind": "article",
-        "href": "/articles/claude-opus-5-5-new-pricing-opus-lineup",
-        "label": "Claude Opus 5.5 Launches With a New Pricing for Opus Lineup",
-        "context": "Article",
-        "mentions": 2
+        "mentions": 8
       },
       {
         "kind": "article",
@@ -3700,6 +3884,13 @@
         "label": "The VC Subsidy Behind Cheap AI Will Not Last",
         "context": "Article",
         "mentions": 2
+      },
+      {
+        "kind": "article",
+        "href": "/articles/claude-opus-5-5-new-pricing-opus-lineup",
+        "label": "Claude Opus 5.5 Launches With a New Pricing for Opus Lineup",
+        "context": "Article",
+        "mentions": 1
       }
     ],
     "perplexity-computer": [
@@ -3708,7 +3899,7 @@
         "href": "/articles/bloomberg-terminal-perplexity-computer",
         "label": "Bloomberg Terminal Costs $30,000 a Year. Someone Just Built One for $200 a Month Using Perplexity Computer. Are You Next?",
         "context": "Article",
-        "mentions": 2
+        "mentions": 9
       }
     ],
     "positional-encoding": [
@@ -3726,31 +3917,31 @@
         "href": "/articles/github-agentic-ai-certification-identity",
         "label": "GitHub Agentic AI Certification Is Here. Certification Or Identity?",
         "context": "Article",
-        "mentions": 4
+        "mentions": 2
       },
       {
-        "kind": "chapter",
-        "href": "/books/rag-kg-master-course/assessments",
-        "label": "Chapter 11 - Assessments & Quizzes",
-        "context": "RAG + Knowledge Graph Master Course",
+        "kind": "article",
+        "href": "/articles/langextract-traceability-extraction",
+        "label": "Your LLM Does Not Know Where It Found That. LangExtract Does.",
+        "context": "Article",
+        "mentions": 2
+      },
+      {
+        "kind": "article",
+        "href": "/articles/pony-alpha-openrouter-glm-5",
+        "label": "A Model With No Name Appeared on OpenRouter. Developers Loved It. It Lasted Five Days.",
+        "context": "Article",
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/ai-can-write-ui-it-still-cant-predict-layout",
+        "label": "AI Can Write UI. It Still Can't Predict Layout.",
+        "context": "Article",
         "mentions": 1
       }
     ],
     "prompt-injection": [
-      {
-        "kind": "article",
-        "href": "/articles/chatgpt-agents-compromised-german-wiki-named-dsewiki",
-        "label": "ChatGPT Agents Compromised German Wiki Named DseWiki",
-        "context": "Article",
-        "mentions": 2
-      },
-      {
-        "kind": "article",
-        "href": "/articles/claude-opus-5-5-new-pricing-opus-lineup",
-        "label": "Claude Opus 5.5 Launches With a New Pricing for Opus Lineup",
-        "context": "Article",
-        "mentions": 2
-      },
       {
         "kind": "article",
         "href": "/articles/google-workspace-cli-gws-agent-tool",
@@ -3760,10 +3951,24 @@
       },
       {
         "kind": "article",
-        "href": "/articles/openclaw-had-210000-github-stars",
-        "label": "OpenClaw Had 210,000 GitHub Stars. Then Anthropic Shipped One Feature.",
+        "href": "/articles/agent-as-a-service-saas-nemoclaw",
+        "label": "Agent as a Service Has Arrived. SaaS Did Not See It Coming.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/chatgpt-agents-compromised-german-wiki-named-dsewiki",
+        "label": "ChatGPT Agents Compromised German Wiki Named DseWiki",
+        "context": "Article",
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/claude-opus-5-5-new-pricing-opus-lineup",
+        "label": "Claude Opus 5.5 Launches With a New Pricing for Opus Lineup",
+        "context": "Article",
+        "mentions": 1
       }
     ],
     "pytorch": [
@@ -3779,30 +3984,37 @@
         "href": "/articles/google-unleashes-ai-agents-in-colab",
         "label": "Google Unleashes AI Agents in Colab",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       },
       {
         "kind": "article",
-        "href": "/articles/real-ai-race-minimax-m3-glm-52-deepseek-v4",
-        "label": "The Real AI Race Nobody Is Covering: MiniMax M3, GLM 5.2, and DeepSeek V4 Are Fighting Each Other",
+        "href": "/articles/ideogram-4-open-weight-image-generation-gap-hugging-face",
+        "label": "Ideogram 4 Open Weight Release: The Image Generation Gap Just Closed on Hugging Face",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/gimlet-labs-multi-silicon-inference-cloud",
+        "label": "Idle GPUs Are Costing the AI Industry Billions",
+        "context": "Article",
+        "mentions": 1
       }
     ],
     "quantization": [
-      {
-        "kind": "article",
-        "href": "/articles/google-turboquant-cuts-ai-memory-6x",
-        "label": "Google's TurboQuant Cuts AI Memory 6x",
-        "context": "Article",
-        "mentions": 8
-      },
       {
         "kind": "guide",
         "href": "/guides/qwen-3-8-27b-install-run",
         "label": "Qwen3.8-27B: How to Actually Install and Run It",
         "context": null,
         "mentions": 6
+      },
+      {
+        "kind": "article",
+        "href": "/articles/google-turboquant-cuts-ai-memory-6x",
+        "label": "Google's TurboQuant Cuts AI Memory 6x",
+        "context": "Article",
+        "mentions": 4
       },
       {
         "kind": "guide",
@@ -3855,7 +4067,7 @@
         "href": "/articles/qwen-37-max-closed-source-alibaba-playbook",
         "label": "Qwen 3.7 Max Is Closed Source: Alibaba Just Copied the Playbook It Was Beating",
         "context": "Article",
-        "mentions": 12
+        "mentions": 6
       }
     ],
     "qwen-3-5": [
@@ -3864,21 +4076,28 @@
         "href": "/articles/alibaba-qwen-3-5-scaling-era",
         "label": "Alibaba's 9B Model Just Beat Its Own 30B. The Scaling Era Is Ending.",
         "context": "Article",
-        "mentions": 8
+        "mentions": 4
       },
       {
         "kind": "article",
         "href": "/articles/inkling-thinking-machines-open-weight-model-gemma",
         "label": "Inkling Is the First Western Open-Weight Model at Scale",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/qwen-37-max-closed-source-alibaba-playbook",
+        "label": "Qwen 3.7 Max Is Closed Source: Alibaba Just Copied the Playbook It Was Beating",
+        "context": "Article",
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/google-gemma-4-open-source-ai-apache",
         "label": "Open Source AI Is No Longer a Side Project",
         "context": "Article",
-        "mentions": 4
+        "mentions": 2
       }
     ],
     "qwen-3-7": [
@@ -3887,21 +4106,7 @@
         "href": "/articles/qwen-37-max-closed-source-alibaba-playbook",
         "label": "Qwen 3.7 Max Is Closed Source: Alibaba Just Copied the Playbook It Was Beating",
         "context": "Article",
-        "mentions": 42
-      },
-      {
-        "kind": "article",
-        "href": "/articles/qwen-3-8-max-benchmark-chart-kimi-k3-claude-opus-5",
-        "label": "Qwen 3.8 Max's Own Benchmark Chart Leaves Out Kimi K3 and Claude Opus 5. It Still Doesn't Clearly Win.",
-        "context": "Article",
-        "mentions": 4
-      },
-      {
-        "kind": "article",
-        "href": "/articles/inkling-thinking-machines-open-weight-model-gemma",
-        "label": "Inkling Is the First Western Open-Weight Model at Scale",
-        "context": "Article",
-        "mentions": 2
+        "mentions": 21
       },
       {
         "kind": "article",
@@ -3909,35 +4114,35 @@
         "label": "MiniMax M3 Is the First Open-Weight Model With Frontier Coding, 1M Context, and Multimodality. The Weights Aren't Out Yet.",
         "context": "Article",
         "mentions": 2
+      },
+      {
+        "kind": "article",
+        "href": "/articles/claude-fable-5-mythos-model-you-can-use-catch",
+        "label": "Claude Fable 5 Is the Mythos Model You Can Actually Use. But there's a Catch.",
+        "context": "Article",
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/deepswe-benchmark-claude-loophole-gpt-55-coding-leader",
+        "label": "DeepSWE Benchmark Exposes Claude Opus 4.7 Loophole and Crowns GPT-5.5 as Real Coding Leader",
+        "context": "Article",
+        "mentions": 1
       }
     ],
     "qwen-3-8-max": [
       {
-        "kind": "article",
-        "href": "/articles/qwen-3-8-max-benchmark-chart-kimi-k3-claude-opus-5",
-        "label": "Qwen 3.8 Max's Own Benchmark Chart Leaves Out Kimi K3 and Claude Opus 5. It Still Doesn't Clearly Win.",
-        "context": "Article",
-        "mentions": 12
-      },
-      {
-        "kind": "article",
-        "href": "/articles/grok-4-6-index-cost-efficiency-benchmarks",
-        "label": "Grok 4.6 Ties GPT-5.6 Sol. Where It Falls Short",
-        "context": "Article",
-        "mentions": 2
+        "kind": "guide",
+        "href": "/guides/how-to-check-ai-benchmark-claims",
+        "label": "How to Audit AI Benchmark Claims: A Practical Guide",
+        "context": null,
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/qwen-3-8-27b-opus-4-6-vision-benchmarks",
         "label": "Qwen 3.8 27b is a revolution in open weight models",
         "context": "Article",
-        "mentions": 2
-      },
-      {
-        "kind": "guide",
-        "href": "/guides/how-to-check-ai-benchmark-claims",
-        "label": "How to Audit AI Benchmark Claims: A Practical Guide",
-        "context": null,
         "mentions": 1
       }
     ],
@@ -3950,25 +4155,25 @@
         "mentions": 2
       },
       {
+        "kind": "chapter",
+        "href": "/books/rag-kg-master-course/theoretical-foundations",
+        "label": "Chapter 4 - Theoretical Foundations",
+        "context": "RAG + Knowledge Graph Master Course",
+        "mentions": 1
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/you-want-to-build-an-ai-agent-here-is-where-to-actually-start",
+        "label": "How to Build an AI Agent: Start Here",
+        "context": null,
+        "mentions": 1
+      },
+      {
         "kind": "article",
         "href": "/articles/a-55gb-file-just-beat-a-25-million-token-model-on-three-benchmarks",
         "label": "A 55GB Open Model Just Beat Claude Opus on Three Benchmarks",
         "context": "Article",
-        "mentions": 2
-      },
-      {
-        "kind": "article",
-        "href": "/articles/google-functiongemma-on-device-ai",
-        "label": "Google Released a 270M Parameter Model That Runs on Your Phone. The Architecture Shift It Signals Is Bigger Than the Model.",
-        "context": "Article",
-        "mentions": 2
-      },
-      {
-        "kind": "article",
-        "href": "/articles/google-turboquant-cuts-ai-memory-6x",
-        "label": "Google's TurboQuant Cuts AI Memory 6x",
-        "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "rdf": [
@@ -3986,13 +4191,20 @@
         "href": "/articles/jev-zero-hallucination-fine-print-disagrees",
         "label": "Jev Claims Zero Hallucination. The Fine Print Disagrees.",
         "context": "Article",
-        "mentions": 14
+        "mentions": 7
       },
       {
         "kind": "chapter",
         "href": "/books/ai-from-first-principles/transformers-and-llms",
         "label": "Chapter 5 - Transformers & LLMs: Attention Changed Everything",
         "context": "AI: From First Principles",
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/openai-parameter-golf-edge-ai",
+        "label": "OpenAI Bets on Tiny AI With Parameter Golf",
+        "context": "Article",
         "mentions": 1
       }
     ],
@@ -4002,28 +4214,28 @@
         "href": "/articles/claude-fable-5-mythos-model-you-can-use-catch",
         "label": "Claude Fable 5 Is the Mythos Model You Can Actually Use. But there's a Catch.",
         "context": "Article",
-        "mentions": 20
+        "mentions": 10
       },
       {
         "kind": "article",
         "href": "/articles/a-55gb-file-just-beat-a-25-million-token-model-on-three-benchmarks",
         "label": "A 55GB Open Model Just Beat Claude Opus on Three Benchmarks",
         "context": "Article",
-        "mentions": 18
-      },
-      {
-        "kind": "article",
-        "href": "/articles/gemini-38-flash-beats-terra-price-performance",
-        "label": "Gemini 3.8 Flash Beats Terra. The Price Is the Point.",
-        "context": "Article",
-        "mentions": 18
+        "mentions": 9
       },
       {
         "kind": "article",
         "href": "/articles/nvidia-rtx-spark-cloud-first-ai-era",
         "label": "NVIDIA RTX Spark Is Not a Chip. It's the End of the Cloud-First AI Era.",
         "context": "Article",
-        "mentions": 14
+        "mentions": 7
+      },
+      {
+        "kind": "article",
+        "href": "/articles/ai-coding-memorization-swe-bench-pro",
+        "label": "AI Can Write Your Code. It Just Cannot Understand It.",
+        "context": "Article",
+        "mentions": 6
       }
     ],
     "recurrent-neural-network": [
@@ -4060,32 +4272,32 @@
     ],
     "reinforcement-learning": [
       {
-        "kind": "article",
-        "href": "/articles/jev-zero-hallucination-fine-print-disagrees",
-        "label": "Jev Claims Zero Hallucination. The Fine Print Disagrees.",
-        "context": "Article",
-        "mentions": 4
-      },
-      {
         "kind": "comparison",
         "href": "/comparisons/mimo-v2-6-pro-vs-mimo-v2-6-flash",
         "label": "MiMo V2.6 Pro vs MiMo V2.6 Flash",
         "context": "Comparison",
-        "mentions": 3
-      },
-      {
-        "kind": "article",
-        "href": "/articles/anthropic-sep-security-report",
-        "label": "Anthropic: Alibaba Cloned Claude 151M Times. Six More Did.",
-        "context": "Article",
         "mentions": 2
       },
       {
         "kind": "article",
-        "href": "/articles/grok-4-6-index-cost-efficiency-benchmarks",
-        "label": "Grok 4.6 Ties GPT-5.6 Sol. Where It Falls Short",
+        "href": "/articles/jev-zero-hallucination-fine-print-disagrees",
+        "label": "Jev Claims Zero Hallucination. The Fine Print Disagrees.",
         "context": "Article",
         "mentions": 2
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/neural-networks",
+        "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
+        "context": "AI: From First Principles",
+        "mentions": 1
+      },
+      {
+        "kind": "chapter",
+        "href": "/books/ai-from-first-principles/transformers-and-llms",
+        "label": "Chapter 5 - Transformers & LLMs: Attention Changed Everything",
+        "context": "AI: From First Principles",
+        "mentions": 1
       }
     ],
     "reranking": [
@@ -4108,7 +4320,7 @@
         "href": "/articles/transformer-9-year-ceiling-subquadratic-subq",
         "label": "Subquadratic Says It Broke the Transformer Ceiling",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       },
       {
         "kind": "chapter",
@@ -4140,7 +4352,7 @@
         "href": "/articles/vector-database-market-pageindex",
         "label": "The $2.2 Billion Vector Database Market Has a Problem. This Open Source Repo Might Be It.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "retrieval-augmented-generation": [
@@ -4148,13 +4360,6 @@
         "kind": "article",
         "href": "/articles/vector-database-market-pageindex",
         "label": "The $2.2 Billion Vector Database Market Has a Problem. This Open Source Repo Might Be It.",
-        "context": "Article",
-        "mentions": 4
-      },
-      {
-        "kind": "article",
-        "href": "/articles/inkling-thinking-machines-open-weight-model-gemma",
-        "label": "Inkling Is the First Western Open-Weight Model at Scale",
         "context": "Article",
         "mentions": 2
       },
@@ -4171,6 +4376,13 @@
         "label": "RAG Works in Theory. Here's Why It Fails in Production.",
         "context": null,
         "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/inkling-thinking-machines-open-weight-model-gemma",
+        "label": "Inkling Is the First Western Open-Weight Model at Scale",
+        "context": "Article",
+        "mentions": 1
       }
     ],
     "svm": [
@@ -4185,31 +4397,40 @@
     "saas": [
       {
         "kind": "article",
+        "href": "/articles/saas-distribution-2026",
+        "label": "Your SaaS Is Built. Now the Hard Part.",
+        "context": "Article",
+        "mentions": 4
+      },
+      {
+        "kind": "article",
         "href": "/articles/agent-as-a-service-saas-nemoclaw",
         "label": "Agent as a Service Has Arrived. SaaS Did Not See It Coming.",
         "context": "Article",
-        "mentions": 4
+        "mentions": 2
+      },
+      {
+        "kind": "article",
+        "href": "/articles/claude-memory-import-privacy",
+        "label": "Claude Just Launched Memory Import. The Privacy Details Are the Story.",
+        "context": "Article",
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/claude-killed-my-startup",
         "label": "Claude Killed My Startup. Now What Does That Mean for the Rest of Us?",
         "context": "Article",
-        "mentions": 2
-      },
+        "mentions": 1
+      }
+    ],
+    "sarvam-ai": [
       {
         "kind": "article",
-        "href": "/articles/nvidia-kimodo-motion-generation-release",
-        "label": "NVIDIA Kimodo Turns Text Into Motion",
+        "href": "/articles/india-virginia-tax-inference-infrastructure",
+        "label": "Indian AI Founders Are Paying a 190ms Tax on Every Inference Call. That Is Finally Changing.",
         "context": "Article",
-        "mentions": 2
-      },
-      {
-        "kind": "article",
-        "href": "/articles/openclaw-had-210000-github-stars",
-        "label": "OpenClaw Had 210,000 GitHub Stars. Then Anthropic Shipped One Feature.",
-        "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "self-attention": [
@@ -4251,18 +4472,18 @@
         "mentions": 2
       },
       {
+        "kind": "guide",
+        "href": "/guides/rag-fails-in-production",
+        "label": "RAG Works in Theory. Here's Why It Fails in Production.",
+        "context": null,
+        "mentions": 1
+      },
+      {
         "kind": "article",
         "href": "/articles/picobot-the-ai-agent-that-fits-in-your-pocket",
         "label": "Picobot: The AI Agent That Fits in Your Pocket",
         "context": "Article",
-        "mentions": 2
-      },
-      {
-        "kind": "article",
-        "href": "/articles/vector-database-market-pageindex",
-        "label": "The $2.2 Billion Vector Database Market Has a Problem. This Open Source Repo Might Be It.",
-        "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "softmax": [
@@ -4314,10 +4535,17 @@
     "speculative-decoding": [
       {
         "kind": "article",
+        "href": "/articles/nemotron-3-super-sparse-moe-efficiency",
+        "label": "The Model That Thinks With 12B Parameters but Knows Everything a 120B Model Knows.",
+        "context": "Article",
+        "mentions": 1
+      },
+      {
+        "kind": "article",
         "href": "/articles/real-ai-race-minimax-m3-glm-52-deepseek-v4",
         "label": "The Real AI Race Nobody Is Covering: MiniMax M3, GLM 5.2, and DeepSeek V4 Are Fighting Each Other",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "supervised-learning": [
@@ -4329,57 +4557,66 @@
         "mentions": 1
       }
     ],
+    "sycophancy": [
+      {
+        "kind": "article",
+        "href": "/articles/claude-sonnet-5-rumors-benchmarks-pricing",
+        "label": "Claude Sonnet 5 Finally Launched. The Rumors Were Wrong About Almost Everything Except That It Was Coming.",
+        "context": "Article",
+        "mentions": 1
+      }
+    ],
     "synthid": [
       {
         "kind": "article",
         "href": "/articles/google-synthid-expansion-openai-watermarking-2026",
         "label": "Google SynthID Expansion: OpenAI Joins, 100 Billion Watermarks, and Why the Gap Still Exists",
         "context": "Article",
-        "mentions": 74
+        "mentions": 37
       },
       {
         "kind": "article",
         "href": "/articles/claude-ai-text-watermark-china-law",
         "label": "Claude AI Watermarks Text. China Made It Law First.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/gemini-omni-gemini-3-5-flash-google-io-2026",
         "label": "Gemini Omni and Gemini 3.5 Flash Are Real. So Is the Thing Google Refused to Ship.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "system-prompt": [
+      {
+        "kind": "guide",
+        "href": "/guides/rag-fails-in-production",
+        "label": "RAG Works in Theory. Here's Why It Fails in Production.",
+        "context": null,
+        "mentions": 1
+      },
       {
         "kind": "article",
         "href": "/articles/anthropic-sep-security-report",
         "label": "Anthropic: Alibaba Cloned Claude 151M Times. Six More Did.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/claude-fable-5-mythos-model-you-can-use-catch",
         "label": "Claude Fable 5 Is the Mythos Model You Can Actually Use. But there's a Catch.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/claude-fable-51-low-effort-benchmarks",
         "label": "Claude Fable 5.1 Beats Fable 5, Even at Low Effort",
         "context": "Article",
-        "mentions": 2
-      },
-      {
-        "kind": "article",
-        "href": "/articles/prime-agent-persistent-open-source-coding-agent",
-        "label": "Prime Agent Is Free, Open Source, and Remembers What Every Other Coding Agent Forgets",
-        "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "tf-idf": [
@@ -4404,13 +4641,6 @@
         "href": "/articles/the-next-layer-how-ai-is-moving-from-your-screen-to-your-world",
         "label": "The Next Layer: How AI Is Moving From Your Screen to Your World",
         "context": "Article",
-        "mentions": 4
-      },
-      {
-        "kind": "article",
-        "href": "/articles/nvidia-rtx-spark-cloud-first-ai-era",
-        "label": "NVIDIA RTX Spark Is Not a Chip. It's the End of the Cloud-First AI Era.",
-        "context": "Article",
         "mentions": 2
       },
       {
@@ -4419,21 +4649,35 @@
         "label": "Chapter 5 - Transformers & LLMs: Attention Changed Everything",
         "context": "AI: From First Principles",
         "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/nvidia-rtx-spark-cloud-first-ai-era",
+        "label": "NVIDIA RTX Spark Is Not a Chip. It's the End of the Cloud-First AI Era.",
+        "context": "Article",
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/the-model-you-benchmarked-is-not-the-model-you-deployed",
+        "label": "The Model You Benchmarked Is Not The Model You Deployed",
+        "context": "Article",
+        "mentions": 1
       }
     ],
     "tensorflow": [
-      {
-        "kind": "article",
-        "href": "/articles/google-unleashes-ai-agents-in-colab",
-        "label": "Google Unleashes AI Agents in Colab",
-        "context": "Article",
-        "mentions": 2
-      },
       {
         "kind": "chapter",
         "href": "/books/ai-from-first-principles/neural-networks",
         "label": "Chapter 4 - Neural Networks: When Simplicity Failed",
         "context": "AI: From First Principles",
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/google-unleashes-ai-agents-in-colab",
+        "label": "Google Unleashes AI Agents in Colab",
+        "context": "Article",
         "mentions": 1
       }
     ],
@@ -4443,28 +4687,28 @@
         "href": "/articles/terminal-bench-4-agent-not-model",
         "label": "Terminal-Bench 4 Is Measuring the Agent, Not the Model",
         "context": "Article",
-        "mentions": 44
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/gpt-5-6-public-launch-government-review",
         "label": "GPT-5.6 Is Now Publicly Available. The Government Review That Delayed It Resolved Faster Than Fable 5's Did.",
         "context": "Article",
-        "mentions": 16
+        "mentions": 8
       },
       {
         "kind": "article",
-        "href": "/articles/gemini-38-flash-beats-terra-price-performance",
-        "label": "Gemini 3.8 Flash Beats Terra. The Price Is the Point.",
+        "href": "/articles/claude-opus-48-dynamic-workflows-fast-mode-missing-benchmark",
+        "label": "Claude Opus 4.8 Released: Dynamic Workflows, Cheaper Fast Mode, and a Missing Benchmark",
         "context": "Article",
-        "mentions": 12
+        "mentions": 3
       },
       {
         "kind": "article",
-        "href": "/articles/claude-fable-51-low-effort-benchmarks",
-        "label": "Claude Fable 5.1 Beats Fable 5, Even at Low Effort",
+        "href": "/articles/claude-sonnet-5-5-price",
+        "label": "Claude Sonnet 5.5 Matches Sol's Price. Beats It on Paper.",
         "context": "Article",
-        "mentions": 10
+        "mentions": 3
       }
     ],
     "text-to-cypher": [
@@ -4478,13 +4722,6 @@
     ],
     "throughput": [
       {
-        "kind": "article",
-        "href": "/articles/vibe-coding-broke-github-that-is-not-the-surprising-part",
-        "label": "Vibe Coding Broke GitHub. That Is Not the Surprising Part.",
-        "context": "Article",
-        "mentions": 4
-      },
-      {
         "kind": "guide",
         "href": "/guides/qwen-3-8-27b-install-run",
         "label": "Qwen3.8-27B: How to Actually Install and Run It",
@@ -4493,8 +4730,8 @@
       },
       {
         "kind": "article",
-        "href": "/articles/gemini-36-flash-google-outside-top-ten",
-        "label": "Gemini 3.6 Flash Is Out. Google Still Doesn't Have a Model in the Top Ten.",
+        "href": "/articles/vibe-coding-broke-github-that-is-not-the-surprising-part",
+        "label": "Vibe Coding Broke GitHub. That Is Not the Surprising Part.",
         "context": "Article",
         "mentions": 2
       },
@@ -4503,7 +4740,14 @@
         "href": "/articles/nvidia-rtx-spark-cloud-first-ai-era",
         "label": "NVIDIA RTX Spark Is Not a Chip. It's the End of the Cloud-First AI Era.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/nemotron-3-super-sparse-moe-efficiency",
+        "label": "The Model That Thinks With 12B Parameters but Knows Everything a 120B Model Knows.",
+        "context": "Article",
+        "mentions": 1
       }
     ],
     "token": [
@@ -4512,21 +4756,7 @@
         "href": "/articles/why-you-should-look-at-cost-per-successful-task-instead-of-price-per-token",
         "label": "Why You Should Look at Cost Per Successful Task Instead Of Price Per Token",
         "context": "Article",
-        "mentions": 6
-      },
-      {
-        "kind": "article",
-        "href": "/articles/transformer-9-year-ceiling-subquadratic-subq",
-        "label": "Subquadratic Says It Broke the Transformer Ceiling",
-        "context": "Article",
-        "mentions": 30
-      },
-      {
-        "kind": "article",
-        "href": "/articles/glm-5-3-flash-ox-alpha-free-model-benchmarks",
-        "label": "GLM-5.3-Flash Was Ox Alpha. The Free Test Was the Point.",
-        "context": "Article",
-        "mentions": 24
+        "mentions": 3
       },
       {
         "kind": "chapter",
@@ -4534,9 +4764,44 @@
         "label": "Chapter 5 - Transformers & LLMs: Attention Changed Everything",
         "context": "AI: From First Principles",
         "mentions": 20
+      },
+      {
+        "kind": "article",
+        "href": "/articles/transformer-9-year-ceiling-subquadratic-subq",
+        "label": "Subquadratic Says It Broke the Transformer Ceiling",
+        "context": "Article",
+        "mentions": 15
+      },
+      {
+        "kind": "article",
+        "href": "/articles/nemotron-3-super-sparse-moe-efficiency",
+        "label": "The Model That Thinks With 12B Parameters but Knows Everything a 120B Model Knows.",
+        "context": "Article",
+        "mentions": 10
       }
     ],
     "tokenization": [
+      {
+        "kind": "article",
+        "href": "/articles/india-virginia-tax-inference-infrastructure",
+        "label": "Indian AI Founders Are Paying a 190ms Tax on Every Inference Call. That Is Finally Changing.",
+        "context": "Article",
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/microsoft-vibevoice-open-voice-ai-distribution-gap",
+        "label": "Microsoft Shipped the Best Open Voice AI in August. Nobody Noticed Until May.",
+        "context": "Article",
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/openai-parameter-golf-edge-ai",
+        "label": "OpenAI Bets on Tiny AI With Parameter Golf",
+        "context": "Article",
+        "mentions": 1
+      },
       {
         "kind": "chapter",
         "href": "/books/rag-kg-master-course/key-terminology",
@@ -4547,13 +4812,6 @@
     ],
     "tool-calling": [
       {
-        "kind": "comparison",
-        "href": "/comparisons/gpt-6-1-sol-vs-gpt-6-sol",
-        "label": "GPT-6.1 Sol vs GPT-6 Sol",
-        "context": "Comparison",
-        "mentions": 3
-      },
-      {
         "kind": "guide",
         "href": "/guides/you-want-to-build-an-ai-agent-here-is-where-to-actually-start",
         "label": "How to Build an AI Agent: Start Here",
@@ -4561,18 +4819,25 @@
         "mentions": 2
       },
       {
-        "kind": "article",
-        "href": "/articles/claude-fable-51-low-effort-benchmarks",
-        "label": "Claude Fable 5.1 Beats Fable 5, Even at Low Effort",
-        "context": "Article",
-        "mentions": 2
+        "kind": "comparison",
+        "href": "/comparisons/gpt-6-1-sol-vs-gpt-6-sol",
+        "label": "GPT-6.1 Sol vs GPT-6 Sol",
+        "context": "Comparison",
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/gpt-5-6-public-launch-government-review",
         "label": "GPT-5.6 Is Now Publicly Available. The Government Review That Delayed It Resolved Faster Than Fable 5's Did.",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/picobot-the-ai-agent-that-fits-in-your-pocket",
+        "label": "Picobot: The AI Agent That Fits in Your Pocket",
+        "context": "Article",
+        "mentions": 1
       }
     ],
     "transformer": [
@@ -4581,7 +4846,7 @@
         "href": "/articles/transformer-9-year-ceiling-subquadratic-subq",
         "label": "Subquadratic Says It Broke the Transformer Ceiling",
         "context": "Article",
-        "mentions": 14
+        "mentions": 7
       },
       {
         "kind": "chapter",
@@ -4592,17 +4857,17 @@
       },
       {
         "kind": "article",
-        "href": "/articles/razorpay-vulcan-payments-ai-foundation-model",
-        "label": "Razorpay Vulcan Isn't a Frontier Model. That's the Point.",
-        "context": "Article",
-        "mentions": 4
-      },
-      {
-        "kind": "article",
         "href": "/articles/sakana-fugu-beats-gpt-55-model-orchestration",
         "label": "Sakana Fugu Beats GPT-5.5 With Model Orchestration",
         "context": "Article",
-        "mentions": 4
+        "mentions": 3
+      },
+      {
+        "kind": "article",
+        "href": "/articles/nemotron-3-super-sparse-moe-efficiency",
+        "label": "The Model That Thinks With 12B Parameters but Knows Everything a 120B Model Knows.",
+        "context": "Article",
+        "mentions": 2
       }
     ],
     "triple": [
@@ -4611,7 +4876,7 @@
         "href": "/articles/transformer-9-year-ceiling-subquadratic-subq",
         "label": "Subquadratic Says It Broke the Transformer Ceiling",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       },
       {
         "kind": "chapter",
@@ -4628,6 +4893,13 @@
         "label": "Chapter 3 - Classical Machine Learning: Thinking in Features",
         "context": "AI: From First Principles",
         "mentions": 2
+      },
+      {
+        "kind": "guide",
+        "href": "/guides/99-percent-accuracy-then-production",
+        "label": "Your Model Hit 99% Accuracy. Then You Shipped It.",
+        "context": null,
+        "mentions": 1
       }
     ],
     "vanishing-gradients": [
@@ -4659,14 +4931,7 @@
         "href": "/articles/vector-database-market-pageindex",
         "label": "The $2.2 Billion Vector Database Market Has a Problem. This Open Source Repo Might Be It.",
         "context": "Article",
-        "mentions": 12
-      },
-      {
-        "kind": "article",
-        "href": "/articles/transformer-9-year-ceiling-subquadratic-subq",
-        "label": "Subquadratic Says It Broke the Transformer Ceiling",
-        "context": "Article",
-        "mentions": 2
+        "mentions": 6
       },
       {
         "kind": "chapter",
@@ -4681,22 +4946,29 @@
         "label": "RAG Works in Theory. Here's Why It Fails in Production.",
         "context": null,
         "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/transformer-9-year-ceiling-subquadratic-subq",
+        "label": "Subquadratic Says It Broke the Transformer Ceiling",
+        "context": "Article",
+        "mentions": 1
       }
     ],
     "vibe-coding": [
       {
         "kind": "article",
-        "href": "/articles/claude-code-security-the-argument-for-human-in-the-loop-just-got-harder",
-        "label": "Claude Code Security: The Argument for Human-in-the-Loop Just Got Harder",
+        "href": "/articles/vibe-coding-broke-github-that-is-not-the-surprising-part",
+        "label": "Vibe Coding Broke GitHub. That Is Not the Surprising Part.",
         "context": "Article",
-        "mentions": 4
+        "mentions": 1
       },
       {
         "kind": "article",
-        "href": "/articles/saas-distribution-2026",
-        "label": "Your SaaS Is Built. Now the Hard Part.",
+        "href": "/articles/claude-code-security-the-argument-for-human-in-the-loop-just-got-harder",
+        "label": "Claude Code Security: The Argument for Human-in-the-Loop Just Got Harder",
         "context": "Article",
-        "mentions": 4
+        "mentions": 2
       },
       {
         "kind": "article",
@@ -4707,8 +4979,8 @@
       },
       {
         "kind": "article",
-        "href": "/articles/transformer-9-year-ceiling-subquadratic-subq",
-        "label": "Subquadratic Says It Broke the Transformer Ceiling",
+        "href": "/articles/saas-distribution-2026",
+        "label": "Your SaaS Is Built. Now the Hard Part.",
         "context": "Article",
         "mentions": 2
       }
@@ -4728,7 +5000,7 @@
         "href": "/articles/grok-4-5-opus-adjacent-cursor-acquisition",
         "label": "Grok 4.5 Is Not \"Opus-Class.\" It Is Something More Interesting: Opus-Adjacent and Much Cheaper.",
         "context": "Article",
-        "mentions": 8
+        "mentions": 4
       }
     ],
     "zero-day": [
@@ -4737,28 +5009,28 @@
         "href": "/articles/anthropic-project-glasswing-mythos-cybersecurity",
         "label": "Anthropic Gave Its Dangerous Model to Defenders",
         "context": "Article",
-        "mentions": 4
+        "mentions": 3
+      },
+      {
+        "kind": "article",
+        "href": "/articles/npm-compromise-ai-not-safe-from-ai",
+        "label": "The npm Compromise Proved AI Is Not Safe From AI",
+        "context": "Article",
+        "mentions": 2
       },
       {
         "kind": "article",
         "href": "/articles/chatgpt-agents-compromised-german-wiki-named-dsewiki",
         "label": "ChatGPT Agents Compromised German Wiki Named DseWiki",
         "context": "Article",
-        "mentions": 2
+        "mentions": 1
       },
       {
         "kind": "article",
         "href": "/articles/claude-fable-5-mythos-model-you-can-use-catch",
         "label": "Claude Fable 5 Is the Mythos Model You Can Actually Use. But there's a Catch.",
         "context": "Article",
-        "mentions": 2
-      },
-      {
-        "kind": "article",
-        "href": "/articles/defenders-better-tools-everyone-else-ai-cybersecurity",
-        "label": "DayBreak is the Avengers Initiative for Cybersecurity. The Problem Is, AI Arms it Both Sides.",
-        "context": "Article",
-        "mentions": 2
+        "mentions": 1
       }
     ],
     "n8n": [
@@ -4773,31 +5045,24 @@
     "xai": [
       {
         "kind": "article",
-        "href": "/articles/grok-4-6-index-cost-efficiency-benchmarks",
-        "label": "Grok 4.6 Ties GPT-5.6 Sol. Where It Falls Short",
-        "context": "Article",
-        "mentions": 22
-      },
-      {
-        "kind": "article",
-        "href": "/articles/grok-bot-openclaw-hermes-agent-popularity",
-        "label": "Why Grok Bot Is Taking Off. It Isn't Just a Chatbot.",
-        "context": "Article",
-        "mentions": 12
-      },
-      {
-        "kind": "article",
         "href": "/articles/grok-4-5-opus-adjacent-cursor-acquisition",
         "label": "Grok 4.5 Is Not \"Opus-Class.\" It Is Something More Interesting: Opus-Adjacent and Much Cheaper.",
         "context": "Article",
-        "mentions": 10
+        "mentions": 6
       },
       {
         "kind": "article",
         "href": "/articles/chatgpt-agents-compromised-german-wiki-named-dsewiki",
         "label": "ChatGPT Agents Compromised German Wiki Named DseWiki",
         "context": "Article",
-        "mentions": 6
+        "mentions": 3
+      },
+      {
+        "kind": "article",
+        "href": "/articles/amodei-wants-ai-to-slow-down-musk-altman-agreed",
+        "label": "Amodei Wants AI To Slow Down. Musk and Altman Agreed.",
+        "context": "Article",
+        "mentions": 1
       }
     ]
   }
