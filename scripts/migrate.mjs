@@ -123,6 +123,7 @@ const migrations = [
   { id: "115_add_gemini_4_argon_model_catalog", file: new URL("../db/migrations/115_add_gemini_4_argon_model_catalog.sql", import.meta.url) },
   { id: "116_add_gemini_4_argon_vs_claude_opus_5_5_comparison", file: new URL("../db/migrations/116_add_gemini_4_argon_vs_claude_opus_5_5_comparison.sql", import.meta.url) },
   { id: "117_add_muse_wonder_vs_gpt_6_1_sol_comparison", file: new URL("../db/migrations/117_add_muse_wonder_vs_gpt_6_1_sol_comparison.sql", import.meta.url) },
+  { id: "118_admin_login_rate_limits", file: new URL("../db/migrations/118_admin_login_rate_limits.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;

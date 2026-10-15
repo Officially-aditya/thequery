@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { destroySession, getAdminSession, signIn } from "@/lib/auth";
+import { consumeAdminLoginAttempt } from "@/lib/admin-login-rate-limit";
 
 export async function GET() {
   const session = await getAdminSession();
@@ -8,6 +9,14 @@ export async function GET() {
 
 export async function POST(req: NextRequest) {
   try {
+    const retryAfter = await consumeAdminLoginAttempt(req.headers);
+    if (retryAfter !== null) {
+      return NextResponse.json({ error: "Too many sign-in attempts. Try again later." }, {
+        status: 429,
+        headers: { "Retry-After": String(retryAfter), "Cache-Control": "no-store" },
+      });
+    }
+
     const body = await req.json();
     const email = typeof body.email === "string" ? body.email : "";
     const password = typeof body.password === "string" ? body.password : "";
