@@ -120,6 +120,9 @@ const migrations = [
   { id: "112_correct_ai_agent_example_and_source", file: new URL("../db/migrations/112_correct_ai_agent_example_and_source.sql", import.meta.url) },
   { id: "113_expand_core_glossary_examples", file: new URL("../db/migrations/113_expand_core_glossary_examples.sql", import.meta.url) },
   { id: "114_update_qwen_guide_hardware_checks", file: new URL("../db/migrations/114_update_qwen_guide_hardware_checks.sql", import.meta.url) },
+  { id: "115_add_gemini_4_argon_model_catalog", file: new URL("../db/migrations/115_add_gemini_4_argon_model_catalog.sql", import.meta.url) },
+  { id: "116_add_gemini_4_argon_vs_claude_opus_5_5_comparison", file: new URL("../db/migrations/116_add_gemini_4_argon_vs_claude_opus_5_5_comparison.sql", import.meta.url) },
+  { id: "117_add_muse_wonder_vs_gpt_6_1_sol_comparison", file: new URL("../db/migrations/117_add_muse_wonder_vs_gpt_6_1_sol_comparison.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;

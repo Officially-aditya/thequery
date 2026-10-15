@@ -91,6 +91,17 @@ export default async function ComparisonPage({ params }: Props) {
       developer,
     }));
 
+    const hasSpecTables = comparison.blocks.some((block) => block.type === "spec_table");
+    let renderedBlocks = comparison.blocks;
+    if (!hasSpecTables && comparison.modelA && comparison.modelB) {
+      const selectedModels = await getModelsBySlugs([comparison.modelA, comparison.modelB]);
+      const modelAEntry = selectedModels.find((model) => model.slug === comparison.modelA);
+      const modelBEntry = selectedModels.find((model) => model.slug === comparison.modelB);
+      if (modelAEntry && modelBEntry) {
+        renderedBlocks = [...comparison.blocks, ...buildModelComparisonBlocks(modelAEntry, modelBEntry)];
+      }
+    }
+
     const jsonLd = {
       "@context": "https://schema.org",
       "@graph": [
@@ -143,7 +154,7 @@ export default async function ComparisonPage({ params }: Props) {
         <CoverImage src={comparison.coverImageUrl} alt={comparison.coverImageAlt} title={comparison.title} />
 
         <ContentBlocksRenderer
-          blocks={comparison.blocks}
+          blocks={renderedBlocks}
           sources={comparison.sources}
           glossaryTerms={glossaryTerms}
           comparisonPicker={comparison.modelA && comparison.modelB ? {
