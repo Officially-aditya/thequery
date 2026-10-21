@@ -125,6 +125,7 @@ const migrations = [
   { id: "117_add_muse_wonder_vs_gpt_6_1_sol_comparison", file: new URL("../db/migrations/117_add_muse_wonder_vs_gpt_6_1_sol_comparison.sql", import.meta.url) },
   { id: "118_admin_login_rate_limits", file: new URL("../db/migrations/118_admin_login_rate_limits.sql", import.meta.url) },
   { id: "119_publish_deepseek_v41_flash_1017", file: new URL("../db/migrations/119_publish_deepseek_v41_flash_1017.sql", import.meta.url) },
+  { id: "120_publish_rea_security_compliance_article", file: new URL("../db/migrations/120_publish_rea_security_compliance_article.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
