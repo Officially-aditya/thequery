@@ -1,12 +1,12 @@
-# REA Makes Software Easier to Copy. Trust Takes Longer.
+# Why is REA making product based companies sweat
 
 By Addy · October 22, 2026
 
-REA, short for Reverse Engineer Anything, gives AI coding agents tools to inspect existing software, explain how a feature works, and help build an implementation. Its official project connects agents to established analysis tools and supports investigations of compiled programs, packaged applications, and websites. That makes an existing product a more useful starting point for someone building a competitor. [REA's repository](https://github.com/morluto/rea) describes the workflow and its supported targets.
+REA, short for Reverse Engineer Anything, gives AI coding agents tools to inspect existing software, trace how a feature works, and help build a version of it. For a product company, the uncomfortable implication is straightforward: the application it spent years developing can also become a starting point for someone else's competing product. [REA's repository](https://github.com/morluto/rea) describes the tool and its supported targets.
 
-The question this raises for product companies is straightforward. If an agent can understand and reproduce what your software does, what are customers still paying you for?
+That puts pressure on the idea of a software moat. If an agent can help reproduce the features customers are paying for, how much protection does owning the implementation still provide? Recreating a feature is not the same as replacing a complete commercial service, but a company whose advantage depends on that feature being difficult to build has a question to answer.
 
-For software handling sensitive business data, security and compliance are a credible part of the answer. More precisely, customers can pay for someone to operate the system safely, produce evidence that the safeguards work, and take responsibility when something fails. Recreating a feature does not automatically recreate those capabilities. Whether a company has actually built them is another question.
+For software handling sensitive business data, security and compliance can give customers a reason to keep paying even after a competitor matches the features. They are paying for safeguards that work, evidence they can inspect, and an operator responsible for keeping the service running. Established companies have to earn that trust, and challengers can earn it too. Reproducing an application does not automatically settle who can be trusted to operate it.
 
 ## What REA actually demonstrates
 
