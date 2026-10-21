@@ -12,9 +12,9 @@ For software handling sensitive business data, security and compliance can give 
 
 Reverse engineering means working backward from a program to understand its construction. Think of a mechanic examining an engine without its workshop manual. REA helps an agent conduct that examination, using tools such as Ghidra and Hopper to inspect the instructions and relationships inside compiled software. The agent then uses the findings to explain behavior or write and test an implementation. It is a workflow for investigation and reconstruction, with work to verify along the way.
 
-The project's DX-Ball example makes the distinction concrete. Its published case study reconstructs a function that converts a position on the screen into a left or right sound setting. The project reports matching the original function in 3,205 test cases and reproducing all 63 compiled bytes. Its broader reconstruction checkpoint, dated October 7, 2026, lists 55 maintained C functions. The page says builds provide inspection utilities and an analysis library, with work on the playable game continuing. These are project-reported results, not an independent evaluation of a finished commercial replacement. [REA's DX-Ball case study](https://rea.tools/showcase/dx-ball/) supplies the code, checks, and limitations.
+The project's [DX-Ball example](https://github.com/morluto/rea) makes the distinction concrete. Its repository reports reconstructing a function that converts a screen position into a left or right sound setting, matching the original function in 3,205 test cases and reproducing all 63 compiled bytes. These are project-reported results, not an independent evaluation of a finished commercial replacement.
 
-The Notion example follows copying text and HTML through Notion Desktop 7.6.1 to the computer's clipboard. It documents a specific path through the packaged application. It does not demonstrate a replacement for Notion's entire service. [REA's Notion case study](https://rea.tools/showcase/notion/) identifies the application version and the evidence behind that investigation.
+Its [Notion example](https://github.com/morluto/rea) traces how the desktop application sends copied content to the computer's clipboard. That documents a specific path through the packaged application. It does not demonstrate a replacement for Notion's entire service.
 
 These are useful achievements. Understanding software without its original source can involve substantial work. Making parts of that work easier puts pressure on companies whose advantage rests on a reproducible feature. The leap from that result to every software company losing its business remains a hypothesis.
 
@@ -38,9 +38,7 @@ Consider an application serving two unrelated companies. Its ordinary screens ma
 
 An audit log serves a different purpose. Like a visitor book, it records who did what and when. Its usefulness depends on whether the relevant actions are recorded, whether the record can be altered, and whether someone can retrieve it during an investigation. Adding an activity page is only part of that work.
 
-Security also continues after release. NIST's incident response guidance, published in April 2025, places preparation, detection, response, and recovery throughout cybersecurity risk management. [NIST SP 800-61 Revision 3](https://csrc.nist.gov/pubs/sp/800/61/r3/final) treats incident response as an organizational capability.
-
-The practical test resembles a fire drill: can the people responsible detect a problem, contain it, communicate clearly, and restore service? A recovery procedure that nobody has exercised offers a buyer less assurance than one supported by evidence.
+Security also continues after release. The practical test resembles a fire drill: can the people responsible detect a problem, contain it, communicate clearly, and restore service? A recovery procedure that nobody has exercised offers a buyer less assurance than one supported by evidence.
 
 None of this requires assuming AI-written software is inherently insecure or that established vendors are inherently safe. Both need scrutiny. The commercial advantage belongs to the operator who can demonstrate the safeguards and keep them working as the product changes.
 
@@ -66,7 +64,7 @@ AWS nevertheless describes security and compliance as shared responsibilities. A
 
 The analogy is renting space in a guarded building. The owner can secure the premises while the tenant remains responsible for who receives access to its rooms. Buying good infrastructure helps. The application operator still has decisions to make and controls to run.
 
-REA itself offers a relevant detail. Its FAQ says analysis happens on the user's machine, but the agent receives the results and its model provider's data policy applies to them. [REA's data and sharing guidance](https://rea.tools/faq/) describes that distinction. A team using the tool with sensitive material must consider where the findings go as well as where the original application sits.
+REA itself offers a relevant detail. Its repository says analysis happens on the user's machine, but the agent receives the results and its model provider has its own data policy. [REA's data-handling explanation](https://github.com/morluto/rea) describes that distinction. A team using the tool with sensitive material must consider where the findings go as well as where the original application sits.
 
 That is the kind of question a company can pay a supplier to resolve and document. The value comes from a functioning arrangement for handling the data, with responsibilities understood across the services involved.
 
@@ -101,10 +99,7 @@ The code can be copied. The responsibility still needs an owner.
 *Sources:*
 
 - [REA: Reverse Engineer Anything](https://github.com/morluto/rea) - Official project repository
-- [DX-Ball reconstruction and sound-pan checks](https://rea.tools/showcase/dx-ball/) - REA
-- [Notion Desktop clipboard investigation](https://rea.tools/showcase/notion/) - REA
 - [SOC 2 report review checklist](https://assets.ctfassets.net/rb9cdnjh59cm/3xbcLlNc5rd72So4nQpNIk/7a3e8e5945c78c35fc5e116859b96e6a/SOC_2_Report_%C3%82_Review_Checklist.pdf) - AICPA
 - [Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/) - Amazon Web Services
-- [SP 800-61 Rev. 3: Incident Response Recommendations](https://csrc.nist.gov/pubs/sp/800/61/r3/final) - NIST
 
 **Previously on TheQuery:** [Your SaaS Is Built. Now the Hard Part.](https://thequery.in/articles/saas-distribution-2026) and [DayBreak is the Avengers Initiative for Cybersecurity. The Problem Is, AI Arms it Both Sides.](https://thequery.in/articles/defenders-better-tools-everyone-else-ai-cybersecurity)
