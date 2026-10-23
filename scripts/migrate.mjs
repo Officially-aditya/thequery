@@ -127,6 +127,8 @@ const migrations = [
   { id: "119_publish_deepseek_v41_flash_1017", file: new URL("../db/migrations/119_publish_deepseek_v41_flash_1017.sql", import.meta.url) },
   { id: "120_publish_rea_security_compliance_article", file: new URL("../db/migrations/120_publish_rea_security_compliance_article.sql", import.meta.url) },
   { id: "121_add_minimax_m3_1_flash", file: new URL("../db/migrations/121_add_minimax_m3_1_flash.sql", import.meta.url) },
+  { id: "122_add_kimi_k3_1_pro", file: new URL("../db/migrations/122_add_kimi_k3_1_pro.sql", import.meta.url) },
+  { id: "123_add_kimi_k3_1_pro_vs_opus_5_5", file: new URL("../db/migrations/123_add_kimi_k3_1_pro_vs_opus_5_5.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
