@@ -1,15 +1,15 @@
 {
   "sources": {
-    "terms": 341,
+    "terms": 345,
     "chapters": 27,
     "guides": 6,
-    "articles": 112,
-    "comparisons": 11
+    "articles": 114,
+    "comparisons": 12
   },
   "coverage": {
-    "termsWithLinks": 236,
-    "totalLinks": 660,
-    "unlinkedTerms": 105
+    "termsWithLinks": 237,
+    "totalLinks": 662,
+    "unlinkedTerms": 108
   },
   "terms": {
     "a2a": [
@@ -581,10 +581,10 @@
       },
       {
         "kind": "article",
-        "href": "/articles/claude-fable-5-mythos-model-you-can-use-catch",
-        "label": "Claude Fable 5 Is the Mythos Model You Can Actually Use. But there's a Catch.",
+        "href": "/articles/ai-benchmarks-tests-keep-leaking",
+        "label": "AI Benchmarks Keep Improving. The Tests Keep Leaking.",
         "context": "Article",
-        "mentions": 17
+        "mentions": 18
       }
     ],
     "bi-encoder": [
@@ -1066,6 +1066,13 @@
         "kind": "comparison",
         "href": "/comparisons/gemini-4-argon-vs-opus-5-5",
         "label": "Gemini 4 Argon vs Claude Opus 5.5",
+        "context": "Comparison",
+        "mentions": 1
+      },
+      {
+        "kind": "comparison",
+        "href": "/comparisons/kimi-k3-1-pro-vs-opus-5-5",
+        "label": "Kimi K3.1 Pro vs Claude Opus 5.5",
         "context": "Comparison",
         "mentions": 1
       },
@@ -2887,6 +2894,15 @@
         "mentions": 1
       }
     ],
+    "kimi-k3-1-pro": [
+      {
+        "kind": "comparison",
+        "href": "/comparisons/kimi-k3-1-pro-vs-opus-5-5",
+        "label": "Kimi K3.1 Pro vs Claude Opus 5.5",
+        "context": "Comparison",
+        "mentions": 1
+      }
+    ],
     "knowledge-graph": [
       {
         "kind": "chapter",
@@ -3865,17 +3881,17 @@
         "mentions": 5
       },
       {
+        "kind": "article",
+        "href": "/articles/ai-benchmarks-tests-keep-leaking",
+        "label": "AI Benchmarks Keep Improving. The Tests Keep Leaking.",
+        "context": "Article",
+        "mentions": 2
+      },
+      {
         "kind": "chapter",
         "href": "/books/rag-kg-master-course/theoretical-foundations",
         "label": "Chapter 4 - Theoretical Foundations",
         "context": "RAG + Knowledge Graph Master Course",
-        "mentions": 1
-      },
-      {
-        "kind": "chapter",
-        "href": "/books/ai-from-first-principles/transformers-and-llms",
-        "label": "Chapter 5 - Transformers & LLMs: Attention Changed Everything",
-        "context": "AI: From First Principles",
         "mentions": 1
       }
     ],
@@ -4865,16 +4881,16 @@
         "mentions": 1
       },
       {
-        "kind": "article",
-        "href": "/articles/gpt-5-6-public-launch-government-review",
-        "label": "GPT-5.6 Is Now Publicly Available. The Government Review That Delayed It Resolved Faster Than Fable 5's Did.",
-        "context": "Article",
+        "kind": "comparison",
+        "href": "/comparisons/kimi-k3-1-pro-vs-opus-5-5",
+        "label": "Kimi K3.1 Pro vs Claude Opus 5.5",
+        "context": "Comparison",
         "mentions": 1
       },
       {
         "kind": "article",
-        "href": "/articles/picobot-the-ai-agent-that-fits-in-your-pocket",
-        "label": "Picobot: The AI Agent That Fits in Your Pocket",
+        "href": "/articles/gpt-5-6-public-launch-government-review",
+        "label": "GPT-5.6 Is Now Publicly Available. The Government Review That Delayed It Resolved Faster Than Fable 5's Did.",
         "context": "Article",
         "mentions": 1
       }

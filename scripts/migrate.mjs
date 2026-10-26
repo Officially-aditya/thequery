@@ -130,6 +130,7 @@ const migrations = [
   { id: "122_add_kimi_k3_1_pro", file: new URL("../db/migrations/122_add_kimi_k3_1_pro.sql", import.meta.url) },
   { id: "123_add_kimi_k3_1_pro_vs_opus_5_5", file: new URL("../db/migrations/123_add_kimi_k3_1_pro_vs_opus_5_5.sql", import.meta.url) },
   { id: "124_publish_benchmark_contamination_article", file: new URL("../db/migrations/124_publish_benchmark_contamination_article.sql", import.meta.url) },
+  { id: "125_add_gpt_6_1_terra", file: new URL("../db/migrations/125_add_gpt_6_1_terra.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
