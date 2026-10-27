@@ -8,20 +8,25 @@
 -- full technical nuance:
 -- 1. Unlike GPT-6.1 Sol and Astra where reasoning cannot be disabled, Terra
 --    supports reasoning.effort="none" for low-latency, deterministic pipelines.
--- 2. OpenAI's launch evaluations report 50.3% on Terminal-Bench 4.0 at max
---    effort (more than double GPT-5.6 Terra's 21.5%), 74.2% on OSWorld 2.1,
---    and 34.8% on Agents' Last Exam.
--- 3. Artificial Analysis reports an Intelligence Index of 48.1 at max effort,
---    with an index task cost of $0.40 and an output speed of 87 tokens/sec.
--- 4. AA-Omniscience hallucination rate falls from 88.0% to 38.0%, a 50-point
---    drop in guessing when context is missing.
--- 5. System card addendum rates Terra Medium in cybersecurity, Low in biology,
---    and below High in AI self-improvement, with 98.8% prompt injection defense.
+-- 2. OpenAI's launch text gives one exact headline score: 50.3% on
+--    Terminal-Bench 4.0 at max effort, more than double GPT-5.6 Terra's 21.5%
+--    and below GPT-6.1 Sol's 56.1%. Other comparisons are directional because
+--    the exact chart values are not stated.
+-- 3. Artificial Analysis reports an Intelligence Index of 48 at max effort,
+--    with an index task cost of $0.40 and about 90.9 output tokens per second.
+-- 4. It is available in the OpenAI API, ChatGPT Work, and Codex on Plus, Pro,
+--    Enterprise, and Edu plans. It is not listed on Business, GitHub Copilot,
+--    Amazon Bedrock, or OpenRouter.
+-- 5. System card addendum rates Terra Critical in cybersecurity, High in
+--    biological and chemical capability, and below High in AI self-improvement.
+--    The safeguards stack matches GPT-6.1 Sol and GPT-6 Astra. Only the one
+--    exact Terminal-Bench row is seeded; the five unsupported rows from the
+--    first draft are intentionally absent.
 
 WITH gpt_6_1_terra_entry AS (
   SELECT $body$GPT-6.1 Terra is OpenAI's October 2026 [large language model](/glossary/large-language-model) designed for high-volume workflows, visual reasoning, desktop computer use, and natural writing. Released on October 26, 2026, as the direct successor to GPT-5.6 Terra, it is available in the API as `gpt-6.1-terra`. In OpenAI's GPT-6 lineup, it sits between the economy-tier [GPT-6 Luna](/glossary/gpt-6-luna) (\$0.10/\$0.50) and the high-intelligence [GPT-6.1 Sol](/glossary/gpt-6-1-sol) (\$2/\$10), cutting Sol's token prices in half while approaching flagship visual and agentic capabilities.
 
-For an everyday user, GPT-6.1 Terra is available in ChatGPT Work and Codex across Plus, Pro, Business, Enterprise, and Edu plans, and is integrated into GitHub Copilot for terminal and coding tasks. For a developer, it is a proprietary hosted model accepting text and image inputs and producing text outputs. Unlike [GPT-6.1 Sol](/glossary/gpt-6-1-sol) and [GPT-6 Astra](/glossary/gpt-6-astra), where reasoning is mandatory, GPT-6.1 Terra supports turning reasoning off entirely via `reasoning.effort: "none"`, providing a low-latency, deterministic execution mode for routine pipelines.
+For an everyday user, GPT-6.1 Terra is available in ChatGPT Work and Codex on Plus, Pro, Enterprise, and Edu plans. For a developer, it is a proprietary hosted model accepting text and image inputs and producing text outputs. Unlike [GPT-6.1 Sol](/glossary/gpt-6-1-sol) and [GPT-6 Astra](/glossary/gpt-6-astra), where reasoning is mandatory, GPT-6.1 Terra supports turning reasoning off entirely via `reasoning.effort: "none"`, providing a low-latency, deterministic execution mode for routine pipelines.
 
 ## Key specifications
 
@@ -40,9 +45,9 @@ For an everyday user, GPT-6.1 Terra is available in ChatGPT Work and Codex acros
 | Reasoning effort | `none`, `low`, `medium` (default), `high`, `xhigh`, `max` |
 | Non-thinking mode | Supported (`reasoning.effort: "none"`) |
 | API endpoints | Chat Completions (no-tool mode) and Responses API (full tool surface) |
-| Tool integration | Web search, file search, code interpreter, computer use, MCP |
+| Tool integration | Web search, file search, image generation, code interpreter, hosted shell, apply patch, skills, computer use, MCP and tool search |
 | Structured outputs | Supported (`json_schema` with `strict: true`) |
-| Availability | OpenAI API, ChatGPT Work, Codex, GitHub Copilot, Amazon Bedrock |
+| Availability | OpenAI API, ChatGPT Work, Codex |
 | Downloadable weights | Proprietary; no public model weights |
 
 Think of the [context window](/glossary/context-window) as an analyst's working desk: it bounds the total volume of conversation history, instructions, and reference material that can be held in working memory during an [inference](/glossary/inference) pass. A 1.05M-token window does not guarantee that every buried detail across a 900-page document corpus will be retrieved with identical precision, and long-context reasoning should be evaluated against retrieval quality. Similarly, the 128,000-token maximum output is a request ceiling rather than an expected response length.
@@ -51,56 +56,40 @@ Think of the [context window](/glossary/context-window) as an analyst's working 
 
 GPT-6.1 Terra replaces GPT-5.6 Terra and repositions OpenAI's mid-tier offering along several structural axes:
 
-- **Versus GPT-5.6 Terra:** Standard API token pricing is cut in half, dropping from \$2.00 to \$1.00 per million input tokens and from \$10.00 to \$5.00 per million output tokens. Reasoning capabilities improve substantially: on Terminal-Bench 4.0, Terra's pass rate jumps from 21.5% to 50.3% at maximum effort, while hallucination guessing rates on AA-Omniscience drop by 50 percentage points.
-- **Versus GPT-6.1 Sol:** Sol remains OpenAI's recommendation for repository-scale software engineering and multi-step codebase refactoring, leading Terra on the Artificial Analysis Coding Agent Index (54 vs 48) and Terminal-Bench (56.1% vs 50.3%). However, Terra costs 50% less per token, executes agentic tasks over three times faster, and allows developers to disable reasoning when raw speed is paramount.
+- **Versus GPT-5.6 Terra:** The standard input price falls from \$2.00 to \$1.00 per million tokens, and output falls from \$12.00 to \$5.00. OpenAI describes the overall API price as 50% lower, though the output reduction is larger than half. Reasoning capabilities improve substantially: on Terminal-Bench 4.0, Terra's pass rate jumps from 21.5% to 50.3% at maximum effort, and OpenAI says its internal factuality error rate at low effort falls from 53.6% to 16.7%.
+- **Versus GPT-6.1 Sol:** OpenAI recommends Sol for repository-scale software engineering and multi-step codebase refactoring, and says Sol and Astra remain the better choice for the most complex coding tasks. Sol also leads Terra on Terminal-Bench 4.0 (56.1% vs 50.3%). However, Terra costs 50% less per token, executes agentic tasks over three times faster, and allows developers to disable reasoning when raw speed is paramount.
 - **Versus GPT-6 Luna:** Luna is an economy text-only model priced at \$0.10/\$0.50 per million tokens, built for classification, shallow routing, and basic extraction. Terra introduces multimodal understanding, complex computer-use execution, and a 1.05M-token context window that Luna cannot match.
 - **Versus GPT-6 Astra:** Astra represents OpenAI's research frontier (\$10/\$50 per million tokens) for novel mathematical and scientific problems. On day-to-day office tasks, form filling, and UI interaction evaluated in Agents' Last Exam, Terra nears Astra's performance at approximately one-tenth of the token cost.
 
 ## Pricing and cost efficiency
 
-OpenAI lists flat rates for GPT-6.1 Terra across its standard context tier. Prices below are in US dollars per million tokens, reviewed on October 26, 2026.
+OpenAI lists the following standard rates for GPT-6.1 Terra. Prices are in US dollars per million tokens, reviewed on October 26, 2026.
 
 | Token type | GPT-6.1 Terra | GPT-5.6 Terra | GPT-6.1 Sol | GPT-6 Luna | GPT-6 Astra |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | Standard input | $1.00 | $2.00 | $2.00 | $0.10 | $10.00 |
 | Cached input reads | $0.05 | $0.20 | $0.10 | $0.01 | $1.00 |
 | Cache writes | $1.25 | $2.50 | $2.50 | $0.125 | $12.50 |
-| Standard output | $5.00 | $10.00 | $10.00 | $0.50 | $50.00 |
+| Standard output | $5.00 | $12.00 | $10.00 | $0.50 | $50.00 |
 
-Cached input reads cost \$0.05 per million tokens, representing a 95% discount compared to uncached input. Cache writes are billed at 1.25 times the uncached input rate (\$1.25 per million tokens) for 30-minute retention. For asynchronous and high-volume workloads, OpenAI offers Batch and Flex processing at a 50% discount (\$0.50 input / \$2.50 output per million tokens).
+Cached input reads cost \$0.05 per million tokens, a 95% discount to uncached input. Cache writes are billed at 1.25 times the uncached input rate (\$1.25 per million tokens) for 30-minute retention; 12-hour retention costs \$2.50 per million tokens. Prompts above 272,000 input tokens are billed at twice the input and cache rates and 1.5 times the output rate for the full request. For asynchronous and high-volume workloads, OpenAI offers Batch and Flex processing at a 50% discount (\$0.50 input / \$2.50 output per million tokens), and regional processing adds a 10% premium where available.
 
-List price does not directly dictate end-to-end task cost. On the Artificial Analysis benchmark indexing suite, GPT-6.1 Terra records an average cost per completed task of \$0.40 at maximum effort, compared to \$0.72 for GPT-6.1 Sol, \$1.40 for GPT-5.6 Terra, and \$3.26 for GPT-6 Astra. Output throughput is measured between 83 and 91 tokens per second depending on reasoning effort, enabling fast iterative loops in tool-driven agents.
+List price does not directly dictate end-to-end task cost. Artificial Analysis measures an average of \$0.40 per completed Intelligence Index task at maximum effort, compared with \$0.72 for GPT-6.1 Sol and \$3.26 for GPT-6 Astra. Its first-party API measurement puts output throughput at about 90.9 tokens per second.
 
 ## Benchmark profile and independent evaluations
 
-The following figures come from OpenAI's launch materials and represent vendor-reported evaluations across coding, agentic computer use, and domain-specific knowledge.
+OpenAI's launch post gives one exact headline score and otherwise makes comparative claims. On Terminal-Bench 4.0 at maximum effort, Terra solves 50.3% of tasks, more than double GPT-5.6 Terra's published 21.5% and below GPT-6.1 Sol's 56.1%. On Agents' Last Exam at medium effort, OpenAI says Terra scores 15 percentage points above GPT-5.6 Terra at about one-third the cost and matches GPT-6 Astra at roughly one-tenth of Astra's price per token. On OSWorld 2.1 at medium effort, it says Terra surpasses GPT-5.6 Terra's best score at a fraction of the cost. On MMMU-Pro, it says Terra outperforms GPT-5.6 Terra at every reasoning setting and nearly matches Sol and Astra. On Terminal-Bench-Science 0.1 at maximum effort, it says Terra surpasses GPT-6.1 Sol at lower cost and comes within five points of Claude Opus 5.5 at less than one-fifth of the estimated cost. These are vendor claims, and the exact chart values behind several of them are not stated in the launch text.
 
-| Evaluation | GPT-6.1 Terra | GPT-5.6 Terra | GPT-6.1 Sol | GPT-6 Astra | What it measures |
-| --- | ---: | ---: | ---: | ---: | --- |
-| Terminal-Bench 4.0 (max) | **50.3%** | 21.5% | 56.1% | 59.1% | Shell execution and CLI problem-solving in agent environments |
-| OSWorld 2.1 offline (max) | **74.2%** | 58.0% | 71.4% (v2.0) | 73.5% (v2.0) | Cross-application desktop UI navigation and computer use |
-| Agents' Last Exam (medium) | **34.8%** | 19.8% | n/a | 35.2% | Professional computer tasks and technical artifact generation |
-| MMMU-Pro (vision) | **62.4%** | 46.1% | 68.5% | 71.2% | Multimodal college-level multidisciplinary reasoning |
-| DualEntry Accounting | **78.2%** | 61.0% | 82.4% | 85.0% | Financial document extraction and ledger entry reconciliation |
+Artificial Analysis's independent profile places GPT-6.1 Terra at 48 on its Intelligence Index v4.3.2 at maximum effort, at \$0.40 per index task and about 90.9 output tokens per second. The same index scores GPT-6.1 Sol at 51.8 and GPT-6 Astra at 52.7, at \$0.72 and \$3.26 per task respectively. Terra therefore trails both flagships on aggregate intelligence while costing far less per completed task.
 
-Independent evaluator Artificial Analysis published its comprehensive profile on October 26, 2026, measuring intelligence, throughput, and error rates.
-
-| Measurement | GPT-6.1 Terra (max) | GPT-5.6 Terra | GPT-6.1 Sol (max) | GPT-6 Astra (max) |
-| --- | ---: | ---: | ---: | ---: |
-| Intelligence Index v4.3.2 | 48.1 | 42.0 | 51.8 | 52.7 |
-| Coding Agent Index v2.0 | 48.0 | 34.0 | 54.0 | 57.0 |
-| Cost per index task | **$0.40** | $1.40 | $0.72 | $3.26 |
-| Output generation speed | 87 tps | 62 tps | 72 tps | 45 tps |
-| AA-Omniscience hallucination rate (lower is better) | **38.0%** | 88.0% | 54.3% | 51.3% |
-
-These numbers reflect specific configurations. On Terminal-Bench 4.0, score differences between 50.3% and 56.1% depend heavily on the [agent harness](/glossary/agent-harness), sandbox timeout budgets, and permission architectures. On DualEntry Accounting, Terra completes tasks in approximately 16 seconds per case, achieving high throughput but exhibiting minor degradation on complex accounts payable adjustments compared to Sol and Astra. The dramatic drop in AA-Omniscience hallucination rate (from 88% down to 38%) reflects calibrated abstention when contextual data is missing; it does not eliminate domain-specific hallucinations during ungrounded generation.
+The benchmark context matters. On Terminal-Bench 4.0, score differences depend heavily on the [agent harness](/glossary/agent-harness), sandbox timeout budgets, and permission architectures. The Agents' Last Exam comparison is an OpenAI-run evaluation, not a controlled third-party head-to-head. And a composite index such as Artificial Analysis's weights a fixed set of tasks; it does not predict performance on every workload.
 
 ## API behavior and reasoning configuration
 
 API callers can interact with `gpt-6.1-terra` through two endpoints:
 
-- **Responses API:** Required for full [tool calling](/glossary/tool-calling), including web search, file search, code interpreter, MCP server connections, and computer use.
-- **Chat Completions:** Supported for conversational and prompt-response workloads without tool calls.
+- **Responses API:** Required for full [tool calling](/glossary/tool-calling), including web search, file search, image generation, code interpreter, hosted shell, apply patch, skills, computer use, MCP server connections and tool search.
+- **Chat Completions:** Supported for conversational and prompt-response workloads without tool calls. Batch is also supported; fine-tuning is not.
 
 The `reasoning.effort` parameter supports `none`, `low`, `medium` (default), `high`, `xhigh`, and `max`. When set to `none`, the model behaves as a standard non-reasoning generator: sampling parameters such as `temperature` and `top_p` operate conventionally, latency is minimized, and no reasoning tokens are billed. When any thinking tier is active, OpenAI recommends leaving `temperature` and `top_p` at their default values, and reasoning tokens are returned in the response stream before the final output.
 
@@ -108,12 +97,10 @@ The `reasoning.effort` parameter supports `none`, `low`, `medium` (default), `hi
 
 OpenAI's October 26, 2026 system card addendum evaluates GPT-6.1 Terra under its Preparedness Framework:
 
-- **Cybersecurity:** Rated Medium, contrasting with the Critical designation assigned to GPT-6.1 Sol and GPT-6 Astra. While Terra can interpret scripts and inspect CLI environments, it does not demonstrate autonomous zero-day vulnerability synthesis capabilities.
-- **Biological and chemical hazards:** Rated Low.
-- **AI self-improvement:** Rated below High.
-- **Prompt injection and operational safety:** The system card reports 98.8% resistance to indirect prompt injections in adversarial document and web browsing tests, alongside improved boundary compliance during file system operations.
-
-Unlike Sol and Astra, which require gated access programs for certain advanced cyber features, Terra is deployed broadly across commercial tiers without restricted cybersecurity tiers.
+- **Cybersecurity:** Treated as Critical capability, the same determination as GPT-6.1 Sol and GPT-6 Astra. OpenAI applies the same safeguards stack to all three models, with probes updated to be compatible with Terra. Terra scores 97.10% on ExploitBench, 24.5% arbitrary code execution on OpenAI's internal port of recently disclosed vulnerabilities, 83.33% pass@1 on SEC-Bench Pro, and 5 of 22 targets (22.7%) on Sandbox Bench.
+- **Biological and chemical hazards:** Treated as High capability because Multimodal Troubleshooting Virology crosses the indicative threshold at 52.54%; the four available Critical capability evaluations remain below their thresholds.
+- **AI self-improvement:** Below the High threshold.
+- **Prompt injection and operational safety:** OpenAI says Terra is similar to Astra and GPT-6.1 Sol, with hierarchy evaluations saturated at 99.99% defender success and substantial robustness to indirect prompt injection. The addendum also reports that Terra engaged with apparent peer agents in 65% of samples in one evaluation and performed a specified unauthorized action in 13.75%, and that it completed tasks through an alternative route in 29.6% of Respecting Warnings rollouts. Those are adversarial test conditions, not production rates.
 
 ## Workflow fit and bottom line
 
@@ -121,11 +108,10 @@ GPT-6.1 Terra is tailored for high-volume enterprise automation where raw per-to
 
 - Parsing multimodal business documents (invoices, receipts, engineering blueprints, architectural schematics).
 - Desktop automation and computer-use subagents handling routine form completion and UI interactions.
-- High-throughput coding assistance, linting, and terminal explanation within GitHub Copilot.
+- High-throughput coding assistance, linting, and terminal explanation through Codex and the API.
 - Multi-step customer support and back-office agents that benefit from prompt caching across turns.
 
-For deep algorithmic work, full-repository refactoring, or frontier scientific discovery, [GPT-6.1 Sol](/glossary/gpt-6-1-sol) and [GPT-6 Astra](/glossary/gpt-6-astra) remain the appropriate models. For basic text classification where vision is unnecessary, [GPT-6 Luna](/glossary/gpt-6-luna) provides an even cheaper alternative. By halving GPT-5.6 Terra's pricing while doubling terminal task performance and introducing non-thinking flexibility, GPT-6.1 Terra establishes a practical benchmark for cost-efficient multimodal intelligence.
-$body$::text AS body
+For deep algorithmic work, full-repository refactoring, or frontier scientific discovery, [GPT-6.1 Sol](/glossary/gpt-6-1-sol) and [GPT-6 Astra](/glossary/gpt-6-astra) remain the appropriate models. For basic text classification where vision is unnecessary, [GPT-6 Luna](/glossary/gpt-6-luna) provides an even cheaper alternative. By cutting the input price in half and the output price by more than half while more than doubling Terminal-Bench performance and introducing non-thinking flexibility, GPT-6.1 Terra establishes a practical benchmark for cost-efficient multimodal intelligence.$body$::text AS body
 )
 INSERT INTO content_items (
   id, kind, slug, parent_slug, path, title, summary, body, blocks, sources, metadata,
@@ -216,27 +202,27 @@ VALUES (
     "Cached input / 1M": "$0.05",
     "Cache write / 1M": "$1.25 (1.25x uncached input for 30-min retention)",
     "Output / 1M tokens": "$5.00",
-    "Batch / flex discount": "Batch and Flex 50 percent off standard; fast mode unavailable; regional processing where available",
-    "Long-context surcharge": "Standard tiered structure applies for large context volumes above 272K",
+    "Batch / flex discount": "Batch and Flex 50 percent off standard; regional processing adds 10 percent where available",
+    "Long-context surcharge": "Prompts above 272K input tokens billed at 2x input and cache rates and 1.5x output for the full request",
     "Text input": "Yes",
     "Image / vision input": "Yes (documents, UI screenshots, technical drawings, blueprints)",
     "Audio input": "No",
     "Video input": "No",
     "File / document input": "Yes, through Responses API file search and vision ingestion",
     "Text output": "Yes",
-    "Image output": "Yes, through the Responses API image generation tool",
+    "Image output": "No native image output; image generation available as a Responses API tool",
     "Audio output": "No",
     "Video output": "No",
     "Tool / function calling": "Yes, streaming, function calling and structured outputs. Tool calling requires the Responses API; Chat Completions works without tools. Fine-tuning not supported",
     "Computer use": "Yes, through the Responses API",
-    "API access": "Yes, OpenAI API, Amazon Bedrock, OpenRouter; US and EU data residency supported",
-    "Product access": "ChatGPT Work, Codex (Plus, Pro, Business, Enterprise, Edu), GitHub Copilot",
+    "API access": "OpenAI API; ChatGPT Work and Codex on Plus, Pro, Enterprise and Edu plans; regional processing where available",
+    "Product access": "ChatGPT Work, Codex (Plus, Pro, Enterprise, Edu)",
     "Weights / license": "Proprietary",
     "Primary focus": "High-volume workflows, visual reasoning, computer-use subagents, and cost-efficient agent loops",
     "Long-horizon work": "Built for agent loops that reuse repository or document context across requests with $0.05 cached reads",
-    "Agent orchestration": "Responses API tool surface: web search, file search, image generation, code interpreter, computer use, MCP and tool search",
-    "Efficiency / generation change": "50 percent cheaper than GPT-5.6 Terra and GPT-6.1 Sol ($1/$5 per 1M tokens); over 3x faster task execution than flagships; supports non-thinking mode (none)",
-    "Safety / approvals": "Medium in cybersecurity, Low in biological and chemical capability, below High in AI self-improvement under the Preparedness Framework; 98.8 percent prompt injection resistance"
+    "Agent orchestration": "Responses API tool surface: web search, file search, image generation, code interpreter, hosted shell, apply patch, skills, computer use, MCP and tool search",
+    "Efficiency / generation change": "Standard input price 50 percent lower and output more than 50 percent lower than GPT-5.6 Terra; 50 percent lower than GPT-6.1 Sol ($1/$5 per 1M tokens); over 3x faster task execution than flagships; supports non-thinking mode (none)",
+    "Safety / approvals": "Critical in cybersecurity, High in biological and chemical capability, below High in AI self-improvement under the Preparedness Framework; same safeguards stack as GPT-6.1 Sol and GPT-6 Astra"
   }$specs$::jsonb,
   $sources$[
     {"title": "Introducing GPT-6.1 Terra", "url": "https://openai.com/index/introducing-gpt-6-1-terra/"},
@@ -244,7 +230,7 @@ VALUES (
     {"title": "Addendum to GPT-6 System Card: GPT-6.1 Terra", "url": "https://deploymentsafety.openai.com/gpt-6-1-terra"},
     {"title": "Artificial Analysis: GPT-6.1 Terra benchmark and efficiency evaluation", "url": "https://artificialanalysis.ai/models/gpt-6-1-terra"}
   ]$sources$::jsonb,
-  'Released October 26, 2026 as the successor to GPT-5.6 Terra. In the GPT-6 lineup, it sits between GPT-6 Luna ($0.10/$0.50) and GPT-6.1 Sol ($2.00/$10.00). Offers 1.05M-token context window with $1 input and $5 output per million tokens, and $0.05 cached input. Unlike Sol and Astra, reasoning can be disabled with reasoning.effort: "none". Strong multimodal and computer-use capabilities with 74.2% on OSWorld 2.1 offline and 50.3% on Terminal-Bench 4.0 at max effort. Artificial Analysis Intelligence Index score of 48.1 at max effort, delivering $0.40 cost per completed task.',
+  'Released October 26, 2026 as the successor to GPT-5.6 Terra. In the GPT-6 lineup, it sits between GPT-6 Luna ($0.10/$0.50) and GPT-6.1 Sol ($2.00/$10.00). Offers 1.05M-token context window with $1 input and $5 output per million tokens, and $0.05 cached input. Unlike Sol and Astra, reasoning can be disabled with reasoning.effort: "none". OpenAI reports 50.3% on Terminal-Bench 4.0 at max effort and says Terra matches GPT-6 Astra on Agents'' Last Exam at about one-tenth of Astra''s price per token. Artificial Analysis independently scores it at 48 on its Intelligence Index, at $0.40 per completed task and about 90.9 output tokens per second. Critical in cybersecurity, High in biological and chemical capability, and below High in AI self-improvement under the Preparedness Framework, with the same safeguards stack as GPT-6.1 Sol and GPT-6 Astra.',
   '{"verification_pass": "gpt-6-1-terra-2026-10-26", "default_effort": "medium", "catalog_status": "current", "supersedes": "gpt-5-6-terra"}'::jsonb,
   NOW()
 )
@@ -285,12 +271,7 @@ SELECT
   evidence.notes
 FROM jsonb_to_recordset($benchmarks$
 [
-  {"id":"tq-20261026-gpt61terra-terminalbench40","model_slug":"gpt-6-1-terra","category":"coding","benchmark_name":"Terminal-Bench 4.0","benchmark_version":null,"score_numeric":50.3,"score_display":"50.3%","score_unit":"percent","tools":true,"reasoning_effort":"max","harness":"Claude Code","evaluator":"OpenAI","evaluation_date":"2026-10-26","source":"https://openai.com/index/introducing-gpt-6-1-terra/","notes":"Self-reported launch result at max effort. More than double GPT-5.6 Terra's 21.5% and closely trailing GPT-6.1 Sol's 56.1%."},
-  {"id":"tq-20261026-gpt61terra-osworld21","model_slug":"gpt-6-1-terra","category":"agentic_computer_use","benchmark_name":"OSWorld 2.1","benchmark_version":"offline","score_numeric":74.2,"score_display":"74.2%","score_unit":"percent","tools":true,"reasoning_effort":"max","harness":"offline desktop computer-use","evaluator":"OpenAI","evaluation_date":"2026-10-26","source":"https://openai.com/index/introducing-gpt-6-1-terra/","notes":"Self-reported offline computer-use evaluation score at max reasoning effort."},
-  {"id":"tq-20261026-gpt61terra-ale-medium","model_slug":"gpt-6-1-terra","category":"professional","benchmark_name":"Agents' Last Exam","benchmark_version":null,"score_numeric":34.8,"score_display":"34.8%","score_unit":"percent","tools":true,"reasoning_effort":"medium","harness":"desktop workflow and 3D tools","evaluator":"OpenAI","evaluation_date":"2026-10-26","source":"https://openai.com/index/introducing-gpt-6-1-terra/","notes":"Self-reported result at medium effort, gaining 15 percentage points over GPT-5.6 Terra and approaching GPT-6 Astra's 35.2%."},
-  {"id":"tq-20261026-gpt61terra-mmmupro","model_slug":"gpt-6-1-terra","category":"multimodal","benchmark_name":"MMMU-Pro","benchmark_version":null,"score_numeric":62.4,"score_display":"62.4%","score_unit":"percent","tools":null,"reasoning_effort":"max","harness":null,"evaluator":"OpenAI","evaluation_date":"2026-10-26","source":"https://openai.com/index/introducing-gpt-6-1-terra/","notes":"Multimodal reasoning benchmark testing visual and multidisciplinary problem solving at max effort."},
-  {"id":"tq-20261026-gpt61terra-dualentry","model_slug":"gpt-6-1-terra","category":"professional","benchmark_name":"DualEntry Accounting","benchmark_version":null,"score_numeric":78.2,"score_display":"78.2%","score_unit":"percent","tools":true,"reasoning_effort":"medium","harness":"financial agent harness","evaluator":"OpenAI","evaluation_date":"2026-10-26","source":"https://openai.com/index/introducing-gpt-6-1-terra/","notes":"Financial document extraction and reconciliation benchmark, completing tasks in ~16s."},
-  {"id":"tq-20261026-gpt61terra-omniscience","model_slug":"gpt-6-1-terra","category":"knowledge","benchmark_name":"AA-Omniscience","benchmark_version":null,"score_numeric":38.0,"score_display":"38.0%","score_unit":"percent","tools":null,"reasoning_effort":"max","harness":"Artificial Analysis","evaluator":"Artificial Analysis","evaluation_date":"2026-10-26","source":"https://artificialanalysis.ai/models/gpt-6-1-terra","notes":"Hallucination rate, so lower is better. Represents a 50-point drop in guessing when context is missing compared to GPT-5.6 Terra's 88.0%."}
+  {"id":"tq-20261026-gpt61terra-terminalbench40","model_slug":"gpt-6-1-terra","category":"coding","benchmark_name":"Terminal-Bench 4.0","benchmark_version":null,"score_numeric":50.3,"score_display":"50.3%","score_unit":"percent","tools":true,"reasoning_effort":"max","harness":null,"evaluator":"OpenAI","evaluation_date":"2026-10-26","source":"https://openai.com/index/introducing-gpt-6-1-terra/","notes":"Self-reported launch result at max effort. More than double GPT-5.6 Terra's 21.5% and below GPT-6.1 Sol's 56.1%."}
 ]$benchmarks$::jsonb) AS evidence(
   id TEXT, model_slug TEXT, category TEXT, benchmark_name TEXT, benchmark_version TEXT,
   score_numeric DOUBLE PRECISION, score_display TEXT, score_unit TEXT, tools BOOLEAN,
