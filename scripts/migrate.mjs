@@ -132,6 +132,7 @@ const migrations = [
   { id: "124_publish_benchmark_contamination_article", file: new URL("../db/migrations/124_publish_benchmark_contamination_article.sql", import.meta.url) },
   { id: "125_add_gpt_6_1_terra", file: new URL("../db/migrations/125_add_gpt_6_1_terra.sql", import.meta.url) },
   { id: "126_publish_php2shell_postmortem", file: new URL("../db/migrations/126_publish_php2shell_postmortem.sql", import.meta.url) },
+  { id: "127_publish_gemini_4_carbon", file: new URL("../db/migrations/127_publish_gemini_4_carbon.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;
