@@ -1,15 +1,15 @@
 {
   "sources": {
-    "terms": 345,
+    "terms": 347,
     "chapters": 27,
     "guides": 6,
-    "articles": 114,
+    "articles": 115,
     "comparisons": 12
   },
   "coverage": {
     "termsWithLinks": 237,
-    "totalLinks": 662,
-    "unlinkedTerms": 108
+    "totalLinks": 663,
+    "unlinkedTerms": 110
   },
   "terms": {
     "a2a": [
@@ -2344,6 +2344,13 @@
         "href": "/comparisons/gemini-4-argon-vs-opus-5-5",
         "label": "Gemini 4 Argon vs Claude Opus 5.5",
         "context": "Comparison",
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/php2shell-postmortem-detector-was-the-weapon",
+        "label": "PHP2Shell Postmortem: The Detector Was the Weapon",
+        "context": "Article",
         "mentions": 1
       }
     ],
