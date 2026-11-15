@@ -136,6 +136,7 @@ const migrations = [
   { id: "128_dedupe_gemini_4_carbon_rendered_footer", file: new URL("../db/migrations/128_dedupe_gemini_4_carbon_rendered_footer.sql", import.meta.url) },
   { id: "129_shorten_gemini_4_carbon_meta_description", file: new URL("../db/migrations/129_shorten_gemini_4_carbon_meta_description.sql", import.meta.url) },
   { id: "130_add_claude_fable_5_2", file: new URL("../db/migrations/130_add_claude_fable_5_2.sql", import.meta.url) },
+  { id: "131_add_gemini_4_hydrogen", file: new URL("../db/migrations/131_add_gemini_4_hydrogen.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;

@@ -3017,6 +3017,58 @@
     "analogy": "Picture Google's Swiss Army knife for AI - multiple sizes, multiple modalities, tightly integrated with the Google ecosystem."
   },
   {
+    "name": "Gemini 4 Hydrogen",
+    "slug": "gemini-4-hydrogen",
+    "shortDef": "Google DeepMind's Nov 2026 lightweight frontier model in the Gemini 4 generation, engineered for high-throughput agent loops, 1M context, sub-second latency, and $0.30/$1.20 pricing.",
+    "fullDef": "Gemini 4 Hydrogen is Google DeepMind's November 2026 lightweight frontier [large language model](/glossary/large-language-model) and the third model in the Gemini 4 generation, following [Gemini 4 Argon](/glossary/gemini-4-argon) and [Gemini 4 Carbon](/glossary/gemini-4-carbon). Named after the lightest and most abundant element, Hydrogen is engineered for high-throughput developer workflows, real-time [AI agent](/glossary/ai-agent) loops, and cost-efficient multimodal reasoning. It packages the architectural advancements of Gemini 4 into a high-velocity execution engine featuring sub-second time-to-first-token latency and developer-friendly token economics.\n\nUnlike Argon and Carbon, which initially launched under restricted access for vetted cybersecurity defenders through Google's Fairwind Program, Gemini 4 Hydrogen is generally available to developers on day one through Google AI Studio, Vertex AI, and the Gemini API as `gemini-4-hydrogen`.\n\n## Core profile\n\n| Specification | Gemini 4 Hydrogen |\n| --- | --- |\n| Developer | Google DeepMind |\n| Release date | November 15, 2026 |\n| API model ID | `gemini-4-hydrogen` |\n| Context window | 1,000,000 tokens |\n| Maximum output | 128,000 tokens (up to 1,000,000 via Long Decode Continuation) |\n| Knowledge cutoff | October 2026 |\n| Input modalities | Text, images, video, audio, and documents (PDF) |\n| Output modalities | Text (including code, structured JSON, tool calls) |\n| Reasoning / thinking | Configurable thinking levels (`low`, `medium` default, `high`), plus non-thinking mode |\n| Output speed | 184 tokens per second (Artificial Analysis measurement) |\n| Standard pricing (1M) | $0.30 base input / $1.20 base output |\n| Prompt cache reads | $0.015 per million tokens (95% discount) |\n| Tool integration | Function calling, structured outputs, code execution, web search, MCP |\n| Availability | Gemini API, Google AI Studio, Google Cloud Vertex AI |\n| Weights / license | Proprietary; hosted cloud API |\n\nThe one-million-token [context window](/glossary/context-window) allows Hydrogen to ingest entire technical manuals, multi-hour video streams, or large codebases in a single forward pass. Operating at 184 tokens per second, Hydrogen generates responses more than twice as fast as Gemini 4 Argon (82 tps) and Gemini 4 Carbon (99.8 tps), making it suited for latency-sensitive applications where heavy frontier flagships introduce noticeable delays.\n\n## Lineup positioning and generation changes\n\nWithin Google's late-2026 ecosystem, Gemini 4 Hydrogen fulfills the high-velocity frontier role:\n\n- **Versus Gemini 4 Carbon:** Carbon is Google's heaviest flagship, scoring 59 on the Artificial Analysis Intelligence Index v5.0 and excelling at multi-day autonomous software repair and deep cybersecurity defense. Hydrogen trades peak depth for extreme throughput, scoring 52 on the index while running nearly twice as fast and costing less than one-tenth of Carbon's $4/$20 regular rate.\n- **Versus Gemini 4 Argon:** Argon served as the initial restricted preview for Gemini 4's long-horizon capabilities. Hydrogen matches Argon's 1M-token context window while surpassing Argon on the Artificial Analysis Intelligence Index (52 vs 50) and offering day-one general API availability without waiting for Fairwind vetting.\n- **Versus Gemini 3.8 Flash:** [Gemini 3.8 Flash](/glossary/gemini-3-8-flash) established strong coding capabilities at $0.75/$3.75 introductory pricing. Hydrogen represents a generational architectural shift, delivering higher reasoning fidelity, stronger indirect prompt-injection resilience, and cheaper token economics ($0.30/$1.20) with prompt caching discounts.\n- **Versus GPT-6.1 Terra & Claude Haiku 5.5:** Hydrogen competes with OpenAI's mid-tier GPT-6.1 Terra ($1/$5) and Anthropic's Claude Haiku 5.5 ($0.50/$2.50). Hydrogen undercuts both on base token pricing while providing native omnimodal audio and video ingestion that GPT-6.1 Terra lacks.\n\n## Benchmark profile\n\nIndependent and developer evaluations position Gemini 4 Hydrogen as a high-efficiency performer across coding, agentic reasoning, multimodal comprehension, and long-context retrieval.\n\n| Evaluation | Gemini 4 Hydrogen | Gemini 4 Carbon | Gemini 4 Argon | GPT-6.1 Terra | Claude Haiku 5.5 |\n| --- | ---: | ---: | ---: | ---: | ---: |\n| AA Intelligence Index v5.0 | 52 | **59** | 50 | 48 | 43 |\n| Terminal-Bench 4.0 | 58.4% | **65.2%** | 57.1% | 50.3% | 39.2% |\n| SWE-sweep | 7.8% | **9.6%** | 4.3% | 5.2% | 3.1% |\n| Agents' Last Exam v1.1 | 71.2% | **77.4%** | 69.0% | 68.4% | 58.6% |\n| AutomationBench | 46.8% | **53.9%** | 51.3% | 40.2% | 34.5% |\n| GraphWalks (256K-1M) | 88.4% | **96.2%** | 84.2% | 74.0% | 68.2% |\n| CharXiv (chart reasoning) | **89.5%** | 88.2% | 85.0% | 82.5% | 76.4% |\n| Cost per index task | **$0.28** | $7.76 | $7.68 | $0.40 | $0.35 |\n\nEvaluation conditions provide essential nuance:\n\nOn Artificial Analysis's Intelligence Index v5.0, Hydrogen posts a score of 52 at a cost of $0.28 per completed task, establishing one of the most efficient cost-to-intelligence ratios in the frontier catalog. On Terminal-Bench 4.0, Hydrogen achieves 58.4% at its high thinking level, placing ahead of Argon (57.1%) and GPT-6.1 Terra (50.3%) while trailing Carbon's 65.2%.\n\nIn visual document and chart reasoning, Hydrogen leads the comparison set on CharXiv at 89.5%, reflecting DeepMind's continued strength in native multimodal tokenization. On GraphWalks across long contexts (256,000 to 1,000,000 tokens), Hydrogen retains an 88.4% BFS F1 retrieval score, showing significantly less context rot than comparable mid-tier models.\n\nAs with all agentic evaluations, scores reflect the interaction between the model, the [agent harness](/glossary/agent-harness), execution timeouts, and prompt scaffolding.\n\n## Pricing and efficiency\n\nGemini 4 Hydrogen introduces competitive pricing for the Gemini 4 generation:\n\n| Token Type | Rate (per 1M tokens) |\n| --- | ---: |\n| Standard input | $0.30 |\n| Prompt cache reads | $0.015 |\n| Standard output | $1.20 |\n| Cost per index task | $0.28 |\n| Output throughput | 184 tokens/second |\n| Time-to-first-token (TTFT) | ~320 ms |\n\nAt $0.015 per million cached tokens (a 95% discount), long-running agent workflows that repeatedly supply repository structures, user manuals, or persistent system prompts incur negligible recurring input costs. Batch processing reduces standard token rates by an additional 50% ($0.15 input / $0.60 output per million tokens) for non-interactive workloads.\n\nHigh throughput (184 tokens per second) and low time-to-first-token (approximately 320 milliseconds) allow Hydrogen to serve conversational agents, real-time IDE code completion, and tight multi-turn tool loops without noticeable latency stalls.\n\n## Safeguards and safety profile\n\nGemini 4 Hydrogen inherits Google DeepMind's Gemini 4 defense-in-depth safety architecture:\n\n- **Misuse and cyber defense:** While Carbon is deployed as a specialized offensive validation and patching engine behind Fairwind, Hydrogen includes foundational cybersecurity guardrails that refuse malware creation and exploit compilation while supporting secure code scanning, defensive auditing, and vulnerability explanation.\n- **Indirect prompt-injection resilience:** On Gray Swan's prompt-injection benchmarks, Hydrogen achieves a 0.2% attack success rate, maintaining high robustness against adversarial instructions hidden within untrusted web pages, documents, and emails.\n- **Alignment and hallucination control:** Grounded retrieval and source attribution are prioritized; when queried outside its verified knowledge base, Hydrogen demonstrates a 32% lower unsupported-claim rate compared to Gemini 3.8 Flash.\n- **Enterprise compliance:** Available with zero data retention configurations and covered by Google Cloud's intellectual property indemnification commitments.\n\n## API and behavior changes\n\nDevelopers integrating `gemini-4-hydrogen` should note the following API considerations:\n\n- **Thinking controls:** Reasoning is configurable via the `thinking_config` block. Developers can set thinking effort to `low`, `medium` (default), or `high`. An explicit `mode: \"off\"` setting enables standard non-thinking generation for ultra-low latency conversational interfaces.\n- **Long Decode Continuation:** For complex reasoning or expansive generation exceeding single-request limits, the Gemini API supports pausing and resuming execution across multiple HTTP connections without losing state.\n- **Strict schema enforcement:** Tool calling and structured outputs support JSON Schema with deterministic type checking. Native tool support includes web search grounding, Python code interpreter, and MCP server bridges.\n- **Multimodal file ingestion:** Documents up to 1,000 pages, audio files up to 9.5 hours, and video files up to 1 hour can be ingested directly without separate pre-processing or external transcription pipelines.\n\n## Applications and workflow fit\n\nGemini 4 Hydrogen is best suited for:\n\n- **Real-time agentic tool loops:** Multi-step autonomous agents where low per-step latency and cheap prompt caching outweigh the need for exhaustive multi-day reasoning.\n- **Multimodal document intelligence:** Extracting structured tables, diagrams, and cross-references from large collections of contracts, research papers, and technical blueprints.\n- **Interactive developer tooling:** IDE plugins, code explanation, inline refactoring, and test generation where instant response times are required.\n- **Customer support and triage:** High-volume conversational agents requiring context awareness over extensive user histories without exceeding budget limits.\n\nIt is less suited for:\n\n- Multi-day autonomous codebase refactoring and advanced kernel-level bug remediation, where [Gemini 4 Carbon](/glossary/gemini-4-carbon) or [Claude Fable 5.2](/glossary/claude-fable-5-2) provide deeper recursive problem-solving.\n- Specialized zero-day exploit analysis, which remains restricted to Fairwind partners using Carbon.\n\n## Bottom line\n\nGemini 4 Hydrogen successfully brings the Gemini 4 generation into production-ready economics. With a 1M-token context window, 184 tokens/second throughput, a 52 score on the Artificial Analysis Intelligence Index v5.0, and $0.30/$1.20 token pricing with $0.015 cached reads, it offers one of the most compelling performance-to-cost balances available for modern agentic and multimodal applications.",
+    "category": "Models & Architectures",
+    "relatedTerms": [
+      "gemini-4-carbon",
+      "gemini-4-argon",
+      "gemini-3-8-flash",
+      "google-deepmind",
+      "large-language-model",
+      "ai-agent",
+      "agentic-ai",
+      "agent-harness",
+      "context-window",
+      "benchmark",
+      "api"
+    ],
+    "lastUpdated": "2026-11-15",
+    "references": [
+      {
+        "title": "Introducing Gemini 4 Hydrogen",
+        "url": "https://blog.google/technology/ai/gemini-4-hydrogen/"
+      },
+      {
+        "title": "Gemini 4 Hydrogen documentation",
+        "url": "https://ai.google.dev/gemini-api/docs/models/gemini-4-hydrogen"
+      },
+      {
+        "title": "Gemini 4 Hydrogen model evaluation",
+        "url": "https://storage.googleapis.com/deepmind-media/gemini/gemini_4_hydrogen_evaluation.pdf"
+      },
+      {
+        "title": "Google Cloud Vertex AI pricing",
+        "url": "https://cloud.google.com/vertex-ai/pricing"
+      }
+    ],
+    "seoDescription": "Gemini 4 Hydrogen model card: Google DeepMind's Nov 2026 lightweight frontier model, 1M context window, benchmark results, pricing, and availability.",
+    "seoKeywords": [
+      "Gemini 4 Hydrogen",
+      "Gemini 4 Hydrogen benchmarks",
+      "Gemini 4 Hydrogen pricing",
+      "Gemini 4 Hydrogen model card",
+      "Gemini 4 Hydrogen context window",
+      "gemini-4-hydrogen",
+      "Google DeepMind Gemini 4 Hydrogen",
+      "Gemini 4 Hydrogen API availability",
+      "Gemini 4 Hydrogen vs Gemini 4 Carbon",
+      "Gemini 4 Hydrogen vs Claude Haiku 5.5"
+    ]
+  },
+  {
     "name": "Gemini 2.5 Flash",
     "slug": "gemini-2-5-flash",
     "shortDef": "Google DeepMind's fast model released in May 2025 with 1M context window and 251 tokens/second output speed.",
@@ -3446,7 +3498,8 @@
       "gemini-2-5-flash",
       "gemini-3-1-pro",
       "openai",
-      "anthropic"
+      "anthropic",
+      "gemini-4-hydrogen"
     ],
     "references": [
       {

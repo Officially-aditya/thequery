@@ -1,6 +1,6 @@
 {
   "sources": {
-    "terms": 347,
+    "terms": 348,
     "chapters": 27,
     "guides": 6,
     "articles": 115,
@@ -9,7 +9,7 @@
   "coverage": {
     "termsWithLinks": 237,
     "totalLinks": 663,
-    "unlinkedTerms": 110
+    "unlinkedTerms": 111
   },
   "terms": {
     "a2a": [
