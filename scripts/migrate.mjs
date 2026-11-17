@@ -137,6 +137,9 @@ const migrations = [
   { id: "129_shorten_gemini_4_carbon_meta_description", file: new URL("../db/migrations/129_shorten_gemini_4_carbon_meta_description.sql", import.meta.url) },
   { id: "130_add_claude_fable_5_2", file: new URL("../db/migrations/130_add_claude_fable_5_2.sql", import.meta.url) },
   { id: "131_add_gemini_4_hydrogen", file: new URL("../db/migrations/131_add_gemini_4_hydrogen.sql", import.meta.url) },
+  { id: "132_publish_ai_subscription_subsidy_article", file: new URL("../db/migrations/132_publish_ai_subscription_subsidy_article.sql", import.meta.url) },
+  { id: "133_add_gpt_6_2_astra", file: new URL("../db/migrations/133_add_gpt_6_2_astra.sql", import.meta.url) },
+  { id: "134_add_gpt_6_2_sol", file: new URL("../db/migrations/134_add_gpt_6_2_sol.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;

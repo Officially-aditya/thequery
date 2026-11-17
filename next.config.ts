@@ -5,6 +5,8 @@ const nextConfig: NextConfig = {
     return [
       // Preserve equity from article and glossary URLs that were renamed or
       // removed while keeping every editorial link useful to readers.
+      { source: "/glossary/gpt-6.2-astra", destination: "/glossary/gpt-6-2-astra", permanent: true },
+      { source: "/glossary/gpt-6.2-sol", destination: "/glossary/gpt-6-2-sol", permanent: true },
       { source: "/glossary/gemma", destination: "/articles/google-gemma-4-open-source-ai-apache", permanent: true },
       { source: "/glossary/gpt-2", destination: "/glossary/large-language-model", permanent: true },
       { source: "/glossary/razorpay", destination: "/articles/razorpay-agent-studio-ai-payments-platform", permanent: true },

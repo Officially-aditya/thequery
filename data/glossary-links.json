@@ -1,15 +1,15 @@
 {
   "sources": {
-    "terms": 348,
+    "terms": 350,
     "chapters": 27,
     "guides": 6,
-    "articles": 115,
+    "articles": 116,
     "comparisons": 12
   },
   "coverage": {
     "termsWithLinks": 237,
-    "totalLinks": 663,
-    "unlinkedTerms": 111
+    "totalLinks": 665,
+    "unlinkedTerms": 113
   },
   "terms": {
     "a2a": [
@@ -169,10 +169,10 @@
       },
       {
         "kind": "article",
-        "href": "/articles/google-workspace-cli-gws-agent-tool",
-        "label": "Google Made Your Entire Workspace an AI Agent Tool. Read This Before Using It in Production.",
+        "href": "/articles/ai-subscription-subsidy-plan-not-token",
+        "label": "AI Subscription Subsidy Sits on the Plan, Not the Token",
         "context": "Article",
-        "mentions": 9
+        "mentions": 12
       }
     ],
     "activation-function": [
@@ -2212,6 +2212,13 @@
         "label": "Muse Wonder vs GPT 6.1 Sol",
         "context": "Comparison",
         "mentions": 2
+      },
+      {
+        "kind": "article",
+        "href": "/articles/ai-subscription-subsidy-plan-not-token",
+        "label": "AI Subscription Subsidy Sits on the Plan, Not the Token",
+        "context": "Article",
+        "mentions": 1
       }
     ],
     "gpt-oss-120b": [
@@ -2891,6 +2898,13 @@
         "href": "/guides/how-to-check-ai-benchmark-claims",
         "label": "How to Audit AI Benchmark Claims: A Practical Guide",
         "context": null,
+        "mentions": 1
+      },
+      {
+        "kind": "article",
+        "href": "/articles/ai-subscription-subsidy-plan-not-token",
+        "label": "AI Subscription Subsidy Sits on the Plan, Not the Token",
+        "context": "Article",
         "mentions": 1
       },
       {
@@ -4799,20 +4813,27 @@
       },
       {
         "kind": "article",
-        "href": "/articles/nvidia-rtx-spark-cloud-first-ai-era",
-        "label": "NVIDIA RTX Spark Is Not a Chip. It's the End of the Cloud-First AI Era.",
+        "href": "/articles/ai-subscription-subsidy-plan-not-token",
+        "label": "AI Subscription Subsidy Sits on the Plan, Not the Token",
         "context": "Article",
         "mentions": 1
       },
       {
         "kind": "article",
-        "href": "/articles/nemotron-3-super-sparse-moe-efficiency",
-        "label": "The Model That Thinks With 12B Parameters but Knows Everything a 120B Model Knows.",
+        "href": "/articles/nvidia-rtx-spark-cloud-first-ai-era",
+        "label": "NVIDIA RTX Spark Is Not a Chip. It's the End of the Cloud-First AI Era.",
         "context": "Article",
         "mentions": 1
       }
     ],
     "token": [
+      {
+        "kind": "article",
+        "href": "/articles/ai-subscription-subsidy-plan-not-token",
+        "label": "AI Subscription Subsidy Sits on the Plan, Not the Token",
+        "context": "Article",
+        "mentions": 14
+      },
       {
         "kind": "article",
         "href": "/articles/why-you-should-look-at-cost-per-successful-task-instead-of-price-per-token",
@@ -4833,13 +4854,6 @@
         "label": "Subquadratic Says It Broke the Transformer Ceiling",
         "context": "Article",
         "mentions": 15
-      },
-      {
-        "kind": "article",
-        "href": "/articles/nemotron-3-super-sparse-moe-efficiency",
-        "label": "The Model That Thinks With 12B Parameters but Knows Everything a 120B Model Knows.",
-        "context": "Article",
-        "mentions": 10
       }
     ],
     "tokenization": [
