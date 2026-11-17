@@ -4,12 +4,12 @@
     "chapters": 27,
     "guides": 6,
     "articles": 116,
-    "comparisons": 12
+    "comparisons": 13
   },
   "coverage": {
-    "termsWithLinks": 237,
-    "totalLinks": 665,
-    "unlinkedTerms": 113
+    "termsWithLinks": 239,
+    "totalLinks": 667,
+    "unlinkedTerms": 111
   },
   "terms": {
     "a2a": [
@@ -1963,6 +1963,13 @@
     ],
     "gpqa-diamond": [
       {
+        "kind": "comparison",
+        "href": "/comparisons/gpt-6-2-astra-vs-gpt-6-2-sol",
+        "label": "GPT-6.2 Astra vs GPT-6.2 Sol",
+        "context": "Comparison",
+        "mentions": 1
+      },
+      {
         "kind": "article",
         "href": "/articles/a-55gb-file-just-beat-a-25-million-token-model-on-three-benchmarks",
         "label": "A 55GB Open Model Just Beat Claude Opus on Three Benchmarks",
@@ -1980,13 +1987,6 @@
         "kind": "article",
         "href": "/articles/claude-opus-48-dynamic-workflows-fast-mode-missing-benchmark",
         "label": "Claude Opus 4.8 Released: Dynamic Workflows, Cheaper Fast Mode, and a Missing Benchmark",
-        "context": "Article",
-        "mentions": 1
-      },
-      {
-        "kind": "article",
-        "href": "/articles/gemini-3-1-pro-scored-13-out-of-16",
-        "label": "Gemini 3.1 Pro Scored 13 Out of 16. Here Is What That Actually Means.",
         "context": "Article",
         "mentions": 1
       }
@@ -2218,6 +2218,24 @@
         "href": "/articles/ai-subscription-subsidy-plan-not-token",
         "label": "AI Subscription Subsidy Sits on the Plan, Not the Token",
         "context": "Article",
+        "mentions": 1
+      }
+    ],
+    "gpt-6-2-astra": [
+      {
+        "kind": "comparison",
+        "href": "/comparisons/gpt-6-2-astra-vs-gpt-6-2-sol",
+        "label": "GPT-6.2 Astra vs GPT-6.2 Sol",
+        "context": "Comparison",
+        "mentions": 1
+      }
+    ],
+    "gpt-6-2-sol": [
+      {
+        "kind": "comparison",
+        "href": "/comparisons/gpt-6-2-astra-vs-gpt-6-2-sol",
+        "label": "GPT-6.2 Astra vs GPT-6.2 Sol",
+        "context": "Comparison",
         "mentions": 1
       }
     ],
@@ -4812,16 +4830,16 @@
         "mentions": 2
       },
       {
-        "kind": "article",
-        "href": "/articles/ai-subscription-subsidy-plan-not-token",
-        "label": "AI Subscription Subsidy Sits on the Plan, Not the Token",
-        "context": "Article",
+        "kind": "comparison",
+        "href": "/comparisons/gpt-6-2-astra-vs-gpt-6-2-sol",
+        "label": "GPT-6.2 Astra vs GPT-6.2 Sol",
+        "context": "Comparison",
         "mentions": 1
       },
       {
         "kind": "article",
-        "href": "/articles/nvidia-rtx-spark-cloud-first-ai-era",
-        "label": "NVIDIA RTX Spark Is Not a Chip. It's the End of the Cloud-First AI Era.",
+        "href": "/articles/ai-subscription-subsidy-plan-not-token",
+        "label": "AI Subscription Subsidy Sits on the Plan, Not the Token",
         "context": "Article",
         "mentions": 1
       }

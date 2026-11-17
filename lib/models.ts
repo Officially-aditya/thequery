@@ -130,7 +130,7 @@ async function queryModelOptions(): Promise<ModelCatalogOption[]> {
 export async function getModelOptions(): Promise<ModelCatalogOption[]> {
   return unstable_cache(
     queryModelOptions,
-    ["model-catalog-options-v1"],
+    ["model-catalog-options-v2"],
   )();
 }
 

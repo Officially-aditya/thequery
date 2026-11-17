@@ -140,6 +140,7 @@ const migrations = [
   { id: "132_publish_ai_subscription_subsidy_article", file: new URL("../db/migrations/132_publish_ai_subscription_subsidy_article.sql", import.meta.url) },
   { id: "133_add_gpt_6_2_astra", file: new URL("../db/migrations/133_add_gpt_6_2_astra.sql", import.meta.url) },
   { id: "134_add_gpt_6_2_sol", file: new URL("../db/migrations/134_add_gpt_6_2_sol.sql", import.meta.url) },
+  { id: "135_add_gpt_6_2_astra_vs_sol_comparison", file: new URL("../db/migrations/135_add_gpt_6_2_astra_vs_sol_comparison.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;

@@ -265,6 +265,7 @@ export async function getContentItems(
   const cacheKey = ["content-items", kind, parentSlug];
   if (kind === "glossary") cacheKey.push("core-glossary-examples-113");
   if (kind === "guide") cacheKey.push("qwen-hardware-checks-114");
+  if (kind === "comparison") cacheKey.push("gpt-6-2-comparison-135");
 
   return unstable_cache(
     () => queryContentItems(kind, parentSlug, false),
@@ -303,6 +304,7 @@ export async function getContentSummaries(
   const cacheKey = ["content-summaries-v2", kind, parentSlug];
   if (kind === "glossary") cacheKey.push("core-glossary-examples-113");
   if (kind === "guide") cacheKey.push("qwen-hardware-checks-114");
+  if (kind === "comparison") cacheKey.push("gpt-6-2-comparison-135");
 
   return unstable_cache(
     () => queryContentSummaries(kind, parentSlug, false),
@@ -312,9 +314,11 @@ export async function getContentSummaries(
 }
 
 export async function getContentIndex(kind: ContentKind): Promise<ContentIndexItem[]> {
+  const cacheKey = ["content-index", kind];
+  if (kind === "comparison") cacheKey.push("gpt-6-2-comparison-135");
   return unstable_cache(
     () => queryContentIndex(kind),
-    ["content-index", kind],
+    cacheKey,
     { tags: [`content:${kind}`] },
   )();
 }
