@@ -87,7 +87,7 @@ test("GPT-6.2 Sol entry carries specifications, benchmarks, and efficiency facts
   assert.match(entry.fullDef, /GPQA Diamond/);
   assert.match(entry.fullDef, /96\.0%/);
   assert.match(entry.fullDef, /Terminal-Bench-Science 0\.1/);
-  assert.match(entry.fullDef, /61\.5%/);
+  assert.match(entry.fullDef, /~68%/);
   assert.match(entry.fullDef, /Ultrafast/);
   assert.match(entry.fullDef, /2\.00 base input \/ .*10\.00 base output/);
   assert.match(entry.fullDef, /0\.10 per million tokens/);

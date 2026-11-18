@@ -141,6 +141,7 @@ const migrations = [
   { id: "133_add_gpt_6_2_astra", file: new URL("../db/migrations/133_add_gpt_6_2_astra.sql", import.meta.url) },
   { id: "134_add_gpt_6_2_sol", file: new URL("../db/migrations/134_add_gpt_6_2_sol.sql", import.meta.url) },
   { id: "135_add_gpt_6_2_astra_vs_sol_comparison", file: new URL("../db/migrations/135_add_gpt_6_2_astra_vs_sol_comparison.sql", import.meta.url) },
+  { id: "136_correct_gpt_6_2_astra_sol_and_comparison", file: new URL("../db/migrations/136_correct_gpt_6_2_astra_sol_and_comparison.sql", import.meta.url) },
 ];
 
 const { loadEnvConfig } = nextEnv;

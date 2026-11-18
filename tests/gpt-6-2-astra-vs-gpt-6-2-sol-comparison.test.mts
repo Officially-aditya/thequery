@@ -67,27 +67,28 @@ test("spec, pricing, capability, and model behavior tables are populated", async
   }
 
   // Pricing verification
-  assert.match(migration, /"\$5",\s*"\*\*\$2\*\*"/);
-  assert.match(migration, /"\$1\.25",\s*"\*\*\$0\.10\*\*"/);
-  assert.match(migration, /"\$20",\s*"\*\*\$10\*\*"/);
+  assert.match(migration, /"\$8",\s*"\*\*\$2\*\*"/);
+  assert.match(migration, /"\$0\.40",\s*"\*\*\$0\.10\*\*"/);
+  assert.match(migration, /"\$40",\s*"\*\*\$10\*\*"/);
 });
 
 test("benchmark evidence is reported side-by-side with appropriate effort and caveats", async () => {
   const migration = await source(MIGRATION);
 
   assert.ok(migration.includes("Terminal-Bench-Science 0.1"));
-  assert.match(migration, /\*\*77\.1%\*\* \(verified\)/);
-  assert.match(migration, /61\.5% \(max reasoning\)/);
+  assert.match(migration, /\*\*~77%\*\* \(77\.1%\)/);
+  assert.match(migration, /~68% \(matches GPT-6 Astra best\)/);
 
   assert.ok(migration.includes("GPQA Diamond"));
-  assert.match(migration, /\*\*97\.0%\*\* \(max reasoning\)/);
-  assert.match(migration, /96\.0% \(max reasoning\)/);
+  assert.match(migration, /\*\*97\.0%\*\*/);
+  assert.match(migration, /96\.0%/);
 
   assert.ok(migration.includes("Agents' Last Exam"));
-  assert.match(migration, /\*\*77\.6%\*\* \(max reasoning\)/);
+  assert.match(migration, /\*\*77\.6%\*\* \(max\)/);
 
   assert.ok(migration.includes("FrontierCode 2.0"));
-  assert.match(migration, /\*\*49\.3%\*\*/);
+  assert.match(migration, /\*\*49\.8%\*\* \(max\)/);
+  assert.match(migration, /49\.3% \(max\)/);
 });
 
 test("editorial narrative and decision guidance sections are included", async () => {
