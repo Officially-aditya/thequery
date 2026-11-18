@@ -263,7 +263,7 @@ export async function getContentItems(
 
   // Migration 113 updates glossary rows outside the admin's tag invalidation.
   const cacheKey = ["content-items", kind, parentSlug];
-  if (kind === "glossary") cacheKey.push("core-glossary-examples-113");
+  if (kind === "glossary") cacheKey.push("core-glossary-examples-113", "gemini-4-neon-137");
   if (kind === "guide") cacheKey.push("qwen-hardware-checks-114");
   if (kind === "comparison") cacheKey.push("gpt-6-2-comparison-135");
 
@@ -284,7 +284,7 @@ export async function getContentItem(
   if (includeDrafts) return queryContentItem(kind, slug, resolvedParentSlug, true);
 
   const cacheKey = ["content-item-v2", kind, resolvedParentSlug, slug];
-  if (kind === "glossary") cacheKey.push("core-glossary-examples-113");
+  if (kind === "glossary") cacheKey.push("core-glossary-examples-113", "gemini-4-neon-137");
   if (kind === "guide" && slug === "qwen-3-8-27b-install-run") cacheKey.push("qwen-hardware-checks-114");
 
   return unstable_cache(
@@ -302,7 +302,7 @@ export async function getContentSummaries(
   if (options.includeDrafts) return queryContentSummaries(kind, parentSlug, true);
 
   const cacheKey = ["content-summaries-v2", kind, parentSlug];
-  if (kind === "glossary") cacheKey.push("core-glossary-examples-113");
+  if (kind === "glossary") cacheKey.push("core-glossary-examples-113", "gemini-4-neon-137");
   if (kind === "guide") cacheKey.push("qwen-hardware-checks-114");
   if (kind === "comparison") cacheKey.push("gpt-6-2-comparison-135");
 
@@ -315,6 +315,7 @@ export async function getContentSummaries(
 
 export async function getContentIndex(kind: ContentKind): Promise<ContentIndexItem[]> {
   const cacheKey = ["content-index", kind];
+  if (kind === "glossary") cacheKey.push("gemini-4-neon-137");
   if (kind === "comparison") cacheKey.push("gpt-6-2-comparison-135");
   return unstable_cache(
     () => queryContentIndex(kind),
