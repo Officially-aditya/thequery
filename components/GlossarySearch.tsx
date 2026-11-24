@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { memo, useDeferredValue, useMemo, useState } from "react";
 import Link from "next/link";
 
 interface Term {
@@ -8,6 +8,12 @@ interface Term {
   slug: string;
   shortDef: string;
   category: string;
+}
+
+interface GlossaryFilters {
+  query: string;
+  category: string;
+  letter: string | null;
 }
 
 const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
@@ -22,26 +28,51 @@ function normalize(value: string) {
 }
 
 export default function GlossarySearch({ terms }: { terms: Term[] }) {
-  const [query, setQuery] = useState("");
-  const [category, setCategory] = useState("All");
-  const [letter, setLetter] = useState<string | null>("A");
+  const [filters, setFilters] = useState<GlossaryFilters>({
+    query: "",
+    category: "All",
+    letter: "A",
+  });
+  const { query, category, letter } = filters;
 
-  const categories = useMemo(
-    () => ["All", ...Array.from(new Set(terms.map((term) => term.category))).sort((a, b) => a.localeCompare(b))],
-    [terms]
+  const { categories, termsByLetter } = useMemo(() => {
+    const categoryNames = new Set<string>();
+    const termsByLetter = new Map<string, Term[]>();
+
+    for (const term of terms) {
+      categoryNames.add(term.category);
+      const initial = term.name.trim().toUpperCase().charAt(0);
+      const group = termsByLetter.get(initial);
+      if (group) group.push(term);
+      else termsByLetter.set(initial, [term]);
+    }
+
+    return {
+      categories: ["All", ...Array.from(categoryNames).sort((a, b) => a.localeCompare(b))],
+      termsByLetter,
+    };
+  }, [terms]);
+
+  const deferredFilters = useDeferredValue(filters);
+  const { category: deferredCategory, letter: deferredLetter, query: deferredQuery } = deferredFilters;
+  const normalizedQuery = useMemo(() => normalize(deferredQuery), [deferredQuery]);
+  const hasQuery = normalizedQuery.length > 0;
+
+  // Build search keys on the first nonempty query and reuse them while typing.
+  const searchNames = useMemo(
+    () => hasQuery ? new Map(terms.map((term) => [term, normalize(term.name)])) : null,
+    [hasQuery, terms],
   );
 
   const filtered = useMemo(() => {
-    const normalizedQuery = normalize(query);
+    const candidates = deferredLetter ? termsByLetter.get(deferredLetter) ?? [] : terms;
+    if (deferredCategory === "All" && !searchNames) return candidates;
 
-    return terms.filter((term) => {
-      const matchesQuery = !normalizedQuery || normalize(term.name).includes(normalizedQuery);
-      const matchesCategory = category === "All" || term.category === category;
-      const matchesLetter = !letter || term.name.trim().toUpperCase().startsWith(letter);
-
-      return matchesQuery && matchesCategory && matchesLetter;
-    });
-  }, [terms, query, category, letter]);
+    return candidates.filter((term) =>
+      (deferredCategory === "All" || term.category === deferredCategory)
+      && (!searchNames || searchNames.get(term)?.includes(normalizedQuery))
+    );
+  }, [deferredCategory, deferredLetter, normalizedQuery, searchNames, terms, termsByLetter]);
 
   return (
     <div>
@@ -50,8 +81,8 @@ export default function GlossarySearch({ terms }: { terms: Term[] }) {
         placeholder="Search terms..."
         value={query}
         onChange={(e) => {
-          setQuery(e.target.value);
-          setLetter(null);
+          const query = e.target.value;
+          setFilters((current) => ({ ...current, query, letter: null }));
         }}
         className="w-full px-4 py-2 mb-4 border border-border rounded-lg bg-bg-primary text-text-primary placeholder-text-muted focus:outline-none focus:border-accent text-sm"
         aria-label="Search glossary terms"
@@ -62,7 +93,9 @@ export default function GlossarySearch({ terms }: { terms: Term[] }) {
           <button
             key={cat}
             type="button"
-            onClick={() => setCategory(cat)}
+            onClick={() => setFilters((current) =>
+              current.category === cat ? current : { ...current, category: cat }
+            )}
             className={`text-xs px-3 py-1 rounded-full border transition-colors ${
               category === cat
                 ? "border-accent text-accent bg-accent/10"
@@ -80,7 +113,10 @@ export default function GlossarySearch({ terms }: { terms: Term[] }) {
             key={l}
             type="button"
             aria-pressed={letter === l}
-            onClick={() => setLetter(letter === l ? null : l)}
+            onClick={() => setFilters((current) => ({
+              ...current,
+              letter: current.letter === l ? null : l,
+            }))}
             className={`text-xs w-7 h-7 rounded flex items-center justify-center transition-colors ${
               letter === l
                 ? "bg-accent text-white"
@@ -92,11 +128,22 @@ export default function GlossarySearch({ terms }: { terms: Term[] }) {
         ))}
       </div>
 
+      <div aria-busy={filters !== deferredFilters}>
+        <GlossaryResults terms={filtered} />
+      </div>
+    </div>
+  );
+}
+
+const GlossaryResults = memo(function GlossaryResults({ terms }: { terms: Term[] }) {
+  return (
+    <>
       <div className="grid gap-3 sm:grid-cols-2">
-        {filtered.map((term) => (
+        {terms.map((term) => (
           <Link
             key={term.slug}
             href={`/glossary/${term.slug}`}
+            prefetch={false}
             className="block p-4 border border-border rounded-lg hover:border-accent transition-colors group"
           >
             <div className="flex items-start justify-between mb-1">
@@ -114,11 +161,11 @@ export default function GlossarySearch({ terms }: { terms: Term[] }) {
         ))}
       </div>
 
-      {filtered.length === 0 && (
+      {terms.length === 0 && (
         <p className="text-sm text-text-muted text-center py-8">
           No terms found matching your search.
         </p>
       )}
-    </div>
+    </>
   );
-}
+});
