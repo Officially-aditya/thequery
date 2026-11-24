@@ -24,7 +24,7 @@ function normalize(value: string) {
 export default function GlossarySearch({ terms }: { terms: Term[] }) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All");
-  const [letter, setLetter] = useState<string | null>(null);
+  const [letter, setLetter] = useState<string | null>("A");
 
   const categories = useMemo(
     () => ["All", ...Array.from(new Set(terms.map((term) => term.category))).sort((a, b) => a.localeCompare(b))],
@@ -79,6 +79,7 @@ export default function GlossarySearch({ terms }: { terms: Term[] }) {
           <button
             key={l}
             type="button"
+            aria-pressed={letter === l}
             onClick={() => setLetter(letter === l ? null : l)}
             className={`text-xs w-7 h-7 rounded flex items-center justify-center transition-colors ${
               letter === l
